@@ -1,0 +1,264 @@
+%% hopfion-framework/quantum/spin_statistics.tex
+%% Source: main_paper13.tex
+%% Status: published
+%% Last updated: 2026-07-05
+%% Spin-1/2, Fermi statistics, and Pauli exclusion from Q=2 topology;
+%% the complete spin tower J=Q/4 for all Standard Model particles.
+%% Depends: foundations/wzw_group.tex (2I structure, thm:k3)
+
+
+%════════════════════════════════════════════════════════════════════
+% The Binary Icosahedral Group as a Double Cover — Paper XIII, Sec. 8.1
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Spin-$\tfrac{1}{2}$ of the $Q=2$ gradient-knot]
+\label{P13:thm:spin_half}
+The electron gradient-knot (Hopf charge $Q=2$, Paper~I) transforms
+in the fundamental spinor representation of $2I$ and carries spin $J=\tfrac{1}{2}$.
+\status{published}
+\source{P13:thm:spin_half}
+\depends{foundations/wzw_group.tex (P1:thm:k3)}
+\end{theorem}
+\status{published}
+\source{P13:thm:spin_half}
+
+\begin{remark}[Physical origin of the $-1$ phase]
+\label{P13:rem:hopf_phase}
+The Hopf fibre phase $e^{i\pi Q/2}$ arises from the Wess--Zumino--Witten
+term in the condensate effective action.
+For the $Q=2$ configuration, a $2\pi$ rotation translates to a shift
+of the WZW phase by $\pi Q/2 = \pi$, giving the holonomy $e^{i\pi}=-1$.
+This is the analogue of the Finkelstein--Rubinstein mechanism for Skyrmions:
+the quantisation of topological solitons in 3+1 dimensions selects
+integer or half-integer spin according to the parity of the Hopf charge.
+\status{published}
+\source{P13:rem:hopf_phase}
+\end{remark}
+\status{published}
+\source{P13:rem:hopf_phase}
+
+%════════════════════════════════════════════════════════════════════
+% Fermi Statistics and the Pauli Exclusion Principle — Sec. 8.2
+%════════════════════════════════════════════════════════════════════
+
+\begin{corollary}[Fermi statistics]
+\label{P13:cor:fermi_stats}
+The two-particle wavefunction of two identical $Q=2$ gradient-knots is
+antisymmetric under exchange:
+\begin{equation}
+  \boxed{\Psi(\mathbf{x}_2,\mathbf{x}_1) \;=\; -\Psi(\mathbf{x}_1,\mathbf{x}_2).}
+  \label{P13:eq:antisymmetry}
+\end{equation}
+\status{published}
+\source{P13:cor:fermi_stats}
+\depends{quantum/spin_statistics.tex (P13:thm:spin_half)}
+\end{corollary}
+\status{published}
+\source{P13:cor:fermi_stats}
+
+\begin{corollary}[Pauli exclusion principle]
+\label{P13:cor:pauli_exclusion}
+No two identical $Q=2$ gradient-knots can occupy the same single-particle
+quantum state.
+\status{published}
+\source{P13:cor:pauli_exclusion}
+\depends{quantum/spin_statistics.tex (P13:cor:fermi_stats)}
+\end{corollary}
+\status{published}
+\source{P13:cor:pauli_exclusion}
+
+\begin{remark}[Common origin with the colour level shift $\delta n^{(C)}=\tfrac{1}{2}$]
+\label{P13:rem:delta_n_half_origin}
+Paper~V, Proposition~7.1 derives the
+universal colour level shift $\delta n^{(C)}=\tfrac{1}{2}$ from the
+$\mathrm{CP}^2$ fibre conformal weight $h=\tfrac{1}{2}$.
+The $\tfrac{1}{2}$ there and the spin $J=\tfrac{1}{2}$ here share a
+common algebraic origin: both arise because the central element
+$z\in Z(2I)$ acts as $-1$ on half-integer representations of $2I$.
+
+In the colour sector (Paper~V): the $\mathrm{CP}^2$ fibre of the Hopf
+fibration $S^1\to S^5\to\mathrm{CP}^2$ transforms under the fundamental
+spinor of $2I$, giving conformal weight shift
+$\delta h = \tfrac{1}{2}$.
+
+In the rotation sector (this section): the $Q=2$ gradient-knot transforms
+under the same fundamental spinor of $2I\subset SU(2)$, giving spin
+$J=\tfrac{1}{2}$ and hence Fermi statistics.
+
+The electron is fermionic and quarks carry colour because the same
+$\mathbb{Z}_2$ structure of $2I$ governs both sectors.
+Both the Pauli exclusion principle of atomic physics and the colour
+structure of hadronic physics have a single topological root in the
+binary icosahedral symmetry of the condensate.
+\status{published}
+\source{P13:rem:delta_n_half_origin}
+\depends{strong/quark_masses.tex}
+\end{remark}
+\status{published}
+\source{P13:rem:delta_n_half_origin}
+
+%════════════════════════════════════════════════════════════════════
+% Complete Spin Assignment from the Q-Tower — Sec. 8.3
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Spin from Hopf charge: $J=Q/4$]
+\label{P13:thm:spin_tower}
+A gradient-knot with Hopf charge $Q$ in the condensate ground state
+carries spin
+\begin{equation}
+  \boxed{J \;=\; \frac{Q}{4},}
+  \label{P13:eq:J_Q4}
+\end{equation}
+transforming in the $(Q/2+1)$-dimensional irreducible representation
+of $2I\subset SU(2)$.
+\status{published}
+\source{P13:thm:spin_tower}
+\depends{quantum/spin_statistics.tex (P13:thm:spin_half)}
+\end{theorem}
+\status{published}
+\source{P13:thm:spin_tower}
+
+% Table 1 of Paper XIII: Spin assignments from the Q-tower.
+% h = J(J+1)/5 at WZW level k=3; 2I-irrep dimension is 2J+1.
+% Q=6 slot has no Standard Model assignment (gravitino in SUSY extensions).
+\begin{center}
+\begin{tabular}{cccccl}
+\toprule
+$Q$ & $J=Q/4$ & $2J+1$ & $h$ & Statistics & SM identification \\
+\midrule
+$0$ & $0$ & $1$ & $0$    & bosonic  & Higgs $H^0$ \\
+$2$ & $\tfrac{1}{2}$ & $2$ & $\tfrac{3}{20}$ & fermionic & $e,\mu,\tau,\nu$; quarks \\
+$4$ & $1$ & $3$ & $\tfrac{2}{5}$ & bosonic  & $\gamma,W^\pm,Z^0$; gluons \\
+$6$ & $\tfrac{3}{2}$ & $4$ & $\tfrac{3}{4}$ & fermionic & --- (gravitino slot) \\
+$8$ & $2$ & $5$ & $\tfrac{6}{5}$ & bosonic  & graviton \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[The Higgs boson as the $Q=0$ condensate modulus]
+\label{P13:rem:higgs_q0}
+The condensate density $\rho(x)$ is a Lorentz scalar field.
+Its amplitude excitation $\delta\rho(x)$ around the condensate VEV
+(the Higgs boson) is therefore also a scalar: $J_{\rm Higgs}=0$.
+In terms of the $Q$-tower, $Q=0$ corresponds to the trivial homotopy
+class (no Hopf knot): the Higgs is not a topological soliton but rather
+the radial fluctuation of the condensate field, consistent with
+$e^{i\pi\cdot0/2} = +1$ (bosonic, $J=0$).
+The condensate framework therefore derives the Higgs spin of zero rather
+than postulating it.
+\status{published}
+\source{P13:rem:higgs_q0}
+\end{remark}
+\status{published}
+\source{P13:rem:higgs_q0}
+
+\begin{remark}[Gauge bosons as $Q=4$, $J=1$]
+\label{P13:rem:gauge_q4}
+Gauge bosons (photon, $W^\pm$, $Z^0$, gluons) are spin-1 connections
+in the condensate's fibre bundles.
+Their spin $J=1$ is consistent with $Q=4$ (the minimal non-trivial bosonic
+Hopf charge), placing them in the $3$-dimensional ($J=1$) irreducible
+representation of $I\subset SO(3)$.
+The conformal weight $h=2/5$ at the $Q=4$ level is larger than the
+fermionic $h=3/20$ at $Q=2$, consistent with gauge bosons being
+``composite'' objects (binding two $Q=2$ knots mediated by the
+condensate gauge connection).
+The specific gauge group structure ($\mathrm{U}(1)$, $\mathrm{SU}(2)$,
+$\mathrm{SU}(3)_C$) is established separately in Papers~I and~V;
+here we derive only the universal spin-$1$ assignment.
+\status{published}
+\source{P13:rem:gauge_q4}
+\end{remark}
+\status{published}
+\source{P13:rem:gauge_q4}
+
+\begin{remark}[Graviton at $Q=8$, $J=2$]
+\label{P13:rem:graviton_q8}
+The graviton carries $J=2$, consistent with $Q=8$ and the
+$5$-dimensional ($J=2$) representation of $I\subset SO(3)$.
+Paper~VII derives gravity as emergent from the condensate
+metric; whether the graviton is a fundamental $Q=8$ gradient-knot or
+an acoustic mode of the condensate (both giving $J=2$) is not
+resolved here.
+The conformal weight $h=6/5$ at $Q=8$ exceeds unity, placing
+the graviton above the unitarity bound of the $k=3$ WZW theory
+(where $h_{\max}=J_{\max}(J_{\max}+1)/5$ with $J_{\max}=k/2=3/2$ for
+ordinary WZW primaries at $k=3$).
+This is consistent with the graviton being outside the renormalisable
+sector of the condensate's boundary CFT, which encodes its
+non-renormalisable nature in the conventional framework.
+\status{published}
+\source{P13:rem:graviton_q8}
+\end{remark}
+\status{published}
+\source{P13:rem:graviton_q8}
+
+\begin{remark}[The $Q=10$ condensate and its spin representation]
+\label{P13:rem:condensate_q10}
+The condensate itself has Hopf charge $Q=10$ (Paper~I).
+By equation~\eqref{P13:eq:J_Q4}, this corresponds to $J=5/2$ and the
+$6$-dimensional half-integer representation of $2I$, which is
+the \emph{largest} irreducible representation appearing in
+the spin-assignment table and the character table of $2I$.
+This is consistent with the condensate being the ``maximal'' object
+in the framework --- all lower-$Q$ particles are excitations of it ---
+and with the $6$-dimensional rep of $2I$ exhausting the half-integer
+sector's largest representation.
+The condensate VEV $\langle\rho\rangle$ is of course a scalar
+(Lorentz singlet); the $J=5/2$ assignment refers to the transformation
+properties of the full $Q=10$ gradient-knot under the icosahedral
+symmetry of the condensate, not to its Lorentz spin.
+\status{published}
+\source{P13:rem:condensate_q10}
+\end{remark}
+\status{published}
+\source{P13:rem:condensate_q10}
+
+\begin{remark}[Scope: fermionic statistics from the $Q$-tower]
+\label{P13:rem:scope_fermi}
+The $Q=2$ gradient-knot at tower level $n=20$ is the electron.
+By Theorem~\ref{P13:thm:spin_tower}, any $Q=2$ gradient-knot at any
+tower level $n$ carries $J=\tfrac{1}{2}$ and obeys Fermi statistics:
+muons ($n=18$), tau leptons ($n=16$), and quarks with colour
+(Paper~V) are therefore all fermionic.
+For $Q=4$, Theorem~\ref{P13:thm:spin_tower} gives $J=1$ (bosonic);
+for $Q=8$, $J=2$ (also bosonic, graviton).
+\status{published}
+\source{P13:rem:scope_fermi}
+\end{remark}
+\status{published}
+\source{P13:rem:scope_fermi}
+
+%════════════════════════════════════════════════════════════════════
+% Supporting equations
+%════════════════════════════════════════════════════════════════════
+
+\begin{equation}
+  1 \;\longrightarrow\; \mathbb{Z}_2
+  \;\longrightarrow\; 2I
+  \;\stackrel{\pi}{\longrightarrow}\; I
+  \;\longrightarrow\; 1,
+  \label{P13:eq:2I_exact_seq}
+\end{equation}
+
+\begin{equation}
+  \hat{T}_z \,\psi = z\cdot\psi = (-1)\cdot\psi = -\psi.
+  \label{P13:eq:z_action}
+\end{equation}
+
+\begin{equation}
+  \theta_{\rm Berry}(2\pi) \;=\; e^{i\pi Q/2}.
+  \label{P13:eq:berry_general}
+\end{equation}
+
+\begin{equation}
+  h(J) \;=\; \frac{J(J+1)}{k+2} \;=\; \frac{J(J+1)}{5}.
+  \label{P13:eq:conformal_weight}
+\end{equation}
+
+\begin{equation}
+  \Psi(\mathbf{x},\mathbf{x}) = -\Psi(\mathbf{x},\mathbf{x})
+  \quad\Longrightarrow\quad
+  \Psi(\mathbf{x},\mathbf{x}) = 0.
+  \label{P13:eq:pauli_zero}
+\end{equation}

@@ -1,0 +1,129 @@
+% profile/bps.tex
+% Part of the Hopfion Framework Repository
+% Source: Paper I — The Density-Feedback Faddeev-Niemi Hopfion: Exact Algebraic Predictions for Standard-Model Parameters
+% Status: published
+% Last updated: 2026-06-29
+
+\input{../preamble}
+
+\section*{BPS Profile and Ratio Theorems}
+\label{sec:bps}
+
+% Results extracted from Paper I
+% Scan date: 2026-06-29
+
+\begin{proposition}[BPS ratio]
+\label{P1:prop:bps}
+For the standard BPS profile $f=2\arctan(a/\rho)$, the thin-torus ratio
+$I_4/I_{2a}$ is scale-invariant (independent of $a$) and equals
+\begin{equation}
+  \left.\frac{I_4}{I_{2a}}\right|_{\mathrm{BPS}}
+  = \frac{32\,\Gamma(2)\Gamma(4)/\Gamma(6)}
+         {64\,\Gamma(3)^2/\Gamma(6)}
+  = \frac{3}{4}.
+  \label{P1:eq:bps_ratio}
+\end{equation}
+\end{proposition}
+\status{published}
+\source{P1:prop:bps}
+\residual{exact}
+
+\begin{theorem}[Modified BPS ratio]
+\label{P1:thm:modBPS}
+For the modified BPS profile $f = 2\arctan\!\bigl((a/\rho)^C\bigr)$
+with exponent $C > 1/3$,
+\begin{equation}
+  \boxed{\frac{I_4}{I_{2a}}(C)
+  = \frac{C(2C+1)}{(C^2+1)(3C-1)}.}
+  \label{P1:eq:modBPS}
+\end{equation}
+This is scale-invariant (independent of $a$), and at $C=1$ gives $3/4$.
+\end{theorem}
+\status{published}
+\source{P1:thm:modBPS}
+\begin{proof}
+With $u=(a/\rho)^C$ and the substitution $\rho=a/u^{1/C}$,
+\begin{align}
+  I_4   &= 64C\,a^{2/C-2}\cdot\tfrac{1}{2}\,B\!\left(3+\tfrac{1}{C},\;3-\tfrac{1}{C}\right), \\
+  I_{2a} &= 64(C^2+1)\,a^{2/C-2}\cdot\tfrac{1}{2}\,B\!\left(2+\tfrac{1}{C},\;4-\tfrac{1}{C}\right).
+\end{align}
+The common factor $a^{2/C-2}$ cancels.  Using $\Gamma(n+1)=n\Gamma(n)$:
+\[
+  \frac{B(3+1/C,\;3-1/C)}{B(2+1/C,\;4-1/C)}
+  = \frac{\Gamma(3+1/C)\Gamma(3-1/C)}{\Gamma(2+1/C)\Gamma(4-1/C)}
+  = \frac{(2+1/C)}{(3-1/C)}.
+\]
+Therefore $I_4/I_{2a} = C(2+1/C)/((C^2+1)(3-1/C)) = C(2C+1)/((C^2+1)(3C-1))$.
+\end{proof}
+\status{published}
+\source{P1:thm:modBPS}
+\residual{exact formula; at $C=C^*\approx3.432$ gives $2^{4/3}/\vp^5$ to $0.020\%$}
+
+%════════════════════════════════════════════════════════════════════
+% Pohozaev Identities and Structural Analysis — Paper III (Appendix)
+%════════════════════════════════════════════════════════════════════
+
+\begin{lemma}[BS profile identity $\chi = -\sin f$]
+\label{P3:lem:chi_sinf}
+For $f = 2\arctan(C/\rho)$, $\rho = \sqrt{(r-R_0)^2+z^2}$:
+$\chi := (r-R_0)f_r + zf_z = \rho f'(\rho) = -\sin f$ exactly.
+\end{lemma}
+\status{published}
+\source{P3:lem:chi_sinf}
+\residual{exact}
+
+\begin{proposition}[Amplitude Pohozaev integrals]
+\label{P3:prop:pohozaev_a}
+For any smooth $Q=2$ profile $f$, the Pohozaev variation $\xi=\sin f$ gives:
+\begin{align*}
+  \int \sin f\cdot\frac{\delta J_{2a}}{\delta f}\,dV &= 6J_{2a}^{cf}, \\
+  \int \sin f\cdot\frac{\delta \Jfb}{\delta f}\,dV &= 2J_{\mathrm{fb}}^{cf2}, \\
+  \int \sin f\cdot\frac{\delta J_4}{\delta f}\,dV &= 6J_4^{cf},
+\end{align*}
+where $J_{2a}^{cf} = \int\cos f\cdot\sin^4\!f\cdot\kk\,dV$, etc.
+\end{proposition}
+\status{published}
+\source{P3:prop:pohozaev_a}
+
+\begin{proposition}[Main Pohozaev identity]
+\label{P3:prop:star_identity}
+$V^*=\vp$ if and only if at the EL saddle:
+\begin{equation}
+  \sqrt{k+2}\,\frac{J_{\mathrm{fb}}^{cf2}}{\Jfb}
+  + 3\!\left(\frac{J_{2a}^{cf}}{\Ja} + 2\vp\,\frac{J_4^{cf}}{\Jfour}\right) = 0.
+\end{equation}
+\end{proposition}
+\status{proved (identity exact; $\vp$ selection requires WZW input from Theorem~\ref{P3:thm:bos_main})}
+\source{P3:prop:star_identity}
+
+\begin{proposition}[Equivalence of Pohozaev-A form]
+\label{P3:prop:poh_a_equiv}
+The star identity is equivalent to $V^*=\vp$ at the EL saddle:
+$\sqrt{k+2}\,J_{\mathrm{fb}}^{cf2}/\Jfb + 3(J_{2a}^{cf}/\Ja + 2\vp J_4^{cf}/\Jfour)=0
+\;\Longleftrightarrow\; V^*=\vp$.
+\end{proposition}
+\status{published}
+\source{P3:prop:poh_a_equiv}
+
+\begin{remark}[The conjecture as a bulk--boundary resonance condition]
+\label{P3:rem:resonance}
+The conjecture $\vp^9\sqrt{\Ja\Jfour}=Q$ equates a continuous bulk functional
+to the discrete group-theoretic integer $\mathrm{ord}(q_{2I})=10$.
+No Pohozaev identity, BPS bound, or Whitehead integral can establish this:
+all such tools give identities holding for every smooth profile, or give
+$Q_{\mathrm{math}}=2$ which constrains only the seam.
+The conjecture is a resonance condition: only the EL equation itself can
+enforce it.
+\end{remark}
+\status{published}
+\source{P3:rem:resonance}
+
+\begin{remark}[Equivalent forms, all proved]
+\label{P3:rem:five_forms}
+The following are all equivalent at the EL saddle (Theorem~\ref{P3:thm:lsc_equivalence}
+and Proposition~\ref{P3:prop:poh_a_equiv}), all proved via bosonization:
+(i) $V^*=\vp$; (ii) $J_4/J_{2a}=2^{4/3}/\vp^5$; (iii) $\leff^*=\vp^6/2^{1/3}$;
+(iv) $\sqrt{k+2}\,c+3(a+2\vp b)=0$ (Pohozaev-A form).
+\end{remark}
+\status{published}
+\source{P3:rem:five_forms}

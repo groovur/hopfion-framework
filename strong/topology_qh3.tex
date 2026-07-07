@@ -1,0 +1,1217 @@
+% strong/topology_qh3.tex
+% Part of the Hopfion Framework Repository
+% Source: Paper XVI — Quark Generation Masses in the Density-Feedback Hopfion:
+%   A Survey of Ruled-Out Mechanisms and the Q_H=3 Gradient-Flow Landscape
+% Status: published
+% Last updated: 2026-06-28
+%
+\input{../preamble}
+
+\section*{$\QH=3$ Sector Topology and Numerical Construction}
+\label{sec:topology_qh3}
+
+% Results extracted from Paper XVI
+% Scan date: 2026-06-28
+
+%════════════════════════════════════════════════════════════════════
+% String Tension and Junction Energy
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[The Y-junction arms lie off the trefoil curve]
+\label{P16:prop:arms_off_curve}
+The three Y-junction arms, each connecting the origin to a crossing
+midpoint $\mathbf{m}_k$, are not subsets of the trefoil centre curve
+$\Gamma(s)$. Consequently, the string tension $\sigma$ cannot be read
+off from the tube integrals $J_4$ or $J_{2a}$; a genuine computation
+of $\sigma$ requires the condensate field's behaviour in the bulk region
+between the tube and the Fermat--Steiner point.
+\end{proposition}
+\status{published}
+\source{P16:prop:arms_off_curve}
+
+\begin{proposition}[Junction energy is negligible]
+\label{P16:prop:ejunc_zero}
+The Y-junction energy $E_\cup(C^*)$, computed by gradient-flow
+minimisation of $E_{\mathrm{geom}}=\Kfb\times J_4$ in the ball
+$|\mathbf{x}|<2$ centred on the Fermat--Steiner origin with Dirichlet
+boundary conditions from Construction~\ref{P16:constr:perstrand}, satisfies
+\begin{equation}
+  \frac{E_\cup}{E_{\mathrm{baryon}}}
+  \;=\; 6.9\times10^{-8}
+  \quad(C^*=2.5062),
+\end{equation}
+negligible at $C^*=2.0$ ($1.8\times10^{-6}$) and $C^*=3.0$
+($1.8\times10^{-9}$), scaling approximately as $E_\cup\propto C^{*-16}$.
+\end{proposition}
+\status{published}
+\source{P16:prop:ejunc_zero}
+\residual{exact (numerical)}
+
+\begin{remark}[Exact baryon energy]
+\label{P16:rem:ejunc_consequence}
+Proposition~\ref{P16:prop:ejunc_zero} simplifies the baryon energy to
+\begin{equation}
+  \boxed{E_{\mathrm{baryon}} \;=\; 1.04405\cdots\times E_{\mathrm{profile}}^*,}
+\end{equation}
+with $E_\cup$ discarded without approximation. The sole remaining open
+quantity is the absolute value of $E_{\mathrm{profile}}^*$ in physical
+units, requiring the $\QH=3$ saddle finder.
+\end{remark}
+\status{published}
+\source{P16:rem:ejunc_consequence}
+
+\begin{proposition}[Straight-tube tension is computable without the saddle]
+\label{P16:prop:sigma_tot}
+The total energy per unit length of an infinite, straight Faddeev--Niemi
+flux tube,
+\begin{equation}
+  \sigma_{\mathrm{tot}}
+  \;=\; 2\pi\int_0^\infty \Kfb^{(2D)}(r)\;\rho_{J_4}^{(2D)}(r)\;r\,\mathrm{d}r,
+\end{equation}
+converges and evaluates to $\sigma_{\mathrm{tot}} = 5392.1$ (in natural
+units with $C_3^*=2.5062$, relative error $<10^{-6}$). Under the
+rescaling $u=r\,C_3^*$, the exterior-to-interior ratio
+\begin{equation}
+  \frac{\sigma_{\mathrm{ext}}}{\sigma_{\mathrm{int}}} = 0.04405447\ldots
+\end{equation}
+is a universal constant independent of $C_3^*$.
+\end{proposition}
+\status{published}
+\source{P16:prop:sigma_tot}
+\residual{exact (numerical, $<10^{-6}$)}
+
+\begin{proposition}[The exterior string tension is analytically determined]
+\label{P16:prop:sigma_ext_formula}
+Paper~XV's string tension satisfies
+\begin{equation}
+  \sigma_{\mathrm{ext}} \cdot 3R_0
+  \;=\; 0.04405447\cdots \times E_{\mathrm{profile}}^*,
+\end{equation}
+following purely from the profile ansatz, requiring neither the 3D saddle
+nor a bulk field equation. Consequently: (i)~$\sigma_{\mathrm{ext}}\cdot3R_0$
+is a generation-universal correction; (ii)~no bulk field computation is
+required for $\sigma$; (iii)~the generation-dependent part of the quark
+mass correction does not reside in $\sigma\cdot3R_0$.
+\end{proposition}
+\status{published}
+\source{P16:prop:sigma_ext_formula}
+\residual{exact}
+
+\begin{remark}[Three-flow decomposition of the baryon energy]
+\label{P16:rem:three_flows}
+All three terms of $E_{\mathrm{baryon}} = \Kfb\times J_4 + \sigma\cdot3R_0
++ E_\cup$ are now determined: (i)~$\Kfb\times J_4$ is computable
+analytically ($E_{\mathrm{profile}}^*=18/\vp^{17}$) and numerically
+($K_{\min}\approx2294$ at $N=192$); (ii)~$\sigma\cdot3R_0 =
+0.04405\times E_{\mathrm{profile}}^*$ analytically
+(Proposition~\ref{P16:prop:sigma_ext_formula}); (iii)~$E_\cup\approx
+7\times10^{-8}E_{\mathrm{baryon}}$ numerically (Proposition~\ref{P16:prop:ejunc_zero}).
+\end{remark}
+\status{published}
+\source{P16:rem:three_flows}
+
+\begin{remark}[Relation between $\sigma_{\mathrm{tot}}$ and Paper~XV's $\sigma$]
+\label{P16:rem:sigma_decomposition}
+$\sigma_{\mathrm{tot}}$ is not the same as Paper~XV's $\sigma$.
+In the three-term decomposition, $\Kfb\times J_4$ counts the internal
+tube energy ($\sigma_{\mathrm{int}}$ per unit length), and $\sigma\cdot3R_0$
+counts the exterior tail energy ($\sigma_{\mathrm{ext}}$ per unit length).
+Proposition~\ref{P16:prop:sigma_ext_formula} shows $\sigma_{\mathrm{ext}}/
+\sigma_{\mathrm{int}}=0.04405$: a $4.4\%$ correction, non-negligible at
+the logarithmic precision needed for quark masses.
+\end{remark}
+\status{published}
+\source{P16:rem:sigma_decomposition}
+
+\begin{remark}[Chern--Simons spoke for the confined baryon]
+\label{P16:rem:cs_spoke_quark}
+Each of the three trefoil strands carries $\QH=1$ topology individually
+(Construction~\ref{P16:constr:perstrand}); the full baryon carries $\QH=3$.
+The Chern--Simons spoke for the baryon is
+\begin{equation}
+  \Delta Q^{(q)} = Q_H^{(\text{baryon})} - Q_H^{(\text{single strand})}
+  = 3 - 1 = 2,
+\end{equation}
+measuring the barrier that confines the three strands: a single strand
+must cross $\mathcal{C}^{(q)}=4\pi\times2=8\pi$ to escape from $\QH=3$
+to the free $\QH=1$ state. The leading constituent quark mass is
+$m_q^{(0)} \approx 215.5$\,MeV; three quarks give
+$3m_q^{(0)}\approx646.5$\,MeV, accounting for $68.9\%$ of the proton
+mass $m_p=938.272$\,MeV with no free parameters.
+\end{remark}
+\status{published}
+\source{P16:rem:cs_spoke_quark}
+
+\begin{remark}[Junction flow: numerical results and generation-dependence conclusion]
+\label{P16:rem:junction_results}
+The Y-junction is a topological deconcentration locus: the three $\QH=1$
+flux tubes emanating from the Fermat--Steiner point carry equal topological
+charge, and their $\rho_{J_4}$ contributions cancel at the merge point by
+destructive interference. The measured junction $\rho_{J_4}$ is a factor
+of $\sim4\times10^6$ smaller than three straight-tube arms of the same
+length would give. The generation-dependent correction to the quark mass
+formula does not arise from the geometric Y-junction energy.
+\end{remark}
+\status{published}
+\source{P16:rem:junction_results}
+
+%════════════════════════════════════════════════════════════════════
+% Phase Discontinuity in the Original Ansatz
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[The single-nearest-point ansatz is discontinuous at every crossing]
+\label{P16:prop:phase_jump}
+Let $n(\mathbf{x})$ be built from the nearest point on the trefoil
+centreline with phase $\theta(\mathbf{x})=3t_{\mathrm{near}}(\mathbf{x})$.
+At each of the three crossing regions, the internal phase $\theta$ jumps
+by exactly $\pi$ across the surface where nearest-point ownership switches
+between the over- and under-strand. This jump is not removable by mesh
+refinement; it is forced by the curve's own geometry, independent of
+$C^*$, $R_0$, or $r_0$.
+\end{proposition}
+\status{published}
+\source{P16:prop:phase_jump}
+
+\begin{remark}[The jump is not a removable gauge artifact]
+\label{P16:rem:not_a_pole}
+At the crossing midline, $\rho$ equals the half-separation $r_0=0.874$
+between strand centrelines, giving $\sin f_0(r_0 C_3^*)=0.275$: not
+small. The resulting jump $|\Delta n|=2\sin f_0(r_0 C_3^*)\approx0.55$
+(out of a maximum of $2$) is a physically substantial discontinuity in
+the field, not a coordinate artifact.
+\end{remark}
+\status{published}
+\source{P16:rem:not_a_pole}
+
+\begin{proposition}[The discontinuity carries divergent gradient energy under refinement]
+\label{P16:prop:divergent_energy}
+The local Faddeev--Niemi gradient energy density $g^2=\sum_a|\partial_a n|^2$
+evaluated near a crossing midline on a sequence of grids of spacing $h$
+has a peak value consistent with $g^2_{\max}\propto h^{-2}$ (the scaling
+of a true jump discontinuity under centred finite differences), rather
+than saturating at a finite value. Numerical evidence: $g^2_{\max}$
+grows from $64.6$ at $h=0.0656$ to $3462.9$ at $h=0.0082$, fitting
+$g^2_{\max}\propto h^{-1.92}$.
+\end{proposition}
+\status{published}
+\source{P16:prop:divergent_energy}
+
+\begin{remark}[A naive smoothing does not resolve the discontinuity]
+\label{P16:rem:naive_smoothing_fails}
+Blending the two strands' phases via a distance-weighted circular
+average reduces the local gradient energy by $\approx3.1\times$ but
+cannot eliminate the discontinuity: at the exact crossing midpoint the
+two phases differ by $\pi$ (Proposition~\ref{P16:prop:phase_jump}), so equal
+weights give the zero vector and $\arg(0)$ is undefined. This is a
+generic topological obstruction: no smooth, single-phase repair can work.
+Only a construction that maintains independent phase freedom for both
+strands --- working in the full $S^3$ Hopf-fibre bundle rather than a
+single real $\theta(\mathbf{x})$ --- can avoid the singularity.
+\end{remark}
+\status{published}
+\source{P16:rem:naive_smoothing_fails}
+
+\begin{remark}[Two independent mechanisms causing saddle non-convergence]
+\label{P16:rem:two_mechanisms}
+The phase discontinuity (Proposition~\ref{P16:prop:phase_jump}) is logically
+independent of the inter-tube field-overlap mechanism identified by
+Paper~XV: the overlap argument concerns the radial profile $f_0(\rho)$
+and does not reference the internal phase $\theta$ at all. Both effects
+may contribute additively to the observed non-convergence; this paper
+establishes the phase discontinuity as a second, real, independently
+verifiable candidate cause.
+\end{remark}
+\status{published}
+\source{P16:rem:two_mechanisms}
+
+%════════════════════════════════════════════════════════════════════
+% $S^3$-Lift Construction (Local)
+%════════════════════════════════════════════════════════════════════
+
+\begin{construction}[Complex-doublet superposition ansatz]
+\label{P16:constr:s3lift}
+Near a crossing, build each strand's own Hopf doublet
+$Z_{\mathrm{over}},Z_{\mathrm{under}}$ independently, using each strand's
+own distance and fixed phase $3t_i$, then combine by
+inverse-square-distance-weighted complex superposition in $\mathbb{C}^2$
+before projecting to $n\in S^2$:
+\begin{equation}
+  Z(\mathbf{x}) = \frac{w_{\mathrm{over}}Z_{\mathrm{over}}
+    + w_{\mathrm{under}}Z_{\mathrm{under}}}
+    {\bigl|w_{\mathrm{over}}Z_{\mathrm{over}}
+    + w_{\mathrm{under}}Z_{\mathrm{under}}\bigr|},
+  \qquad w_s = d_s(\mathbf{x})^{-2}.
+\end{equation}
+\end{construction}
+\status{published}
+\source{P16:constr:s3lift}
+
+\begin{proposition}[The complex-doublet superposition is well-defined and smooth at the crossing midline]
+\label{P16:prop:s3_smooth}
+At the geometric midpoint of a crossing region (equal weight,
+$f_{\mathrm{over}}=f_{\mathrm{under}}\equiv f_*$), the unnormalised sum is
+$Z_{\mathrm{over}}+Z_{\mathrm{under}}=(2\cos(f_*/2),\,0)$, a nonzero
+vector for any $f_*\neq\pi$, normalising to $n=(0,0,1)$. The resulting
+field is differentiable across the midline, in contrast to the undefined
+$\arg(0)$ of the real-phase blend.
+\end{proposition}
+\status{published}
+\source{P16:prop:s3_smooth}
+
+\begin{theorem}[The $S^3$-lift ansatz removes the divergent gradient energy]
+\label{P16:thm:s3_bounded_energy}
+The local Faddeev--Niemi gradient energy density of
+Construction~\ref{P16:constr:s3lift}, evaluated near crossing region~1 on a
+resolution sequence from $N=41$ ($h=0.0656$) to $N=321$ ($h=0.0082$),
+converges to a finite peak value near $53.1$--$53.2$ as $h\to0$, in
+contrast to the single-nearest-point ansatz's divergence
+($g^2_{\max}\propto h^{-1.92}$). The total local gradient energy is
+similarly flat ($35.2\to45.1$, converged by $N=121$).
+\end{theorem}
+\status{published}
+\source{P16:thm:s3_bounded_energy}
+
+\begin{remark}[Why the complex lift succeeds where the real blend fails]
+\label{P16:rem:why_s3_works}
+The Hopf doublet carries an additional real degree of freedom: the
+$z_1=\cos(f/2)$ component does not depend on $\theta$ and survives the
+cancellation of the antipodal $e^{i\theta}$ terms. It is precisely this
+$z_1$ component, invariant under the antipodal phase flip, that fixes
+the combined doublet to a well-defined, nonzero value. This is a
+structural feature of the full $S^3$ Hopf bundle invisible once the
+doublet has been projected to a single real $S^2$ phase.
+\end{remark}
+\status{published}
+\source{P16:rem:why_s3_works}
+
+%════════════════════════════════════════════════════════════════════
+% Global $S^3$-Lift and Hopf Charge
+%════════════════════════════════════════════════════════════════════
+
+\begin{construction}[Global two-strand $S^3$-lift ansatz]
+\label{P16:constr:global_s3lift}
+At each point $\mathbf{x}$, find the nearest strand parameter $t_1$
+and the nearest parameter $t_2$ at curve-parameter distance $>\pi/2$
+from $t_1$ (a genuinely different strand passage). Build $Z_1,Z_2$ as
+in Construction~\ref{P16:constr:s3lift} using $d_1,d_2$ and phases
+$\theta_i=3t_i$, and combine via inverse-square weighting. Where no
+second strand is found, the construction reduces to the single-doublet
+ansatz with $w_2=0$.
+\end{construction}
+\status{published}
+\source{P16:constr:global_s3lift}
+
+\begin{proposition}[The global ansatz reduces correctly away from crossings]
+\label{P16:prop:reduces_away}
+At a generic point on the trefoil tube, away from all three crossing
+regions, Construction~\ref{P16:constr:global_s3lift} agrees with the original
+single-nearest-point ansatz to machine precision ($6\times10^{-14}$).
+\end{proposition}
+\status{published}
+\source{P16:prop:reduces_away}
+
+\begin{proposition}[Global non-degeneracy]
+\label{P16:prop:global_nondegen}
+The unnormalised doublet $Z_1+Z_2$ (weighted as in
+Construction~\ref{P16:constr:global_s3lift}) does not vanish at any sampled
+point in a neighbourhood of the trefoil: a scan of $\sim6.4\times10^5$
+grid points finds $|Z_1+Z_2|_{\min}=0.107$; focused scans at each
+crossing find $|Z_1+Z_2|_{\min}\in\{0.386,0.386,0.465\}$.
+\end{proposition}
+\status{published}
+\source{P16:prop:global_nondegen}
+
+\begin{remark}[Non-degeneracy scope]
+\label{P16:rem:nondegen_scope}
+Propositions~\ref{P16:prop:reduces_away}--\ref{P16:prop:global_nondegen} together
+show Construction~\ref{P16:constr:global_s3lift} is a well-defined, continuous
+map from a neighbourhood of the trefoil into $S^2$, reducing to the
+proven $\QH=3$ ansatz away from the crossings. This is a necessary
+prerequisite for computing the Hopf charge, but is not itself a
+computation: the charge must be computed directly.
+\end{remark}
+\status{published}
+\source{P16:rem:nondegen_scope}
+
+\begin{proposition}[The global $S^3$-lift ansatz is Hopf-trivial]
+\label{P16:prop:s3lift_charge_zero}
+The Whitehead integral evaluated on grids from $40^3$ to $80^3$
+converges to $\QH\approx0$ for Construction~\ref{P16:constr:global_s3lift},
+not $\QH=3$.
+\end{proposition}
+\status{published}
+\source{P16:prop:s3lift_charge_zero}
+
+\begin{remark}[Diagnosis: missing poloidal winding]
+\label{P16:rem:missing_poloidal_winding}
+The vanishing follows from a structural gap: the phase $\theta=3t$
+implemented throughout has no poloidal dependence on $\chi$. The
+preimage of a generic regular value consists of three small, mutually
+unlinked transverse circles (one at each of three isolated curve
+parameters) rather than a single connected curve with nonzero linking
+number. The deficiency is not specific to the $S^3$-lift repair; it
+is inherited from the underlying single-nearest-point ansatz.
+\end{remark}
+\status{published}
+\source{P16:rem:missing_poloidal_winding}
+
+\begin{remark}[Consequence for the saddle-finder programme]
+\label{P16:rem:s3lift_not_sufficient}
+Theorem~\ref{P16:thm:s3_bounded_energy}'s smoothness result stands, but
+Construction~\ref{P16:constr:global_s3lift} as stated is not a valid
+replacement initial condition for the saddle-finder, since it does not
+carry the required $\QH=3$ topology. A corrected construction must build
+in the poloidal dependence explicitly, e.g.\ $\Phi=\chi+3t$, and verify
+$\QH=3$ via the same Whitehead-integral test.
+\end{remark}
+\status{published}
+\source{P16:rem:s3lift_not_sufficient}
+
+%════════════════════════════════════════════════════════════════════
+% Profile Parameter Threshold
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Critical profile parameter from the trefoil's injectivity radius]
+\label{P16:prop:cstar_crit}
+The trefoil curve $T_{2,3}$ has injectivity radius exactly $r_0=0.874$
+(the crossings are the curve's own points of closest self-approach,
+$2r_0=1.748$). This defines a critical profile parameter
+\begin{equation}
+  C^*_{\mathrm{crit}} = \frac{1}{r_0} \approx 1.1442,
+\end{equation}
+below which the field's support extends past the injectivity radius.
+The physical value $C_3^*=2.5062$ gives tube radius $1/C_3^*=0.399$,
+a factor of $2.2$ below $r_0$, safely in the single-nearest-point regime.
+\end{proposition}
+\status{published}
+\source{P16:prop:cstar_crit}
+
+\begin{remark}[Energetic signature of crossing $C^*_{\mathrm{crit}}$]
+\label{P16:rem:cstar_energy_signature}
+At fixed grid resolution, the total gradient energy of the
+single-nearest-point ansatz shows its steepest rate of increase in the
+neighbourhood $C^*\in[0.7,1.0]$, immediately below $C^*_{\mathrm{crit}}$,
+before saturating for $C^*\lesssim0.3$. Three locally distinct, sharply
+concentrated crossing regions are visible for $C^*>C^*_{\mathrm{crit}}$;
+these merge into a single diffuse region for $C^*\llC^*_{\mathrm{crit}}$.
+\end{remark}
+\status{published}
+\source{P16:rem:cstar_energy_signature}
+
+\begin{proposition}[The $S^3$-lift's nonzero charge at small $C^*$ is a strand-counting artifact]
+\label{P16:prop:cstar_artifact}
+The Whitehead-integral charge of Construction~\ref{P16:constr:global_s3lift}
+across $C^*\in[0.1,2.5062]$ is non-monotonic, peaking near
+$\QH\approx-0.13$ to $-0.15$ around $C^*\approx0.3$--$0.4$ and
+decaying back to zero as $C^*\to0$. Replacing the two-strand
+superposition with a three-strand version reduces the peak magnitude
+by roughly half ($\approx-0.05$), attributing the signal to the
+two-strand truncation, not a topological effect.
+\end{proposition}
+\status{published}
+\source{P16:prop:cstar_artifact}
+
+\begin{remark}[Blending cannot supply the missing winding at any strand count]
+\label{P16:rem:blending_insufficient}
+No amount of correctly weighted strand-blending can repair the topological
+deficiency: every strand contributes a phase $\theta_i=3t_i$ that is
+individually poloidal-winding-free, and a sum of $\chi$-independent
+functions is $\chi$-independent. A corrected construction must supply
+$\chi$-dependence within each strand's own phase, e.g.\
+$\Phi_i=\chi_i+3t_i$, before any crossing-region superposition.
+\end{remark}
+\status{published}
+\source{P16:rem:blending_insufficient}
+
+%════════════════════════════════════════════════════════════════════
+% Per-Strand Construction with Poloidal Winding
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[The trefoil's Bishop frame has nontrivial holonomy]
+\label{P16:prop:bishop_holonomy}
+The Bishop (relatively parallel adapted) frame does not close up after
+one traversal of $T_{2,3}$: the holonomy angle is
+\begin{equation}
+  H = -63.0191^\circ = -1.09989~\mathrm{rad},
+\end{equation}
+with exactly $\mathbb{Z}_3$-symmetric per-segment holonomy $H/3=-21.0064^\circ$.
+\end{proposition}
+\status{published}
+\source{P16:prop:bishop_holonomy}
+\residual{$<0.001^\circ$ (numerical, $N_T=80000$ samples)}
+
+\begin{remark}[Distinction from the $\theta=3t$ winding]
+\label{P16:rem:holonomy_distinct}
+The holonomy $H\approx-63^\circ$ is a property of the curve's normal
+bundle, unrelated to the coordinate winding number $3$ in $\theta=3t$.
+The two numbers are not expected to agree: $H$ measures genuine
+parallel-transport holonomy; the ansatz's $3\times2\pi$ total coordinate
+winding is separately accounted for.
+\end{remark}
+\status{published}
+\source{P16:rem:holonomy_distinct}
+
+\begin{construction}[Holonomy-compensated, arc-length-uniform frame]
+\label{P16:constr:compensated_frame}
+Add a compensating rotation about the tangent, distributed proportionally
+to arc length:
+\begin{equation}
+  \varphi_{\mathrm{comp}}(t) = -H\,\frac{s(t)}{L_3},
+\end{equation}
+where $s(t)=\int_0^t|\Gamma'(u)|\,du$ is arc length and $L_3$ is the
+total arc length. The corrected frame closes exactly.
+\end{construction}
+\status{published}
+\source{P16:constr:compensated_frame}
+
+\begin{proposition}[Frame closure]
+\label{P16:prop:frame_closure}
+The frame of Construction~\ref{P16:constr:compensated_frame} closes to within
+$3\times10^{-6}$ degrees, consistent with exact closure up to
+floating-point accumulation.
+\end{proposition}
+\status{published}
+\source{P16:prop:frame_closure}
+
+\begin{construction}[Per-strand poloidal phase]
+\label{P16:constr:perstrand}
+For a point $\mathbf{x}$ near strand $i$ (curve parameter $t_i$,
+nearest point $\Gamma(t_i)$), define the poloidal angle $\chi_i(\mathbf{x})$
+as the angle of $\mathbf{x}-\Gamma(t_i)$ in the $(N_1(t_i),N_2(t_i))$
+plane of the compensated frame (Construction~\ref{P16:constr:compensated_frame}),
+and set
+\begin{equation}
+  \Phi_i(\mathbf{x}) = \chi_i(\mathbf{x}) + 3t_i,
+  \qquad
+  Z_i(\mathbf{x}) = \bigl(\cos\tfrac{f_i}{2},\,\sin\tfrac{f_i}{2}\,e^{i\Phi_i}\bigr).
+\end{equation}
+At a crossing, combine $Z_1,Z_2$ by inverse-square-weighted complex
+superposition as in Construction~\ref{P16:constr:s3lift}.
+\end{construction}
+\status{published}
+\source{P16:constr:perstrand}
+
+\begin{proposition}[$\chi$ is a genuine poloidal angle]
+\label{P16:prop:chi_winds}
+$\chi_i(\mathbf{x})$ winds exactly once around any small transverse loop
+encircling the curve at fixed $t_i$; winding number confirmed as $1.0000$
+by direct evaluation (script \texttt{perstrand\_winding\_test.py}).
+\end{proposition}
+\status{published}
+\source{P16:prop:chi_winds}
+
+\begin{proposition}[Construction~\ref{P16:constr:perstrand} is smooth at all three crossings]
+\label{P16:prop:perstrand_smooth}
+The field of Construction~\ref{P16:constr:perstrand} is continuous and
+differentiable across the midline of all three crossing regions.
+A resolution scan of local gradient energy
+($N_{\mathrm{grid}}\in\{41,61,81,121\}$) gives
+$g^2_{\max}\in\{56.2,58.4,59.3,60.0\}$, converging cleanly to a finite
+value comparable to the chi-free construction's $\approx53$.
+\end{proposition}
+\status{published}
+\source{P16:prop:perstrand_smooth}
+
+\begin{theorem}[The corrected per-strand construction restores $\QH=3$]
+\label{P16:thm:perstrand_charge_three}
+The Whitehead-integral Hopf charge of the global per-strand construction
+converges to $\QH=3$, ruling out $\QH=0,1,2$: the sequence
+$1.052\to1.176\to1.796\to2.499$ at $N=64,70,120,240$ is monotonically
+increasing for $N\geq64$ and already exceeds $2$ at $N=240$. The deficit
+$3-\QH(N)$ fits a power law $\propto N^{-1.02}$, consistent with
+$O(1/N)$ accuracy of a central-difference curl integral.
+\end{theorem}
+\status{published}
+\source{P16:thm:perstrand_charge_three}
+
+\begin{remark}[Status of the per-strand construction]
+\label{P16:rem:perstrand_summary}
+Construction~\ref{P16:constr:perstrand} combined with
+Construction~\ref{P16:constr:compensated_frame} is the first ansatz in this
+series to satisfy all three requirements simultaneously: smoothness at
+every crossing (Proposition~\ref{P16:prop:perstrand_smooth}), bounded gradient
+energy under refinement, and correct topological charge $\QH=3$
+(Theorem~\ref{P16:thm:perstrand_charge_three}). This resolves the gap left
+by Remark~\ref{P16:rem:s3lift_not_sufficient}: the per-strand poloidal winding
+was the missing structural ingredient.
+\end{remark}
+\status{published}
+\source{P16:rem:perstrand_summary}
+
+%════════════════════════════════════════════════════════════════════
+% Solver Functional Test
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Global functional comparison at the solver's working resolution]
+\label{P16:prop:global_functional_comparison}
+At the solver's default grid ($N=64$, $h=0.26$, $C^*=2.4987$), the
+three constructions compare as:
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Construction & $K$ & $J_4$ & $E_{\mathrm{geom}}=K\cdot J_4$ \\
+\midrule
+A (original, discontinuous) & 2911.2 & 126.6 & 368,438 \\
+B (chi-free $S^3$-lift, $\QH=0$) & 1510.4 & 76.8 & 115,960 \\
+C (per-strand, $\QH=3$) & 1736.4 & 2181.3 & 3,787,624 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The large $E_{\mathrm{geom}}$ of Construction~C at coarse resolution is
+a resolution artifact, not a divergence.
+\end{proposition}
+\status{published}
+\source{P16:prop:global_functional_comparison}
+
+\begin{proposition}[The large $J_4$ is a resolution artifact, not a divergence]
+\label{P16:prop:j4_resolution_artifact}
+The $J_4$ excess of Construction~\ref{P16:constr:perstrand} ($98\%$ concentrated
+within $\rho<1.0$) converges cleanly to a finite plateau under local
+refinement near a crossing
+($J_4\to453\to632\to729\to749\to729$ at $N=41,61,81,121,161$), in sharp
+contrast to Construction~A, whose $J_4$ grows without bound under the same
+refinement. The global excess matches a tiling estimate from the generic
+tube-winding contribution ($2128.8$ predicted vs.\ $2181.3$ measured, $2.4\%$).
+\end{proposition}
+\status{published}
+\source{P16:prop:j4_resolution_artifact}
+
+\begin{remark}[Interpretation: generic resolution requirement]
+\label{P16:rem:j4_resolution_interpretation}
+The poloidal angle $\chi_i$ satisfies $|\nabla\chi_i|\sim1/\rho$ near
+the curve, present at every point along the tube. The solver's default
+grid ($h=0.26$) gives fewer than two points across the tube diameter,
+under-resolving this winding everywhere. This is the standard resolution
+requirement for any field with genuine angular winding around a thin core
+(vortex lines, cosmic strings, monopole cores). Construction~A's divergence
+under refinement is a genuine discontinuity, not a resolvable coarse-grid
+effect; Construction~\ref{P16:constr:perstrand}'s excess is finite, resolvable,
+and fully accounted for by the generic tube-winding mechanism.
+\end{remark}
+\status{published}
+\source{P16:rem:j4_resolution_interpretation}
+
+\begin{remark}[Practical recommendation for solver use]
+\label{P16:rem:solver_practical_recommendation}
+Using Construction~\ref{P16:constr:perstrand} as an actual solver initial
+condition is not yet demonstrated: adequately resolving the tube core
+requires $h\lesssim0.03$, which is not feasible on a uniform global grid
+at the box sizes used in this series ($N^3\sim5\times10^8$ points
+required, versus $N^3=2.6\times10^5$ at the solver's current default).
+A non-uniform or adaptively refined mesh concentrated within one to two
+tube radii of $T_{2,3}$ is the natural next step.
+\end{remark}
+\status{open}
+\source{P16:rem:solver_practical_recommendation}
+
+%════════════════════════════════════════════════════════════════════
+% Gradient-Flow Landscape
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Phase 1 energy removal]
+\label{P16:prop:gf_phase1}
+Starting from Construction~\ref{P16:constr:perstrand} at $N=144$, $h=0.075$,
+gradient flow with $\mathrm{lr}=3\times10^{-4}$ reduces $E_{\mathrm{geom}}$
+by a factor of $\approx2$ in 710 steps, with $\bar r$ remaining within
+$0.018$ of $R_0=3$ throughout. The $K$-minimum at step $\approx711$
+($K_{\min}=2313.9$; $K_{\min}\approx2294$ at $N=192$, $h=0.05$) marks
+the point at which the initial excess gradient energy has been removed
+and the field enters the nontrivial $K$--$J_4$ competition region.
+\end{proposition}
+\status{published}
+\source{P16:prop:gf_phase1}
+\residual{$K_{\min}\approx2294$ at $N=192$ (resolution-convergent)}
+
+\begin{proposition}[Topology loss via cumulative drift]
+\label{P16:prop:gf_topology_loss}
+On the $N=144$, $h=0.075$ grid, gradient flow from
+Construction~\ref{P16:constr:perstrand} does not converge to a $\QH=3$
+energy minimum. The field instead drifts continuously toward the vacuum
+($J_4\to0$, $\QH\to0$, $E_{\mathrm{geom}}\to0$) through slow,
+cumulative small-angle rotations, each individually within the
+discrete-topology-safe regime. The per-point rotation clamp prevents
+catastrophic single-step topology changes but cannot prevent this
+cumulative mechanism.
+\end{proposition}
+\status{published}
+\source{P16:prop:gf_topology_loss}
+
+\begin{remark}[Two-phase landscape and $(2+1)$ lobe splitting]
+\label{P16:rem:gf_twophase}
+Phase~1 (steps 1--710) operates within the $\QH=3$ sector, shedding
+excess gradient energy. Phase~2 shows a $(2+1)$ lobe-splitting pattern
+in the $N=192$ run: one outer lobe together with its adjacent midpoint
+are depleted while two lobes retain their flux. This is the lightest
+single string-breaking mode of the baryon: one colour flux tube is
+released while the remaining two-colour diquark system stays bound.
+The resolution-convergent $K$-minimum estimate is $K_{\min}\approx2294$
+($N=192$, $h=0.05$), shifting by $1.0\%$ from the $N=144$ result
+($K_{\min}=2313.9$), consistent with $O(h^2)$ grid error.
+\end{remark}
+\status{published}
+\source{P16:rem:gf_twophase}
+
+%════════════════════════════════════════════════════════════════════
+% Arc-Segment Energy Partition
+%════════════════════════════════════════════════════════════════════
+
+\begin{definition}[Arc-segment boundaries]
+\label{P16:def:arc_boundaries}
+Define six distinguished parameter values on $T_{2,3}$ in monotone order:
+\begin{align}
+  t_{\mathrm{C}_n} &= \tfrac{\pi}{6}+\tfrac{2\pi n}{3}, \qquad
+  t_{\mathrm{M}_n} = \tfrac{\pi}{3}+\tfrac{2\pi n}{3}, \quad n=0,1,2.
+\end{align}
+\textbf{B-segments} (crossing to midpoint, $[\mathrm{C}_n,\mathrm{M}_n]$):
+arc-parameter width $\pi/6$ (30°).
+\textbf{A-segments} (midpoint to crossing, $[\mathrm{M}_n,\mathrm{C}_{n+1}]$):
+arc-parameter width $\pi/2$ (90°).
+\end{definition}
+\status{published}
+\source{P16:def:arc_boundaries}
+
+\begin{proposition}[$\mathbb{Z}_3$ symmetry of arc-segment energies]
+\label{P16:prop:z3_symmetry}
+For Construction~\ref{P16:constr:perstrand} on a cubic grid, the three
+B-segment $J_4$ integrals agree to within $2.5\%$ ($N=64$) and $1.4\%$
+($N=96$), and the three A-segment integrals agree to within $0.6\%$ and
+$0.3\%$ respectively. The residual asymmetry decreases with resolution,
+consistent with a grid discretisation artifact. The field partitions its
+$J_4$ charge in a $\mathbb{Z}_3$-symmetric pattern to numerical precision.
+\end{proposition}
+\status{published}
+\source{P16:prop:z3_symmetry}
+
+\begin{proposition}[Geometric data of the three distinguished point types]
+\label{P16:prop:geom_data}
+For the trefoil $T_{2,3}$ with $R_0=3$, $r_0=0.874$:
+\begin{enumerate}
+\item \textbf{Crossings} ($t=t_{\mathrm{C}_n}$): curvature $\kappa=0.399$
+  (global maximum), torsion $\tau\approx-0.17$, $S_{\mathrm{eff}}$ at
+  maximum, $\rho_{J_4}$ at local minimum. All at $z=+r_0=+0.874$, $R_{xy}=R_0=3$.
+\item \textbf{Midpoints} ($t=t_{\mathrm{M}_n}$): curvature $\kappa=0.026$
+  (global minimum, factor~15 below crossings), torsion $|\tau|\approx11.3$
+  (factor~67 above crossings), $S_{\mathrm{eff}}$ at minimum, colour
+  weights exactly equal. All at $z=0$, $R_{xy}=R_0-r_0=2.126$.
+\item \textbf{Outer-lobe distal points} ($t_{\mathrm{D}_n}=2\pi n/3$):
+  curvature $\kappa=0.349$ (intermediate), torsion $\tau\approx0$ (local
+  $\mathbb{Z}_2$ symmetry), $S_{\mathrm{eff}}$ intermediate. All at $z=0$,
+  $R_{xy}=R_0+r_0=3.874$, each equidistant ($d=3.626$) from its two
+  adjacent crossing vertices.
+\item \textbf{Arc interiors}: A-segment bodies carry $\approx79\%$ of total
+  $J_4$ at density $\rho_A\approx864$ per unit arc-parameter; B-segment
+  bodies carry $\approx21\%$ at $\rho_B\approx700$. Energy density is
+  genuinely higher on A-segments (ratio $\rho_B/\rho_A\approx0.81$, stable
+  across resolutions).
+\end{enumerate}
+\end{proposition}
+\status{published}
+\source{P16:prop:geom_data}
+\residual{exact (from $T_{2,3}$ geometry)}
+
+\begin{remark}[Torsion contrast and field blindness at midpoints]
+\label{P16:rem:torsion_contrast}
+The torsion ratio $|\tau_{\mathrm{M}}|/|\tau_{\mathrm{C}}|\approx67$ is
+dramatic: the midpoints are the sites of the most violent Frenet-frame
+rotation on the entire curve, yet Paper~XV proves torsion makes zero
+contribution to $S_{\mathrm{eff}}$ at all orders (Theorem~6.1 of Paper~XV).
+The field is maximally blind to geometry exactly where the geometry is most
+active. The midpoints are structurally weak loci: under-compressed
+($\kappa_{\min}$), maximally diffuse colour, zero $S_{\mathrm{eff}}$
+restoring force from torsion.
+\end{remark}
+\status{published}
+\source{P16:rem:torsion_contrast}
+
+\begin{remark}[$\rho_{J_4}$ anti-correlates with $S_{\mathrm{eff}}$ along the tube]
+\label{P16:rem:rhoJ4_anticorrelation}
+The arc-segment integrals establish an anti-correlation: $\rho_{J_4}$ is
+lowest precisely where $S_{\mathrm{eff}}\propto\kappa^2$ is highest (at
+the crossings), and the bulk of $J_4$ flux is concentrated in the A-segment
+bodies where $\kappa$ is intermediate. The Hopf flux is repelled from
+regions of high tube curvature; crossing fraying is a deficit signature,
+not a concentration.
+\end{remark}
+\status{published}
+\source{P16:rem:rhoJ4_anticorrelation}
+
+\begin{remark}[Physical interpretation: 12-site fraying and decay geometry]
+\label{P16:rem:arcseg_physics}
+The $\rho_{J_4}$ field shows 12 distinct fraying sites in three categories
+(6 crossing-associated, 3 midpoint torsion-twist, 3 outer-lobe distal),
+each category internally related by $\mathbb{Z}_3$. If the three crossings
+($z=+r_0$, $\kappa_{\max}$, pure colour, $\rho_{J_4}$ minimum) are
+identified as quark colour vertices and the A-segment bodies as flux-tube
+arms, the flux-tube energy is concentrated in the arm interiors and depleted
+at the vertices, consistent with the standard QCD picture. The crossing
+vertex acts as a topological lens: incoming A-segment flux is redirected
+into the adjacent B-segment departure zone, the primary jet-ejection site.
+\end{remark}
+\status{published}
+\source{P16:rem:arcseg_physics}
+
+%════════════════════════════════════════════════════════════════════
+% Trefoil Geometry: Frenet-Serret and Torsion — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Exact torsion cancellation for symmetric profiles]
+\label{P15:thm:torsion_cancels}
+In the Frenet--Serret frame, the torsion $\tau(s)$ acts as a rigid
+rotation $\chi\to\chi-\int_0^s\tau(s')\,ds'$ of the tube cross-section
+coordinate. For any profile $f=f_0(\rho)$ depending only on $\rho$
+(i.e.\ $\partial f/\partial\chi=0$), this rotation is invisible at
+\emph{every order}: the torsion makes zero contribution to
+$J_4^{(3)}/J_{2a}^{(3)}$ at all orders in $\rho\tau$.
+\end{theorem}
+\status{published}
+\source{P15:thm:torsion_cancels}
+
+\begin{remark}[Scope of the cancellation: leading order only]
+\label{P15:rem:torsion_scope}
+The cancellation is exact for the leading-order, $\chi$-independent
+profile $f_0(\rho)$ alone. Once the curvature-sourced correction
+$f_1(\rho)\cos\chi$ is included, the leading surviving contribution
+is
+\begin{equation}
+  \bigl\langle\delta|\nabla f|^2\bigr\rangle_\chi
+  = \tfrac{1}{2}\,f_1(\rho)^2\,\kappa(s)^2\,\tau(s)^2\,\rho^2
+  + O(\rho^3),
+  \label{P15:eq:torsion_correction}
+\end{equation}
+proportional to $\kappa^2\tau^2$, not $\tau^2$ alone.
+Along the trefoil, $\langle\kappa^2\tau^2\rangle\approx0.0053$,
+about $4\%$ of $\langle\kappa^2\rangle=0.120$.
+This correction is developed in Paper~XVI.
+\end{remark}
+\status{published}
+\source{P15:rem:torsion_scope}
+
+\begin{corollary}[Bogomolny parameter from $C_3^*$]
+\label{P15:cor:lambda3}
+Combining Theorem~\ref{P15:thm:virial} ($\Kfb=2\vp\,\Ja$)
+with the leading-order trefoil formula
+$J_4^{(3)}/J_{2a}^{(3)}=3/(4C_3^{*2})+\langle\kappa^2\rangle/2$,
+the leading-order Bogomolny parameter of the $\QH=3$ sector is
+\begin{equation}
+  \boxed{\lam_3
+  = \frac{\Kfb}{J_4^{(3)}}
+  = \frac{2\vp}{\dfrac{3}{4C_3^{*2}}+\dfrac{\langle\kappa^2\rangle}{2}},}
+  \label{P15:eq:lambda3}
+\end{equation}
+at leading order in $\rho/R_0$.
+If $\lam_3=\vp^6$, then $C_3^*=2.497$ at $O(\langle\kappa^2\rangle)$,
+corrected to $C_3^*=2.5062$ at $O(\langle\kappa^4\rangle)$
+(Proposition~\ref{P15:prop:kappa4}).
+\end{corollary}
+\status{published}
+\source{P15:cor:lambda3}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% Crossing Regions and Confinement — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Crossing regions as inner wall]
+\label{P15:prop:crossings}
+The three crossing regions of the trefoil $T_{2,3}$ are the
+$\QH=3$ analogue of the torus inner wall:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item They are the loci of maximum curvature ($\kappa_{\max}=0.399$)
+  and hence maximum Shafranov shift along the trefoil.
+\item They carry enhanced condensate density by the same
+  curvature-driven mechanism as the $3.6\times$ inner/outer ratio
+  of $\QH=2$.
+\item They are related by the $\mathbb{Z}_3$ rotational symmetry
+  of the trefoil.
+\end{enumerate}
+\end{proposition}
+\status{published}
+\source{P15:prop:crossings}
+
+\begin{remark}[Three concentrations: exact count]
+\label{P15:rem:3or6}
+The map $t\mapsto t+\pi$ combined with $(x,y,z)\mapsto(x,y,-z)$
+is an exact isometry of $T_{2,3}$ that exchanges the over- and under-strands
+at every crossing, forcing $\kappa_{\mathrm{over}}=\kappa_{\mathrm{under}}=0.3991$
+for all three crossings.
+\begin{equation}
+  \kappa(t_k)=\kappa(t_k+\pi)=0.3991.
+  \label{P15:eq:kappa_equal}
+\end{equation}
+Each crossing region is therefore a single energy concentration
+with $\mathbb{Z}_2$-symmetric over/under contributions.
+The count is exactly $3$: one per crossing.
+\end{remark}
+\status{published}
+\source{P15:rem:3or6}
+
+\begin{proposition}[Confinement from boundary conditions]
+\label{P15:prop:confinement}
+Colour confinement is encoded in the profile boundary conditions
+\begin{equation}
+  f(0) = \pi,\qquad f(\infty) = 0.
+  \label{P15:eq:BC}
+\end{equation}
+An isolated open flux strand requires $f$ to interpolate $0\to\pi\to0$
+along its length; the gradient energy of such a configuration diverges
+linearly with strand length.
+Only closed configurations have finite energy, requiring the three
+trefoil tubes to link into the closed knot $T_{2,3}$.
+\end{proposition}
+\status{published}
+\source{P15:prop:confinement}
+
+\begin{remark}[Absence of a unique Bogomolny parameter and confinement]
+\label{P15:rem:no_lambda3}
+Extensive numerical gradient flow on $80^3$ grids consistently shows
+$\Kfb/J_4$ traversing $\vp^6$ without converging there, due to the
+three-lobed energy landscape from the crossing-region concentrations.
+The bound $\lam_3>\vp^5=11.09$ is established numerically.
+The appropriate characterisation is through the global invariants
+$N_3=3$ (Theorem~\ref{P15:thm:Qgroup3}) and $\Kfb=2\vp\Ja$
+(Theorem~\ref{P15:thm:virial}), rather than a local saddle value.
+Since $\lam_3=\vp^6$ is proved (Theorem~\ref{P15:thm:sector_assignment}),
+this gives $C_3^*=2.5062$ analytically (Proposition~\ref{P15:prop:kappa4}).
+\end{remark}
+\status{published}
+\source{P15:rem:no_lambda3}
+
+\begin{proposition}[Y-junction geometry: the Fermat--Steiner energy balance]
+\label{P15:prop:yjunction}
+The three crossing midpoints
+$\mathbf{m}_k = \tfrac{1}{2}[\Gamma(t_k)+\Gamma(t_k+\pi)]$,
+$k=1,2,3$, satisfy
+\begin{equation}
+  |\mathbf{m}_k| = R_0,\qquad
+  |\mathbf{m}_k - \mathbf{m}_j| = R_0\sqrt{3}\quad(j\neq k),\qquad
+  \sum_{k=1}^3 \mathbf{m}_k = \mathbf{0}.
+  \label{P15:eq:yjunction}
+\end{equation}
+The three midpoints form a regular equilateral triangle in the $z=0$
+plane; the origin is the Fermat--Steiner point with three equal arms
+of length $R_0$.
+\end{proposition}
+\status{published}
+\source{P15:prop:yjunction}
+\residual{exact}
+
+\begin{remark}[The Y-junction as the missing energy term]
+\label{P15:rem:yjunction_energy}
+The full baryon energy is
+\begin{equation}
+  E_{\mathrm{baryon}} = \underbrace{K_{\mathrm{fb}}\times J_4}_{\text{profile}}
+  + \underbrace{\sigma\,\cdot\,3R_0}_{\text{string tension}}
+  + \underbrace{E_\cup}_{\text{junction}},
+  \label{P15:eq:baryon_energy}
+\end{equation}
+with total Y-junction string length $3R_0 = N_3^2 = 9$.
+Numerical flows minimised only the profile term, missing the
+string-tension contribution. The profile saddle (determining $C_3^*$
+and $\lam_3$) is unchanged since the missing term is $C^*$-independent.
+\end{remark}
+\status{published}
+\source{P15:rem:yjunction_energy}
+
+%════════════════════════════════════════════════════════════════════
+% Normalisation Identity and Equivalence — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Normalisation identity]
+\label{P15:thm:norm3}
+Given Theorem~\ref{P15:thm:virial} ($\Kfb=2\vp\Ja$), the sector energy
+formula $\Efb^{(3)}=2N_3^2/\vp^{17}$, the thermodynamic axiom
+$\Efb^{(3)}/V_3=\rCMB=10$, and $\lam_3=\vp^6$:
+\begin{equation}
+  \boxed{\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}
+  = 3 = Q_{\mathrm{group}}^{(3)}.}
+  \label{P15:eq:norm3}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P15:thm:norm3}
+\residual{exact}
+
+\begin{corollary}[Condensate volume as derived quantity]
+\label{P15:cor:V3}
+Under the same hypothesis $\lam_3=\vp^6$,
+the trefoil condensate volume is
+\begin{equation}
+  V_3 = \frac{N_3^2}{5\vp^{17}} = \frac{9}{5\vp^{17}}.
+  \label{P15:eq:V3}
+\end{equation}
+This is a derived consequence of $\lam_3=\vp^6$, not an independent
+assumption.
+\end{corollary}
+\status{published}
+\source{P15:cor:V3}
+\residual{exact}
+
+\begin{theorem}[Logical equivalence of the two closure conditions]
+\label{P15:thm:equivalence}
+The following two statements are logically equivalent, given the
+thermodynamic axiom and energy formula:
+\begin{enumerate}[noitemsep,label=(\Roman*)]
+\item $\lam_3 = \vp^6$ (sector-independent Bogomolny parameter).
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}} = 3$ (normalisation identity).
+\end{enumerate}
+Either implies $V_3=9/(5\vp^{17})$ as a corollary.
+\end{theorem}
+\status{published}
+\source{P15:thm:equivalence}
+\residual{exact}
+
+\begin{proposition}[$O(\langle\kappa^4\rangle)$ correction via Beta functions]
+\label{P15:prop:kappa4}
+The profile integrals reduce to Beta functions via $t=\hat\rho^2$:
+$I_n = 2^{2n+1}B(n+1,n+1)$, giving $I_2=16/15$.
+The $O(\rho^4\kappa^4)$ curvature correction to $r_3$ is
+\begin{equation}
+  \delta r_3^{(\kappa^4)}
+  = \frac{9\,\langle\kappa^4\rangle}{4\,C_3^{*4}}
+  = 0.000938 \quad (0.520\%\text{ of }r_3),
+  \label{P15:eq:dr_kappa4_num}
+\end{equation}
+using $\langle\kappa^4\rangle=0.0162$ for $T_{2,3}$.
+This shifts $C_3^*$ from $2.497$ to
+\begin{equation}
+  \boxed{C_3^* = 2.5062 \quad\bigl(O(\langle\kappa^4\rangle)\text{ corrected}\bigr).}
+  \label{P15:eq:C3star_kappa4}
+\end{equation}
+\end{proposition}
+\status{published}
+\source{P15:prop:kappa4}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% Condensate Universality and Simple-Current Sector — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Condensate universality of $\lam_3$]
+\label{P15:prop:lambda3}
+If the $\QH=3$ density-feedback functional admits a topology-preserving
+saddle with virial fixed point $V^*=\vp$, and if the EL saddle profile
+satisfies $r_3 = J_4^{(3)}/J_{2a}^{(3)} = 2/\vp^5$, then
+$\lam_3=\vp^6$.
+\end{proposition}
+\status{published}
+\source{P15:prop:lambda3}
+\residual{exact}
+
+\begin{proposition}[Exact structure of $r_3$ corrections]
+\label{P15:prop:r3_exact}
+For any axially-symmetric profile $f_0(\rho)$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $J_{2a}^{(3)}$ receives no curvature correction from the
+  Frenet--Serret Jacobian: $\delta J_{2a}^\kappa = 0$ exactly.
+\item The leading curvature correction to $J_4^{(3)}$ is
+  $\langle F_{s\chi}^2\rangle_\chi = \tfrac12\kappa^2\sin^4\!f_0(f_0')^2$.
+\item The ratio has the exact expansion
+  \begin{equation}
+    r_3 = \frac{3}{4C_3^{*2}}
+    + \frac{\langle\kappa^2\rangle_s}{2}\cdot\Gamma(C_3^*)
+    + O(\langle\kappa^4\rangle_s).
+    \label{P15:eq:r3_exact_expansion}
+  \end{equation}
+\end{enumerate}
+\end{proposition}
+\status{published}
+\source{P15:prop:r3_exact}
+
+\begin{lemma}[Fusion-count ratio of sector targets]
+\label{P15:lem:fusion_ratio}
+The target ratios for the two sectors satisfy
+\begin{equation}
+  \frac{r_3^*}{r_2^*}
+  = \frac{2/\vp^5}{2^{4/3}/\vp^5}
+  = \frac{1}{2^{1/3}}
+  = N_{\mathrm{fus}}^{-1/k},
+  \label{P15:eq:fusion_ratio}
+\end{equation}
+where $N_{\mathrm{fus}}=2$ (fusion count) and $k=3$ (WZW level).
+\end{lemma}
+\status{published}
+\source{P15:lem:fusion_ratio}
+\residual{exact}
+
+\begin{theorem}[Simple-current sector assignment]
+% Note: label retains historical 'conj:' prefix; type promoted to theorem.
+\label{P15:conj:sector}
+The $\QH=3$ trefoil Hopfion belongs to the $j=k/2=3/2$ simple-current
+sector of the $\mathrm{SU}(2)_3$ condensate WZW model.
+Three independent proofs are given (Theorem~\ref{P15:thm:sector_assignment},
+Proposition~\ref{P15:prop:verlinde_unique}, and the $\mathbb{Z}_2$ parity
+filter of Section~\ref{sec:z2_parity}).
+\end{theorem}
+\status{published}
+\source{P15:conj:sector (promoted from conjecture to theorem)}
+
+\begin{theorem}[$\lam_3=\vp^6$]
+\label{P15:thm:lambda3_sc}
+The $\QH=3$ trefoil is in the $j=3/2$ sector of $\mathrm{SU}(2)_3$
+(Theorem~\ref{P15:conj:sector}), so $\lam_3 = \vp^6$:
+\begin{equation}
+  \boxed{\lam_3 = \frac{\lam}{s_{\mathrm{opt}}^{2k}} = \frac{\vp^6}{1} = \vp^6.}
+  \label{P15:eq:lambda3_proved}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P15:thm:lambda3_sc}
+\residual{exact}
+
+\begin{corollary}[All results now unconditional]
+\label{P15:cor:sc_consequences}
+\begin{enumerate}[noitemsep,label=\textup{(\roman*)}]
+\item $r_3 = 2/\vp^5$.
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$.
+\item $V_3 = 9/(5\vp^{17})$.
+\item $C_3^* = 2.5062$ (at $O(\langle\kappa^4\rangle)$).
+\end{enumerate}
+All four follow from $\lam_3=\vp^6$ via the algebraic chain of
+Theorem~\ref{P15:thm:virial}--Corollary~\ref{P15:cor:V3}.
+\end{corollary}
+\status{published}
+\source{P15:cor:sc_consequences}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% WRT Invariants — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Writhe-3 framing phase of the simple current]
+\label{P15:prop:wrt_phase}
+For $j=3/2$ at $k=3$, the writhe-3 framing phase is
+\begin{equation}
+  \theta_{3/2}^{\,3}
+  = e^{2\pi i\cdot 3h_{3/2}}
+  = e^{2\pi i\cdot 9/4}
+  = e^{2\pi i/4}
+  = i.
+  \label{P15:eq:theta32_cubed}
+\end{equation}
+This is a primitive $4$th root of unity, the smallest non-trivial order
+among all sectors at writhe $w=3$.
+\end{proposition}
+\status{published}
+\source{P15:prop:wrt_phase}
+\residual{exact}
+
+\begin{proposition}[String tension minimisation by the simple current]
+\label{P15:prop:wrt_dim}
+For a closed knot, the WZW string tension per unit length is proportional
+to $\dim_q(j)$. Among non-vacuum sectors ($j\neq0$) at $k=3$,
+the minimum is achieved uniquely by $j=3/2$:
+\begin{equation}
+  \dim_q\!\bigl(\tfrac{3}{2};\,k{=}3\bigr) = 1
+  \;<\; \vp \;=\; \dim_q\!\bigl(\tfrac{1}{2};\,k{=}3\bigr)
+        = \dim_q\!\bigl(1;\,k{=}3\bigr).
+  \label{P15:eq:dim_min}
+\end{equation}
+\end{proposition}
+\status{published}
+\source{P15:prop:wrt_dim}
+\residual{exact}
+
+\begin{proposition}[Pure-phase WRT contribution of $j=3/2$]
+\label{P15:prop:wrt_pure}
+The $j=3/2$ sector's contribution to $\tau_3(T_{2,3})$ is
+\begin{equation}
+  \frac{S_{0,\,3/2}}{S_{0,0}}\,\theta_{3/2}^3
+  = 1\cdot i = i,
+  \label{P15:eq:wrt_pure}
+\end{equation}
+which has unit modulus. Every other non-vacuum sector contributes
+with modulus $\vp>1$.
+\end{proposition}
+\status{published}
+\source{P15:prop:wrt_pure}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% Proof of the Sector Assignment — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{lemma}[Triple-fusion decomposition at $k=3$]
+\label{P15:lem:triple_fusion}
+In the $\mathrm{SU}(2)_3$ WZW model, the triple fusion of the
+fundamental representation decomposes as
+\begin{equation}
+  j_{\frac12}\otimes j_{\frac12}\otimes j_{\frac12}
+  = j_{\frac12}^{(\times 2)} \oplus j_{\frac32}^{(\times 1)}.
+  \label{P15:eq:triple_fusion}
+\end{equation}
+The $j=1/2$ channel has multiplicity $2$ and the $j=3/2$ channel
+has multiplicity $1$.
+\end{lemma}
+\status{published}
+\source{P15:lem:triple_fusion}
+
+\begin{theorem}[Sector assignment: $\QH=3\leftrightarrow j=3/2$]
+\label{P15:thm:sector_assignment}
+Under the Witten bosonization dictionary, the $\QH=3$ Hopfion occupies
+the $j=3/2$ sector of the $\mathrm{SU}(2)_3$ condensate WZW model.
+The proof proceeds in four steps: (1)~each $\QH=1$ quantum carries
+$j=1/2$ (Paper~III Prop.~10.6); (2)~$\QH=3$ lies in
+$j_{1/2}^{\otimes3}=j_{1/2}^{(\times2)}\oplus j_{3/2}^{(\times1)}$
+(Lemma~\ref{P15:lem:triple_fusion}); (3)~$\pi_3(S^2)=\mathbb{Z}$ gives
+topological non-degeneracy; (4)~the multiplicity-2 channel $j=1/2$
+is excluded, leaving $j=3/2$ uniquely.
+\end{theorem}
+\status{published}
+\source{P15:thm:sector_assignment}
+
+\begin{corollary}[$\lam_3=\vp^6$: is closed]
+\label{P15:cor:lambda3_proved}
+The Bogomolny parameter of the $\QH=3$ sector is $\lam_3=\vp^6$.
+By Theorem~\ref{P15:thm:equivalence}, all three equivalent conditions
+follow simultaneously: $\lam_3=\vp^6$, $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$,
+and $r_3=2/\vp^5$ at the EL saddle.
+\end{corollary}
+\status{published}
+\source{P15:cor:lambda3_proved}
+\residual{exact}
+
+\begin{remark}[Logical status of Step 1]
+\label{P15:rem:step1_status}
+The identification ``each $\QH=1$ quantum carries $j=\frac12$'' is the
+explicit content of Paper~III Proposition~10.6 and is not an additional
+postulate of Paper~XV. Steps~2--4 of Theorem~\ref{P15:thm:sector_assignment}
+are independent of this identification.
+\end{remark}
+\status{published}
+\source{P15:rem:step1_status}
+
+\begin{proposition}[Verlinde ratio uniquely selects $j=3/2$]
+\label{P15:prop:verlinde_unique}
+Among all primaries of $\mathrm{SU}(2)_3$,
+$\bigl|S_{j,\,1/2}/S_{j,\,0}\bigr|=\vp$ if and only if
+$j\in\{0,\,\frac32\}$:
+\begin{equation}
+  \frac{S_{j,\,1/2}}{S_{j,\,0}}
+  = 2\cos\!\frac{(2j{+}1)\pi}{5},
+  \label{P15:eq:ratio_formula}
+\end{equation}
+giving $+\vp,\,+1/\vp,\,-1/\vp,\,-\vp$ for $j=0,\tfrac12,1,\tfrac32$.
+Since $j=0$ is $\QH=2$ and the sector-independent IVT requires
+$|V^*|=\vp$, the $\QH=3$ sector must be $j=\frac32$.
+\end{proposition}
+\status{published}
+\source{P15:prop:verlinde_unique}
+\residual{exact}
+
+\begin{remark}[Three independent arguments]
+\label{P15:rem:three_arguments}
+The sector assignment $\QH=3\leftrightarrow j=\frac32$ is supported
+by three independent proofs:
+\begin{enumerate}[noitemsep,label=\textup{(\roman*)}]
+\item \emph{Multiplicity + topological uniqueness}
+  (Theorem~\ref{P15:thm:sector_assignment}).
+\item \emph{Verlinde uniqueness}
+  (Proposition~\ref{P15:prop:verlinde_unique}).
+\item \emph{$\mathbb{Z}_2$ parity filter}: $\QH=3$ (odd)
+  maps to $\mathbb{Z}_2$-odd sectors $j\in\{\frac12,\frac32\}$;
+  multiplicity then forces $j=\frac32$.
+\end{enumerate}
+None of the three arguments is circular with the others.
+\end{remark}
+\status{published}
+\source{P15:rem:three_arguments}

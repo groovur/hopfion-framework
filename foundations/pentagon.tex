@@ -1,0 +1,230 @@
+%% hopfion-framework/foundations/pentagon.tex
+%% Sources: main_paper_foundational.tex, main_paper1.tex
+%% The Pentagon Theorem: k+2=5 and all its consequences
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Pentagon Theorem — Foundational Companion
+%════════════════════════════════════════════════════════════════════
+% The four-part theorem from which everything derives
+\begin{theorem}[The Pentagon Theorem]
+\label{F:thm:main}
+In the density-feedback Faddeev--Niemi Hopfion condensate:
+
+\begin{enumerate}[label=\emph{(\roman*)}]
+  \item \emph{(Uniqueness of $k=3$.)}
+    The WZW level is $k=3$, excluded at all other positive integer
+    values by QED at $\sim1.5\times10^7\,\sigma$ (Proposition~\ref{F:prop:route1}).
+
+  \item \emph{(Three generations from primary truncation.)}
+    $\mathrm{SU}(2)_3$ has exactly three non-vacuum primaries
+    $j = \tfrac{1}{2}, 1, \tfrac{3}{2}$, corresponding to the electron,
+    muon, and tau.
+    A fourth primary $j=2$ does not exist (Proposition~\ref{F:prop:route3}).
+
+  \item \emph{(Golden ratio as quantum dimension.)}
+    Every non-vacuum primary has quantum dimension $\vp$ or $1$:
+    $d_{1/2} = d_1 = \vp$, $d_{3/2} = 1$ (Proposition~\ref{F:prop:route2}
+    and Remark~\ref{F:rem:both_phi}).
+
+  \item \emph{(Common origin: $k+2=5$.)}
+    All three results are consequences of the single equation $k+2=5$.
+    The connection is:
+    \begin{itemize}
+      \item $k+2=5$ $\Rightarrow$ $d_{1/2} = 2\cos(\pi/5) = \vp$
+        (pentagon half-angle);
+      \item $k+2=5$ $\Rightarrow$ $j_{\max}=k/2=3/2$
+        $\Rightarrow$ three non-vacuum primaries;
+      \item $k+2=5$ $\Rightarrow$ $k=3$ is the level selected by QED.
+    \end{itemize}
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{F:thm:main}
+
+\begin{proposition}[Route~1: QED exclusion]
+\label{F:prop:route1}
+At $k=3$, equation~\eqref{P3:eq:alpha_formula} gives
+$\alpha^{-1} = 137.030$, an error of $0.0042\%$ from the experimental
+value $\alpha^{-1}_{\mathrm{QED}} = 137.035999084$.
+At $k=4$, $\alpha^{-1} = 136.871$, an error of $0.120\%$.
+The experimental precision of $\alpha$ is $\delta\alpha/\alpha
+\approx 6\times10^{-11}$~\cite{Morel2020}, giving the exclusion
+\begin{equation}
+  |k=4 \text{ error}| \;\approx\; 1.5\times10^7\,\sigma.
+  \label{F:eq:sigma_exclusion}
+\end{equation}
+\end{proposition}
+\status{published}
+\source{F:prop:route1}
+
+\begin{proposition}[Route~2: Quantum dimension uniqueness]
+\label{F:prop:route2}
+The quantum dimension of the muon primary $j=1/2$ equals the golden ratio,
+\begin{equation}
+  d_{1/2}\big|_{k=3} = \vp,
+  \label{F:eq:qdim_phi}
+\end{equation}
+if and only if $k=3$.
+At no other positive integer level does $d_{1/2} = \vp$.
+\end{proposition}
+\status{published}
+\source{F:prop:route2}
+
+\begin{remark}[Both $j=1/2$ and $j=1$ share quantum dimension $\vp$]
+\label{F:rem:both_phi}
+At $k=3$, \emph{both} $j=1/2$ and $j=1$ have quantum dimension $\vp$:
+\begin{equation}
+  d_{1/2}\big|_{k=3}
+  = d_{1}\big|_{k=3}
+  = \vp.
+  \label{F:eq:both_phi}
+\end{equation}
+This follows since $\sin(3\pi/5) = \sin(\pi - 2\pi/5) = \sin(2\pi/5)$,
+so $d_1 = \sin(3\pi/5)/\sin(\pi/5) = \sin(2\pi/5)/\sin(\pi/5) = \vp$.
+The tau primary $j=3/2$ has $d_{3/2} = \sin(4\pi/5)/\sin(\pi/5)
+= \sin(\pi/5)/\sin(\pi/5) = 1$: the tau is its own antiparticle
+under fusion (it has unit quantum dimension).
+This is the quantum group analogue of the Majorana condition,
+and it holds at $k=3$ only.
+\end{remark}
+\status{published}
+\source{F:rem:both_phi}
+
+\begin{proposition}[Route~3: No fourth generation]
+\label{F:prop:route3}
+A fourth lepton generation would require primary $j_4=2$.
+This primary does not exist in $\mathrm{SU}(2)_3$:
+\begin{equation}
+  j_4 = 2 \;>\; \frac{k}{2} = \frac{3}{2}.
+  \label{F:eq:j4_excluded}
+\end{equation}
+This is a hard algebraic exclusion, independent of any numerical input.
+\end{proposition}
+\status{published}
+\source{F:prop:route3}
+
+\begin{remark}[Strength of the three routes]
+\label{F:rem:route_strength}
+The three routes are logically independent: each would individually
+exclude $k\neq3$. But they differ in character:
+Route~1 is quantitative (requires the numerical value of $\alpha$);
+Route~2 is algebraic-exact (requires only that $\vp$ be the golden ratio);
+Route~3 is a hard algebraic non-existence statement (requires only the
+Kac--Moody unitarity condition, which is a theorem in mathematics,
+not an empirical input).
+Route~3 is therefore the strongest: even if the fine structure constant
+formula~\eqref{F:eq:alpha_formula} were corrected by higher-order terms,
+and even if the quantum dimension identity~\eqref{F:eq:qdim_phi} were
+modified by quantum corrections, Route~3 would still apply.
+\end{remark}
+\status{published}
+\source{F:rem:route_strength}
+
+\begin{proposition}[$Q=10$ and $k=3$ as McKay invariants]
+\label{F:prop:mckay}
+Both $Q=10$ and $k=3$ are invariants of $\twoI/\Ehat$:
+\begin{itemize}
+  \item $k=3$: the WZW level is determined by the embedding
+    $\twoI \hookrightarrow \mathrm{SU}(2)$ and the level-3 truncation
+    that selects the icosahedrally symmetric primary sector.
+  \item $Q=10$: the Hopf charge equals the number of $\twoI$-orbits
+    on the condensate configuration space, fixed by the icosahedral
+    symmetry of the FN functional~\cite{Paper1}.
+\end{itemize}
+The precise algebraic relationship is $Q = 2(k+2)$
+(Paper~I~\cite{Paper1}, Theorem~5.9 of that paper: $\mathrm{ord}(q_{2I})=2(k+2)=10$),
+and $k\,h(E_8) = Q\times 9 = 90$
+(Paper~V~\cite{Paper5}, Theorem~11.8 of that paper: $3\times30=90=Q\times9$).
+\end{proposition}
+\status{published}
+\source{F:prop:mckay}
+
+\begin{corollary}[The golden ratio is not coincidental]
+\label{F:cor:phi_origin}
+The golden ratio $\vp$ appears throughout the condensate framework
+--- in $\lam=\vp^6$, $c_s=1/\vp$, $m_n=m_0\vp^{-2n}$,
+$\det(\mathcal{L}_*)=\vp^{-1/6}$, $d_{1/2}=\vp$ ---
+because it is the half-angle cosine of the pentagon,
+and the condensate's WZW sector is governed by $k+2=5$.
+It is not that $\vp$ was found empirically and then built into the theory;
+it is that $k+2=5$ forces $\vp$ everywhere $\mathrm{SU}(2)_3$
+quantum dimensions appear.
+\end{corollary}
+\status{published}
+\source{F:cor:phi_origin}
+
+\begin{remark}[Three descriptions of the same constraint]
+\label{F:rem:three_descriptions}
+The following are not three independent reasons why there are three
+\emph{lepton} generations: they are three descriptions of the same constraint.
+\begin{enumerate}[label=(\arabic*)]
+  \item Three non-vacuum primaries of $\mathrm{SU}(2)_3$.
+  \item Three non-real Hurwitz division algebras $\CC$, $\HH$, $\OO$.
+  \item Sedenions (the $k=4$ Cayley--Dickson algebra) lose the
+    division property: the Hurwitz tower terminates at $\OO$.
+\end{enumerate}
+The algebraic reason for all three is the same: the sequence
+$\RR\to\CC\to\HH\to\OO$ loses one algebraic property at each step
+(ordering, commutativity, associativity), and the next step would lose
+alternativity, destroying the norm identity.
+This is encoded in $k+2=5$ through the Verlinde~\cite{Verlinde1988} formula:
+the fusion ring of $\mathrm{SU}(2)_3$ is the representation ring of
+the quantum group $\mathcal{U}_q(\mathfrak{su}(2))$ at $q=e^{2\pi i/5}$,
+a fifth root of unity, whose truncation at $j=3/2$ mirrors
+the Hurwitz termination.
+
+For \emph{quarks}, the generation count arises from a different mechanism
+within the same $\twoI/\Ehat$ structure: the six SM quarks occupy six of the
+eight $E_8$ Coxeter exponents, with the two unoccupied exponents $\{23,29\}$
+predicting no fourth quark generation (Paper~V~\cite{Paper5},
+Proposition~8 therein).
+This is $E_8$ Coxeter saturation, not $\mathrm{SU}(2)_3$ primary truncation,
+as established in Paper~VI~\cite{Paper6}, Remark~5.6 therein.
+\end{remark}
+\status{published}
+\source{F:rem:three_descriptions}
+
+
+%════════════════════════════════════════════════════════════════════
+% Key Equations — Foundational
+%════════════════════════════════════════════════════════════════════
+% Pentagon identity, quantum dimensions, generation count
+\begin{equation}
+  k + 2 = 5,
+  \label{F:eq:k_plus_2}
+\end{equation}
+
+\begin{equation}
+  j_g = \frac{g}{2}, \qquad g = 1, 2, 3.
+  \label{F:eq:generation_primaries}
+\end{equation}
+
+\begin{equation}
+  d_j \;=\; \frac{\sin\!\bigl((2j+1)\pi/(k+2)\bigr)}
+                  {\sin\!\bigl(\pi/(k+2)\bigr)}.
+  \label{F:eq:qdim}
+\end{equation}
+
+\begin{equation}
+  h_j \;=\; \frac{j(j+1)}{k+2}.
+  \label{F:eq:conformal_weight}
+\end{equation}
+
+
+%════════════════════════════════════════════════════════════════════
+% Pentagon results — Paper I
+%════════════════════════════════════════════════════════════════════
+% k=3 uniqueness, icosahedral symmetry, Q=10
+\begin{equation}
+  D_0 = (r-R_0)^2 + z^2, \qquad
+  A   = \frac{1}{D_0} + \frac{1}{r^2}, \qquad
+  \mathrm{kern} = |\nabla f|^2 + \sin^2\!f\cdot A.
+  \label{P1:eq:kern}
+\end{equation}
+

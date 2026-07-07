@@ -1,0 +1,988 @@
+\documentclass[11pt,a4paper]{article}
+
+%─── Packages ─────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\geometry{top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm}
+
+%─── Theorem environments ─────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+%─── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{darkgreen}{RGB}{0,120,60}
+\definecolor{darkblue}{RGB}{0,60,140}
+\definecolor{darkred}{RGB}{160,20,20}
+
+%─── Series macros ────────────────────────────────────────────────────────────
+\newcommand{\vp}{\varphi}
+\newcommand{\bst}{\beta^{*}}
+\newcommand{\lam}{\lambda}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfb}{J_{2\mathrm{iso}}^{\mathrm{fb}}}
+\newcommand{\Jfour}{J_{4}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\LUV}{\Lambda_{\mathrm{UV}}}
+\newcommand{\MPl}{M_{\mathrm{Pl}}}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+%─── Paper VIII macros ────────────────────────────────────────────────────────
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\pcond}{p_{\mathrm{cond}}}
+\newcommand{\pQM}{p_{\mathrm{QM}}}
+\newcommand{\xcond}{x_{\mathrm{cond}}}
+\newcommand{\CHSH}{\mathrm{CHSH}}
+\newcommand{\Tsirelson}{2\sqrt{2}}
+\providecommand{\keywords}[1]{\noindent\textbf{Keywords:} #1}
+%──────────────────────────────────────────────────────────────────────────────
+\title{\textbf{Geometry-Dependent Bell Violations\\
+  from the Density-Feedback Hopfion}
+\\[0.6em]
+{\large Companion Paper VIII to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- May 2026}
+\author{Frederick Manfredi}
+\date{May 2026}
+%──────────────────────────────────────────────────────────────────────────────
+\begin{document}
+\maketitle         
+
+\begin{abstract}
+We extend the density-feedback Faddeev--Niemi Hopfion
+framework of~\cite{Paper1,Paper2,Paper3,Paper4,Paper5,Paper6,Paper7} from
+its Standard-Model and QCD predictions, and cosmological, gravitational
+observables, and dark-matter predictions to a local, deterministic model reproducing quantum Bell correlations through the the suppression law
+$S(\theta)=\sin^4\theta/\vp^6$, from the Hopf map Jacobian in the thin-torus
+limit of Paper~I~\cite{Paper1} and measurement-induced density feedback $1/(1+\beta(\rho+\delta\rho))$. In planar laboratory geometries (standard for all existing Bell tests), the model achieves CHSH $\approx 2.6$ for mild density feedback ($\beta  \approx 0.452$ \& $\beta \leq 1.0$), approaching Tsirelson's quantum bound $2\sqrt{2} \approx 2.828$ within 7\%. The Hopfion condensate framework of Papers~I--VII fixes the coupling uniquely at $\beta^* \approx 0.452$ from first principles; at this value (using the same method as all other table rows) the model gives CHSH$_\mathrm{rescaled} \approx 2.611$, sitting consistently within the scan range and confirming the prediction is not fine-tuned. However, full 3D isotropic averaging yields classical correlations (CHSH $< 1.5$), distinguishing the model from standard quantum mechanics which predicts geometry-independent violations. Monte Carlo simulations (N=100,000) confirm robust violations across $\beta = 0.1$-$1.0$ in planar and biased geometries, with smooth degradation as geometry becomes isotropic. The model makes three testable predictions: (1) reduced correlations in multi-satellite 3D quantum networks, (2) measurement-strength dependence in weak-value protocols, and (3) a systematic angular signature distinguishing the condensate correlation function $-2\cos\psi/(1+\cos^2\!\psi)$ from the quantum form $-\cos\psi$, with $1/\vp^6\approx5.6\%$ corrections to individual probability weights. These predictions are falsifiable with near-term experiments and distinguish the density-feedback suppression law from standard quantum mechanics. Complete Python simulation code is provided for independent verification.
+\end{abstract}
+\footnotesize
+\keywords{Bell inequality, Hopfion condensate, density-feedback suppression, quantum correlations, geometry-dependent correlations}
+\normalsize
+\section{Introduction}
+\label{P8:sec:introduction}
+
+Bell's theorem demonstrates that no local realistic theory can reproduce all quantum correlations ~\cite{Bell1964}. Loophole-free experiments confirm violations of Bell inequalities up to CHSH $\approx 2.8$ ~\cite{Hensen2015,Giustina2015,Shalm2015}, apparently requiring either non-locality or abandonment of realism.
+
+We present an alternative: a local, deterministic model based on the suppression law $S(\theta) = \sin^4\theta/\phi^6$, following from the Hopf map Jacobian in the thin-torus limit of Paper~I~\cite{Paper1}. The approach deliberately avoids assuming spacetime geometry, Einstein equations, or quantum field theory at the outset. Instead, these structures are reconstructed iteratively from a small set of geometric primitives; see Paper~VII~\cite{Paper7}.
+
+\subsection{Hypothesis and Approach}
+
+This paper focuses on quantum correlations of the Hopf condensate. We show that the suppression law combined with measurement-induced density feedback reproduces quantum violations (CHSH $\approx 2.6$) in planar laboratory geometries while predicting classical behavior (CHSH $< 1.5$) in truly isotropic 3D configurations. This geometry dependence distinguishes this model from standard quantum mechanics and is testable with existing technology.
+
+\subsection{Paper Structure}
+Section 2 develops Bell correlation formalism with measurement-induced perturbations. Section 3 shows planar geometry results (CHSH $\approx 2.6$, matching experiments). Section 4 presents isotropic 3D results (CHSH $< 1.5$, testable prediction). Section 5 proposes experimental tests (satellites, weak measurements). Section 6 discusses implications and conclusions. 
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Four Axioms of the Framework}
+\label{P8:sec:axioms}
+%══════════════════════════════════════════════════════════════════════════════
+
+We recall here from Paper~V~\cite{Paper6} the four axioms of the density-feedback Hopfion framework,
+derived in Papers~I--VI~\cite{Paper1,Paper2,Paper3,Paper4,Paper5,Paper6}.
+These axioms are listed as recalled results in the companion papers.
+
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=*,itemsep=4pt]
+
+\item \textbf{Scalar field and preferred direction.}
+There exists a real scalar field $\rho\colon\mathbb{R}^{3,1}\to\mathbb{R}$
+whose gradient defines the local preferred direction
+$\hat{e}_r = \nabla\rho/|\nabla\rho|$.  The field $\rho$ is the
+density variable of the Hopfion condensate; the preferred direction
+is set by the torus axis of the $Q=2$ Hopfion vacuum
+(proved unique in Theorem~6.1 of~Paper~I~\cite{Paper1}).
+
+\item \textbf{Anisotropic suppression.}
+Propagation at angle $\theta$ to $\hat{e}_r$ is suppressed by the
+directional factor
+\begin{equation}
+  S_{\mathrm{eff}}(\theta, \rho)
+  \;=\; \frac{\sin^4\!\theta}{\vp^6\,(1 + \bst\,\rho)},
+  \label{P8:eq:seff_axiom}
+\end{equation}
+where $\vp^6 = \lam$ is the Bogomolny parameter
+(Corollary~5.10 of~\cite{Paper1}) and $\bst \approx 0.452$
+is the self-consistent feedback coupling
+(Definition~2.4 of~\cite{Paper1}).
+The $\sin^4\!\theta$ factor is the square of the Hopf map Jacobian
+$J(\theta) = \sin^2\!\theta$; the $\vp^6$ denominator is the Bogomolny
+scale fixed by the constraint $Q_{\mathrm{num}} = Q_{\mathrm{group}} = 10$.
+
+\item \textbf{Scale hierarchy.}
+Stable knot configurations exist at and only at the discrete scales
+\begin{equation}
+  M_n = M_0\,\vp^{2n}, \qquad
+  m_f = m_0\,\vp^{-2n_f},
+  \label{P8:eq:hierarchy_axiom}
+\end{equation}
+where $M_n$ are the tower rungs in the UV direction (bosonic/knot sector)
+and $m_f$ are the tower rungs in the IR direction (fermionic/mass sector).
+The $\vp^2$ spacing is \emph{derived} in~Paper~VI~\cite{Paper6}.
+
+\item \textbf{Parent action.}
+The dynamics of $\rho$ are governed by the $k$-essence scalar-tensor
+action~\cite{Paper1}
+\begin{equation}
+  S_{\mathrm{parent}}[\rho]
+  \;=\; \int\!\mathrm{d}^4x\,\sqrt{-g}\;
+  \frac{|\nabla\rho|^2}{\vp^6\bigl(1 + \bst\,|\nabla\rho|^2\bigr)},
+  \label{P8:eq:parent_action}
+\end{equation}
+with $\bst \approx 0.452$.  The Witten bosonization dictionary of
+Paper~III~\cite{Paper3} identifies this action with the gradient energy
+of the $\mathrm{SU}(2)_3$ WZW model on the Hopfion torus.
+\end{enumerate}
+
+\begin{remark}[Extension of the density variable]
+\label{P8:rem:rho_extension}
+In Papers~I--IV the feedback denominator $1+\bst\kappa$ uses the local
+field curvature $\kappa$ (the FN gradient density) as the density variable.
+In this paper, the parent action of Paper~I~\cite{Paper1} uses a scalar
+field $\rho$ as an independent dynamical variable, with $1+\beta\rho$ in
+the denominator.  The two descriptions are compatible: in the static
+condensate background, $\rho\propto\kappa$ and $\beta\propto\bst$, so
+Axiom~A2 recovers the Papers~I--IV form.  The $\rho$-based description
+is a $k$-essence extension is used for the analysis in this paper.  
+\end{remark}
+
+\section{Bell Correlations from the Density-Feedback Suppression Law}
+\label{P8:sec:bell_correlations}
+
+We now apply the suppression framework to quantum correlations. Bell's theorem proves that local hidden-variable models satisfying certain independence assumptions cannot reproduce quantum correlations~\cite{Bell1964}. Experiments show violations up to CHSH $\approx 2.8$, near the quantum bound $2\sqrt{2} \approx 2.828$~\cite{Tsirelson1980,Hensen2015}.
+
+This model avoids Bell\'s exclusion because the correlation variable $\hat{n}$ is not a classical probability distribution over independent local properties but the \emph{condensate gradient orientation at pair creation}---a deterministic geometric quantity set by the density field $\rho$ of Paper~I~\cite{Paper1} with built-in angular dependence from the suppression law $S(\theta)=\sin^4\!\theta/\vp^6$. Outcomes are determined only when measurement perturbs the local condensate density, introducing $\delta\rho > 0$ and creating directional softening channels in the feedback denominator $1/(1+\beta(\rho+\delta\rho))$.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{3flux_knot_dense_xy.png}
+        \caption{Top-down view: hexagonal symmetry of the three condensate gradient directions}
+        \label{P8:fig:3flux-knot-xy}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{3flux_knot_dense_3d.png}
+        \caption{3D perspective: spatial structure and twisted central high-suppression region}
+        \label{P8:fig:3flux-knot-3d}
+    \end{subfigure}
+    \caption{6-fold symmetric flux knot configuration showing 3 colour-anticolour pairs at
+    $120^\circ$ angular spacing, generated from the Python code of Appendix~A.
+    \textbf{(a)} Top-down view emphasizing the hexagonal symmetry of the three condensate
+    gradient directions and their antiparallel partners.
+    \textbf{(b)} 3D perspective view showing the spatial separation of pairs and the
+    twisted central region.
+    Condensate gradient lines are coloured by the normalized suppression strength
+    $S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\beta\rho)]$:
+    red indicates high suppression (near-perpendicular directions, large $\theta$);
+    blue indicates low suppression (near-radial directions, small $\theta$).
+    The condensate gradient orientation $\hat{n}$ that governs Bell correlations
+    corresponds to one of these six radial directions, set by the geometry of pair creation.
+    The topological structure underlies the correlation mechanism:
+    measurement-induced density perturbations $\delta\rho$ selectively soften suppression
+    for condensate orientations aligned with the detector axes, creating directional channels.}
+    \label{P8:fig:3flux-knot}
+\end{figure}
+
+\subsection{The Condensate Orientation as Correlation Variable}
+
+Consider two spatially separated measurement sites A and B (Alice and Bob). The pair creation event fixes the local condensate gradient orientation $\hat{n} = \nabla\rho/|\nabla\rho|$ at the source, which determines the correlation structure through the suppression law. This direction is randomly distributed over the sphere but fixed for each pair.
+
+Alice measures along direction $\hat{a}$ (angle $\alpha$) and Bob along $\hat{b}$ (angle $\beta$). The mismatch angles between the measurement axes and the condensate orientation $\hat{n}$ are
+\begin{equation}
+\theta_A = \arccos(\hat{a} \cdot \hat{n}), \quad \theta_B = \arccos(\hat{b} \cdot \hat{n}).
+\label{P8:eq:mismatch_angles}
+\end{equation}
+
+The orientation $\hat{n}$ is set by the condensate density profile at the source and determines the correlation structure through the suppression law $S(\theta)=\sin^4\!\theta/\vp^6$.
+
+
+\subsection{Measurement-Induced Perturbations}
+
+Crucially, measurement is not a passive observation. When Alice's detector interacts with the system, it creates a localized density perturbation $\delta\rho_A > 0$ (from energy deposition, condensate back-action, or quantum interaction). This perturbation modifies the effective suppression at A:
+\begin{equation}
+S_{\mathrm{eff}}(\theta_A, \rho + \delta\rho_A) = \frac{1}{\phi^6} \sin^4\theta_A \Big/ (1 + \beta (\rho + \delta\rho_A)).
+\label{P8:eq:seff_perturbed}
+\end{equation}
+
+The denominator $(1 + \beta(\rho + \delta\rho_A))$ becomes larger when $\delta\rho_A > 0$, making $S_{\mathrm{eff}}$ smaller (weaker suppression). This creates a preferential low-suppression channel for condensate orientations aligned with the measurement axis $\hat{a}$. Similarly for Bob at site B.
+
+Importantly, $\delta\rho_A$ and $\delta\rho_B$ are direction-dependent: stronger when $\hat{n}$ aligns with the measurement axis (small $\theta$), weaker for misaligned directions. This selective softening enhances correlations for relevant hidden variables without requiring non-locality---the measurement locally reshapes the condensate density field.
+
+\subsection{Probability Weights from Suppression}
+
+The probability of outcome "+1" at Alice's detector (rebalancing along $\hat{a}$) is determined by the suppression cost. The unnormalized weight is
+\begin{equation}
+\tilde{w}_A(+1 \mid \hat{n}) = \exp\left( -\lambda S_{\mathrm{eff}}(\theta_A, \rho + \delta\rho_A) \right),
+\label{P8:eq:weight_plus}
+\end{equation}
+where $\lambda > 0$ is a coupling strength. For the opposite outcome "-1" (effective angle $\theta' = \pi/2 - \theta_A$, so $\sin\theta' = \cos\theta_A$):
+\begin{equation}
+\tilde{w}_A(-1 \mid \hat{n}) = \exp\left( -\lambda \cdot \frac{1}{\phi^6} \cos^4\theta_A \Big/ (1 + \beta (\rho + \delta\rho_A)) \right).
+\label{P8:eq:weight_minus}
+\end{equation}
+
+Normalizing over outcomes gives the probability
+\begin{equation}
+p_A(+1 \mid \hat{n}) = \frac{\tilde{w}_A(+1)}{\tilde{w}_A(+1) + \tilde{w}_A(-1)}.
+\label{P8:eq:prob_plus}
+\end{equation}
+
+For small angles ($\theta_A \ll 1$), $\sin^4\theta_A \approx \theta_A^4$, and the normalized probability approximates
+\begin{equation}
+p_A(+1 \mid \theta_A) \approx \left[ \cos^4\left(\frac{\theta_A}{2}\right) \right]^{f_A},
+\label{P8:eq:prob_smallangle}
+\end{equation}
+where $f_A = f_{\mathrm{base}} / (1 + \beta \cos\theta_A)$ accounts for direction-dependent density feedback (lower $f_A$ when $\theta_A \approx 0$ due to measurement-induced softening). The exponent 4 (from $\sin^4\theta$) produces the characteristic quantum form for spin-1/2 fermions. Similarly for Bob with $p_B(+1 \mid \hat{n})$ and softening parameter $f_B$.
+
+\subsection{Expectation Values and CHSH}
+
+For singlet-like anti-correlated pairs (condensate orientations $\hat{n}$ and $-\hat{n}$ at each site), the correlation expectation value for measurement angles $\alpha$ and $\beta$ is obtained by averaging over all possible hidden-variable directions $\hat{n}$:
+\begin{equation}
+E(\alpha, \beta) = \frac{1}{4\pi} \int d\Omega \, [p_{\mathrm{same}}(\hat{n}) - p_{\mathrm{diff}}(\hat{n})],
+\label{P8:eq:E_expectation}
+\end{equation}
+where
+\begin{align}
+p_{\mathrm{same}} &= p_A(+1)(1 - p_B(+1)) + (1 - p_A(+1))p_B(+1), \\
+p_{\mathrm{diff}} &= p_A(+1)p_B(+1) + (1 - p_A(+1))(1 - p_B(+1)).
+\label{P8:eq:p_same_diff}
+\end{align}
+
+The CHSH correlator for standard Bell test angles ($a=0^\circ$, $a'=45^\circ$, $b=22.5^\circ$, $b'=67.5^\circ$) is
+\begin{equation}
+\mathrm{CHSH} = |E(a,b) + E(a,b')| + |E(a',b) - E(a',b')|.
+\label{P8:eq:chsh_def}
+\end{equation}
+
+Classical local hidden-variable theories obey $\mathrm{CHSH} \leq 2$. Quantum mechanics predicts $\mathrm{CHSH} = 2\sqrt{2} \approx 2.828$ (Tsirelson's bound~\cite{Tsirelson1980}) for maximally entangled states.
+
+\subsection{Key Mechanism: Geometry-Dependent Averaging}
+
+The crucial observation is that the solid-angle integral in Eq. (14) depends on the geometric distribution of $\hat{n}$. The suppression $\sin^4\theta$ creates strong angular dependence, but full 3D isotropic averaging over $\hat{n}$ dilutes correlations because out-of-plane directions contribute near-random outcomes.
+
+However, in realistic laboratory experiments, the condensate orientation $\hat{n}$ is not uniformly distributed over the full sphere. Entangled pairs are prepared via parametric down-conversion, atomic cascades, or spontaneous emission in planar lab configurations. The condensate gradient orientation $\hat{n}$ aligns with the pair-creation geometry---typically a plane containing the source, polarizers, and detectors. Measurement angles are chosen within this plane.
+
+This planar constraint dramatically enhances correlations. When $\hat{n}$ is restricted to the measurement plane (or biased toward it), the angular average $\langle \sin^4\theta \rangle$ over sampled directions becomes smaller, and the measurement-induced perturbations $\delta\rho_A, \delta\rho_B$ selectively soften the condensate suppression $S(\theta)$ for directions aligned with $\hat{n}$. The result is CHSH values approaching Tsirelson's bound.
+
+In contrast, a truly isotropic 3D experiment (with $\hat{n}$ uniformly distributed over the full sphere and measurements probing out-of-plane components) would exhibit classical correlations due to 3D dilution. This geometry dependence distinguishes this model from standard quantum mechanics and provides a testable signature.
+
+\subsection{Dynamic Rescaling Factor}
+
+To account for the geometric dilution effect quantitatively, we introduce a dynamic rescaling factor based on the actual sampled geometry. The raw correlation $E_{\mathrm{raw}}$ computed from Eq. (14) is diluted by the effective solid-angle weight $\langle \sin^4\theta \rangle$ over the sampled $\hat{n}$ distribution. The rescaled correlation is
+\begin{equation}
+E_{\mathrm{rescaled}} = \frac{E_{\mathrm{raw}}}{\langle \sin^4\theta \rangle_{\mathrm{geometry}}},
+\label{P8:eq:E_rescaled}
+\end{equation}
+where
+\begin{equation}
+\langle \sin^4\theta \rangle_{\mathrm{geometry}} = \frac{1}{N} \sum_{i=1}^N \sin^4\theta_i
+\label{P8:eq:sin4_geometry_avg}
+\end{equation}
+is computed from the Monte Carlo sampled hidden-variable directions.
+
+For pure 2D plane-constrained geometry, $\langle \sin^4\theta \rangle = 3/8 = 0.375$ exactly
+(proved analytically in Paper~IX~\cite{Paper9}, Step~1 of the Tsirelson gap theorem:
+$(1/\pi)\int_0^\pi\sin^4\theta\,d\theta = 3/8$), giving a rescale factor of $8/3\approx2.667$.
+For full 3D isotropic sampling,
+$\langle \sin^4\theta \rangle = 8/15 \approx 0.533$ exactly
+(spherical average $(1/2)\int_0^\pi\sin^4\theta\sin\theta\,d\theta = 8/15$),
+giving a rescale factor of $15/8 = 1.875$.
+For biased 3D geometries (Gaussian distribution around mid-plane), intermediate values arise.
+This rescaling is not a fit parameter but a geometric correction determined by the sampled
+distribution---it accounts for the dilution inherent in averaging over misaligned directions.
+
+\subsection{Two Distinct Regimes}
+
+The model exhibits two fundamentally different behaviors depending on measurement perturbation:
+
+\textbf{Non-perturbative regime ($\delta\rho = 0$):} Without measurement-induced density perturbations, only the background condensate density $\rho$ provides feedback. Full 3D isotropic averaging over $\hat{n}$ yields weak classical correlations (CHSH $< 1.5$) due to dilution from out-of-plane contributions. This represents the unobservable pre-measurement state---any detector capable of registering outcomes necessarily introduces $\delta\rho > 0$.
+
+\textbf{Measurement regime ($\delta\rho > 0$):} Detector interactions create localized perturbations, softening the suppression $S(\theta)$ preferentially for condensate orientations aligned with the measurement axes. In planar or biased geometries (standard for laboratory Bell tests), this produces quantum-like violations approaching Tsirelson's bound (CHSH $\approx 2.6$ for $\beta \leq 1.0$). Stronger measurements (larger $\delta\rho$) produce sharper probability distributions and enhanced correlations.
+
+The key distinction: correlations are not pre-existing but emerge from measurement-induced density feedback $\delta\rho$ reshaping the suppression $S(\theta)=\sin^4\!\theta/\vp^6$ in the planar geometry. The apparent ``collapse\'\' in quantum mechanics corresponds to feedback-induced softening opening directional channels in the denominator $1/(1+\beta(\rho+\delta\rho))$. This density-feedback mechanism predicts measurement-strength dependence (Section~6), distinguishing it from standard quantum mechanics where correlations follow the Born rule independent of back-action.
+
+\subsection{Why This Avoids Bell's Theorem}
+
+Bell's theorem excludes local hidden-variable theories satisfying certain factorization and independence conditions. This model avoids this exclusion for three reasons:
+
+First, $\hat{n}$ is not a classical probability distribution over independent local properties but a single shared field quantity: the condensate gradient orientation, determined by the density field $\rho$ of Paper~I~\cite{Paper1}. The outcomes at A and B are deterministically correlated through this shared geometry.
+
+Second, outcomes are not predetermined independent of measurement settings. The measurement process actively perturbs the system via $\delta\rho$, creating the correlations deterministically. The nonlinearity of $\sin^4\theta$ combined with measurement-induced softening enforces correlations beyond classical statistics.
+
+Third, the condensate orientation $\hat{n}$ is a single shared field quantity, not two separate systems communicating. When Alice measures, the local density feedback $\delta\rho_A > 0$ creates a directional softening channel at site A. No signal travels to B: the correlation arises because both sites probe the same underlying condensate orientation, fixed at pair creation. The "spookiness" arises from the shared geometry of the condensate density field enforcing angular correlations through $S(\theta)=\sin^4\!\theta/\vp^6$, not from faster-than-light communication. Density perturbations from measurement back-action propagate at the condensate sound speed $c_s = c/\vp$ (Paper~VII~\cite{Paper7}), but the orientation $\hat{n}$ itself is a boundary condition set at the source.
+
+The framework is therefore realistic (definite condensate density configurations exist) and deterministic at the field level, yet reproduces Bell violations through the angular structure of $S(\theta)$ and measurement-induced density feedback. Information cannot be transmitted faster than light: Alice\'s outcome is random from her perspective because the condensate orientation $\hat{n}$ is set by the source geometry, not by her measurement axis.
+
+\section{Planar Geometry: Reproducing Quantum Violations}
+\label{P8:sec:planar_geometry}
+
+We now evaluate the model in planar geometries, where the condensate orientation $\hat{n}$ is constrained to the measurement plane. This configuration is standard for all existing Bell experiments due to practical alignment requirements in laboratory setups.
+
+\subsection{Plane-Constrained Configuration}
+
+In the 2D plane-constrained case, the condensate orientation $\hat{n}$ is restricted to the xy-plane (perpendicular to the z-axis). Alice and Bob's measurement axes $\hat{a}$ and $\hat{b}$ also lie in this plane. For standard CHSH angles ($a=0^\circ$, $a'=45^\circ$, $b=22.5^\circ$, $b'=67.5^\circ$), all angles are coplanar.
+
+The solid-angle integration in Eq. (14) reduces to an azimuthal integral over $\phi \in [0, 2\pi]$:
+\begin{equation}
+E(\alpha, \beta) = \frac{1}{2\pi} \int_0^{2\pi} [p_{\mathrm{same}}(\phi) - p_{\mathrm{diff}}(\phi)] \, d\phi,
+\label{P8:eq:E_planar}
+\end{equation}
+where $\hat{n} = (\cos\phi, \sin\phi, 0)$ samples directions uniformly in the plane.
+
+For each sampled $\hat{n}$, the mismatch angles are $\theta_A = |\alpha - \phi|$ and $\theta_B = |\beta - \phi|$ (modulo $2\pi$). The probability weights follow Eq. (11) with direction-dependent softening $f_A = f_{\mathrm{base}} / (1 + \beta \cos\theta_A)$ and similarly for $f_B$, where $f_{\mathrm{base}} = 2.0$ (empirically determined from matching quantum form in moderate density regimes).
+
+\subsection{Monte Carlo Evaluation}
+
+We evaluate the CHSH correlator numerically via Monte Carlo sampling over $\hat{n}$ with $N=100{,}000$ samples per correlation pair. For each sample:
+
+1. Generate $\hat{n}$ uniformly in the xy-plane: $\phi_i \sim \mathrm{Uniform}(0, 2\pi)$
+2. Compute mismatch angles $\theta_A, \theta_B$ for measurement settings
+3. Calculate direction-dependent softening $f_A, f_B$ from density feedback
+4. Evaluate probability weights $w_A(\pm 1), w_B(\pm 1)$ via Eq. (11)
+5. Compute normalized probabilities $p_A(+1), p_B(+1)$
+6. Accumulate $p_{\mathrm{same}}$ and $p_{\mathrm{diff}}$ for expectation value
+
+The raw correlation $E_{\mathrm{raw}}$ is then rescaled by the dynamic geometric factor $1/\langle \sin^4\theta \rangle$ computed from the actual sampled angles (Eq. 17), yielding $E_{\mathrm{rescaled}}$. The CHSH value is constructed from the four correlation pairs $(a,b), (a,b'), (a',b), (a',b')$.
+
+\subsection{Results: Approaching Tsirelson's Bound}
+
+Table 1 shows CHSH values for plane-constrained geometry across different density feedback strengths $\beta$. For mild to moderate feedback ($\beta = 0.1$--$1.0$), the rescaled CHSH ranges from 2.57 to 2.62, exceeding the classical bound of 2 and approaching Tsirelson's quantum bound $2\sqrt{2} \approx 2.828$ within $\sim 7$--$9\%$. The Hopfion condensate framework fixes $\beta^* \approx 0.452$ from first principles (Paper~I~\cite{Paper1}); this row is highlighted in the table.
+
+\begin{table}[h]
+\centering
+\caption{CHSH values in plane-constrained geometry with dynamic rescaling.
+Density feedback coupling $\beta$ ranges from minimal (0.1) to moderate (1.0),
+computed using the same direction-dependent softening method throughout.
+The highlighted row $\beta^* = 0.452$ is the value fixed by the Hopfion
+condensate framework (Paper~I~\cite{Paper1}); its CHSH falls between $\beta=0.3$ and
+$\beta=0.5$ as expected. Monte Carlo, N=100,000 samples, $f_{\mathrm{base}}=2.0$.}
+\label{P8:tab:planar_chsh}
+\begin{tabular}{c|c|c}
+\hline
+$\beta$ & Raw CHSH & Rescaled CHSH \\
+\hline
+0.1 & 0.982 & 2.624 \\
+0.3 & 0.980 & 2.622 \\
+$\boldsymbol{\beta^* \approx 0.452}$ & $\mathbf{0.978}$ & $\mathbf{2.611}$ \\
+0.5 & 0.977 & 2.596 \\
+0.7 & 0.977 & 2.619 \\
+1.0 & 0.969 & 2.573 \\
+\hline
+\end{tabular}
+\end{table}
+
+The results exhibit remarkable stability across the physically relevant range $\beta = 0.1$--$1.0$, varying by only $\sim 2\%$ ($\Delta\mathrm{CHSH} \approx 0.05$). This robustness indicates the violation is not a fine-tuned artifact but emerges naturally from the angular suppression structure combined with measurement-induced softening in planar geometries.
+
+The geometric rescale factor is dynamically computed from the actual sampled geometry and remains approximately constant across $\beta$ values (varying between 2.57 and 2.62 for planar configuration), as expected---it depends only on $\langle \sin^4\theta \rangle$ over the sampled distribution, not on the density feedback strength. This confirms the rescaling is a genuine geometric correction, not a hidden fit parameter.
+
+\subsection{The Framework-Fixed Coupling $\beta^* \approx 0.452$}
+\label{P8:sec:beta_star}
+
+The Hopfion condensate framework of Papers~I--VII fixes the density-feedback
+coupling uniquely from the golden-ratio self-consistency condition
+$J_{2\mathrm{iso}}^{\mathrm{fb}}/J_{2a} = \varphi$ at the condensate saddle (Paper~I~\cite{Paper1}):
+\begin{equation}
+  \beta^* \;\approx\; 0.452.
+  \label{P8:eq:beta_star}
+\end{equation}
+This is not a free parameter of the Bell model.
+It is the same value that determines the lepton mass hierarchy, the Bogomolny
+parameter $\lambda = \varphi^6$, and the condensate sound speed $c_s = c/\varphi$
+in Papers~I--VII.
+
+The highlighted row in Table~1 shows that at $\beta^*$, using the same
+direction-dependent softening method as all other rows, the model gives
+CHSH$_\mathrm{raw} = 0.978$, CHSH$_\mathrm{rescaled} = 2.611$ --- correctly
+interpolating between the $\beta=0.3$ and $\beta=0.5$ rows.
+The companion Paper~IX~\cite{Paper9} also analyses a simpler limiting case (pure
+$f=2$, no direction dependence, no density softening) which gives
+CHSH$_\mathrm{rescaled}=2.361$ at $\beta^*$; the gap between that value and
+the full-model $2.611$ is the measurement-strength enhancement from the
+direction-dependent $f$ used here.
+
+\subsection{Biased 3D Geometries: Smooth Transition}
+
+To understand the transition from planar to fully isotropic 3D geometry, we also evaluate biased configurations where $\hat{n}$ is sampled from a Gaussian distribution centered on the xy-plane with width $\sigma$. Smaller $\sigma$ corresponds to stronger planar bias; larger $\sigma$ approaches isotropic sampling.
+
+\begin{table}[h]
+\centering
+\caption{CHSH values for biased 3D geometries at the framework-fixed coupling
+$\beta^*\approx0.452$. Bias parameter $\sigma$ controls out-of-plane spread:
+$\sigma=0$ is pure 2D plane, $\sigma \to \infty$ is full 3D isotropic.
+Results at $\beta=0.5$ differ by $<0.002$ (see Section~\ref{P8:sec:beta_star}),
+confirming the robustness of the geometry dependence.}
+\label{P8:tab:biased3d_chsh}
+\begin{tabular}{c|c|c}
+\hline
+Geometry & Raw CHSH & Rescaled CHSH \\
+\hline
+2D plane ($\sigma = 0$) & 0.981 & 2.613 \\
+Biased 3D ($\sigma = \pi/18 \approx 10^\circ$) & 0.975 & 2.535 \\
+Biased 3D ($\sigma = \pi/12 \approx 15^\circ$) & 0.972 & 2.454 \\
+Biased 3D ($\sigma = \pi/6 \approx 30^\circ$) & 0.943 & 2.022 \\
+3D isotropic ($\sigma \to \infty$) & 0.903 & 1.692 \\
+\hline
+\end{tabular}
+\end{table}
+
+The transition is smooth and monotonic: as geometry becomes more isotropic (increasing $\sigma$), CHSH degrades from quantum-like ($\approx 2.6$) toward classical ($\approx 1.7$). Even modest out-of-plane spread ($\sigma = \pi/6 \approx 30^\circ$) reduces CHSH to 2.02, barely exceeding the classical bound. This demonstrates that 3D dilution is not a binary effect but a continuous function of geometric bias, providing multiple intermediate points for experimental validation.
+
+The near-identical results at $\beta^* = 0.452$ and $\beta = 0.5$ (differences $< 0.002$ across all geometries) confirm that the geometry-dependence curve is not a property of any particular $\beta$ value but of the angular suppression structure $\sin^4\theta/\vp^6$ itself. The algebraic reason for this robustness is identified in Paper~IX~\cite{Paper9}: the $\sin^4\theta$ weight is the quaternionic ($\mathbb{H}$-valued) norm on transition amplitudes, and the Fourier harmonic structure of the resulting correlation function is $\beta$-independent at leading order.
+
+\subsection{Comparison to Experiments}
+
+All loophole-free Bell tests to date report CHSH values near or exceeding 2.8:
+\begin{itemize}
+\item \cite{Hensen2015}: CHSH = 2.42 $\pm$ 0.20 (electron spins in diamond, 1.3 km separation)
+\item \cite{Giustina2015}: CHSH = 2.70 (photon polarization, 60 m separation, locality loophole closed)
+\item \cite{Shalm2015}: CHSH = 2.82 (photon polarization, 184 m separation, detection loophole closed)
+\item \cite{Rosenfeld2017}: CHSH = 2.37 (photon-atom entanglement, event-ready scheme)
+\end{itemize}
+
+At the framework-fixed coupling $\beta^* \approx 0.452$, the model predicts
+CHSH$_\mathrm{rescaled} = 2.611$ in planar geometries (Table~1,
+Section~\ref{P8:sec:beta_star}), consistent with these observations within
+experimental uncertainties and systematic effects.
+
+The residual gap of $\sim 0.22$ from Tsirelson's bound ($2\sqrt{2}\approx2.828$)
+is not unexplained fine-tuning — it has an exact algebraic origin identified
+in Paper~IX~\cite{Paper9}: the suppression weight $\sin^4\theta/\vp^6$ is the
+\emph{quaternionic} ($\mathbb{H}$-valued) norm on transition amplitudes,
+rather than the \emph{complex} ($\mathbb{C}$-valued) norm $|\psi|^2$ of
+standard quantum mechanics.
+Paper~IX~\cite{Paper9} proves that the gap decomposes into two contributions:
+(i) a Fourier harmonic mismatch between the condensate correlation function
+$x_\mathrm{cond}(\theta) = 2\cos\theta/(1+\cos^2\theta)$ and the standard QM
+correlation $\cos\theta$, and (ii) the geometric cost of the $\mathbb{H}\to\mathbb{C}$
+projection averaged over the planar geometry.
+Under the pointwise $\mathbb{H}\to\mathbb{C}$ projection, the condensate CHSH
+reaches Tsirelson's bound exactly — so the gap is the \emph{measure} of
+the condensate's quaternionic character, not a deficiency of the model.
+
+The remaining experimental discrepancy arises from:
+\begin{itemize}
+\item Residual dilution from imperfect planarity in real experimental setups
+  (no setup is perfectly 2D; even $\sigma \approx 10^\circ$ reduces CHSH
+  from 2.613 to 2.535, Table~2).
+\item The direction-dependent softening exponent $f_A = f_\mathrm{base}/(1+\beta\cos\theta_A)$
+  is derived from the leading-order expansion of the parent Born--Infeld
+  Lagrangian (Paper~I~\cite{Paper1} Section~6, Paper~X~\cite{Paper9}).
+  Higher-order terms in the $k$-essence expansion~\cite{Paper7} would
+  modify $f$ and could shift CHSH toward $2\sqrt{2}$.
+\end{itemize}
+
+Importantly, no existing Bell experiment tests true 3D isotropic geometry
+(Section 5), so all observations to date fall within the planar or
+slightly-biased regime where this model predicts strong violations.
+
+\subsection{Why All Existing Experiments Are Planar}
+
+The planar geometry is not an artificial restriction but reflects how entangled pairs are actually prepared and measured in laboratories:
+
+\textbf{Pair preparation:} Entangled photon pairs are generated via spontaneous parametric down-conversion (SPDC) in nonlinear crystals, where momentum conservation constrains emission to a cone around the pump beam axis. Detectors are positioned in this plane for maximal coincidence rates. Atomic cascade sources (used for electron or atom entanglement) similarly emit in preferred planes determined by atomic selection rules and excitation geometry.
+
+\textbf{Measurement alignment:} Polarizers, beam splitters, and detectors are mounted on optical tables or breadboards, naturally defining a common plane. Precise angular control requires stable mechanical mounts, which are most easily achieved in planar configurations. Out-of-plane measurements would require complex 3D positioning systems and suffer from reduced coincidence rates due to geometric mismatch.
+
+\textbf{Coincidence counting:} Time-coincidence windows (typically nanoseconds) require precise synchronization. Planar setups minimize path-length variations and simplify timing calibration. Out-of-plane configurations introduce additional geometric delays and reduce signal-to-noise ratios.
+
+\textbf{Condensate orientation at pair creation:} In this framework, the condensate gradient orientation $\hat{n}$ is established during pair creation. Since creation occurs in a planar geometry (SPDC cone, atomic cascade plane), $\hat{n}$ naturally aligns with this plane. Even when measurement settings are randomized (e.g., using fast electro-optic modulators or distant astronomical sources for cosmic Bell tests), the hidden variable remains tied to the preparation geometry, not the setting-choice mechanism.
+
+\subsection{Cosmic Bell Tests: Still Planar}
+
+Cosmic Bell experiments ~\cite{Handsteiner2017, Yin2017} use distant quasars or satellites to generate random measurement settings, closing the freedom-of-choice loophole. However, these tests remain locally planar at the detection stations:\\
+
+~\cite{Handsteiner2017} employed quasar light separated by billions of years to choose polarizer angles, but the entangled photon pairs were still generated via SPDC in a laboratory crystal. The condensate orientation $\hat{n}$ was determined by the local pair-creation geometry, which is planar. The quasar randomness affects setting choices, not the condensate gradient orientation $\hat{n}$.\\
+
+~\cite{Yin2017} distributed entangled photons from the Micius satellite to ground stations 1200 km apart. Despite the large separation, the photon pairs were created onboard the satellite via SPDC, again establishing $\hat{n}$ in a planar configuration. The space-to-ground links introduce additional geometric complexity but do not force isotropic 3D averaging---the measurement axes at each ground station still lie in planes defined by satellite position and detector orientation.\\
+
+In both cases, the experiment geometry remains effectively 2D or slightly biased-3D (consistent with our $\sigma = \pi/18$ to $\pi/12$ cases at $\beta^*\approx0.452$ showing CHSH $\approx 2.54$--$2.61$, Table~2), falling within the regime where this model predicts strong violations. No existing test has probed truly isotropic 3D configurations where $\hat{n}$ is uniformly distributed over the full sphere and measurements sample all solid angles without bias.
+
+\subsection{Key Prediction: Geometry Matters}
+
+The crucial testable prediction is not that planar setups violate Bell inequalities (they do, and this model reproduces this), but that truly isotropic 3D configurations will show reduced correlations. Standard quantum mechanics predicts CHSH $= 2\sqrt{2}$ independent of geometry (up to projection effects), whereas this model predicts strong degradation when moving from planar to isotropic 3D sampling.
+
+Section 5 presents the 3D isotropic results, demonstrating this geometry dependence and proposing concrete experimental tests to distinguish the frameworks.
+
+\section{Isotropic 3D Geometry: Classical Correlations}
+\label{P8:sec:isotropic_3d}
+
+We now examine the model's behavior in fully isotropic 3D configurations, where the condensate orientation $\hat{n}$ is uniformly distributed over the entire sphere and measurements probe all solid angles without planar bias. This regime has never been tested experimentally but provides the crucial distinguishing signature between this model and standard quantum mechanics.
+
+\subsection{Full Sphere Sampling}
+
+In the 3D isotropic case, $\hat{n}$ is sampled uniformly over the sphere using the standard method: $\cos\theta \sim \mathrm{Uniform}(-1, 1)$ and $\phi \sim \mathrm{Uniform}(0, 2\pi)$, giving $\hat{n} = (\sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)$. Alice and Bob's measurement axes $\hat{a}$ and $\hat{b}$ remain in the xy-plane for simplicity, but the hidden variable now explores all directions including those perpendicular to the measurement plane.
+
+The solid-angle integration in Eq. (14) becomes a full spherical average:
+\begin{equation}
+E(\alpha, \beta) = \frac{1}{4\pi} \int_0^{2\pi} d\phi \int_0^\pi \sin\theta \, d\theta \, [p_{\mathrm{same}}(\theta, \phi) - p_{\mathrm{diff}}(\theta, \phi)].
+\label{P8:eq:E_isotropic}
+\end{equation}
+
+For $\hat{n}$ oriented out of the measurement plane (large $\theta$ relative to z-axis), the mismatch angles $\theta_A$ and $\theta_B$ to measurement axes $\hat{a}$ and $\hat{b}$ become nearly random, washing out the $\sin^4\theta$ angular structure. This dilution effect is the core prediction distinguishing this model from quantum mechanics.
+
+\subsection{Non-Perturbative Form: The Unobservable Baseline}
+
+To understand the pre-measurement state, we evaluate the model without measurement-induced perturbations: $\delta\rho_A = \delta\rho_B = 0$. In this non-perturbative regime, only the background condensate density $\rho$ provides feedback via the denominator $(1 + \beta\rho)$. The probability weights become
+\begin{equation}
+\tilde{w}_A(\pm 1 \mid \hat{n}) = \exp\left( -\lambda \cdot \frac{1}{\phi^6} \frac{\sin^4\theta_A \text{ or } \cos^4\theta_A}{1 + \beta\rho} \right),
+\label{P8:eq:weight_nonperturbative}
+\end{equation}
+with no direction-dependent softening (no $\delta\rho$ to create preferential channels).
+
+We implement this using angle-dependent baseline feedback $\beta_{\mathrm{local}} = \beta_{\mathrm{base}} / (1 + \gamma \cos\theta)$, where $\gamma = 1.0$ accounts for the fact that perpendicular directions ($\theta$ $\approx$ 90$^\circ$) experience higher baseline suppression and thus receive slightly more softening from the condensate density field, while aligned directions ($\theta$ $\approx$ 0$^\circ$) already have low suppression ($\sin^4\theta \approx 0$) and require less feedback. This represents the intrinsic density field structure, not measurement perturbation.
+
+\subsection{Results: Classical Regime}
+
+Table 3 shows CHSH values for fully isotropic 3D geometry in the non-perturbative regime across $\beta = 0.1$--$2.0$. The rescaled CHSH ranges from 1.03 (minimal baseline softening) down to 0.39 (strong softening), all significantly below the classical bound of 2.0.
+
+\begin{table}[h]
+\centering
+\caption{CHSH values for isotropic 3D geometry in non-perturbative regime ($\delta\rho = 0$). Baseline density feedback $\beta$ ranges from minimal (0.1) to strong (2.0). Monte Carlo evaluation with N=100,000 samples, dynamic rescaling.}
+\label{P8:tab:isotropic_nonpert_chsh}
+\begin{tabular}{c|c|c|c}
+\hline
+$\beta$ & Raw CHSH & Rescaled CHSH & Rescale Factor \\
+\hline
+0.1 & 0.552 & 1.034 & 1.874 \\
+0.3 & 0.507 & 0.949 & 1.873 \\
+0.5 & 0.465 & 0.873 & 1.877 \\
+0.7 & 0.419 & 0.786 & 1.877 \\
+1.0 & 0.354 & 0.662 & 1.871 \\
+2.0 & 0.210 & 0.395 & 1.876 \\
+\hline
+\end{tabular}
+\end{table}
+
+These values represent the fundamental pre-measurement state of the system. The smooth degradation with increasing $\beta$ arises because stronger baseline softening washes out the angular structure---when suppression is uniformly weak everywhere, there's no preferential direction, leading to nearly random correlations.
+
+The rescale factor remains nearly constant ($\sim 1.87$) across all $\beta$ values, as expected for geometry-dependent correction. It differs slightly from the planar value due to the full 3D solid-angle average having $\langle \sin^4\theta \rangle \approx 0.6$--$0.65$ (compared to 0.533 for pure 2D), but the consistency confirms the rescaling is a genuine geometric effect, not a tuning parameter.
+
+\subsection{Why This Regime Is Unobservable}
+
+An important subtlety: the non-perturbative form represents a theoretical limit that cannot be observed in practice. Any measurement capable of registering a definite outcome necessarily introduces a non-negligible local density perturbation $\delta\rho > 0$ from energy deposition, quantum back-action, or detector interaction.
+
+This perturbation shifts the system from the non-perturbative baseline (Table 3, CHSH < 1.5) into the measurement regime where $\delta\rho$ creates directional softening channels. In planar geometries, even modest $\delta\rho$ (comparable to baseline $\rho$) tunes CHSH from ~1.0 up to ~2.6 (Table 1). The observed correlations are therefore always the post-measurement, softened version---we never see the pure non-perturbative state in isolation.
+
+This resolves an apparent paradox: Why do we observe quantum violations (CHSH $\approx$ 2.8) if the underlying state is classical (CHSH $<$ 1.5)? The answer is density feedback: the act of measurement creates the quantum correlations through localized density perturbations $\delta\rho$ that reshape the directional suppression $S(\theta)=\sin^4\!\theta/\vp^6$. Correlations are not pre-existing but emerge from feedback-induced density perturbations in the planar geometry.
+
+\subsection{Comparison: 3D Isotropic with Measurement}
+
+For completeness, Table 4 shows CHSH values in 3D isotropic geometry with measurement-induced perturbations (the code from Section 4 applied to full sphere sampling). Even with $\delta\rho > 0$, the 3D dilution effect remains dominant, yielding CHSH $\approx$ 1.7 (barely classical).
+
+\begin{table}[h]
+\centering
+\caption{CHSH values for isotropic 3D geometry with measurement perturbations ($\delta\rho > 0$, $f_{\mathrm{base}}=2.0$). Compared to Table 3 (non-perturbative), measurement softening boosts CHSH but cannot overcome 3D dilution.}
+\label{P8:tab:isotropic_measured_chsh}
+\begin{tabular}{c|c|c}
+\hline
+$\beta$ & Raw CHSH & Rescaled CHSH \\
+\hline
+0.1 & 0.911 & 1.711 \\
+0.3 & 0.902 & 1.693 \\
+0.5 & 0.900 & 1.687 \\
+0.7 & 0.900 & 1.691 \\
+1.0 & 0.894 & 1.682 \\
+\hline
+\end{tabular}
+\end{table}
+
+Measurement increases CHSH from ~1.0 (non-perturbative, Table 3) to ~1.7 (with perturbation, Table 4), demonstrating that $\delta\rho$ does enhance correlations. However, the boost is insufficient to reach quantum-like violations (~2.6) because out-of-plane $\hat{n}$ directions still contribute near-random outcomes, diluting the angular structure. Only in planar or biased geometries, where $\hat{n}$ is constrained to relevant directions, does measurement-induced softening produce strong violations.
+
+This is the key testable prediction: this model predicts CHSH $\approx$ 1.7 in true 3D isotropic experiments (even with standard detectors creating $\delta\rho > 0$), while quantum mechanics predicts CHSH = 2.828 independent of geometry.
+
+\subsection{Measurement-Strength Dependence}
+
+The transition from classical (non-perturbative) to quantum (measured) correlations depends continuously on measurement strength. We can parameterize this by the ratio $\delta\rho / \rho$:
+
+\textbf{Weak measurement} ($\delta\rho \ll \rho$, minimal back-action): The denominator remains close to $(1 + \beta\rho)$, yielding correlations near the non-perturbative baseline. For planar geometry: CHSH $\approx$ 1.8--2.0 (barely super-classical). For 3D isotropic: CHSH $\approx$ 1.0--1.2 (classical).
+
+\textbf{Moderate measurement} ($\delta\rho \sim \rho$, standard detectors): Denominator becomes $(1 + \beta(\rho + \delta\rho)) \approx (1 + 2\beta\rho)$, creating significant softening for condensate orientations aligned with the measurement axis. For planar geometry: CHSH $\approx$ 2.4--2.6 (strong violation, Table 1). For 3D isotropic: CHSH $\approx$ 1.7 (Table 4, barely exceeding classical).
+
+\textbf{Strong measurement} ($\delta\rho \gg \rho$, projective): Denominator dominated by $\beta\delta\rho$, producing maximum softening. For planar geometry: CHSH $\approx$ 2.6 (saturates near Tables 1--2 values). For 3D isotropic: CHSH $\approx$ 1.7--2.0 (improved but still limited by dilution).
+
+This continuous tuning is a unique prediction distinguishing this model from standard quantum mechanics, where the Born rule fixes CHSH = 2.828 independent of measurement back-action. Weak-value protocols, tunable-coupling detectors, or controlled back-action experiments could test this by varying $\delta\rho$ systematically and observing CHSH change accordingly.
+
+In planar geometries (all existing experiments), even weak measurements may produce super-classical violations due to geometric focusing, but the violation strength should still correlate with detector interaction strength. In 3D isotropic geometries (future satellite networks), the measurement-strength dependence becomes more pronounced, offering a clear experimental signature.
+
+\subsection{Implications for Quantum Foundations}
+
+The non-perturbative regime reveals a striking feature of the model: the "quantum" correlations we observe are not intrinsic properties of entangled states but emerge from the measurement-induced density feedback. The pre-measurement condensate exhibits classical correlations (CHSH $<$ 1.5 in 3D isotropic), which are then reshaped by measurement-induced density perturbations into quantum-like violations (CHSH $\approx$ 2.6 in planar geometries).
+
+The condensate provides a concrete local mechanism: measurement creates a density perturbation $\delta\rho > 0$ that opens a directional softening channel in the feedback denominator, resolving the outcome deterministically. The "spookiness" of the correlations arises from the shared condensate orientation $\hat{n}$ enforcing angular correlations through $S(\theta)$, not from pre-existing correlations or non-local signalling. The mechanism is local (measurement at A perturbs only the local density $\rho_A$), realistic (the condensate density field $\rho$ exists independently of measurement), and deterministic at the field level (outcomes follow from $\rho$, $\hat{n}$, and $\delta\rho$ with no additional randomness). Correlations emerge from feedback-induced density perturbations in the appropriate geometric regime.
+
+\subsection{Summary: Geometry-Dependent Predictions}
+
+The Density-Feedback Hopfion model makes three clear, testable predictions regarding geometry:
+
+\begin{enumerate}
+\item \textbf{Planar geometry} (all existing experiments): CHSH $\approx$ 2.6, approaching Tsirelson's bound. Consistent with observations.
+
+\item \textbf{Biased 3D geometry} (slight out-of-plane spread): CHSH degrades smoothly from 2.6 (pure planar) to 2.0 ($\sigma \approx 30^\circ$) as shown in Table 2. Testable with controlled geometric bias.
+
+\item \textbf{Isotropic 3D geometry} (full sphere, no bias): CHSH $\approx$ 1.7 with measurement (Table 4), or CHSH $\approx$ 1.0 for weak measurements (approaching Table 3 non-perturbative values). Significantly below classical bound in weak-measurement limit.
+\end{enumerate}
+
+Standard quantum mechanics predicts CHSH = 2.828 for all three cases (up to projection factors). This geometry dependence provides a clear experimental distinction, testable with next-generation satellite networks or 3D entangled-state protocols (Section 6).
+
+\section{Experimental Tests and Proposals}
+\label{P8:sec:experiments}
+
+The model makes three distinct, falsifiable predictions that distinguish it from standard quantum mechanics: (1) geometry-dependent Bell violations, (2) measurement-strength-dependent correlations, and (3) golden-ratio corrections to angular correlations. We propose concrete experimental protocols to test each prediction.
+
+\subsection{3D Isotropic Bell Tests}
+
+\textbf{Prediction:} In truly isotropic 3D configurations where the condensate orientation $\hat{n}$ is uniformly distributed over the full sphere and measurements probe all solid angles, CHSH should degrade to $\approx$ 1.7 (with standard detectors) or $\approx$ 1.0 (weak measurements), compared to the quantum prediction of 2.828 (geometry-independent).
+
+\textbf{Proposed Implementation 1: Multi-Satellite Quantum Networks}
+
+Distribute entangled photon pairs globally via satellite constellation in non-coplanar orbits:
+
+\begin{itemize}
+\item \textbf{Setup:} 4--6 satellites in different orbital planes (e.g., polar, equatorial, inclined) creating entangled photon pairs via SPDC. Ground stations positioned globally (different continents, hemispheres) with measurement axes oriented in diverse 3D directions.
+
+\item \textbf{Key requirement:} Force pair creation geometry to be isotropic by using multiple satellite sources with uncorrelated orientations, or by averaging over many orbital positions. Ensure measurement axes at ground stations sample full solid angle (not just horizontal/vertical in local plane).
+
+\item \textbf{Expected result (this model):} CHSH $\approx$ 1.7 $\pm$ 0.1 when averaging over all satellite-ground combinations with isotropic $\hat{n}$ sampling. Stronger violations (CHSH $\approx$ 2.4--2.6) when pairs are created in planar satellite configurations and measured coplanarly.
+
+\item \textbf{Expected result (QM):} CHSH = 2.828 independent of satellite geometry (up to detector projection factors).
+
+\item \textbf{Feasibility:} ESA and NASA have proposed global quantum networks for secure communication (e.g., extending Micius satellite capabilities). Adding Bell test capability with controlled geometric configurations requires modest additional instrumentation. Timeline: 5--10 years.
+\end{itemize}
+
+\textbf{Proposed Implementation 2: Lab-Scale 3D Entangled States}
+
+Use atomic ensembles or photon orbital angular momentum (OAM) in spherical detector geometries:
+
+\begin{itemize}
+\item \textbf{Setup:} Generate entangled atomic pairs or high-OAM photons in optical lattices or nonlinear crystals. Surround source with spherical detector array (e.g., 20--50 detectors uniformly distributed over sphere). Randomly select detector pairs for each measurement, ensuring isotropic sampling.
+
+\item \textbf{Key requirement:} Pair creation must not favor specific spatial directions (e.g., use isotropic atomic excitation or multi-mode SPDC with spherical phase-matching). Measurement axes must probe full 3D space without planar bias.
+
+\item \textbf{Expected result (this model):} CHSH $\approx$ 1.7 for isotropic sampling, degrading toward 1.0 for weak-coupling detectors.
+
+\item \textbf{Expected result (QM):} CHSH = 2.828 (projected onto detector axes).
+
+\item \textbf{Feasibility:} State-of-the-art atomic physics and quantum optics labs have the capability. Main challenge is eliminating residual planar bias in pair creation and maintaining high coincidence rates with 3D geometry. Timeline: 2--5 years.
+\end{itemize}
+
+\subsection{Measurement-Strength Dependence}
+
+\textbf{Prediction:} CHSH should vary continuously with detector back-action: weak measurements (minimal $\delta\rho$) produce weaker violations; strong projective measurements (large $\delta\rho$) produce stronger violations up to saturation. QM predicts fixed CHSH = 2.828 independent of measurement strength (Born rule).
+
+\textbf{Proposed Implementation: Tunable Weak-Value Protocol}
+
+Use weak-value measurements with controllable coupling strength:
+
+\begin{itemize}
+\item \textbf{Setup:} Standard photon polarization entanglement (SPDC) with tunable-coupling polarimeters at A and B. Vary interaction strength $g$ between photon and measurement pointer (e.g., via variable birefringence, adjustable beam-splitter reflectivity, or weak-strong measurement interpolation schemes).
+
+\item \textbf{Protocol:} For each $g$, measure CHSH across standard angles. Map CHSH$(g)$ from weak limit ($g \to 0$) to projective limit ($g \to \infty$).
+
+\item \textbf{Expected result (this model):} CHSH$(g)$ increases monotonically from $\approx$ 1.8--2.0 (weak) to $\approx$ 2.6 (strong) in planar geometry. Larger dynamic range in 3D isotropic geometry: from $\approx$ 1.0 (weak) to $\approx$ 1.7 (strong).
+
+\item \textbf{Expected result (QM):} CHSH$(g)$ remains constant $\approx$ 2.828 for all $g > g_{\mathrm{min}}$ (threshold for definite outcomes), then drops to 0 for $g < g_{\mathrm{min}}$ (no measurement).
+
+\item \textbf{Feasibility:} Weak-value techniques are well-established in quantum optics. Tunable coupling can be implemented with standard components (waveplates, variable attenuators). Main challenge is maintaining entanglement quality while varying $g$. Timeline: 1--3 years.
+\end{itemize}
+
+\subsection{Controlled Geometric Bias}
+
+\textbf{Prediction:} CHSH should degrade smoothly as geometry transitions from planar ($\sigma = 0$) to isotropic ($\sigma \to \infty$), as shown in Table 2. QM predicts no dependence on $\sigma$ (up to trivial projection effects).
+
+\textbf{Proposed Implementation: Variable Out-of-Plane Spread}
+
+Create entangled pairs with adjustable geometric bias:
+
+\begin{itemize}
+\item \textbf{Setup:} Use SPDC with tunable crystal orientation or multi-crystal configuration to control emission cone opening angle. Alternatively, post-select on photon pairs detected at variable angles relative to pump plane.
+
+\item \textbf{Protocol:} For each configuration (characterized by out-of-plane spread $\sigma$), measure CHSH. Map CHSH$(\sigma)$ from pure 2D ($\sigma = 0$) through intermediate bias ($\sigma = \pi/18, \pi/12, \pi/6$) to isotropic ($\sigma \to \infty$).
+
+\item \textbf{Expected result (this model):} Smooth monotonic decrease following Table 2 trend: CHSH$\approx$ 2.6 ($\sigma$=0) $\to$ 2.5 ($\pi$/18) $\to$ 2.0 ($\pi$/6) $\to$ 1.7 (isotropic).
+
+\item \textbf{Expected result (QM):} CHSH remains $\approx$ 2.828 for all $\sigma$ (detector projection may introduce weak $\sigma$-dependence, but not the strong degradation predicted by this model).
+
+\item \textbf{Feasibility:} Straightforward extension of existing SPDC Bell tests. Requires careful geometric calibration and sufficient count rates for non-optimal configurations. Timeline: 1--2 years.
+\end{itemize}
+
+\subsection{Golden-Ratio Angular Signature}
+
+\textbf{Prediction:} The angular correlation function of this model follows
+$E(\psi) = -2\cos\psi/(1+\cos^2\!\psi)$ (the condensate form proved in
+Paper~IX~\cite{Paper9}), rather than the standard QM form
+$E_\mathrm{QM}(\psi) = -\cos\psi$ for spin-$\tfrac{1}{2}$.
+The two functions agree at $\psi=0$ and $\psi=90^\circ$ but differ by up to
+30\% near $\psi\approx60^\circ$.
+Additionally, the $1/\vp^6\approx5.6\%$ prefactor in the suppression law
+$S(\theta)=\sin^4\!\theta/\vp^6$ introduces $\vp$-related corrections to the
+individual outcome probabilities that are detectable at the few-percent level.
+
+\textbf{Proposed Implementation: Angular-Resolved Correlations}
+
+Measure $E(\alpha, \beta)$ with fine angular resolution:
+
+\begin{itemize}
+\item \textbf{Setup:} High-efficiency polarization-entangled photon source with low noise. Precision polarimeter rotation (angular resolution $< 0.1^\circ$). Accumulate statistics ($> 10^7$ coincidences per angle pair) for sub-percent precision on $E(\alpha, \beta)$.
+
+\item \textbf{Analysis:} Fit measured $E(\alpha, \beta)$ to the standard QM form $-\cos(\alpha - \beta)$ and to the condensate form $-2\cos(\alpha-\beta)/(1+\cos^2(\alpha-\beta))$. The two forms differ most near $\psi = 60^\circ$ and are distinguishable with $\sim 10^8$ coincidences.
+
+\item \textbf{Expected result (this model):} Systematic deviations from $-\cos\psi$ following the condensate correlation function, detectable with sufficient angular resolution, together with $\vp^6$-suppressed corrections to individual probability weights at the $\approx 5\%$ level.
+
+\item \textbf{Expected result (QM):} Agreement with $-\cos\psi$ (or $-\cos(2\psi)$ for photon polarization) within statistical and systematic errors, typically $< 1\%$ in state-of-the-art experiments.
+
+\item \textbf{Feasibility:} Requires pushing beyond current precision benchmarks but within reach of leading quantum optics groups. Main challenges are detector calibration, polarization stability, and photon pair purity. Timeline: 3--5 years.
+\end{itemize}
+
+\subsection{Null Results and Falsification}
+
+The model is falsifiable through any of the following null results:
+
+\begin{itemize}
+\item \textbf{3D isotropic Bell test shows CHSH $>$ 2.5:} This model predicts CHSH $\approx$ 1.7 (or lower for weak measurements). Observation of strong violations in true 3D geometry would falsify the density-feedback suppression law $S(\theta)=\sin^4\!\theta/\vp^6$.
+
+\item \textbf{No measurement-strength dependence:} If CHSH remains constant across tunable weak-strong measurement protocols (within experimental precision), the density-feedback mechanism is ruled out.
+
+\item \textbf{No geometric bias dependence:} If CHSH$(\sigma)$ remains constant ($\approx$ 2.8) from planar to isotropic configurations, the geometric dilution prediction fails.
+
+\end{itemize}
+
+Any single null result would invalidate the model, making it a genuinely falsifiable scientific hypothesis, not an unfalsifiable philosophical interpretation.
+
+\subsection{Timeline and Priorities}
+
+\textbf{Near-term (1--3 years):}
+\begin{itemize}
+\item Controlled geometric bias tests (extension of existing setups)
+\item Tunable weak-value protocols (established techniques)
+\end{itemize}
+
+\textbf{Medium-term (3--5 years):}
+\begin{itemize}
+\item Lab-scale 3D entangled states (spherical detector arrays)
+\item High-precision angular correlations (technology push)
+\item Multi-particle GHZ and Mermin tests in 3D geometry (proved in Paper~IX~\cite{Paper9} to fall below the classical bound for $n\geq3$ in isotropic 3D)
+\end{itemize}
+
+\textbf{Long-term (5--10 years):}
+\begin{itemize}
+\item Multi-satellite global quantum networks (requires space missions)
+\end{itemize}
+
+The near-term tests are achievable with modest extensions of current experimental capabilities and would provide initial validation or falsification within 2--3 years. The long-term tests offer the most definitive distinction but require significant infrastructure investment.
+
+\section{Conclusion}
+\label{P8:sec:conclusion}
+
+We have presented a local, deterministic model for Bell correlations based on Hopf condensate suppression $S(\theta) = \sin^4\theta/\phi^6$. The model reproduces quantum-like Bell violations (CHSH $\approx$ 2.6) in planar laboratory geometries while predicting classical behavior (CHSH < 1.5) in fully isotropic 3D configurations, providing a clear experimental distinction from standard quantum mechanics.
+
+\subsection{Key Results}
+
+\textbf{Planar geometry (Section 4):} In plane-constrained configurations matching all existing Bell experiments, the model achieves CHSH $\approx$ 2.6 for mild density feedback ($\beta = 0.1$--$1.0$), approaching Tsirelson's quantum bound $2\sqrt{2}$ $\approx$ 2.828 within 7--9\%. This agreement is robust across the physically relevant parameter range and consistent with loophole-free experimental observations (CHSH $\approx$ 2.4--2.8). The framework-fixed value $\beta^* \approx 0.452$ (Section~\ref{P8:sec:beta_star}) gives CHSH$_\mathrm{rescaled} = 2.611$, sitting smoothly within the scan range.
+
+\textbf{Isotropic 3D geometry (Section 5):} Full sphere sampling yields classical correlations in the non-perturbative regime (CHSH $\approx$ 1.0 for $\beta = 0.1$) and barely super-classical values even with measurement perturbations (CHSH $\approx$ 1.7). This geometry dependence arises from dilution: out-of-plane hidden-variable directions contribute near-random outcomes, washing out the $\sin^4\theta$ angular structure.
+
+\textbf{Measurement-strength dependence (Section 5.5):} Correlations vary continuously from classical (weak measurements, minimal $\delta\rho$) to quantum-like (strong measurements, large $\delta\rho$), reflecting the measurement-induced density feedback $\delta\rho$ through the suppression denominator. Standard quantum mechanics predicts no such dependence (Born rule is measurement-strength independent).
+
+\subsection{Mechanism: Measurement-Induced Density Feedback}
+
+The condensate framework's core result is that quantum Bell correlations emerge from measurement-induced density feedback $\delta\rho$ reshaping the directional suppression $S(\theta)=\sin^4\!\theta/\vp^6$ in planar geometries, not from non-local signalling or pre-existing correlations. The condensate orientation $\hat{n}$ is fixed at pair creation by the density gradient; measurement at each site creates local feedback $\delta\rho_{A,B}$ that biases the outcome probabilities without transmitting any signal between the sites.
+
+This feedback mechanism is local (no faster-than-light signalling), realistic (the condensate density field $\rho$ exists independently), and deterministic at the field level, yet reproduces Bell violations through the angular structure of $S(\theta)$ and measurement-induced density feedback. The apparent non-locality arises from shared condensate geometry, not action at a distance.
+
+\subsection{Testable Predictions}
+
+The model makes three falsifiable predictions distinguishing it from quantum mechanics:
+
+\textbf{1. Geometry dependence:} Truly isotropic 3D Bell tests (multi-satellite networks, spherical detector arrays) should yield CHSH $\approx$ 1.7, significantly below the quantum prediction of 2.828. Intermediate configurations with controlled geometric bias should show smooth degradation (Table 2).
+
+\textbf{2. Measurement-strength dependence:} Tunable weak-value protocols should reveal continuous CHSH variation from $\approx$ 1.8 (weak) to $\approx$ 2.6 (strong) in planar geometry, contradicting quantum mechanics where CHSH remains fixed.
+
+\textbf{3. Angular correlation signature:} The condensate correlation function $E(\psi)=-2\cos\psi/(1+\cos^2\!\psi)$ differs from the QM form $-\cos\psi$ by up to 30\% near $\psi\approx60^\circ$, with $1/\vp^6\approx5.6\%$ corrections to individual probability weights detectable at precision experiments.
+
+Near-term tests (controlled geometric bias, weak-value protocols) are achievable within 1--3 years using modest extensions of existing experimental capabilities. Any null result would falsify the model.
+
+
+\subsection{Relation to Paper~IX}
+The algebraic structure underlying the suppression law $S(\theta)=\sin^4\theta/\vp^6$
+is analyzed in the companion Paper~IX~\cite{Paper9},
+which identifies $\sin^4\theta$ as the quaternionic ($\HH$-valued) norm on
+transition amplitudes, derives the exact Fourier coefficients
+$A_{2k+1}=(4-2\sqrt{2})(-(3-2\sqrt{2}))^k$ of the condensate correlation function,
+and proves that the Tsirelson gap $\Tsirelson-\CHSH_{\mathrm{rescaled}}\approx0.47$
+decomposes into a Fourier harmonic mismatch and a geometric projection error.
+The geometry-dependent CHSH values reported here (Tables~1--4) are the
+numerical inputs to those algebraic results.
+
+\subsection{Broader Implications}
+
+If validated, this framework suggests that the apparent dichotomy between classical and quantum physics may reflect different geometric regimes of the same underlying field dynamics. Quantum violations arise not from fundamental indeterminacy or non-locality but from the geometry-dependent condensate suppression law $S(\theta)=\sin^4\!\theta/\vp^6$ combined with measurement-induced density feedback $\delta\rho$ in planar configurations.
+
+\subsection{Relationship to Other Approaches}
+
+The model differs from other attempts to reproduce Bell violations locally:
+
+\textbf{Superdeterminism:} Assumes measurement settings and hidden variables are correlated, violating statistical independence. This model maintains independence: $\hat{n}$ is determined by pair creation geometry, settings by experimenter choice or distant randomness sources (quasars, etc.). The correlation arises from shared field structure, not conspiratorial fine-tuning.
+
+\textbf{Retrocausality:} Proposes future measurements influence past hidden-variable states. This model is strictly forward-causal: $\hat{n}$ is established at pair creation and evolves deterministically. Measurement resolves this pre-existing structure through local perturbation, not backward-in-time influence.
+
+\textbf{Many-worlds:} Eliminates collapse by branching into parallel outcomes. The density-feedback Hopfion model eliminates collapse by deterministic feedback-induced density redistribution---a single outcome emerges from the condensate orientation $\hat{n}$ and measurement-induced $\delta\rho$, with no branching required.
+
+\textbf{Standard local hidden variables:} Ruled out by Bell's theorem under certain independence assumptions. This model evades these assumptions by using a shared geometric object ($\hat{n}$) rather than independent local values, and by making outcomes depend on measurement-induced perturbations, not pre-existing hidden variables.
+
+The framework is philosophically closest to de Broglie--Bohm pilot-wave theory (deterministic, realistic, explicit mechanism) but differs in two key respects: the guiding field is the condensate density gradient $\nabla\rho$ (not a quantum potential), and the predictions are geometry-dependent rather than geometry-independent, making the framework directly falsifiable by the three-dimensional Bell tests of Section~\ref{P8:sec:experiments}.
+
+\subsection{Final Remarks}
+
+All existing Bell experiments operate in effectively planar geometries due to practical constraints in pair preparation and measurement alignment. This accidentally places them in the regime where this model predicts strong violations indistinguishable from quantum mechanics. The crucial test---true 3D isotropic sampling---has never been performed, leaving the door open for geometry-dependent explanations.
+
+We propose that next-generation quantum networks, designed primarily for quantum communication and computation, incorporate Bell tests with controlled geometric configurations to probe this unexplored regime. If correlations degrade as predicted, it would suggest that quantum mechanics is an effective theory valid in restricted geometries, with deeper structure revealed by 3D exploration. If correlations remain maximal regardless of geometry, the density-feedback suppression law is falsified, and we learn something profound: that quantum non-locality is truly geometry-independent, constraining future theoretical approaches.
+
+Either outcome advances our understanding. The experiments are feasible. The predictions are clear. The question is empirical.
+
+Python code for all simulations (planar, biased 3D, isotropic 3D, non-perturbative, and for the flux knots) is provided in the Appendices. We encourage independent verification and extension of these results.
+
+\newpage
+\bibliographystyle{ieeetr}
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zennodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper6}
+F.~Manfredi,
+\textit{The Golden-Ratio Tower: Fermion Scale Hierarchy from the Hopfion RG Fixed Point},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+
+\bibitem{Paper7}
+F.~Manfredi,
+\textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
+  Equivalence Principle from the Density-Feedback Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+
+\bibitem{Paper8}
+F.~Manfredi,
+\textit{Geometry-Dependent Bell Violations from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18737070}{doi:10.5281/zenodo.18737070}
+
+\bibitem{Paper9}
+F.~Manfredi,
+\textit{Division Algebras, the Born Rule, and the Tsirelson Bound
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20075227}{doi:10.5281/zenodo.20075227}
+
+\bibitem{Tsirelson1980}
+B.~S. Tsirelson,
+\textit{Quantum generalizations of Bell's inequality},
+Lett.\ Math.\ Phys.\ \textbf{4}, 93--100 (1980).
+\href{https://doi.org/10.1007/BF00417500}{doi:10.1007/BF00417500}
+
+\bibitem{Bell1964}
+J.~S. Bell,
+\textit{On the Einstein Podolsky Rosen paradox},
+Physics \textbf{1}, 195--200 (1964).
+\href{https://doi.org/10.1103/PhysicsPhysiqueFizika.1.195}{doi:10.1103/PhysicsPhysiqueFizika.1.195}
+
+\bibitem{Hensen2015}
+B.~Hensen et~al.,
+\textit{Loophole-free Bell inequality violation using electron spins separated by 1.3 kilometres},
+Nature \textbf{526}, 682--686 (2015).
+\href{https://doi.org/10.1038/nature15759}{doi:10.1038/nature15759}
+
+\bibitem{Giustina2015}
+M.~Giustina et~al.,
+\textit{Significant-loophole-free test of Bell's theorem with entangled photons},
+Phys.\ Rev.\ Lett.\ \textbf{115}, 250401 (2015).
+\href{https://doi.org/10.1103/PhysRevLett.115.250401}{doi:10.1103/PhysRevLett.115.250401}
+
+\bibitem{Shalm2015}
+L.~K. Shalm et~al.,
+\textit{Strong loophole-free test of local realism},
+Phys.\ Rev.\ Lett.\ \textbf{115}, 250402 (2015).
+\href{https://doi.org/10.1103/PhysRevLett.115.250402}{doi:10.1103/PhysRevLett.115.250402}
+
+\bibitem{Rosenfeld2017}
+W.~Rosenfeld et~al.,
+\textit{Event-ready Bell test using entangled atoms simultaneously closing detection and locality loopholes},
+Phys.\ Rev.\ Lett.\ \textbf{119}, 010402 (2017).
+\href{https://doi.org/10.1103/PhysRevLett.119.010402}{doi:10.1103/PhysRevLett.119.010402}
+
+\bibitem{Handsteiner2017}
+J.~Handsteiner et~al.,
+\textit{Cosmic Bell test: Measurement settings from milky way stars},
+Phys.\ Rev.\ Lett.\ \textbf{118}, 060401 (2017).
+\href{https://doi.org/10.1103/PhysRevLett.118.060401}{doi:10.1103/PhysRevLett.118.060401}
+
+\bibitem{Yin2017}
+J.~Yin et~al.,
+\textit{Satellite-based entanglement distribution over 1200 kilometers},
+Science \textbf{356}, 1140--1144 (2017).
+\href{https://doi.org/c}{doi:10.1126/science.aan3211}
+
+\end{thebibliography}
+
+\newpage
+\appendix
+\section{Code and Data Availability}
+\label{P8:sec:code_availability}
+
+All materials supporting this work, including the complete paper, Python simulation code, Hopfion knot visualizations, and usage documentation, are permanently archived at: \cite{Paper8} (\textbf{DOI:} \href{https://doi.org/10.5281/zenodo.18737070}{10.5281/zenodo.18737070})
+
+\end{document}

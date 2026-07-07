@@ -1,0 +1,1586 @@
+papers:
+  - id: paper_foundational
+    name: "The Pentagon Number: A Unified Proof that the FN Hopfion Condensate Has Exactly Three Lepton Generations"
+    file: papers/main_paper_foundational.tex
+    status: published
+    doi: 10.5281/zenodo.20173651
+    repo_files:
+      - foundations/pentagon.tex
+    labels:
+      - F:thm:main
+      - F:prop:route1
+      - F:prop:route2
+      - F:rem:both_phi
+      - F:prop:route3
+      - F:rem:route_strength
+      - F:prop:mckay
+      - F:cor:phi_origin
+      - F:rem:three_descriptions
+
+  - id: reader_guide
+    file: papers/main_reader_guide.tex
+    status: published
+    doi: 10.5281/zenodo.20173714
+
+  - id: paper1
+    name: "The Density-Feedback Faddeev-Niemi Hopfion: Exact Algebraic Predictions for Standard-Model Parameters"
+    file: papers/main_paper1.tex
+    status: published
+    doi: 10.5281/zenodo.19342027
+    repo_files:
+      - profile/virial.tex
+      - profile/bps.tex
+      - foundations/wzw_group.tex
+      - electroweak/lepton_masses.tex
+      - foundations/pentagon.tex
+      - foundations/suppression.tex
+      - electroweak/weinberg.tex
+      - electroweak/yukawa.tex
+    labels:
+      - P1:def:snapshot
+      - P1:def:bstar
+      - P1:lem:golden
+      - P1:lem:virial
+      - P1:prop:PKfb
+      - P1:prop:Kfb
+      - P1:prop:eta
+      - P1:prop:cardy
+      - P1:prop:bps
+      - P1:thm:scale
+      - P1:thm:k3
+      - P1:thm:dimq
+      - P1:thm:mckay
+      - P1:thm:weinberg
+      - P1:thm:irreducible
+      - P1:thm:amplitude_ratio
+      - P1:thm:charge_q10
+      - P1:thm:koide
+      - P1:thm:modBPS
+      - P1:thm:vacuum
+      - P1:cor:lambda
+      - P1:cor:weinberg_unconditional
+      - P1:res:yukawa
+      - P1:res:koide_angle
+      - P1:conj:linking
+      - P1:rem:chameleon
+      - P1:rem:stability
+      - P1:rem:e8
+
+  - id: paper2
+    name: "BPS Structure and Fixed-Point Theorem for the Density-Feedback Faddeev-Niemi Hopfion"
+    file: papers/main_paper2.tex
+    status: published
+    doi: 10.5281/zenodo.19363491
+    repo_files:
+      - profile/virial.tex
+    labels:
+      - P2:thm:main
+      - P2:thm:existence
+      - P2:cond:ps
+      - P2:thm:mono
+      - P2:rem:nd
+      - P2:thm:lsl_1d
+      - P2:prop:Sselfdual
+      - P2:prop:twist
+      - P2:prop:Nfus
+      - P2:prop:sign
+      - P2:conj:lsl
+
+  - id: paper3
+    name: "Two Constants from One Knot: The Fine Structure Constant and the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate"
+    file: papers/main_paper3.tex
+    status: published
+    doi: 10.5281/zenodo.19478629
+    repo_files:
+      - foundations/alpha.tex
+      - foundations/wzw_group.tex
+      - foundations/suppression.tex
+      - profile/virial.tex
+      - profile/bps.tex
+    labels:
+      - P3:conj:lsc
+      - P3:thm:lsc_1d
+      - P3:lem:bridge
+      - P3:lem:virial_alg
+      - P3:thm:lsc_conditional
+      - P3:thm:lsc_equivalence
+      - P3:prop:cascade
+      - P3:res:alpha
+      - P3:prop:scale_inv
+      - P3:prop:virial_limit
+      - P3:conj:kappa_universal
+      - P3:prop:virial_exact
+      - P3:cor:fixedpoint_exists
+      - P3:thm:virial_fixedpt
+      - P3:prop:V0_gt_phi
+      - P3:rem:kappa_wzw_preview
+      - P3:thm:lsc_1d_complete
+      - P3:thm:lsc_2d_limit
+      - P3:thm:V_exact_all_R0
+      - P3:thm:bosonization
+      - P3:thm:bos_3d
+      - P3:cor:bos_valid
+      - P3:rem:bos3d_scope
+      - P3:prop:q2_sector
+      - P3:thm:verlinde
+      - P3:thm:bos_main
+      - P3:prop:res_primary
+      - P3:lem:chi_sinf
+      - P3:prop:pohozaev_a
+      - P3:prop:star_identity
+      - P3:prop:poh_a_equiv
+      - P3:rem:resonance
+      - P3:rem:five_forms
+
+  - id: paper4
+    name: "The Hopf Spoke, WZW Fermion Mass Renormalization, and Three- and Four-Term Formulas for the Fine Structure Constant"
+    file: papers/main_paper4.tex
+    status: published
+    doi: 10.5281/zenodo.19504729
+    repo_files:
+      - foundations/alpha.tex
+      - electroweak/lepton_masses.tex
+      - electroweak/yukawa.tex
+    labels:
+      - P4:thm:compton
+      - P4:lem:locked_angle
+      - P4:lem:virial_factor
+      - P4:thm:mass_renorm
+      - P4:cor:thin_torus
+      - P4:rem:bare_mass
+      - P4:thm:verlinde_cancel
+      - P4:cor:verlinde_exact
+      - P4:rem:single_input
+      - P4:thm:three_term_alpha
+      - P4:rem:sign_pattern
+      - P4:thm:four_term_alpha
+      - P4:rem:cs_correction
+      - P4:rem:four_term_series
+      - P4:prop:bstar
+      - P4:thm:three_gen
+      - P4:thm:spoke_ground
+      - P4:thm:spoke_mass_spectrum
+      - P4:thm:me_lightest
+      - P4:thm:casimir_selects
+      - P4:conj:spoke
+      - P4:thm:second_spoke
+      - P4:cor:vew
+      - P4:lem:self_dual
+      - P4:prop:exponent_decomp
+      - P4:def:t_open
+      - P4:thm:t_matrix_spoke
+      - P4:lem:three_forms
+      - P4:rem:revised_decomp
+      - P4:thm:alpha_unconditional
+      - P4:cor:vew_corrected
+      - P4:thm:msbar_pole
+      - P4:rem:alpha_me_tracking
+      - P4:rem:msbar_origin
+      - P4:cor:four_term_unconditional
+
+  - id: paper5
+    name: "Colour Confinement, the QCD Scale, and Hadronic Structure from the Hopfion Condensate"
+    file: papers/main_paper5.tex
+    status: published
+    doi: 10.5281/zenodo.19638857
+    repo_files:
+      - strong/qcd_coupling.tex
+      - strong/colour.tex
+      - strong/quark_masses.tex
+      - strong/strong_cp.tex
+      - gravity/wep_instanton.tex
+      - quantum/chameleon.tex
+    labels:
+      - P5:rem:deff_exact_value
+      - P5:prop:deff_exact
+      - P5:thm:Kth
+      - P5:prop:lqcd_bracket
+      - P5:thm:lqcd_proved
+      - P5:prop:qcd_chameleon
+      - P5:rem:exp_sensitivity
+      - P5:rem:consistency
+      - P5:rem:lqcd_accuracy_levels
+      - P5:rem:exact_exponent
+      - P5:rem:lqcd_me_phi
+      - P5:rem:e6_coxeter
+      - P5:rem:Q_double_derivation
+      - P5:rem:beta_coxeter
+      - P5:rem:selfconsistency
+      - P5:rem:ew_colour_parallel
+      - P5:prop:colour_shift
+      - P5:rem:old_formula_comparison
+      - P5:lem:koide_scale
+      - P5:thm:quark_koide
+      - P5:prop:koide_rge
+      - P5:rem:quark_koide_obs
+      - P5:prop:squark
+      - P5:rem:h2I_s
+      - P5:prop:quark_e8_assignment
+      - P5:rem:other_quarks
+      - P5:thm:quark_lepton_ratios
+      - P5:rem:nq_structure
+      - P5:rem:ckm_preview
+      - P5:lem:ckm_texture
+      - P5:rem:fgj_ansatz
+      - P5:lem:ckm_2x2
+      - P5:thm:ckm_full
+      - P5:thm:vcb_wzw
+      - P5:cor:ckm_wolfenstein
+      - P5:thm:delta_cp
+      - P5:rem:cp_phase
+      - P5:rem:coxeter_connection
+      - P5:thm:mmu_mtau
+      - P5:rem:verlinde_phi
+      - P5:prop:kink_avg
+      - P5:prop:holonomy
+      - P5:rem:kth_relation
+      - P5:prop:strongCP
+      - P5:prop:theta_Z3
+      - P5:thm:2I_characters
+      - P5:prop:su2_branching
+      - P5:cor:sectors
+      - P5:prop:2i_strange_sector
+      - P5:thm:twisted_weights
+      - P5:subsec:mckay_graph
+      - P5:thm:full_spectrum
+      - P5:thm:h2I_coxeter
+      - P5:rem:h2I_geometric
+      - P5:rem:h2I_status
+
+  - id: paper6
+    name: "The Golden Tower: Fermion Scale Hierarchy from the Hopfion RG Fixed Point"
+    file: papers/main_paper6.tex
+    status: published
+    doi: 10.5281/zenodo.19646945
+    repo_files:
+      - electroweak/lepton_masses.tex
+    labels:
+      - P6:thm:rg_fp
+      - P6:thm:tower_quantisation
+      - P6:rem:spectral_closure
+      - P6:thm:wzw_connection
+      - P6:thm:tphase_unique
+      - P6:thm:vew_tower
+      - P6:rem:single_input_remark
+      - P6:thm:luv_tower
+      - P6:prop:ground_state
+      - P6:prop:noninteger
+      - P6:rem:incommensurability
+      - P6:lem:tmatrix
+      - P6:cor:tower_scales
+      - P6:rem:tower_directions
+
+  - id: paper7
+    name: "Emergent Gravity, Inflation, Dark Energy, and the Weak Equivalence Principle from the Density-Feedback Hopfion Condensate"
+    file: papers/main_paper7.tex
+    status: published
+    doi: 10.5281/zenodo.19646953
+    repo_files:
+      - gravity/newton.tex
+      - gravity/dark_sector.tex
+      - gravity/cosmology.tex
+      - quantum/neutrino.tex
+    labels:
+      - P7:rem:rg_tower
+      - P7:thm:einstein
+      - P7:rem:spin2
+      - P7:thm:conservation
+      - P7:thm:cassini
+      - P7:rem:cassini_self
+      - P7:rem:MPl_renorm
+      - P7:thm:rotating
+      - P7:rem:oblate
+      - P7:prop:eft_naturalness
+      - P7:cor:vainshtein_topology
+      - P7:rem:lorentz
+      - P7:rem:chameleon
+      - P7:thm:cs
+      - P7:prop:CDM_limit
+      - P7:prop:Geff
+      - P7:thm:thawing
+      - P7:prop:scale_modulus
+      - P7:thm:Ps_seesaw
+      - P7:prop:seesaw
+      - P7:prop:seesaw_correction
+      - P7:prop:Treh
+      - P7:rem:inflation_gap
+      - P7:rem:reheating_IC
+      - P7:prop:IC_condensate
+      - P7:cor:luv_tower
+      - P7:prop:neutrino
+      - P7:rem:neutrino
+
+  - id: paper8
+    name: "Geometry-Dependent Bell Violations from the Density-Feedback Hopfion"
+    file: papers/main_paper8.tex
+    status: published
+    doi: 10.5281/zenodo.18737070
+    repo_files:
+      - quantum/bell.tex
+    labels:
+      - P8:eq:seff_axiom
+      - P8:eq:hierarchy_axiom
+      - P8:eq:parent_action
+      - P8:eq:beta_star
+      - P8:rem:rho_extension
+      - P8:eq:mismatch_angles
+      - P8:eq:seff_perturbed
+      - P8:eq:weight_plus
+      - P8:eq:weight_minus
+      - P8:eq:prob_plus
+      - P8:eq:prob_smallangle
+      - P8:eq:E_expectation
+      - P8:eq:p_same_diff
+      - P8:eq:chsh_def
+      - P8:eq:E_rescaled
+      - P8:eq:sin4_geometry_avg
+      - P8:eq:E_planar
+      - P8:eq:E_isotropic
+      - P8:eq:weight_nonperturbative
+      - P8:tab:planar_chsh
+      - P8:tab:biased3d_chsh
+      - P8:tab:isotropic_nonpert_chsh
+      - P8:tab:isotropic_measured_chsh
+
+  - id: paper9
+    name: "The Born Rule, the Tsirelson Bound, and the Hurwitz Algebras from the Hopf Push-Forward"
+    file: papers/main_paper9.tex
+    status: published
+    doi: 10.5281/zenodo.20075227
+    repo_files:
+      - quantum/bell.tex
+    labels:
+      - P9:thm:hopf_pushforward
+      - P9:thm:fourier_exact
+      - P9:thm:tsirelson_gap
+      - P9:thm:born_rule
+      - P9:rem:hurwitz_roles
+      - P9:thm:GHZ
+      - P9:thm:chsh_f
+      - P9:thm:chsh_fb
+      - P9:thm:H_int
+      - P9:rem:phi6_connection
+      - P9:thm:malus
+      - P9:thm:stokes
+      - P9:rem:parseval_averaging
+      - P9:rem:two_ceilings
+      - P9:thm:m_phot
+      - P9:rem:winding
+      - P9:prop:projective
+      - P9:rem:projective_scope
+      - P9:prop:incoherence
+      - P9:prop:phase_invariance
+      - P9:lem:antisymmetry
+      - P9:rem:stokes_vs_pcond
+      - P9:def:H_amplitude
+      - P9:def:p_f_beta
+      - P9:def:quantum_singlet
+      - P9:def:winding_measurement
+      - P9:def:stokes
+      - P9:conj:quantisation
+      - P9:rem:conj_resolved
+      - P9:conj:angle_doubling
+      - P9:rem:poh
+      - P9:rem:nosignaling
+      - P9:rem:quantum_coherent
+      - P9:rem:f_convention
+
+  - id: paper10
+    name: "Quantisation of the Hopfion Condensate: Hilbert Space, Liouville Measure, and the Born Rule"
+    file: papers/main_paper10.tex
+    status: published
+    doi: 10.5281/zenodo.20075279
+    repo_files:
+      - quantum/hilbert_space.tex
+    labels:
+      - P10:thm:symplectic
+      - P10:thm:reduction
+      - P10:thm:prequantum
+      - P10:thm:quantisation
+      - P10:thm:spectrum
+      - P10:thm:main
+      - P10:thm:selfadjoint
+      - P10:thm:spectral_zeta
+      - P10:thm:q_algebra
+      - P10:rem:jones
+      - P10:thm:entropy_correction
+      - P10:rem:entropy_protected
+      - P10:thm:wald
+      - P10:rem:acoustic_wald
+      - P10:rem:wald_scope
+      - P10:lem:momentum
+      - P10:lem:ham_vf
+      - P10:lem:fibonacci
+      - P10:cor:measure_welldefined
+      - P10:cor:amplitudes
+      - P10:cor:coherent
+      - P10:def:config
+      - P10:def:U1
+      - P10:def:q_numbers
+      - P10:prop:heat_kernel
+
+  - id: paper11
+    name: "The Golden-Spiral as a Universal Mass Hierarchy Map: From Condensate Scale to Chemical Periodicity"
+    file: papers/main_paper11.tex
+    status: published
+    doi: 10.5281/zenodo.20173763
+    repo_files:
+      - chemistry/phi_spiral.tex
+      - chemistry/icosahedrite.tex
+    labels:
+      - P11:def:tower_level
+      - P11:rem:quantum_tower_origin
+      - P11:def:spiral
+      - P11:rem:Narms_choice
+      - P11:cor:rydberg
+      - P11:rem:rydberg_physical
+      - P11:prop:visible
+      - P11:rem:level20_dual_use
+      - P11:rem:spiral_measures
+      - P11:prop:R_equals_1
+      - P11:rem:sigma_xc_origin
+      - P11:prop:Zeff_closed
+      - P11:rem:two_level
+      - P11:rem:k8pi_origin
+      - P11:rem:hund_HO_coincidence
+      - P11:rem:why_water_forms
+      - P11:thm:auc
+      - P11:rem:threshold_analysis
+      - P11:prop:goldschmidt
+      - P11:rem:predictive_power_confirmed
+      - P11:conj:spiral_pt
+      - P11:prop:icosahedrite
+      - P11:rem:icosahedrite_structure
+
+  - id: paper12
+    name: "The Profile Normalisation Conjecture: Proof via CMB Energy Identity, Icosahedral Newton Series, and Two-Route Equivalence"
+    file: papers/main_paper12.tex
+    status: published
+    doi: 10.5281/zenodo.20210460
+    repo_files:
+      - profile/normalisation.tex
+    labels:
+      - P12:thm:A
+      - P12:rem:ord10
+      - P12:thm:B
+      - P12:rem:pentagon
+      - P12:thm:C
+      - P12:rem:d1_structure
+      - P12:rem:alpha_parallel
+      - P12:thm:D
+      - P12:rem:pi3_leibniz
+      - P12:rem:Itor_role
+      - P12:thm:E
+      - P12:rem:equilibrium
+      - P12:cor:proof
+      - P12:cor:xstar
+      - P12:rem:consistency_equiv
+      - P12:rem:phys_correction
+
+  - id: paper13
+    name: "Atomic Quantum Mechanics from the Hopfion Condensate"
+    file: papers/main_paper13.tex
+    status: published
+    doi: 10.5281/zenodo.20471482
+    repo_files:
+      - quantum/schrodinger.tex
+      - quantum/chameleon.tex
+      - quantum/spin_statistics.tex
+    labels:
+      - P13:rem:radial_dep
+      - P13:thm:modified_H
+      - P13:rem:zero_radial
+      - P13:thm:chameleon_screening
+      - P13:rem:same_mechanism
+      - P13:rem:screening_ratio
+      - P13:prop:multi_electron_screening
+      - P13:prop:multi_electron_energy
+      - P13:cor:HF_exact
+      - P13:thm:atomic_foundation
+      - P13:prop:energy_correction
+      - P13:rem:structure
+      - P13:prop:mass_anisotropy
+      - P13:rem:exact_vs_approx
+      - P13:rem:experimental_access
+      - P13:rem:tracking_relation
+      - P13:def:one_particle
+      - P13:lem:momentum_operator
+      - P13:thm:born_oppenheimer
+      - P13:thm:schrodinger
+      - P13:rem:what_derived
+      - P13:rem:BO_correction
+      - P13:thm:NA_vanishing
+      - P13:cor:improved_BO
+      - P13:rem:BO_comparison
+      - P13:rem:phonons
+      - P13:thm:spin_half
+      - P13:rem:hopf_phase
+      - P13:cor:fermi_stats
+      - P13:cor:pauli_exclusion
+      - P13:rem:delta_n_half_origin
+      - P13:thm:spin_tower
+      - P13:rem:higgs_q0
+      - P13:rem:gauge_q4
+      - P13:rem:graviton_q8
+      - P13:rem:condensate_q10
+      - P13:rem:scope_fermi
+      - P13:eq:epsilon_def
+      - P13:eq:eps_a0_value
+      - P13:eq:eps_attractor
+      - P13:eq:internal_gap
+      - P13:eq:eps_BO
+
+  - id: paper14
+    name: "The Thick-Torus Profile Correction to the Density-Feedback Hopfion"
+    file: papers/main_paper14.tex
+    status: published
+    doi: 10.5281/zenodo.20479790
+    repo_files:
+      - profile/normalisation.tex
+      - scalar/higgs.tex
+    labels:
+      - P14:lem:O1R_vanishes
+      - P14:rem:geometric_interp
+      - P14:prop:volume_correction
+      - P14:thm:jacobi
+      - P14:rem:solubility
+      - P14:rem:numerical_solution
+      - P14:rem:yukawa
+      - P14:prop:exact_avg
+      - P14:thm:toroidal_formula
+      - P14:rem:formula_check
+      - P14:rem:cross_coupling
+      - P14:cor:phi8_structural
+      - P14:cor:yukawa_3D
+      - P14:lem:qgroup_char
+      - P14:lem:parseval
+      - P14:cor:D2_parseval
+      - P14:lem:kzb_monodromy
+      - P14:thm:pentagon_g4
+      - P14:rem:pentagon_direct
+      - P14:rem:modular_renorm
+      - P14:lem:fmatrix_plane
+      - P14:thm:higgs_algebra
+      - P14:rem:torus_enhancement
+      - P14:thm:higgs
+      - P14:rem:higgs_numerics
+      - P14:rem:higgs_algebra
+      - P14:rem:higgs_consistency
+      - P14:rem:higgs_path
+      - P14:lem:first_order_vanish
+      - P14:thm:second_order
+      - P14:cor:yukawa_second
+      - P14:rem:analytical_structure
+
+  - id: paper15
+    name: "The Q_H=3 Sector of the Density-Feedback Hopfion"
+    file: papers/main_paper15.tex
+    status: published
+    doi: 10.5281/zenodo.20691001
+    repo_files:
+      - strong/colour.tex
+      - strong/topology_qh3.tex
+      - profile/virial.tex
+    labels:
+      - P15:thm:QgroupE6
+      - P15:thm:Qgroup3
+      - P15:thm:charge
+      - P15:thm:charge_generator
+      - P15:cor:charge_eq_weight
+      - P15:rem:N3_unique
+      - P15:thm:virial
+      - P15:thm:torsion_cancels
+      - P15:rem:torsion_scope
+      - P15:cor:lambda3
+      - P15:prop:crossings
+      - P15:rem:3or6
+      - P15:prop:confinement
+      - P15:rem:no_lambda3
+      - P15:prop:yjunction
+      - P15:rem:yjunction_energy
+      - P15:thm:subgroup
+      - P15:prop:24cell
+      - P15:rem:F4
+      - P15:prop:branching
+      - P15:prop:colours
+      - P15:thm:massdegen
+      - P15:thm:norm3
+      - P15:cor:V3
+      - P15:thm:equivalence
+      - P15:prop:kappa4
+      - P15:prop:lambda3
+      - P15:prop:r3_exact
+      - P15:lem:fusion_ratio
+      - P15:conj:sector
+      - P15:thm:lambda3_sc
+      - P15:cor:sc_consequences
+      - P15:prop:wrt_phase
+      - P15:prop:wrt_dim
+      - P15:prop:wrt_pure
+      - P15:lem:triple_fusion
+      - P15:thm:sector_assignment
+      - P15:cor:lambda3_proved
+      - P15:rem:step1_status
+      - P15:prop:verlinde_unique
+      - P15:rem:three_arguments
+
+  - id: paper16
+    name: "Quark Generation Masses in the Density-Feedback Hopfion: A Survey of Ruled-Out Mechanisms and the Q_H=3 Gradient-Flow Landscape"
+    file: papers/main_paper16.tex
+    status: published
+    doi: 10.5281/zenodo.21012650
+    repo_files:
+      - strong/quark_masses.tex
+      - strong/colour.tex
+      - strong/topology_qh3.tex
+    labels:
+      - P16:conj:vertices
+      - P16:prop:vertices_fail
+      - P16:prop:five_copies
+      - P16:conj:bosonic
+      - P16:prop:bosonic_fail
+      - P16:conj:level
+      - P16:prop:level_fail
+      - P16:rem:no_target
+      - P16:conj:q8
+      - P16:prop:q8_independent
+      - P16:prop:q8_fail
+      - P16:conj:colourshift
+      - P16:prop:colourshift_fail
+      - P16:rem:scale_ambiguity
+      - P16:rem:nq_structure
+      - P16:prop:e8_unique
+      - P16:prop:e8_mixed
+      - P16:prop:e8_accuracy
+      - P16:thm:colour_exclusion
+      - P16:rem:dynkin_colour
+      - P16:rem:symmetry_breaking_colour
+      - P16:rem:qh1_preview
+      - P16:prop:arms_off_curve
+      - P16:prop:ejunc_zero
+      - P16:rem:ejunc_consequence
+      - P16:prop:sigma_tot
+      - P16:prop:sigma_ext_formula
+      - P16:rem:sigma_decomposition
+      - P16:rem:three_flows
+      - P16:rem:cs_spoke_quark
+      - P16:rem:junction_results
+      - P16:prop:strange_match
+      - P16:rem:two_strange_results
+      - P16:rem:external_inputs
+      - P16:prop:as_selfcons
+      - P16:rem:pole_mass_caveat
+      - P16:rem:saddle_renormalon_parallel
+      - P16:rem:transient_complication
+      - P16:prop:phase_jump
+      - P16:rem:not_a_pole
+      - P16:prop:divergent_energy
+      - P16:rem:naive_smoothing_fails
+      - P16:rem:two_mechanisms
+      - P16:constr:s3lift
+      - P16:prop:s3_smooth
+      - P16:thm:s3_bounded_energy
+      - P16:rem:why_s3_works
+      - P16:constr:global_s3lift
+      - P16:prop:reduces_away
+      - P16:prop:global_nondegen
+      - P16:rem:nondegen_scope
+      - P16:prop:s3lift_charge_zero
+      - P16:rem:missing_poloidal_winding
+      - P16:rem:s3lift_not_sufficient
+      - P16:prop:cstar_crit
+      - P16:rem:cstar_energy_signature
+      - P16:prop:cstar_artifact
+      - P16:rem:blending_insufficient
+      - P16:prop:bishop_holonomy
+      - P16:rem:holonomy_distinct
+      - P16:constr:compensated_frame
+      - P16:prop:frame_closure
+      - P16:constr:perstrand
+      - P16:prop:chi_winds
+      - P16:prop:perstrand_smooth
+      - P16:thm:perstrand_charge_three
+      - P16:rem:perstrand_summary
+      - P16:prop:global_functional_comparison
+      - P16:prop:j4_resolution_artifact
+      - P16:rem:j4_resolution_interpretation
+      - P16:rem:solver_practical_recommendation
+      - P16:prop:gf_phase1
+      - P16:prop:gf_topology_loss
+      - P16:rem:gf_twophase
+      - P16:def:arc_boundaries
+      - P16:prop:z3_symmetry
+      - P16:prop:geom_data
+      - P16:rem:torsion_contrast
+      - P16:rem:rhoJ4_anticorrelation
+      - P16:rem:arcseg_physics
+
+  - id: paper17
+    name: "The Q_H=1 Sector of the Density-Feedback Hopfion: Topology, Group Structure, Colour Exclusion"
+    file: papers/main_paper17.tex
+    status: published
+    doi: 10.5281/zenodo.21013412
+    repo_files:
+      - quantum/neutrino.tex
+    labels:
+      - P17:prop:qh1_unknot
+      - P17:rem:comparison_table
+      - P17:prop:qh1_Z2
+      - P17:rem:ade_structure
+      - P17:cor:qh1_colour_free
+      - P17:rem:colour_stronger
+      - P17:prop:qh1_noconfinement
+      - P17:rem:confinement_hierarchy
+      - P17:prop:qh1_Qgroup
+      - P17:rem:qgroup_hierarchy
+      - P17:prop:nu_Tphases
+      - P17:rem:same_ladder
+      - P17:prop:qh1_dimq
+      - P17:prop:dimq_confinement
+      - P17:rem:phi_unconfined
+      - P17:conj:nu_identification
+      - P17:rem:conj_status
+      - P17:prop:nu_tower_bound
+      - P17:rem:nconv
+      - P17:rem:Qgroup_vs_Qeff
+      - P17:prop:qh1_cmb
+      - P17:rem:cmb_fails
+      - P17:rem:scale_ratio
+      - P17:thm:qh1_tworoute
+      - P17:thm:kone_forced
+      - P17:prop:k1_virial
+      - P17:rem:J4Ja_k1_vs_k3
+      - P17:prop:norm_id_k1
+      - P17:cor:two_route_k1
+      - P17:cor:majorana
+      - P17:prop:CS_spoke
+      - P17:cor:qh1_mass
+      - P17:eq:mnu1_final
+      - P17:rem:mnu_me_ratio
+      - P17:rem:master_formula
+      - P17:prop:coset_T
+      - P17:thm:coset_bosonic
+      - P17:rem:bosonic_meaning
+      - P17:prop:coset_gaps
+      - P17:rem:degenerate_doublet
+      - P17:prop:nu_mass_ratio
+      - P17:prop:pq_coset
+      - P17:thm:brieskorn
+      - P17:prop:pmns_branching
+      - P17:thm:pmns_permutation
+      - P17:cor:electron_decouple
+      - P17:cor:nu1_orphan
+      - P17:prop:pmns_b1
+      - P17:rem:b1_sign
+      - P17:cor:pmns_exact
+      - P17:rem:solar_angle
+      - P17:rem:Qeff_origin
+      - P17:prop:Qeff_unique
+      - P17:thm:Qeff_derived
+      - P17:rem:Smat_phi
+      - P17:rem:m1_suppressed
+      - P17:rem:framing
+      - P17:rem:kauffman
+      - P17:rem:brieskorn_sectors
+      - P17:rem:strange_quark
+
+  - id: paper18
+    name: "Preimage Topology and Confinement: The Q_H=3 Sector of the Density-Feedback Hopfion"
+    file: papers/main_paper18.tex
+    status: draft
+    doi: 10.5281/zenodo.21047750
+    repo_files:
+      - strong/confinement_topology.tex
+    labels:
+      - P18:thm:trefoil_satellite_jones
+      - P18:rem:trefoil_satellite_correction
+      - P18:prop:satellite_twist_family
+      - P18:rem:minus_one_at_n6
+      - P18:rem:richer_criterion
+      - P18:def:torus_tower
+      - P18:prop:preimage_tower
+      - P18:rem:link_convention
+      - P18:def:satellite
+      - P18:prop:satellite
+      - P18:rem:satellite_physical
+      - P18:def:rational_class
+      - P18:thm:jones_rule
+      - P18:thm:pion_forced
+      - P18:cor:pion_spectator
+      - P18:rem:qh2_qh1
+      - P18:rem:higher_charge_incoming
+      - P18:rem:crossing_path
+      - P18:rem:two_thresholds
+      - P18:obs:precursor
+      - P18:rem:production_conditions
+      - P18:thm:crossing_geometry
+      - P18:thm:phi_star
+      - P18:rem:photon_contrast
+      - P18:prop:coplanarity
+      - P18:prop:arcseg_dominance
+      - P18:prop:anticorrelation
+      - P18:prop:cascade_p18
+      - P18:rem:implode_explode
+      - P18:rem:cascade_ordering
+      - P18:rem:saddle_difficulty
+      - P18:rem:three_remark_interpretation
+      - P18:rem:gf_twophase_p18
+      - P18:rem:kmin_extrapolation
+      - P18:prop:botner_analog
+      - P18:rem:two_orderings
+      - P18:prop:fourjet_oop
+      - P18:rem:jeremie
+      - P18:prop:jet_bound
+      - P18:conj:six_quarks
+      - P18:rem:quark_constraint
+      - P18:conj:isospin
+      - P18:prop:isospin_mass_ratio
+      - P18:rem:isospin_mass_ratio_scope
+
+  - id: paper19
+    name: "Dynamical Origin of Quark Masses in the Density-Feedback Hopfion"
+    file: papers/main_paper19.tex
+    status: draft
+    doi: 10.5281/zenodo.21225452
+    repo_files:
+      - strong/confinement_topology.tex
+      - quantum/neutrino.tex
+    labels:
+      - P19:conj:six_quarks_r19
+      - P19:conj:isospin_r19
+      - P19:rem:angular_ordering
+      - P19:rem:angular_ordering_impact
+      - P19:rem:jones_ratio_coincidence
+      - P19:rem:beyond_qh3_numerics
+      - P19:lem:profile_slope
+      - P19:thm:r0_derivation
+      - P19:rem:solar_angle_reconcile
+      - P19:cor:lambda3_consistency
+      - P19:conj:six_quarks_reformulated
+      - P19:rem:sextet_check
+      - P19:prop:cascade_falsified
+      - P19:rem:cascade_scope
+      - P19:def:phi_tower
+      - P19:prop:phi_tower_falsified
+      - P19:rem:tower_structure
+      - P19:prop:jones_modulus_ratio
+      - P19:rem:cross_ratio
+      - P19:thm:sqrt_phi_ladder
+      - P19:rem:strange_anchor
+      - P19:rem:ms_md_integer
+      - P19:cor:absolute_masses
+      - P19:rem:mb_prediction
+      - P19:rem:sqrt_phi_meaning
+      - P19:rem:cross_sector_phi
+      - P19:def:z_scale
+      - P19:prop:triplet_ratio
+      - P19:cor:triplet_agreement
+      - P19:rem:triplet_deviation
+      - P19:lem:disjoint_factor
+      - P19:prop:two_comp_initial
+      - P19:def:effective_jones
+      - P19:thm:unit_reaction_rule
+      - P19:rem:rationality_vs_unit
+      - P19:cor:single_channel_recovery
+      - P19:thm:channel_1
+      - P19:thm:channel_2
+      - P19:rem:unit_meaning
+      - P19:prop:solar_angle_jones
+      - P19:rem:solar_physical
+
+labels:
+  # Foundational paper labels
+  F:thm:main:              {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:prop:route1:           {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:prop:route2:           {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:rem:both_phi:          {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:prop:route3:           {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:rem:route_strength:    {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:prop:mckay:            {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:cor:phi_origin:        {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  F:rem:three_descriptions: {paper: paper_foundational, repo_file: foundations/pentagon.tex}
+  # Paper II labels
+  P2:thm:main:          {paper: paper2, repo_file: profile/virial.tex}
+  P2:thm:existence:     {paper: paper2, repo_file: profile/virial.tex}
+  P2:cond:ps:           {paper: paper2, repo_file: profile/virial.tex}
+  P2:thm:mono:          {paper: paper2, repo_file: profile/virial.tex}
+  P2:rem:nd:            {paper: paper2, repo_file: profile/virial.tex}
+  P2:thm:lsl_1d:        {paper: paper2, repo_file: profile/virial.tex}
+  P2:prop:Sselfdual:    {paper: paper2, repo_file: profile/virial.tex}
+  P2:prop:twist:        {paper: paper2, repo_file: profile/virial.tex}
+  P2:prop:Nfus:         {paper: paper2, repo_file: profile/virial.tex}
+  P2:prop:sign:         {paper: paper2, repo_file: profile/virial.tex}
+  P2:conj:lsl:          {paper: paper2, repo_file: profile/virial.tex}
+  # Paper I labels
+  P1:def:snapshot:            {paper: paper1, repo_file: profile/virial.tex}
+  P1:def:bstar:               {paper: paper1, repo_file: profile/virial.tex}
+  P1:lem:golden:              {paper: paper1, repo_file: profile/virial.tex}
+  P1:lem:virial:              {paper: paper1, repo_file: profile/virial.tex}
+  P1:prop:PKfb:               {paper: paper1, repo_file: profile/virial.tex}
+  P1:prop:Kfb:                {paper: paper1, repo_file: profile/virial.tex}
+  P1:prop:eta:                {paper: paper1, repo_file: electroweak/yukawa.tex}
+  P1:prop:cardy:              {paper: paper1, repo_file: electroweak/yukawa.tex}
+  P1:prop:bps:                {paper: paper1, repo_file: profile/bps.tex}
+  P1:thm:scale:               {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:thm:k3:                  {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:thm:dimq:                {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:thm:mckay:               {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:thm:weinberg:            {paper: paper1, repo_file: electroweak/weinberg.tex}
+  P1:thm:irreducible:         {paper: paper1, repo_file: electroweak/weinberg.tex}
+  P1:thm:amplitude_ratio:     {paper: paper1, repo_file: electroweak/weinberg.tex}
+  P1:thm:charge_q10:          {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:thm:koide:               {paper: paper1, repo_file: electroweak/yukawa.tex}
+  P1:thm:modBPS:              {paper: paper1, repo_file: profile/bps.tex}
+  P1:thm:vacuum:              {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:cor:lambda:              {paper: paper1, repo_file: electroweak/weinberg.tex}
+  P1:cor:weinberg_unconditional: {paper: paper1, repo_file: electroweak/weinberg.tex}
+  P1:res:yukawa:              {paper: paper1, repo_file: electroweak/yukawa.tex}
+  P1:res:koide_angle:         {paper: paper1, repo_file: electroweak/yukawa.tex}
+  P1:conj:linking:            {paper: paper1, repo_file: profile/virial.tex}
+  P1:rem:chameleon:           {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:rem:stability:           {paper: paper1, repo_file: foundations/wzw_group.tex}
+  P1:rem:e8:                  {paper: paper1, repo_file: foundations/wzw_group.tex}
+  # Paper III labels
+  P3:conj:lsc:               {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:lsc_1d:             {paper: paper3, repo_file: profile/virial.tex}
+  P3:lem:bridge:             {paper: paper3, repo_file: profile/virial.tex}
+  P3:lem:virial_alg:         {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:lsc_conditional:    {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:lsc_equivalence:    {paper: paper3, repo_file: profile/virial.tex}
+  P3:prop:cascade:           {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:res:alpha:              {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:prop:scale_inv:         {paper: paper3, repo_file: profile/virial.tex}
+  P3:prop:virial_limit:      {paper: paper3, repo_file: profile/virial.tex}
+  P3:conj:kappa_universal:   {paper: paper3, repo_file: profile/virial.tex}
+  P3:prop:virial_exact:      {paper: paper3, repo_file: profile/virial.tex}
+  P3:cor:fixedpoint_exists:  {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:virial_fixedpt:     {paper: paper3, repo_file: profile/virial.tex}
+  P3:prop:V0_gt_phi:         {paper: paper3, repo_file: profile/virial.tex}
+  P3:rem:kappa_wzw_preview:  {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:lsc_1d_complete:    {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:lsc_2d_limit:       {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:V_exact_all_R0:     {paper: paper3, repo_file: profile/virial.tex}
+  P3:thm:bosonization:       {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:thm:bos_3d:             {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:cor:bos_valid:          {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:rem:bos3d_scope:        {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:prop:q2_sector:         {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:thm:verlinde:           {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:thm:bos_main:           {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:prop:res_primary:       {paper: paper3, repo_file: profile/virial.tex}
+  P3:lem:chi_sinf:           {paper: paper3, repo_file: profile/bps.tex}
+  P3:prop:pohozaev_a:        {paper: paper3, repo_file: profile/bps.tex}
+  P3:prop:star_identity:     {paper: paper3, repo_file: profile/bps.tex}
+  P3:prop:poh_a_equiv:       {paper: paper3, repo_file: profile/bps.tex}
+  P3:rem:resonance:          {paper: paper3, repo_file: profile/bps.tex}
+  P3:rem:five_forms:         {paper: paper3, repo_file: profile/bps.tex}
+  # Paper IV labels
+  P4:thm:compton:              {paper: paper4, repo_file: electroweak/lepton_masses.tex}
+  P4:lem:locked_angle:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:lem:virial_factor:        {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:mass_renorm:          {paper: paper4, repo_file: electroweak/lepton_masses.tex}
+  P4:cor:thin_torus:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:bare_mass:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:verlinde_cancel:      {paper: paper4, repo_file: electroweak/yukawa.tex}
+  P4:cor:verlinde_exact:       {paper: paper4, repo_file: electroweak/yukawa.tex}
+  P4:rem:single_input:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:three_term_alpha:     {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:sign_pattern:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:four_term_alpha:      {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:cs_correction:        {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:four_term_series:     {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:prop:bstar:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:three_gen:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:spoke_ground:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:spoke_mass_spectrum:  {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:me_lightest:          {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:casimir_selects:      {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:conj:spoke:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:second_spoke:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:cor:vew:                  {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:lem:self_dual:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:prop:exponent_decomp:     {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:def:t_open:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:t_matrix_spoke:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:lem:three_forms:          {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:revised_decomp:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:alpha_unconditional:  {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:cor:vew_corrected:        {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:thm:msbar_pole:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:alpha_me_tracking:    {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:rem:msbar_origin:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:cor:four_term_unconditional: {paper: paper4, repo_file: foundations/alpha.tex}
+  # Paper V labels
+  P5:prop:deff_exact:          {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:thm:Kth:                  {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:prop:lqcd_bracket:        {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:thm:lqcd_proved:          {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:prop:qcd_chameleon:       {paper: paper5, repo_file: quantum/chameleon.tex}
+  P5:rem:exp_sensitivity:      {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:consistency:          {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:lqcd_accuracy_levels: {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:exact_exponent:       {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:lqcd_me_phi:          {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:e6_coxeter:           {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:Q_double_derivation:  {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:beta_coxeter:         {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:selfconsistency:      {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:deff_exact_value:     {paper: paper5, repo_file: strong/qcd_coupling.tex}
+  P5:rem:ew_colour_parallel:   {paper: paper5, repo_file: strong/colour.tex}
+  P5:prop:colour_shift:        {paper: paper5, repo_file: strong/colour.tex}
+  P5:rem:old_formula_comparison: {paper: paper5, repo_file: strong/colour.tex}
+  P5:prop:holonomy:            {paper: paper5, repo_file: strong/colour.tex}
+  P5:rem:kth_relation:         {paper: paper5, repo_file: strong/colour.tex}
+  P5:lem:koide_scale:          {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:quark_koide:          {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:prop:koide_rge:           {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:quark_koide_obs:      {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:prop:squark:              {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:h2I_s:                {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:prop:quark_e8_assignment: {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:other_quarks:         {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:quark_lepton_ratios:  {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:nq_structure:         {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:ckm_preview:          {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:lem:ckm_texture:          {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:fgj_ansatz:           {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:lem:ckm_2x2:              {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:ckm_full:             {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:vcb_wzw:              {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:cor:ckm_wolfenstein:      {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:delta_cp:             {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:cp_phase:             {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:coxeter_connection:   {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:mmu_mtau:             {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:verlinde_phi:         {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:2I_characters:        {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:prop:su2_branching:       {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:cor:sectors:              {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:prop:2i_strange_sector:   {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:twisted_weights:      {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:subsec:mckay_graph:       {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:full_spectrum:        {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:thm:h2I_coxeter:          {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:h2I_geometric:        {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:rem:h2I_status:           {paper: paper5, repo_file: strong/quark_masses.tex}
+  P5:prop:strongCP:            {paper: paper5, repo_file: strong/strong_cp.tex}
+  P5:prop:theta_Z3:            {paper: paper5, repo_file: strong/strong_cp.tex}
+  P5:prop:kink_avg:            {paper: paper5, repo_file: gravity/wep_instanton.tex}
+  # Paper VI labels
+  P6:thm:rg_fp:                {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:thm:tower_quantisation:   {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:rem:spectral_closure:     {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:thm:wzw_connection:       {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:thm:tphase_unique:        {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:thm:vew_tower:            {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:rem:single_input_remark:  {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:thm:luv_tower:            {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:prop:ground_state:        {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:prop:noninteger:          {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:rem:incommensurability:   {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:lem:tmatrix:              {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:cor:tower_scales:         {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  P6:rem:tower_directions:     {paper: paper6, repo_file: electroweak/lepton_masses.tex}
+  # Paper VII labels
+  P7:rem:rg_tower:            {paper: paper7, repo_file: gravity/newton.tex}
+  P7:thm:einstein:            {paper: paper7, repo_file: gravity/newton.tex}
+  P7:rem:spin2:               {paper: paper7, repo_file: gravity/newton.tex}
+  P7:thm:conservation:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:thm:cassini:             {paper: paper7, repo_file: gravity/newton.tex}
+  P7:rem:cassini_self:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:rem:MPl_renorm:          {paper: paper7, repo_file: gravity/newton.tex}
+  P7:thm:rotating:            {paper: paper7, repo_file: gravity/newton.tex}
+  P7:rem:oblate:              {paper: paper7, repo_file: gravity/newton.tex}
+  P7:prop:eft_naturalness:    {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:cor:vainshtein_topology: {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:lorentz:             {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:chameleon:           {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:thm:cs:                  {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:prop:CDM_limit:          {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:prop:Geff:               {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:thm:thawing:             {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:prop:scale_modulus:      {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:thm:Ps_seesaw:           {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:prop:seesaw:             {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:prop:seesaw_correction:  {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:prop:Treh:               {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:rem:inflation_gap:       {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:rem:reheating_IC:        {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:prop:IC_condensate:      {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:cor:luv_tower:           {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:prop:neutrino:           {paper: paper7, repo_file: quantum/neutrino.tex}
+  P7:rem:neutrino:            {paper: paper7, repo_file: quantum/neutrino.tex}
+  # Paper VIII labels
+  P8:eq:seff_axiom:           {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:hierarchy_axiom:      {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:parent_action:        {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:beta_star:            {paper: paper8, repo_file: quantum/bell.tex}
+  P8:rem:rho_extension:       {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:mismatch_angles:      {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:seff_perturbed:       {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:weight_plus:          {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:weight_minus:         {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:prob_plus:            {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:prob_smallangle:      {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:E_expectation:        {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:p_same_diff:          {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:chsh_def:             {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:E_rescaled:           {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:sin4_geometry_avg:    {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:E_planar:             {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:E_isotropic:          {paper: paper8, repo_file: quantum/bell.tex}
+  P8:eq:weight_nonperturbative: {paper: paper8, repo_file: quantum/bell.tex}
+  P8:tab:planar_chsh:         {paper: paper8, repo_file: quantum/bell.tex}
+  P8:tab:biased3d_chsh:       {paper: paper8, repo_file: quantum/bell.tex}
+  P8:tab:isotropic_nonpert_chsh: {paper: paper8, repo_file: quantum/bell.tex}
+  P8:tab:isotropic_measured_chsh: {paper: paper8, repo_file: quantum/bell.tex}
+  # Paper IX labels
+  P9:thm:hopf_pushforward:    {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:fourier_exact:       {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:tsirelson_gap:       {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:born_rule:           {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:hurwitz_roles:       {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:GHZ:                 {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:chsh_f:              {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:chsh_fb:             {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:H_int:               {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:phi6_connection:     {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:malus:               {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:stokes:              {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:parseval_averaging:  {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:two_ceilings:        {paper: paper9, repo_file: quantum/bell.tex}
+  P9:thm:m_phot:              {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:winding:             {paper: paper9, repo_file: quantum/bell.tex}
+  P9:prop:projective:         {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:projective_scope:    {paper: paper9, repo_file: quantum/bell.tex}
+  P9:prop:incoherence:        {paper: paper9, repo_file: quantum/bell.tex}
+  P9:prop:phase_invariance:   {paper: paper9, repo_file: quantum/bell.tex}
+  P9:lem:antisymmetry:        {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:stokes_vs_pcond:     {paper: paper9, repo_file: quantum/bell.tex}
+  P9:def:H_amplitude:         {paper: paper9, repo_file: quantum/bell.tex}
+  P9:def:p_f_beta:            {paper: paper9, repo_file: quantum/bell.tex}
+  P9:def:quantum_singlet:     {paper: paper9, repo_file: quantum/bell.tex}
+  P9:def:winding_measurement: {paper: paper9, repo_file: quantum/bell.tex}
+  P9:def:stokes:              {paper: paper9, repo_file: quantum/bell.tex}
+  P9:conj:quantisation:       {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:conj_resolved:       {paper: paper9, repo_file: quantum/bell.tex}
+  P9:conj:angle_doubling:     {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:poh:                 {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:nosignaling:         {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:quantum_coherent:    {paper: paper9, repo_file: quantum/bell.tex}
+  P9:rem:f_convention:        {paper: paper9, repo_file: quantum/bell.tex}
+  # Paper X labels
+  P10:thm:symplectic:         {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:reduction:          {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:prequantum:         {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:quantisation:       {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:spectrum:           {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:main:               {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:selfadjoint:        {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:spectral_zeta:      {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:q_algebra:          {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:rem:jones:              {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:entropy_correction: {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:rem:entropy_protected:  {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:thm:wald:               {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:rem:acoustic_wald:      {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:rem:wald_scope:         {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:lem:momentum:           {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:lem:ham_vf:             {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:lem:fibonacci:          {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:cor:measure_welldefined: {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:cor:amplitudes:         {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:cor:coherent:           {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:def:config:             {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:def:U1:                 {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:def:q_numbers:          {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  P10:prop:heat_kernel:       {paper: paper10, repo_file: quantum/hilbert_space.tex}
+  # Paper XI labels
+  P11:def:tower_level:        {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:quantum_tower_origin: {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:def:spiral:             {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:Narms_choice:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:cor:rydberg:            {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:rydberg_physical:   {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:visible:           {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:level20_dual_use:   {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:spiral_measures:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:R_equals_1:        {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:sigma_xc_origin:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:Zeff_closed:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:two_level:          {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:k8pi_origin:        {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:hund_HO_coincidence: {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:why_water_forms:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:thm:auc:                {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:threshold_analysis: {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:goldschmidt:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:predictive_power_confirmed: {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:conj:spiral_pt:         {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:icosahedrite:      {paper: paper11, repo_file: chemistry/icosahedrite.tex}
+  P11:rem:icosahedrite_structure: {paper: paper11, repo_file: chemistry/icosahedrite.tex}
+  # Paper XII labels
+  P12:thm:A:                  {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:ord10:               {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:thm:B:                  {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:pentagon:            {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:thm:C:                  {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:d1_structure:        {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:alpha_parallel:      {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:thm:D:                  {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:pi3_leibniz:         {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:Itor_role:           {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:thm:E:                  {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:equilibrium:         {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:cor:proof:               {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:cor:xstar:               {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:consistency_equiv:   {paper: paper12, repo_file: profile/normalisation.tex}
+  P12:rem:phys_correction:     {paper: paper12, repo_file: profile/normalisation.tex}
+  # Paper XIII labels
+  P13:rem:radial_dep:          {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:modified_H:          {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:zero_radial:         {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:chameleon_screening: {paper: paper13, repo_file: quantum/chameleon.tex}
+  P13:rem:same_mechanism:      {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:screening_ratio:     {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:prop:multi_electron_screening: {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:prop:multi_electron_energy: {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:cor:HF_exact:            {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:atomic_foundation:   {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:prop:energy_correction:  {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:structure:           {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:prop:mass_anisotropy:    {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:exact_vs_approx:     {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:experimental_access: {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:tracking_relation:   {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:def:one_particle:        {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:lem:momentum_operator:   {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:born_oppenheimer:    {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:schrodinger:         {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:what_derived:        {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:BO_correction:       {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:NA_vanishing:        {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:cor:improved_BO:         {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:BO_comparison:       {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:rem:phonons:             {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:thm:spin_half:           {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:hopf_phase:          {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:cor:fermi_stats:         {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:cor:pauli_exclusion:     {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:delta_n_half_origin: {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:thm:spin_tower:          {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:higgs_q0:            {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:gauge_q4:            {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:graviton_q8:         {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:condensate_q10:      {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:rem:scope_fermi:         {paper: paper13, repo_file: quantum/spin_statistics.tex}
+  P13:eq:epsilon_def:          {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:eq:eps_a0_value:         {paper: paper13, repo_file: quantum/chameleon.tex}
+  P13:eq:eps_attractor:        {paper: paper13, repo_file: quantum/chameleon.tex}
+  P13:eq:internal_gap:         {paper: paper13, repo_file: quantum/schrodinger.tex}
+  P13:eq:eps_BO:               {paper: paper13, repo_file: quantum/schrodinger.tex}
+  # Paper XIV labels
+  P14:lem:O1R_vanishes:       {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:geometric_interp:   {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:prop:volume_correction: {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:thm:jacobi:             {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:solubility:         {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:numerical_solution: {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:yukawa:             {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:prop:exact_avg:         {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:thm:toroidal_formula:   {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:formula_check:      {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:cross_coupling:     {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:cor:phi8_structural:    {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:cor:yukawa_3D:          {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:lem:qgroup_char:        {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:lem:parseval:           {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:cor:D2_parseval:        {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:lem:kzb_monodromy:      {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:thm:pentagon_g4:        {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:pentagon_direct:    {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:modular_renorm:     {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:lem:fmatrix_plane:      {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:thm:higgs_algebra:      {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:torus_enhancement:  {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:thm:higgs:              {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:higgs_numerics:     {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:higgs_algebra:      {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:higgs_consistency:  {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:rem:higgs_path:         {paper: paper14, repo_file: scalar/higgs.tex}
+  P14:lem:first_order_vanish: {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:thm:second_order:       {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:cor:yukawa_second:      {paper: paper14, repo_file: profile/normalisation.tex}
+  P14:rem:analytical_structure: {paper: paper14, repo_file: profile/normalisation.tex}
+  # Paper XV labels
+  P15:thm:QgroupE6:           {paper: paper15, repo_file: strong/colour.tex}
+  P15:thm:Qgroup3:            {paper: paper15, repo_file: strong/colour.tex}
+  P15:thm:charge:             {paper: paper15, repo_file: strong/colour.tex}
+  P15:thm:charge_generator:   {paper: paper15, repo_file: strong/colour.tex}
+  P15:cor:charge_eq_weight:   {paper: paper15, repo_file: strong/colour.tex}
+  P15:rem:N3_unique:          {paper: paper15, repo_file: strong/colour.tex}
+  P15:thm:virial:             {paper: paper15, repo_file: profile/virial.tex}
+  P15:thm:torsion_cancels:    {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:rem:torsion_scope:      {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:cor:lambda3:            {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:crossings:         {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:rem:3or6:               {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:confinement:       {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:rem:no_lambda3:         {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:yjunction:         {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:rem:yjunction_energy:   {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:thm:subgroup:           {paper: paper15, repo_file: strong/colour.tex}
+  P15:prop:24cell:            {paper: paper15, repo_file: strong/colour.tex}
+  P15:rem:F4:                 {paper: paper15, repo_file: strong/colour.tex}
+  P15:prop:branching:         {paper: paper15, repo_file: strong/colour.tex}
+  P15:prop:colours:           {paper: paper15, repo_file: strong/colour.tex}
+  P15:thm:massdegen:          {paper: paper15, repo_file: strong/colour.tex}
+  P15:thm:norm3:              {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:cor:V3:                 {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:thm:equivalence:        {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:kappa4:            {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:lambda3:           {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:r3_exact:          {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:lem:fusion_ratio:       {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:conj:sector:            {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:thm:lambda3_sc:         {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:cor:sc_consequences:    {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:wrt_phase:         {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:wrt_dim:           {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:wrt_pure:          {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:lem:triple_fusion:      {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:thm:sector_assignment:  {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:cor:lambda3_proved:     {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:rem:step1_status:       {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:prop:verlinde_unique:   {paper: paper15, repo_file: strong/topology_qh3.tex}
+  P15:rem:three_arguments:    {paper: paper15, repo_file: strong/topology_qh3.tex}
+  # Paper XVI labels
+  P16:conj:vertices:             {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:vertices_fail:        {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:five_copies:          {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:conj:bosonic:              {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:bosonic_fail:         {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:conj:level:                {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:level_fail:           {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:no_target:             {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:conj:q8:                   {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:q8_independent:       {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:q8_fail:              {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:conj:colourshift:          {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:colourshift_fail:     {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:scale_ambiguity:       {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:nq_structure:          {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:e8_unique:            {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:e8_mixed:             {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:e8_accuracy:          {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:thm:colour_exclusion:      {paper: paper16, repo_file: strong/colour.tex}
+  P16:rem:dynkin_colour:         {paper: paper16, repo_file: strong/colour.tex}
+  P16:rem:symmetry_breaking_colour: {paper: paper16, repo_file: strong/colour.tex}
+  P16:rem:qh1_preview:           {paper: paper16, repo_file: strong/colour.tex}
+  P16:prop:arms_off_curve:       {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:ejunc_zero:           {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:ejunc_consequence:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:sigma_tot:            {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:sigma_ext_formula:    {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:sigma_decomposition:   {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:three_flows:           {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:cs_spoke_quark:        {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:junction_results:      {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:strange_match:        {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:two_strange_results:   {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:external_inputs:       {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:as_selfcons:          {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:pole_mass_caveat:      {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:saddle_renormalon_parallel: {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:rem:transient_complication: {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:prop:phase_jump:           {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:not_a_pole:            {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:divergent_energy:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:naive_smoothing_fails: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:two_mechanisms:        {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:constr:s3lift:             {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:s3_smooth:            {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:thm:s3_bounded_energy:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:why_s3_works:          {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:constr:global_s3lift:      {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:reduces_away:         {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:global_nondegen:      {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:nondegen_scope:        {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:s3lift_charge_zero:   {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:missing_poloidal_winding: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:s3lift_not_sufficient: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:cstar_crit:           {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:cstar_energy_signature: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:cstar_artifact:       {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:blending_insufficient: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:bishop_holonomy:      {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:holonomy_distinct:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:constr:compensated_frame:  {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:frame_closure:        {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:constr:perstrand:          {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:chi_winds:            {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:perstrand_smooth:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:thm:perstrand_charge_three: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:perstrand_summary:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:global_functional_comparison: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:j4_resolution_artifact: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:j4_resolution_interpretation: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:solver_practical_recommendation: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:gf_phase1:            {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:gf_topology_loss:     {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:gf_twophase:           {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:def:arc_boundaries:        {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:z3_symmetry:          {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:prop:geom_data:            {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:torsion_contrast:      {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:rhoJ4_anticorrelation: {paper: paper16, repo_file: strong/topology_qh3.tex}
+  P16:rem:arcseg_physics:        {paper: paper16, repo_file: strong/topology_qh3.tex}
+  # Paper XVII labels
+  P17:prop:qh1_unknot:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:qh1_Z2:               {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:qh1_colour_free:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:qh1_noconfinement:    {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:qh1_Qgroup:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:nu_Tphases:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:qh1_dimq:             {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:dimq_confinement:     {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:conj:nu_identification:    {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:nu_tower_bound:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:qh1_cmb:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:thm:qh1_tworoute:          {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:thm:kone_forced:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:k1_virial:            {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:norm_id_k1:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:two_route_k1:          {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:majorana:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:CS_spoke:             {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:qh1_mass:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:coset_T:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:thm:coset_bosonic:         {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:coset_gaps:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:nu_mass_ratio:        {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:pq_coset:             {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:thm:brieskorn:             {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:pmns_branching:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:thm:pmns_permutation:      {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:electron_decouple:     {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:nu1_orphan:            {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:pmns_b1:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:b1_sign:               {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:cor:pmns_exact:            {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:solar_angle:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:prop:Qeff_unique:          {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:thm:Qeff_derived:          {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:Smat_phi:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:m1_suppressed:         {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:framing:               {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:kauffman:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:brieskorn_sectors:     {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:strange_quark:         {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:mnu1_final:             {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:comparison_table:      {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:ade_structure:         {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:colour_stronger:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:confinement_hierarchy: {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:qgroup_hierarchy:      {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:same_ladder:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:phi_unconfined:        {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:conj_status:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:nconv:                 {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:Qgroup_vs_Qeff:        {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:cmb_fails:             {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:scale_ratio:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:J4Ja_k1_vs_k3:         {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:mnu_me_ratio:          {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:master_formula:        {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:bosonic_meaning:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:degenerate_doublet:    {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:Qeff_origin:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  # Paper XVIII labels
+  P18:thm:trefoil_satellite_jones: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:trefoil_satellite_correction: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:satellite_twist_family: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:minus_one_at_n6:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:richer_criterion:      {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:def:torus_tower:           {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:preimage_tower:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:link_convention:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:def:satellite:             {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:satellite:            {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:satellite_physical:    {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:def:rational_class:        {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:thm:jones_rule:            {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:thm:pion_forced:           {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:cor:pion_spectator:        {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:qh2_qh1:               {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:higher_charge_incoming: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:crossing_path:         {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:two_thresholds:        {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:obs:precursor:             {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:production_conditions: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:thm:crossing_geometry:     {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:thm:phi_star:              {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:photon_contrast:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:coplanarity:          {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:arcseg_dominance:     {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:anticorrelation:      {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:cascade_p18:          {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:implode_explode:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:cascade_ordering:      {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:saddle_difficulty:     {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:three_remark_interpretation: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:gf_twophase_p18:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:kmin_extrapolation:    {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:botner_analog:        {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:two_orderings:         {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:fourjet_oop:          {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:jeremie:               {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:jet_bound:            {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:conj:six_quarks:           {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:quark_constraint:      {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:conj:isospin:              {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:isospin_mass_ratio:   {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:isospin_mass_ratio_scope: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  # Paper XIX labels
+  P19:conj:six_quarks_r19:       {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:conj:isospin_r19:          {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:angular_ordering:      {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:angular_ordering_impact: {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:jones_ratio_coincidence: {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:beyond_qh3_numerics:   {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:lem:profile_slope:         {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:thm:r0_derivation:         {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:solar_angle_reconcile: {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:cor:lambda3_consistency:   {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:conj:six_quarks_reformulated: {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:sextet_check:          {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:prop:cascade_falsified:    {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:cascade_scope:         {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:def:phi_tower:             {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:prop:phi_tower_falsified:  {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:tower_structure:       {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:prop:jones_modulus_ratio:  {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:cross_ratio:           {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:thm:sqrt_phi_ladder:       {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:strange_anchor:        {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:ms_md_integer:         {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:cor:absolute_masses:       {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:mb_prediction:         {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:sqrt_phi_meaning:      {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:cross_sector_phi:      {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:def:z_scale:               {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:prop:triplet_ratio:        {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:cor:triplet_agreement:     {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:triplet_deviation:     {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:lem:disjoint_factor:       {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:prop:two_comp_initial:     {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:def:effective_jones:       {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:thm:unit_reaction_rule:    {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:rationality_vs_unit:   {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:cor:single_channel_recovery: {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:thm:channel_1:             {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:thm:channel_2:             {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:rem:unit_meaning:          {paper: paper19, repo_file: strong/confinement_topology.tex}
+  P19:prop:solar_angle_jones:    {paper: paper19, repo_file: quantum/neutrino.tex}
+  P19:rem:solar_physical:        {paper: paper19, repo_file: quantum/neutrino.tex}
+  # ... populated by scanner ...

@@ -1,0 +1,338 @@
+%% hopfion-framework/strong/colour.tex
+%% Sources: main_paper5.tex
+%% Colour from CP^2 Hopf fibration, Z_3 centre, N_c=3, confinement
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Colour Structure — Paper V
+%════════════════════════════════════════════════════════════════════
+
+\begin{remark}[Parallel with the electroweak sector]
+\label{P5:rem:ew_colour_parallel}
+For the electroweak sector, $U(1)_Y\cap 2I = Z_2$ (the centre of the
+binary icosahedral group) was the key intersection that pinned the
+hypercharge coupling weight $w_Y=1$ at $C_5$ (Section~5.1.2 of~\cite{Paper1}).
+For the colour sector, the analogous intersection is
+$\mathrm{SU}(3)_C\cap 2I = Z_3$ (the $\mathbb{Z}_3$ centre of
+$\mathrm{SU}(3)$), which pins the colour coupling weight at the
+same condensate generator.
+\end{remark}
+\status{published}
+\source{P5:rem:ew_colour_parallel}
+
+\begin{proposition}[Colour level shift]
+\label{P5:prop:colour_shift}
+Every quark receives a universal half-integer shift
+\begin{equation}
+  \delta n^{(C)} = \frac{1}{2}
+  \label{P16:eq:dncol_exact}
+\end{equation}
+relative to the lepton at the same Hopf tower level.
+\end{proposition}
+\status{published}
+\source{P5:prop:colour_shift}
+
+\begin{remark}[Comparison with the old formula]
+\label{P5:rem:old_formula_comparison}
+The previous estimate $\delta n^{(C)} = \tfrac{2}{3}\cdot\tfrac{\deff-2}{2}$
+used $\deff = 3.5$ and coincidentally gave $1/2$, but with
+$\deff^{\mathrm{exact}}=43/14$ gives the wrong result $5/14$.
+Proposition~\ref{P5:prop:colour_shift} gives the exact derivation that
+does not pass through $\deff$.
+\end{remark}
+\status{published}
+\source{P5:rem:old_formula_comparison}
+
+\begin{equation}
+  \LQCD \approx \LUV\,\exp\!\left(-\frac{\vp^{43/7}}{b_0 C_F \sin(\pi/5)}\right),
+  \label{P16:eq:LQCD_holonomy}
+\end{equation}
+
+%════════════════════════════════════════════════════════════════════
+% Colour Exclusion Theorem — Paper XVI
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Colour exclusion in the $\QH=2$ sector]
+\label{P16:thm:colour_exclusion}
+The colour $\mathbb{Z}_3$ automorphism $\sigma$ does not extend to any
+automorphism of $\twoI$. Consequently, the colour charge is not a
+well-defined quantum number for any field configuration in the
+$\QH=2$ sector of the density-feedback Hopfion, and every $\QH=2$
+configuration is a colour singlet.
+\end{theorem}
+\status{published}
+\source{P16:thm:colour_exclusion}
+
+\begin{remark}[Dynkin-diagram formulation]
+\label{P16:rem:dynkin_colour}
+The colour $\mathbb{Z}_3$ of $\twoT$ is the order-$3$ graph automorphism
+of $\widehat{E}_6$ (the three equal arms rotate into each other).
+The automorphism group of $\widehat{E}_8$ (McKay graph of $\twoI$) is
+trivial: the $\widehat{E}_8$ diagram is a linear chain with a single
+branch, and no non-identity node permutation preserves all adjacencies.
+Therefore $\mathrm{Aut}(\widehat{E}_8)=\{1\}$, confirming by a different
+route that the colour $\mathbb{Z}_3\subset\mathrm{Aut}(\widehat{E}_6)$
+has no counterpart at the $\widehat{E}_8$ level.
+\end{remark}
+\status{published}
+\source{P16:rem:dynkin_colour}
+
+\begin{remark}[Colour emergence in the $\QH=2\to\QH=3$ transition]
+\label{P16:rem:symmetry_breaking_colour}
+Theorem~\ref{P16:thm:colour_exclusion} supplies the group-theoretic statement
+underlying the physical picture: colour charge \emph{emerges} in the
+transition $\QH=2\to\QH=3$, i.e.\ in the symmetry breaking
+$\twoI\to\twoT$. Before the breaking, $\sigma$ is not a symmetry of
+anything in the $\QH=2$ sector; after it, $\sigma$ is the defining
+automorphism of the $\twoT$ colour structure.
+\end{remark}
+\status{published}
+\source{P16:rem:symmetry_breaking_colour}
+
+\begin{remark}[The $\QH=1$ sector and the complete ADE hierarchy]
+\label{P16:rem:qh1_preview}
+Theorem~\ref{P16:thm:colour_exclusion} concerns only the $\QH=2$ sector.
+The $\QH=1$ neutrino sector (Paper XVII) has McKay group $\mathbb{Z}_2$;
+colour exclusion holds there by coprimality $\gcd(2,3)=1$.
+The three non-vacuum sectors complete the ADE top tier:
+\[
+  \underbrace{\mathbb{Z}_2\leftrightarrow\widehat{A}_1}_{\QH=1,\;\text{neutrino}}
+  \qquad
+  \underbrace{\twoI\leftrightarrow\widehat{E}_8}_{\QH=2,\;\text{charged lepton}}
+  \qquad
+  \underbrace{\twoT\leftrightarrow\widehat{E}_6}_{\QH=3,\;\text{baryon}}.
+\]
+\end{remark}
+\status{published}
+\source{P16:rem:qh1_preview}
+
+\begin{proposition}[Topological holonomy]
+\label{P5:prop:holonomy}
+The correct holonomy for QCD confinement is the topological quantity
+computed by Method~(iii).
+For a single colour flux tube, the Dirac quantisation condition
+requires $\Phi_{\mathrm{topo}} = \pi$ (one unit of colour magnetic
+flux), and Method~(iii) gives $\Phi_{\mathrm{topo}}/\pi\approx1.017$,
+consistent with this quantisation to $1.7\%$.
+The Wilson loop for the colour flux tube is
+\begin{equation}
+  \langle W\rangle
+  = e^{-i\Phi_{\mathrm{topo}}}
+  \approx e^{-i\pi}
+  = -1,
+  \label{P15:eq:Wilson_loop}
+\end{equation}
+which is the correct $\mathbb{Z}_2$ centre value for quark confinement
+(the centre-symmetry criterion for the confined phase).
+\end{proposition}
+\status{published}
+\source{P5:prop:holonomy}
+
+\begin{remark}[Relation to $K_{\mathrm{th}}$]
+\label{P5:rem:kth_relation}
+The threshold factor $K_{\mathrm{th}}=\sin(\pi/5)$ (Theorem~\ref{P5:thm:Kth})
+is the WZW vacuum amplitude and modifies the \emph{coupling}, not the
+holonomy.  The holonomy is topologically quantised at $\pi$; the
+coupling runs with scale and receives the $K_{\mathrm{th}}$ correction
+at the phase transition.  These are orthogonal corrections.
+\end{remark}
+\status{published}
+\source{P5:rem:kth_relation}
+
+
+%════════════════════════════════════════════════════════════════════
+% WZW Structure of the Q_H=3 Sector — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[T-matrix closure at $(E_6)_1$ level]
+\label{P15:thm:QgroupE6}
+The minimum closing integer for $(E_6)_1$ (i.e.\ the minimum $Q\geq1$
+such that $Q\,T_j$ is an odd multiple of $\tfrac{1}{4}$ for every primary $j$)
+is $Q_{\mathrm{group}}^{(3)}=3$.
+\end{theorem}
+\status{published}
+\source{P15:thm:QgroupE6}
+\residual{exact}
+
+\begin{theorem}[T-matrix closure at $\SU(3)_1$ level]
+\label{P15:thm:Qgroup3}
+The minimum closing integer for $\SU(3)_1$ is also
+$Q_{\mathrm{group}}^{(3)}=3$, independently of the $(E_6)_1$ result.
+\end{theorem}
+\status{published}
+\source{P15:thm:Qgroup3}
+\residual{exact}
+
+\begin{theorem}[Both quark charges from the WZW chain]
+\label{P15:thm:charge}
+Both fractional quark charges emerge at different levels of the
+WZW chain, with no free parameters:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item $(E_6)_1$ level: $h_{\mathbf{27}}=\tfrac{2}{3}$
+  gives the up-quark charge $|Q_u|=\tfrac{2}{3}$.
+\item $\SU(3)_1$ level ($\SU(3)_L$ electroweak factor):
+  \begin{equation}
+    h_{(1,0)} = \frac{p^2+pq+q^2+3p+3q}{12}\bigg|_{p=1,q=0}
+              = \frac{4}{12} = \frac{1}{3}
+    \label{P15:eq:hdown}
+  \end{equation}
+  gives the down-quark charge $|Q_d|=\tfrac{1}{3}$.
+\item These are consistent via branching:
+  $h_{\mathbf{3}}+h_{\bar{\mathbf{3}}}
+  =\tfrac{1}{3}+\tfrac{1}{3}=\tfrac{2}{3}=h_{\mathbf{27}}$.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P15:thm:charge}
+\residual{exact}
+
+\begin{theorem}[Electric charge from the trinification generator]
+\label{P15:thm:charge_generator}
+Let $Q = T_{3L}+T_{8L}/\!\sqrt{3}$ be the unique electric-charge
+generator of $\SU(3)_L\subset(E_6)_1$ (traceless over $\mathbf{3}_L$
+and compatible with the $\mathbb{Z}_3$ centre; no free parameters).
+On the three weight states of the fundamental $\mathbf{3}_L$,
+\begin{equation}
+  Q \in \Bigl\{\tfrac{2}{3},\,-\tfrac{1}{3},\,-\tfrac{1}{3}\Bigr\},
+  \label{P15:eq:trinification_charges}
+\end{equation}
+the standard $(u,d,D)$ charge assignment. The coefficient vector of
+$Q$ satisfies $\mu = 2\,\omega_1$ where $\omega_1$ is the highest
+weight of $\mathbf{3}_L$.
+\end{theorem}
+\status{published}
+\source{P15:thm:charge_generator}
+\residual{exact}
+
+\begin{corollary}[Quark charges equal conformal weights, derived]
+\label{P15:cor:charge_eq_weight}
+Both quark charges and both conformal weights are computed from the
+single number $(\omega_1,\omega_1)_{A_2}=\tfrac23$:
+\begin{equation}
+  \boxed{|Q_d| = h_{(1,0)} = \tfrac13,
+  \qquad
+  |Q_u| = Q(\omega_1) = 2h_{(1,0)} = h_{\mathbf{27}} = \tfrac23.}
+  \label{P15:eq:charge_eq_weight}
+\end{equation}
+The equality of conformal weight and electric charge is a consequence
+of the trinification embedding with $A_2$ representation theory.
+\end{corollary}
+\status{published}
+\source{P15:cor:charge_eq_weight}
+\residual{exact}
+
+\begin{remark}[Why $N=3$ is essential]
+\label{P15:rem:N3_unique}
+For $\SU(N)_1$, the conformal weight of the fundamental equals the
+minimal $\mathbb{Z}_N$-centre charge if and only if
+\begin{equation}
+  \frac{N-1}{2N}=\frac{1}{N}
+  \quad\Longleftrightarrow\quad
+  N=3.
+  \label{P15:eq:N3unique}
+\end{equation}
+The identification of Corollary~\ref{P15:cor:charge_eq_weight} is therefore
+special to $N=3$, the value independently forced by the McKay
+correspondence $\twoT\leftrightarrow\widehat{E}_6$.
+\end{remark}
+\status{published}
+\source{P15:rem:N3_unique}
+
+%════════════════════════════════════════════════════════════════════
+% 2T Group Structure: Subgroup, 24-Cell, Branching — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[$\twoT\subset\twoI$]
+\label{P15:thm:subgroup}
+The binary tetrahedral group $\twoT$ (order~24) is a subgroup of
+the binary icosahedral group $\twoI$ (order~120).
+The index $[\twoI:\twoT]=5=k+2$ at $k=3$.
+\end{theorem}
+\status{published}
+\source{P15:thm:subgroup}
+
+\begin{proposition}[24-cell structure of $\twoT$]
+\label{P15:prop:24cell}
+The 24 elements of $\twoT\subset\SU(2)$, as unit quaternions,
+are the vertices of the 24-cell in $\mathbb{R}^4$.
+They decompose as $Q_8 = \{\pm1,\pm\mathbf{i},\pm\mathbf{j},\pm\mathbf{k}\}$
+(8 elements) and the 16 Hurwitz units
+$\tfrac{1}{2}(\pm1\pm\mathbf{i}\pm\mathbf{j}\pm\mathbf{k})$.
+The 24-cell has edge length~$1$ and circumradius~$1$;
+its edge-to-circumradius ratio is exactly~$1$
+(compared to $1/\vp$ for the 600-cell of $\twoI$).
+\end{proposition}
+\status{published}
+\source{P15:prop:24cell}
+
+\begin{remark}[The $F_4$ root system and Coxeter number for quarks]
+\label{P15:rem:F4}
+The McKay correspondence gives $\twoT\leftrightarrow F_4$:
+\begin{equation}
+  |\twoT|=24 = \tfrac12\cdot|R(F_4)|=\tfrac12\cdot48.
+  \label{P15:eq:2T_F4}
+\end{equation}
+The dual Coxeter number $h^\vee(F_4)=9=N_3^2$.
+The ratio $h(F_4)/h(E_8)=12/30=2/5=(k+2)^{-1}$ at $k=3$, consistent
+with the index $[\twoI:\twoT]=5=k+2$.
+\end{remark}
+\status{published}
+\source{P15:rem:F4}
+
+\begin{proposition}[Branching rules $\twoI\to\twoT$, proved by character theory]
+\label{P15:prop:branching}
+\begin{equation}
+\renewcommand{\arraystretch}{1.3}
+\begin{array}{rll}
+  j=0\phantom{/2}& \to & \Gamma_1 \\
+  j=\tfrac12 & \to & \Gamma_2 \\
+  j=1\phantom{/2} & \to & \Gamma_3 \\
+  j=\tfrac32 & \to & \Gamma_{2\omega}\oplus\Gamma_{2\omega^2} \\
+  j=2\phantom{/2} & \to & \Gamma_\omega\oplus\Gamma_{\omega^2}\oplus\Gamma_3 \\
+  j=\tfrac52 & \to & \Gamma_2\oplus\Gamma_{2\omega}\oplus\Gamma_{2\omega^2}
+\end{array}
+\label{P15:eq:branching_table_P15}
+\end{equation}
+All multiplicities are $0$ or $1$; the restriction $\twoI\to\twoT$ is
+multiplicity-free for $j\le\tfrac52$.
+\end{proposition}
+\status{published}
+\source{P15:prop:branching}
+
+\begin{proposition}[Three colours from three fermionic irreps]
+\label{P15:prop:colours}
+The three $2$-dimensional fermionic irreps
+$\Gamma_2,\Gamma_{2\omega},\Gamma_{2\omega^2}$ of $\twoT$,
+related by the $\mathbb{Z}_3$ outer automorphism of $E_6$,
+are the three quark colours:
+\begin{equation}
+  \twoI(\text{spinor}, \dim=2)\;\big\downarrow_{\twoT}\;
+  \longrightarrow\; \Gamma_{2\omega^k},
+  \qquad k\in\{0,1,2\},
+  \label{P15:eq:branching_P15}
+\end{equation}
+with index $k$ labelling the quark colour.
+\end{proposition}
+\status{published}
+\source{P15:prop:colours}
+
+\begin{theorem}[Charge and mass from $\SU(3)_1$]
+\label{P15:thm:massdegen}
+Within the $\SU(3)_1$ WZW framework for the $\QH=3$ sector:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item The fractional electric charge of the quark is
+  $h_{(1,0)}=\tfrac{1}{3}$ (Theorem~\ref{P15:thm:charge}).
+\item The T-matrix exponents satisfy
+  $T_{(1,0)}=T_{(0,1)}=\tfrac{1}{4}$: the fundamental
+  $\mathbf{3}$ and anti-fundamental $\bar{\mathbf{3}}$ have
+  identical T-matrix phases.
+\item At leading order in the WZW framework, $m_u=m_d$.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P15:thm:massdegen}

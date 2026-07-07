@@ -1,0 +1,336 @@
+%% hopfion-framework/gravity/newton.tex
+%% Sources: main_paper7.tex
+%% G_N from gradient flux imbalance, Einstein equations, Cassini bound
+%% Auto-generated from project files. Edit source papers to update.
+
+
+%════════════════════════════════════════════════════════════════════
+% Newton's Constant and Einstein Equations — Paper VII
+%════════════════════════════════════════════════════════════════════
+The parent action governing the condensate scalar field $\rho$, gravity
+and cosmology is
+\begin{equation}
+  S[\rho] = \int d^4x\sqrt{-g}\,
+  \biggl[\frac{g^{\mu\nu}\partial_\mu\rho\,\partial_\nu\rho}
+              {\vp^6(1+\beta\rho)}
+         + \Lambda_0\,e^{-\vp^6\rho}\biggr]
+  + \int S_{\mathrm{eff}}(\theta,\rho)\,d\Omega,
+  \label{P7:eq:parent_action}
+\end{equation}
+where $S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\bst\rho)]$
+is the suppression formula of~\cite{Paper1}, a $k$-essence type
+scalar-tensor theory in disguise.
+
+\begin{remark}[RG fixed point and the fermion mass tower]
+\label{P7:rem:rg_tower}
+The $k$-essence scalar-tensor functional~\cite{Paper1} governing the
+condensate scalar field $\rho$ is
+\begin{equation}
+  S_{\mathrm{parent}}[\rho]
+  \;=\; \int\!\mathrm{d}^4x\,\sqrt{-g}\;
+  \frac{|\nabla\rho|^2}{\vp^6\bigl(1 + \bst\,|\nabla\rho|^2\bigr)},
+  \label{P7:eq:parent_kin}
+\end{equation}
+with $\vp^6 = \lam \approx 17.944$ the Bogomolny parameter.
+Under Derrick scaling $r \to \zeta r$, the kinetic sector of
+\eqref{P7:eq:parent_kin} scales as $\zeta^{-2}$ and the angular-suppression
+sector (from the $\sin^4\!\theta/\vp^6$ factor of the condensate vacuum)
+scales as $\zeta^4$.  The unique fixed point of the resulting balance
+equation is $\zeta = \vp$, establishing the golden ratio as the
+RG scale ratio of the condensate action.
+
+Stable bound states of the condensate field therefore exist at the
+discrete scales
+\begin{equation}
+  m_n \;=\; m_0\,\vp^{-2n}, \qquad n = 0, 1, 2, \ldots,
+  \label{P7:eq:mass_spectrum}
+\end{equation}
+with one level per pair of transverse dimensions in the $\sin^4\!\theta$
+suppression.  The full derivation of this tower --- including the proof
+that $\zeta = \vp$ is the unique fixed point, the quantisation of levels,
+the identification of the ground state with $\Lcond$, and the connection
+to the WZW T-matrix phases of Papers~I and~IV --- is carried out in the
+companion Paper~VI~\cite{Paper6}.
+Equation~\eqref{P7:eq:mass_spectrum} is used throughout this paper as a
+derived result; see Paper~VI for all proofs.
+\end{remark}
+\status{published}
+\source{P7:rem:rg_tower}
+
+The one-loop action generates a non-minimal coupling
+$\xNMC=\LUV^2\beta/[4(4\pi)^2]$~\eqref{P7:eq:xNMC}, and the full
+effective action takes the scalar-tensor form
+\begin{equation}
+  S_{\mathrm{eff}} = \int d^4x\sqrt{-g}\!\left[
+    \frac{\MPl^2}{2}R
+    + \xNMC\rho R
+    + \frac{(\partial\rho)^2}{\vp^6(1+\beta\rho)}
+    + \Lambda_{\mathrm{eff}}
+  \right].
+  \label{P7:eq:Seff}
+\end{equation}
+Identifying the induced Planck mass by matching the $R$-coefficient
+to the Einstein--Hilbert action:
+\begin{equation}
+  \boxed{\MPl^2 = \frac{\LUV^2}{32\pi^2},
+  \qquad
+  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}} \;\approx\; 0.0563\,\MPl.}
+  \label{P7:eq:MPl}
+\end{equation}
+The Bogomolny parameter $\vp^6\approx17.944$ satisfies
+$4\pi\sqrt{2}\approx17.77\approx\vp^6$ to within $1\%$
+(a structural coincidence of the framework; no free parameter is used),
+so~\eqref{P7:eq:MPl} is equivalent to the compact estimate
+\begin{equation}
+  \LUV \;\approx\; \frac{\MPl}{\vp^6}
+  \;\approx\; 0.0557\,\MPl
+  \;\approx\; 6.8\times10^{17}\,\mathrm{GeV},
+  \label{P7:eq:LUV_approx}
+\end{equation}
+accurate to $1\%$.  In Planck units $\LUV\approx\MPl/18$.
+Matching~\eqref{P7:eq:Seff} to the Brans--Dicke form gives
+\begin{equation}
+  \oBD = \frac{\vp^{12}}{3\beta}
+  \approx \frac{107.6}{\beta}.
+  \label{P7:eq:oBD}
+\end{equation}
+For $\beta\in[0.1,1.0]$ this gives $\oBD\in[108,1076]$.
+
+\begin{theorem}[Einstein field equations from the k-essence condensate]
+\label{P7:thm:einstein}
+Varying $S_{\mathrm{eff}}$~\eqref{P7:eq:Seff} with respect to
+$g^{\mu\nu}$ yields the exact dynamical Einstein equations
+\begin{equation}
+  F(\rho)\,G_{\mu\nu}
+  \;+\; \xNMC\!\left(\nabla_\mu\nabla_\nu - g_{\mu\nu}\,\square\right)\rho
+  \;=\; T_{\mu\nu}^{(\rho)},
+  \label{P7:eq:einstein_full}
+\end{equation}
+where $F(\rho)\equiv\MPl^2/2 + \xNMC\rho$ is the effective gravitational
+strength and the soup stress-energy is
+\begin{equation}
+  T_{\mu\nu}^{(\rho)}
+  \;=\; \frac{\partial_\mu\rho\,\partial_\nu\rho}{\vp^6(1+\beta\rho)}
+  \;-\; \left[\frac{(\partial\rho)^2}{2\vp^6(1+\beta\rho)}
+             + \Lambda_{\mathrm{eff}}\right]g_{\mu\nu}.
+  \label{P7:eq:Tmunu}
+\end{equation}
+In the \emph{frozen attractor limit} $\rho\to\rinfty=\vp/\beta$, $\partial_\mu\rho\to0$:
+\begin{equation}
+  \boxed{G_{\mu\nu} + \frac{\Lobs}{F(\rinfty)}\,g_{\mu\nu} = 0,}
+  \label{P7:eq:einstein_frozen}
+\end{equation}
+i.e.\ the standard Einstein equation with cosmological constant
+$\Lambda_{\mathrm{phys}}=\Lobs/F(\rinfty)$, where the effective
+gravitational strength is
+\begin{equation}
+  F(\rinfty)
+  \;=\; \frac{\MPl^2}{2}(1 + 3\vp^7)
+  \;=\; \frac{\MPl^2}{2}\,(39\vp + 25).
+  \label{P7:eq:Feff}
+\end{equation}
+The corrections to~\eqref{P7:eq:einstein_frozen} are controlled by
+$(\partial_\mu\rho)^2/\Lobs \ll 1$ (kinetic suppression) and
+$\xNMC\square\rho/F(\rinfty)\ll1$ (slow-roll suppression),
+both satisfied once the field has approached the attractor.
+\end{theorem}
+\status{published}
+\source{P7:thm:einstein}
+
+\begin{remark}[Tree level vs.\ one-loop graviton dynamics]
+\label{P7:rem:spin2}
+The soup action~\eqref{P7:eq:parent_action} alone does not produce a
+propagating spin-2 graviton at tree level: the metric is auxiliary,
+determined algebraically by the stress tensor.  Full tensor GR emerges
+after one-loop integration, where the
+Seeley--DeWitt $a_2$ coefficient induces the Einstein--Hilbert term.
+The complete dynamical Einstein equations derived from the resulting
+effective action $S_{\mathrm{eff}}$ are proved in Theorem~\ref{P7:thm:einstein}:
+the k-essence action reduces exactly to
+Einstein--Hilbert plus a cosmological constant in the frozen attractor limit.
+\end{remark}
+\status{published}
+\source{P7:rem:spin2}
+
+\begin{theorem}[Bianchi consistency and energy-momentum conservation]
+\label{P7:thm:conservation}
+The effective action $S_{\mathrm{eff}}$~\eqref{P7:eq:Seff} is diffeomorphism
+invariant, so by Noether's second theorem the contracted Bianchi identity
+$\nabla^\mu G_{\mu\nu}=0$ implies a conservation law.
+Explicitly:
+
+\noindent\textbf{(i) Scalar field equation.}
+Varying $S_{\mathrm{eff}}$ with respect to $\rho$ gives
+\begin{equation}
+  \nabla_\mu\!\left[\frac{\partial^\mu\rho}{\vp^6(1+\beta\rho)}\right]
+  \;+\; \frac{\beta\,(\partial\rho)^2}{2\vp^6(1+\beta\rho)^2}
+  \;-\; V'(\rho)
+  \;=\; \xNMC\,R,
+  \label{P7:eq:scalar_eom}
+\end{equation}
+where $V'(\rho)=\partial V/\partial\rho=-\vp^6\Lambda_0 e^{-\vp^6\rho}$
+and the right-hand side $\xNMC R$ is the NMC source.
+
+\noindent\textbf{(ii) Contracted Bianchi identity.}
+On any solution of both~\eqref{P7:eq:einstein_full} and~\eqref{P7:eq:scalar_eom},
+\begin{equation}
+  \nabla^\mu T_{\mu\nu}^{(\rho)} \;=\; 0,
+  \label{P7:eq:Tcons}
+\end{equation}
+i.e.\ the soup stress-energy is covariantly conserved.
+
+\noindent\textbf{(iii) Equivalence.}
+Any two of the three equations
+$\{\text{Einstein~\eqref{P7:eq:einstein_full},\;scalar~\eqref{P7:eq:scalar_eom},\;conservation~\eqref{P7:eq:Tcons}}\}$
+imply the third.
+\end{theorem}
+\status{published}
+\source{P7:thm:conservation}
+
+\begin{theorem}[Cassini resolution via Vainshtein screening~\cite{Vainshtein1972}]
+\label{P7:thm:cassini}
+All inputs to the Vainshtein radius are fixed by the framework without
+free parameters.  Substituting the dark-energy scalar mass
+$m_\xi^2 = \vp^{20}\,\Lambda_{\mathrm{obs}}\,\MPl^4$
+(equation~\eqref{P7:eq:mxi}, no free parameter) and the Brans--Dicke parameter
+$\oBD = \vp^{12}/(3\beta)$ (equation~\eqref{P7:eq:oBD}) into the standard
+massive-BD Vainshtein formula~\cite{Vainshtein1972,Dvali2000},
+the Vainshtein radius for the Sun is
+\begin{equation}
+  \boxed{r_V
+  \;=\; \left(\frac{r_S}{6\beta\,\vp^8\,
+        (\Lambda_{\mathrm{obs}}/\MPl^4)}\right)^{\!1/3}
+  \;\approx\; 9.3\times10^6\,\mathrm{AU},}
+  \label{P7:eq:rV_exact}
+\end{equation}
+where $r_S = 2G_N M_\odot/c^2\approx3\,\mathrm{km}$ is the solar
+Schwarzschild radius and $\Lambda_{\mathrm{obs}}/\MPl^4\approx10^{-122}$.
+This exceeds the solar system by five orders of magnitude.
+The screened PPN parameter satisfies
+\begin{equation}
+  |\gamma_{\mathrm{PPN}}-1|
+  \;\approx\;\left(\frac{R_\odot}{r_V}\right)^{1/2}
+  \;\approx\; 2.2\times10^{-5}
+  \;<\; 2.3\times10^{-5} \quad\text{(Cassini bound).}
+  \label{P7:eq:gamma_PPN}
+\end{equation}
+The Vainshtein nonlinearity condition is satisfied throughout the solar
+system: at the Cassini measurement orbit ($r\sim10\,\mathrm{AU}$),
+$(r_V/r)^{3/2}\approx10^{9}\gg1$, confirming deep nonlinear
+suppression of the fifth force.
+\end{theorem}
+\status{published}
+\source{P7:thm:cassini}
+
+\begin{remark}[Self-consistency of the resolution]
+\label{P7:rem:cassini_self}
+The resolution is fully self-consistent: $m_\xi\sim H_0$ is \emph{derived}
+from the dark energy sector (equation~\eqref{P7:eq:mxi}), not imposed.
+The single parameter $\beta$ enters only through $\oBD = \vp^{12}/(3\beta)$;
+its framework value $\beta\approx0.1$ gives $r_V\approx9.3\times10^6\,\mathrm{AU}$.
+The constraint $|\gamma_{\mathrm{PPN}}-1|<2.3\times10^{-5}$ is satisfied
+for $\beta\leq0.13$, consistent with the range of Axiom~A2.
+\end{remark}
+\status{published}
+\source{P7:rem:cassini_self}
+
+\begin{equation}
+  G_N = \frac{G_{\mathrm{src}}^2}{4\pi\vp^6}.
+  \label{P7:eq:GN}
+\end{equation}
+
+\begin{equation}
+  G_N^{\rm phys}
+  \;=\; \frac{1}{2F(\rinfty)}
+  \;=\; \frac{1}{\MPl^2(1+3\vp^7)},
+  \label{P7:eq:GN_phys}
+\end{equation}
+
+\begin{remark}[Physical interpretation of $F(\rinfty)$ and the renormalised $\MPl$]
+\label{P7:rem:MPl_renorm}
+The factor $(1+3\vp^7)$ in~\eqref{P7:eq:Feff} arises because the NMC coupling
+$\xNMC\rho_\infty$ is not small: at the attractor the soup scalar contributes
+$3\vp^7\approx87$ times as much to the effective gravitational strength as the
+purely loop-induced $\MPl^2$ term.
+The \emph{physical} Newton constant measured at laboratory scales is
+therefore the $G_N^{\rm phys}$ above, a factor $(1+3\vp^7)^{-1}\approx1/88$
+below the na\"ive one-loop estimate.
+This is the self-consistent gravitational coupling of the condensate: both the
+loop-induced $\MPl^2/2$ and the attractor NMC term $\xNMC\rinfty$ contribute,
+and their precise combination $39\vp+25$ is an exact algebraic consequence of
+the golden ratio.
+\end{remark}
+\status{published}
+\source{P7:rem:MPl_renorm}
+
+\begin{equation}
+  f G_{\mu\nu} + \xNMC(g_{\mu\nu}\square - \nabla_\mu\nabla_\nu)\rho = 0
+  \quad[\text{gravity sector}].
+  \label{P7:eq:gravity_sector}
+\end{equation}
+
+\begin{equation}
+  \nabla^2(\delta\rho) = -G_{\mathrm{src}}M\,\delta^{(3)}(\mathbf{r}),
+  \label{P7:eq:poisson}
+\end{equation}
+
+
+%════════════════════════════════════════════════════════════════════
+% Exact Rotating Condensate Background — Paper VII
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[Exact rotating condensate background]
+\label{P7:thm:rotating}
+Let $\kappa = \beta\vp^2 G_N^{1/2}$.
+The unique stationary, axisymmetric, asymptotically-attractor exterior
+solution to $\nabla^2\rho_0 = 0$ with the correct source term and
+$\rho_0\to\rinfty$ at infinity is
+\begin{equation}
+  \rho_0(r,\theta)
+  \;=\; \rinfty\,\exp\!\bigl(-\kappa\,\Phi_{\mathrm{Kerr}}(r,\theta)\bigr),
+  \label{P7:eq:rho_Kerr_exact}
+\end{equation}
+where the exterior Newtonian potential associated with the Kerr
+source is the multipole series
+\begin{equation}
+  \boxed{\Phi_{\mathrm{Kerr}}(r,\theta)
+  \;=\; \frac{M}{r}
+  \;-\; \frac{M a^2}{2r^3}\,P_2(\cos\theta)
+  \;+\; \frac{3M a^4}{8r^5}\,P_4(\cos\theta)
+  \;-\; \cdots
+  \;=\; M\sum_{l=0}^{\infty}
+        \frac{(-a^2)^l}{(2l-1)!!\,r^{2l+1}}\,P_{2l}(\cos\theta),}
+  \label{P7:eq:Phi_Kerr}
+\end{equation}
+with $P_{2l}$ the Legendre polynomials and $(2l-1)!! = 1\cdot3\cdots(2l-1)$.
+Each term satisfies $\nabla^2 r^{-(2l+1)}P_{2l} = 0$ individually,
+so $\nabla^2\Phi_{\mathrm{Kerr}} = 0$ exactly term by term.
+The series converges absolutely for $r > a$ (the exterior region
+of any sub-extremal Kerr solution).
+
+In the limit $a\to0$: $\Phi_{\mathrm{Kerr}}\to M/r$ and
+$\rho_0\to\rinfty\,e^{-\kappa M/r}$, recovering the exact
+Schwarzschild background.
+\end{theorem}
+\status{published}
+\source{P7:thm:rotating}
+
+\begin{remark}[Relation to the oblate spheroidal approximation]
+\label{P7:rem:oblate}
+The previously-used ansatz $1/\sqrt{r^2+a^2\cos^2\!\theta}$ is the generating
+function of the Legendre polynomials:
+\begin{equation}
+  \frac{1}{\sqrt{r^2+a^2\cos^2\!\theta}}
+  \;=\; \frac{1}{r}\sum_{l=0}^\infty
+        \left(-\frac{a^2}{r^2}\right)^{\!l}
+        \frac{(2l-1)!!}{(2l)!!}\,P_{2l}(\cos\theta),
+  \label{P7:eq:oblate_expansion}
+\end{equation}
+which is \emph{not} term-by-term harmonic (each term has a different weight
+from~\eqref{P7:eq:Phi_Kerr}), confirming that the oblate spheroidal
+ansatz~\eqref{P7:eq:oblate_expansion} does not
+satisfy $\nabla^2\rho_0=0$.  The exact background~\eqref{P7:eq:rho_Kerr_exact}
+corrects this; numerically the two differ by less than $0.2\%$ for $a/r\lesssim0.5$.
+\end{remark}
+\status{published}
+\source{P7:rem:oblate}
+

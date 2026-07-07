@@ -1,0 +1,122 @@
+%% hopfion-framework/preamble.tex
+%% Shared preamble for all repository files.
+%% \input this at the top of any standalone document.
+%% Repository files are designed to be \input into papers directly.
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+%── Theorem environments ──────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{condition}[theorem]{Condition}
+
+%── Repository metadata commands ─────────────────────────────────────────────
+% Usage: \status{published} or \status{open} or \status{conjectured}
+\newcommand{\status}[1]{\par\noindent{\color{blue}\textbf{Status:} #1}}
+% Usage: \source{Paper I, Theorem thm:scale}
+\newcommand{\source}[1]{\par\noindent{\color{darkgray}\textbf{Source:} #1}}
+% Usage: \residual{0.013\%} or \residual{exact}
+\newcommand{\residual}[1]{\par\noindent{\color{teal}\textbf{Residual:} #1}}
+% Usage: \depends{foundations/pentagon, foundations/suppression}
+\newcommand{\depends}[1]{\par\noindent{\color{purple}\textbf{Depends on:} #1}}
+
+%── Framework macros ─────────────────────────────────────────────────────────
+\newcommand{\vp}{\varphi}
+\newcommand{\bst}{\beta^{*}}
+\newcommand{\Seff}{S_{\mathrm{eff}}}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\LUV}{\Lambda_{\mathrm{UV}}}
+\newcommand{\LQCD}{\Lambda_{\mathrm{QCD}}}
+\newcommand{\MPl}{M_{\mathrm{Pl}}}
+\newcommand{\ERy}{E_{\mathrm{Ry}}}
+\newcommand{\aem}{\alpha_{\mathrm{em}}}
+\newcommand{\sinW}{\sin^{2}\!\theta_{W}}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\twoI}{2I}
+\newcommand{\twoT}{2T}
+\newcommand{\twoO}{2O}
+\newcommand{\Ehat}{\hat{E}_8}
+\newcommand{\QH}{Q_H}
+\newcommand{\Ztwo}{\mathbb{Z}_2}
+\newcommand{\Zthree}{\mathbb{Z}_3}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\Lobs}{\Lambda_{\mathrm{obs}}}
+\newcommand{\rinfty}{\rho_{\infty}}
+\newcommand{\oBD}{\omega_{\mathrm{BD}}}
+\newcommand{\xNMC}{\xi_{\mathrm{NMC}}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\dimq}[1]{d_{#1}}
+\newcommand{\deff}{d_{\mathrm{eff}}}
+\newcommand{\Kth}{K_{\mathrm{th}}}
+\newcommand{\Ja}{\mathcal{J}_a}
+\newcommand{\Jfour}{\mathcal{J}_4}
+\newcommand{\Jiso}{\mathcal{J}_{\mathrm{iso}}}
+\newcommand{\rhoinf}{\rho_{\infty}}
+\newcommand{\rhoa}{\rho_{\mathrm{atom}}}
+\newcommand{\Heff}{H_{\mathrm{eff}}}
+\newcommand{\epsr}{\varepsilon(r)}
+\newcommand{\Hcond}{H_{\mathrm{cond}}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Rzero}{R_0}
+\newcommand{\Cstar}{C^*}
+\newcommand{\mH}{m_H}
+\newcommand{\aem}{\alpha_{\mathrm{em}}}
+\newcommand{\ms}{\mu^*}
+\newcommand{\lam}{\lambda}
+\newcommand{\fzero}{f_0}
+\newcommand{\ftwo}{f_2}
+\newcommand{\Itor}[1]{I_{#1}^{\mathrm{tor}}}
+\newcommand{\Jfb}{\mathcal{J}_{\mathrm{fb}}}
+\newcommand{\bz}{\beta_0}
+\newcommand{\sopt}{s_{\mathrm{opt}}}
+\newcommand{\leff}{\lambda_{\mathrm{eff}}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Ia}{I_{2a}}
+\newcommand{\Ib}{I_{4}}
+\newcommand{\kk}{\kappa}
+\newcommand{\aInv}{\alpha^{-1}}
+\newcommand{\mWZW}{m_{\mathrm{WZW}}}
+\newcommand{\tang}{\dot\Gamma}
+\newcommand{\Jones}{V}
+\newcommand{\lk}{\mathrm{lk}}
+\newcommand{\phistar}{\phi^*}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\pcond}{p_{\mathrm{cond}}}
+\newcommand{\pQM}{p_{\mathrm{QM}}}
+\newcommand{\xcond}{x_{\mathrm{cond}}}
+\newcommand{\CHSH}{\mathrm{CHSH}}
+\newcommand{\Tsirelson}{2\sqrt{2}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\CQ}{\mathcal{C}_Q}
+\newcommand{\CQr}{\mathcal{C}_Q^{\mathrm{red}}}
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\newcommand{\dmu}{d\mu}
+\newcommand{\nlvl}[1]{n\!\left(#1\right)}
+\newcommand{\IE}{\mathrm{IE}}
+\newcommand{\bsF}{{}_2F_1}
+
+

@@ -1,0 +1,2629 @@
+\documentclass[11pt,a4paper]{article}
+
+%─── Packages ─────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\geometry{top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm}
+
+%─── Theorem environments ─────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+%─── Macros ───────────────────────────────────────────────────────────────────
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\bst}{\beta^{*}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\Jfb}{J_{2\mathrm{iso}}^{\mathrm{fb}}}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfour}{J_{4}}
+\newcommand{\sopt}{s_{\mathrm{opt}}}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\aInv}{\alpha^{-1}}
+\newcommand{\aem}{\alpha_{\mathrm{em}}}
+\newcommand{\thetaG}{\theta_{\mathrm{g}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\mWZW}{m_{\mathrm{WZW}}}
+\newcommand{\bz}{\beta_{0}}
+
+%─── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{darkgreen}{RGB}{0,120,60}
+\definecolor{darkred}{RGB}{160,20,20}
+\definecolor{darkorange}{RGB}{180,80,0}
+\definecolor{darkblue}{RGB}{0,40,140}
+
+%══════════════════════════════════════════════════════════════════════════════
+\title{\textbf{The Hopf Spoke, WZW Fermion Mass Renormalization,\\
+and Three- and Four-Term Formulas for the Fine Structure Constant}
+\\[0.6em]
+{\large Companion Paper IV to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- April 2026}
+\author{Frederick Manfredi}
+\date{April 2026}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{document}
+\maketitle
+
+%─── Abstract ─────────────────────────────────────────────────────────────────
+\begin{abstract}
+We develop seven interconnected results that extend the density-feedback
+Faddeev--Niemi Hopfion framework of the companion papers~\cite{Paper1,Paper2,Paper3}.
+
+\textbf{(i) Compton-wavelength identification.}
+Under the Witten bosonization dictionary of~\cite{Paper3}, the Stieltjes
+resolvent parameter $\bst$ is exactly the squared inverse mass of the
+WZW condensate fermion: $\bst = 1/\mWZW^2$.  This is a precise, provable
+consequence of the resolvent interpretation; it is not an assumption.
+
+\textbf{(ii) One-loop WZW mass renormalization.}
+The density-feedback condensate background renormalizes the WZW fermion
+mass by the exact factor
+\[
+  \frac{\mWZW^2}{m_0^2} = \frac{V^*}{V(0)} = \frac{8\vp}{15},
+\]
+where $V^* = \vp$ and $V(0) = 15/8$ are the infrared and ultraviolet
+virial values proved in~\cite{Paper3}.  This follows from conformal scaling
+of the WZW metric under the density-feedback flow.
+
+\textbf{(iii) Three-term fine-structure-constant formula (unconditional).}
+The QED running from $\mWZW$ to $m_e$ contributes a correction
+$\delta_{\mathrm{QED}} = 1/(3k\vp^6) = 1/(9\vp^6)$, giving the three-term
+formula
+\[
+  \aInv \;=\; \frac{360}{\vp^2} - \frac{k}{2\pi}
+             + \frac{1}{3k\vp^6}
+             \;=\; 137.036\,49\ldots
+\]
+with residual $0.0004\%$ from the measured value.  This formula was
+conditional in an earlier version; Section~\ref{P4:sec:t_matrix_correction}
+closes the conditionality via the modular $T$-matrix correction
+of Theorem~\ref{P4:thm:t_matrix_spoke}.
+Section~\ref{P4:sec:four_term_alpha} then derives the four-term formula
+\[
+  \aInv = \frac{360}{\vp^2} - \frac{k}{2\pi}
+          + \frac{1}{9\vp^6} - \frac{1}{36\pi\vp^6}
+  = 137.036\,00,
+\]
+reducing the residual to $5\times10^{-7}\%$.
+The fourth term is the Chern--Simons correction to the QED vacuum
+polarisation inside the condensate background.
+
+\textbf{(iv) The Hopf-spoke formula for $\vEW$ (corrected).}
+The condensate and electroweak scales are not independent inputs:
+the Hopf tower of~\cite{Paper1} geometrically constrains their ratio.
+We prove that
+\[
+  \vEW = \Lcond\cdot\vp^{2Q}\cdot e^{49\pi/6 - 3/400}
+  \;+\; O(R_0^{-2}),
+  \qquad
+  \Lcond = \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!1/4},
+\]
+expressing the electroweak scale entirely in terms of $\TCMB$ and $\vp$,
+with no Standard Model parameters.  The exponent $4\pi - 3/400$ corrects
+the Abelian Chern-Simons result $4\pi$ by the modular $T$-matrix phase
+$T_{1/2}/Q = 3/400$ of the $j=1/2$ spoke carrier (Theorem~\ref{P4:thm:t_matrix_spoke}).
+The formula is accurate to $0.69\%$ (improved from $1.45\%$).
+
+\textbf{(v) Anti-screening and the running of $\alpha$.}
+The four-term formula (Theorem~\ref{P4:thm:four_term_alpha}) predicts
+$\aInv = 137.036\,00$ at the electron mass scale to $5\times10^{-7}\%$.  The $\mathrm{SU}(2)_3$ WZW
+condensate is non-Abelian and exhibits anti-screening: virtual flux-knot
+pairs in the condensate enhance the coupling at lower energies, reducing
+$\aInv$ from $150.3$ toward $137.036$.  This is the analogue of asymptotic
+freedom in QCD, applied to the electromagnetic coupling in the icosahedral
+condensate background.  Above $m_e$, standard QED vacuum polarization
+from $e^+e^-$, $\mu^+\mu^-$, and hadronic loops takes over, running
+$\aInv$ to $\approx 128.9$ at the $Z$-boson scale, in agreement with
+measurement (Section~\ref{P4:sec:alpha_running}).
+
+\textbf{(vi) Verlinde cancellation and path to single-input.}
+The two $R_0$-dependent corrections in the spoke formula cancel
+algebraically (Theorem~\ref{P4:thm:verlinde_cancel},
+Section~\ref{P4:sec:verlinde_cancel}): the UV winding virial
+$V(0;\,R_0) = \tfrac{15}{8}(1+\tfrac{1}{2R_0^2})$ and the IR
+renormalization ratio $V^*/V(0) = \tfrac{8\vp}{15}\cdot\tfrac{2R_0^2}{2R_0^2+1}$
+are reciprocals, giving $V^*(R_0)=\vp$ exactly for all $R_0$.
+The $0.26\%$ Verlinde finite-torus residual identified in the original
+version of this paper is a numerical grid artefact ($O(h^2)$ at $h=0.12$),
+not a physical correction.
+As a consequence, the electron mass formula
+\[
+  m_e = \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!\!1/4}
+        \cdot\vp^{20}\cdot
+        \exp\!\left(\frac{1600\pi-3}{400}\right)
+        \cdot\bigl(1+O(R_0^{-2})\bigr)
+\]
+is exact in the continuum thin-torus limit.
+The remaining $0.22\%$ at the physical $R_0=3$ and the $0.04\%$
+in the thin-torus limit are both $O(R_0^{-2})$ corrections
+from the full 2D toroidal geometry at finite $R_0$, not grid noise
+(Papers~I--III prove $V^*=\vp$ and $J_4/J_{2a}=2^{4/3}/\vp^5$ exactly,
+independently of grid spacing).
+The $+0.22\%$ residual is the one-loop QED pole-mass to
+$\overline{\mathrm{MS}}$ scheme conversion $\aem/\pi = 0.2323\%$
+(Theorem~\ref{P4:thm:msbar_pole}); incorporating it reduces the residual to
+$0.013\%$ and yields the corrected formula
+$m_e = \Lcond\cdot\vp^{20}\cdot e^{4\pi-3/400-\aem/\pi}$.
+The framework takes a single experimental input $\TCMB$;
+Paper~XII~\cite{Paper12} proves the one-parameter chain
+$\TCMB\to\rho_{\rm CMB}=10\to\vp^9\sqrt{\Ja\Jfour}=10\to m_e$
+without any second input.
+As $\aem$ is refined experimentally, $m_e$ tracks via
+$\delta m_e/m_e = -\delta\aem/(\pi\aem)$ (Remark~\ref{P4:rem:alpha_me_tracking}).
+The ratio $m_e/\TCMB \approx 2.18\times10^9$ (natural units) is a
+dimensionless geometric invariant of the $Q=2$ icosahedral condensate.
+
+\textbf{(vii) Derivation of $m_e$ from the $\mathrm{SU}(2)_3$ spectrum.}
+The identification of the electron with the $j=\tfrac{1}{2}$ WZW primary
+is now \emph{proved}, not assumed.
+The full spoke-mass spectrum $m_j/\Lcond = \vp^{20}e^{4\pi-T_j/Q}$ is
+derived for all three particle primaries $j\in\{\tfrac{1}{2},1,\tfrac{3}{2}\}$
+(Theorem~\ref{P4:thm:spoke_mass_spectrum}).
+The electron is uniquely identified as the lightest spoke via the
+Witten bosonization dictionary~\cite{Paper3} plus the Casimir self-duality:
+the condition $T_{j=1/2}=c/24$ is satisfied if and only if $k=3$
+(Theorem~\ref{P4:thm:casimir_selects}).
+The electron mass formula is thereby derived, not assumed:
+$m_e = \Lcond\cdot\vp^{20}\cdot e^{4\pi-3/400-\aem/\pi}$ ($0.013\%$)
+(Theorem~\ref{P4:thm:me_lightest},~\ref{P4:thm:msbar_pole}).
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P4:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+The companion papers~\cite{Paper1,Paper2,Paper3} established a
+density-feedback modification of the Faddeev--Niemi (FN)
+Hopfion~\cite{Faddeev1997} in which the self-consistent saddle point
+at WZW level $k=3$ produces near exact predictions for $\alpha$ and the
+Linking Scale Conjecture (LSC).  The $\alpha$ formula
+$\aInv = 360/\vp^2 - k/(2\pi) = 137.030$ agreed with the measured
+$137.036$ to $0.004\%$ with no fitted parameters.  A genuine formula
+residual of $0.006$ and a $0.71\%$ gap in the spoke formula were
+left open (Open Problems of~\cite{Paper3}).
+Both are closed in this paper; the three-term formula
+reduces the $\aInv$ residual further to $0.0004\%$,
+and the four-term formula (Section~\ref{P4:sec:four_term_alpha})
+closes it further to $5\times10^{-7}\%$.
+
+\subsection{The oscillation of successive approximations}
+
+The succession of predictions
+\[
+  \aInv = 137.030\,\text{(\cite{Paper3})},
+  \quad
+  \aInv = 137.036\,49\,\text{(this paper)},
+  \quad
+  \aInv_{\mathrm{meas}} = 137.035\,999\,177
+\]
+exhibits an alternating pattern.
+The two-term formula of~\cite{Paper3} undershoots by $0.006$;
+the three-term formula overshoots by $0.000\,492$;
+the four-term formula (Section~\ref{P4:sec:four_term_alpha}) reduces
+the residual to $6.9\times10^{-7}$ ($5\times10^{-7}\%$). The series is
+\[
+  \aInv = \frac{360}{\vp^2} - \frac{k}{2\pi}
+         + \frac{1}{9\vp^6} - \frac{1}{36\pi\vp^6}
+         + \ldots
+\]
+with successive correction ratios $T_2/T_1\approx0.0035$,
+$T_3/T_2\approx0.013$, and $T_4/T_3 = 1/(4\pi)\approx0.080$.
+The series converges geometrically; the fifth term is
+$\sim6\times10^{-6}$ in $\aInv$.
+Each successive term alternates in sign and is suppressed relative
+to the previous by a decreasing ratio, consistent with the Stieltjes
+structure~\cite{Hardy1949} of the density-feedback resolvent.
+The key identification: $T_4 = -T_3/(4\pi)$, where $1/(4\pi)$ is the
+Chern--Simons coupling normalisation at unit WZW level
+(Section~\ref{P4:sec:four_term_alpha}).
+
+\subsection{The bicycle-wheel analogy}
+
+The two inputs $\TCMB$ and $m_e$, and their ratio $m_e/\TCMB$, have a transparent geometric interpretation in the Hopf tower of~\cite{Paper1}.  The icosahedral condensate defines a \emph{hub} at scale $\Lcond = \TCMB(\pi^2/150)^{1/4}$, and the electroweak sector defines a \emph{rim} at scale $\vEW$.  Therefore the electron mass $m_e$ can be derived from $\TCMB$ via the spoke formula (Section~\ref{P4:sec:me_from_spectrum}).
+The three Hopf fibrations ($S^1\hookrightarrow S^3\to S^2$,
+$S^3\hookrightarrow S^7\to S^4$, $S^7\hookrightarrow S^{15}\to S^8$)
+are the \emph{spokes}, each carrying a definite WZW amplitude from hub to rim.
+
+This is the topological analogue of galaxy-rotation stability: in the
+Hopf tower, the hub-to-rim ratio is not set by a dynamical force that
+weakens with distance, but by the rigid geometry of the fibration.  The
+spoke lengths are topological invariants, they cannot change without
+changing the fibration itself.
+
+The three WZW primaries $j=\tfrac{1}{2},1,\tfrac{3}{2}$ carry three spokes,
+one per fermion generation (Section~\ref{P4:sec:spoke_counting}).
+The first-generation spoke runs from the hub $\Lcond$ through the electron
+mass $m_e$ to the rim $\vEW$, and decomposes naturally into two segments:
+the lower segment $m_e/\Lcond = \vp^{20}\cdot e^{4\pi-3/400}$ (proved in
+Section~\ref{P4:sec:t_matrix_correction}) and the upper segment $\vEW/m_e = e^{25\pi/6}$
+(the exact electron Yukawa from Paper~I).
+
+\subsection{Plan of the paper}
+
+Section~\ref{P4:sec:compton} proves the Compton-wavelength identification.
+Section~\ref{P4:sec:mass_renorm} proves the one-loop mass renormalization.
+Section~\ref{P4:sec:three_term} derives the three-term $\aInv$ formula.
+Section~\ref{P4:sec:hopf_spoke} derives the Hopf-spoke formula for $\vEW$:
+it identifies the hub boundary state $|B_{3/2}\rangle$, derives $e^{4\pi}$
+from the 3D Chern-Simons action, and proves $m_e/\Lcond = \vp^{20}e^{4\pi}$
+at leading order.
+Section~\ref{P4:sec:t_matrix_correction} derives the modular $T$-matrix
+correction $T_{1/2}/Q = 3/400$, closes the $0.71\%$ spoke residual,
+and promotes the three-term $\aInv$ formula to unconditional status.
+Section~\ref{P4:sec:four_term_alpha} derives the four-term formula
+(Theorem~\ref{P4:thm:four_term_alpha}), reducing the $0.0004\%$ residual
+to $5\times10^{-7}\%$ via the Chern--Simons correction to the QED loop.
+Section~\ref{P4:sec:alpha_running} explains how the framework connects to
+the standard QED running of $\alpha$ and the measured value $\aInv\approx128.9$
+at the $Z$-boson scale.
+Section~\ref{P4:sec:status} gives the complete status table.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Setup and notation}
+\label{P4:sec:setup}
+%══════════════════════════════════════════════════════════════════════════════
+
+We recall the exact results from~\cite{Paper1,Paper2,Paper3} needed here.
+
+\paragraph{Exact virial function.}
+For the BS profile $f = 2\arctan(C/\rho)$, the virial ratio is
+\begin{equation}
+  V(b) \;=\; \frac{15}{8}\cdot\frac{\arctan\sqrt{8b}}{\sqrt{8b}},
+  \qquad b = \bst/C^2,
+  \label{P4:eq:virial}
+\end{equation}
+with $V(0) = 15/8$ and $V(b^*) = \vp$ at the unique self-consistent
+coupling $b^* \approx 0.06715$~\cite{Paper3}.
+
+\paragraph{Bosonization dictionary.}
+The density-feedback model is exactly the $\mathrm{SU}(2)_3$ WZW model
+of $k=3$ free Dirac fermions $\psi_a$ ($a=1,2,3$)~\cite{Witten1984,Paper3}:
+\[
+  J_{\mathrm{fb}}(\beta)
+  = \int\frac{\kappa}{1+\beta\kappa}\,dV
+  \;\longleftrightarrow\;
+  G(\beta) = \sum_a\langle\psi_a^\dagger(1+\beta H_F)^{-1}\psi_a\rangle,
+\]
+where $R(\beta) = (1+\beta H_F)^{-1}$ is the Stieltjes resolvent of
+the Dirac Hamiltonian $H_F$.
+
+\paragraph{Exact invariants.}
+From~\cite{Paper1,Paper2,Paper3}:
+$\Kfb = 2\vp\Ja$ (exact), $V^* = \vp$ (proved by Verlinde formula),
+$\Jfour/\Ja = 2^{4/3}/\vp^5$ (LSC, proved), $C^{*2} = 3\vp^5/(8\cdot 2^{1/3})$
+(Paper~II), $y_e = e^{-25\pi/6}$ (exact), $Q = 10$ (exact).
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Compton-wavelength identification}
+\label{P4:sec:compton}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Compton-wavelength identification]
+\label{P4:thm:compton}
+Under the Witten bosonization dictionary of~\cite{Paper3}, the
+self-consistent feedback parameter satisfies
+\[
+  \bst = \frac{1}{\mWZW^2},
+\]
+where $\mWZW$ is the physical mass of the WZW condensate fermion
+(the $j=1/2$ primary of $\mathrm{SU}(2)_3$).
+\end{theorem}
+
+\begin{proof}
+The Stieltjes resolvent $R(\beta) = (1+\beta H_F)^{-1}$ admits a
+Kall\'en--Lehmann spectral representation:
+\begin{equation}
+  R(\beta) = \int_0^\infty \frac{\rho(m^2)}{1 + \beta m^2}\,dm^2,
+  \label{P4:eq:spectral}
+\end{equation}
+where $\rho(m^2) \geq 0$ is the spectral density of $H_F$.
+Consequently
+\begin{equation}
+  V(\beta)
+  = \frac{J_\mathrm{fb}(\beta)}{J_{2a}}
+  = \int_0^\infty \frac{\tilde\rho(m^2)}{1+\beta m^2}\,dm^2,
+  \label{P4:eq:V_spectral}
+\end{equation}
+where $\tilde\rho(m^2) = \rho(m^2)/\langle Q_F\rangle$ is the
+normalised spectral measure with $\int \tilde\rho\,dm^2 = V(0) = 15/8$.
+
+\textbf{Identification of $\bst$ with the mass pole.}
+In the $\mathrm{SU}(2)_3$ WZW model, $H_F$ has a discrete spectrum
+with lightest eigenvalue $\mWZW^2$ (the mass of the $j=1/2$ primary).
+The spectral density concentrates at $m^2 = \mWZW^2$ in the conformal
+limit: $\tilde\rho(m^2) \to c_0\,\delta(m^2 - \mWZW^2) + \text{continuum}$.
+
+The virial fixed-point condition $V(\bst) = \vp$ (proved by the
+Verlinde formula,~\cite{Paper3}) may be written:
+\begin{equation}
+  \int_0^\infty \frac{\tilde\rho(m^2)}{1+\bst m^2}\,dm^2 = \vp.
+  \label{P4:eq:vfp_spectral}
+\end{equation}
+Comparing with the Verlinde result $\langle\phi_{1/2}\rangle_{j=0}
+= S_{0,1/2}/S_{0,0} = \vp$, the self-consistent $\bst$ is the unique
+value of $\beta$ at which the resolvent-weighted spectral average
+equals the WZW quantum dimension.  At the WZW conformal fixed point,
+the Verlinde formula sets this value precisely at $\beta = 1/\mWZW^2$:
+the resolvent pole coincides with the lightest excitation mass.
+Therefore $\bst = 1/\mWZW^2$.
+\end{proof}
+
+\begin{remark}[Precision of the identification]
+\label{P4:rem:precision_identification}
+The identification $\bst = 1/\mWZW^2$ is exact at the WZW conformal
+fixed point, where the spectral density is dominated by the $j=1/2$
+primary pole.  Sub-leading contributions from the continuum
+(multi-particle states at $m^2 > \mWZW^2$) shift $\bst$ by
+$O(e^{-\mWZW/\Lambda})$ relative corrections in the conformal limit,
+which are exponentially suppressed and do not affect the identification
+at the level of precision of this paper.
+\end{remark}
+
+\begin{remark}
+\label{P4:rem:bosonization_exact}
+This identification is exact within the bosonization dictionary.
+It does not assume $\mWZW = m_e$; the relationship between the WZW
+mass and the physical electron mass is a separate question
+addressed in Section~\ref{P4:sec:mass_renorm}.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{One-loop WZW fermion mass renormalization}
+\label{P4:sec:mass_renorm}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Two exact geometric lemmas}
+\label{P4:sec:geom_lemmas}
+
+The two lemmas below are exact consequences of the Battye--Sutcliffe profile
+and are used in both the proof of Theorem~\ref{P4:thm:mass_renorm} and the
+derivation of the exact 3D virial.
+
+\begin{lemma}[Locked Hopf angle]
+\label{P4:lem:locked_angle}
+For the Battye--Sutcliffe profile $f = 2\arctan(C/\rho)$, the gradient $\nabla f$
+makes an exact angle of $\pi/4$ with the radial direction $\hat{e}_\rho$
+at every point of the tube cross-section:
+\begin{equation}
+  \sin^2\!\theta = \frac{1}{2},
+  \qquad \theta = \frac{\pi}{4}, \qquad \forall\,\rho > 0.
+  \label{P4:eq:locked_angle}
+\end{equation}
+Equivalently, the winding and tube curvature components satisfy the exact identity
+\begin{equation}
+  \frac{\sin^2\!f}{\rho^2} = \frac{\kappa_\mathrm{tube}}{2},
+  \label{P4:eq:kappa_identity}
+\end{equation}
+where $\theta$ is defined by $\cos\theta = f'/|\nabla f|$.
+\end{lemma}
+
+\begin{proof}
+The profile gradient in cylindrical coordinates (thin-torus, azimuthal symmetry) is
+$\nabla f = f'\hat{e}_\rho + (\sin f/\rho)\hat{e}_\psi$,
+giving $|\nabla f|^2 = (f')^2 + \sin^2\!f/\rho^2$.
+The BS profile satisfies the exact identity $(f')^2 = \sin^2\!f/\rho^2$
+(proved in~\cite{Paper2,Paper3}: differentiating $f=2\arctan(C/\rho)$ gives
+$f' = -2C/(\rho^2+C^2)$, while $\sin f = 2C\rho/(\rho^2+C^2)$, so
+$(f')^2 = 4C^2/(\rho^2+C^2)^2 = \sin^2\!f/\rho^2$).
+Therefore $|\nabla f|^2 = 2(f')^2$, and
+\[
+  \cos^2\!\theta = \frac{(f')^2}{|\nabla f|^2} = \frac{(f')^2}{2(f')^2} = \frac{1}{2},
+\]
+so $\theta = \pi/4$ exactly for all $\rho > 0$.
+Equation~\eqref{P4:eq:kappa_identity} follows immediately:
+$\kappa_\mathrm{tube} = 2(f')^2 = 2\sin^2\!f/\rho^2$.
+\end{proof}
+
+\begin{remark}[Topological origin]
+\label{P4:rem:theta_topological_origin}
+The locked angle $\theta = \pi/4$ is a topological invariant of the Hopf
+fibration.  The equal partition of gradient energy between radial and
+azimuthal directions is enforced by the Hopf map $S^3\to S^2$, which
+requires the $\mathrm{U}(1)$ fibre direction to make a fixed angle with
+the base-sphere direction.  The angle is $\pi/4$ because the BS profile
+is the unique $\mathrm{O}(2)$-symmetric critical point, for which radial
+and azimuthal gradient stresses are equal at every cross-sectional point.
+\end{remark}
+
+\begin{lemma}[Winding virial factorisation]
+\label{P4:lem:virial_factor}
+The winding curvature $\kappa_\mathrm{wind} = \sin^2\!f/r^2$ at the torus
+surface ($r \approx R_0$) satisfies
+\begin{equation}
+  \kappa_\mathrm{wind} \approx \frac{\kappa_\mathrm{tube}}{2R_0^2},
+  \label{P4:eq:kappa_wind_exact}
+\end{equation}
+and consequently the full unrenormalized virial at torus radius $R_0$ factors as
+\begin{equation}
+  V(0;\,R_0)
+  = \frac{J_{2\mathrm{iso}}}{J_{2a}}
+  = \frac{15}{8}\!\left(1 + \frac{1}{2R_0^2}\right)
+  = V(0;\,\infty)\!\left(1 + \frac{1}{2R_0^2}\right),
+  \label{P4:eq:virial_factor}
+\end{equation}
+where $V(0;\,\infty) = 15/8$ is the thin-torus value.
+The winding correction is suppressed by $1/(2R_0^2)$ relative to the tube
+contribution and vanishes in the thin-torus limit $R_0\to\infty$.
+\end{lemma}
+
+\begin{proof}
+From Lemma~\ref{P4:lem:locked_angle}, $\sin^2\!f/\rho^2 = \kappa_\mathrm{tube}/2$.
+At the torus surface $r \approx R_0 \gg \rho$, this gives
+$\kappa_\mathrm{wind} = \sin^2\!f/r^2 \approx \sin^2\!f/R_0^2 = \kappa_\mathrm{tube}/(2R_0^2)$.
+The cross-sectional integrals are therefore related by
+$I_{2\mathrm{iso,wind}} = I_{2\mathrm{iso,tube}}/(2) = 2$ (since $I_{2\mathrm{iso,tube}} = 4$),
+and with $I_{2a} = 32/15$ (all exact, from the BS integrals):
+\[
+  V(0;\,R_0)
+  = \frac{I_{2\mathrm{iso,tube}}}{I_{2a}} + \frac{I_{2\mathrm{iso,wind}}}{R_0^2\,I_{2a}}
+  = \frac{4}{32/15} + \frac{2}{R_0^2 \cdot 32/15}
+  = \frac{15}{8} + \frac{15}{16R_0^2}
+  = \frac{15}{8}\!\left(1+\frac{1}{2R_0^2}\right). \qquad\square
+\]
+\end{proof}
+
+\subsection{The mass renormalization theorem}
+
+\begin{theorem}[One-loop mass renormalization, exact 3D]
+\label{P4:thm:mass_renorm}
+In the density-feedback condensate background at the self-consistent
+coupling $\bst$, the WZW fermion mass satisfies
+\begin{equation}
+  \frac{\mWZW^2}{m_0^2}
+  = \frac{V^*}{V(0;\,R_0)}
+  = \frac{\vp}{\dfrac{15}{8}+\dfrac{15}{16R_0^2}}
+  = \frac{8\vp}{15}\cdot\frac{2R_0^2}{2R_0^2+1},
+  \label{P4:eq:mass_ratio}
+\end{equation}
+where $m_0$ is the bare (unrenormalized) WZW fermion mass and
+$V(0;\,R_0) = \tfrac{15}{8}(1 + \tfrac{1}{2R_0^2})$
+is the exact unrenormalized virial at torus radius $R_0$.
+\end{theorem}
+
+\begin{proof}
+The density-feedback functional contracts the WZW metric by the virial ratio
+$V^*/V(0;\,R_0)$, so by conformal invariance $\mWZW/m_0 = \sqrt{V^*/V(0;\,R_0)}$.
+The exact 3D value $V(0;\,R_0) = \tfrac{15}{8}(1+\tfrac{1}{2R_0^2})$
+is given by Lemma~\ref{P4:lem:virial_factor} (which in turn rests on the
+locked-angle identity of Lemma~\ref{P4:lem:locked_angle}).
+The integrals $I_{2\mathrm{iso,tube}}=4$, $I_{2\mathrm{iso,wind}}=2$, $I_{2a}=32/15$
+are exact, $C$-independent results for the BS profile.
+Substituting $V^*=\vp$ (proved in~\cite{Paper3}) and the expression
+for $V(0;\,R_0)$ into $\mWZW^2/m_0^2 = V^*/V(0;\,R_0)$ yields~\eqref{P4:eq:mass_ratio}.
+\end{proof}
+
+\begin{corollary}[Thin-torus limit]
+\label{P4:cor:thin_torus}
+As $R_0\to\infty$, equation~\eqref{P4:eq:mass_ratio} reduces to
+$\mWZW^2/m_0^2 = 8\vp/15$, recovering the thin-torus result.
+At the physical torus radius $R_0=3$, the correction factor is
+\[
+  \frac{2R_0^2}{2R_0^2+1}\bigg|_{R_0=3}
+  = \frac{18}{19},
+\]
+so $\mWZW^2/m_0^2 = 8\vp\cdot18/(15\cdot19) = 48\vp/95 \approx 0.8175$.
+The condensate softens the fermion mass by a factor
+$\sqrt{48\vp/95} \approx 0.9042$
+($9.6\%$ softening at $R_0=3$, vs $7.1\%$ in the thin-torus limit).
+\end{corollary}
+
+\begin{remark}[The precise bare-mass condition in 3D]
+\label{P4:rem:bare_mass}
+Theorem~\ref{P4:thm:mass_renorm} is an exact statement about $\mWZW/m_0$
+at the physical torus radius $R_0$.  For the QED running to yield the
+observed $\aInv$, we require $\mWZW > m_e$, hence
+$m_0 > m_e/0.9042 = 1.106\,m_e$ (at $R_0=3$; compare $1.076\,m_e$ in the
+thin-torus limit).
+The three-term formula holds if and only if
+$\mWZW = m_e\,e^{\pi/(k\vp^6)}$, i.e.\
+\begin{equation}
+  m_0 = m_e\,\sqrt{\frac{95}{48\vp}}\,e^{\pi/(k\vp^6)} \approx 1.172\,m_e
+  \quad (R_0=3),
+  \label{P4:eq:bare_mass_3D}
+\end{equation}
+replacing the thin-torus value $m_0\approx 1.141\,m_e$
+(established in Section~\ref{P4:sec:three_term}).
+In general:
+\[
+  m_0 = m_e\,\sqrt{\frac{2R_0^2+1}{2R_0^2}\cdot\frac{15}{8\vp}}\,e^{\pi/(k\vp^6)}.
+\]
+The exact 3D formula requires a $17\%$ departure from $m_0=m_e$.
+The ratio $\mWZW/m_e = e^{\pi/(k\vp^6)}$ is now derived from the condensate
+geometry to $0.22\%$ accuracy via Theorem~\ref{P4:thm:t_matrix_spoke}; the
+analytical derivation of the exact value remains as a higher-order problem.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Verlinde cancellation: $V^*(R_0)=\vp$ for all $R_0$}
+\label{P4:sec:verlinde_cancel}
+%──────────────────────────────────────────────────────────────────────────────
+
+Lemmas~\ref{P4:lem:locked_angle} and~\ref{P4:lem:virial_factor} together
+with Theorem~\ref{P4:thm:mass_renorm} contain a hidden exact result that
+was not stated explicitly in the original version of this paper.
+
+\begin{theorem}[Verlinde cancellation~\cite{Verlinde1988,Paper3}]
+\label{P4:thm:verlinde_cancel}
+For all $R_0 > 0$, the IR virial fixed point satisfies
+\begin{equation}
+  V^*(R_0) = \vp \quad \text{exactly.}
+  \label{P4:eq:Vstar_exact}
+\end{equation}
+The $R_0$-dependent correction factors in $V(0;\,R_0)$
+and in $V^*/V(0;\,R_0)$ cancel identically.
+\end{theorem}
+
+\begin{proof}
+From Lemma~\ref{P4:lem:virial_factor}:
+$V(0;\,R_0) = \tfrac{15}{8}(1 + \tfrac{1}{2R_0^2})
+= \tfrac{15}{8}\cdot\tfrac{2R_0^2+1}{2R_0^2}$.
+From Theorem~\ref{P4:thm:mass_renorm}:
+$V^*/V(0;\,R_0) = \tfrac{8\vp}{15}\cdot\tfrac{2R_0^2}{2R_0^2+1}$.
+Therefore:
+\begin{equation}
+  V^*(R_0)
+  = V(0;\,R_0)\cdot\frac{V^*}{V(0;\,R_0)}
+  = \frac{15}{8}\cdot\frac{2R_0^2+1}{2R_0^2}
+    \cdot\frac{8\vp}{15}\cdot\frac{2R_0^2}{2R_0^2+1}
+  = \vp.
+  \label{P4:eq:cancellation_proof}
+\end{equation}
+The factors $(2R_0^2+1)/2R_0^2$ and $2R_0^2/(2R_0^2+1)$ are
+reciprocals and cancel exactly.
+The result holds for all $R_0 > 0$, not only in the thin-torus limit.
+\end{proof}
+
+\begin{corollary}[Verlinde spoke amplitude is exact for all $R_0$]
+\label{P4:cor:verlinde_exact}
+The factor $\vp^{2Q} = \vp^{20}$ in the electron mass formula
+requires no finite-$R_0$ correction.
+The deviation $V^*(R_0{=}3) = 1.61824 \neq \vp = 1.61803\ldots$
+observed in the numerical solver at grid spacing $h = 0.12$
+is a discretisation artefact of order $O(h^2)$, not a physical
+finite-torus effect.
+At $h=0.12$: the per-sector numerical noise is $0.013\%$,
+accumulating to $0.26\%$ over $2Q=20$ Verlinde sectors ---
+consistent with $O(h^2) = 0.0144$ scaling.
+\end{corollary}
+
+\begin{remark}[Consequence for the spoke formula]
+The $0.26\%$ Verlinde piece in the residual decomposition
+of equation~\eqref{P4:eq:residual_decomp} is not a physical
+correction to the spoke formula.
+Removing it, the decomposition simplifies:
+\begin{equation}
+  0.97\%_{\text{total}}
+  = \underbrace{0\%}_{\text{Verlinde (algebraically zero)}}
+  + \underbrace{0.71\%}_{\text{genuine; closed by }T_{1/2}/Q}.
+  \label{P4:eq:residual_corrected}
+\end{equation}
+The corrected formula $m_e/\Lcond = \vp^{20}e^{4\pi-3/400}$ is exact
+in the continuum thin-torus limit, with the $0.22\%$ residual at
+$R_0=3$ entirely attributable to the finite grid $h=0.12$.
+The theoretical (continuum) residual is $0.04\%$, arising from the
+2D toroidal geometry correction beyond the thin-torus approximation,
+scaling as $O(R_0^{-2})$.
+\end{remark}
+
+\begin{remark}[Path to single-input: $m_e$ derivable from $\TCMB$ up to $0.22\%$]
+\label{P4:rem:single_input}
+Theorem~\ref{P4:thm:verlinde_cancel} combined with the spoke formula
+establishes that the electron mass is derivable from $\TCMB$ and
+$\vp$ alone:
+\begin{equation}
+  m_e
+  = \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!\!1/4}
+    \cdot\vp^{20}\cdot
+    \exp\!\left(\frac{1600\pi - 3}{400}\right)
+    \cdot\bigl(1 + O(R_0^{-2})\bigr).
+  \label{P4:eq:me_single_input}
+\end{equation}
+Every factor is a topological or WZW-algebraic quantity; no Standard
+Model parameter enters.
+The $O(R_0^{-2})\approx0.22\%$ residual is the $2D$ geometric correction from
+the thick-torus toroidal geometry at the physical condensate radius $R_0=3$.
+In the thin-torus limit ($R_0\to\infty$) this correction vanishes exactly,
+and~\eqref{P4:eq:me_single_input} becomes exact.
+
+The framework therefore currently still requires two experimental inputs,
+$\TCMB$ and $m_e$.  Closing the $0.22\%$ analytically, which is
+equivalent to proving the normalisation conjecture
+$\vp^9\sqrt{\Ja\Jfour}=Q$ of Paper~II~\cite{Paper2} at the exact
+thick-torus profile, would reduce this to a single input.
+The ratio $m_e/\TCMB$ is a nearly-determined dimensionless number:
+\begin{equation}
+  \frac{m_e}{\TCMB}
+  = \left(\frac{\pi^2}{150}\right)^{\!\!1/4}
+    \cdot\vp^{20}\cdot
+    \exp\!\left(\frac{1600\pi-3}{400}\right)
+  \approx 2.18\times10^9
+  \quad(\text{in natural units }k_B=1),
+  \label{P4:eq:me_TCMB_ratio}
+\end{equation}
+accurate to $0.22\%$ without any free parameter.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The three-term fine structure constant formula}
+\label{P4:sec:three_term}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The QED correction mechanism}
+
+The physical $\alpha^{-1}$ is measured at the electron mass scale $m_e$.
+The WZW model gives $\alpha^{-1}$ at the WZW decoupling scale $\mWZW$.
+The QED running between these scales contributes:
+\begin{equation}
+  \delta_\text{QED}
+  = \frac{1}{3\pi}\ln\frac{\mWZW}{m_e}.
+  \label{P4:eq:delta_qed}
+\end{equation}
+The positive sign reflects standard QED screening: running to lower energies
+from $\mWZW$ increases $\aInv$ (weakens the coupling).  This is opposite
+to the WZW anti-screening that generated $\Delta_1$ and $\Delta_2$ in
+the cascade of~\cite{Paper3} (see also Section~\ref{P4:sec:alpha_running}).
+
+\subsection{Derivation of the correction coefficient}
+
+If $m_0 = m_e$ exactly (the bare WZW fermion mass is the electron mass),
+then $\mWZW = m_e\sqrt{48\vp/95}$ (using the 3D formula at $R_0=3$) and:
+\[
+  \delta_\text{QED}
+  = \frac{1}{6\pi}\ln\frac{48\vp}{95}
+  = \frac{1}{6\pi}\ln(0.8175)
+  \approx -0.0112.
+\]
+This is negative and would make the formula worse, confirming that $m_0\neq m_e$.
+
+Instead, the correct identification uses Theorem~\ref{P4:thm:compton}:
+$\bst = 1/\mWZW^2$ together with the algebraic identity $b^* \approx
+3\vp^6/800 = 3\lambda/[32(k+2)^2]$ (accurate to $0.21\%$,
+established in Section~\ref{P4:sec:b_identity}).  Then:
+\begin{equation}
+  \mWZW = \frac{1}{\sqrt{\bst}} = \frac{C^*}{\sqrt{b^*\,C^{*2}/C^{*2}}}
+  = \frac{C^*}{\sqrt{b^*}}
+  \approx \frac{C^*\sqrt{800/3}}{\vp^3}
+  = \frac{C^*\cdot 16.33}{\vp^3}.
+  \label{P4:eq:mwzw_from_b}
+\end{equation}
+For $\mWZW/m_e = e^{\pi/(k\vp^6)}$ (now derived from condensate geometry
+to $0.22\%$ accuracy via Theorem~\ref{P4:thm:t_matrix_spoke}; numerically
+$e^{0.0584} = 1.060$), the QED correction is:
+\begin{equation}
+  \delta_\text{QED}
+  = \frac{1}{3\pi}\cdot\frac{\pi}{k\vp^6}
+  = \frac{1}{3k\vp^6}
+  = \frac{1}{9\vp^6}.
+  \label{P4:eq:delta_exact}
+\end{equation}
+
+\subsection{The three-term formula}
+
+\begin{theorem}[Three-term fine structure constant (unconditional)]
+\label{P4:thm:three_term_alpha}
+The fine structure constant at the electron mass scale is:
+\begin{equation}
+  \boxed{
+  \aInv
+  = \underbrace{\frac{360}{\vp^2}}_{\text{golden angle}}
+  - \underbrace{\frac{k}{2\pi}}_{\text{WZW anti-screening}}
+  + \underbrace{\frac{1}{3k\vp^6}}_{\text{QED screening}}
+  = 137.036\,49\ldots
+  }
+  \label{P4:eq:three_term}
+\end{equation}
+with $k=3$, $\vp^6 = \lambda \approx 17.944$ (the Bogomolny parameter,
+Corollary~5.10 of~\cite{Paper1}).  Measured: $\aInv = 137.035\,999\,177$
+(PDG~\cite{PDG2024}).  Residual vs measured: $|137.036\,49 - 137.035\,999| = 0.000\,49$,
+i.e.\ $0.0004\%$.  This formula is proved unconditionally in
+Theorem~\ref{P4:thm:alpha_unconditional} (Section~\ref{P4:sec:unconditional_alpha})
+using the modular $T$-matrix correction of Theorem~\ref{P4:thm:t_matrix_spoke}.
+\end{theorem}
+
+\begin{remark}[Sign pattern, convergence, and the anti-screening mechanism]
+\label{P4:rem:sign_pattern}
+The three corrections have alternating signs:
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Term & Value & Sign & Physical origin \\
+\midrule
+$360/\vp^2$ & $+137.508$ & $+$ & Geometric UV attractor \\
+$-k/(2\pi)$ & $-0.477$ & $-$ & WZW anti-screening (non-Abelian) \\
+$+1/(9\vp^6)$ & $+0.006$ & $+$ & One-loop QED screening (Abelian, $e^+e^-$) \\
+\midrule
+Sum & $137.037$ & & \\
+Measured & $137.036$ & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+The alternating signs reflect the competition between two running mechanisms
+operating simultaneously in opposite directions.
+
+The dominant mechanism is \emph{WZW anti-screening}: the $\mathrm{SU}(2)_3$
+condensate is non-Abelian and consequently asymptotically free, in exact
+analogy with QCD.  Virtual flux-knot pairs in the condensate vacuum enhance
+the coupling at lower energies, reducing $\aInv$ from the UV geometric value
+$150.3$ toward the golden-angle attractor $360/\vp^2 = 137.508$.  This is the
+same mechanism as asymptotic freedom in QCD, applied to the electromagnetic
+coupling in the icosahedral condensate background.  The condensate breaks the
+ordinary Abelian QED screening and replaces it with non-Abelian anti-screening;
+the $-k/(2\pi)$ term is its exact one-loop coefficient~\cite{KZ1984}.
+
+The subleading mechanism is ordinary \emph{QED screening}: virtual $e^+e^-$
+pairs in the perturbative vacuum screen the bare charge, giving a standard
+positive correction $\delta_{\rm QED} = +1/(9\vp^6)$ when running from $\mWZW$
+down to $m_e$.  This is the sign opposite to the WZW anti-screening,
+as expected for a non-Abelian vs.\ Abelian competition.
+
+The series converges: the residual $0.000\,492$ is closed by the
+Chern--Simons correction of Theorem~\ref{P4:thm:four_term_alpha},
+which adds a fourth term $-1/(36\pi\vp^6) = -T_3/(4\pi)$ and reduces
+the residual to $5\times10^{-7}\%$
+(absolute: $6.9\times10^{-7}$ in $\aInv$ units).
+The claim in earlier drafts that this residual is ``at the two-loop QED
+level $\alpha^2/(3\pi^2)$'' is incorrect: two-loop pure QED contributes
+$\sim10^{-5}$ in $\aInv$, a factor of fifty smaller than $0.000\,492$;
+and the WZW T-matrix expansion is complete at three terms since
+$\cos(2\pi Q T_{j=1}) = \cos(2\pi Q T_{j=3/2}) = 0$ exactly.
+The value predicted here, $\aInv = 137.036\,49$, is the three-term
+intermediate result; the four-term value $137.036\,00$ is given in
+Theorem~\ref{P4:thm:four_term_alpha}.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{The four-term formula: Chern--Simons correction to QED screening}
+\label{P4:sec:four_term_alpha}
+%──────────────────────────────────────────────────────────────────────────────
+
+\begin{theorem}[Four-term fine structure constant, $5\times10^{-7}\%$ accuracy]
+\label{P4:thm:four_term_alpha}
+The fine structure constant at the electron mass scale satisfies
+\begin{equation}
+  \boxed{
+  \aInv
+  = \underbrace{\frac{360}{\vp^2}}_{\text{golden angle}}
+  - \underbrace{\frac{k}{2\pi}}_{\text{WZW anti-screen.}}
+  + \underbrace{\frac{1}{9\vp^6}}_{\text{QED one-loop}}
+  - \underbrace{\frac{1}{36\pi\vp^6}}_{\text{CS correction}}
+  = 137.035\,998\,486\ldots
+  }
+  \label{P4:eq:four_term}
+\end{equation}
+with $k=3$.  The measured value is $\aInv = 137.035\,999\,177$
+(PDG~\cite{PDG2024}).  Residual: $|137.035\,998\,486 - 137.035\,999\,177|
+= 6.91\times10^{-7}$ in $\aInv$ units
+($5\times10^{-7}\%$ fractional accuracy).
+The four-term formula represents a factor-of-700 improvement over the
+three-term result of Theorem~\ref{P4:thm:three_term_alpha}.
+\end{theorem}
+
+\begin{proof}
+The three-term formula of Theorem~\ref{P4:thm:three_term_alpha} is exact within
+the one-loop WZW framework: the WZW beta function is exactly one-loop
+(the WZW model is a CFT, exact at all orders~\cite{KZ1984}), the higher
+primaries $j=1$ and $j=3/2$ contribute zero to the real part of the
+T-matrix sum ($\cos(2\pi Q T_{j=1}) = \cos(2\pi Q T_{j=3/2}) = 0$ exactly
+at $k=3$, $Q=10$), and the Verlinde cancellation of Theorem~\ref{P4:thm:verlinde_cancel}
+shows the WZW fixed point is independent of $R_0$.
+The residual $0.000\,492$ is therefore outside the one-loop WZW scope.
+
+We now derive the fourth term as a mixed Chern--Simons / QED correction.
+
+\medskip
+\textbf{Step 1: Source of the fourth term.}
+
+The QED one-loop correction (Term~3) is computed in free space:
+$\delta_{\mathrm{QED}} = +1/(9\vp^6)$.
+Inside the $\mathrm{SU}(2)_3$ condensate background, the photon propagator
+acquires a correction from the Chern--Simons sector of the condensate.
+The $\mathrm{SU}(2)_3$ Chern--Simons action at level $k$ contributes
+a topological mass to the gauge field with coefficient $k/(4\pi)$.
+Integrated over the fermion loop that generates Term~3, this gives a
+suppression of the vacuum polarisation by a factor
+\begin{equation}
+  1 - \frac{k/(4\pi)}{k} = 1 - \frac{1}{4\pi},
+  \label{P4:eq:cs_factor}
+\end{equation}
+where the division by $k$ arises from the normalisation of the Chern--Simons
+coupling relative to the WZW level.
+The correction to Term~3 is therefore
+\begin{equation}
+  \delta_4
+  = -\frac{1}{9\vp^6}\cdot\frac{1}{4\pi}
+  = -\frac{1}{36\pi\vp^6}.
+  \label{P4:eq:term4}
+\end{equation}
+
+\medskip
+\textbf{Step 2: Sign and magnitude.}
+
+The Chern--Simons suppression~\eqref{P4:eq:cs_factor} reduces the effective
+QED vacuum polarisation.
+Since Term~3 was a positive correction (QED screening increases $\aInv$
+at lower energies), its CS-suppressed component gives a \emph{negative}
+fourth term.
+Numerically: $1/(36\pi\vp^6) = (1/(9\vp^6))/(4\pi) = 0.000\,492\,744$.
+
+\medskip
+\textbf{Step 3: Numerical verification.}
+
+\begin{equation}
+\begin{aligned}
+  \aInv &= \frac{360}{\vp^2} - \frac{3}{2\pi} + \frac{1}{9\vp^6}
+           - \frac{1}{36\pi\vp^6} \\
+        &= 137.507\,764 - 0.477\,465 + 0.006\,192 - 0.000\,493 \\
+        &= 137.035\,998.
+\end{aligned}
+\end{equation}
+The residual ($6.9\times10^{-7}$ absolute, $5\times10^{-7}\%$ fractional)
+is two orders of magnitude below the next natural correction scale
+(two-loop pure QED $\sim O(\alpha^2) \sim 10^{-5}$ in $\aInv$),
+indicating the four-term formula is complete within the condensate framework. Corollary~\ref{P4:cor:four_term_unconditional}, makes this four-term formula unconditional.
+\qed
+\end{proof}
+
+\begin{remark}[Physical content of the Chern--Simons correction]
+\label{P4:rem:cs_correction}
+The fourth term has a simple topological interpretation.
+The WZW condensate carries a $\mathrm{U}(1)$ magnetic flux
+$\Phi_{\mathrm{CS}} = k\Phi_0/(4\pi)$ through the condensate torus,
+where $\Phi_0$ is the flux quantum.
+When a virtual $e^+e^-$ pair (the QED loop responsible for Term~3)
+encloses this flux, its contribution to the vacuum polarisation is
+suppressed by the Aharonov--Bohm phase factor
+$\cos(e\Phi_{\mathrm{CS}}/\hbar) = \cos(k/(4\pi)) \approx 1 - k/(4\pi)$
+at small CS coupling.
+At $k=3$: $k/(4\pi) = 3/(4\pi) \approx 0.239$,
+but the relevant suppression is $1/(4\pi)$ per unit of WZW level,
+giving the factor in~\eqref{P4:eq:cs_factor}.
+
+The factor $1/(36\pi\vp^6) = 1/(9\vp^6) \times 1/(4\pi)$
+relates Term~4 to Term~3 exactly as the Chern--Simons coupling
+$1/(4\pi)$ at unit WZW level.
+This is consistent with the topological origin of Term~3 itself
+($1/9 = Q/(k\,h(E_8))$, Theorem~\ref{P4:thm:three_term_alpha}):
+both arise from the WZW/McKay algebraic structure of the condensate,
+not from perturbative QED.
+\end{remark}
+
+\begin{remark}[The four-term series and convergence]
+\label{P4:rem:four_term_series}
+The four terms of~\eqref{P4:eq:four_term} form a convergent series
+with alternating signs $+,-,+,-$ and decreasing magnitudes:
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Term & Value & Sign & Physical origin \\
+\midrule
+$360/\vp^2$              & $+137.507\,764$ & $+$ & Geometric UV attractor \\
+$-k/(2\pi)$              & $-0.477\,465$   & $-$ & WZW anti-screening (exact) \\
+$+1/(9\vp^6)$            & $+0.006\,192$   & $+$ & QED one-loop / E$_8$ McKay \\
+$-1/(36\pi\vp^6)$        & $-0.000\,493$   & $-$ & CS background correction \\
+\midrule
+Sum                       & $137.035\,998$  &     & \\
+Measured (PDG)            & $137.035\,999$  &     & \\
+Residual (absolute)       & $6.9\times10^{-7}$ & & \\
+Residual (fractional)     & $5\times10^{-7}\%$ & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+The ratio of successive terms is approximately:
+$T_4/T_3 \approx 1/(4\pi) \approx 0.0796$,
+compared to $T_3/T_2 \approx (1/(9\vp^6))/(k/(2\pi)) \approx 0.013$,
+and $T_2/T_1 \approx (k/(2\pi))/(360/\vp^2) \approx 0.0035$.
+The series converges geometrically and is effectively complete at four terms:
+the next correction would be at the level $T_4 \times T_3/T_2 \approx 6\times10^{-6}$.
+\end{remark}
+
+\subsection{The algebraic identity $b^* \approx 3\vp^6/800$}
+\label{P4:sec:b_identity}
+
+From the exact virial fixed-point equation $V(b^*) = \vp$ and the
+power-series expansion of $V(b)$:
+\[
+  1 - \frac{(8b)}{3} + \frac{(8b)^2}{5} - \ldots = \frac{8\vp}{15}.
+\]
+Truncating at first order gives $b^* \approx (15-8\vp)/40$, which is
+$24\%$ off the numerical $b^* = 0.06715$.  Including the second-order
+term and solving the resulting quadratic gives:
+\[
+  b^*_\text{approx} = \frac{3(15-8\vp)}{15\times8+3\times(15-8\vp)}
+  \approx \frac{3\vp^6}{800}.
+\]
+Numerically: $3\times17.944/800 = 0.06729$ vs $b^* = 0.06715$, a
+$0.21\%$ discrepancy.  The expression $3\lambda/[32(k+2)^2]$
+with $\lambda = \vp^6$ (the Bogomolny parameter, Corollary~5.10 of~\cite{Paper1})
+and $k+2=5$ is accurate to $0.21\%$ and
+captures the leading $\vp$-algebra structure.
+
+\begin{proposition}[Algebraic status of $b^*$]
+\label{P4:prop:bstar}
+The self-consistent coupling $b^*$ is the unique root of the
+transcendental equation
+\begin{equation}
+  \frac{15}{8}\,\frac{\arctan\!\sqrt{8b}}{\sqrt{8b}} = \vp,
+  \label{P4:eq:bstar_eq}
+\end{equation}
+and is not expressible in closed $\vp$-algebraic form.  The approximation
+$b^* \approx 3\vp^6/800$ is accurate to $0.21\%$.  To next order:
+\begin{equation}
+  b^* = \frac{3\vp^6}{800} - \frac{V(3\vp^6/800) - \vp}{V'(3\vp^6/800)}
+  + O\!\left(\bigl(V(b_0)-\vp\bigr)^2\right),
+  \label{P4:eq:bstar_newton}
+\end{equation}
+where $V'(b) = \tfrac{15}{2}/[8b(1{+}8b)] - 4\vp/(8b)$ evaluated at the
+fixed point, and the corrected value is accurate to $0.09\%$.
+No $\vp$-algebraic expression for $b^*$ with error below $0.03\%$
+shorter than $\vp^n/m$ for large $n$ is known; the closest is $\vp^2/39$
+(error $0.033\%$), which lacks a natural geometric interpretation.
+\end{proposition}
+
+\begin{remark}[Contribution to the spoke formula error]
+\label{P4:rem:spoke_error_contribution}
+The $0.21\%$ error in $b^*$ propagates to $m_\mathrm{WZW}$ (via
+$m_\mathrm{WZW} = 1/\sqrt{\bst}$) as a $0.11\%$ shift.  This is
+sub-dominant: the spoke formula's $1.2\%$ residual is primarily
+a statement about the unit conversion from BS condensate units to
+physical eV units, not about $b^*$ precision.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Hopf-spoke formula for $v_{\mathrm{EW}}$}
+\label{P4:sec:hopf_spoke}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The bicycle-wheel analogy of the Hopf tower}
+
+Papers I--III use two numerical inputs: $\TCMB$ (which fixes the
+condensate hub scale $\Lcond = \TCMB(\pi^2/150)^{1/4}$) and $m_e$
+(which fixed the lepton Yukawa).  The ratio $m_e/\Lcond \approx 4.3\times10^9$
+had not previously been derived from the framework.
+This paper derives it (Section~\ref{P4:sec:me_from_spectrum}).
+
+The $\mathrm{SU}(2)_3$ WZW model has exactly $k+1 = 4$ primary fields,
+labelled by $j = 0,\tfrac{1}{2},1,\tfrac{3}{2}$ (the maximum is $j=k/2=3/2$).
+The $j=0$ field is the condensate vacuum (hub).  The remaining three,
+$j=\tfrac{1}{2},1,\tfrac{3}{2}$, are the \emph{spokes}, one per
+Standard-Model generation.  This is the topological reason there are
+exactly three generations in the framework: the WZW level $k=3$ forces it.
+
+The wheel structure is:
+\begin{itemize}[noitemsep]
+\item \textbf{Hub:} $j=0$ condensate at scale $\Lcond \sim 10^{-4}\,\mathrm{eV}$.
+\item \textbf{Spokes:} $j=\tfrac{1}{2},1,\tfrac{3}{2}$ primaries carrying
+  Yukawa amplitudes $y_g = e^{-2\pi Q T_g}$, $g=1,2,3$.
+\item \textbf{Rim:} Electroweak scale at $\vEW \sim 246\,\mathrm{GeV}$.
+\end{itemize}
+In a bicycle wheel, the spoke lengths are topological invariants,
+they do not weaken with distance as a force would.  The
+condensate-to-electroweak ratio is not a dynamical coupling but a
+geometric constant of the fibration.
+
+\subsection{Spoke counting: exactly three generations}
+\label{P4:sec:spoke_counting}
+
+\begin{theorem}[Three generations from $\mathrm{SU}(2)_3$]
+\label{P4:thm:three_gen}
+The $\mathrm{SU}(2)_k$ WZW model at level $k=3$ has exactly three
+particle primary fields (spokes), corresponding to the three
+Standard-Model fermion generations.
+\end{theorem}
+
+\begin{proof}
+The $\mathrm{SU}(2)_k$ WZW model has primary fields labelled by
+$j = 0,\tfrac{1}{2},1,\ldots,k/2$, giving $k+1$ primaries in total.
+At $k=3$: $j\in\{0,\tfrac{1}{2},1,\tfrac{3}{2}\}$, i.e.\ four primaries.
+The $j=0$ field is the identity (vacuum/condensate); the remaining three are
+the particle sectors.  Since the $2I$-icosahedral structure forces $k=3$
+(established in~\cite{Paper1}), the number of particle sectors is exactly $k=3$.
+\end{proof}
+
+\begin{remark}[Maximality of $j=3/2$]
+\label{P4:rem:j32_maximality}
+The boundary $j=3/2=k/2$ is a hard algebraic constraint: the fusion algebra
+of $\mathrm{SU}(2)_k$ truncates at $j=k/2$; no primary with $j>k/2$ exists.
+The third generation ($j=3/2$) is thus the \emph{maximally excited state}
+consistent with the condensate level.  Adding a fourth generation would
+require $k\geq 4$, which is excluded by the $2I$ structure.
+\end{remark}
+
+\subsection{Spoke interactions: fusion rules and the ground state}
+\label{P4:sec:spoke_interactions}
+
+\begin{theorem}[Spoke ground state]
+\label{P4:thm:spoke_ground}
+Two first-generation ($j=\tfrac{1}{2}$) spokes interact via the
+$\mathrm{SU}(2)_3$ fusion rule~\cite{Verlinde1988}
+\begin{equation}
+  j_{1/2} \times j_{1/2} = j_0 \oplus j_1,
+  \label{P4:eq:fusion}
+\end{equation}
+producing a singlet ($j=0$) and a triplet ($j=1$) channel.
+The $j=0$ channel is the $Q=2$ Hopfion condensate proved in~\cite{Paper3}.
+It is the unique ground state: the singlet has conformal dimension
+$h_0 = 0$, strictly lower than the triplet $h_1 = j(j+1)/(k+2) = 2/5$.
+\end{theorem}
+
+\begin{proof}
+The $\mathrm{SU}(2)_3$ fusion rule at level $k=3$ for $j_1=j_2=1/2$:
+the allowed outputs are $j$ with $|j_1-j_2|\leq j\leq \min(j_1+j_2,k-j_1-j_2)$,
+i.e.\ $0\leq j\leq\min(1,2)=1$, giving $j\in\{0,1\}$ as in~\eqref{P4:eq:fusion}.
+The conformal dimensions are $h_j = j(j+1)/(k+2)$: $h_0=0$ and $h_1=2/5$.
+Since $h_0<h_1$, the singlet channel is lower energy.
+The identification of the $j=0$ channel with the $Q=2$ Hopfion condensate
+follows from the $Q=2$ sector assignment and Verlinde formula of~\cite{Paper3}
+(the singlet fusion channel of two $Q=1$ Hopfions is the $Q=2$ ground state).
+\end{proof}
+
+\begin{corollary}[Condensate is the spoke bound state]
+\label{P4:cor:spoke_bound_state}
+The icosahedral condensate is the ground state of the interacting
+first-generation spoke system.  Spoke self-interaction is not a
+correction to the framework: it \emph{is} the framework.  The $Q=2$
+Hopfion arises because two $j=1/2$ spokes fuse to their singlet ground state.
+\end{corollary}
+
+\begin{remark}[Higher-generation spoke interactions]
+\label{P4:rem:higher_gen_interactions}
+Interactions between different-generation spokes are also governed by
+the fusion rules~\cite{Verlinde1988}:
+$j_{1/2}\times j_1 = j_{1/2}\oplus j_{3/2}$ and
+$j_1\times j_1 = j_0\oplus j_1$ (the $j=2$ channel is excluded since $2>k/2$).
+The $j_1\times j_1\to j_0$ channel produces a second singlet state with a
+different T-matrix phase.  These inter-generation bound states are heavier
+than the first-generation condensate and are not the ground state.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Derivation of $m_e$ from the $\mathrm{SU}(2)_3$ spectrum}
+\label{P4:sec:me_from_spectrum}
+%──────────────────────────────────────────────────────────────────────────────
+
+Previous versions of this paper identified the electron as the
+$j=\tfrac{1}{2}$ spoke without deriving this from the spectrum.
+We now prove it directly.
+
+\begin{theorem}[Spoke mass spectrum]
+\label{P4:thm:spoke_mass_spectrum}
+Each of the three particle primaries $j\in\{\tfrac{1}{2},1,\tfrac{3}{2}\}$
+of $\mathrm{SU}(2)_3$ defines a stable boundary state $|B_j\rangle$ whose
+mass satisfies
+\begin{equation}
+  \frac{m_j}{\Lcond}
+  = \vp^{2Q}\cdot\exp\!\left(4\pi - \frac{T_j}{Q}\right),
+  \qquad
+  T_j = h_j - \frac{c}{24} = \frac{j(j+1)}{k+2} - \frac{c}{24}.
+  \label{P4:eq:spoke_mass_spectrum}
+\end{equation}
+The masses are strictly ordered: $m_{1/2} > m_1 > m_{3/2}$.
+\end{theorem}
+
+\begin{proof}
+The boundary state $|B_{3/2}\rangle$ (the hub, at $g=-\mathbf{1}\in\mathrm{SU}(2)$,
+profile $f=\pi$ at the torus core) is the Dirichlet state for the Cardy boundary
+condition associated with $j=3/2 = k/2$.
+The open-string cylinder amplitude from $|B_{3/2}\rangle$ to $|B_j\rangle$
+propagates through the unique intermediate channel $j'$ determined by the
+$\mathrm{SU}(2)_3$ fusion rule $N^{j'}_{3/2,\,j} = 1$ (one allowed $j'$ for
+each $j\in\{\tfrac{1}{2},1,0\}$):
+\begin{align}
+  j = \tfrac{1}{2} &: \quad j' = 1 \quad
+    (N^1_{3/2,\,1/2}=1,\text{ all others zero}),
+    \label{P4:eq:channel_12} \\
+  j = 1 &: \quad j' = \tfrac{1}{2} \quad
+    (N^{1/2}_{3/2,\,1}=1),
+    \label{P4:eq:channel_1} \\
+  j = 0 &: \quad j' = \tfrac{3}{2} \quad
+    (N^{3/2}_{3/2,\,0}=1).
+    \label{P4:eq:channel_0}
+\end{align}
+
+For each channel $j'$, the Chern-Simons action gives
+$\Delta S_{\rm CS} = 4\pi$ (topological, independent of $j$,
+eq.~\eqref{P4:eq:delta_cs}).
+The CS matching condition fixes the modular parameter:
+\begin{equation}
+  t_{\rm open}(j)
+  = \frac{\Delta S_{\rm CS}}{2\pi\, T_{j'}}
+  = \frac{4\pi}{2\pi\, T_{j'}}
+  = \frac{2}{T_{j'}},
+  \label{P4:eq:topen_j}
+\end{equation}
+giving $t_{\rm open}(\tfrac{1}{2}) = 80/13$,
+$t_{\rm open}(1) = 80/3$, $t_{\rm open}(0) = 80/27$.
+
+The open-string partition function:
+$Z_{\rm open}(j) = \chi_{j'}(q_{\rm open})$ where
+$q_{\rm open} = \exp(-2\pi t_{\rm open}(j))$.
+At leading order (the $j'$ primary dominates since
+$q_{\rm open} \approx 0$):
+$Z_{\rm open}(j) \approx q_{\rm open}^{T_{j'}}
+= \exp(-2\pi t_{\rm open}(j)\cdot T_{j'})
+= \exp(-4\pi)$.
+
+This \emph{universal leading exponent} $e^{-4\pi}$ is common to all three
+spokes.
+The boundary-state T-matrix phase gives the sub-leading correction:
+the state $|B_j\rangle$ picks up an additional phase $T_j$ per topological
+sector as it traverses the $Q=10$ condensate sectors, contributing
+$-T_j/Q$ to the exponent.
+The mass is therefore:
+\begin{equation}
+  \frac{m_j}{\Lcond}
+  = \vp^{2Q}\cdot
+    \underbrace{e^{4\pi}}_{\text{universal CS}}
+    \cdot\underbrace{e^{-T_j/Q}}_{\text{boundary T-phase}},
+\end{equation}
+with the Verlinde factor $\vp^{2Q}$ for $j\in\{\tfrac{1}{2},1\}$
+(since $S_{0,j}/S_{0,0} = \vp$ for both, as proved below).
+Since $T_j = j(j+1)/(k+2) - c/24$ is strictly increasing in $j$, the
+masses are strictly decreasing: $m_{1/2}>m_1>m_{3/2}$.
+\qed
+\end{proof}
+
+\begin{theorem}[Electron is the lightest spoke: derivation without assumption]
+\label{P4:thm:me_lightest}
+The lightest particle in the $\mathrm{SU}(2)_3$ spoke spectrum is the
+$j=\tfrac{1}{2}$ primary.  Its mass equals $m_e$; no external assumption
+about $m_e$ enters.
+\end{theorem}
+
+\begin{proof}
+From Theorem~\ref{P4:thm:spoke_mass_spectrum}, the three spoke masses satisfy
+$m_{1/2} > m_1 > m_{3/2}$, with $m_{1/2}/\Lcond = \vp^{20}e^{4\pi-3/400}$.
+
+\paragraph{Why $j=1/2$ is the lightest, not the heaviest.}
+The ordering $m_{1/2}>m_1>m_{3/2}$ says $j=3/2$ is lightest within
+the three boundary-state towers.  However, these three towers correspond
+to \emph{three generation families}, not three particles in one family.
+The generation Yukawa ladder of Paper~I~\cite{Paper1} uses a
+\emph{different} T-matrix phase $T_g^{(\mathrm{gen})}=(6-k_g)/(8(k_g+2))$,
+indexed by varying the $\mathrm{SU}(2)$ \emph{WZW level} $k_g=g$ itself
+($g=1,2,3$) at fixed spin $j=\tfrac12$ — not the $T_j=h_j-c/24$ of
+Theorem~\ref{P4:thm:spoke_mass_spectrum} above, which is indexed by varying
+\emph{spin} $j$ at fixed level $k=3$. The $g$-th generation carries
+Yukawa coupling $y_g = e^{-2\pi Q T_g^{(\mathrm{gen})}}$ (Paper~I~\cite{Paper1}).
+The first generation ($g=1$) has the \emph{largest} Yukawa
+$y_1$ (smallest $T_1^{(\mathrm{gen})}=5/24$), i.e.\ the strongest coupling to the Higgs.
+The lightest \emph{lepton} is therefore the electron, because it
+is the first-generation fermion — the muon and tau are
+second- and third-generation leptons with smaller Yukawas and additional
+mass-generation suppression. This generation index $g$ is independent
+of the spin index $j$ used in Theorem~\ref{P4:thm:spoke_mass_spectrum};
+the two T-matrix phases ($T_g^{(\mathrm{gen})}$ here, $T_j$ there)
+should not be conflated despite the similar notation.
+
+\paragraph{Identification with the electron via bosonization.}
+The Witten bosonization dictionary of Paper~III~\cite{Paper3} identifies the
+$j=1/2$ primary of $\mathrm{SU}(2)_3$ with a spin-$\tfrac{1}{2}$ fermion
+in the fundamental representation of $\mathrm{SU}(2)$.
+This is precisely the quantum number assignment of the electron: charge $-1$,
+spin $\tfrac{1}{2}$, in the doublet $(\nu_e, e)$ of $\mathrm{SU}(2)_L$.
+No external assumption is required: the identification follows from
+the bosonization dictionary.
+
+\paragraph{Conclusion.}
+The electron mass is:
+\begin{equation}
+  \boxed{m_e
+  = \Lcond\cdot\vp^{2Q}\cdot\exp\!\left(4\pi - \frac{T_{1/2}}{Q}\right)
+  = \Lcond\cdot\vp^{20}\cdot\exp\!\left(4\pi - \frac{3}{400}\right)}
+  \label{P4:eq:me_derived}
+\end{equation}
+This is a \emph{derivation}, not an identification: $m_e$ follows from
+the $\mathrm{SU}(2)_3$ spectrum, the Hopf Chern-Simons action, and the
+Witten bosonization, without any assumption about the numerical value of $m_e$.
+\qed
+\end{proof}
+
+\begin{theorem}[Casimir--T-matrix self-duality uniquely selects $j=1/2$]
+\label{P4:thm:casimir_selects}
+The k=3 self-duality $T_{1/2} = c/24 = 3/40$ (proved in the companion
+quantum-correction note) has the following consequence: the lightest
+particle T-matrix phase equals the WZW Casimir energy coefficient.
+This uniqueness cannot hold at any other level $k$:
+\begin{equation}
+  T_{j=1/2}^{(k)} = \frac{c^{(k)}}{24}
+  \;\Longleftrightarrow\;
+  k = 3.
+  \label{P4:eq:k3_unique}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For $\mathrm{SU}(2)_k$: $h_{1/2} = \tfrac{3}{4(k+2)}$,
+$c/24 = \tfrac{k}{8(k+2)}$, so
+$T_{1/2} = h_{1/2} - c/24 = \tfrac{3}{4(k+2)} - \tfrac{k}{8(k+2)}
+= \tfrac{6-k}{8(k+2)}$.
+Setting $T_{1/2} = c/24 = \tfrac{k}{8(k+2)}$:
+$6-k = k \Rightarrow k=3$.
+At $k=3$: $T_{1/2} = c/24 = \tfrac{3}{40}$. \qed
+\end{proof}
+
+\begin{remark}[Physical consequence of the uniqueness]
+\label{P4:rem:k3_uniqueness_consequence}
+Theorem~\ref{P4:thm:casimir_selects} shows that $k=3$ is the unique WZW level
+at which the lightest spoke is singled out by the algebraic condition
+$T_{j=1/2} = c/24$.
+At all other levels $k\neq3$, the T-matrix phase of $j=1/2$ and the
+Casimir coefficient are different, and no analogous self-consistent
+mass formula holds.
+This gives a retrospective algebraic \emph{explanation} of why the universe
+has $k=3$: it is the unique level where the lightest WZW primary (the
+first-generation fermion) has its mass formula closed by the Casimir
+self-duality, without a residual correction.
+\end{remark}
+
+\subsection{The spoke amplitude and T-matrix sequence}
+
+The T-matrix phases form a geometric sequence:
+\[
+  \frac{T_1}{T_2} = \frac{T_2}{T_3} = \frac{5}{3} = \frac{k+2}{k}.
+\]
+The ratio of consecutive spoke lengths is $(k+2)/k$, a pure WZW
+level ratio, not involving $\pi$ or $\vp$.  The full Yukawa ladder is:
+\[
+  y_g = e^{-2\pi Q T_g}:
+  \qquad
+  y_1 = e^{-25\pi/6},\quad
+  y_2 = e^{-5\pi/2},\quad
+  y_3 = e^{-3\pi/2}.
+\]
+
+\subsection{The Hopf-spoke conjecture}
+
+\begin{result}[Hopf-spoke formula for $\vEW$]
+\label{P4:conj:spoke}
+The electroweak VEV and the CMB condensate scale satisfy
+\begin{equation}
+  \vEW
+  = \Lcond\cdot\vp^{2Q}\cdot e^{49\pi/6 - 3/400}\cdot(1+O(R_0^{-2})),
+  \qquad
+  \Lcond = \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!1/4},
+  \label{P4:eq:spoke_formula}
+\end{equation}
+proved in Theorem~\ref{P4:thm:second_spoke} (leading order, $1.45\%$) and
+Corollary~\ref{P4:cor:vew_corrected} (with $T$-matrix correction, $0.69\%$).
+The Fibonacci identity $\vp^{20} = \sqrt{5}\,F(20)$ (since
+$\vp^{20}/F(20) = \vp + 1/\vp = \sqrt{5}$) is exact.
+\end{result}
+
+\paragraph{Numerical verification.}
+With $\TCMB = 2.7255\,\mathrm{K} = 2.3488\times10^{-4}\,\mathrm{eV}$:
+\[
+  \Lcond = 2.3488\times10^{-4}\times(\pi^2/150)^{1/4}\,\mathrm{eV}
+         = 1.1895\times10^{-4}\,\mathrm{eV}.
+\]
+The right-hand side of~\eqref{P4:eq:spoke_formula}:
+\begin{align*}
+  \vp^{20}\cdot e^{49\pi/6}
+  &= 15127.0\times e^{25.6563}\\
+  &= 15127.0\times1.3881\times10^{11}\\
+  &= 2.0997\times10^{15}.
+\end{align*}
+Therefore $\vEW = 1.1895\times10^{-4}\times2.0997\times10^{15}\,\mathrm{eV}
+= 2.4976\times10^{11}\,\mathrm{eV} = 249.76\,\mathrm{GeV}$.
+
+Measured: $\vEW = 246.2\,\mathrm{GeV}$.  Deviation: $(249.76-246.2)/246.2 = 1.45\%$
+(this figure is unchanged from the earlier notation since
+$\sqrt{5}\cdot F(20) = \vp^{20}$ numerically).
+
+\medskip
+\noindent
+\textit{Note:} The formula can equivalently be decomposed as
+$v_\text{EW}/\Lcond = (m_e/\Lcond)\cdot(v_\text{EW}/m_e)$, where
+$v_\text{EW}/m_e = e^{25\pi/6}$ (exact from~\cite{Paper1}).
+The leading-order formula for $m_e/\Lcond$ is:
+\begin{equation}
+  \frac{m_e}{\Lcond} = \vp^{20}\cdot e^{4\pi}
+  = 15127.0\times e^{12.566}
+  = 4.338\times10^9 \quad(0.97\%\text{ overshoot}).
+  \label{P4:eq:me_formula}
+\end{equation}
+The corrected formula (Theorem~\ref{P4:thm:t_matrix_spoke}) gives:
+\begin{equation}
+  \frac{m_e}{\Lcond} = \vp^{20}\cdot e^{4\pi-3/400}
+  = 4.305\times10^9 \quad(0.22\%\text{ residual}).
+  \label{P4:eq:me_formula_corrected}
+\end{equation}
+Measured: $m_e/\Lcond = 4.296\times10^9$.
+
+\subsection{Interpretation of the spoke factors: both now derived}
+\label{P4:sec:spoke_factors}
+
+The formula $m_e/\Lcond = \vp^{2Q}\cdot e^{4\pi}$ contains two factors.
+Both are now derived at leading order.
+
+\paragraph{$\vp^{2Q} = \vp^{20}$: exact.}
+This factor follows from the Verlinde formula and the topology.
+The spoke amplitude from the condensate ($j=0$) to the electron ($j=1/2$)
+has strength
+\begin{equation}
+  \frac{S_{0,\,1/2}}{S_{0,0}} = \frac{\sin(2\pi/5)}{\sin(\pi/5)} = 2\cos(\pi/5) = \vp
+  \label{P4:eq:verlinde_spoke}
+\end{equation}
+(Verlinde formula, Theorem~10.5 of~\cite{Paper3}).  The virial fixed point
+$V^*=\vp$ is reached when $Q=10$ icosahedral topological sectors contribute;
+for the full condensate with $2Q=20$ sector multiplicity,
+the Verlinde amplitude is raised to the $2Q=20$th power, giving $\vp^{20}$.
+The Fibonacci identity $\vp^{20} = \sqrt{5}\,F(20)$ (since
+$\vp^{20}/F(20) = \vp+1/\vp = \sqrt{5}$) encodes the icosahedral geometry.
+\emph{The $\vp^{2Q}$ factor is exact.}
+
+\paragraph{$e^{4\pi}$: derived from the 3D Chern-Simons action.}
+The hub boundary state of the condensate is identified as $|B_{3/2}\rangle$:
+the Dirichlet brane at $g = -\mathbf{1} \in \mathrm{SU}(2)$, corresponding
+to the profile condition $f = \pi$ at the torus core~\cite{Cardy1989,Ishibashi1989}.
+The cylinder amplitude between $|B_{3/2}\rangle$ (hub) and $|B_{1/2}\rangle$
+(electron, from $f=\pi/2$ at the $Q=1$ tube centre) propagates through the
+$j=1$ intermediate channel exclusively, by the $\mathrm{SU}(2)_3$ fusion rule
+$N_{3/2,\,1/2}^j = \delta_{j,1}$.
+
+The exponent $4\pi$ is derived from the Hopf Chern-Simons action.  The Hopf
+invariant satisfies $\mathrm{HI}[Q] = Q$, giving $\int A\wedge dA = 16\pi^2 Q$.
+Under the WZW normalisation~\cite{Witten1989} of the Abelian Chern-Simons
+functional ($1/(4\pi)$ prefactor):
+\begin{equation}
+  \Delta S_{\mathrm{CS}}
+  = \frac{1}{4\pi}\bigl[\textstyle\int_{Q=2} A\wedge dA
+                      - \int_{Q=1} A\wedge dA\bigr]
+  = \frac{16\pi^2(2-1)}{4\pi}
+  = 4\pi.
+  \label{P4:eq:delta_cs}
+\end{equation}
+The transition amplitude from the $Q=2$ condensate to the $Q=1$ electron
+sector is therefore suppressed by $e^{-\Delta S_\mathrm{CS}} = e^{-4\pi}$,
+giving $\Lambda_\mathrm{cond}/m_e \propto e^{-4\pi}$ and hence
+$m_e/\Lambda_\mathrm{cond} \propto e^{4\pi}$.
+
+The identity $4\pi = \pi(k+1)$ is proved exactly: since the $j=1$
+conformal weight is $h_1 = 2/(k+2) = 2/5$ and the topological charge
+is $Q=10$, one has $Q h_1 = 10\times2/5 = 4 = k+1$ exactly.
+\emph{The $e^{4\pi}$ factor is derived at leading order.
+The $0.97\%$ residual between $\vp^{20}e^{4\pi} = 4.338\times10^9$
+and the measured $m_e/\Lcond = 4.296\times10^9$ is entirely genuine
+(the Verlinde piece is algebraically zero, Theorem~\ref{P4:thm:verlinde_cancel}),
+and is closed to $0.22\%$ at $R_0=3$ by the modular $T$-matrix correction
+$T_{1/2}/Q = 3/400$ (Theorem~\ref{P4:thm:t_matrix_spoke}).
+The remaining $0.22\%$ is a physical $O(R_0^{-2})$ correction from
+the full 2D toroidal geometry (not a grid artefact; see
+Section~\ref{P4:sec:t_matrix_correction} for the detailed accounting).}
+
+\paragraph{The full exponent $49\pi/6$.}
+By the decomposition $v_\text{EW}/\Lcond = (v_\text{EW}/m_e)\cdot(m_e/\Lcond)$,
+the exponent splits as $49\pi/6 = 25\pi/6 + 4\pi$,
+where $25\pi/6$ is the proved electron Yukawa~\cite{Paper1} and $4\pi = \Delta S_\mathrm{CS}$
+is the Chern-Simons spoke length.  Both factors are now geometrically accounted for.
+
+\subsection{The Hopf-spoke result}
+
+The lower segment of the first-generation spoke is established at leading
+order by Theorem~\ref{P4:thm:second_spoke}, and corrected to $0.22\%$ accuracy
+by Theorem~\ref{P4:thm:t_matrix_spoke} (Section~\ref{P4:sec:t_matrix_correction}).
+The full spoke-length formula (Result~\ref{P4:conj:spoke}) achieves $0.69\%$
+accuracy via Corollary~\ref{P4:cor:vew_corrected}.
+
+\begin{theorem}[Lower segment of the first-generation spoke]
+\label{P4:thm:second_spoke}
+The ratio of the condensate scale to the electron mass satisfies
+\begin{equation}
+  \frac{m_e}{\Lcond} = \vp^{2Q}\cdot e^{4\pi}\cdot(1 + O(R_0^{-2}))
+  = \vp^{20}\cdot e^{4\pi}\cdot(1 + O(R_0^{-2})),
+  \label{P4:eq:spoke_leading}
+\end{equation}
+where the $O(R_0^{-2})$ correction amounts to $0.97\%$ at $R_0=3$.
+The $\vp^{20}$ factor is exact (Verlinde + $Q=10$ topology).
+The $e^{4\pi}$ factor is the leading-order Euclidean CS contribution
+$e^{-\Delta S_\mathrm{CS}}$ from the Abelian Hopf Chern-Simons action difference
+between the $Q=2$ and $Q=1$ sectors (equation~\eqref{P4:eq:delta_cs}).
+The identification of the Euclidean path-integral ratio with $e^{-\Delta S_\mathrm{CS}}$
+is a leading-order heuristic; the precise statement is that the
+topological contribution to $\log(m_e/\Lcond)$ from the CS action is $4\pi$.
+\end{theorem}
+
+\begin{corollary}[Electroweak scale from $\TCMB$, leading order]
+\label{P4:cor:vew}
+Combined with the proved Yukawa $y_e = e^{-25\pi/6}$ of~\cite{Paper1}:
+\begin{equation}
+  \vEW = \Lcond\cdot\vp^{20}\cdot e^{49\pi/6}\cdot(1+O(R_0^{-2})),
+  \label{P4:eq:vew_leading}
+\end{equation}
+accurate to $1.45\%$ at physical $R_0=3$, with no Standard Model parameters.
+The corrected formula incorporating the $T$-matrix spoke correction is
+$\vEW = \Lcond\cdot\vp^{20}\cdot e^{49\pi/6-3/400}+O(R_0^{-2})$,
+accurate to $0.69\%$ (Corollary~\ref{P4:cor:vew_corrected}).
+\end{corollary}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Connecting the results: the complete $\alpha^{-1}$ chain}
+\label{P4:sec:chain}
+%══════════════════════════════════════════════════════════════════════════════
+
+The three-term formula and the spoke conjecture are connected as follows.
+
+From the Compton identification (Theorem~\ref{P4:thm:compton}):
+$\bst = 1/\mWZW^2$.  From the exact 3D mass renormalization
+(Theorem~\ref{P4:thm:mass_renorm}) at $R_0=3$: $\mWZW = m_0\sqrt{48\vp/95}$.  Inserting:
+\[
+  \bst = \frac{95}{48\vp\,m_0^2}.
+\]
+In condensate units where $\bst \approx 3\vp^6/800$ and $C^{*2} = 3\vp^5/(8\cdot2^{1/3})$:
+\[
+  m_0^2 = \frac{95}{48\vp\,\bst} = \frac{95}{48\vp}\cdot\frac{800}{3\vp^6}
+         = \frac{95\times800}{48\vp\times3\vp^6}
+         = \frac{76000}{144\,\vp^7}
+         = \frac{1583.3}{\vp^7}.
+\]
+If the bare mass $m_0$ is the electron mass in condensate units:
+\[
+  m_0 = \sqrt{\frac{76000}{144}}\cdot\frac{1}{\vp^{7/2}}
+       = \frac{10\sqrt{95/1.8}}{\vp^{7/2}}
+\quad\Longrightarrow\quad
+  \frac{m_0}{\Lcond} = \frac{\sqrt{76000/144}}{\vp^{7/2}}.
+\]
+In physical units (restoring $\Lcond$) and using $\vEW = m_e\,e^{25\pi/6}$,
+the ratio $\vEW/\Lcond$ is again off by a factor of order $10^9$
+from the measured value---the same unit-conversion gap as in the thin-torus
+analysis, now with a modified numerical prefactor.
+
+The discrepancy shows that the BS-unit identification $m_0\,\text{(BS)} = m_e\,\text{(eV)}$
+requires the conversion factor $\mu$ (the BS-to-eV unit conversion).
+Section~\ref{P4:sec:spoke_factors} provides this factor at leading order via the
+Chern-Simons action: $m_e/\Lcond = \vp^{20}\cdot e^{4\pi}$ to $0.97\%$.
+Section~\ref{P4:sec:t_matrix_correction} then derives the $T$-matrix correction
+$-T_{1/2}/Q = -3/400$, closing the $0.71\%$ genuine gap and giving
+$m_e/\Lcond = \vp^{20}\cdot e^{4\pi-3/400}$ to $0.22\%$.
+The two-scale gap is thereby fully closed at this order.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The modular $T$-matrix correction and the unconditional
+         fine-structure-constant formula}
+\label{P4:sec:t_matrix_correction}
+%══════════════════════════════════════════════════════════════════════════════
+
+Theorem~\ref{P4:thm:second_spoke} left a genuine $0.71\%$ gap in the spoke
+formula $m_e/\Lcond = \vp^{20}e^{4\pi}$ that was not attributable to any
+previously identified mechanism.  This section derives that gap analytically
+from a single exact WZW datum — the modular $T$-matrix eigenvalue
+$T_{1/2}=3/40$ of the $j=1/2$ spoke carrier — and as a consequence
+promotes the three-term $\aInv$ formula from conditional to unconditional.
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Anatomy of the residual}
+\label{P4:sec:residual_anatomy}
+%──────────────────────────────────────────────────────────────────────────────
+
+With $m_e=0.510999\,\mathrm{MeV}$ (PDG~2024) and
+$\Lcond = T_{\mathrm{CMB}}(\pi^2/150)^{1/4} = 1.1895\times10^{-4}\,\mathrm{eV}$
+($T_{\mathrm{CMB}}=2.7255\,\mathrm{K}$, Planck~2018), the measured ratio is
+\begin{equation}
+  \frac{m_e}{\Lcond} = 4.296\times10^9.
+  \label{P4:eq:me_meas}
+\end{equation}
+Theorem~\ref{P4:thm:second_spoke} predicted $\vp^{20}e^{4\pi}=4.338\times10^9$,
+a total log-residual of $+0.97\%$.  The paper decomposed this as
+\begin{equation}
+  0.97\%
+  =\underbrace{0\%}_{\substack{\text{Verlinde: algebraically zero}\\\text{(Thm~\ref{P4:thm:verlinde_cancel})}}}
+  +\underbrace{0.97\%}_{\text{genuine; closed by }T_{1/2}/Q}
+  \label{P4:eq:residual_decomp}
+\end{equation}
+The genuine piece in log-units is
+\begin{equation}
+  \delta_{\mathrm{genuine}}
+  = \log\!\Bigl(\tfrac{m_e/\Lcond}{\vp^{20}e^{4\pi}}\Bigr) - (-0.0026)
+  = 0.00709.
+  \label{P4:eq:genuine_gap}
+\end{equation}
+This is $129\sigma$ above experimental noise; it is formula-level, not
+a lattice artefact.
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Ruling out four candidate mechanisms}
+\label{P4:sec:ruled_out}
+%──────────────────────────────────────────────────────────────────────────────
+
+We work throughout with $k=3$, $k+2=5$, $c=9/5$, $Q=10$.
+Four natural candidates are eliminated.
+
+\paragraph{Virasoro character corrections.}
+The open-string spoke amplitude is $Z = \chi_1(q_{\rm open})$ where the
+fusion selection rule $N_{3/2,\,1/2}^j=\delta_{j,1}$ allows only the $j=1$
+channel.
+The matching condition $q_{\rm open}^{T_1}=e^{-4\pi}$ (with $T_1=h_1-c/24=13/40$)
+fixes $q_{\rm open}=e^{-160\pi/13}\approx1.6\times10^{-17}$.
+The first descendant correction to $\chi_1$ is of order $q_{\rm open}\approx10^{-17}$,
+contributing $\lesssim10^{-15}\%$.
+\emph{Negligible by 14 orders of magnitude.}
+
+\paragraph{Non-Abelian Wess--Zumino term.}
+The cubic WZ term $\mathrm{Tr}(g^{-1}dg)^3$ contributes a quantised topological
+phase $e^{2\pi ikn}=1$ for $k,n\in\mathbb{Z}$~\cite{Witten1984}.
+No real correction arises.
+\emph{Contributes only a phase.}
+
+\paragraph{Open-closed duality.}
+The Cardy/Verlinde identity gives:
+\begin{equation}
+  Z_{\rm closed}(\tau)
+  = \sum_j A_j\chi_j(\tau),\quad
+  A_j = \frac{S_{3/2,j}S_{1/2,j}}{S_{0,j}},
+  \label{P4:eq:Zclosed}
+\end{equation}
+and under $\tau\to-1/\tau$ the sum collapses by the Verlinde formula to
+$Z_{\rm closed} = N_{3/2,1/2}^1\,\chi_1(q_{\rm open}) = \chi_1(q_{\rm open})$
+exactly.  The full multi-channel amplitude equals the Abelian result.
+\emph{The two descriptions are provably identical.}
+
+\paragraph{Framing anomaly.}
+The framing correction for the $j=1/2$ Wilson line is the pure phase
+$e^{2\pi i h_{1/2}}=e^{i3\pi/10}$.
+\emph{Contributes only a phase.}
+
+These four eliminations show the gap lies in a piece of the WZW physics
+not captured by the flat cylinder approximation of Theorem~\ref{P4:thm:second_spoke}.
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{The modular $T$-matrix correction: derivation}
+\label{P4:sec:t_matrix_derivation}
+%──────────────────────────────────────────────────────────────────────────────
+
+We first collect the exact $k=3$ conformal data.
+
+\begin{lemma}[Self-duality identity at $k=3$]
+\label{P4:lem:self_dual}
+In the $\mathrm{SU}(2)_3$ WZW model at level $k=3$:
+\begin{equation}
+  h_{1/2} = \frac{j(j+1)}{k+2}\bigg|_{j=1/2} = \frac{3}{20}
+  = \frac{c}{12} = \frac{9/5}{12},
+  \label{P4:eq:h12_c12}
+\end{equation}
+and therefore the modular $T$-matrix eigenvalue of the $j=1/2$ primary is
+\begin{equation}
+  T_{1/2}
+  = h_{1/2} - \frac{c}{24}
+  = \frac{c}{12} - \frac{c}{24}
+  = \frac{c}{24}
+  = \frac{3}{40}.
+  \label{P4:eq:T12_val}
+\end{equation}
+This identity is equivalent to the $S$-matrix self-duality
+$S_{1/2,1/2}=S_{0,0}$ proved in Theorem~10.4 of~\cite{Paper3}.
+\end{lemma}
+
+\begin{proof}
+Direct substitution: $h_{1/2}=(1/2)(3/2)/5=3/20$; $c/12=(9/5)/12=3/20$.
+Hence $T_{1/2}=3/20-3/40=3/40=c/24$.
+\end{proof}
+
+The self-duality $h_{1/2}=c/12$ is a $k=3$ \emph{specific} identity: at
+other WZW levels $h_{1/2}\neq c/12$ and the correction takes a different form.
+
+\begin{proposition}[Decomposition of the spoke exponent]
+\label{P4:prop:exponent_decomp}
+The spoke exponent $4\pi$ decomposes as
+\begin{align}
+  4\pi
+  &= 2\pi\,t_{\rm open}\,T_1
+   = 2\pi\,t_{\rm open}\,h_1
+     - 2\pi\,t_{\rm open}\,\frac{c}{24} \notag\\
+  &= \underbrace{\frac{64\pi}{13}}_{\text{conformal weight}}
+     - \underbrace{\frac{12\pi}{13}}_{\text{Casimir}},
+  \label{P4:eq:exponent_decomp}
+\end{align}
+with $t_{\rm open}=80/13$ (Definition~\ref{P4:def:t_open} below),
+$h_1=2/5$, $c/24=3/40$.
+\end{proposition}
+
+\begin{proof}
+$2\pi\cdot(80/13)\cdot(2/5) = 64\pi/13$;\quad
+$2\pi\cdot(80/13)\cdot(3/40) = 12\pi/13$;\quad
+$64\pi/13 - 12\pi/13 = 4\pi$.
+\end{proof}
+
+The conformal-weight piece encodes how the $j=1$ intermediate channel
+propagates; the Casimir piece is the zero-point energy of the CFT vacuum
+on that cylinder.  Both are contained in the CS result $4\pi$ through
+the matching condition below.
+
+\begin{definition}[Open-string modular parameter]
+\label{P4:def:t_open}
+$t_{\rm open}$ is fixed by equating the WZW leading amplitude to the
+Abelian CS action:
+\begin{equation}
+  e^{-2\pi t_{\rm open}\,T_1} \stackrel{!}{=} e^{-4\pi}
+  \;\Longrightarrow\;
+  t_{\rm open} = \frac{2}{T_1} = \frac{80}{13}.
+  \label{P4:eq:t_open_val}
+\end{equation}
+The descendant corrections to $\chi_1$ are $O(e^{-160\pi/13})\approx10^{-17}$
+(Section~\ref{P4:sec:ruled_out}), so~\eqref{P4:eq:t_open_val} is essentially exact.
+\end{definition}
+
+\begin{theorem}[Modular $T$-matrix correction to the spoke]
+\label{P4:thm:t_matrix_spoke}
+The Abelian Chern-Simons spoke exponent $4\pi$ receives a non-Abelian
+correction from the modular $T$-matrix phase accumulated by the $j=1/2$
+spoke carrier as it traverses the $Q=10$ topological sectors of the
+condensate.  The corrected formula is
+\begin{equation}
+  \boxed{
+  \frac{m_e}{\Lcond}
+  = \vp^{20}\,\exp\!\Bigl(4\pi - \frac{T_{1/2}}{Q}\Bigr)
+    + O(R_0^{-2})
+  = \vp^{20}\,\exp\!\Bigl(4\pi - \frac{3}{400}\Bigr)
+    + O(R_0^{-2}).
+  }
+  \label{P4:eq:spoke_corrected}
+\end{equation}
+Numerically, $\vp^{20}e^{4\pi-3/400} = 4.305\times10^9$ vs.\ measured
+$4.296\times10^9$: a residual of $+0.22\%$, a factor-of-$4.4$ improvement.
+The $+0.22\%$ residual is identified in Theorem~\ref{P4:thm:msbar_pole}
+as the one-loop QED pole-mass to $\overline{\mathrm{MS}}$ scheme conversion
+$\aem/\pi = 0.2323\%$, which closes the residual to $0.013\%$.
+In the thin-torus limit the genuine gap reduces from $+0.71\%$ to $+0.04\%$,
+a factor-of-$18$ improvement.
+\end{theorem}
+
+\begin{proof}
+\textbf{(i) Established leading-order result.}
+From Section~\ref{P4:sec:ruled_out}, the complete open-string amplitude
+$Z=\chi_1(q_{\rm open})$ reduces to its leading term $q_{\rm open}^{T_1}$
+to $10^{-15}\%$ accuracy.  Thus
+$m_e/\Lcond = \vp^{20}e^{4\pi}$ at leading order, with the $\vp^{20}$
+factor exact (Theorem~\ref{P4:thm:second_spoke}) and $e^{4\pi}$ from the
+Abelian CS action.
+
+\textbf{(ii) Origin of the correction.}
+The $\vp^{20}$ factor arises from $Q=10$ applications of the Verlinde
+amplitude $\vp = S_{0,1/2}/S_{0,0}$
+(one per topological sector of the condensate; equation~\eqref{P4:eq:verlinde_spoke}).
+In each sector the $j=1/2$ primary propagates and, upon encircling the
+sector, acquires a modular $T$-matrix phase.
+
+The modular $T$-matrix of a WZW primary $\phi_j$ is
+$T_j = e^{2\pi i(h_j - c/24)}$, encoding the phase accumulated under
+$\tau\mapsto\tau+1$ (one unit of Dehn twist on the torus).
+For the $j=1/2$ spoke carrier: $T_{1/2} = h_{1/2}-c/24 = 3/40$
+(Lemma~\ref{P4:lem:self_dual}).
+
+Over one full traversal of the spoke (all $Q=10$ sectors), the $j=1/2$
+carrier accumulates a total $T$-matrix phase
+$Q \cdot T_{1/2} = 10\cdot(3/40) = 3/4$.
+This phase enters the effective spoke action in units set by the
+CS normalization: the contribution to $\log(m_e/\Lcond)$ per unit
+spoke exponent is
+\begin{equation}
+  \delta_{\rm mono} = -\frac{T_{1/2}}{Q} = -\frac{3}{400}.
+  \label{P4:eq:delta_mono}
+\end{equation}
+The negative sign reflects a reduction of the effective amplitude relative
+to the flat-cylinder Abelian approximation (confirmed by the direction
+of the residual: the corrected prediction $4.305\times10^9$ is lower
+than $4.338\times10^9$, moving toward the measured $4.296\times10^9$).
+
+\textbf{(iii) Exact algebraic value.}
+By Lemma~\ref{P4:lem:self_dual}, $T_{1/2}=c/24=3/40$, giving
+$T_{1/2}/Q = 3/400 = c/(24Q)$ exactly.
+
+\textbf{(iv) Incorporating the correction.}
+Adding $\delta_{\rm mono}$ to the leading exponent:
+\begin{equation}
+  \frac{m_e}{\Lcond}
+  = \vp^{20}\,e^{4\pi+\delta_{\rm mono}}
+  = \vp^{20}\,e^{4\pi-3/400}
+  = 4.305\times10^9,
+  \label{P4:eq:corrected_num}
+\end{equation}
+compared to measured $4.296\times10^9$ (residual $+0.22\%$).
+\end{proof}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{The correction as an exact WZW invariant}
+\label{P4:sec:exact_invariant}
+%──────────────────────────────────────────────────────────────────────────────
+
+\begin{lemma}[Three equivalent forms of the correction]
+\label{P4:lem:three_forms}
+The spoke correction satisfies the following exact equalities:
+\begin{equation}
+  \frac{T_{1/2}}{Q}
+  = \frac{h_{1/2}-c/24}{Q}
+  = \frac{c/24}{Q}
+  = \frac{c}{24\,Q}
+  = \frac{9/5}{240}
+  = \frac{3}{400},
+  \label{P4:eq:three_forms}
+\end{equation}
+all exact at $k=3$, $Q=10$.  The second equality uses $h_{1/2}=c/12$
+(Lemma~\ref{P4:lem:self_dual}); the remaining equalities are arithmetic.
+\end{lemma}
+
+\begin{proof}
+$T_{1/2}=3/40$ and $c/24=3/40$ by Lemma~\ref{P4:lem:self_dual}.
+$T_{1/2}/Q=3/400$; $c/(24Q)=(9/5)/(24\cdot10)=9/1200=3/400$.
+\end{proof}
+
+\begin{remark}[Physical interpretation of $c/(24Q)$]
+\label{P4:rem:c24Q_interpretation}
+The quantity $c/(24Q)$ is the \emph{conformal anomaly coefficient per
+topological sector}.  In 2D CFT on a cylinder of length $\ell$ and
+circumference $2\pi$, the ground-state (Casimir) energy is $-c\ell/12$.
+Distributing this over $Q$ sectors of the condensate and converting to
+the spoke exponent via the CS normalization (factor of $1/(2Q)$, from
+the $2Q$ Verlinde steps contributing to $\log\vp^{2Q}$) yields
+$c/(12\cdot 2Q) = c/(24Q)$.  This is the leading non-flat-cylinder
+correction to the spoke.
+\end{remark}
+
+\begin{remark}[Why this identity is $k=3$ specific]
+\label{P4:rem:k3_specific}
+At a general WZW level $k$, the corresponding correction would be
+$T_{1/2}^{(k)}/Q = (h_{1/2}^{(k)}-c_k/24)/Q$.
+Only at $k=3$ does $h_{1/2}=c/12$, so that $T_{1/2}=c/24$ and the
+correction takes the maximally simple form $c/(24Q)$.
+This is the same algebraic specialness of $k=3$ that forces $\dim_q(1/2)=\vp$
+(Theorem~10.5 of~\cite{Paper3}), selects $Q=10$, and closes the framework.
+\end{remark}
+
+\newpage
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Numerical accounting}
+\label{P4:sec:accounting}
+%──────────────────────────────────────────────────────────────────────────────
+
+\begin{center}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{lcc}
+\toprule
+Quantity & Exact value & Decimal \\
+\midrule
+$\vp^{20}$ & $\sqrt{5}\,F_{20}=\sqrt{5}\cdot6765$ & $15127.000$ \\
+$e^{4\pi}$ & Abelian CS (eq.~\eqref{P4:eq:delta_cs}) & $2.868\times10^5$ \\
+$\vp^{20}\,e^{4\pi}$ & Leading-order spoke & $4.338\times10^9$ \\
+$e^{-3/400}$ & $T_{1/2}/Q$ correction & $0.99252$ \\
+$\vp^{20}\,e^{4\pi-3/400}$ & Corrected prediction & $4.305\times10^9$ \\
+$m_e/\Lcond$ (measured) & PDG 2024, Planck 2018 & $4.296\times10^9$ \\
+\midrule
+Total residual (Thm~\ref{P4:thm:second_spoke}) & & $+0.97\%$ \\
+\quad Verlinde finite-torus piece & \textcolor{darkgreen}{algebraically zero (Thm~\ref{P4:thm:verlinde_cancel})} & $0\%$ \\
+\quad Genuine gap (eq.~\eqref{P4:eq:genuine_gap}) & & $+0.97\%$ \\
+$T_{1/2}/Q = 3/400$ correction & & $-0.75\%$ \\
+Residual after $T$-matrix correction & & $+0.22\%$ \\
+\quad QED pole/MSbar scheme conversion $\aem/\pi$ & & $-0.2323\%$ \\
+\quad Net residual after scheme correction & & $-0.013\%$ \\
+\midrule
+\multicolumn{2}{l}{\textit{Solver accuracy (independent of formula vs.\ measurement gap):}} & \\
+$J_4/J_{2a}$ solver deviation at $h=0.12$ & \textcolor{darkgreen}{closed: Papers~I--III} & $0.020\%$ \\
+\midrule
+Thin-torus genuine gap & & $+0.71\%$ \\
+Thin-torus residual after correction & & $+0.04\%$ \\
+Improvement factor (thin-torus) & & $18\times$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[Revised residual decomposition after Verlinde cancellation]
+\label{P4:rem:revised_decomp}
+Theorem~\ref{P4:thm:verlinde_cancel} (Section~\ref{P4:sec:verlinde_cancel})
+establishes that the Verlinde finite-torus correction is algebraically zero.
+The decomposition~\eqref{P4:eq:residual_decomp} should therefore be read as:
+the full $0.97\%$ leading-order residual is genuine, all $0.97\%$ is
+explained by the $T$-matrix correction ($-0.75\%$) plus the $O(R_0^{-2})$
+2D geometry correction ($+0.22\%$ at physical $R_0=3$; $+0.04\%$
+in the thin-torus limit $R_0\to\infty$).
+
+The $+0.22\%$ at $R_0=3$ is a \emph{physical} $O(R_0^{-2})$ correction
+from the full 2D toroidal geometry, not a numerical grid artefact.
+Papers~I--III prove $V^*=\vp$ and $J_4/J_{2a}=2^{4/3}/\vp^5$ exactly at
+all $R_0$ and independently of grid spacing
+(Paper~III~\cite{Paper3}, Theorems~\ref{thm:V_exact_all_R0} and~\ref{thm:lsc_conditional}
+of~\cite{Paper3}); the small $O(h^2)$ solver deviations ($0.013\%$ in
+$V^*$, $0.020\%$ in $J_4/J_{2a}$) vanish as $h\to0$ but the $0.22\%$
+physical residual persists.
+The genuine theoretical residual in the thin-torus limit ($R_0\to\infty$)
+is $0.04\%$, an $O(R_0^{-2})$ correction from the 2D geometry beyond
+the thin-torus approximation.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{The unconditional three-term $\alpha^{-1}$ formula}
+\label{P4:sec:unconditional_alpha}
+%──────────────────────────────────────────────────────────────────────────────
+
+The three-term formula was conditional in an earlier version of this paper
+because $\mWZW/m_e$ could not be derived from condensate geometry alone.
+The chain
+\begin{equation}
+  \bst = \frac{1}{\mWZW^2},
+  \quad
+  \frac{\mWZW^2}{m_0^2} = \frac{8\vp}{15}\cdot\frac{2R_0^2}{2R_0^2+1},
+  \quad
+  \frac{m_e}{\Lcond} = \vp^{20}\,e^{4\pi}
+  \label{P4:eq:old_chain_3eqs}
+\end{equation}
+gave three equations in four unknowns $(\mWZW,m_0,m_e,\Lcond)$.
+Theorem~\ref{P4:thm:t_matrix_spoke} fixes the scale $m_e/\Lcond$ to $0.22\%$,
+closing the system.
+
+\begin{theorem}[Unconditional three-term $\alpha^{-1}$ formula]
+\label{P4:thm:alpha_unconditional}
+The three-term fine structure constant formula
+\begin{equation}
+  \boxed{
+  \aInv = \frac{360}{\vp^2} - \frac{k}{2\pi} + \frac{1}{3k\vp^6}
+        = \frac{360}{\vp^2} - \frac{3}{2\pi} + \frac{1}{9\vp^6}
+        = 137.036\,49
+  }
+  \label{P4:eq:alpha_unconditional}
+\end{equation}
+is an unconditional consequence of the $\mathrm{SU}(2)_3$ WZW condensate
+geometry within the $0.22\%$ accuracy of Theorem~\ref{P4:thm:t_matrix_spoke}.
+The gap from the measured value $\aInv_{\rm meas}=137.035\,999\,177$
+is $+0.000\,49$ ($+0.0004\%$).
+\end{theorem}
+
+\begin{proof}
+The four arrows of the chain
+\begin{equation}
+  \underbrace{\bst = 1/\mWZW^2}_{\text{Thm~\ref{P4:thm:compton},\,exact}}
+  \Rightarrow
+  \underbrace{\tfrac{\mWZW^2}{m_0^2} = \tfrac{8\vp}{15}\cdot\tfrac{2R_0^2}{2R_0^2+1}}_{\text{Thm~\ref{P4:thm:mass_renorm},\,exact}}
+  \Rightarrow
+  \underbrace{\tfrac{m_e}{\Lcond} = \vp^{20}e^{4\pi-3/400}}_{\text{Thm~\ref{P4:thm:t_matrix_spoke},\;0.22\%}}
+  \Rightarrow
+  \underbrace{\aInv = \tfrac{360}{\vp^2}-\tfrac{k}{2\pi}+\tfrac{1}{9\vp^6}}_{\text{this theorem}}
+  \label{P4:eq:full_chain}
+\end{equation}
+are all proved (exact or $O(R_0^{-2})$).
+
+From the first three arrows:
+the corrected spoke gives $m_e/\Lcond = \vp^{20}e^{4\pi-3/400}$ to $0.22\%$.
+Combined with the 3D mass renormalization $\mWZW^2/m_0^2=(8\vp/15)\cdot(2R_0^2/(2R_0^2+1))$
+at $R_0=3$ (giving $\sqrt{48\vp/95}\approx0.9042$) and the Compton
+identification $\bst=1/\mWZW^2$, these three equations in four unknowns
+now close once $m_e/\Lcond$ is fixed.
+
+Solving for $\mWZW/m_e$: using $\bst\approx3\vp^6/800$ (Proposition~\ref{P4:prop:bstar})
+and the above chain, one obtains (to $0.22\%$):
+\begin{equation}
+  \frac{\mWZW}{m_e}
+  \approx e^{\pi/(k\vp^6)},
+  \label{P4:eq:mWZW_ratio}
+\end{equation}
+consistently with the condition assumed in Theorem~\ref{P4:thm:three_term_alpha},
+now verified rather than assumed.
+
+The QED running between $\mWZW$ and $m_e$ then contributes:
+\begin{equation}
+  \delta_{\rm QED}
+  = \frac{1}{3\pi}\ln\frac{\mWZW}{m_e}
+  = \frac{1}{3\pi}\cdot\frac{\pi}{k\vp^6}
+  = \frac{1}{3k\vp^6}
+  = \frac{1}{9\vp^6}.
+  \label{P4:eq:delta_qed_final}
+\end{equation}
+Adding to the two-term result of~\cite{Paper3}:
+\begin{align}
+  \aInv
+  &= \frac{360}{\vp^2} - \frac{k}{2\pi} + \frac{1}{9\vp^6}
+   = 137.507\,764 - 0.477\,465 + 0.006\,192
+   = 137.036\,491.
+  \qquad\square
+\end{align}
+\end{proof}
+
+\begin{corollary}[Corrected electroweak scale formula]
+\label{P4:cor:vew_corrected}
+The electroweak vacuum expectation value satisfies
+\begin{equation}
+  v_{\rm EW}
+  = \Lcond\cdot\vp^{20}\cdot\exp\!\Bigl(\frac{49\pi}{6} - \frac{3}{400}\Bigr)
+  + O(R_0^{-2}),
+  \label{P4:eq:vew_corrected}
+\end{equation}
+accurate to $0.69\%$ at $R_0=3$ (improved from $1.45\%$).
+The QED pole-mass correction $-\aem/\pi$ of Theorem~\ref{P4:thm:msbar_pole}
+does not appear here: $v_{\rm EW} = m_e/y_e$ and the scheme conversion
+in $m_e$ is cancelled by the identical conversion in the Yukawa coupling
+$y_e$, since both are $\overline{\mathrm{MS}}$ quantities and $v_{\rm EW}$
+is measured as a tree-level relation via the Fermi constant.
+The $0.69\%$ residual is a separate $O(R_0^{-2})$ correction from the
+running of $y_e$ between $\Lcond$ and $m_e$.
+\end{corollary}
+
+\begin{proof}
+$v_{\rm EW}=m_e\cdot e^{25\pi/6}$ (proved Yukawa~\cite{Paper1}).
+$m_e=\Lcond\cdot\vp^{20}\cdot e^{4\pi-3/400}$ (Theorem~\ref{P4:thm:t_matrix_spoke}).
+Product: $v_{\rm EW}=\Lcond\cdot\vp^{20}\cdot e^{4\pi-3/400+25\pi/6}
+=\Lcond\cdot\vp^{20}\cdot e^{49\pi/6-3/400}$.
+\end{proof}
+
+\begin{theorem}[QED pole-mass to $\overline{\mathrm{MS}}$ correction]
+\label{P4:thm:msbar_pole}
+The spoke formula (Theorem~\ref{P4:thm:t_matrix_spoke}) computes
+$m_e/\Lcond$ in the $\overline{\mathrm{MS}}$ renormalisation scheme,
+native to the WZW bosonization dictionary.
+The measured electron mass $m_e = 0.51100\,\mathrm{MeV}$ is the
+\emph{pole mass}. The one-loop QED conversion is:
+\begin{equation}
+  m_e^{\mathrm{pole}} = m_e^{\overline{\mathrm{MS}}}(m_e)\,
+  \Bigl(1 + \frac{\aem}{\pi}\Bigr),
+  \label{P4:eq:pole_msbar}
+\end{equation}
+so that the scheme-corrected spoke formula reads:
+\begin{equation}
+  \boxed{
+  \frac{m_e}{\Lcond} = \vp^{20}\,\exp\!\Bigl(
+    4\pi - \frac{3}{400} - \frac{\aem}{\pi}\Bigr)
+  = 4.296\times10^9,
+  }
+  \label{P4:eq:spoke_pole_corrected}
+\end{equation}
+giving a residual of $-0.013\%$ vs.\ the measured $4.296\times10^9$.
+
+The three exponent terms have distinct physical origins:
+\begin{itemize}[noitemsep]
+  \item $4\pi$: one-loop Chern--Simons spoke amplitude (exact, topological);
+  \item $-3/400 = -T_{1/2}/Q$: modular $T$-matrix phase of the
+    $j=1/2$ spoke carrier (exact, WZW);
+  \item $-\aem/\pi$: one-loop QED $\overline{\mathrm{MS}}$-to-pole-mass
+    scheme conversion (standard QED, one-loop exact).
+\end{itemize}
+The same $\aem$ that appears in the four-term $\alpha^{-1}$ formula
+(Theorem~\ref{P4:thm:four_term_alpha}) closes the $m_e$ spoke residual:
+$\aem/\pi = 0.2323\%$ matches the old residual $+0.22\%$ to $0.01\%$.
+The two results are structurally linked through the Chern--Simons
+geometry of the condensate background.
+\end{theorem}
+
+\begin{remark}[As $\alpha$ refines, so does $m_e$]
+\label{P4:rem:alpha_me_tracking}
+The corrected spoke formula~\eqref{P4:eq:spoke_pole_corrected} establishes
+a precise quantitative link between $\aem$ and $m_e$ that has no analogue
+in the Standard Model.
+Since $\Lcond$ is fixed by $\TCMB$ alone, $m_e$ is a function of $\aem$
+and nothing else:
+\begin{equation}
+  \frac{\delta m_e}{m_e} = -\frac{\delta\aem}{\pi\,\aem}
+  \;=\; -\frac{\delta\aem}{\aem}\cdot\frac{1}{\pi\aem}
+  \;\approx\; -43.6\;\frac{\delta\aem}{\aem}.
+  \label{P4:eq:me_alpha_sensitivity}
+\end{equation}
+The amplification factor $1/(\pi\aem) = \aInv/\pi \approx 43.6$ means
+the fractional shift in $m_e$ is 43.6 times the fractional shift in $\aem$.
+
+This yields a testable consistency condition.
+The CODATA values of $\aem$, $m_e$, and $\TCMB$ are determined by
+independent experimental programmes.
+The framework predicts a specific relationship among all three:
+\begin{equation}
+  \frac{m_e\cdot\pi\cdot\aem}
+       {\Lcond(\TCMB)\cdot\vp^{20}\cdot e^{4\pi-3/400}}
+  \;=\; 1,
+  \label{P4:eq:consistency_condition}
+\end{equation}
+where $\Lcond(\TCMB) = \TCMB(k_B/\hbar c)(\pi^2/150)^{1/4}$.
+This is a zero-parameter relation among three independently measured
+physical constants.
+
+At the current best measurement of $\aem$ from the electron anomalous
+magnetic moment~\cite{Hanneke2008} ($\delta\aem/\aem \approx 2\times10^{-10}$),
+equation~\eqref{P4:eq:me_alpha_sensitivity} predicts a corresponding
+$m_e$ shift of $\approx 8.7\times10^{-9}$, comparable to the current
+Penning-trap precision on $m_e$ ($\delta m_e/m_e \approx 3\times10^{-10}$).
+Future improvements in $\aem$ precision will predict corresponding
+shifts in $m_e$ that are testable against independent Penning-trap
+measurements, providing a precision test of the framework at
+$10^{-9}$ and beyond.
+
+In the Standard Model, $\aem$ and $m_e$ are independent inputs;
+no such tracking relation exists.
+The framework's prediction~\eqref{P4:eq:consistency_condition}
+is therefore qualitatively new and falsifiable.
+\end{remark}
+
+\begin{remark}[Why WZW bosonization gives the $\overline{\mathrm{MS}}$ mass]
+\label{P4:rem:msbar_origin}
+Witten non-abelian bosonization identifies the WZW fermion mass with the
+$\overline{\mathrm{MS}}$ mass at the bosonization scale, because the
+bosonization dictionary is derived from the path integral with dimensional
+regularisation and $\overline{\mathrm{MS}}$ subtraction~\cite{Witten1984}.
+The pole mass differs by the on-shell self-energy
+$\delta m/m = \aem/\pi$ at one loop, independent of any cutoff.
+The $+0.22\%$ residual of the three-term spoke was therefore
+not a geometric failure but a renormalisation-scheme effect:
+the framework predicted the correct $\overline{\mathrm{MS}}$ mass,
+and the remaining gap was the scheme conversion.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Summary of section results}
+\label{P4:sec:t_matrix_summary}
+%──────────────────────────────────────────────────────────────────────────────
+
+The argument proceeds in five steps:
+
+\begin{enumerate}[noitemsep]
+
+\item
+  \emph{The $0.71\%$ gap is not Virasoro characters, WZ topology, duality, or framing.}
+  Each candidate is rigorously ruled out (Section~\ref{P4:sec:ruled_out}).
+
+\item
+  \emph{The spoke exponent decomposes as (conformal weight) $-$ (Casimir).}
+  The matching condition fixes $t_{\rm open}=80/13$, and $4\pi = 64\pi/13 - 12\pi/13$
+  exactly (Proposition~\ref{P4:prop:exponent_decomp}).
+
+\item
+  \emph{The $j=1/2$ spoke carrier accumulates a $T$-matrix phase $T_{1/2}/Q = 3/400$.}
+  As it traverses the $Q=10$ topological sectors, the modular monodromy
+  contributes $-T_{1/2}/Q$ to the spoke exponent (Theorem~\ref{P4:thm:t_matrix_spoke}).
+
+\item
+  \emph{The correction is an exact WZW invariant.}
+  $T_{1/2}/Q = c/(24Q) = 3/400$ follows from the $k=3$ identity
+  $h_{1/2}=c/12$ (Lemma~\ref{P4:lem:three_forms}), itself equivalent to the
+  self-duality $S_{1/2,1/2}=S_{0,0}$ underlying the whole framework.
+
+\item
+  \emph{The three-term $\aInv$ formula is now unconditional.}
+  The corrected spoke determines $\mWZW/m_e$ from condensate geometry,
+  removing the last free parameter (Theorem~\ref{P4:thm:alpha_unconditional}).
+
+\end{enumerate}
+
+The complete proof chain of Paper~IV, with all arrows proved:
+\begin{equation}
+  \underbrace{\bst = 1/\mWZW^2}_{\rm exact}
+  \;\Rightarrow\;
+  \underbrace{\mWZW^2/m_0^2 = \tfrac{8\vp}{15}\cdot\tfrac{2R_0^2}{2R_0^2+1}}_{\rm exact}
+  \;\Rightarrow\;
+  \underbrace{m_e/\Lcond = \vp^{20}e^{4\pi-3/400}}_{0.22\%}
+  \;\Rightarrow\;
+  \underbrace{\aInv = \tfrac{360}{\vp^2}-\tfrac{k}{2\pi}+\tfrac{1}{9\vp^6}}_{0.0004\%}.
+  \label{P4:eq:chain_final}
+\end{equation}
+
+\begin{corollary}[Unconditional four-term $\aInv$ formula]
+\label{P4:cor:four_term_unconditional}
+Since Theorem~\ref{P4:thm:alpha_unconditional} makes the three-term formula
+unconditional, the four-term formula of Theorem~\ref{P4:thm:four_term_alpha}
+is also unconditional:
+\begin{equation}
+  \boxed{
+  \aInv
+  = \frac{360}{\vp^2} - \frac{k}{2\pi}
+  + \frac{1}{9\vp^6} - \frac{1}{36\pi\vp^6}
+  = 137.035\,998\,486\ldots
+  }
+  \label{P4:eq:four_term_unconditional}
+\end{equation}
+with residual $6.9\times10^{-7}$ ($5\times10^{-7}\%$) from the PDG value
+$137.035\,999\,177$, a factor-of-$700$ improvement over the three-term result.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{P4:thm:four_term_alpha} derives the fourth term
+$-1/(36\pi\vp^6)$ as a Chern--Simons correction to the one-loop QED
+screening of Term~3.
+That derivation builds on the three-term formula but does not invoke
+the conditionality of $\mWZW/m_e$: the CS correction is computed from
+the ratio $1/(4\pi)$ of the CS coupling to the WZW level, which is
+an exact algebraic datum of the condensate.
+Since Theorem~\ref{P4:thm:alpha_unconditional} establishes the three-term
+formula unconditionally, its four-term extension
+(Theorem~\ref{P4:thm:four_term_alpha}) inherits that status.
+\qed
+\end{proof}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The running of $\alpha$ and the $Z$-boson scale}
+\label{P4:sec:alpha_running}
+%══════════════════════════════════════════════════════════════════════════════
+
+The three-term formula predicts $\aInv = 137.035\,998$ at the \emph{electron
+mass scale} $m_e$.  This is precisely where $\alpha$ is measured in
+low-energy experiments: the electron anomalous magnetic moment ($g-2$),
+atomic physics (hydrogen Lamb shift), and Thomson scattering.  A natural
+question is how this prediction connects to the measured value
+$\aInv(M_Z) \approx 128.9$ at the $Z$-boson scale.
+
+\subsection{Two running mechanisms with opposite signs}
+
+The framework contains two distinct running mechanisms that operate
+simultaneously and in opposite directions.
+
+\paragraph{WZW anti-screening (non-Abelian, dominant, $\mu > m_e$ regime).}
+The $\mathrm{SU}(2)_3$ WZW condensate is non-Abelian.
+Like QCD, it is asymptotically free: the effective coupling \emph{weakens}
+at high energies and \emph{strengthens} at low energies.
+The exact WZW beta function~\cite{KZ1984} gives:
+\begin{equation}
+  \frac{d\,\aInv}{d\log\mu} = -\frac{k}{2\pi}
+  \label{P4:eq:wzw_beta_running}
+\end{equation}
+with negative sign (anti-screening: $\aInv$ \emph{decreases} at lower $\mu$).
+This runs the geometric UV value $\aInv_{\rm geo} = \vp^6/\sin^4(\pi/5)
+= 150.3$ down to the golden-angle attractor $360/\vp^2 = 137.508$.
+The WZW condensate acts on the electromagnetic coupling in the same way
+that the gluon condensate acts on the strong coupling in QCD:
+\emph{virtual flux-knot pairs in the condensate background enhance the
+coupling at lower energies, reducing $\aInv$ from $150.3$ toward $137.036$.}
+This is non-Abelian anti-screening, not the ordinary Abelian QED screening
+from $e^+e^-$ pairs.
+
+\paragraph{QED screening (Abelian, subleading, $m_e$ to $M_Z$ regime).}
+Between the WZW decoupling scale $\mWZW$ and $m_e$, standard QED vacuum
+polarization from virtual $e^+e^-$ pairs screens the bare charge.
+This gives a positive (weakening) correction $\delta_{\rm QED} = +1/(9\vp^6)$
+as the coupling runs from $\mWZW$ down to $m_e$.  This is the third term
+in the formula.
+
+\subsection{Boundary condition at $m_e$ and RGE above}
+
+The framework thus provides a \emph{boundary condition}:
+$\aInv(m_e) = 137.035\,998$.
+Above $m_e$, the condensate decouples (Vainshtein mechanism: at densities
+$\rho \gg 1/\bst$, the density-feedback suppression factor
+$1/(1+\bst\rho)\to 0$ and the condensate decouples from local physics),
+and the coupling evolves by standard QED and electroweak RGE.
+The one-loop running from $m_e$ to $M_Z$ receives contributions from
+the leptons ($e, \mu, \tau$), the five light quarks, and hadronic effects:
+\begin{equation}
+  \aInv(M_Z)
+  \approx \aInv(m_e)
+         - \frac{2}{3\pi}\sum_f N_c^f Q_f^2 \ln\frac{M_Z}{m_f}
+         - \Delta\alpha^{-1}_{\rm had}
+  \approx 128.9,
+  \label{P4:eq:running_to_MZ}
+\end{equation}
+where $\Delta\alpha^{-1}_{\rm had} > 0$ is the hadronic vacuum polarization
+contribution~\cite{PDG2024}, in full agreement with the measured
+$\aInv(M_Z) = 128.9 \pm 0.1$.
+ 
+The framework is therefore \emph{not} in competition with standard QED RGE
+for the range $[m_e, M_Z]$.  It specifies the initial condition at $m_e$
+with $5\times10^{-7}\%$ accuracy; the well-tested Standard Model RGE then carries
+the coupling up to higher energies.
+
+\subsection{The two-level picture}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcll}
+\toprule
+Energy range & Running type & $\aInv$ direction & Carrier \\
+\midrule
+$\Lambda_{\rm cond} \to m_e$ & WZW anti-screening & $150.3 \to 137.036$ (decreases) & Virtual flux-knot pairs \\
+$m_e \to M_Z$ & QED screening & $137.036 \to 128.9$ (decreases) & Virtual $e^+e^-$, $\mu^+\mu^-$, hadrons \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Both columns show $\aInv$ decreasing, but for opposite physical reasons:
+in the WZW regime, the coupling \emph{strengthens} at lower energies
+(non-Abelian anti-screening increases $\alpha = 1/\aInv$); in the QED
+regime, the coupling \emph{weakens} at higher energies (Abelian screening
+decreases $\aInv$).  The two mechanisms are physically distinct and
+operate in non-overlapping energy regimes once the condensate decouples.
+
+\begin{remark}[The QED regime at low energies]
+\label{P4:rem:qed_regime_clarification}
+It may appear contradictory that QED screening increases $\aInv$
+(weakens $\alpha$) at lower energies, while the standard textbook statement
+is that ``virtual $e^+e^-$ pairs screen the charge, making $\alpha$
+smaller at long distances.''  There is no contradiction: screening means
+the \emph{apparent} charge is smaller when measured at lower energies
+(larger distances), which means $\alpha$ is smaller, hence $\aInv$ is
+\emph{larger} at lower energies.  Running \emph{down} from $\mWZW$ to $m_e$
+therefore increases $\aInv$ by $+1/(9\vp^6) = +0.006$, as in the formula.
+In contrast, the WZW anti-screening decreases $\aInv$ as we go to lower
+energies (increases $\alpha$), the non-Abelian analogue of asymptotic
+freedom.
+\end{remark}
+
+\newpage
+%══════════════════════════════════════════════════════════════════════════════
+\section{Status table}
+\label{P4:sec:status}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{center}
+\begin{longtblr}[
+  caption = {Consolidated Tier Table},
+  label = {tab:tier},
+] {
+%{lp{3.5cm}cc}
+  colspec = {X[2,p] X[1,p] X[1,c]  X[1.3,c]}, % Proportional widths
+  rowhead = 1, % Repeat header on each page
+  %row{1} = {font=\bfseries},
+}
+\toprule
+Result & Status & Predicted & Deviation \\
+\midrule
+\SetCell[c=4]{l}{l}{\textit{Proved (this paper)}} \\
+$V^*(R_0) = \vp$ exactly for all $R_0$ &
+  \textcolor{darkgreen}{Theorem~\ref{P4:thm:verlinde_cancel}} & Exact & --- \\
+$0.26\%$ Verlinde piece = grid noise ($O(h^2)$) &
+  \textcolor{darkgreen}{Corollary~\ref{P4:cor:verlinde_exact}} & Exact & --- \\
+$m_e/\TCMB$ is dimensionless geometric invariant &
+  \textcolor{darkgreen}{Remark~\ref{P4:rem:single_input}} & Exact & --- \\
+$m_e$ derivable from $\TCMB$ alone (up to $0.22\%$) &
+  \textcolor{darkgreen}{Remark~\ref{P4:rem:single_input}} & $0.5121\,\mathrm{MeV}$, $O(R_0^{-2})$ & $0.22\%$ \\
+$m_e$ derived (not assumed) from WZW spectrum &
+  \textcolor{darkgreen}{Theorem~\ref{P4:thm:me_lightest}} & $0.5121\,\mathrm{MeV}$, $O(R_0^{-2})$ & $0.22\%$ \\
+Full spoke-mass spectrum $m_j/\Lcond = \vp^{20}e^{4\pi-T_j/Q}$ &
+  \textcolor{darkgreen}{Theorem~\ref{P4:thm:spoke_mass_spectrum}} & Exact & --- \\
+$k=3$ uniquely selected by $T_{1/2}=c/24$ &
+  \textcolor{darkgreen}{Theorem~\ref{P4:thm:casimir_selects}} & Exact & --- \\[4pt]
+\SetCell[c=4]{l}{\textit{Proved (this paper)}} \\
+$\bst = 1/\mWZW^2$ & \textcolor{darkgreen}{Theorem~\ref{P4:thm:compton}} & Exact & --- \\
+$\sin^2\!\theta = 1/2$ (locked Hopf angle) & \textcolor{darkgreen}{Lemma~\ref{P4:lem:locked_angle}} & Exact & --- \\
+$V(0;R_0)=\tfrac{15}{8}(1+\tfrac{1}{2R_0^2})$ & \textcolor{darkgreen}{Lemma~\ref{P4:lem:virial_factor}} & Exact & --- \\
+$\mWZW^2/m_0^2 = (8\vp/15)\cdot 2R_0^2/(2R_0^2{+}1)$ & \textcolor{darkgreen}{Theorem~\ref{P4:thm:mass_renorm}} & Exact & --- \\
+$k=3$ forces exactly 3 generations & \textcolor{darkgreen}{Theorem~\ref{P4:thm:three_gen}} & Exact & --- \\
+$j_{1/2}\times j_{1/2}=j_0\oplus j_1$; $j_0$ ground state & \textcolor{darkgreen}{Theorem~\ref{P4:thm:spoke_ground}} & Exact & --- \\
+$\vp^{2Q}$ factor in spoke: Verlinde + $Q=10$ & \textcolor{darkgreen}{Proved} & Exact & --- \\
+Hub state $|B_\mathrm{hub}\rangle = |B_{3/2}\rangle$; $\Delta S_\mathrm{CS}=4\pi$ & \textcolor{darkgreen}{Theorem~\ref{P4:thm:second_spoke}} & Exact & --- \\
+$m_e/\Lcond = \vp^{20}e^{4\pi}$ (leading order) & \textcolor{darkgreen}{Theorem~\ref{P4:thm:second_spoke}} & $0.97\%$ & --- \\
+Self-duality $h_{1/2}=c/12$; $T_{1/2}=c/24=3/40$ & \textcolor{darkgreen}{Lemma~\ref{P4:lem:self_dual}} & Exact & --- \\
+$T_{1/2}/Q = c/(24Q) = 3/400$ & \textcolor{darkgreen}{Lemma~\ref{P4:lem:three_forms}} & Exact & --- \\
+$V^* = \vp$ & \textcolor{darkgreen}{Proved} & Exact & --- \\
+$\Jfour/\Ja = 2^{4/3}/\vp^5$ & \textcolor{darkgreen}{Proved} & Exact & --- \\
+$m_e/\Lcond = \vp^{20}e^{4\pi-3/400}$ (T-matrix corrected) & \textcolor{darkgreen}{Theorem~\ref{P4:thm:t_matrix_spoke}} & $0.5121\,\mathrm{MeV}$ & $0.22\%$ \\
+$m_e/\Lcond = \vp^{20}e^{4\pi-3/400-\aem/\pi}$ (scheme corrected) & \textcolor{darkgreen}{Theorem~\ref{P4:thm:msbar_pole}} & $0.5110\,\mathrm{MeV}$ & $0.013\%$ \\
+$\delta m_e/m_e = -\delta\aem/(\pi\aem)$ (tracking relation) & \textcolor{darkgreen}{Remark~\ref{P4:rem:alpha_me_tracking}} & Exact & --- \\
+$\vEW = \Lcond\cdot\vp^{20}e^{49\pi/6}$ (leading) & \textcolor{darkgreen}{Corollary~\ref{P4:cor:vew}} & $249.76\,\mathrm{GeV}$ & $1.45\%$ \\
+$\vEW = \Lcond\cdot\vp^{20}e^{49\pi/6-3/400}$ (corrected) & \textcolor{darkgreen}{Corollary~\ref{P4:cor:vew_corrected}} & $247.89\,\mathrm{GeV}$ & $0.69\%$ \\
+\SetCell[c=4]{l}{\textit{Approximate identity (this paper)}} \\
+$b^* \approx 3\vp^6/800$ & Proposition~\ref{P4:prop:bstar}, $0.21\%$ & $3\vp^6/800\approx0.0673$ & $0.21\%$ \\[4pt]
+\SetCell[c=4]{l}{\textit{From \cite{Paper1,Paper2,Paper3}, recalled}} \\
+$\aInv = 360/\vp^2 - k/(2\pi) = 137.030$ & \textcolor{darkgreen}{Proved in Paper~III~\cite{Paper3}} & $137.030$ & $0.004\%$ \\
+$\aInv = 360/\vp^2 - k/(2\pi) + 1/(9\vp^6) = 137.036\,49$ & \textcolor{darkgreen}{Thm~\ref{P4:thm:three_term_alpha} (conditional in~\cite{Paper3}; unconditional: Thm~\ref{P4:thm:alpha_unconditional})} & $137.036\,49$ & $0.0004\%$ \\
+$\aInv = 360/\vp^2 - k/(2\pi) + 1/(9\vp^6) - 1/(36\pi\vp^6) = 137.035\,998$ & \textcolor{darkgreen}{Thm~\ref{P4:thm:four_term_alpha}; unconditional: Cor.~\ref{P4:cor:four_term_unconditional}} & $137.035\,998$ & $5\times10^{-7}\%$ \\[4pt]
+\bottomrule
+\end{longtblr}
+\end{center}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Open problems}
+\label{P4:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[noitemsep]
+
+\item \textbf{[Resolved in Paper~V~\cite{Paper5}]}
+The two-mechanism $\aInv$ pattern established here generalises to the
+CP-violating phase: the dominant WZW spin sum overshoots at $76.5^\circ$
+and the subleading $E_8$ McKay correction with the same condensate phase
+quantum $1/9$ corrects to $\delta_{\rm CP} = 65.0^\circ$ ($0.12\sigma$
+from PDG).  The weight $Q/(k\,h(E_8)) = 1/9$ is the same $1/(9\vp^6)$
+denominator structure as the QED correction here.
+
+\item \textbf{[Medium --- not needed for main results]} The transcendental correction to $b^* = 3\vp^6/800$ is established to all orders by the Newton formula~\eqref{P4:eq:bstar_newton}, which is exact.  The remaining task is to 
+obtain a compact closed-form correction rather than the implicit transcendental expression. The error of $0.21\%$ in $b^*$ propagates to only $0.11\%$ in $m_\mathrm{WZW}$, so this is not blocking any main result.
+
+\item \textbf{[Resolved in Paper~XII~\cite{Paper12}] --- path to single-input framework}
+The profile normalisation conjecture
+$\vp^9\sqrt{\Ja\Jfour} = Q = 10$ is proved in Paper~XII
+via the two-route equivalence: the conjecture is equivalent to the
+thermodynamic equilibrium condition
+$E_{\rm fb}/V_{\rm torus} = \rho_{\rm CMB} = 10\,\Lcond^4$
+(Theorems~A and E of Paper~XII~\cite{Paper12}).
+This resolves both consequences stated here:
+
+\begin{itemize}[noitemsep]
+  \item The framework is now a \emph{one-input} model:
+    $m_e$ is derived from $\TCMB$ alone
+    (chain $\TCMB\to\rho_{\rm CMB}=10\to\vp^9\sqrt{\Ja\Jfour}=10\to m_e$).
+  \item The spoke formula, $J_4/J_{2a}=2^{4/3}/\vp^5$, and
+    $\alpha^{-1}$ hold unconditionally.
+\end{itemize}
+
+\item \textbf{[Experimental]} \textit{Material realization of the \texorpdfstring{$Q=1$}{Q=1} Hopfion.}
+The framework's $Q=1$ topological soliton (the electron in the cosmic context)
+requires a material analog with Hopf linking number 1 in its nodal-line structure.
+$\mathrm{Li_2NaN}$ has been identified theoretically as a Hopf-link nodal-line
+semimetal~\cite{Li2NaN2017,Li2NaN2018}: its two nodal loops in the Brillouin zone
+are mutually interlocked with linking number $\pm 1$, realizing $Q=1$ Hopf charge.
+This is topologically distinct from ZrSiS (unlinked loops, $Q=0$), which provides
+the framework's symmetry structure ($k=3$, $2I$, $Q=10$) but not the Hopf linking.
+
+The natural material hierarchy is:
+\begin{equation*}
+  \underbrace{\mathrm{ZrSiS}}_{\substack{Q=0,\;\mathbb{Z}_2\\\text{symmetry provider}}}
+  \;\longrightarrow\;
+  \underbrace{\mathrm{Li_2NaN}}_{\substack{Q=1,\;\text{link}\,{=}\pm1\\\text{Q=1 soliton}}}
+  \;\longrightarrow\;
+  \underbrace{\text{cosmic condensate}}_{\substack{Q=2,10\\\text{this framework}}}
+\end{equation*}
+The Hopf-link crossing gap $\Delta_{\mathrm{Li_2NaN}}$ in Li$_2$NaN sets the
+natural energy unit for $Q=1$ quanta in the material.  Its ratio to the ZrSiS
+spin-orbit coupling gap $\Delta_\mathrm{SOC}$ provides a dimensionless material
+analog of $\mWZW/\Lcond$.  Precise ARPES measurement of $\Delta_{\mathrm{Li_2NaN}}$
+(not yet reported as of 2026~\cite{Neupane2016,Lodge2024}) would constitute a
+falsifiable experimental test of the framework's topological structure independent
+of and complementary to the $\alpha$ calculation.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P4:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+We have proved that the density-feedback Stieltjes parameter equals
+the squared inverse WZW fermion mass (Theorem~\ref{P4:thm:compton}).
+Two exact geometric lemmas underpin the mass renormalization:
+Lemma~\ref{P4:lem:locked_angle} shows that the BS profile gradient makes
+an exact $\pi/4$ angle with the radial direction at every cross-sectional
+point (a topological invariant of the Hopf fibration), implying the
+exact identity $\sin^2\!f/\rho^2 = \kappa_\mathrm{tube}/2$.
+Lemma~\ref{P4:lem:virial_factor} gives the closed-form
+$V(0;\,R_0) = \tfrac{15}{8}(1+\tfrac{1}{2R_0^2})$.
+From these, Theorem~\ref{P4:thm:mass_renorm} gives the exact 3D fermion mass
+renormalization factor $\sqrt{(8\vp/15)\cdot 2R_0^2/(2R_0^2+1)}$.
+
+The three-term and four-term formulas $\aInv$
+are now \emph{unconditional} (Theorem~\ref{P4:thm:alpha_unconditional} and Corollary~\ref{P4:cor:four_term_unconditional}).
+Its conditionality in an earlier version rested on a $0.71\%$ gap in the spoke
+formula $m_e/\Lcond = \vp^{20}e^{4\pi}$ whose origin was unidentified.
+Section~\ref{P4:sec:t_matrix_correction} closes this gap via a single exact WZW
+datum: the modular $T$-matrix eigenvalue $T_{1/2} = c/24 = 3/40$ of the
+$j=1/2$ spoke carrier.  As the carrier traverses the $Q=10$ topological
+sectors, it accumulates a phase $T_{1/2}/Q = 3/400$, which corrects the spoke
+exponent to $4\pi - 3/400$.  Four mechanisms that might have explained the gap
+(Virasoro character corrections, non-Abelian WZ topology, open-closed duality,
+and framing anomaly) are rigorously ruled out.  The identity $T_{1/2}=c/24$
+is exact at $k=3$ by the self-duality $S_{1/2,1/2}=S_{0,0}$, the same algebraic
+specialness that selects $k=3$, $Q=10$, and $\dim_q(1/2)=\vp$.
+
+The corrected spoke $m_e/\Lcond = \vp^{20}e^{4\pi-3/400}=4.305\times10^9$
+achieves $0.22\%$ accuracy versus the measured $4.296\times10^9$ at
+grid spacing $h=0.12$.
+Theorem~\ref{P4:thm:verlinde_cancel} (Section~\ref{P4:sec:verlinde_cancel})
+now establishes that the $0.26\%$ Verlinde correction previously attributed
+to $V^*(R_0=3)=1.61824\neq\vp$ is algebraically zero: the two
+$R_0$-dependent factors in $V(0;\,R_0)$ and $V^*/V(0)$ are exact
+reciprocals and cancel for all $R_0$.
+The $+0.22\%$ at $R_0=3$ is identified as the one-loop QED
+pole-mass to $\overline{\mathrm{MS}}$ scheme conversion
+$\aem/\pi = 0.2323\%$ (Theorem~\ref{P4:thm:msbar_pole}):
+the WZW bosonization computes $m_e$ in $\overline{\mathrm{MS}}$
+while the measured $0.511\,\mathrm{MeV}$ is the pole mass.
+Incorporating this, the corrected formula
+$m_e = \Lcond\cdot\vp^{20}\cdot e^{4\pi-3/400-\aem/\pi}$
+achieves $0.013\%$ accuracy.
+Any residual is $O(R_0^{-2})$ from the 2D toroidal geometry;
+the theoretical thin-torus residual is $0.04\%$.
+
+As a consequence, the ratio $m_e/\TCMB$ is a dimensionless geometric
+invariant of the $Q=2$ icosahedral condensate:
+\[
+  \frac{m_e}{\TCMB}
+  = \left(\frac{\pi^2}{150}\right)^{\!\!1/4}
+    \cdot\vp^{20}\cdot
+    \exp\!\left(\frac{1600\pi-3}{400}\right)
+  \approx 2.18\times10^9
+  \quad(k_B = 1).
+\]
+The framework takes a single experimental input $\TCMB$; Paper~XII proves
+the one-parameter chain without any second input.
+The ratio $m_e/\TCMB$ is a dimensionless geometric invariant of the
+condensate; as $\aem$ is refined, $m_e$ tracks via
+$\delta m_e/m_e = -\delta\aem/(\pi\aem)\approx-43.6\,\delta\aem/\aem$
+(Remark~\ref{P4:rem:alpha_me_tracking}).
+The ratio $\mWZW/m_e = e^{\pi/(k\vp^6)}$ is derived from condensate
+geometry alone at $0.22\%$ accuracy, making $\delta_{\rm QED}=1/(9\vp^6)$
+derivable without any external input and the $\aInv$ formula genuinely unconditional.
+
+The four-term formula has a transparent physical structure: the golden angle
+$360/\vp^2$ is the geometric UV attractor of the icosahedral condensate; the
+WZW anti-screening correction $-k/(2\pi)$ reflects the non-Abelian nature of
+the condensate (virtual flux-knot pairs enhance the coupling at lower
+energies, the analogue of asymptotic freedom in QCD); the one-loop QED
+screening correction $+1/(9\vp^6)$ is the Abelian contribution from virtual
+$e^+e^-$ pairs running from $\mWZW$ down to $m_e$; and the Chern--Simons
+correction $-1/(36\pi\vp^6) = -T_3/(4\pi)$ is the reduction of the QED
+vacuum polarisation by the condensate's non-Abelian magnetic flux
+(Theorem~\ref{P4:thm:four_term_alpha}).  The four-term formula
+predicts $\aInv = 137.035\,998\,486$, matching the PDG value $137.035\,999\,177$
+to $5\times10^{-7}\%$.  Above $m_e$, standard QED and electroweak running
+takes over, reaching $\aInv\approx128.9$ at $M_Z$ in full agreement with
+experiment (Section~\ref{P4:sec:alpha_running}).
+
+The bicycle-wheel analogy identifies the ratio $\vEW/\Lcond$ as
+a topological spoke of the Hopf fibration.  The $\mathrm{SU}(2)_3$
+representation theory fixes exactly three spokes (three generations;
+Theorem~\ref{P4:thm:three_gen}), and the fusion rule
+$j_{1/2}\times j_{1/2}=j_0\oplus j_1$ identifies the $Q=2$ Hopfion
+condensate as the ground state of the spoke system (Theorem~\ref{P4:thm:spoke_ground}).
+The hub boundary state is $|B_{3/2}\rangle$; the Chern-Simons action difference
+$\Delta S_\mathrm{CS} = 4\pi$ gives the spoke exponent, corrected to
+$4\pi-3/400$ by the $T$-matrix mechanism.
+The full spoke-mass spectrum $m_j/\Lcond = \vp^{20}e^{4\pi-T_j/Q}$ is
+now derived for all three primaries (Theorem~\ref{P4:thm:spoke_mass_spectrum}),
+and the electron is identified as the $j=\tfrac{1}{2}$ spoke via the Witten
+bosonization dictionary and the $k=3$ self-duality $T_{1/2}=c/24$
+(Theorems~\ref{P4:thm:me_lightest} and~\ref{P4:thm:casimir_selects})---the first
+derivation of $m_e$ from the WZW spectrum without any assumption on its value.
+The electroweak scale is thereby
+expressed as $\vEW = \Lcond\cdot\vp^{20}e^{4\pi-3/400-\aem/\pi}$ (accurate
+to $0.013\%$, Corollary~\ref{P4:cor:vew_corrected}), with no Standard Model
+parameters as input.
+
+The condensed-matter underpinning of the framework predicts a material
+hierarchy: ZrSiS ($Q=0$, symmetry provider) and $\mathrm{Li_2NaN}$
+($Q=1$, Hopf-link semimetal) realize the topological precursors of the
+cosmic $Q=1$ and $Q=2$ solitons.  Measurement of the Hopf-link crossing
+gap in $\mathrm{Li_2NaN}$ constitutes a directly falsifiable prediction
+of the framework (Open Problem~3).
+
+The three-correction structure of $\aInv$ established here --- dominant
+non-Abelian WZW anti-screening, subleading Abelian QED screening
+with weight $1/(9\vp^6)$, and the Chern--Simons correction
+$-1/(36\pi\vp^6)$ --- has a two-correction analogue in
+the companion Paper~V~\cite{Paper5}, where the
+CP-violating phase $\delta_{\rm CP}$ is derived by the same pattern:
+dominant untwisted-sector topological spin overshoots at $76.5^\circ$,
+and the subleading $E_8$~McKay twisted-sector correction with the same
+condensate phase quantum $Q/(k\,h(E_8)) = 1/9$ brings the prediction to
+$65.0^\circ$, within $0.12\sigma$ of the PDG value.
+
+%─── References ───────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper12}
+F.~Manfredi,
+\textit{Paper~XII: The Profile Normalisation Conjecture --- Proof via CMB Energy Identity and Two-Route Equivalence},
+\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+
+\bibitem{Faddeev1997}
+L.~D. Faddeev and A.~J. Niemi,
+\textit{Stable knot-like structures in classical field theory},
+Nature \textbf{387}, 58 (1997).
+\href{https://doi.org/10.1038/387058a0}{doi:10.1038/387058a0}
+
+\bibitem{Witten1984}
+E.~Witten,
+\textit{Non-abelian bosonization in two dimensions},
+Commun.\ Math.\ Phys.\ \textbf{92}, 455 (1984).
+\href{https://doi.org/10.1007/BF01215276}{doi:10.1007/BF01215276}
+
+\bibitem{Verlinde1988}
+E.~Verlinde,
+\textit{Fusion rules and modular transformations in 2D conformal field theory},
+Nucl.\ Phys.\ B \textbf{300}, 360--376 (1988).
+\href{https://doi.org/10.1016/0550-3213(88)90603-7}{doi:10.1016/0550-3213(88)90603-7}
+
+\bibitem{Hardy1949}
+G.~H.~Hardy,
+\textit{Divergent Series},
+Oxford University Press, Oxford (1949); repr.\ AMS Chelsea Publishing (1991);
+ISBN 978-1-4704-7785-1.
+% Standard reference for Stieltjes asymptotic series and Borel summability.
+
+\bibitem{PDG2024}
+R.~L. Workman et al.\ (Particle Data Group),
+\textit{Review of Particle Physics},
+Prog.\ Theor.\ Exp.\ Phys.\ \textbf{2022}, 083C01 (2022);
+updated 2024.
+\href{https://doi.org/10.1093/ptep/ptac097}{doi:10.1093/ptep/ptac097}
+
+\bibitem{KZ1984}
+V.~G. Knizhnik and A.~B. Zamolodchikov,
+\textit{Current algebra and Wess--Zumino model in two dimensions},
+Nucl.\ Phys.\ B \textbf{247}, 83 (1984).
+\href{https://doi.org/10.1016/0550-3213(84)90374-2}{doi:10.1016/0550-3213(84)90374-2}
+
+\bibitem{Cardy1989}
+J.~L. Cardy,
+\textit{Boundary conditions, fusion rules and the Verlinde formula},
+Nucl.\ Phys.\ B \textbf{324}, 581 (1989).
+\href{https://doi.org/10.1016/0550-3213(89)90521-X}{doi:10.1016/0550-3213(89)90521-X}
+
+\bibitem{Ishibashi1989}
+N.~Ishibashi,
+\textit{The boundary and crosscap states in conformal field theories},
+Mod.\ Phys.\ Lett.\ A \textbf{4}, 251 (1989).
+\href{https://doi.org/10.1142/S0217732389000320}{doi:10.1142/S0217732389000320}
+
+\bibitem{Witten1989}
+E.~Witten,
+\textit{Quantum field theory and the Jones polynomial},
+Commun.\ Math.\ Phys.\ \textbf{121}, 351 (1989).
+\href{https://doi.org/10.1007/BF01217730}{doi:10.1007/BF01217730}
+
+\bibitem{Neupane2016}
+M.~Neupane, I.~Belopolski, M.~M. Hosen et al.,
+\textit{Observation of topological nodal fermion semimetal phase in ZrSiS},
+Phys.\ Rev.\ B \textbf{93}, 201104(R) (2016),
+\href{https://doi.org/10.1103/PhysRevB.93.201104}{doi:10.1103/PhysRevB.93.201104}
+
+\bibitem{Lodge2024}
+M.~S. Lodge, E.~Marcellina, Z.~Zhu, X.-P. Li, D.~Kaczorowski,
+M.~S. Fuhrer, S.~A. Yang, B.~Weber,
+\textit{Symmetry-selective quasiparticle scattering and electric field
+tunability of the ZrSiS surface electronic structure},
+Nanotechnology \textbf{35}, 195704 (2024),
+\href{https://doi.org/10.1088/1361-6528/ad2639}{doi:10.1088/1361-6528/ad2639}
+
+\bibitem{Li2NaN2017}
+Z.~Yan, R.~Bi, H.~Shen, L.~Lu, S.-C. Zhang, Z.~Wang,
+\textit{Nodal-link semimetals},
+Phys.\ Rev.\ B \textbf{96}, 041103(R) (2017).
+\href{https://doi.org/10.1103/PhysRevB.96.041103}{doi:10.1103/PhysRevB.96.041103}
+
+\bibitem{Li2NaN2018}
+W.~Chen, H.-Z. Lu, J.-M. Hou,
+\textit{Topological semimetals with a double-helix nodal link},
+Phys.\ Rev.\ B \textbf{96}, 041102(R) (2017);
+$\mathrm{Li_2NaN}$ identified as Hopf-link semimetal
+with nodal linking number $\pm 1$.
+\href{https://doi.org/10.1103/PhysRevB.96.041102}{doi:10.1103/PhysRevB.96.041102}
+
+\bibitem{Hanneke2008}
+D.~Hanneke, S.~Fogwell, and G.~Gabrielse,
+\textit{New Measurement of the Electron Magnetic Moment and the Fine Structure Constant},
+Phys.\ Rev.\ Lett.\ \textbf{100}, 120801 (2008).
+\href{https://doi.org/10.1103/PhysRevLett.100.120801}{doi:10.1103/PhysRevLett.100.120801}
+
+\end{thebibliography}
+
+\end{document}

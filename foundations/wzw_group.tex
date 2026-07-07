@@ -1,0 +1,340 @@
+% foundations/wzw_group.tex
+% Part of the Hopfion Framework Repository
+% Source: Paper I — The Density-Feedback Faddeev-Niemi Hopfion: Exact Algebraic Predictions for Standard-Model Parameters
+% Status: published
+% Last updated: 2026-06-29
+
+\input{../preamble}
+
+\section*{WZW Group Theory and Exact Algebraic Chain}
+\label{sec:wzw_group}
+
+% Results extracted from Paper I
+% Scan date: 2026-06-29
+
+%════════════════════════════════════════════════════════════════════
+% Group Theory — McKay Correspondence
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[McKay correspondence]
+\label{P1:thm:mckay}
+The McKay graph of $2I$ constructed from the two-dimensional irrep $\Gamma_2$
+is the affine Dynkin diagram $\hat{E}_8$, establishing the chain
+\begin{equation}
+  2I \;\longleftrightarrow\; \hat{E}_8 \;\supset\;
+  E_8 \;\supset\; \mathrm{SU}(5) \;\supset\;
+  \mathrm{SU}(3)_C\times\mathrm{SU}(2)_L\times U(1)_Y.
+  \label{P1:eq:mckay_chain}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P1:thm:mckay; McKay (1980)}
+
+%════════════════════════════════════════════════════════════════════
+% WZW Level and Quantum Dimension
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[WZW level $k=3$]
+\label{P1:thm:k3}
+The subgroup $\mathbb{Z}_{10}\subset 2I$ forces the $\mathrm{SU}(2)$ WZW
+model to level $k=3$ uniquely via
+\begin{equation}
+  \ord(q) = 2(k+2)\big|_{k=3} = 10 = |\mathbb{Z}_{10}|,
+  \qquad
+  q = e^{i\pi/(k+2)} = e^{i\pi/5}.
+  \label{P1:eq:q}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P1:thm:k3}
+
+\begin{theorem}[Quantum dimension equals $\vp$]
+\label{P1:thm:dimq}
+The quantum dimension of the spin-$\tfrac{1}{2}$ primary at WZW level $k=3$
+equals $\vp$:
+\begin{equation}
+  \dim_q\!\left(\tfrac{1}{2};\,k=3\right)
+  = \frac{S_{0,\,1/2}}{S_{0,0}}
+  = \frac{\sin(2\pi/5)}{\sin(\pi/5)}
+  = 2\cos(\pi/5)
+  = \vp,
+  \label{P1:eq:dimq}
+\end{equation}
+where $S$ is the modular $S$-matrix of $\mathrm{SU}(2)_3$.  This
+coincides with the character value $\chi_{\Gamma_2}(C_5)=\vp$ of the
+$2I$ representation and is the unique fixed point of $x^2 = x+1$.
+\end{theorem}
+\status{published}
+\source{P1:thm:dimq}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% Exact Algebraic Chain
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Scale selection]
+\label{P1:thm:scale}
+At the self-consistent $\bst$,
+\begin{equation}
+  \sopt = 2^{1/6}
+  \quad\Longleftrightarrow\quad
+  \frac{\Jfour}{\Ja} = \frac{2^{4/3}}{\vp^{5}}.
+  \label{P1:eq:equiv}
+\end{equation}
+These two conditions are algebraically identical; neither is more primitive
+than the other.
+\end{theorem}
+\status{published}
+\source{P1:thm:scale}
+\begin{proof}
+From $\sopt^{2} = \vp^{6}\Jfour/(2\vp\,\Ja) = (\vp^{5}/2)\cdot(\Jfour/\Ja)$
+(using $\Kfb=2\vp\Ja$ and $\lam=\vp^6$):
+$\sopt=2^{1/6}\Leftrightarrow\sopt^{6}=2\Leftrightarrow
+(\vp^{5}/2)^{3}(\Jfour/\Ja)^{3}=2\Leftrightarrow\Jfour/\Ja = 2^{4/3}/\vp^{5}$.
+\end{proof}
+\status{published}
+\source{P1:thm:scale}
+\residual{exact (algebraic identity); numerically $0.020\%$ at $h=0.12$}
+\depends{profile/virial.tex (prop:Kfb); electroweak/weinberg.tex (P1:cor:lambda)}
+
+\begin{theorem}[Charge quantisation]
+\label{P1:thm:charge_q10}
+The topological charge of the Hopfion condensate at the CMB scale is
+\begin{equation}
+  Q \;=\; \ord(q_{2I}) \;=\; 2(k+2)\big|_{k=3} \;=\; 10 \quad\text{(exact)}
+  \label{P1:eq:Q_q10}
+\end{equation}
+and is realised numerically as
+\begin{equation}
+  Q \;=\; \bz\cdot\rCMB \;=\; \vp^{9}\sqrt{\Ja\cdot\Jfour} \;=\; 10.012
+  \quad(0.12\%),
+  \label{P1:eq:br10}
+\end{equation}
+where $\bz = \TCMB(\pi^2/150)^{1/4} \approx 119\;\mu\mathrm{eV}$ and
+$\rCMB = (\pi^2/15)\TCMB^4$ is the CMB energy density.
+\end{theorem}
+\status{published}
+\source{P1:thm:charge_q10}
+\residual{exact (group-theoretic route); $0.12\%$ (numerical route, lattice artefact closed in Paper~XII)}
+\depends{foundations/wzw_group.tex (P1:thm:k3)}
+
+%════════════════════════════════════════════════════════════════════
+% Physical Interpretations
+%════════════════════════════════════════════════════════════════════
+
+\begin{remark}[Physical interpretation of the feedback kernel]
+\label{P1:rem:chameleon}
+The functional $\Jfb = \int \mathrm{kern}/(1+\bst\,\mathrm{kern})\,\mathrm{dvol}$
+admits three complementary physical interpretations.
+
+\textbf{(i) Born--Infeld regularisation.}
+$\Jfb$ is the Born--Infeld saturation of the isotropic FN kinetic
+energy $\Jiso$: as $\mathrm{kern}\to\infty$ the integrand saturates at
+$1/\bst$, preventing ultraviolet divergence of the gradient energy.
+This interpretation is a derivation via \texttt{thm:vacuum}: $\Jfb$ is
+exactly the gradient energy of the parent Lagrangian $\mathcal{L}_{\mathrm{kin}}
+= |\nabla\rho|^2/[\vp^6(1+\bst|\nabla\rho|^2)]$
+evaluated on the $Q=2$ Hopfion sector.
+
+\textbf{(ii) Chameleon scalar field.}
+A scalar field coupled to ambient matter acquires a density-dependent
+effective mass $m_{\mathrm{eff}}^2 \propto \rho_{\mathrm{matter}}$,
+screening short-wavelength fluctuations in dense regions.
+Here $\mathrm{kern}$ plays the role of local field energy density,
+and $1/(1+\bst\,\mathrm{kern})$ is the screening factor.
+The self-consistency condition $\Jfb/\Ja = \vp$ is the field-theoretic
+fixed-point equation analogous to the chameleon equilibrium condition.
+
+\textbf{(iii) Madelung quantum-pressure correction.}
+In the weak-field expansion,
+$\mathrm{kern}/(1+\bst\,\mathrm{kern}) = \mathrm{kern} - \bst\,\mathrm{kern}^2 + O(\bst^2)$,
+the correction term $-\bst\,\mathrm{kern}^2$ has the same structure as
+the quantum-pressure ($D^2k^4$) correction in the Madelung--Bogoliubov
+dispersion relation.
+\end{remark}
+\status{published}
+\source{P1:rem:chameleon}
+
+\begin{remark}[Topological stability of the feedback functional]
+\label{P1:rem:stability}
+Like the standard FN energy, $\Efb = \Kfb\cdot\Jfour$ has no
+Derrick scale-barrier: both $\Kfb$ and $\Jfour$ decrease as $f\to 0$,
+so the trivial vacuum $f=0$ is the global minimum of $\Efb$.
+The Hopfion is the saddle-point minimum only within the $Q=2$ topological
+sector.  The saddle-snapshot method (Definition~\ref{P1:def:snapshot})
+circumvents this instability by optimising the scale-invariant proxy
+$\Efb$ and recording the step at which $\sopt=1$.
+\end{remark}
+\status{published}
+\source{P1:rem:stability}
+
+\begin{remark}[Connection to $E_8$ and WZW]
+\label{P1:rem:e8}
+The value $\sopt = 2^{1/(2k)}$ with $k=3$ follows from the Coxeter number
+of $E_8$: $h(E_8) = 30 = 2k(k+2)$ is satisfied uniquely by $k=3$ among
+ADE algebras with $h\leq 30$.  The WZW level $k=3$ is forced by
+$\mathbb{Z}_{10}\subset 2I$ (Theorem~\ref{P1:thm:k3}).  The factor of~$2$
+in $\sopt^{6}=2$ is $|2I|/|I|=2$, the order of the central extension.
+\end{remark}
+\status{published}
+\source{P1:rem:e8}
+
+%════════════════════════════════════════════════════════════════════
+% Vacuum Uniqueness
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Vacuum uniqueness at $\Lcond$]
+\label{P1:thm:vacuum}
+Among all static finite-action configurations of the density-feedback
+FN functional at the condensate scale $\Lcond = \TCMB(\pi^2/150)^{1/4}$,
+the $Q=2$ icosahedral Hopfion is the unique minimum-action configuration
+within its topological sector, and has strictly lower action than all
+$Q=0$ and $Q=1$ competitors.  Specifically:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+  \item \textit{$Q=0$ (uniform):} Any non-trivial gradient
+    knot with gradient concentrated near $\theta=0$ has strictly lower
+    angular cost than the isotropic configuration.
+  \item \textit{$Q=0$ (spherically symmetric):} A spherically symmetric
+    profile saturates the angular cost; any $Q=2$ Hopfion with toroidal
+    geometry achieves the same topological energy $\Jfour$ with lower
+    angular cost.
+  \item \textit{$Q=1$ (single-tube):} Two single-tube quanta fuse via
+    $j_{1/2}\times j_{1/2} = j_0\oplus j_1$ in $\mathrm{SU}(2)_3$.
+    The singlet channel $j_0$ (the $Q=2$ condensate) has conformal
+    weight $h_0=0$ strictly less than the triplet $h_1 = 2/5$, so the
+    $Q=2$ state is lower energy.
+  \item \textit{$Q\geq 3$:} The Vakulenko--Kapitanski bound
+    $E\geq C_{\mathrm{VK}}|Q|^{3/4}$ gives a supralinear energy cost.
+  \item \textit{Icosahedral geometry among $Q=2$:} The binary icosahedral
+    group $2I\subset\mathrm{SU}(2)$ has order $|2I|=120$, the maximum
+    among binary polyhedral groups.  The condensate temperature uniquely
+    selects $2I$ via $\bz\rCMB = \ord(q_{2I})=10$
+    (Theorem~\ref{P1:thm:charge_q10}).
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P1:thm:vacuum}
+\begin{proof}
+Parts (i)--(ii) follow from the inequality
+$\int S_{\mathrm{eff}}^{\mathrm{knot}}\,d\Omega <
+\int S_{\mathrm{eff}}^{\mathrm{iso}}\,d\Omega$
+for configurations whose gradients concentrate near $\theta=0$.
+Part (iii) is the conformal weight comparison $h_0 = 0 < h_1 = 2/5$
+in $\mathrm{SU}(2)_3$.
+Part (iv) follows directly from the Vakulenko--Kapitanski inequality.
+Part (v) is Theorem~\ref{P1:thm:charge_q10} together with the maximality of
+$|2I|$ among binary polyhedral groups.
+\end{proof}
+\status{published}
+\source{P1:thm:vacuum}
+\depends{foundations/wzw_group.tex (P1:thm:charge_q10, P1:thm:k3)}
+
+%════════════════════════════════════════════════════════════════════
+% Witten Bosonization and Verlinde Formula — Paper III
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Witten bosonization dictionary, $k=3$]
+\label{P3:thm:bosonization}
+The following bosonic and fermionic descriptions are exactly equivalent:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Bosonic (WZW / Hopfion) & Fermionic ($k=3$ Dirac) \\
+\midrule
+$\mathrm{SU}(2)_3$ WZW field $g(x)$ & 3 free Dirac fermions $\psi_a$ \\
+Curvature $\kk_{\mathrm{iso}}$ & Fermion density $\rho_F$ \\
+$J_{2a} = \int\!\sin^4\!f\cdot\kk\,dV$ & Topological charge $Q_F$ \\
+$\Jfb(\beta) = \int\!\kk/(1+\beta\kk)\,dV$ & Resolvent density $G(\beta)$ \\
+WZ coupling $\mu^* = \sqrt{k+2}/\vp$ & WZ coupling of $k=3$ system \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+\status{published}
+\source{P3:thm:bosonization}
+\depends{foundations/wzw_group.tex (P1:thm:k3, P1:thm:dimq); foundations/suppression.tex (P3:lem:bridge)}
+
+\begin{theorem}[3+1D Witten bosonization with error bound]
+\label{P3:thm:bos_3d}
+At energies $E\ll r_{\mathrm{core}}^{-1}$, the 3+1D condensate $k$-essence
+action is equivalent to the $\mathrm{SU}(2)_3$ WZW action plus three free
+Dirac fermions, with corrections bounded by
+$\|S_{3+1\mathrm{D}} - S_{\mathrm{WZW}}\| \leq C(Er_{\mathrm{core}})^2 R_0^{-2}$.
+The WZ term descends from the 3+1D topological term via Zumino descent, and
+the $\mathrm{SU}(2)_3$ level $k=3$ is preserved exactly.
+\end{theorem}
+\status{proved (via KK reduction, Zumino descent, anomaly matching)}
+\source{P3:thm:bos_3d}
+
+\begin{corollary}[Physical validity of the bosonization dictionary]
+\label{P3:cor:bos_valid}
+At the condensate linking scale, $\|S_{3+1\mathrm{D}}-S_{\mathrm{WZW}}\|
+\leq C\,Q^{-2/3}R_0^{-2}$.  For $Q=10$ in the thin-torus limit
+$R_0\gg 1$: the correction is $O(R_0^{-2})\ll 1$.
+All SM-sector predictions of Theorem~\ref{P3:thm:bosonization} hold as exact
+results in the limit $R_0\to\infty$, with fractional corrections $O(R_0^{-2})$.
+\end{corollary}
+\status{published}
+\source{P3:cor:bos_valid}
+
+\begin{remark}[Scope of the bosonization theorem]
+\label{P3:rem:bos3d_scope}
+Theorem~\ref{P3:thm:bos_3d} proves: (i) the 3+1D action reduces to 2D WZW at
+low energies with explicit $O(R_0^{-2})$ bounds; (ii) the WZ term descends
+correctly with level $k=3$ preserved; (iii) Hopf charge $Q=10$ is preserved
+under KK reduction; (iv) 't~Hooft anomaly matching holds.
+Not addressed: finite-$R_0$ corrections beyond $O(R_0^{-2})$, and
+convergence of the KK expansion for non-static configurations.
+\end{remark}
+\status{published}
+\source{P3:rem:bos3d_scope}
+
+\begin{proposition}[$Q=2$ sector assignment]
+\label{P3:prop:q2_sector}
+The $Q=2$ Hopfion is the singlet ($j=0$) bound state of two $Q=1$ Hopfions
+in the fusion decomposition $j_{1/2}\otimes j_{1/2} = j_0\oplus j_1$ of
+$\mathrm{SU}(2)_3$.  The singlet has conformal dimension $h_0=0 < h_1=2/5$
+and is the physical ground state.
+\end{proposition}
+\status{published}
+\source{P3:prop:q2_sector}
+
+\begin{theorem}[Verlinde/Cardy formula gives $V^*=\vp$]
+\label{P3:thm:verlinde}
+In the $j=0$ sector of $\mathrm{SU}(2)_3$, the vacuum expectation value of the
+primary operator $\phi_{1/2}$ is
+\begin{equation}
+  \langle\phi_{1/2}\rangle_{j=0}
+  = \frac{S_{0,1/2}}{S_{0,0}}
+  = \frac{\sin(2\pi/5)}{\sin(\pi/5)}
+  = 2\cos(\pi/5) = \vp.
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P3:thm:verlinde}
+\begin{proof}
+The Verlinde $S$-matrix for $\mathrm{SU}(2)_3$ at $k+2=5$ gives
+$S_{0,1/2}/S_{0,0} = \sin(2\pi/5)/\sin(\pi/5) = 2\cos(\pi/5) = \vp$
+(pentagon identity).
+\end{proof}
+\status{published}
+\source{P3:thm:verlinde}
+\residual{exact}
+
+\begin{theorem}[Bosonization proof of $V^*=\vp$]
+\label{P3:thm:bos_main}
+Under the Witten bosonization (Theorem~\ref{P3:thm:bosonization}), the
+density-feedback virial satisfies $V^* = \Jfb(\bst)/\Ja = \vp$,
+where $\bst$ is the self-consistent feedback parameter.
+\end{theorem}
+\status{published}
+\source{P3:thm:bos_main}
+\begin{proof}[Proof sketch]
+Under the WZW/fermion duality, $V = \Jfb/\Ja \leftrightarrow \langle\phi_{1/2}(\beta)\rangle$.
+At the self-consistent $\bst$ (the WZW fixed point), Theorem~\ref{P3:thm:verlinde}
+gives $V^* = S_{0,1/2}/S_{0,0} = \vp$.
+\end{proof}
+\status{published}
+\source{P3:thm:bos_main}
+\residual{exact}
+\depends{foundations/wzw_group.tex (P3:thm:bosonization, P3:thm:verlinde)}

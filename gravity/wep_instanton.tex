@@ -1,0 +1,59 @@
+%% hopfion-framework/gravity/wep_instanton.tex
+%% Sources: main_paper5.tex
+%% WEP-violating Hopf-charge instanton: exact kink-suppression average and S_1 action
+%% Auto-generated from project files. Edit source papers to update.
+
+
+%════════════════════════════════════════════════════════════════════
+% WEP Instanton: Kink Suppression Average — Paper V
+%════════════════════════════════════════════════════════════════════
+\begin{proposition}[Kink suppression average]
+\label{P5:prop:kink_avg}
+For any instanton path $f_\tau(\mathbf{x})$ that traverses one or more
+complete winding cycles of the Hopf map angle $f$ (i.e.\ $f$ increases
+by a nonzero integer multiple of $2\pi$ along each spatial fibre), the
+action-weighted average of the condensate suppression satisfies
+\begin{equation}
+  \langle\sin^4\!f\rangle_{\mathrm{kink}}
+  \;\equiv\;
+  \frac{\displaystyle\int_{-\infty}^{+\infty}\!\!
+    \int_{\mathbb{R}^3}\sin^4(f_\tau)\,|\partial_\tau f_\tau|^2
+          \,d^3x\,d\tau}
+       {\displaystyle\int_{-\infty}^{+\infty}\!\!
+    \int_{\mathbb{R}^3}|\partial_\tau f_\tau|^2
+          \,d^3x\,d\tau}
+  \;=\; \frac{3}{8},
+  \label{P5:eq:kink_avg}
+\end{equation}
+\emph{exactly}, independently of the kink width, spatial profile, or
+number of winding cycles.
+
+Factoring this average into the Euclidean density-feedback action, the
+$\Delta H=1$ instanton contribution is
+\begin{equation}
+  S_1
+  \;=\; \frac{\langle\sin^4\!f\rangle_{\mathrm{kink}}}{\vp^6}\cdot S_1^{\mathrm{iso}}
+  \;=\; \frac{3}{8\vp^6}\cdot S_1^{\mathrm{iso}},
+\end{equation}
+where $S_1^{\mathrm{iso}}$ is the isotropic bounce action for the
+$Q=2\to Q=3$ topological sector jump (bounce saddle at $Q=2.5$), using
+the Faddeev--Niemi scaling $E(Q)\propto Q^{3/4}$. The $\vp^6$ cancels
+exactly between the numerator and $S_1^{\mathrm{iso}}\propto\vp^6$,
+giving the pure topological number
+\begin{equation}
+  \boxed{S_1
+  \;=\; \frac{3}{4}\cdot 2^{-1/3}
+        \cdot\left[\Bigl(\frac{5}{4}\Bigr)^{3/4}-1\right]
+  \;\approx\; 0.1084,}
+\end{equation}
+independent of the golden ratio. The resulting E\"otv\"os ratio for a
+test body with $A$ baryons is $\eta_A=e^{-AS_1}\approx e^{-0.1084A}$:
+WEP is maximally violated for a single baryon ($\eta_1\approx0.90$),
+the MICROSCOPE bound $\eta_A<10^{-13}$ requires $A\gtrsim277$ baryons
+(any nucleus heavier than $^{208}$Pb), and macroscopic bodies
+($A\sim10^{26}$) recover exact WEP to unmeasurable precision.
+\end{proposition}
+\status{published}
+\source{P5:prop:kink_avg}
+\residual{exact (topological); MICROSCOPE-consistent for $A\gtrsim277$}
+\depends{gravity/dark_sector.tex}

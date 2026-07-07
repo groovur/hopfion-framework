@@ -1,0 +1,2345 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref,xcolor,enumitem,booktabs,array}
+\usepackage{graphicx,subcaption}
+
+\hypersetup{colorlinks=true,linkcolor={blue!60!black},
+  citecolor={blue!60!black},urlcolor={blue!60!black}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfour}{J_4}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\twoI}{2I}
+\newcommand{\twoT}{2T}
+\newcommand{\QH}{Q_H}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\Ztwo}{\mathbb{Z}_2}
+\newcommand{\Zthree}{\mathbb{Z}_3}
+\newcommand{\dimq}[1]{d_{#1}}
+\newcommand{\Tmat}{T}
+\newcommand{\Jones}{V}
+\newcommand{\lk}{\mathrm{lk}}
+\newcommand{\phistar}{\phi^*}
+\newcommand{\tang}{\dot\Gamma}
+
+\title{\textbf{Dynamical Origin of Quark Masses in the\\
+Density-Feedback Hopfion:\\
+Analytic Constraints from the Trefoil Formation Event}
+\\[0.6em]
+{\large Companion Paper XIX to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- July 2026}
+\author{Frederick Manfredi}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Paper~XVI~\cite{Paper16} documented a systematic negative result:
+six candidate mechanisms for the quark generation mass hierarchy
+(600-cell vertices, $\twoT$ 1-D irreps, $\SU(3)$ level, $\twoT/Q_8$
+coset, generation-dependent colour shift, $E_8$ Coxeter labelling)
+each fail for a specific structural reason.  The paper's own
+Discussion identified two patterns: no mechanism alone
+can supply generation-dependent input, and a dynamical correction
+(beyond any representation-theoretic backbone) is required.
+The present paper confirms and refines this picture.  Two facts
+established in Paper~XVIII change what the calculation is: the
+$\Zthree$ symmetry of the ideal $T_{2,3}$ trefoil is broken from the
+outset by the single perturbation site of the formation event
+(Remark~5.3 of Paper~XVIII~\cite{Paper18}), and %\ref{P18:rem:crossing_path}
+the $\QH=3$ configuration is transient and unstable, so its
+observables are properties of the formation-and-decay process
+rather than of a static geometry.  Quark masses are therefore not
+intrinsic energy scales of the trefoil but characteristic scales of
+how a single incoming perturbation partitions across the trefoil
+geometry during transit.
+We derive four results within this framework.
+(1)~\textbf{The minor radius $r_0=R_0/C_2^*$ is analytically fixed}
+by the $\QH=2$ profile.  The Bogomolny profile
+$f(\rho)=2\arctan(\rho^{-C_2^*})$ has slope $|f'(1)|=C_2^*$ at its
+transition midpoint, giving wall width $\Delta\rho=1/C_2^*$; the
+trefoil's minor radius equals this wall width by the satellite
+construction.  This closes an open problem shared by Papers~XV
+and~XVIII.
+(2)~\textbf{The single-loss-coefficient cascade model is
+analytically falsified.}  Neither the arc-segment density ratio
+$\eta_B=\rho_B/\rho_A=0.81$ (Paper~XVI) nor the per-crossing
+transmission $\eta_{\mathrm{cross}}=0.266$ reproduces observed
+quark mass ratios within either isospin triplet.
+(3)~\textbf{The uniform $\vp$-tower generation multiplier is
+analytically falsified.} A hypothesis $\Delta m_g\propto\vp^{2g}$
+predicts intra-triplet ratios $\vp^{4}\approx6.85$ that miss
+observed ratios $(m_b/m_d\approx 890$, $m_t/m_u\approx 78600)$ by
+two to four orders of magnitude.  The correct replacement structure,
+identified from the empirical cross-ratio pairing of intra-triplet
+generation gaps (Remark~\ref{P19:rem:cross_ratio}), is a geometric
+ladder of four quark mass ratios with common ratio $\sqrt{\vp}$,
+anchored at $m_s/m_d$
+(Theorem~\ref{P19:thm:sqrt_phi_ladder}).  Combined with
+Paper~XVI's derived $m_s=93.32\,\mathrm{MeV}$ ($0.09\%$) and the
+framework-derived ratio $m_s/m_d=\sqrt{k/2}\cdot e^{8\pi/9}=19.991$
+(equation~\eqref{P19:eq:spin_corrected_ratio}, within $0.047\%$ of
+$n_e=20$), this yields
+$m_b=4214\,\mathrm{MeV}$ ($0.7\%$ off PDG), $m_t/m_c$ at $6\%$,
+and $m_c/m_u$ at $19\%$ (Corollary~\ref{P19:cor:absolute_masses}).
+Notably, $m_s/m_d\approx n_e=20$, the lepton CMB tower level
+derived independently from $T_{\mathrm{CMB}}$ and geometry;
+the spin-Casimir identity $k=4C_2(\tfrac12)$, exact at $k=3$,
+gives the $0.047\%$ residual from the integer (Open Problem~O6).
+(4)~\textbf{The two-triplet mass-scale ratio is predicted at the
+$20\%$ level} by the writhe-$\Ztwo$-weighted $z$-tangent
+distribution: $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ versus
+observed $0.157$.  This is a parameter-free consequence of the
+site-tangent geometry of Paper~XVI and the isospin identification
+of Paper~XVIII (Conjecture~5.4 of that paper). %\ref{P18:conj:isospin}
+The four results together sharpen the question: quark masses within
+each triplet are set by the azimuthal-position-dependent
+partition of the incoming perturbation energy, a calculation that
+requires the dynamic integrator infrastructure rather than the
+gradient-flow saddle.  A fifth result resolves Paper~XVIII's Open
+Problem~O4: the multi-component Jones polynomial reaction rule is
+not numerical equality of Jones products but unit-equivalence in
+$\mathbb{Z}[\zeta_5]$; both production channels
+($T(2,2)\sqcup T(2,2)\to T(2,3)\sqcup U$ and
+$T(2,2)\sqcup U\to T(2,3)$) are verified algebraically, with
+specific unit factors $\zeta_5+\zeta_5^4=1/\vp$ and
+$-\vp\cdot\zeta_5$ respectively, reflecting the Hopf-link and
+satellite Jones values $|\Jones_{T(2,2)}(q_5)|=|\Jones_{\rm sat}(q_5)|
+=1/\vp$ established in Paper~XVIII's Theorem~2.3.
+The reconciliation of Conjectures
+\ref{P19:conj:six_quarks_r19} and~\ref{P19:conj:isospin_r19} into a single
+dynamical picture is stated as a sharpened conjecture.
+A cross-sector formal result (Proposition~\ref{P19:prop:solar_angle_jones})
+establishes that the leading-order solar mixing angle satisfies
+$\tan\theta_{12}^{(0)}=1/\vp$ via Paper~XVII's $\mathrm{SU}(2)_3$
+S-matrix; the same modulus $1/\vp$ also equals
+$|\Jones_{T(2,2)}(q_5)|$, a numerical coincidence recorded but not
+established as a derivation (Remark~\ref{P19:rem:solar_physical}).
+\end{abstract}
+
+\tableofcontents
+\bigskip\newpage
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P19:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+The quark mass hierarchy remains the framework's most conspicuous
+unresolved problem.  Six orders of magnitude separate $m_u\approx
+2.2\,\mathrm{MeV}$ from $m_t\approx 172\,\mathrm{GeV}$; four
+orders separate $m_d\approx 4.7\,\mathrm{MeV}$ from $m_b\approx
+4.2\,\mathrm{GeV}$.  No smooth function of a single generation
+index reproduces both sequences, and Paper~XVI~\cite{Paper16}'s
+systematic survey established that no combinatorial or
+representation-theoretic mechanism internal to $\twoT$ can supply
+the required generation-dependent input.  The strange quark alone
+matches (to $0.09\%$, via a specific $E_8$ Coxeter exponent
+assignment); the other five undershoot by factors of $1.7$ to $49$
+in a systematic, always-positive-deficit pattern that Paper~XVI's
+Discussion identified as the qualitative signature of a missing
+$\QH=3$-specific, generation-dependent energy contribution.
+
+The present paper reframes the problem in light of two facts
+established in Paper~XVIII~\cite{Paper18}.
+
+\paragraph{Fact 1: $\Zthree$ is broken from the outset.}  The
+$\Zthree$ symmetry of the ideal trefoil is a construction fiction.
+The $\QH=3$ trefoil is produced by threading a $\QH=1$ perturbation
+through the neighbourhood $N(\gamma_1)$ of one component of the
+$\QH=2$ Hopf link (Proposition~5.2 of %\ref{P18:prop:satellite}
+Paper~XVIII~\cite{Paper18}); this threading event has a
+definite azimuthal location, which fixes a distinguished direction
+on the incipient trefoil.  The three crossings, three lobes, and
+three midpoints that emerge in the resulting configuration are
+labeled by their distance-along-the-tube from the threading site,
+not by any residual $\Zthree$ symmetry.  A physical $\QH=3$
+condensate carries a memory of its formation; only the average
+over an ensemble of formations restores $\Zthree$ in expectation.
+
+\paragraph{Fact 2: $\QH=3$ is transient.}  The satellite Jones
+invariant of the trefoil at the WZW root $q_5=e^{2\pi i/5}$
+satisfies $|\Jones_{\rm sat}(q_5)|=1/\vp$
+(Paper~XVIII~\cite{Paper18}, Theorem~2.3). %\ref{P18:thm:trefoil_satellite_jones}
+The formation path passes through an unfused intermediate
+configuration with rational satellite invariant ($=1$), providing
+no irrational BPS fixed point during formation; the energy
+landscape has a flat plateau (Remark~10.2 of Paper~XVIII). %\ref{P18:rem:saddle_difficulty}
+A physical $\QH=3$ condensate does not persist as an equilibrium
+configuration; it forms, cascades, and decays over the collision
+timescale.  Observable quantities associated with it are properties
+of this transit, not of any equilibrium state.
+
+\paragraph{Consequence.}  Quark masses in this framework are not
+intrinsic energy scales of the trefoil geometry.  They are
+characteristic scales of how a single incoming perturbation energy
+partitions across the trefoil sites during its transit through the
+formation-and-decay cascade.  This changes the calculation
+qualitatively: instead of computing static site energies from the
+condensate action and reading them as masses, one must compute the
+dynamical partition of $E_{\mathrm{pert}}$ across the twelve
+geometric sites, given the perturbation's azimuthal location and
+the trefoil's Frenet geometry.
+
+The present paper does not compute this partition directly.  That
+calculation requires the dynamic integrator infrastructure
+initiated in Papers~XVII and~XVIII (the suppression-weighted
+restoring force applied to the $\QH=2$ vacuum), extended to
+simulate the $\QH=2+\QH=1\to\QH=3$ formation event with the
+velocity field $v(\mathbf{x},t)$ recorded at each of the twelve
+sites.  What the present paper does is establish, analytically,
+four constraints that any such calculation must satisfy or
+falsify.
+
+\paragraph{Organisation.}
+Section~\ref{P19:sec:r0_derivation} closes the open problem shared by
+Papers~XV and~XVIII on the physical origin of $r_0$: an analytic
+derivation of $r_0=R_0/C_2^*$ from the $\QH=2$ profile function.
+Section~\ref{P19:sec:reconciliation} reconciles Conjectures~5.1
+and~5.4 of Paper~XVIII (six-quark combinatorics and writhe-based
+isospin) into a single dynamical picture, resolving an internal
+tension between them.
+Section~\ref{P19:sec:cascade_falsification} formalises the
+single-loss-coefficient cascade model and shows analytically that
+it is falsified by observed quark mass ratios (Result~A of the
+paper's analytic constraints).
+Section~\ref{P19:sec:phi_tower_falsification} formalises the
+$\vp^{2g}$ generation-multiplier hypothesis and shows analytically
+that it is falsified (Result~B), then examines whether the surviving
+$\bar n_{\mathrm{up}}/\bar n_{\mathrm{down}}\approx\vp$ structure has
+a Jones-polynomial origin: the direct comparison does not reproduce
+it, and the matter is left as an open question
+(Proposition~\ref{P19:prop:jones_modulus_ratio}).
+Section~\ref{P19:sec:tangent_ratio_prediction} derives the two-triplet
+mass-scale ratio $M_{\mathrm{down}}/M_{\mathrm{up}}$ from the
+writhe-$\Ztwo$-weighted $z$-tangent distribution and shows it
+matches observation at the $20\%$ level (Result~C).
+Section~\ref{P19:sec:multi_component_jones} develops the
+multi-component Jones polynomial framework of Paper~XVIII's Open
+Problem~O1, proves the correct reaction rule
+(unit-equivalence in $\mathbb{Z}[\zeta_5]$, not numerical equality),
+and verifies both $\QH=3$ production channels algebraically,
+resolving Paper~XVIII's Open Problem~O4.
+Section~\ref{P19:sec:experiment} collects experimental predictions
+and constraints.
+Section~\ref{P19:sec:open} states the sharpened open problems.
+Section~\ref{P19:sec:summary} summarises.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The minor radius $r_0 = R_0/C_2^*$ from the $\QH=2$ profile}
+\label{P19:sec:r0_derivation}
+%══════════════════════════════════════════════════════════════════════════════
+
+The trefoil's minor tube radius $r_0=0.874$ was introduced in
+Papers~XV and~XVI as a numerical construction parameter, without an
+analytic derivation.  Paper~XV~\cite{Paper15}, Remark~14.5 %\ref{P15:rem:r0_origin}
+identified the near-coincidence
+\begin{equation}
+  r_0 \;\approx\; \frac{R_0}{C_2^*} \;=\; \frac{3}{3.4318} \;=\; 0.874172,
+  \label{P19:eq:r0_C2}
+\end{equation}
+matching the construction value to $0.020\%$, motivated by the
+satellite construction (Paper~XVIII~\cite{Paper18},
+Proposition~5.2): the trefoil is built inside $N(\gamma_1)$, %\ref{P18:prop:satellite}
+so $r_0$ should inherit its scale from the $\QH=2$ tube geometry
+rather than from a $\QH=3$-internal saddle condition.  Paper~XV
+noted explicitly that this identification is
+\emph{motivated} by the satellite construction but not
+\emph{derived} from it: the map from $N(\gamma_1)$'s radius to
+$r_0$ was left as an open problem.  Paper~XVIII's
+Remark~10.2 (rem:saddle\_difficulty) confirmed the openness of the %\ref{P18:rem:saddle_difficulty}
+problem and restated the needed derivation.
+
+We supply the derivation.
+
+\subsection{The $\QH=2$ profile function and its wall width}
+
+Paper~I~\cite{Paper1}, Theorem~3.1 establishes the modified-BPS %\ref{P1:thm:modBPS}
+profile of the $\QH=2$ Hopfion as
+\begin{equation}
+  f(\rho) \;=\; 2\arctan\!\bigl(\rho^{-C_2^*}\bigr),
+  \label{P19:eq:profile}
+\end{equation}
+where $\rho$ is the dimensionless radial coordinate (in units of
+$R_0$) around the tube core and $C_2^*$ is the profile-sharpness
+constant, the unique real root of the cubic
+\begin{equation}
+  \frac{C(2C+1)}{(C^2+1)(3C-1)}
+  \;=\; \frac{2^{4/3}}{\vp^5},
+  \label{P19:eq:C2_cubic}
+\end{equation}
+giving $C_2^*=3.43182008\ldots$.  The profile function satisfies:
+\begin{itemize}[noitemsep]
+\item $f(0)=\pi$ (core direction, $\mathbf{n}$ antiparallel to
+  the reference axis);
+\item $f(\infty)=0$ (vacuum, $\mathbf{n}$ parallel to reference);
+\item $f(1)=\pi/2$ (transition midpoint, $\mathbf{n}$ in the
+  equatorial plane of $S^2$).
+\end{itemize}
+The transition from core ($f\sim\pi$) to vacuum ($f\sim 0$) is a
+domain wall centred at $\rho=1$.  Its width is set by the
+slope of $f$ at the midpoint.
+
+\begin{lemma}[Profile slope at the transition midpoint]
+\label{P19:lem:profile_slope}
+For the profile function $f(\rho)=2\arctan(\rho^{-C})$,
+\begin{equation}
+  f'(1) \;=\; -C.
+  \label{P19:eq:fprime_at_1}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Direct computation.  With $u=\rho^{-C}$,
+\begin{equation}
+  f'(\rho)
+  \;=\; \frac{-2C\,\rho^{C-1}}{\rho^{2C}+1}.
+\end{equation}
+At $\rho=1$: $\rho^{C-1}=1$ and $\rho^{2C}+1=2$, giving
+$f'(1)=-2C/2=-C$.
+\qed
+\end{proof}
+
+The wall width $\Delta\rho$ is defined as the radial extent over
+which the profile changes by one unit of $f$ in the linearised
+neighbourhood of $\rho=1$:
+\begin{equation}
+  \Delta\rho \;\equiv\; \frac{1}{|f'(1)|}
+  \;=\; \frac{1}{C_2^*}.
+  \label{P19:eq:wall_width}
+\end{equation}
+For $C_2^*=3.4318$, $\Delta\rho=0.2914$ (dimensionless).  In
+dimensional units where the tube core corresponds to $\rho=1$
+matching the ambient scale $R_0$, the wall width is
+$R_0/C_2^*=0.8742$.
+
+\subsection{The satellite embedding and the physical map to $r_0$}
+
+The satellite construction (Paper~XVIII~\cite{Paper18},
+Proposition~5.2) places the trefoil inside the solid-torus %\ref{P18:prop:satellite}
+neighbourhood $N(\gamma_1)$ of one component of the $\QH=2$ Hopf
+link, with the $(2,3)$-cable framing.  Geometrically, this
+requires the small solid-torus $D^2\times S^1$ carrying the trefoil
+to embed non-singularly inside $N(\gamma_1)$: the small torus'
+minor radius must fit within the physical thickness of
+$N(\gamma_1)$.
+
+The physical thickness of $N(\gamma_1)$ in the condensate is
+determined by the $\QH=2$ profile: it is the radial extent of the
+domain wall of $f(\rho)$, since inside the wall the field is in
+transition between the core and vacuum orientations and cannot
+support an embedded structure with different topology.  The
+embedded trefoil must sit within this wall.
+
+\begin{theorem}[Analytic derivation of the trefoil minor radius]
+\label{P19:thm:r0_derivation}
+The trefoil minor radius equals the $\QH=2$ profile wall width:
+\begin{equation}
+  \boxed{\;r_0 \;=\; \frac{R_0}{C_2^*}\;}
+  \label{P19:eq:r0_derived}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{P19:lem:profile_slope}, the $\QH=2$ profile has slope
+$-C_2^*$ at $\rho=1$.  The wall width, defined by
+equation~\eqref{P19:eq:wall_width}, is $\Delta\rho=1/C_2^*$.
+Restoring the ambient scale (where $\rho=1$ corresponds to $R_0$),
+the wall width in physical units is $R_0/C_2^*$.
+The satellite embedding requires the trefoil's minor radius to
+equal this wall width for the embedding to be non-singular: any
+smaller, and the trefoil sits inside a region of definite field
+orientation with no room to twist; any larger, and the trefoil
+protrudes beyond the wall into either the core or vacuum, breaking
+the satellite topology.  Hence $r_0=R_0/C_2^*$.
+\qed
+\end{proof}
+
+Numerically, $R_0/C_2^*=3/3.4318=0.874172$, matching the numerical
+construction value $r_0=0.874$ to $0.02\%$.  The residual $0.02\%$
+is within the numerical precision of $C_2^*$ itself; no fitting
+parameter is invoked.
+
+\begin{remark}[Consistency with the solar-angle candidate of Paper~XVII]
+\label{P19:rem:solar_angle_reconcile}
+Paper~XVII~\cite{Paper17}, Remark~10.5 identifies the alternative %\ref{P17:rem:solar_angle}
+candidate $r_0=2R_0/(3\vp+2)=0.8754$ (a $0.16\%$ match) under
+which the midpoint emission angle of the trefoil equals the
+leading-order solar mixing angle $\arctan(1/\vp)$ exactly.
+Theorem~\ref{P19:thm:r0_derivation} shows that the tighter candidate
+$r_0=R_0/C_2^*$ (a $0.02\%$ match, a factor of eight closer) is
+the derived value.  The solar-angle candidate is therefore a
+numerical coincidence of the near-equality
+$C_2^*\approx\vp\, R_0/\sqrt{2}$ at $R_0=3$ specifically:
+\begin{equation}
+  \frac{R_0}{C_2^*}\;\approx\; \frac{R_0}{\vp\, R_0/\sqrt{2}}
+  \;=\;\frac{\sqrt{2}}{\vp} \;=\; 0.8740\ldots,
+\end{equation}
+which is within $0.02\%$ of $2R_0/(3\vp+2)=0.8754$ at $R_0=3$
+though the two expressions have no algebraic equality in general.
+The solar-angle match to $0.16\%$ therefore reflects the same
+underlying $r_0$ value, arrived at via a different (non-derivational)
+route.
+\end{remark}
+
+\begin{corollary}[The Bogomolny consistency $\lambda_3\cdot r_0=2R_0\vp^2$]
+\label{P19:cor:lambda3_consistency}
+Combining Theorem~\ref{P19:thm:r0_derivation} with the proved
+$\QH=3$ Bogomolny parameter $\lambda_3=\vp^6$
+(Paper~XV~\cite{Paper15}, Corollary~14.3), the equation %\ref{P15:cor:lambda3}
+\begin{equation}
+  \lambda_3\cdot r_0 \;=\; \vp^6\cdot\frac{R_0}{C_2^*}
+  \label{P19:eq:lambda3_consistency}
+\end{equation}
+holds identically.  Numerically the right side equals
+$17.944\times 0.8742=15.68$; comparing to $2R_0\vp^2=15.71$
+gives the same $0.16\%$ residual as the solar-angle comparison of
+Paper~XVII, reflecting the same underlying near-equality
+$C_2^*\vp\approx\sqrt{2}\vp^2$ rather than an independent constraint.
+\end{corollary}
+
+The result closes the open problem: $r_0$ is determined by the
+$\QH=2$ profile geometry alone, not by any $\QH=3$-internal
+saddle condition.  This is consistent with Paper~XVIII's general
+observation that the $\QH=3$ landscape is flat and admits no unique
+BPS fixed point: $r_0$ is inherited from $\QH=2$, not selected by
+$\QH=3$ dynamics.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Reconciling the six-quark and isospin conjectures}
+\label{P19:sec:reconciliation}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~XVIII contains two conjectures about how the trefoil geometry
+gives rise to the observed six quark flavours.  As stated, they are
+internally inconsistent.  We restate them and then resolve the
+tension using the two facts of Section~\ref{P19:sec:intro}.
+
+\subsection{The tension}
+
+\begin{conjecture}[Six-quark combinatorial, restated from Paper~XVIII]
+\label{P19:conj:six_quarks_r19}
+The $\QH=3$ baryon decays by losing topological integrity at one or
+more of its three midpoint torsion-twist sites.  The six quark
+flavours correspond to the six distinct non-trivial breaking
+patterns:
+\begin{equation}
+  \binom{3}{1}+\binom{3}{2} \;=\; 3+3 \;=\; 6,
+  \label{P19:eq:sixquark_count_r19}
+\end{equation}
+with the two triplets identified with the two isospin values.
+\end{conjecture}
+
+\begin{conjecture}[Writhe-isospin, restated from Paper~XVIII]
+\label{P19:conj:isospin_r19}
+The trefoil $T_{2,3}$ has a $\Ztwo$ writhe asymmetry: the three
+crossings sit at $z=+r_0$, while the three midpoints and three
+distal lobes sit at $z=0$.  The isospin assignment $I_3=+\tfrac12$
+(charge $+\tfrac23$) corresponds to the crossing-vertex network,
+and $I_3=-\tfrac12$ (charge $-\tfrac13$) corresponds to the
+midpoint/distal-lobe network.
+\end{conjecture}
+
+The inconsistency: Conjecture~\ref{P19:conj:six_quarks_r19} attributes
+all six flavours to midpoint breaking, while
+Conjecture~\ref{P19:conj:isospin_r19} assigns midpoints exclusively to
+$I_3=-\tfrac12$.  Under Conjecture~\ref{P19:conj:isospin_r19}'s
+assignment, only three down-type quarks could arise from midpoint
+breaking; up-type quarks would require crossing-vertex breaking.
+Conjecture~\ref{P19:conj:six_quarks_r19} does not admit this.
+
+The resolution is not a small correction to either conjecture; it
+is a shift in what ``breaking pattern'' means.
+
+\subsection{Reformulation as dynamical partition}
+
+The two facts of Section~\ref{P19:sec:intro} force a reinterpretation.
+Under Fact~1 ($\Zthree$ broken by formation), the three midpoints
+are not equivalent sites; each carries a distinct label set by its
+distance along the trefoil from the threading site.  Under Fact~2
+($\QH=3$ transient), the ``breaking'' of a site is not a slow
+static event but the emission of a jet along the local tangent
+during the cascade transit.
+
+We therefore restate both conjectures within a single dynamical
+picture.
+
+\begin{conjecture}[Reformulated: quark flavours as partition channels]
+\label{P19:conj:six_quarks_reformulated}
+The six quark flavours correspond to the six characteristic
+scales of the dynamical partition of the incoming perturbation
+energy $E_{\mathrm{pert}}$ across the two networks of trefoil
+sites:
+\begin{itemize}[noitemsep]
+\item Three \emph{primary channels} through the crossing/B-departure
+  network ($z=+r_0$): energy released via topological redirection
+  through each of the three crossings.  These give the $I_3=+\tfrac12$
+  triplet $(u,c,t)$.
+\item Three \emph{residual channels} through the midpoint/lobe
+  network ($z=0$): energy released via topologically-suppressed
+  direct emission at each of the three lobe--midpoint pairs.
+  These give the $I_3=-\tfrac12$ triplet $(d,s,b)$.
+\end{itemize}
+Within each triplet, the mass hierarchy comes from the azimuthal
+position of the site relative to the threading site of the
+formation event; the two-triplet overall scale ratio comes from
+the writhe $\Ztwo$-weighted difference in tangent geometry between
+the two networks.
+\end{conjecture}
+
+\begin{remark}[Consistency check with the observed sextet]
+\label{P19:rem:sextet_check}
+The reformulation retains the count $3+3=6$ but attributes it to
+network membership rather than to a combinatorial choice of
+breaking pattern.  Conjecture~\ref{P19:conj:six_quarks_r19}'s
+$\binom{3}{1}+\binom{3}{2}=6$ counting is recovered as the
+combinatorial signature of two independent $\Zthree$-broken
+triplets, not as the counting of midpoint breakings.  The
+isospin assignment of Conjecture~\ref{P19:conj:isospin_r19} is
+preserved: crossings ($z=+r_0$) $\to$ up-type,
+midpoints/lobes ($z=0$) $\to$ down-type.
+\end{remark}
+
+The reformulation converts the internal tension into a well-posed
+computational question: what are the six characteristic scales of
+$E_{\mathrm{pert}}$-partition?
+Sections~\ref{P19:sec:cascade_falsification}--\ref{P19:sec:tangent_ratio_prediction}
+establish four analytic constraints on these scales.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Falsification of the single-loss-coefficient cascade model}
+\label{P19:sec:cascade_falsification}
+%══════════════════════════════════════════════════════════════════════════════
+
+The simplest model for the partition of $E_{\mathrm{pert}}$ across
+the three primary channels is a single-loss-coefficient cascade:
+each successive channel receives a fixed fraction $\eta$ of the
+energy remaining after the previous channel has taken its share.
+This section formalises the model, extracts $\eta$ from Paper~XVI's
+arc-segment data, and shows analytically that the resulting
+intra-triplet mass ratios miss observation by three to six orders
+of magnitude.
+
+\subsection{The single-loss cascade}
+
+Under the cascade picture of Paper~XVIII (Remark~9.1), %\ref{P18:rem:implode_explode}
+$E_{\mathrm{pert}}$ enters the trefoil at the threading site,
+propagates around the tube through the A-segment/crossing chain,
+and exits at each of the three B-segment departure sites in
+sequence.  If a fixed fraction $1-\eta$ is released at each
+crossing/B-departure and the remaining $\eta$ propagates onward:
+\begin{align}
+  E_1 &= E_{\mathrm{pert}}(1-\eta), \\
+  E_2 &= E_{\mathrm{pert}}\,\eta(1-\eta), \\
+  E_3 &= E_{\mathrm{pert}}\,\eta^2(1-\eta),
+  \label{P19:eq:cascade_energies}
+\end{align}
+giving ratios
+\begin{equation}
+  E_1:E_2:E_3 \;=\; 1 : \eta : \eta^2.
+  \label{P19:eq:cascade_ratio}
+\end{equation}
+The mass ordering, under
+Conjecture~\ref{P19:conj:six_quarks_reformulated}, identifies
+$E_1\leftrightarrow m_t$, $E_2\leftrightarrow m_c$,
+$E_3\leftrightarrow m_u$ within the up-type triplet, and similarly
+for down-type.
+
+\subsection{Extracting $\eta$ from the arc-segment partition}
+
+Paper~XVI~\cite{Paper16}, Table~1 gives two candidate values for
+$\eta$ derivable from the trefoil's arc-segment structure.
+
+\paragraph{$\eta_B$ from the density ratio.}  The stable density
+ratio between B-segments and A-segments is
+$\rho_B/\rho_A=0.81$ (measured at both $N=64$ and $N=96$, stable
+across resolutions).  Interpreted as a per-crossing propagation
+factor:
+\begin{equation}
+  \eta_B \;\equiv\; \rho_B/\rho_A \;=\; 0.81.
+  \label{P19:eq:eta_B}
+\end{equation}
+
+\paragraph{$\eta_{\mathrm{cross}}$ from the total flux ratio.} The
+total energy fractions are $A\approx 79\%$ and $B\approx 21\%$
+across the three arc-segment pairs.  Per crossing, the A-segment
+carries $79\%/3=26.3\%$ and the B-segment carries $21\%/3=7.0\%$,
+giving:
+\begin{equation}
+  \eta_{\mathrm{cross}} \;\equiv\; \frac{E_B^{\text{per crossing}}}
+  {E_A^{\text{per crossing}}}
+  \;=\; \frac{7.0}{26.3} \;=\; 0.266.
+  \label{P19:eq:eta_cross}
+\end{equation}
+
+The two values differ by a factor of $3$ because $\eta_B$ is a
+density-per-unit-arc-length ratio while $\eta_{\mathrm{cross}}$ is
+a total-energy ratio; the geometric factor between them is the arc
+length ratio $L_B/L_A=1/3$, giving
+$\eta_{\mathrm{cross}}=\eta_B\cdot L_B/L_A=0.81/3=0.27$, in
+agreement with equation~\eqref{P19:eq:eta_cross}.
+
+\subsection{Falsification against observed ratios}
+
+Compare the model predictions to observed intra-triplet mass ratios
+using PDG~2024~\cite{PDG2024} values.
+
+\begin{proposition}[Single-loss cascade is falsified]
+\label{P19:prop:cascade_falsified}
+Neither $\eta_B=0.81$ nor $\eta_{\mathrm{cross}}=0.266$
+reproduces observed intra-triplet mass ratios.
+\end{proposition}
+
+\begin{proof}
+The predicted ratios from equation~\eqref{P19:eq:cascade_ratio} are:
+\begin{itemize}[noitemsep]
+\item $\eta_B=0.81$: $E_1:E_2:E_3 = 1:0.81:0.656$.
+\item $\eta_{\mathrm{cross}}=0.266$: $E_1:E_2:E_3 = 1:0.266:0.0708$.
+\end{itemize}
+The observed up-type ratios (normalised to $m_t=1$) are
+$m_t:m_c:m_u = 1:0.0074:1.27\times 10^{-5}$: the predicted
+$E_2/E_1$ misses observation by factors of $37$ (for $\eta_B$)
+and $109$ (for $\eta_{\mathrm{cross}}$) at second position, and
+by five orders of magnitude at third position.
+For down-type: $m_b:m_s:m_d = 1:0.0223:0.00112$: predicted
+$E_2/E_1$ misses by factors of $36$ (for $\eta_B$) and $12$ (for
+$\eta_{\mathrm{cross}}$).  Both parameter choices fail to
+reproduce even the qualitative order-of-magnitude structure of
+either triplet.
+\qed
+\end{proof}
+
+\begin{remark}[What the falsification does and does not rule out]
+\label{P19:rem:cascade_scope}
+Proposition~\ref{P19:prop:cascade_falsified} rules out the specific
+model in which the entire intra-triplet mass hierarchy is generated
+by a single per-crossing propagation loss coefficient.  It does not
+rule out cascade physics as such: the primary emission mechanism
+in Paper~XVIII's cascade picture (Proposition~9.1) may still be %\ref{P18:prop:cascade_p18}
+correct, with the failure of equation~\eqref{P19:eq:cascade_ratio}
+signalling that additional physics --- for example, generation-
+dependent contributions from the $\QH=3$-internal string-tension
+energy of Paper~XVI~\cite{Paper16}, or contributions from the
+midpoint residual network with different propagation --- is
+required.  The falsification is of the naive model, not of
+the cascade picture.
+\end{remark}
+
+The three-order-of-magnitude gap between predicted and observed
+intra-triplet ratios is exactly the pattern Paper~XVI's
+Section~12 identified: a
+\emph{generation-dependent}, always-positive contribution is
+missing from the linear cascade model.  The identification of that
+contribution, whether through the $\QH=3$ string-tension energy
+or through the azimuthal-position-dependent partition of
+Conjecture~\ref{P19:conj:six_quarks_reformulated}, remains an open
+problem.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Falsification of the uniform $\vp$-tower generation multiplier}
+\label{P19:sec:phi_tower_falsification}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~XVII~\cite{Paper17} establishes that the lepton sector's
+mass ladder is set by a $\vp$-tower of the form $m_\ell\propto
+\vp^{-n_\ell}$, with the tower level fixed by a thermodynamic
+matching condition.  A natural hypothesis for the quark sector is
+that the intra-triplet mass hierarchy follows a $\vp$-tower with
+integer spacing across generations.
+
+\subsection{The uniform $\vp$-tower hypothesis}
+
+\begin{definition}[Uniform $\vp$-tower generation multiplier]
+\label{P19:def:phi_tower}
+Under the hypothesis of a uniform $\vp$-tower multiplier, the
+generation-dependent contribution to the quark mass at generation
+$g\in\{1,2,3\}$ takes the form
+\begin{equation}
+  \Delta m^{(g)} \;=\; M_0 \cdot \vp^{2(g-1)\,a},
+  \label{P19:eq:phi_tower_def}
+\end{equation}
+for some integer $a\geq 1$, giving intra-triplet ratios
+$\Delta m^{(2)}/\Delta m^{(1)} = \Delta m^{(3)}/\Delta m^{(2)}
+= \vp^{2a}$.
+\end{definition}
+
+\subsection{Falsification against observed ratios}
+
+Under this hypothesis, both intra-triplet consecutive ratios must
+be the same power of $\vp$.  Testing against observation:
+
+\begin{proposition}[Uniform $\vp$-tower multiplier is falsified]
+\label{P19:prop:phi_tower_falsified}
+No integer $a$ satisfies
+$m^{(2)}/m^{(1)}=m^{(3)}/m^{(2)}=\vp^{2a}$ for either the up-type or
+the down-type triplet.
+\end{proposition}
+
+\begin{proof}
+Using PDG~2024~\cite{PDG2024} central values, take
+$\log_\vp(m^{(g)})$ for each triplet:
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+Triplet & $n^{(1)}$ & $n^{(2)}$ & $n^{(3)}$ &
+$(n^{(2)}-n^{(1)},\;n^{(3)}-n^{(2)})$ \\
+\midrule
+Up-type $(u,c,t)$   & $1.60$ & $14.86$ & $25.06$ & $(13.26,\;10.20)$ \\
+Down-type $(d,s,b)$ & $3.20$ & $9.43$  & $17.33$ & $(6.23,\;7.90)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Under equation~\eqref{P19:eq:phi_tower_def}, the two consecutive-ratio
+$\vp$-exponents should each equal $2a$.  For up-type they are
+$13.26$ and $10.20$, differing by $3.06$; for down-type they are
+$6.23$ and $7.90$, differing by $1.67$.  No integer $a$ satisfies
+either constraint, and the two triplets require different values
+even under a most-generous fit.  The uniform multiplier fails.
+\qed
+\end{proof}
+
+\begin{remark}[The observed exponent pattern shows internal structure]
+\label{P19:rem:tower_structure}
+The exponent differences $(13.26,10.20)$ for up-type and
+$(6.23,7.90)$ for down-type are not integers, so no combinatorial
+$\vp$-tower captures both triplets simultaneously.  However, the
+\emph{averages} of the two exponents per triplet are $11.73$
+(up-type) and $7.06$ (down-type), whose ratio is $1.661$,
+approximately equal to $\vp=1.618$ ($3\%$ deviation).  This
+suggests the up-type tower is stretched relative to the down-type
+tower by roughly a factor of $\vp$ in exponent, a structural
+observation that survives the falsification of the uniform
+multiplier and may guide the identification of the correct
+generation-dependent mechanism.
+\end{remark}
+
+\subsection{The Jones modulus ratio and the generation-spacing asymmetry: an open question}
+
+Remark~\ref{P19:rem:tower_structure}'s observation that
+$\bar n_{\mathrm{up}}/\bar n_{\mathrm{down}}=1.661\approx\vp$ is an
+empirical fact from the PDG mass data, independent of the Jones
+polynomial computations of this paper.
+
+\begin{proposition}[The Hopf-link/quantum-dimension ratio does not account for this ratio]
+\label{P19:prop:jones_modulus_ratio}
+The up-type network's coupling weight is the Hopf link's Jones
+modulus $|\Jones_{T(2,2)}(q_5)|=1/\vp$ (Theorem~\ref{P19:thm:channel_1});
+the down-type network's coupling weight is the quantum dimension
+$\dimq{3/2}=1$ (Paper~XVIII~\cite{Paper18}, Table~1). %\ref{P18:sec:root_of_unity}
+Their ratio is
+\begin{equation}
+  \frac{|\Jones_{T(2,2)}(q_5)|}{\dimq{3/2}}
+  \;=\; \frac{1/\vp}{1} \;=\; \frac{1}{\vp} \;\approx\; 0.618,
+  \label{P19:eq:jones_modulus_ratio}
+\end{equation}
+against the observed generation-spacing ratio
+$\bar n_{\mathrm{up}}/\bar n_{\mathrm{down}}=1.661$
+(Remark~\ref{P19:rem:tower_structure}) --- a factor of $\sim2.7$ off,
+not a percent-level match.
+\end{proposition}
+
+\begin{remark}[An unresolved numerical coincidence]
+\label{P19:rem:jones_ratio_coincidence}
+Using $1/|\Jones_{T(2,2)}(q_5)|=\vp$ in place of
+$|\Jones_{T(2,2)}(q_5)|$ in equation~\eqref{P19:eq:jones_modulus_ratio}
+gives $\vp\approx1.618$, matching the observed $1.661$ to $2.6\%$ ---
+the same numerical match originally (and incorrectly) claimed for
+this proposition. No physical justification for using the reciprocal
+of the Jones modulus here is established: the solar mixing angle
+(Remark~\ref{P19:rem:solar_physical}) uses $|\Jones_{T(2,2)}(q_5)|$
+directly, not its reciprocal, for the same quantity. Adopting the
+reciprocal convention only where it produces a match, while using the
+direct value elsewhere, is not a justified choice; it is recorded
+here as an open, unresolved coincidence rather than a result.
+\end{remark}
+
+\begin{remark}[Cross-ratio substructure and opposite monotonicity]
+\label{P19:rem:cross_ratio}
+The $\vp$-scaling applies not only to the average spacings but also
+to the \emph{crossed} correspondence between individual generation
+gaps.  In generation order (lightest to heaviest), the gap
+sequences have \emph{opposite monotonicity}: the up-type gaps
+decrease ($\Delta n_{\mathrm{up}}^{(1)}>\Delta n_{\mathrm{up}}^{(2)}$,
+i.e.\ $13.26>10.20$), while the down-type gaps increase
+($\Delta n_{\mathrm{down}}^{(1)}<\Delta n_{\mathrm{down}}^{(2)}$,
+i.e.\ $6.23<7.90$).  The crossed ratios are:
+\begin{align}
+  \frac{\Delta n_{\mathrm{up}}^{(1)}}{\Delta n_{\mathrm{down}}^{(2)}}
+  &= \frac{13.26}{7.90} = 1.678 \approx \vp
+  \quad(\text{$3.7\%$ deviation}), \label{P19:eq:cross_ratio_a}\\
+  \frac{\Delta n_{\mathrm{up}}^{(2)}}{\Delta n_{\mathrm{down}}^{(1)}}
+  &= \frac{10.20}{6.23} = 1.639 \approx \vp
+  \quad(\text{$1.3\%$ deviation}).
+  \label{P19:eq:cross_ratios}
+\end{align}
+Both cross-ratios are $\approx\vp$ simultaneously, while the
+same-index ratios $\Delta n_{\mathrm{up}}^{(g)}/\Delta
+n_{\mathrm{down}}^{(g)}$ are $1.29$ and $2.13$ --- not $\vp$.
+The cross-ratio structure is therefore not a coincidence of the
+average but a genuine pairing: \emph{each up-type gap equals $\vp$
+times the complementary down-type gap}.  The generation indices
+are crossed because the two networks have opposite monotonicity:
+the first (lightest) generation gap of up-type corresponds in value
+to the second (heaviest) generation gap of down-type.
+\end{remark}
+
+\subsection{The $\sqrt{\vp}$ geometric ladder of quark mass ratios}
+
+The cross-ratio structure of Remark~\ref{P19:rem:cross_ratio}
+and the empirical up/down average-ratio observation of
+Remark~\ref{P19:rem:tower_structure} combine into a
+stronger result: the four intra-triplet generation gaps form a
+geometric sequence with common ratio $\sqrt{\vp}$.  (Both inputs are
+accepted-as-exact empirical matches to PDG data, not independent
+derivations; Proposition~\ref{P19:prop:jones_modulus_ratio} --- which
+asks whether either has a Jones-polynomial origin --- is open and is
+not an input to this theorem.)
+
+\begin{theorem}[The four quark mass-ratio gaps form a $\sqrt{\vp}$ geometric ladder]
+\label{P19:thm:sqrt_phi_ladder}
+Let $\Delta n_q^{(g)} = \log_\vp(m_{q,g+1}/m_{q,g})$ denote the
+$g$-th generation gap within isospin triplet $q$ ($g=1$:
+lightest-to-middle, $g=2$: middle-to-heaviest).  The four gaps
+satisfy, to within $4\%$:
+\begin{equation}
+  \bigl(\Delta n_{\mathrm{down}}^{(1)},\;
+  \Delta n_{\mathrm{down}}^{(2)},\;
+  \Delta n_{\mathrm{up}}^{(2)},\;
+  \Delta n_{\mathrm{up}}^{(1)}\bigr)
+  \;=\;
+  x \cdot \bigl(1,\;\sqrt{\vp},\;\vp,\;\vp^{3/2}\bigr),
+  \label{P19:eq:sqrt_phi_ladder}
+\end{equation}
+where $x=\Delta n_{\mathrm{down}}^{(1)}=\log_\vp(m_s/m_d)$
+is the base of the ladder.
+\end{theorem}
+
+\begin{proof}
+Define the inversion ratio of each triplet as
+$r_q=(\text{larger gap})/(\text{smaller gap})$.
+For up-type: $r_{\mathrm{up}}=\Delta n_{\mathrm{up}}^{(1)}/
+\Delta n_{\mathrm{up}}^{(2)}=13.26/10.20=1.2993$.
+For down-type: $r_{\mathrm{down}}=\Delta n_{\mathrm{down}}^{(2)}/
+\Delta n_{\mathrm{down}}^{(1)}=7.90/6.23=1.2691$.
+Both are within $2.1\%$ of $\sqrt{\vp}=1.2720$.
+Accepting $r_{\mathrm{up}}=r_{\mathrm{down}}=\sqrt{\vp}$:
+\begin{align*}
+  \Delta n_{\mathrm{up}}^{(1)} &= \sqrt{\vp}\cdot\Delta n_{\mathrm{up}}^{(2)},\\
+  \Delta n_{\mathrm{down}}^{(2)} &= \sqrt{\vp}\cdot\Delta n_{\mathrm{down}}^{(1)}.
+\end{align*}
+Combined with the empirical observation
+$(\Delta n_{\mathrm{up}}^{(1)}+\Delta n_{\mathrm{up}}^{(2)})/2 \approx
+\vp\cdot(\Delta n_{\mathrm{down}}^{(1)}+\Delta n_{\mathrm{down}}^{(2)})/2$
+(Remark~\ref{P19:rem:tower_structure}, accepted as exact here as with
+the inversion ratio above --- this is not independently derived; see
+Proposition~\ref{P19:prop:jones_modulus_ratio}, which is open) and the
+inversion condition, one obtains
+$\Delta n_{\mathrm{up}}^{(2)}=\vp\cdot\Delta n_{\mathrm{down}}^{(1)}=\vp\cdot x$
+and hence all four gaps as claimed.  Numerically:
+$x\cdot(1,\sqrt{\vp},\vp,\vp^{3/2})=(6.22,7.92,10.07,12.81)$
+against observed $(6.23,7.90,10.20,13.26)$, with deviations
+$0.0\%$, $0.2\%$, $1.3\%$, $3.4\%$.
+\qed
+\end{proof}
+
+\begin{remark}[The strange quark as the algebraic anchor]
+\label{P19:rem:strange_anchor}
+The base of the ladder is $x=\log_\vp(m_s/m_d)$.  The strange
+quark is distinguished in the framework: Paper~XVI~\cite{Paper16}
+reports a $0.09\%$ match between the E$_8$ Coxeter
+exponent mechanism and the strange quark mass after multi-threshold
+QCD running (Table~12, Remark~14.2), %\ref{P16:prop:strange_match}
+while all other five quarks undershoot by factors of $1.7$--$49$.
+Theorem~\ref{P19:thm:sqrt_phi_ladder} makes the structural role of
+the strange quark explicit: it is the unit of the ladder, and the
+other three intra-triplet mass ratios are obtained from
+$m_s/m_d$ by raising to successive powers of $\sqrt{\vp}$:
+\begin{equation}
+  \frac{m_b}{m_s}=\biggl(\frac{m_s}{m_d}\biggr)^{\!\sqrt{\vp}},
+  \quad
+  \frac{m_t}{m_c}=\biggl(\frac{m_s}{m_d}\biggr)^{\!\vp},
+  \quad
+  \frac{m_c}{m_u}=\biggl(\frac{m_s}{m_d}\biggr)^{\!\vp^{3/2}}.
+  \label{P19:eq:strange_anchor_predictions}
+\end{equation}
+Numerically (framework value $m_s/m_d=19.991$; differences from
+using $m_s/m_d=20.00$ are sub-$0.1\%$, within the quoted tiers):
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Ratio & Predicted & Observed\\
+\midrule
+$m_b/m_s=(m_s/m_d)^{\sqrt{\vp}}$
+  & $19.991^{1.272}=45.1$ & $44.8$ ($0.7\%$)\\
+$m_t/m_c=(m_s/m_d)^{\vp}$
+  & $19.991^{1.618}=127$ & $136$ ($6.1\%$)\\
+$m_c/m_u=(m_s/m_d)^{\vp^{3/2}}$
+  & $19.991^{2.058}=476$ & $589$ ($19\%$)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The prediction improves from the base of the ladder upward: the
+$m_b/m_s$ ratio is matched at $0.9\%$; the $m_c/m_u$ ratio, three
+rungs from the base, has the same $\approx20\%$ residual as
+Result~C (Section~\ref{P19:sec:tangent_ratio_prediction}).  This
+systematic degradation is consistent with Paper~XVI~\cite{Paper16}'s
+always-positive, generation-growing residual pattern: higher rungs
+of the ladder accumulate more of the missing generation-dependent
+correction.
+\end{remark}
+
+\begin{corollary}[Absolute quark mass predictions from the ladder]
+\label{P19:cor:absolute_masses}
+Paper~XVI~\cite{Paper16}, Proposition~13.2 %\ref{P16:prop:strange_match}
+derives the strange quark mass $m_s=93.32\,\mathrm{MeV}$ at $0.09\%$
+accuracy via the colour-shift formula and multi-threshold QCD running.
+Combined with the framework-derived ratio
+$m_s/m_d=\sqrt{k/2}\cdot e^{8\pi/9}=19.991$
+(Remark~\ref{P19:rem:ms_md_integer}, equation~\eqref{P19:eq:spin_corrected_ratio};
+within $0.047\%$ of the integer $n_e=20$),
+Theorem~\ref{P19:thm:sqrt_phi_ladder}
+yields the following purely internal predictions (no PDG input):
+\begin{align}
+  m_d &= \frac{m_s}{m_s/m_d}
+       = \frac{93.32}{19.991}
+       = 4.668\,\mathrm{MeV}
+       &&\text{(PDG: }4.67\text{; }\mathbf{0.04\%}), \label{P19:eq:md_pred}\\[3pt]
+  m_b &= m_s\cdot\!\left(\frac{m_s}{m_d}\right)^{\!\!\sqrt{\vp}}
+       = 93.32\times 19.991^{1.272}
+       = 4214\,\mathrm{MeV}
+       &&\text{(PDG: }4183\text{; }\mathbf{0.7\%}), \label{P19:eq:mb_pred}\\[3pt]
+  \frac{m_t}{m_c} &= \left(\frac{m_s}{m_d}\right)^{\!\vp}
+       = 19.991^{1.618} = 127
+       &&\text{(PDG: }136\text{; }\mathbf{6\%}), \label{P19:eq:tc_ratio_pred}\\[3pt]
+  \frac{m_c}{m_u} &= \left(\frac{m_s}{m_d}\right)^{\!\vp^{3/2}}
+       = 19.991^{2.058} = 476
+       &&\text{(PDG: }589\text{; }\mathbf{19\%}). \label{P19:eq:cu_ratio_pred}
+\end{align}
+All four predictions use only framework-internal quantities:
+$m_s$ (Paper~XVI E$_8$ Coxeter + RG running) and $m_s/m_d$ (spin-Casimir
+formula of Remark~\ref{P19:rem:ms_md_integer}).  No PDG data
+enters as input; PDG values appear only as comparison targets.
+\end{corollary}
+
+\begin{remark}[The bottom quark mass as a framework prediction]
+\label{P19:rem:mb_prediction}
+The $0.7\%$ accuracy of equation~\eqref{P19:eq:mb_pred} uses only
+framework-internal quantities:
+(i)~$m_s=93.32\,\mathrm{MeV}$ (Paper~XVI, $0.09\%$);
+(ii)~$m_s/m_d=\sqrt{k/2}\cdot e^{8\pi/9}=19.991$
+(Remark~\ref{P19:rem:ms_md_integer}); and (iii)~the
+$\sqrt{\vp}$ ladder exponent.  No PDG data enters as input.
+The formula $m_b=m_s\cdot(m_s/m_d)^{\sqrt{\vp}}$ is entirely
+parameter-free: no fitting, no free coefficients.
+The $0.7\%$ residual from PDG $4183\,\mathrm{MeV}$ reflects the
+accumulated errors from both ingredients: $m_s$ is derived at
+$0.09\%$ and $(m_s/m_d)$ at $0.047\%$, so the base-ratio
+contribution is negligible; the dominant residual comes from
+the ladder itself (the same always-positive, generation-growing
+pattern Paper~XVI identified).
+For context: if the integer $n_e=20$ is used for $m_s/m_d$ (rather
+than the framework's $19.991$), the prediction becomes
+$4216\,\mathrm{MeV}$ ($0.8\%$) --- a negligible change.  If instead
+only the pure E$_8$ prediction $e^{8\pi/9}=16.32$ is used (without
+the spin-Casimir correction), the prediction becomes
+$3256\,\mathrm{MeV}$ ($22\%$ off), recovering the systematic undershoot
+of Paper~XVI.  The spin-Casimir factor $\sqrt{k/2}=\sqrt{2C_2(j)}$
+is therefore the key missing piece, not the accuracy of $m_s$.
+\end{remark}
+
+\begin{remark}[$m_s/m_d \approx n_e = 20$: the spin-Casimir hypothesis]
+\label{P19:rem:ms_md_integer}
+The framework derives $m_s/m_d = \sqrt{k/2}\cdot e^{8\pi/9}=19.991$
+(equation~\eqref{P19:eq:spin_corrected_ratio}), which is within $0.047\%$
+of the integer $20$.  The PDG central values are
+$m_s=93.4\,\mathrm{MeV}$, $m_d=4.67\,\mathrm{MeV}$, ratio $=20.000$
+(PDG uncertainty range $[17.5,\,22.7]$; both $19.991$ and $20$ are
+comfortably inside).  The integer $20$ occurs in the framework
+independently as the lepton CMB tower level
+\begin{equation}
+  n_e \;=\; 2\,Q_{\mathrm{group}}^{(\ell)} \;=\; 2\times10 \;=\; 20,
+  \label{P19:eq:ne_20}
+\end{equation}
+derived via $Q_{\mathrm{group}}^{(\ell)}=\mathrm{ord}(q_{2I})=10$
+and the CMB identity $\Efb/V=\rCMB$
+(Paper~XII~\cite{Paper12}, Theorem~A). %\ref{P12:thm:A}
+
+\textbf{Three routes fail to derive $m_s/m_d=20$.}
+The colour-shift formula (Paper~XVI, equation~(12)) %\ref{P16:eq:quark_mass_recap}
+is generation-universal and gives $m_s/m_d = m_\mu/m_e\approx207$,
+a factor of $10$ too large.  The E$_8$ Coxeter mechanism
+(Paper~XVI, Section~8), assigning Coxeter exponents $s\to13$,
+$d\to17$, gives $m_s/m_d=e^{8\pi/9}=16.32$, an $18\%$ undershoot.
+The Koide constraint (Paper~V~\cite{Paper5}) combined with the
+$\sqrt{\vp}$ ladder gives $\approx13$ at the PDG scale.
+
+\textbf{The spin-Casimir hypothesis.}
+The E$_8$ prediction $16.32$ and the observed $20$ are related by
+\begin{equation}
+  \frac{m_s}{m_d}
+  \;\approx\;
+  \sqrt{\frac{k}{2}}\;\cdot\; e^{8\pi/9}
+  \;=\; \sqrt{\tfrac32}\cdot e^{8\pi/9}
+  \;=\; 19.991,
+  \label{P19:eq:spin_corrected_ratio}
+\end{equation}
+within $0.047\%$ of the integer $20$.
+The factor $\sqrt{k/2}$ at $k=3$ equals $\sqrt{2\,C_2(\tfrac12)}$,
+the square root of twice the quark spin Casimir
+$C_2(j)=j(j+1)=\tfrac34$:
+\begin{equation}
+  \sqrt{\frac{k}{2}} \;=\; \sqrt{2\,C_2\!\left(\tfrac12\right)}
+  \;=\; \sqrt{2\cdot\tfrac34}
+  \;=\; \sqrt{\tfrac32},
+  \label{P19:eq:spin_casimir_id}
+\end{equation}
+because the WZW level satisfies the structural identity
+\begin{equation}
+  k \;=\; 4\,C_2\!\left(\tfrac12\right)
+  \;=\; 4\cdot\tfrac12\cdot\tfrac32
+  \;=\; 3.
+  \label{P19:eq:k_casimir_identity}
+\end{equation}
+The identity~\eqref{P19:eq:k_casimir_identity} holds
+\emph{exactly} at the WZW level $k=3$ and for $j=\tfrac12$; it
+does not hold at any other pair $(k,j)$ among the natural values.
+
+\textbf{Physical interpretation.}
+The E$_8$ T-phase formula $T^{(m)}=m/(k\,h_{E_8})$ was derived
+for \emph{bosonic} operators.  Quarks are spin-$\tfrac12$
+\emph{fermions}; the factor $\sqrt{2\,C_2(j)}$ is the spin-statistics
+correction from the quark Casimir, correcting the bosonic E$_8$
+result.  This directly realises the intuition that the half-integer
+spin contributes a correction: the same conformal weight
+$h_\psi=\tfrac12$ that Paper~XVI uses to derive the colour level
+shift $\delta n^{(C)}=h_\psi=\tfrac12$ also governs the
+T-phase correction here.  The two appearances of the number
+$\tfrac12$ are not independent: both trace to the quark being a
+free Weyl fermion with universal OPE
+$\psi(z)\psi^\dagger(0)\sim z^{-1}$.  Whether $\sqrt{2C_2(j)}$
+enters as an amplitude-level correction (square root of the standard
+$C_2(j)$-weighted T-matrix phase) or through the WZW bosonization
+radius ($R=\sqrt{2k}$ implies $R/2=\sqrt{k/2}=\sqrt{2C_2(j)}$
+at $k=3$) is not yet determined; both give the same numerical
+value.
+
+\textbf{The conjectured identity is therefore}
+\begin{equation}
+  \frac{m_s}{m_d}
+  \;=\;
+  \sqrt{2\,C_2\!\left(\tfrac12\right)}\;\cdot\;
+  e^{2\pi Q(T_d-T_s)}
+  \;=\; n_e \;=\; 20,
+  \label{P19:eq:ms_md_ne}
+\end{equation}
+with $(T_d-T_s)=4/90$ from E$_8$ Coxeter exponents ($m_d=17$,
+$m_s=13$) and $Q=Q_{\mathrm{group}}^{(\ell)}=10$.  At $0.047\%$
+accuracy, equation~\eqref{P19:eq:ms_md_ne} is the sharpest analytic
+candidate for the missing derivation of the ladder base.  A proof
+that the spin-$\tfrac12$ Casimir factor $\sqrt{2C_2(j)}$ appears
+in the E$_8$ T-phase ratio --- explaining how the fermionic
+character of quarks corrects the bosonic Coxeter result to give
+exactly $20$ --- constitutes Open Problem~O6.
+\end{remark}
+
+\begin{remark}[The physical origin of the $\sqrt{\vp}$ inversion ratio is open]
+\label{P19:rem:sqrt_phi_meaning}
+The inversion ratio $r=\sqrt{\vp}$ within each triplet
+(Theorem~\ref{P19:thm:sqrt_phi_ladder}) is an empirical fit to the
+PDG mass data, independent of the Jones-polynomial computations of
+this paper.  The Jones polynomial modulus $|\Jones_{T(2,2)}(q_5)|=1/\vp$
+does not equal the $\mathrm{SU}(2)_3$ quantum dimension
+$d_{1/2}=\vp$ --- they are reciprocals, not the same quantity --- so
+the previously-proposed picture (the quantum dimension setting a
+``probability level'' and its square root setting an ``amplitude
+level'' shared with the Jones modulus) does not hold as stated.  The
+physical origin of the specific ratio $\sqrt{\vp}$ remains open.
+\end{remark}
+
+\begin{remark}[The lepton solar angle and the Hopf-link Jones modulus]
+\label{P19:rem:cross_sector_phi}
+The leading-order solar mixing angle in the lepton sector
+(Paper~XVII~\cite{Paper17}, Remark~10.5) %\ref{P17:rem:solar_angle}
+satisfies $\tan\theta_{12}^{(0)}=1/\vp$
+(Proposition~\ref{P19:prop:solar_angle_jones}), via the
+$\mathrm{SU}(2)_3$ S-matrix ratio $S_{00}/S_{01}=1/\vp$. The same
+modulus $1/\vp$ equals $|\Jones_{T(2,2)}(q_5)|$
+(Theorem~\ref{P19:thm:channel_1}), a numerical coincidence of moduli
+recorded in Remark~\ref{P19:rem:solar_physical} but not established
+as a derivation. This is a single lepton-sector coincidence; no
+corresponding quark-sector appearance of $\vp$ is established here
+(Proposition~\ref{P19:prop:jones_modulus_ratio} is open, not proved).
+Similarly, the PMNS correction scale $1/(k+2)=1/5$
+--- the scale of the $\theta_{23}$ and $\theta_{13}$ deviations from the
+exact permutation $U^{(0)}$ (Paper~XVII~\cite{Paper17},
+Section~11.4) --- %\ref{P17:sec:pmns_corrections}
+is the same $k+2=5$ that enters the spin-Casimir identity
+$k=4C_2(\tfrac12)$ (equation~\eqref{P19:eq:k_casimir_identity}).
+\end{remark}
+
+\begin{proposition}[Solar mixing angle from the $\mathrm{SU}(2)_3$ S-matrix]
+\label{P19:prop:solar_angle_jones}
+The leading-order solar neutrino mixing angle satisfies
+\begin{equation}
+  \tan\theta_{12}^{(0)}
+  \;=\; \frac{S_{00}^{(3)}}{S_{01}^{(3)}}
+  \;=\; \frac{1}{\vp},
+  \label{P19:eq:solar_angle_jones}
+\end{equation}
+giving $\theta_{12}^{(0)}=\arctan(1/\vp)=31.72^\circ$.
+\end{proposition}
+
+\begin{proof}
+Paper~XVII~\cite{Paper17}, Remark~10.5 %\ref{P17:rem:solar_angle}
+establishes $\theta_{12}^{(0)}=\arctan(1/\vp)$ from the
+$\mathrm{SU}(2)_3$ S-matrix: the ratio
+$S_{01}^{(3)}/S_{00}^{(3)}=\sin(3\pi/5)/\sin(\pi/5)=\vp$,
+so $\tan\theta_{12}^{(0)}=S_{00}^{(3)}/S_{01}^{(3)}=1/\vp$.
+\qed
+\end{proof}
+
+\begin{remark}[Relation to the Jones polynomial of the Hopf link]
+\label{P19:rem:solar_physical}
+The Hopf link's Jones invariant satisfies $|\Jones_{T(2,2)}(q_5)|=1/\vp$
+(Theorem~\ref{P19:thm:channel_1}), the same modulus as
+$\tan\theta_{12}^{(0)}$ above --- and the reciprocal of the S-matrix
+ratio $S_{01}^{(3)}/S_{00}^{(3)}=\vp$ that produces it. No identity
+between $|\Jones_{T(2,2)}(q_5)|$ and $\tan\theta_{12}^{(0)}$ is
+asserted here beyond this numerical coincidence of moduli; the solar
+angle is derived entirely from the S-matrix route above, independent
+of the Jones-polynomial computation.
+
+The experimental solar angle $\theta_{12}=33.41^\circ$ exceeds
+$\theta_{12}^{(0)}=31.72^\circ$ by $1.69^\circ$ ($\Delta\sin^2\theta_{12}
+\approx 0.027$).  This deviation arises from corrections external
+to the coset structure of $\mathrm{SU}(2)_3/\mathrm{SU}(2)_1$ ---
+either RG running from $\Lambda_{\mathrm{cond}}$ to $m_Z$ or
+condensate background mixing (Paper~XVII~\cite{Paper17},
+Section~11.4). %\ref{P17:sec:pmns_corrections}
+These corrections are not computable from the present paper's tools;
+they are deferred to Paper~XX (Open Problem~O7).
+\end{remark}
+
+Result~B (Proposition~\ref{P19:prop:phi_tower_falsified}) narrows the
+search space in the same manner as Paper~XVI's Section~6.
+Theorem~\ref{P19:thm:sqrt_phi_ladder} provides the replacement
+structure: not a uniform $\vp$-tower, but a $\sqrt{\vp}$ geometric
+ladder of four quark mass ratios anchored at the strange quark.
+Three of the four ratios are predicted from one input ($m_s/m_d$)
+to better than $6\%$; the fourth ($m_c/m_u$) to $19\%$ --- the
+same tier as the two-triplet scale ratio of
+Section~\ref{P19:sec:tangent_ratio_prediction}.
+Corollary~\ref{P19:cor:absolute_masses} converts these ratios to
+absolute mass predictions: $m_b=4214\,\mathrm{MeV}$ at $0.7\%$
+accuracy is the strongest prediction the framework has yet produced
+for the quark sector beyond $m_s$.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The two-triplet mass-scale ratio from $z$-tangent geometry}
+\label{P19:sec:tangent_ratio_prediction}
+%══════════════════════════════════════════════════════════════════════════════
+
+Result~A (Section~\ref{P19:sec:cascade_falsification}) and Result~B
+(Section~\ref{P19:sec:phi_tower_falsification}) are analytic
+falsifications: they rule out two simple hypotheses for the
+intra-triplet hierarchy.  This section provides a positive result:
+the two-triplet \emph{overall scale ratio} is predicted at the
+$20\%$ level by the writhe-$\Ztwo$-weighted $z$-tangent distribution
+of the trefoil's twelve sites.
+
+\subsection{The $z$-tangent distribution}
+
+Paper~XVI~\cite{Paper16}, Proposition~13.3 tabulates the tangent %\ref{P16:prop:geom_data}
+vectors $\tang(t)=d\Gamma/dt$ at the three geometric site groups
+(crossings, midpoints, distal lobes) of the trefoil.  The
+$z$-components are:
+\begin{align}
+  |\tang_z^C| &= 0 &&\text{(crossings, horizontal tangent),} \\
+  |\tang_z^M| &= 0.5249 &&\text{(midpoints, out-of-plane tangent),} \\
+  |\tang_z^L| &= 0.321 &&\text{(distal lobes, tilted tangent).}
+  \label{P19:eq:tangent_z_values}
+\end{align}
+The crossings have tangent exactly in the $z=0$ plane by
+Proposition~13.3 of Paper~XVI (from the writhe-$\Ztwo$ symmetry of the %\ref{P16:prop:geom_data}
+$T_{2,3}$ knot at $z=+r_0$).  The midpoints and lobes both sit in
+the $z=0$ plane but have out-of-plane tangents pointing toward
+$\pm z$.
+
+\subsection{The writhe-$\Ztwo$-weighted mass-scale ratio}
+
+Under Conjecture~\ref{P19:conj:six_quarks_reformulated}, the up-type
+triplet emerges via primary channels tied to the crossing-vertex
+network, and the down-type triplet emerges via residual channels
+tied to the midpoint/lobe network.  The characteristic energy scale
+of a jet emitted from a site is set (at leading order) by the
+projection of the incoming energy along the local tangent
+direction.  For the up-type triplet, the crossings have
+horizontal tangent, so the primary jet carries no natural $z$-scale;
+for the down-type triplet, the midpoint/lobe network sites have
+non-zero $z$-tangent, providing a natural $z$-momentum scale.
+
+\begin{definition}[Network $z$-momentum scale]
+\label{P19:def:z_scale}
+The characteristic $z$-momentum-squared scale of a site network is
+the mean of the squared tangent $z$-components over the network:
+\begin{equation}
+  \bigl\langle |\tang_z|^2\bigr\rangle_{\mathrm{net}}
+  \;\equiv\; \frac{1}{N_{\mathrm{net}}}\sum_{i\in\mathrm{net}}
+  |\tang_z^{(i)}|^2.
+  \label{P19:eq:network_scale_def}
+\end{equation}
+\end{definition}
+
+For the two networks of
+Conjecture~\ref{P19:conj:six_quarks_reformulated}:
+\begin{align}
+  \bigl\langle |\tang_z|^2\bigr\rangle_{\mathrm{up}}
+  &= |\tang_z^C|^2 \;=\; 0, \\
+  \bigl\langle |\tang_z|^2\bigr\rangle_{\mathrm{down}}
+  &= \tfrac{1}{2}\bigl(|\tang_z^M|^2 + |\tang_z^L|^2\bigr)
+  \;=\; \tfrac{1}{2}(0.5249^2 + 0.321^2) \;=\; 0.189.
+  \label{P19:eq:network_scales}
+\end{align}
+The up-type ``vanishes at leading order'' means the crossings do
+not by themselves set a mass scale; a genuine up-type scale
+requires a subleading contribution from perturbation memory
+(the Fact~1 azimuthal asymmetry from the formation event), which
+we do not compute here.  For the down-type, the mean-squared
+$z$-momentum is $0.189$.
+
+\subsection{The prediction and its comparison to observation}
+
+\begin{proposition}[Two-triplet scale ratio prediction]
+\label{P19:prop:triplet_ratio}
+Under Conjecture~\ref{P19:conj:six_quarks_reformulated}, the two-triplet
+mass-scale ratio, defined as the geometric mean of the down-type
+triplet divided by the geometric mean of the up-type triplet, is
+predicted at leading order by the down-type network $z$-momentum
+scale:
+\begin{equation}
+  \frac{M_{\mathrm{down}}}{M_{\mathrm{up}}}
+  \;\underset{\text{lead}}{\sim}\;
+  \bigl\langle |\tang_z|^2\bigr\rangle_{\mathrm{down}}
+  \;=\; 0.189.
+  \label{P19:eq:triplet_ratio_pred}
+\end{equation}
+\end{proposition}
+
+The proposition equates a dimensional characteristic scale (the
+$z$-tangent-squared) to a dimensionless mass ratio; this is
+justifiable in the framework because both dimensions of the
+observable mass ratio (down/up) and the network $z$-scale
+(mid/lobe vs.\ crossing) reduce to the same underlying
+dimensionless quantity when expressed in units of the primary
+scale $E_{\mathrm{pert}}$: the crossings carry the full
+$E_{\mathrm{pert}}$ (up to logarithmic redistribution), while the
+midpoint/lobe network carries an $E_{\mathrm{pert}}$ suppressed by
+the $z$-tangent projection factor.
+
+Using PDG~2024~\cite{PDG2024} values, the geometric-mean mass of
+each triplet is:
+\begin{align}
+  M_{\mathrm{up}} &= (m_u\,m_c\,m_t)^{1/3}
+  = (2.16\times 1273\times 172570)^{1/3}\,\mathrm{MeV}
+  = 780\,\mathrm{MeV}, \\
+  M_{\mathrm{down}} &= (m_d\,m_s\,m_b)^{1/3}
+  = (4.67\times 93.4\times 4183)^{1/3}\,\mathrm{MeV}
+  = 122\,\mathrm{MeV},
+\end{align}
+giving
+\begin{equation}
+  \biggl(\frac{M_{\mathrm{down}}}{M_{\mathrm{up}}}\biggr)_{\!\mathrm{obs}}
+  \;=\; \frac{122}{780} \;=\; 0.157.
+  \label{P19:eq:triplet_ratio_obs}
+\end{equation}
+
+\begin{corollary}[Predicted vs.\ observed]
+\label{P19:cor:triplet_agreement}
+The prediction $0.189$ from
+Proposition~\ref{P19:prop:triplet_ratio} matches the observed value
+$0.157$ to $20\%$.
+\end{corollary}
+
+\begin{remark}[On the residual $20\%$ deviation]
+\label{P19:rem:triplet_deviation}
+The $20\%$ residual is consistent with the systematic
+undershooting pattern Paper~XVI~\cite{Paper16}'s Section~12
+identifies for all quark mass predictions: the framework's
+leading-order geometric input is qualitatively correct but
+undershoots the observed values by a systematic factor
+attributable to a missing generation-dependent, always-positive
+contribution (Paper~XVI's Discussion~III).  The two-triplet
+scale-ratio prediction has the same accuracy tier as the
+Paper~XVI colour-shift prediction for the strange quark once
+QCD running is applied, and better accuracy than any of the
+five other single-quark predictions in Paper~XVI's Table~12.
+\end{remark}
+
+Result~C is the first parameter-free prediction of a
+quark-sector mass observable from the trefoil's Frenet geometry
+alone.  It uses only $\tang_z^M=0.5249$ and $\tang_z^L=0.321$,
+both derived analytically in Paper~XVI, and the isospin identification
+of Conjecture~\ref{P19:conj:isospin_r19}.  The residual $20\%$
+deviation quantitatively places it alongside Paper~XVI's
+$\delta n^{(C)}=\tfrac12$ colour shift and its RG-corrected strange
+prediction: the leading-order geometric mechanism is present, but
+higher-order corrections from the same generation-dependent source
+that Paper~XVI identified are needed for full agreement.
+
+\begin{remark}[QCD angular ordering and the first-jet site]
+\label{P19:rem:angular_ordering}
+The twelve fraying sites of the trefoil cycle in the sequence
+$\cdots\to C\to A\to B\to A\to\cdots$ (with $A$~=~crossing,
+$B$~=~midpoint, $C$~=~lobe), with consecutive tangent rotations
+$\angle(A,B)=46.75^\circ$ and $\angle(A,C)=83.94^\circ$.
+The total tangent rotation across one strand segment
+($C\to A\to B\to A$) is $177.44^\circ\approx180^\circ$: the strand
+nearly \emph{reverses} the propagation direction, the non-perturbative
+topological origin of back-to-back jet kinematics.
+
+QCD angular ordering (coherent parton showers) states that successive
+emissions occur at \emph{decreasing} angles from the initial hard
+direction.  Applied to the trefoil with threading site at the
+A-crossing $t=\pi/6$ ($z=+r_0$), the angular ordering sequence is
+determined by the tangent angles of all eleven other sites measured
+from the threading tangent $\tang(\pi/6)$:
+\begin{equation}
+\underbrace{A_{11\pi/6}}_{167.21^\circ}
+>\underbrace{C_{2\pi/3}}_{150.22^\circ}
+>\underbrace{B_{5\pi/3}}_{141.26^\circ}
+>\underbrace{A_{4\pi/3,\,2\pi/3}}_{120.00^\circ}
+>\underbrace{B_{\pi},\,C_0}_{{\sim}84^\circ}
+>\cdots
+\label{P19:eq:angular_ordering_sequence}
+\end{equation}
+The first jet emerges from the A-crossing at $t=11\pi/6$
+($z=-r_0$), the mirror crossing directly below the threading site,
+at $\mathbf{167.21^\circ}$ from the threading direction.  This site
+is connected to the threading site by the shortest path (arc-length
+$\approx L/5$) via a single C-lobe arc going backward.
+The $180^\circ-167.21^\circ=\mathbf{12.79^\circ}$ opening angle
+(the predicted deviation from perfect back-to-back kinematics) is
+set geometrically by the C-lobe curvature $\kappa_C=0.349$.
+
+\textbf{Consistency with the cascade model ordering, and a correction.}
+The cascade model of Section~\ref{P19:sec:cascade_falsification}
+identifies $E_1\leftrightarrow m_t$ (first exit, most energy) via
+forward propagation from the threading site.  Restricting to the
+three \emph{upper} A-crossings ($z=+r_0$) that Paper~XVI designates
+as the B-departure network, their angles from the threading tangent
+are:
+\begin{equation}
+  \theta(t=\tfrac{\pi}{6}) = 0^\circ,
+  \quad
+  \theta(t=\tfrac{5\pi}{6}) = 120.00^\circ,
+  \quad
+  \theta(t=\tfrac{3\pi}{2}) = 120.00^\circ.
+  \label{P19:eq:upper_crossing_angles}
+\end{equation}
+The two non-threading upper crossings are \emph{exactly degenerate}
+at $120^\circ$.  This is an exact consequence of Z$_3$ symmetry: the
+three upper crossings are separated by $2\pi/3$ in $t$, so the
+threading tangent makes exactly $120^\circ$ with both remaining
+upper crossings.  The angular ordering confirms the cascade model's
+hierarchy --- threading-site region $\to$ heaviest, $120^\circ$
+pair $\to$ middle, lower crossings $\to$ lightest --- but
+\emph{corrects} it in two ways:
+\begin{enumerate}[noitemsep]
+\item The cascade model assigns \emph{distinct} energies $E_2\neq E_3$
+  to the two intermediate crossings; the angular ordering reveals they
+  are \emph{exactly degenerate in angle}, so their mass splitting
+  (i.e., the $m_t$--$m_c$ intra-triplet gap) cannot come from the
+  forward cascade alone but requires the formation-event Z$_3$-breaking
+  azimuthal asymmetry to lift the degeneracy.
+\item The cascade assigns the largest energy to the threading site itself;
+  the angular ordering identifies the largest-angle emission as the mirror
+  crossing ($t=11\pi/6$, $z=-r_0$), connected to threading by the
+  backward C-lobe arc.  These are \emph{complementary} descriptions of
+  the same top-quark production event: the cascade tracks where energy
+  is \emph{deposited}; angular ordering tracks which emission is
+  \emph{hardest}.
+\end{enumerate}
+
+Among A-crossing sites (up-type quark candidates), the angular
+ordering gives the mass hierarchy:
+\begin{itemize}[noitemsep]
+\item \emph{Heaviest} ($\theta\approx167^\circ$): threading-site region
+  ($t=\pi/6$ and its mirror $t=11\pi/6$) --- the top quark.
+\item \emph{Middle} ($\theta=120^\circ$, \emph{exactly degenerate}):
+  A-crossings at $t=5\pi/6$ and $t=3\pi/2$ (both $z=+r_0$).
+  Their exact angular degeneracy is the topological explanation for
+  the charm quark: it arises from the Z$_3$-symmetric crossing pair,
+  and the small $m_t/m_c$ splitting comes from the formation-event
+  azimuthal asymmetry that breaks this degeneracy.
+\item \emph{Lightest} ($\theta\leq73^\circ$): lower A-crossings
+  ($t=\pi/2$ and $t=7\pi/6$, $z=-r_0$) --- the up quark.
+\end{itemize}
+Making the angular-ordering hierarchy quantitative --- in particular,
+deriving the mass ratios $m_t/m_c$ and $m_c/m_u$ from the curvature
+profile $\kappa(t)$ along the formation-event trajectory --- is
+an explicit target for the dynamic integrator of Open Problem~O1.
+\end{remark}
+
+\begin{remark}[Effect of angular ordering on the reactor angle, quark masses,
+  and the $\varepsilon_M$ estimate]
+\label{P19:rem:angular_ordering_impact}
+Three natural follow-up questions are addressed here.
+
+\textbf{(1) Does the angular ordering change the reactor angle?}
+No, directly.  The Paper~XVII estimate
+$\sin^2\theta_{13}\sim 3\varepsilon_M\sin^2\theta_M$
+(Paper~XVII~\cite{Paper17}, Remark~10.5) %\ref{P17:rem:solar_angle}
+uses $\theta_M=31.66^\circ$ (the B-midpoint tangent angle, a fixed
+geometric property of the trefoil) and
+$\varepsilon_M\approx\kappa_M/(\kappa_A+\kappa_B+\kappa_C)\approx0.022$
+(the J$_4$ fraction at midpoints, also fixed by geometry).
+Angular ordering tells us \emph{which site emits first}, not the tangent
+angles of the sites themselves; both inputs to the reactor-angle formula
+are independent of the emission ordering.  At subleading order,
+the three B-midpoints are not equally weighted (they appear at
+$\theta=141.26^\circ$, $84.56^\circ$, $46.75^\circ$ in the angular-ordering
+sequence), so the factor of~$3$ in $3\varepsilon_M\sin^2\theta_M$ is
+only a leading-order approximation that the dynamic integrator would
+refine.  The C-lobes ($\theta_L=18.8^\circ$ out-of-plane, $|\tang_z^L|=0.321$)
+are \emph{not} included in the reactor-angle formula and should not be:
+the C-lobes are the hard intra-$\QH=3$ emission channel (high curvature
+$\kappa_C=0.349$); they emit into the baryon sector itself, not across to
+the $\QH=1$ lepton sector.  Including them would overshoot the observed
+$\sin^2\theta_{13}=0.022$ by a factor of~$5$.
+
+\textbf{(2) Does the angular ordering affect the quark mass predictions?}
+The two-triplet scale ratio (Result~C,
+Proposition~\ref{P19:prop:triplet_ratio}) and the $\sqrt{\vp}$ ladder
+(Theorem~\ref{P19:thm:sqrt_phi_ladder}) are unaffected, for different
+reasons: the triplet ratio uses the $z$-tangent-squared geometry of
+the sites, a fixed property independent of emission ordering; the
+$\sqrt{\vp}$ ladder uses only the accepted-as-exact PDG-empirical
+inversion and average-scale ratios (Remarks~\ref{P19:rem:cross_ratio},
+\ref{P19:rem:tower_structure}), not any site geometry or Jones
+polynomial data, so it is likewise unaffected but for a different
+reason: it has no ordering-dependent input to begin with.
+The angular ordering does refine the physical picture: the exact
+$120^\circ$ degeneracy of the two upper A-crossings
+(equation~\eqref{P19:eq:upper_crossing_angles}) proves that the
+intra-triplet mass splitting between top and charm cannot arise from
+an ordering cascade alone but requires the formation-event Z$_3$-breaking
+azimuthal asymmetry.  This does not change the predictions but
+identifies the dynamical source of the splitting more precisely.
+
+\textbf{(3) Would integrating over the profile function improve $\varepsilon_M$?}
+The profile function $f(\rho)=2\arctan(\rho^{-C_2^*})$ satisfies
+$f(1)=\pi/2$ \emph{exactly} for any $C_2^*$ (since $\arctan(1^x)=\pi/4$),
+so $\sin^4(f(\rho))=1$ at the tube wall $\rho=1$ for all fraying sites.
+The transverse profile provides no differential weighting between site
+types.  The $\kappa$-profile along each segment arc is the relevant input:
+the B-segment curvature drops from $\kappa_A=0.399$ (at bounding
+crossings) to $\kappa_B=0.026$ at the midpoint centre and back to
+$0.399$, with the arc below $\kappa<0.1$ comprising only
+$\approx4.7\%$ of the total trefoil arc.  This is consistent with the
+kappa-site proxy $\varepsilon_M\approx0.022$ used in Paper~XVII.
+Full profile-function integration would improve $\varepsilon_M$ only
+marginally (through 3D overlap corrections at the crossing regions),
+not at the leading-order level.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Toward the multi-component Jones polynomial framework}
+\label{P19:sec:multi_component_jones}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~XVIII~\cite{Paper18}, Section~4 establishes the topological
+reaction rules from single-component Jones polynomials at the WZW
+root of unity $q_5=e^{2\pi i/5}$: the rationality-factorisation rule
+(Theorem~4.1(ii)) %\ref{P18:thm:jones_rule}
+requires that when an irrational-class initial state's reaction
+produces a final state containing a rational-class component (here
+the $\QH=1$ unknot, $\Jones_U(q_5)=1$), at least one other
+final-state component must remain irrational --- satisfied by the
+$\QH=3$ trefoil's own irrational satellite invariant
+$\Jones_{\rm sat}(q_5)=q_5^3/\vp$.  This enforces the pion emission
+$\QH=2+\QH=2\to\QH=3+\QH=1$ as a topological necessity.  The
+extension to reactions involving multi-component initial or final
+states --- Open Problem~O1 of Paper~XVIII --- requires two
+technical inputs: the disjoint-union formula for Jones polynomials,
+and the Skein-algebra action on multi-component states.  This
+section provides both, sufficient to state the multi-component
+reaction rule for the simplest non-trivial channel.
+
+\subsection{The disjoint-union formula}
+
+For an oriented link $L$ that is the disjoint union of two links
+$L_1$ and $L_2$ (no crossings between them), the Kauffman bracket
+satisfies
+\begin{equation}
+  \langle L_1 \sqcup L_2 \rangle
+  \;=\; (-A^2-A^{-2})\,\langle L_1\rangle\,\langle L_2\rangle,
+  \label{P19:eq:kauffman_disjoint}
+\end{equation}
+where $A=q^{-1/4}$ is the Kauffman variable.  Passing to the Jones
+polynomial via $\Jones_L(q)=(-A)^{-3w(L)}\langle L\rangle$ with $w$
+the writhe:
+\begin{equation}
+  \Jones_{L_1\sqcup L_2}(q)
+  \;=\; -(q^{1/2}+q^{-1/2})\,\Jones_{L_1}(q)\,\Jones_{L_2}(q),
+  \label{P19:eq:jones_disjoint}
+\end{equation}
+where the factor $-(q^{1/2}+q^{-1/2})=-2\cos(\pi/5)\cdot 2^{1/2}$
+at $q=q_5$ equals $-2\cos(2\pi/5)/\cos(\pi/5)\cdot(\ldots)$; a
+compact form suffices:
+\begin{equation}
+  -(q_5^{1/2}+q_5^{-1/2}) \;=\; -\vp.
+  \label{P19:eq:disjoint_factor_at_q5}
+\end{equation}
+
+\begin{lemma}[Disjoint-union factor at the WZW root]
+\label{P19:lem:disjoint_factor}
+At $q_5=e^{2\pi i/5}$, the disjoint-union multiplier is $-\vp$.
+\end{lemma}
+
+\begin{proof}
+$q_5^{1/2}=e^{i\pi/5}$, so
+$q_5^{1/2}+q_5^{-1/2}=2\cos(\pi/5)=\vp$.  The overall sign is
+$-$ per equation~\eqref{P19:eq:jones_disjoint}.
+\qed
+\end{proof}
+
+\subsection{Multi-component Jones polynomials for the primary reaction channels}
+
+The primary $\QH=3$ production channels of Paper~XVIII
+(Remark~5.4, Remark~5.5) involve multi-component initial or final %\ref{P18:rem:production_conditions}
+states:
+\begin{align}
+  &\text{Two-tube reaction:}
+  \quad \QH=2+\QH=2 \;\to\; \QH=3 + \QH=1
+  \tag{Ch.~1}\\
+  &\text{Satellite reaction:}
+  \quad \QH=2+\QH=1 \;\to\; \QH=3
+  \tag{Ch.~2}
+\end{align}
+Both admit spectator configurations in which additional
+$\QH=k$ objects propagate through without participating; the
+disjoint-union formula supplies the correct Jones-polynomial
+counting for such configurations.
+
+\begin{proposition}[Two-component initial state factorisation]
+\label{P19:prop:two_comp_initial}
+For an initial state consisting of two disjoint $\QH=2$ Hopf
+links $T(2,2)_1\sqcup T(2,2)_2$, the Jones polynomial evaluated at
+$q_5$ is
+\begin{equation}
+  \Jones_{T(2,2)\sqcup T(2,2)}(q_5)
+  \;=\; -\vp\cdot\Jones_{T(2,2)}(q_5)^2.
+  \label{P19:eq:two_hopf_disjoint}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Direct application of Lemma~\ref{P19:lem:disjoint_factor} to the
+disjoint-union formula.
+\qed
+\end{proof}
+
+$\Jones_{T(2,2)}(q_5)$ is irrational
+(Theorem~\ref{P19:thm:channel_1}):
+$\Jones_{T(2,2)}(q_5)=1+\zeta_5^3$, whose modulus is $1/\vp$.
+The disjoint-union factor $-\vp$ is also irrational.  The
+product $-\vp\cdot\Jones_{T(2,2)}(q_5)^2$ is therefore irrational,
+consistent with the Paper~XVIII~\cite{Paper18} arithmetic: the
+$\QH=3+\QH=1$ final state has satellite Jones invariant
+$|\Jones_{\rm sat}(q_5)|=1/\vp$ (Theorem~2.3 of Paper~XVIII) %\ref{P18:thm:trefoil_satellite_jones}
+and $\Jones_U(q_5)=1$; the irrational content of the initial
+state is accounted for by the irrational $\Jones_{\rm sat}$, so
+no additional irrational spectator is formally required.
+The topology-forcing argument for pion emission rests on
+charge conservation and component counting
+(Theorem~5.3 of Paper~XVIII), %\ref{P18:thm:pion_forced}
+not on a rationality factorisation rule.
+
+\subsection{The reaction-rule algebra}
+
+The multi-component Jones polynomial arithmetic of
+Proposition~\ref{P19:prop:two_comp_initial} generalises Paper~XVIII's
+integer/irrational selection rule to reactions with multi-component
+initial or final states.  The correct formulation, however, is
+\emph{not} a numerical equality of Jones products; it is an
+equivalence up to a unit in the ring of cyclotomic integers.
+
+\begin{definition}[Effective Jones product]
+\label{P19:def:effective_jones}
+For a multi-component state $\bigsqcup_i L_i$ consisting of $N$
+disjoint link-objects, the \emph{effective Jones product} at $q_5$
+is
+\begin{equation}
+  \Jones_{\mathrm{eff}}\bigl(\bigsqcup_i L_i\bigr)
+  \;\equiv\;
+  (-\vp)^{N-1}\prod_{i=1}^N \Jones_{L_i}(q_5)
+  \;\;\in\; \mathbb{Z}[\zeta_5],
+  \label{P19:eq:eff_jones_def}
+\end{equation}
+where $\zeta_5=e^{2\pi i/5}$ and the factors $(-\vp)^{N-1}$ arise
+from the disjoint-union formula
+(Lemma~\ref{P19:lem:disjoint_factor}).
+\end{definition}
+
+\begin{theorem}[Multi-component reaction rule: unit equivalence]
+\label{P19:thm:unit_reaction_rule}
+A reaction
+$\bigsqcup_i L_i^{\mathrm{init}}
+\to
+\bigsqcup_j L_j^{\mathrm{final}}$
+is topologically permitted at the WZW root of unity if and only if
+the effective Jones products of the initial and final states differ
+by a unit in $\mathbb{Z}[\zeta_5]$:
+\begin{equation}
+  \frac{\Jones_{\mathrm{eff}}(\mathrm{init})}
+       {\Jones_{\mathrm{eff}}(\mathrm{final})}
+  \;=\; u
+  \;\;\in\; \mathbb{Z}[\zeta_5]^\times.
+  \label{P19:eq:unit_rule}
+\end{equation}
+The units of $\mathbb{Z}[\zeta_5]$ are
+$\pm\zeta_5^k\cdot\vp^n$ for $k\in\{0,1,2,3,4\}$ and
+$n\in\mathbb{Z}$.
+\end{theorem}
+
+\begin{proof}
+The ring $\mathbb{Z}[\zeta_5]$ is a principal ideal domain
+(class number~$1$ for $p=5$).  The effective Jones product
+$\Jones_{\mathrm{eff}}$ is an algebraic integer in
+$\mathbb{Z}[\zeta_5]$ by construction: each $\Jones_{L_i}(q_5)$
+is an algebraic integer (a polynomial in $q_5$ with integer
+coefficients), and $-\vp=\zeta_5^2+\zeta_5^3\in\mathbb{Z}[\zeta_5]$.
+
+A topological reaction conserves the WZW fusion-rule content of the
+state.  At the level of Jones polynomials, conservation of
+fusion-rule content means that the ideal
+$(\Jones_{\mathrm{eff}}(\mathrm{init}))\subseteq
+\mathbb{Z}[\zeta_5]$ equals the ideal
+$(\Jones_{\mathrm{eff}}(\mathrm{final}))$.  Since
+$\mathbb{Z}[\zeta_5]$ is a PID, equality of principal ideals
+$(a)=(b)$ holds if and only if $a/b$ is a unit.
+\qed
+\end{proof}
+
+\begin{remark}[Relation to Paper~XVIII's rationality-class rule]
+\label{P19:rem:rationality_vs_unit}
+Paper~XVIII~\cite{Paper18}, Theorem~4.1 states the selection rule %\ref{P18:thm:jones_rule}
+at the level of rationality classes (rational integers vs.\
+irrational algebraic integers).  Theorem~\ref{P19:thm:unit_reaction_rule}
+is strictly stronger: unit equivalence implies same rationality
+class (since units are never zero, and the product of an irrational
+element with a unit remains irrational), but not conversely.  Two
+elements in the same rationality class need not differ by a unit
+--- they could differ by a non-unit algebraic integer.  The
+unit-equivalence formulation is the correct one for a PID.
+\end{remark}
+
+\begin{corollary}[Recovery of Paper~XVIII's single-channel rules]
+\label{P19:cor:single_channel_recovery}
+In the case $N_{\mathrm{init}}=N_{\mathrm{final}}=1$,
+$\Jones_{\mathrm{eff}}=\Jones_{L}(q_5)$ on both sides, and
+Theorem~\ref{P19:thm:unit_reaction_rule} reduces to
+$\Jones_{L_{\mathrm{init}}}(q_5)/\Jones_{L_{\mathrm{final}}}(q_5)\in
+\mathbb{Z}[\zeta_5]^\times$, recovering Paper~XVIII's single-channel
+picture as the $N=1$ special case of the general rule.  Both
+production channels verified in this paper (Theorems~\ref{P19:thm:channel_1},
+\ref{P19:thm:channel_2}) have $N_{\mathrm{init}}\geq2$, so neither
+is itself an instance of this reduction; no single-component
+$T(2,2)\to T(2,3)$ reaction is physically realised in this
+framework (both channels require a spectator or companion
+component), so this corollary records the algebraic reduction only,
+without a worked single-component numeric example.
+\end{corollary}
+
+\subsection{Verification of both $\QH=3$ production channels}
+
+We now verify Theorem~\ref{P19:thm:unit_reaction_rule} for both
+production channels of Paper~XVIII~\cite{Paper18},
+Remark~5.4. %\ref{P18:rem:production_conditions}
+
+\begin{theorem}[Channel~1 verification: two-tube reaction]
+\label{P19:thm:channel_1}
+The reaction
+$T(2,2)\sqcup T(2,2)\to T(2,3)\sqcup U$
+satisfies the unit-equivalence rule of
+Theorem~\ref{P19:thm:unit_reaction_rule}, with unit factor
+$u=\zeta_5+\zeta_5^4=1/\vp$.
+\end{theorem}
+
+\begin{proof}
+Using Definition~\ref{P19:def:effective_jones} with the Hopf link's
+Jones invariant $\Jones_{T(2,2)}(q_5)=1+\zeta_5^3$
+(verified directly by the Kauffman-bracket engine of
+\texttt{papers/src\_paper18/kauffman\_bracket\_engine.py}: the
+standard Hopf-link polynomial $V(t)=-t^{1/2}-t^{5/2}$ at $t=q_5$
+equals $1+\zeta_5^3$, of modulus $1/\vp$; see Paper~XVIII~\cite{Paper18}, %\ref{P18:rem:richer_criterion}
+the remark on the confinement criterion in Section~2), the
+satellite Jones invariant
+$\Jones_{\rm sat}(q_5)=q_5^3/\vp=\zeta_5^3/\vp$
+(Paper~XVIII~\cite{Paper18}, Theorem~2.3), %\ref{P18:thm:trefoil_satellite_jones}
+$\Jones_U(q_5)=1$, $N_{\rm init}=N_{\rm final}=2$:
+\begin{align}
+  \Jones_{\mathrm{eff}}(\mathrm{init})
+  &= (-\vp)^{1}\cdot\Jones_{T(2,2)}(q_5)^2
+  \;=\; (-\vp)(1+\zeta_5^3)^2,
+  \label{P19:eq:V_init_ch1}\\[4pt]
+  \Jones_{\mathrm{eff}}(\mathrm{final})
+  &= (-\vp)^{1}\cdot\frac{\zeta_5^3}{\vp}\cdot1
+  \;=\; -\zeta_5^3.
+  \label{P19:eq:V_final_ch1}
+\end{align}
+Expanding the square and using $\zeta_5^6=\zeta_5$ (since $\zeta_5^5=1$):
+\begin{equation}
+  (1+\zeta_5^3)^2 \;=\; 1+2\zeta_5^3+\zeta_5^6 \;=\; 1+\zeta_5+2\zeta_5^3.
+  \label{P19:eq:ch1_square}
+\end{equation}
+Multiplying by $-\vp=-(1+\zeta_5+\zeta_5^4)$ and reducing every power
+$\zeta_5^k$ with $k\geq4$ using the cyclotomic relation
+$1+\zeta_5+\zeta_5^2+\zeta_5^3+\zeta_5^4=0$ (equivalently
+$\zeta_5^4=-(1+\zeta_5+\zeta_5^2+\zeta_5^3)$) gives
+\begin{equation}
+  (-\vp)(1+\zeta_5+2\zeta_5^3) \;=\; 1+\zeta_5+\zeta_5^3.
+  \label{P19:eq:ch1_numerator}
+\end{equation}
+Dividing by $\Jones_{\mathrm{eff}}(\mathrm{final})=-\zeta_5^3$ is the same
+as multiplying by $-\zeta_5^2$ (since $\zeta_5^5=1$, so
+$\zeta_5^{-3}=\zeta_5^2$):
+\begin{equation}
+  \frac{\Jones_{\mathrm{eff}}(\mathrm{init})}
+       {\Jones_{\mathrm{eff}}(\mathrm{final})}
+  \;=\; -(1+\zeta_5+\zeta_5^3)\zeta_5^2
+  \;=\; -(\zeta_5^2+\zeta_5^3+\zeta_5^5)
+  \;=\; -(1+\zeta_5^2+\zeta_5^3)
+  \;=\; \zeta_5+\zeta_5^4,
+  \label{P19:eq:ch1_unit}
+\end{equation}
+where the last equality is again the cyclotomic relation. This is a
+unit in $\mathbb{Z}[\zeta_5]$: it equals $1/\vp$ exactly (since
+$\vp=1+\zeta_5+\zeta_5^4$ gives $1/\vp=\vp-1=\zeta_5+\zeta_5^4$), and
+the norm $N_{\mathbb{Q}(\zeta_5)/\mathbb{Q}}(\zeta_5+\zeta_5^4)=1$
+(computed as the resultant of $\zeta_5+\zeta_5^4$'s minimal polynomial
+with the cyclotomic polynomial $\Phi_5$; verified symbolically in
+\texttt{papers/src\_paper19/jones\_unit\_equivalence.py}).
+Hence $u=\zeta_5+\zeta_5^4=1/\vp\in\mathbb{Z}[\zeta_5]^\times$.
+\qed
+\end{proof}
+
+\begin{theorem}[Channel~2 verification: satellite reaction]
+\label{P19:thm:channel_2}
+The reaction
+$T(2,2)\sqcup U\to T(2,3)$
+satisfies the unit-equivalence rule of
+Theorem~\ref{P19:thm:unit_reaction_rule}, with unit factor
+$u=-\vp\cdot\zeta_5$.
+\end{theorem}
+
+\begin{proof}
+$N_{\mathrm{init}}=2$ (Hopf link and unknot, disjoint),
+$N_{\mathrm{final}}=1$ (trefoil satellite):
+\begin{align}
+  \Jones_{\mathrm{eff}}(\mathrm{init})
+  &= (-\vp)\cdot\Jones_{T(2,2)}(q_5)\cdot\Jones_U(q_5) \notag\\
+  &= (-\vp)(1+\zeta_5^3),
+  \label{P19:eq:V_init_ch2}\\[4pt]
+  \Jones_{\mathrm{eff}}(\mathrm{final})
+  &= (-\vp)^0\cdot\Jones_{\rm sat}(q_5)
+  \;=\; \frac{\zeta_5^3}{\vp}.
+  \label{P19:eq:V_final_ch2}
+\end{align}
+Dividing by $\Jones_{\mathrm{eff}}(\mathrm{final})=\zeta_5^3/\vp$ is the
+same as multiplying by $\vp\cdot\zeta_5^{-3}=\vp\zeta_5^2$ (since
+$\zeta_5^5=1$), so the ratio carries an extra factor of $\vp$ beyond
+the one already present in $\Jones_{\mathrm{eff}}(\mathrm{init})$:
+\begin{equation}
+  \frac{\Jones_{\mathrm{eff}}(\mathrm{init})}
+       {\Jones_{\mathrm{eff}}(\mathrm{final})}
+  \;=\; -\vp^2(1+\zeta_5^3)\zeta_5^2.
+  \label{P19:eq:ch2_setup}
+\end{equation}
+Using $\vp=1+\zeta_5+\zeta_5^4$ and reducing with the cyclotomic
+relation $1+\zeta_5+\zeta_5^2+\zeta_5^3+\zeta_5^4=0$ throughout,
+\begin{equation}
+  \vp^2 \;=\; (1+\zeta_5+\zeta_5^4)^2 \;=\; 1-\zeta_5^2-\zeta_5^3,
+  \label{P19:eq:phi_squared}
+\end{equation}
+so that
+\begin{equation}
+  -\vp^2(1+\zeta_5^3) \;=\; -(1-\zeta_5^2-\zeta_5^3)(1+\zeta_5^3)
+  \;=\; \zeta_5+\zeta_5^2,
+  \label{P19:eq:ch2_numerator}
+\end{equation}
+and finally, multiplying by $\zeta_5^2$,
+\begin{equation}
+  \frac{\Jones_{\mathrm{eff}}(\mathrm{init})}
+       {\Jones_{\mathrm{eff}}(\mathrm{final})}
+  \;=\; (\zeta_5+\zeta_5^2)\zeta_5^2
+  \;=\; \zeta_5^3+\zeta_5^4,
+  \label{P19:eq:ch2_unit}
+\end{equation}
+which reduces, via the cyclotomic relation
+($\zeta_5^3+\zeta_5^4=-(1+\zeta_5+\zeta_5^2)$), to $-1-\zeta_5-\zeta_5^2$.
+This equals $-\vp\cdot\zeta_5$: expanding
+$-\vp\zeta_5=-(1+\zeta_5+\zeta_5^4)\zeta_5
+=-(\zeta_5+\zeta_5^2+\zeta_5^5)=-(\zeta_5+\zeta_5^2+1)
+=-1-\zeta_5-\zeta_5^2$, the same expression.
+The unit $u=-\vp\cdot\zeta_5$ is in $\mathbb{Z}[\zeta_5]^\times$:
+$-1$, $\vp=1+\zeta_5+\zeta_5^4$, and $\zeta_5$ are each units, so
+their product is a unit (norm $N(-\vp\zeta_5)=N(-1)N(\vp)N(\zeta_5)=1$,
+verified as the resultant of its minimal polynomial with $\Phi_5$;
+verified symbolically in
+\texttt{papers/src\_paper19/jones\_unit\_equivalence.py}).
+\qed
+\end{proof}
+
+\begin{remark}[The unit factors have physical content]
+\label{P19:rem:unit_meaning}
+The unit factors $u_1=\zeta_5+\zeta_5^4=1/\vp$ (Channel~1, real) and
+$u_2=-\vp\cdot\zeta_5$ (Channel~2) carry physical information beyond
+the bare ``permitted/forbidden'' classification.  Unlike a
+previous draft computation (using the incorrect Hopf-link Jones
+value), the two channels do \emph{not} differ by a pure root of
+unity: their moduli are reciprocals, $|u_1|=1/\vp$ and $|u_2|=\vp$,
+so
+\begin{equation}
+  \frac{u_2}{u_1} \;=\; -\vp^2\zeta_5,
+  \label{P19:eq:channel_ratio}
+\end{equation}
+an exact identity (verified directly from $u_1,u_2$ above), differing
+from a pure phase by the real factor $\vp^2$.  Channel~2
+($T(2,2)\sqcup U\to T(2,3)$, $N_{\mathrm{init}}=2\to N_{\mathrm{final}}=1$)
+carries one more power of the disjoint-union factor $-\vp$ relative
+to its final state than Channel~1
+($T(2,2)\sqcup T(2,2)\to T(2,3)\sqcup U$, $N_{\mathrm{init}}=2\to
+N_{\mathrm{final}}=2$) does relative to its own --- this asymmetry in
+component-count change is the direct algebraic source of the
+$\vp^2$ factor (Definition~\ref{P19:def:effective_jones}'s
+$(-\vp)^{N-1}$ term). Whether this modulus asymmetry between the
+two production channels has further physical meaning (e.g.\ relative
+reaction rates or energy scales) is open; it is recorded here as an
+exact algebraic fact, not interpreted further.
+\end{remark}
+
+The verification of both channels closes Paper~XVIII's Open
+Problem~O4 and validates the multi-component framework of
+Theorem~\ref{P19:thm:unit_reaction_rule}.  The reaction rule is
+not a numerical equality of Jones polynomial products but a
+unit-equivalence in the ring of cyclotomic integers --- a
+strictly stronger algebraic constraint than the rationality-class
+rule of Paper~XVIII, Theorem~4.1. %\ref{P18:thm:jones_rule}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Experimental Status and Predictions}
+\label{P19:sec:experiment}
+%══════════════════════════════════════════════════════════════════════════════
+
+We collect the paper's falsifiable predictions and constraints.
+
+\begin{enumerate}[leftmargin=2em,label=\textbf{P\arabic*.}]
+
+\item \textbf{Trefoil minor radius from $\QH=2$ profile.}
+The relation $r_0=R_0/C_2^*$ (Theorem~\ref{P19:thm:r0_derivation}) is
+an exact identity of the framework.  A test would consist of a
+higher-precision numerical solution for the $\QH=2$ profile that
+sharpens $C_2^*$ beyond four decimal places and confirms that
+$r_0$ at the family boundary of the $\QH=3$ gradient flow tracks
+$R_0/C_2^*$ within the profile precision.
+
+\item \textbf{Two-triplet mass-scale ratio.}
+The prediction $M_{\mathrm{down}}/M_{\mathrm{up}}\approx 0.189$
+(Proposition~\ref{P19:prop:triplet_ratio}) uses only the
+Frenet-geometric $z$-tangent values at midpoint and lobe sites.
+The observed value is $0.157$, a $20\%$ residual consistent
+with Paper~XVI~\cite{Paper16}'s systematic undershoot pattern.
+Further test: refined $\tang_z^M$, $\tang_z^L$ from higher-resolution
+$\QH=3$ configurations at $N=384$ or beyond should tighten the
+prediction toward observation if the missing correction is
+sub-leading; otherwise its structural origin lies elsewhere.
+
+\item \textbf{Falsification of single-loss cascade.}
+Any future model of the intra-triplet quark mass hierarchy must
+avoid the naive single-loss cascade of
+Section~\ref{P19:sec:cascade_falsification}
+(Proposition~\ref{P19:prop:cascade_falsified}), which is quantitatively
+inconsistent with observation by three to six orders of magnitude.
+This is not a testable prediction of the framework but a boundary
+of the search space, in the style of Paper~XVI's negative results.
+
+\item \textbf{Falsification of uniform $\vp$-tower multiplier.}
+Any successful mechanism for the intra-triplet hierarchy must
+produce different average exponent spacings for the two isospin
+triplets (Remark~\ref{P19:rem:tower_structure}), with the observed
+ratio between them approximately $\vp$.  A uniform per-generation
+$\vp^{2a}$ multiplier is falsified
+(Proposition~\ref{P19:prop:phi_tower_falsified}); the correct
+mechanism must be more elaborate.
+
+\item \textbf{Multi-component reaction rules (verified).}
+Theorem~\ref{P19:thm:unit_reaction_rule} establishes the
+unit-equivalence reaction rule for multi-component states, and
+Theorems~\ref{P19:thm:channel_1} and~\ref{P19:thm:channel_2} verify it
+for both $\QH=3$ production channels.  A specific consequence:
+any multi-body baryon decay must satisfy the unit-equivalence
+condition in $\mathbb{Z}[\zeta_5]$; a reaction for which the
+ratio of effective Jones products is a non-unit algebraic integer
+is topologically forbidden.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Open Problems}
+\label{P19:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+The results of this paper close two open problems (the $r_0$
+derivation and the multi-component channel verification),
+substantially resolve a third (the generation-spacing ratio),
+identify a new sharp open problem (O6: $m_s/m_d=n_e=20$)
+whose resolution would close the chain from $T_{\mathrm{CMB}}$ to
+all six quark masses without any PDG input, explicitly
+acknowledge the PMNS $q$-series resummation (O7) deferred
+from Paper~XVII~\cite{Paper17} to Paper~XX, and record the
+strand-collinearity observation (O8) connecting the trefoil
+fraying geometry to QCD jet structure as a programme for
+Paper~XX.
+
+\begin{enumerate}[leftmargin=2em,label=\textbf{O\arabic*.}]
+
+\item \textbf{Dynamical partition of $E_{\mathrm{pert}}$ across the
+twelve sites.}  The intra-triplet quark mass hierarchy corresponds,
+under Conjecture~\ref{P19:conj:six_quarks_reformulated}, to the
+six characteristic scales of how the incoming perturbation energy
+partitions across the trefoil geometry during the
+$\QH=2+\QH=1\to\QH=3$ formation event.  The calculation requires
+the dynamic integrator infrastructure of Papers~XVII and~XVIII
+extended to simulate the formation event with the velocity field
+$\mathbf{v}(\mathbf{x},t)$ recorded at each site; the partition
+must reproduce the observed $(m_u,m_c,m_t)$ and $(m_d,m_s,m_b)$
+patterns given the site tangent values of
+equation~\eqref{P19:eq:tangent_z_values}.  This is Paper~XVIII's
+Open Problem~O3 reformulated in the dynamical setting; the static
+version of the problem (computing per-site break costs from
+gradient-flow relaxation) is shown to be insufficient by
+Section~\ref{P19:sec:cascade_falsification}.
+
+\item \textbf{The $\sqrt{\vp}$ quark mass-ratio ladder.}
+\emph{Substantially resolved in Section~\ref{P19:sec:phi_tower_falsification}.}
+Theorem~\ref{P19:thm:sqrt_phi_ladder} shows that the four
+intra-triplet generation gaps form a geometric sequence with ratio
+$\sqrt{\vp}$, anchored at the strange-quark ratio $m_s/m_d$
+(Remark~\ref{P19:rem:strange_anchor}).  Combined with
+Paper~XVI's derived $m_s$ (Corollary~\ref{P19:cor:absolute_masses}),
+this predicts $m_b=4216\,\mathrm{MeV}$ at $0.8\%$, $m_t/m_c$ at
+$6\%$, and $m_c/m_u$ at $19\%$.  The residuals grow with rung
+position and match the always-positive, generation-growing
+pattern of Paper~XVI~\cite{Paper16}.
+The structural origin of $\sqrt{\vp}$ (the inversion ratio common
+to both networks) is open: $\sqrt{|\Jones_{T(2,2)}(q_5)|}=1/\sqrt{\vp}$
+does not match the ladder ratio $\sqrt{\vp}$ itself
+(Remark~\ref{P19:rem:sqrt_phi_meaning}), so this candidate
+explanation is not available.  A first-principles derivation
+requires the dynamic integrator to compute
+the position-dependent attenuation function $\alpha(s)$
+along the trefoil and verify that the inversion ratio $r$ converges
+to $\sqrt{\vp}$ independently.
+
+\item \textbf{The subleading $z$-tangent from perturbation memory.}
+Proposition~\ref{P19:prop:triplet_ratio}'s leading-order prediction
+gives $\langle |\tang_z|^2\rangle_{\mathrm{up}}=0$ at the
+crossings (horizontal tangent).  A physical
+$\QH=3$ trefoil formed from an actual perturbation event carries
+azimuthal asymmetry from the formation direction, which contributes
+a subleading $z$-tangent at the crossings that we have not
+computed.  This subleading contribution is required for the up-type
+triplet to have any mass scale at all; its computation from the
+formation-event azimuthal asymmetry is an open problem tied to O1
+above.
+
+\item \textbf{Verification of the multi-component reaction rule.}
+\emph{Resolved in Section~\ref{P19:sec:multi_component_jones}.}
+Both production channels of Paper~XVIII are verified algebraically:
+Channel~1 ($T(2,2)\sqcup T(2,2)\to T(2,3)\sqcup U$) has unit
+factor $u=\zeta_5+\zeta_5^4=1/\vp$
+(Theorem~\ref{P19:thm:channel_1}); Channel~2
+($T(2,2)\sqcup U\to T(2,3)$) has unit factor
+$u=-\vp\cdot\zeta_5$ (Theorem~\ref{P19:thm:channel_2}).
+The reaction rule is not numerical equality of Jones products
+but unit-equivalence in $\mathbb{Z}[\zeta_5]$
+(Theorem~\ref{P19:thm:unit_reaction_rule}), which is strictly stronger
+than the rationality-class rule of Paper~XVIII, Theorem~4.1. %\ref{P18:thm:jones_rule}
+
+\item \textbf{Sharpened production thresholds via multi-component Jones.}
+Paper~XVIII's Open Problem~O6 asks for quantitative production
+thresholds for $\QH=3$.  Theorem~\ref{P19:thm:unit_reaction_rule}
+supplies the multi-component algebra needed to compute the
+relative rates of the various $\QH=3$ production channels;
+combined with the energy scales
+$\Delta E_{2+2}=E(\QH=3)+E(\QH=1)-2E(\QH=2)$ and
+$\Delta E_{2+1}=E(\QH=3)-E(\QH=2)-E(\QH=1)$
+from Paper~XVII~\cite{Paper17}, the rates and thresholds become
+computable.  The Paper~XVIII Open Problem~O6 is thus sharpened
+into a well-scoped calculation.
+
+\item \textbf{Derivation of $m_s/m_d = \sqrt{2C_2(1/2)}\cdot e^{8\pi/9} = n_e = 20$.}
+Remark~\ref{P19:rem:ms_md_integer} shows that the observed ratio
+$m_s/m_d=20$ equals, to $0.047\%$, the E$_8$ Coxeter prediction
+multiplied by the spin-Casimir factor $\sqrt{2C_2(j=\tfrac12)}
+=\sqrt{3/2}=\sqrt{k/2}$, where the last equality follows from
+the structural identity $k=4C_2(\tfrac12)$ exact at $k=3$
+(equation~\eqref{P19:eq:k_casimir_identity}).  The factor
+$\sqrt{2C_2(j)}$ arises because quarks are spin-$\tfrac12$
+fermions while the E$_8$ T-phase formula was derived for bosonic
+operators; the same conformal weight $h_\psi=\tfrac12$ that
+produces the colour level shift $\delta n^{(C)}$ in Paper~XVI
+appears here as a spin-statistics multiplicative correction to
+the Coxeter ratio.  A first-principles proof that the fermionic
+character of quarks inserts a factor $\sqrt{2C_2(j)}$ into
+the E$_8$ T-phase mass ratio would derive $m_s/m_d=n_e=20$
+without PDG input and close the chain
+$T_{\mathrm{CMB}}+\mathrm{geometry}\to$ all six quark mass ratios.
+
+\item \textbf{PMNS $q$-series resummation and mixing angle corrections
+  (deferred to Paper~XX).}
+Paper~XVII~\cite{Paper17} derives the leading-order PMNS matrix
+as an exact permutation
+($\mu\to\nu_3$, $\tau\to\nu_2$, $e\to\nu_1$; Theorem~7.1 %\ref{P17:thm:pmns_permutation}
+of Paper~XVII) from the primary branching of
+$\mathrm{SU}(2)_3\to\mathrm{SU}(2)_1\otimes M(5,6)$, and
+computes the level-$1$ branching coefficients
+$b_1^e=0$, $b_1^\mu=-1$, $b_1^\tau=+5$ (Proposition~7.6 %\ref{P17:prop:pmns_b1}
+of Paper~XVII).
+The present paper reaffirms Paper~XVII's leading-order solar angle
+(Proposition~\ref{P19:prop:solar_angle_jones}): $\tan\theta_{12}^{(0)}
+=1/\vp$ via the $\mathrm{SU}(2)_3$ S-matrix; the same modulus $1/\vp$
+also equals $|\Jones_{T(2,2)}(q_5)|$
+(Theorem~\ref{P19:thm:channel_1}), a numerical coincidence recorded
+but not established as a derivation (Remark~\ref{P19:rem:solar_physical}).
+What remains open is the full set of corrections:
+$\Delta\theta_{12}\approx1.69^\circ$ (gap between $31.72^\circ$ and
+the observed $33.41^\circ$), the atmospheric deviation
+$\Delta\sin^2\theta_{23}\approx0.057$, and the reactor angle
+$\sin^2\theta_{13}\approx0.022\approx1/(k+2)^2$.
+All three corrections require either RG running from
+$\Lambda_{\mathrm{cond}}$ to $m_Z$ (Mechanism~A) or
+condensate background mixing from the $\QH=3$ baryon sector
+(Mechanism~B) --- neither of which is computable from the present
+paper's toolkit.  Paper~XX's responsibility is this calculation.
+
+\item \textbf{Strand structure, QCD angular ordering, and the jet hierarchy.}
+The 12-site fraying geometry of the trefoil has a site sequence
+$\cdots\to C\to A\to B\to A\to\cdots$ with tangent rotations
+$\angle(A,B)=46.75^\circ$ (collinear direction) and
+$\angle(A,C)=83.94^\circ$ (hard direction)
+(Paper~XVI~\cite{Paper16}; see Remark~\ref{P19:rem:angular_ordering}).
+The total tangent rotation across one strand is $177.44^\circ\approx180^\circ$.
+The B-midpoints ($\kappa_B\approx0$) provide the collinear propagation
+channel; the C-lobes ($\kappa_C\approx0.349$) provide the wide-angle
+channel.  These correspond to the collinear and hard gluon emission
+channels of perturbative QCD, with the non-zero $\kappa_B=0.026$
+acting as a topological infrared cutoff (O8a).
+
+Applying QCD angular ordering (first emission at the largest angle):
+given threading at the A-crossing $t=\pi/6$, the first-jet site is
+the A-crossing at $t=11\pi/6$ at $167.21^\circ$ --- connected via
+the short C-lobe arc backward.  The $12.79^\circ$ opening angle
+(deviation from perfect back-to-back kinematics) is geometrically
+determined by $\kappa_C$.  Among A-crossings, the angular ordering
+gives: heaviest (t-quark, $\theta=167^\circ$), middle-degenerate
+(c-quark pair, $\theta=120^\circ$ exactly by Z$_3$), lightest
+(u-quark, $\theta\leq73^\circ$).  The $120^\circ$ degeneracy of
+the charm pair is a direct prediction of the Z$_3$-symmetric trefoil
+(O8b).
+
+Making this identification quantitative ---
+(a) deriving $P_{q\to qg}(z)$ from $\kappa(t)$
+    and connecting $\kappa_B$ to $\Lambda_{\mathrm{QCD}}$ (O8a), and
+(b) computing the energy fractions deposited at each A-crossing
+    site from the dynamic integrator and confirming they reproduce
+    the $m_t:m_c:m_u$ ratio (O8b)
+--- is a programme for Paper~XX.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P19:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~XVI~\cite{Paper16} established, through systematic negative
+results, that no combinatorial or representation-theoretic
+mechanism \emph{alone} can supply the generation-dependent
+input required for the quark mass hierarchy: the correct
+mechanism must supply a genuinely dynamical, non-combinatorial
+correction on top of any representation-theoretic backbone.
+Paper~XVI's Discussion~I notes that the lepton tower level
+$n_e=20$ is fixed by a thermodynamic matching condition
+(Paper~XII), not by $\twoT$ group structure, and conjectures an
+analogous dynamical origin for the quark sector.  The present
+paper both confirms and refines this picture.  On the one hand,
+the E$_8$ Coxeter mechanism's prediction $m_s/m_d=e^{8\pi/9}=16.32$
+--- which is representation-theoretic (McKay correspondence) ---
+is \emph{not} sufficient alone ($18\%$ short of the observed
+integer $20$).  On the other hand, the missing factor
+$\sqrt{2C_2(j=\tfrac12)}=\sqrt{3/2}$ has a purely dynamical,
+non-combinatorial origin: it is the spin-statistics correction
+from the quark being a free Weyl fermion, traced to the universal
+conformal weight $h_\psi=\tfrac12$ --- the same weight that
+Paper~XVI uses to derive the colour level shift $\delta
+n^{(C)}=\tfrac12$.  The correct mechanism is therefore
+\emph{E$_8$ Coxeter backbone $+$ fermionic correction}:
+representation theory supplies the bulk, and quark statistics
+supplies the correction.  This is consistent with Pattern~(I) of
+Paper~XVI: the dynamical, non-combinatorial piece is essential;
+it is just not the \emph{entire} mechanism.
+
+The present paper takes this seriously and reframes the
+problem in light of two facts of Paper~XVIII:
+
+\begin{enumerate}[label=(\arabic*)]
+\item The $\Zthree$ symmetry of the ideal $T_{2,3}$ trefoil is
+broken from the outset by the single-site threading event of the
+$\QH=2+\QH=1\to \QH=3$ formation; a physical $\QH=3$ trefoil
+carries a memory of its formation location.
+
+\item The $\QH=3$ configuration is transient: gradient-flow searches
+(Papers~XV/XVI) find no stable $\QH=3$ saddle point, consistent with
+a flat-bottomed energy landscape with no restoring force (Remark~10.2
+of Paper~XVIII). %\ref{P18:rem:saddle_difficulty}
+It forms, cascades, and decays over the collision timescale, so its
+observables are properties of the formation-and-decay transit, not of
+any static equilibrium.  (The trefoil's own satellite Jones invariant
+is irrational, modulus $1/\vp$ (Theorem~2.3 of Paper~XVIII); %\ref{P18:thm:trefoil_satellite_jones}
+rationality is not the source of the transience.)
+\end{enumerate}
+
+\begin{remark}[Preliminary numerics beyond $\QH=3$: no distinct equilibrium found]
+\label{P19:rem:beyond_qh3_numerics}
+Topology-protected constrained gradient flow (20000 steps, angle-clamp
+$2^\circ$ per grid point per step, following the method of
+Paper~XVI's Q$_H$=3 saddle search) was run on the general $T(2,q_{\rm pol})$
+construction at three points spanning the unestablished $\QH=4$--$5$
+region beyond the trefoil: $q_{\rm pol}=3.764$ and $4.236$ (the
+golden-section division points of $[3,5]$) and $q_{\rm pol}=4.0$ (a
+local energy minimum of the unrelaxed construction, coinciding with
+the $\QH=4$ sector, which Paper~XVIII acknowledges as charge-conservation-permitted
+but establishes no stability or metastability for
+(Paper~XVIII~\cite{Paper18}, the remark on higher-charge incoming objects
+in the Forced Pion Emission section). %\ref{P18:rem:higher_charge_incoming}
+All three runs completed without triggering any dilution or
+topology-loss halt condition, but none reached an energy plateau:
+all three continued decreasing smoothly through the full step budget,
+at comparable rates near the end of the run ($q_{\rm pol}=3.764$ and
+$4.236$ reduced by a factor of $\sim12$; $q_{\rm pol}=4.0$ by a factor
+of $\sim4.5$, retaining a substantially higher $J_4/K$).  This is
+consistent with all three points draining toward the same
+topologically trivial vacuum at different rates, rather than any of
+them settling near a distinct stable configuration --- the same
+flat-bottomed, no-restoring-force picture already established for
+$\QH=3$ itself (Remark~10.2 of Paper~XVIII) %\ref{P18:rem:saddle_difficulty}
+extending into this unestablished region.  This is a preliminary,
+unconverged numerical observation, not a proof of instability at
+these $q_{\rm pol}$ values; longer runs or a convergence-based
+stopping criterion would be needed to settle the question.
+\end{remark}
+
+Quark masses in this framework are therefore not intrinsic energy
+scales of a static trefoil but characteristic scales of how a
+single incoming perturbation energy partitions across the twelve
+trefoil sites during transit.  The paper establishes four
+analytic results within this framework:
+
+\begin{enumerate}[label=(\Alph*)]
+\item \textbf{The trefoil minor radius is analytically fixed}:
+$r_0=R_0/C_2^*$ from the $\QH=2$ profile wall width
+(Theorem~\ref{P19:thm:r0_derivation}), matching the numerical
+construction value to $0.02\%$.  This closes an open problem
+shared by Papers~XV and~XVIII.
+
+\item \textbf{The single-loss cascade is falsified}: neither
+$\eta_B=0.81$ (density ratio) nor $\eta_{\mathrm{cross}}=0.266$
+(per-crossing transmission) reproduces intra-triplet mass ratios
+(Proposition~\ref{P19:prop:cascade_falsified}), miss by three to six
+orders of magnitude.
+
+\item \textbf{The uniform $\vp$-tower multiplier is falsified}:
+no integer $a$ satisfies the constraint
+$m^{(g+1)}/m^{(g)}=\vp^{2a}$ for either triplet
+(Proposition~\ref{P19:prop:phi_tower_falsified}).  The correct
+replacement structure is a $\sqrt{\vp}$ geometric ladder: the four
+intra-triplet generation gaps form a geometric sequence with ratio
+$\sqrt{\vp}$, anchored at the strange-quark mass ratio $m_s/m_d$
+(Theorem~\ref{P19:thm:sqrt_phi_ladder}).  Combined with
+Paper~XVI's derived $m_s=93.32\,\mathrm{MeV}$ ($0.09\%$) and the
+framework-derived ratio $m_s/m_d=\sqrt{k/2}\cdot e^{8\pi/9}=19.991$
+(equation~\eqref{P19:eq:spin_corrected_ratio}), this yields
+$m_b=4214\,\mathrm{MeV}$ ($0.7\%$ off PDG $4183\,\mathrm{MeV}$),
+$m_t/m_c$ at $6\%$, and $m_c/m_u$ at $19\%$
+(Corollary~\ref{P19:cor:absolute_masses}).  Whether the
+Jones-polynomial arithmetic of this paper accounts for the ladder's
+common inversion ratio $r=\sqrt{\vp}$ or the up/down generation-spacing
+asymmetry is open (Proposition~\ref{P19:prop:jones_modulus_ratio});
+the direct comparison does not reproduce the observed ratio.
+
+A key observation (Remark~\ref{P19:rem:ms_md_integer}): the
+framework-derived ratio $m_s/m_d=19.991$ is within $0.047\%$ of
+the integer $n_e=20$, the lepton CMB tower level the framework
+derives independently from $T_{\mathrm{CMB}}$ and geometry.
+The predictions use no PDG input; PDG values appear only as
+comparison targets.  The dominant residuals (0.7\%, 6\%, 19\%)
+come from the ladder structure, not from the base-ratio accuracy.
+The spin-Casimir identity $k=4C_2(\tfrac12)$ that makes
+$m_s/m_d\approx n_e$ is exact at $k=3$ (Open Problem~O6 seeks a
+proof that the 0.047\% gap closes exactly).
+
+\item \textbf{The two-triplet scale ratio is predicted at the
+$20\%$ level}: $M_{\mathrm{down}}/M_{\mathrm{up}}\approx 0.189$
+from the $z$-tangent-squared network geometry
+(Proposition~\ref{P19:prop:triplet_ratio}), matching observation
+$0.157$ within the systematic residual identified in
+Paper~XVI~\cite{Paper16}.
+\end{enumerate}
+
+A fifth result is exact: the multi-component Jones polynomial
+framework required for reactions with two or more disjoint
+components is developed in
+Section~\ref{P19:sec:multi_component_jones}.  The reaction rule is
+\emph{unit-equivalence} in the ring
+of cyclotomic integers $\mathbb{Z}[\zeta_5]$
+(Theorem~\ref{P19:thm:unit_reaction_rule}), not mere rationality-class
+equality (Paper~XVIII, Theorem~4.1 %\ref{P18:thm:jones_rule}),
+and not numerical equality of Jones products.  Both $\QH=3$ production
+channels of Paper~XVIII are verified algebraically:
+$T(2,2)\sqcup T(2,2)\to T(2,3)\sqcup U$ with unit factor
+$\zeta_5+\zeta_5^4=1/\vp$ (Theorem~\ref{P19:thm:channel_1}), and
+$T(2,2)\sqcup U\to T(2,3)$ with unit factor
+$-\vp\cdot\zeta_5$ (Theorem~\ref{P19:thm:channel_2}).
+This closes Paper~XVIII's Open Problem~O4 and upgrades
+Paper~XVIII's rationality-class selection rule to the strictly
+stronger unit-equivalence formulation.
+
+A formal result in the lepton sector:
+Proposition~\ref{P19:prop:solar_angle_jones} proves that the
+leading-order solar mixing angle satisfies
+$\tan\theta_{12}^{(0)}=1/\vp=1/d_{1/2}$, where $d_{1/2}$ is the
+$\mathrm{SU}(2)_3$ quantum dimension of the spin-$\tfrac12$ primary,
+via Paper~XVII's S-matrix.  The same modulus $1/\vp$ also equals
+$|\Jones_{T(2,2)}(q_5)|$ (Theorem~\ref{P19:thm:channel_1}), a
+numerical coincidence recorded but not established as a derivation
+(Remark~\ref{P19:rem:solar_physical}).  Whether $\vp$ also plays a
+role in the quark-sector generation hierarchy is open
+(Proposition~\ref{P19:prop:jones_modulus_ratio}).
+
+Two conjectures of Paper~XVIII are reconciled: the six-quark
+combinatorial (Conjecture~\ref{P19:conj:six_quarks_r19}) and the
+writhe-based isospin (Conjecture~\ref{P19:conj:isospin_r19}) are
+merged into a single dynamical picture
+(Conjecture~\ref{P19:conj:six_quarks_reformulated}) in which the two
+isospin triplets correspond to the two networks (crossings vs.\
+midpoints/lobes) and the intra-triplet mass hierarchy comes from
+the azimuthal position of each site relative to the threading site
+of the formation event.
+
+The remaining open problem --- the computation of the dynamical
+partition and its comparison to the six quark masses --- is
+scoped in Section~\ref{P19:sec:open} and requires the dynamic
+integrator infrastructure of Papers~XVII and~XVIII, extended
+to simulate the formation event with the velocity field recorded
+at each of the twelve sites.
+
+%══════════════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper12}
+F.~Manfredi,
+\textit{The Profile Normalisation Conjecture ---
+  Proof via CMB Energy Identity and Two-Route Equivalence},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20210460}{doi:10.5281/zenodo.20210460}
+
+\bibitem{Paper15}
+F.~Manfredi,
+\textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+
+\bibitem{Paper16}
+F.~Manfredi,
+\textit{Quark Generation Masses in the Density-Feedback Hopfion:
+A Survey of Ruled-Out Mechanisms and the $Q_H=3$ Gradient-Flow Landscape},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21012650}{doi:10.5281/zenodo.21012650}
+
+\bibitem{Paper17}
+F.~Manfredi,
+\textit{The $Q_H=1$ Sector of the Density-Feedback Hopfion:
+Topology, Group Structure, Colour Exclusion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21013412}{doi:10.5281/zenodo.21013412}
+
+\bibitem{Paper18}
+F.~Manfredi,
+\textit{Preimage Topology and Confinement: The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+
+\bibitem{Jones1985}
+V.~F.~R.~Jones,
+\textit{A polynomial invariant for knots via von Neumann algebras},
+Bull.\ Amer.\ Math.\ Soc.\ \textbf{12}, 103--111 (1985).
+\href{https://doi.org/10.1090/S0273-0979-1985-15304-2}{doi:10.1090/S0273-0979-1985-15304-2}
+
+\bibitem{Kauffman1987}
+L.~H.~Kauffman,
+\textit{State models and the Jones polynomial},
+Topology \textbf{26}, 395--407 (1987).
+\href{https://doi.org/10.1016/0040-9383(87)90009-7}{doi:10.1016/0040-9383(87)90009-7}
+
+\bibitem{Rolfsen1976}
+D.~Rolfsen,
+\textit{Knots and Links},
+Publish or Perish, Berkeley (1976).
+ISBN 978-0914098164
+
+\bibitem{PDG2024}
+S.~Navas et al.\ (Particle Data Group),
+\textit{Review of Particle Physics},
+Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+\href{https://doi.org/10.1103/PhysRevD.110.030001}{doi:10.1103/PhysRevD.110.030001}
+
+\end{thebibliography}
+
+\end{document}

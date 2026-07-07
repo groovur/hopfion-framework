@@ -1,0 +1,50 @@
+%% hopfion-framework/foundations/suppression.tex
+%% Sources: main_paper1.tex, main_paper2.tex, main_paper3.tex
+%% The suppression law S(theta,rho) = sin^4(theta)/[phi^6(1+beta*rho)] and saddle point
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Suppression Law Definition — Paper I
+%════════════════════════════════════════════════════════════════════
+\begin{equation}
+  \Efb[f] \;=\; \Kfb\cdot\Jfour,
+  \qquad
+  \Kfb = \Ja + \ms\,\Jfb,
+  \label{P1:eq:Efb}
+\end{equation}
+
+\begin{align}
+  \Ja   &= \int \sin^4\!f\cdot\mathrm{kern}\;\mathrm{dvol},
+           \label{P1:eq:J2a} \\
+  \Jiso &= \int \mathrm{kern}\;\mathrm{dvol},
+           \label{P1:eq:Jiso} \\
+  \Jfour &= \int \bigl(F_{13}^2 + F_{12}^2 + F_{23}^2\bigr)\;\mathrm{dvol},
+           \label{P1:eq:J4}
+\end{align}
+
+\begin{equation}
+  \Ja + \ms\,\Jiso \;=\; \lam\,\Jfour.
+  \label{P1:eq:derrick}
+\end{equation}
+
+\begin{equation}
+  E_{\mathrm{geom}}[f;\ms]
+  \;\equiv\; \bigl(\Ja + \ms\,\Jiso\bigr)\cdot\Jfour.
+  \label{P1:eq:Egeom}
+\end{equation}
+
+
+%════════════════════════════════════════════════════════════════════
+% WZW Bosonization and Virial — Paper III
+%════════════════════════════════════════════════════════════════════
+% Proof that 3+1D condensate reduces to SU(2)_3 WZW on the knot
+\begin{equation}
+  \thetaG \;=\; \frac{360}{\vp^2} \;\approx\; 137.508^\circ,
+  \label{P3:eq:golden_angle}
+\end{equation}
+

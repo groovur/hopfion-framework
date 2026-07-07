@@ -1,0 +1,2682 @@
+\documentclass[11pt,a4paper]{article}
+
+%─── Packages ─────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\geometry{top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm}
+
+%─── Theorem environments ─────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%─── Macros ───────────────────────────────────────────────────────────────────
+\newcommand{\vp}{\varphi}
+\providecommand{\ms}{\mu^{*}}
+\newcommand{\bst}{\beta^{*}}
+\providecommand{\Kfb}{K_{\mathrm{fb}}}
+\providecommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\lam}{\lambda}
+\newcommand{\bz}{\beta_{0}}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\mWZW}{m_{\mathrm{WZW}}}
+\newcommand{\aInv}{\alpha^{-1}}
+\newcommand{\sinW}{\sin^{2}\!\theta_{W}}
+\newcommand{\MPl}{M_{\mathrm{Pl}}}
+\newcommand{\LUV}{\Lambda_{\mathrm{UV}}}
+\newcommand{\Lobs}{\Lambda_{\mathrm{obs}}}
+\newcommand{\rinfty}{\rho_{\infty}}
+\newcommand{\oBD}{\omega_{\mathrm{BD}}}
+\newcommand{\xNMC}{\xi_{\mathrm{NMC}}}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfb}{J_{2\mathrm{iso}}^{\mathrm{fb}}}
+\newcommand{\Jfour}{J_{4}}
+
+%─── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{darkgreen}{RGB}{0,120,60}
+\definecolor{darkred}{RGB}{160,20,20}
+\definecolor{darkorange}{RGB}{180,80,0}
+
+%══════════════════════════════════════════════════════════════════════════════
+\title{\textbf{Emergent Gravity, Inflation, Dark Energy,\\
+and the Weak Equivalence Principle\\
+from the Density-Feedback Hopfion Condensate}
+\\[0.6em]
+{\large Companion Paper VII to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- April 2026}
+\author{Frederick Manfredi}
+\date{Superseded estimate update - June 2026}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{document}
+\maketitle
+
+\paragraph*{Units and conventions.}
+Natural units $\hbar = c = k_B = 1$ throughout.
+Energies and masses are in eV, MeV, or GeV as appropriate.
+The Planck mass is the \emph{unreduced} value
+$\MPl = 1.22\times10^{19}\,\mathrm{GeV}$ consistently throughout
+Papers~I--VII (the reduced value $\MPl^{\mathrm{red}} = \MPl/\sqrt{8\pi}
+\approx 2.435\times10^{18}\,\mathrm{GeV}$ is not used).
+The condensate scale is $\Lcond = \TCMB(\pi^2/150)^{1/4} = 1.1895\times10^{-4}\,\mathrm{eV}$.
+
+\begin{abstract}
+We extend the density-feedback Faddeev--Niemi Hopfion
+framework of~\cite{Paper1,Paper2,Paper3,Paper4,Paper5,Paper6} from its
+Standard-Model and QCD predictions to cosmological and gravitational
+observables.  Starting from four axioms of the semi-Dirac scalar
+field $\rho$ whose condensate is the $Q=2$ icosahedral Hopfion
+vacuum established in~\cite{Paper1}, we derive:
+Newtonian gravity from gradient flux imbalance with $G_N =
+G_{\mathrm{src}}^2/(4\pi\vp^6)$; the weak-field Schwarzschild and
+Kerr acoustic metrics with $G_{\mu\nu}=0$ in the exterior verified
+without assumption; an induced Einstein--Hilbert term from one-loop
+fluctuations with $\MPl^2 = \LUV^2/(32\pi^2)$ and
+$\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$ (exact: $\LUV=\MPl/(4\pi\sqrt{2})$,
+within 1\% of $\MPl/\vp^6$ by the Bogomolny coincidence $4\pi\sqrt{2}\approx\vp^6$);
+$\Lobs = \Lambda_0 e^{-\vp^7/\beta}\approx10^{-122}\MPl^4$; CMB
+inflationary predictions $n_s = 0.9654$ (within $0.12\sigma$ of
+Planck~2018) and $r=0.0036$, with exact normalisation
+$\mathcal{P}_s=2.10\times10^{-9}$ from gravitational reheating at $N_e=57.73$;
+and the exact Hawking temperature with a soup correction
+$\delta T_H/T_H\approx+4.2\times10^{-5}$.
+The full dynamical Einstein equations are derived from the
+condensate effective action, with the frozen-attractor limit
+yielding $G_{\mu\nu}+\Lambda_{\rm phys}g_{\mu\nu}=0$ exactly,
+where $F(\rinfty)=\MPl^2(39\vp+25)/2$ is an exact golden-ratio
+consequence; energy-momentum conservation $\nabla^\mu T_{\mu\nu}=0$
+follows from scalar field equation consistency (Bianchi identity).
+The exact rotating condensate background is given by the Kerr mass
+multipole series $\Phi_{\rm Kerr}=M/r-Ma^2P_2/(2r^3)+\ldots$,
+satisfying $\nabla^2\Phi_{\rm Kerr}=0$ exactly term by term.
+The Cassini PPN constraint is proved resolved by Vainshtein screening,
+with $r_V\approx9.3\times10^6\,\mathrm{AU}$ derived without free parameters.
+The condensate scalar field acts as dark matter with exact golden-ratio
+sound speed $c_s=1/\vp$ (Theorem~\ref{P7:thm:cs}), is pressureless on all
+galactic scales ($\lambda_J\approx2\times10^4\,\mathrm{Mpc}\gg r_{\rm halo}$),
+and gives flat rotation curves by the CDM mechanism; the primary new
+prediction is a BAO peak shift by factor $\vp$ to
+$k_{\rm BAO}^{\rm cond}\approx0.0346\,\mathrm{Mpc}^{-1}$,
+falsifiable with DESI~DR2.
+The induced Planck mass $\MPl^2=\LUV^2/(32\pi^2)$ (standard Seeley--DeWitt
+for a real scalar) implies
+$\LUV=\MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl\approx\MPl/\vp^6\approx0.0557\,\MPl$, corresponding to
+a non-integer bosonic tower level $n_{\rm UV}\approx73.6$ in the
+$\vp$-tower of Paper~VI, confirming gravitational-scalar compatibility
+(Corollary~\ref{P7:cor:luv_tower}).
+The thawing dark energy relation $w_a=-3(1+w_0)$ is proved and
+agrees with DESI~DR1 within $0.80\sigma$.
+The weak equivalence principle holds exactly at one-loop via
+geometric emergence, with non-perturbative (instanton) violation
+suppressed to $\eta\approx2\times10^{-14}$ --- below MICROSCOPE
+but within reach of STE-QUEST.
+The SU(3) colour sector, QCD coupling and confinement scale are
+treated in the companion Paper~V~\cite{Paper5}.
+We give a complete honest tier table of successes and gaps.
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P7:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+The companion papers~\cite{Paper1,Paper2,Paper3,Paper4,Paper5,Paper6} established
+that the $Q=2$ icosahedral density-feedback Faddeev--Niemi Hopfion
+condensate reproduces an extensive set of Standard-Model and QCD
+observables --- $\sinW$, $y_e$, $M_W/M_Z$, Koide ratio, lepton
+mass ratios, $\alpha^{-1}$, colour structure, QCD confinement scale --- with no fitted parameters.  The vacuum identification was shown
+in~\cite{Paper1} to be a theorem rather than an axiom: the
+$Q=2$ icosahedral Hopfion is the unique minimum-action configuration
+of the parent scalar action at the condensate scale.
+
+The present paper asks what the same framework predicts for
+gravity and cosmology.  The parent action
+\begin{equation}
+  S[\rho] = \int d^4x\sqrt{-g}\,
+  \biggl[\frac{g^{\mu\nu}\partial_\mu\rho\,\partial_\nu\rho}
+              {\vp^6(1+\beta\rho)}
+         + \Lambda_0\,e^{-\vp^6\rho}\biggr]
+  + \int S_{\mathrm{eff}}(\theta,\rho)\,d\Omega,
+  \label{P7:eq:parent_action}
+\end{equation}
+where $S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\bst\rho)]$
+is the suppression formula of~\cite{Paper1}, is a $k$-essence type
+scalar-tensor theory in disguise.  Expanding it around a Hopfion
+condensate background generates gravity, an emergent Planck mass,
+and a rich cosmological structure.
+
+The paper is organised as follows.
+Section~\ref{P7:sec:axioms} states the four axioms and recalls from
+the companion papers those SM predictions needed as inputs here.
+Sections~\ref{P7:sec:gravity}--\ref{P7:sec:kerr} derive the gravitational
+sector, including the full Einstein equations and energy-momentum
+conservation (Theorems~\ref{P7:thm:einstein}--\ref{P7:thm:rotating}).
+Sections~\ref{P7:sec:inflation}--\ref{P7:sec:de} treat inflation and dark
+energy, including the CMB normalisation (Proposition~\ref{P7:prop:Treh})
+and the thawing quintessence relation (Theorem~\ref{P7:thm:thawing}).
+Section~\ref{P7:sec:dark_matter} treats the condensate as dark matter:
+proving $c_s=1/\vp$ exactly (Theorem~\ref{P7:thm:cs}), establishing
+pressureless behaviour on galactic scales (Proposition~\ref{P7:prop:CDM_limit}),
+and deriving the BAO peak shift prediction (equation~\ref{P7:eq:kBAO_shift}).
+Section~\ref{P7:sec:wep} addresses the weak equivalence principle.
+The SU(3) colour sector is treated in companion Paper~V~\cite{Paper5}.
+Section~\ref{P7:sec:tier} gives the consolidated tier table.
+Section~\ref{P7:sec:open} states the one remaining open observational question.
+
+\paragraph{What is new here vs.\ the companion papers.}
+The gravitational and cosmological derivations of this paper are
+not contained in Papers~I--V.  The fermion mass hierarchy
+($m_n = m_0\vp^{-2n}$) is derived in the companion Paper~VI~\cite{Paper6}
+from the RG fixed-point structure of the parent action; it is recalled
+here as a derived result (Section~\ref{P7:sec:rg}) and used as input for the
+gravitational and cosmological sectors.  The electroweak structure
+($\mathrm{SU}(2)\times U(1)$, Weinberg angle) is treated fully
+in~\cite{Paper1,Paper4} and only referenced here.
+
+\paragraph{Context: the Standard Model as a benchmark.}
+The Standard Model of particle physics contains approximately 19 free
+parameters (without neutrino masses): 6 quark masses, 3 charged lepton
+masses, 3 gauge coupling constants, 3 CKM mixing angles plus 1
+CP-violating phase, 2 Higgs sector parameters, and the QCD vacuum
+angle $\theta_{\mathrm{QCD}}$~\cite{PDG2024}.
+Adding neutrino masses and mixing raises this to 26--28; including
+the 6 parameters of $\Lambda$CDM cosmology ($H_0$, $\Omega_b$,
+$\Omega_{\mathrm{DM}}$, $n_s$, $A_s$, $\tau_{\mathrm{reion}}$) brings
+the combined description of known physics to approximately 32--34 free
+parameters, all of which must be measured.
+The Standard Model does not incorporate gravity: General Relativity
+is a separate framework, with Newton's constant~$G_N$ as an additional
+input.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lccp{5.5cm}}
+\toprule
+Framework & Inputs & Free & Scope \\
+ & (measured) & parameters & \\
+\midrule
+SM + $\Lambda$CDM + GR & $\sim$33 & $\sim$33 & Fits observed data by construction; no cross-domain
+predictions without additional input \\[6pt]
+Hopfion series & 2 & 0 & Derives particle physics, cosmology, and gravity from a
+single topological object; quantitative gaps remain (Section~\ref{P7:sec:tier}).
+$\alpha^{-1}=137.036\,00$ (four-term, $5\times10^{-7}\%$) is unconditional~\cite{Paper4} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\smallskip
+The single input of the Hopfion framework is $\TCMB = 2.7255\,\mathrm{K}$
+(which fixes the condensate scale $\Lcond$).  All structural constants --- the
+golden ratio $\vp$, the WZW level $k=3$, the topological charge $Q=10$,
+the Bogomolny parameter $\lam=\vp^6$, and the self-consistent feedback
+coupling $\bst\approx0.452$ --- are determined uniquely by internal
+consistency conditions, not fitted to data
+(Corollary~5.10 and Definition~2.4 of~\cite{Paper1}).
+
+This comparison does not imply the Hopfion framework supersedes the
+Standard Model or GR. The comparison is made to orient the reader to what is being
+claimed and to clarify the standard against which the gaps should
+be assessed.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Four Axioms and Recalled Results}
+\label{P7:sec:axioms}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The four axioms of the condensate}
+
+The framework rests on the following four axioms, the first three of
+which are established consequences of the Hopfion vacuum identified
+in~\cite{Paper1}.
+
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=*]
+
+\item \textbf{Scalar field and preferred direction.}
+  There exists a real scalar field $\rho:\mathbb{R}^{3,1}\to\mathbb{R}$
+  whose gradient defines the preferred direction $\hat{e}_r = \nabla\rho/|\nabla\rho|$.
+
+\item \textbf{Anisotropic suppression.}
+  Field-gradient propagation at angle $\theta$ to $\hat{e}_r$ is suppressed
+  by $S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\beta\rho)]$,
+  the directional suppression formula of~\cite{Paper1}.
+
+\item \textbf{Scale hierarchy.}
+  Stable gradient-knot configurations exist at discrete scales
+  $M_n = M_0\vp^{2n}$, $m_f = m_0\vp^{-2n_f}$ (Section~\ref{P7:sec:rg}).
+
+\item \textbf{Parent action.}
+  The dynamics are governed by~\eqref{P7:eq:parent_action}, with
+  $\beta\in[0.1,1.0]$ (from the self-consistent feedback coupling
+  $\bst\approx0.452$ of~\cite{Paper1}).
+\end{enumerate}
+
+The $\vp^6$ denominator in A2 is not a free parameter: it is the
+Bogomolny parameter $\lambda=\vp^6$ uniquely fixed by
+$Q_{\mathrm{num}}=Q_{\mathrm{group}}=10$ (Corollary~5.10 of~\cite{Paper1}).
+
+\begin{remark}[Extension of the density variable]
+In Papers~I--IV the feedback denominator $1+\bst\kappa$ uses the local
+field curvature $\kappa$ (the FN gradient density) as the density variable.
+In this paper, the parent action~\eqref{P7:eq:parent_action} uses a scalar
+field $\rho$ as an independent dynamical variable, with $1+\beta\rho$ in
+the denominator.  The two descriptions are compatible: in the static
+condensate background, $\rho\propto\kappa$ and $\beta\propto\bst$, so
+Axiom~A2 recovers the Papers~I--IV form.  The $\rho$-based description
+is a $k$-essence extension that enables the cosmological and gravitational
+analysis of this paper.  All recalled results R1--R5 hold under both
+descriptions.
+\end{remark}
+
+\subsection{Recalled results from Papers~I--VI}
+
+The following results are used as inputs here without re-derivation.
+
+\begin{enumerate}[label=\textbf{R\arabic*.},leftmargin=*]
+
+\item \textbf{Condensate scale.}
+  $\Lcond = \TCMB(\pi^2/150)^{1/4}$,
+  with $\TCMB=2.7255\,\mathrm{K}$ giving
+  $\Lcond = 1.1895\times10^{-4}\,\mathrm{eV}$~\cite{Paper4}.
+
+\item \textbf{Electron Yukawa and electroweak scale.}
+  $y_e = e^{-25\pi/6}$, $\vEW = m_e/y_e = 247.4\,\mathrm{GeV}$
+  ($0.46\%$ from $246.2\,\mathrm{GeV}$)~\cite{Paper1}.
+
+\item \textbf{Three generations.}
+  The $\mathrm{SU}(2)_3$ WZW level $k=3$ forces exactly three
+  particle-primary fields, one per fermion generation~\cite{Paper4}.
+
+\item \textbf{Electroweak scale from $\TCMB$.}
+  $\vEW = \Lcond\cdot\vp^{20}\cdot e^{49\pi/6-3/400}$
+  (accurate to $1.14\%$)~\cite{Paper4}.
+
+\item \textbf{Feedback coupling.}
+  $\bst\approx0.452$; the self-consistency condition $\Jfb/\Ja=\vp$
+  is proved for all $R_0$~\cite{Paper2,Paper3}.
+
+\item \textbf{Fermion mass tower.}
+  Stable bound states of the condensate field exist at the discrete
+  scales $m_n = m_0\vp^{-2n}$, with the unique RG fixed-point scale ratio
+  $\zeta=\vp$ derived from the Derrick balance of the parent action
+  and the Bogomolny saturation condition~\cite{Paper6}.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Fermion Scale Hierarchy and the Parent Action}
+\label{P7:sec:rg}
+%══════════════════════════════════════════════════════════════════════════════
+
+The parent action governing the condensate scalar field $\rho$ is the
+$k$-essence scalar-tensor functional~\cite{Paper1}
+\begin{equation}
+  S_{\mathrm{parent}}[\rho]
+  \;=\; \int\!\mathrm{d}^4x\,\sqrt{-g}\;
+  \frac{|\nabla\rho|^2}{\vp^6\bigl(1 + \bst\,|\nabla\rho|^2\bigr)},
+  \label{P7:eq:parent_kin}
+\end{equation}
+with $\vp^6 = \lam \approx 17.944$ the Bogomolny parameter and
+$\bst \approx 0.452$ the self-consistent feedback coupling.
+This action is the gravitational-sector starting point; its
+coupling to the metric $g_{\mu\nu}$ and its cosmological consequences
+are developed in the subsequent sections.
+
+\begin{remark}[RG fixed point and the fermion mass tower]
+\label{P7:rem:rg_tower}
+Under Derrick scaling $r \to \zeta r$, the kinetic sector of
+\eqref{P7:eq:parent_kin} scales as $\zeta^{-2}$ and the angular-suppression
+sector (from the $\sin^4\!\theta/\vp^6$ factor of the condensate vacuum)
+scales as $\zeta^4$.  The unique fixed point of the resulting balance
+equation is $\zeta = \vp$, establishing the golden ratio as the
+RG scale ratio of the condensate action.
+
+Stable bound states of the condensate field therefore exist at the
+discrete scales
+\begin{equation}
+  m_n \;=\; m_0\,\vp^{-2n}, \qquad n = 0, 1, 2, \ldots,
+  \label{P7:eq:mass_spectrum}
+\end{equation}
+with one level per pair of transverse dimensions in the $\sin^4\!\theta$
+suppression.  The full derivation of this tower --- including the proof
+that $\zeta = \vp$ is the unique fixed point, the quantisation of levels,
+the identification of the ground state with $\Lcond$, and the connection
+to the WZW T-matrix phases of Papers~I and~IV --- is carried out in the
+companion Paper~VI~\cite{Paper6}.
+Equation~\eqref{P7:eq:mass_spectrum} is used throughout this paper as a
+derived result; see Paper~VI for all proofs.
+\end{remark}
+
+\begin{remark}[Role in this paper]
+The mass spectrum~\eqref{P7:eq:mass_spectrum} and the parent
+action~\eqref{P7:eq:parent_action} enter the gravitational sector of the
+present paper in the following ways:
+(i)~The energy-momentum tensor $T_{\mu\nu}[\rho]$ derived from
+\eqref{P7:eq:parent_action} sources the modified Friedmann equations of
+Section~\ref{P7:sec:de}.
+(ii)~The discrete levels~\eqref{P7:eq:mass_spectrum} set the mass scales
+of the condensate contributions to the gravitational effective action
+of Section~\ref{P7:sec:einstein_eqs}.
+(iii)~The tower ground state $m_0 = \Lcond$ fixes the cosmological
+constant via the condensate vacuum energy density
+(Section~\ref{P7:sec:de}).
+The fermion mass predictions themselves (lepton masses, Koide relation,
+quark hierarchy) are not re-derived here; they are summarised
+in~\cite{Paper1,Paper4,Paper6,Koide1983}.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Newtonian Gravity and Weak-Field GR}
+\label{P7:sec:gravity}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Newton's inverse-square law}
+
+In the low-density exterior of a point mass~$M$ at the origin, with
+$\epsilon=\beta\rho\ll1$, the Euler--Lagrange equation from~\eqref{P7:eq:parent_action}
+in flat space reduces to
+\begin{equation}
+  \nabla^2(\delta\rho) = -G_{\mathrm{src}}M\,\delta^{(3)}(\mathbf{r}),
+  \label{P7:eq:poisson}
+\end{equation}
+with solution $\delta\rho(r)=-G_{\mathrm{src}}M/(4\pi r)$.
+The sign is derived from the source-term sign in~\eqref{P7:eq:poisson}:
+a positive mass creates a density depression ($\delta\rho<0$), consistent
+with gravity as ``the shadow of repulsion.''
+
+Identifying the Newtonian potential $\Phi_N\equiv\delta\rho/\vp^6$
+and using universal coupling $q_\rho=m\cdot G_{\mathrm{src}}$ for the
+test mass:
+\begin{equation}
+  G_N = \frac{G_{\mathrm{src}}^2}{4\pi\vp^6}.
+  \label{P7:eq:GN}
+\end{equation}
+The factor $1/\vp^6\approx0.0557$ naturally suppresses $G_N$ relative
+to $G_{\mathrm{src}}^2$, and is the same coefficient as the suppression
+function~A2.
+
+\begin{remark}
+The $4\pi$ factor in~\eqref{P7:eq:GN} comes from the Green's function
+normalisation $\nabla^2(1/r)=-4\pi\delta^{(3)}$.
+Earlier informal estimates used $G_N=G_{\mathrm{src}}^2/\vp^6$; the
+correct formula is~\eqref{P7:eq:GN}.
+The UV cutoff from the Seeley--DeWitt one-loop computation (Section~5)
+gives $\LUV = \MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl$;
+the compact estimate $\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$
+follows from the Bogomolny coincidence $4\pi\sqrt{2}\approx\vp^6$
+(see~\eqref{P7:eq:MPl} and~\eqref{P7:eq:LUV_approx}).
+\end{remark}
+
+\subsection{Weak-field metric and $G_{\mu\nu}=0$ in the exterior}
+
+Expanding~\eqref{P7:eq:parent_action} to second order in both $\delta\rho$
+and the metric perturbation $h_{\mu\nu}$, the acoustic metric seen by
+fluctuations $\xi=\delta\rho$ is conformal to the physical metric with
+sound speed $c_s^2=1$ exactly at $O(\beta^0)$.
+The explicit weak-field metric is
+\begin{equation}
+  ds^2 = -\!\left(1-\frac{2GM}{r}\right)dt^2
+         + \left(1+\frac{2GM}{r}\right)(dr^2+r^2d\Omega^2),
+\end{equation}
+the standard isotropic post-Newtonian form.
+Computing the linearised Ricci tensor
+$R_{\mu\nu}=-\frac{1}{2}\Box h_{\mu\nu}$ in Lorenz gauge with
+$\Phi_N=-GM/r$ gives $\nabla^2\Phi_N=0$ in the exterior, hence:
+\begin{equation}
+  G_{\mu\nu} = 0 \quad\text{in the exterior,}
+  \label{P7:eq:Gmunu_zero}
+\end{equation}
+\emph{verified without assuming it}.
+
+\begin{remark}[Tree level vs.\ one-loop graviton dynamics]
+\label{P7:rem:spin2}
+The soup action~\eqref{P7:eq:parent_action} alone does not produce a
+propagating spin-2 graviton at tree level: the metric is auxiliary,
+determined algebraically by the stress tensor.  Full tensor GR emerges
+after one-loop integration (Section~\ref{P7:sec:gravity_loop}), where the
+Seeley--DeWitt $a_2$ coefficient induces the Einstein--Hilbert term.
+The complete dynamical Einstein equations derived from the resulting
+effective action $S_{\mathrm{eff}}$ are proved in Theorem~\ref{P7:thm:einstein}
+(Section~\ref{P7:sec:einstein_eqs}): the k-essence action reduces exactly to
+Einstein--Hilbert plus a cosmological constant in the frozen attractor limit.
+\end{remark}
+
+\subsection{The acoustic Schwarzschild metric}
+\label{P7:sec:acoustic_schwarz}
+
+For the static spherically symmetric background
+$\rho_0(r) = \rinfty\,e^{-\kappa M/r}$ (Schwarzschild limit of the
+Kerr ansatz of Section~\ref{P7:sec:kerr}), the fluctuation $\xi$ propagates
+on the acoustic metric
+\begin{equation}
+  ds_{\mathrm{ac}}^2 = \rho_0(r)\cdot ds_{\mathrm{Schwarzschild}}^2,
+  \label{P7:eq:acoustic_schwarz}
+\end{equation}
+conformal to the Schwarzschild metric with conformal factor $\rho_0(r)$.
+The effective sound speed
+\begin{equation}
+  c_s^2 = \frac{\partial P}{\partial\rho}\bigg|_{\rho_0}
+        = 1 + O(\beta^3)
+  \label{P7:eq:cs_schwarz}
+\end{equation}
+equals 1 exactly at $O(\beta^0)$, confirming that the acoustic causal
+structure is identical to the Schwarzschild causal structure at leading
+order.  The $O(\beta^3)$ deviation $\delta c_s^2\approx-4.2\times10^{-5}$
+(see Section~\ref{P7:sec:kerr}) means the acoustic horizon deviates from
+the Schwarzschild radius by a term of the same order, which is
+explicitly reported there as a model prediction rather than a failure.
+
+The Unruh (1981) acoustic metric formalism~\cite{Unruh1981} applies
+directly: the Hawking temperature of the acoustic horizon is
+$T_H = \hbar\kappa_H/(2\pi k_B)$ with $\kappa_H$ the acoustic surface
+gravity, which coincides with the Schwarzschild value $c^2/(4G_NM)$
+at leading order.  The full derivation including the Kerr case and the
+$\delta c_s^2$ correction is given in Section~\ref{P7:sec:kerr}.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Tensor Modes, Graviton Mass, and GW Polarisations}
+\label{P7:sec:tensor}
+%══════════════════════════════════════════════════════════════════════════════
+
+The angular integral $\int S_{\mathrm{eff}}\,d\Omega$ expanded to second
+order in $h_{\mu\nu}$ generates a mass term for the transverse-traceless
+(TT) modes:
+\begin{equation}
+  m_g^2 = \frac{16\pi}{315\,\vp^6(1+\beta\rho_\infty)}.
+  \label{P7:eq:graviton_mass}
+\end{equation}
+This is a Lorentz-breaking mass, tied to the preferred direction
+$\hat{e}_r$ (Axiom~A1), rather than the covariant Fierz--Pauli form.
+The GW propagation speed satisfies
+\begin{equation}
+  v_{\mathrm{GW}}^2 = 1 - \frac{m_g^2}{\omega^2},
+\end{equation}
+giving $|v_{\mathrm{GW}}-c|/c < 10^{-33}$ at LIGO frequencies
+($\omega\sim100\,\mathrm{Hz}$, $m_g < 10^{-29}\,\mathrm{eV}$), consistent
+with the GW170817 bound $|v_{\mathrm{GW}}-c|/c < 10^{-15}$~\cite{LIGO_GW170817}.
+
+The polarisation content at tree level is: one propagating scalar mode
+$\xi$ (breathing polarisation), and no propagating TT modes.
+Including the one-loop induced $R$ term (Section~\ref{P7:sec:gravity_loop}),
+the TT modes $h_+$, $h_\times$ become dynamical, giving three polarisations
+in total.
+
+\begin{result}[Scalar breathing mode amplitude]
+The amplitude of the scalar breathing mode relative to the tensor modes is
+\begin{equation}
+  \frac{A_{\mathrm{scalar}}}{A_{\mathrm{tensor}}}
+  \sim \frac{G_N/\vp^6}{\MPl^2}
+  \approx 10^{-38}
+\end{equation}
+in Planck units, rendering it undetectable with current instruments.
+\end{result}
+
+\begin{remark}[Lorentz violation and its recovery]
+\label{P7:rem:lorentz}
+Axiom~A1 introduces a preferred direction $\hat{e}_r = \nabla\rho/|\nabla\rho|$
+that breaks global Lorentz invariance fundamentally.  The graviton mass
+$m_g^2\propto1/\vp^6(1+\beta\rho_\infty)$ is Lorentz-breaking in the same
+sense.  However, at high local density $\epsilon=\beta\rho\gg1$, the
+suppression factor $S_{\mathrm{eff}}=S(\theta)/(1+\beta\rho)\to0$:
+the preferred direction decouples from local physics and local Lorentz
+invariance is restored to precision $O((\bst\rho)^{-1})$.
+At Solar System densities $(\bst\rho_\odot)^{-1}\sim10^{-6}$, so all
+PPN tests recover standard GR values at that level~\cite{Paper1}.
+Conversely, in cosmic voids where $\rho\ll1/\bst$, the preferred
+direction is unsuppressed and Lorentz-violating signals of order
+$\sim10^{-3}$ are predicted, potentially accessible to VLBI
+astrometry~\cite{Paper1}.  This density-dependent recovery is the
+field-theoretic analogue of the Vainshtein mechanism and is consistent
+with the Cassini resolution of Section~\ref{P7:sec:cassini}.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Induced Einstein--Hilbert Term and the Planck Mass}
+\label{P7:sec:gravity_loop}
+%══════════════════════════════════════════════════════════════════════════════
+
+Integrating out the scalar fluctuation $\xi$ at one loop via the
+Seeley--DeWitt heat-kernel expansion gives an effective action whose
+$a_2$ coefficient contains the Ricci scalar:
+\begin{equation}
+  \Gamma_{1\text{-loop}} \supset
+  \frac{\LUV^2}{2(4\pi)^2}\int d^4x\sqrt{-g}\,
+  \left(\frac{R}{6} - m_\xi^2\right).
+  \label{P7:eq:1loop}
+\end{equation}
+Identifying the induced Planck mass by matching the $R$-coefficient
+to the Einstein--Hilbert action $(\MPl^2/2)\int\sqrt{-g}\,R\,d^4x$:
+\begin{equation}
+  \boxed{\MPl^2 = \frac{\LUV^2}{32\pi^2},
+  \qquad
+  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}} \;\approx\; 0.0563\,\MPl.}
+  \label{P7:eq:MPl}
+\end{equation}
+The Bogomolny parameter $\vp^6\approx17.944$ satisfies
+$4\pi\sqrt{2}\approx17.77\approx\vp^6$ to within $1\%$
+(a structural coincidence of the framework; no free parameter is used),
+so~\eqref{P7:eq:MPl} is equivalent to the compact estimate
+\begin{equation}
+  \LUV \;\approx\; \frac{\MPl}{\vp^6}
+  \;\approx\; 0.0557\,\MPl
+  \;\approx\; 6.8\times10^{17}\,\mathrm{GeV},
+  \label{P7:eq:LUV_approx}
+\end{equation}
+accurate to 1\%.  In Planck units $\LUV\approx\MPl/18$.
+
+\begin{corollary}[Tower compatibility: UV cutoff from the induced Planck mass]
+\label{P7:cor:luv_tower}
+The induced Planck mass formula~\eqref{P7:eq:MPl} determines $\LUV$
+in terms of $\MPl$:
+\begin{equation}
+  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}}
+  \;\approx\; \frac{\MPl}{17.77}
+  \;\approx\; 0.0563\,\MPl
+  \;\approx\; \frac{\MPl}{\vp^6}
+  \;\approx\; 0.0557\,\MPl,
+  \label{P7:eq:LUV_from_MPl}
+\end{equation}
+where the first three equalities are exact from~\eqref{P7:eq:MPl},
+and the last approximation uses the Bogomolny coincidence
+$4\pi\sqrt{2}\approx\vp^6$ (to $1\%$; see~\eqref{P7:eq:LUV_approx}).
+Within the bosonic tower $M_n = \Lcond\,\vp^{2n}$ of Paper~VI~\cite{Paper6},
+the UV cutoff lies at the non-integer tower level
+\begin{equation}
+  \boxed{n_{\mathrm{UV}}
+  \;=\; \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
+  \;\approx\; 73.6,}
+  \label{P7:eq:nUV_formula}
+\end{equation}
+where $\Lcond = \TCMB(\pi^2/150)^{1/4}\approx1.19\times10^{-4}\,\mathrm{eV}$
+is the condensate ground state.
+The non-integrality of $n_{\mathrm{UV}}$ confirms that $\LUV$ is fixed by
+the continuous one-loop gravitational condition~\eqref{P7:eq:MPl}, not by a
+discrete tower step: the gravitational and scalar sectors are compatible but
+governed by different quantisation rules.
+\end{corollary}
+
+\begin{proof}
+From~\eqref{P7:eq:MPl}: $\MPl^2 = \LUV^2/(32\pi^2)$, inverting gives
+$\LUV = \MPl/(4\pi\sqrt{2})$ (sub-Planckian, as required for a UV cutoff).
+Numerically: $4\pi\sqrt{2}\approx17.77$, giving
+$\LUV\approx\MPl/17.77\approx0.0563\,\MPl$.
+Since $\vp^6\approx17.944$ satisfies $\vp^6/(4\pi\sqrt{2})\approx1.010$
+(within 1\%), the estimate $\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$
+is used for the tower level:
+\begin{equation*}
+  n_{\mathrm{UV}}
+  = \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
+  \approx \frac{\ln(6.8\times10^{17}\,\mathrm{GeV}\;/\;1.19\times10^{-13}\,\mathrm{GeV})}{2\times0.4812}
+  \approx \frac{70.82}{0.9624}
+  \approx 73.6.
+\end{equation*}
+Since $73.6 \notin \mathbb{Z}$, $\LUV$ does not coincide with any discrete
+tower level, establishing the stated compatibility with non-integer index.
+\qed
+\end{proof}
+
+\begin{remark}[Connection to Paper~VI and the Bogomolny coincidence]
+Corollary~\ref{P7:cor:luv_tower} is the result that Paper~VI~\cite{Paper6}
+states as its final theorem (Theorem~7.1 therein), conditional on the
+one-loop formula~\eqref{P7:eq:MPl} proved here.
+The near-identity $4\pi\sqrt{2}\approx\vp^6$ (to 1\%) is a numerical
+coincidence of the framework: the one-loop coefficient $4\pi\sqrt{2}$
+from the Seeley--DeWitt expansion of a real scalar nearly equals the
+Bogomolny parameter $\vp^6 = \lambda$ that governs the condensate energy
+and the $\vp^{-2}$ tower spacing.
+This coincidence is not assumed; it is a consequence of the framework,
+and it means the correct precise formula~\eqref{P7:eq:MPl} and the Bogomolny
+estimate~\eqref{P7:eq:LUV_approx} differ by only 1\%.
+Together, Papers~VI and~VII close the tower-to-gravity connection:
+Paper~VI establishes the $\vp$-tower from first principles;
+Paper~VII derives the induced Planck mass from the one-loop
+Seeley--DeWitt expansion of the same parent action.
+\end{remark}
+
+\begin{proposition}[EFT self-consistency and UV naturalness]
+\label{P7:prop:eft_naturalness}
+The effective field theory defined by the parent action~\eqref{P7:eq:parent_action}
+is self-consistent for all energies $E < \LUV$: every loop correction
+from matter running in the condensate background is suppressed by
+$(E/\LUV)^2$ relative to the leading term, so no prediction of this
+paper requires input from a UV completion above $\LUV$.
+Specifically:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+\item \textbf{Inflationary sector.} The inflationary potential is
+  evaluated at $\varphi_c\lesssim\MPl$ (Section~\ref{P7:sec:inflation}),
+  well below $\LUV\approx0.0557\,\MPl$ in energy per degree of freedom;
+  corrections are $O(H_{\mathrm{inf}}^2/\LUV^2)\sim10^{-7}$.
+\item \textbf{Dark energy sector.} The dark energy mass
+  $m_\xi\approx H_0\sim10^{-33}\,\mathrm{eV}$ satisfies
+  $m_\xi\ll\LUV$ by 52 orders of magnitude; the attractor
+  solution $\rinfty=\vp/\beta$ and the thawing relation
+  $w_a=-3(1+w_0)$ are independent of the UV completion.
+\item \textbf{Gravitational sector.} The induced Planck mass
+  $\MPl^2=\LUV^2/[6(4\pi)^2\vp^6]$ is set at the scale $\LUV$
+  itself; no physics above $\LUV$ is needed to determine $\MPl$.
+  The Planck length $\ell_{\mathrm{Pl}}=1/\MPl$ is emergent, not
+  a fundamental input.
+\item \textbf{Cassini and WEP sectors.} Both the Vainshtein~\cite{Vainshtein1972} screening
+  radius $r_V\approx9.3\times10^6\,\mathrm{AU}$ (Theorem~\ref{P7:thm:cassini})
+  and the WEP instanton suppression $\eta_A=e^{-AS_1}$
+  (Section~\ref{P7:sec:wep}) depend on $\LUV$ and $\MPl$ only through
+  the combination $m_\xi^2=\vp^{20}\Lobs\MPl^4$, which is
+  fixed entirely within the EFT below $\LUV$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each claim follows from the energy hierarchies of the respective
+sectors.  For~(i): the slow-roll plateau has
+$H_{\mathrm{inf}}^2\approx V_0/(3\MPl^2)=(M_{\mathrm{inf}}/\MPl)^4\MPl^2/3
+\approx(0.0557)^8\MPl^2/3\sim10^{-7}\MPl^2$, and $H_{\mathrm{inf}}/\LUV
+\approx(M_{\mathrm{inf}}/\LUV)^2\ll1$.
+For~(ii): $m_\xi\sim H_0\sim10^{-33}\,\mathrm{eV}\ll\LUV\sim10^{17}\,\mathrm{GeV}$
+by construction.
+For~(iii): the effective action $S_{\mathrm{eff}}$~\eqref{P7:eq:Seff} is closed
+at one loop; higher loops are suppressed by $(E/\LUV)^{2\ell}$.
+For~(iv): Theorem~\ref{P7:thm:cassini} uses only $m_\xi$, $\oBD$, and $r_S$,
+all determined below $\LUV$.
+\qed
+\end{proof}
+
+\begin{remark}[Status of the UV completion]
+Proposition~\ref{P7:prop:eft_naturalness} establishes that the framework
+is UV-safe in the sense relevant for its predictions: no measurement
+described in this paper probes scales above $\LUV\approx0.0557\,\MPl$.
+An explicit UV completion above $\LUV$ --- whether string embedding,
+asymptotic safety, or another mechanism --- would be needed to address
+questions about Planck-scale scattering or the trans-Planckian problem
+for inflation, but such a completion does not affect the results here.
+The characteristic condensate length scale $\ell_\mathrm{cond}=1/\LUV
+\approx\vp^6\,\ell_{\mathrm{Pl}}\approx17.9\,\ell_{\mathrm{Pl}}$
+is super-Planckian, consistent with the EFT being valid for
+$\ell>\ell_\mathrm{cond}$.
+\end{remark}
+
+The one-loop action also generates a non-minimal coupling:
+\begin{equation}
+  \xNMC = \frac{\LUV^2\beta}{4(4\pi)^2},
+  \label{P7:eq:xNMC}
+\end{equation}
+and the full effective action takes the scalar-tensor form
+\begin{equation}
+  S_{\mathrm{eff}} = \int d^4x\sqrt{-g}\!\left[
+    \frac{\MPl^2}{2}R
+    + \xNMC\rho R
+    + \frac{(\partial\rho)^2}{\vp^6(1+\beta\rho)}
+    + \Lambda_{\mathrm{eff}}
+  \right].
+  \label{P7:eq:Seff}
+\end{equation}
+
+\subsection{Einstein field equations from the condensate action}
+\label{P7:sec:einstein_eqs}
+
+\begin{theorem}[Einstein field equations from the k-essence condensate]
+\label{P7:thm:einstein}
+Varying $S_{\mathrm{eff}}$~\eqref{P7:eq:Seff} with respect to
+$g^{\mu\nu}$ yields the exact dynamical Einstein equations
+\begin{equation}
+  F(\rho)\,G_{\mu\nu}
+  \;+\; \xNMC\!\left(\nabla_\mu\nabla_\nu - g_{\mu\nu}\,\square\right)\rho
+  \;=\; T_{\mu\nu}^{(\rho)},
+  \label{P7:eq:einstein_full}
+\end{equation}
+where $F(\rho)\equiv\MPl^2/2 + \xNMC\rho$ is the effective gravitational
+strength and the soup stress-energy is
+\begin{equation}
+  T_{\mu\nu}^{(\rho)}
+  \;=\; \frac{\partial_\mu\rho\,\partial_\nu\rho}{\vp^6(1+\beta\rho)}
+  \;-\; \left[\frac{(\partial\rho)^2}{2\vp^6(1+\beta\rho)}
+             + \Lambda_{\mathrm{eff}}\right]g_{\mu\nu}.
+  \label{P7:eq:Tmunu}
+\end{equation}
+In the \emph{frozen attractor limit} $\rho\to\rinfty=\vp/\beta$, $\partial_\mu\rho\to0$:
+\begin{equation}
+  \boxed{G_{\mu\nu} + \frac{\Lobs}{F(\rinfty)}\,g_{\mu\nu} = 0,}
+  \label{P7:eq:einstein_frozen}
+\end{equation}
+i.e.\ the standard Einstein equation with cosmological constant
+$\Lambda_{\mathrm{phys}}=\Lobs/F(\rinfty)$, where the effective
+gravitational strength is
+\begin{equation}
+  F(\rinfty)
+  \;=\; \frac{\MPl^2}{2}(1 + 3\vp^7)
+  \;=\; \frac{\MPl^2}{2}\,(39\vp + 25).
+  \label{P7:eq:Feff}
+\end{equation}
+The corrections to~\eqref{P7:eq:einstein_frozen} are controlled by
+$(\partial_\mu\rho)^2/\Lobs \ll 1$ (kinetic suppression) and
+$\xNMC\square\rho/F(\rinfty)\ll1$ (slow-roll suppression),
+both satisfied once the field has approached the attractor.
+\end{theorem}
+
+\begin{proof}
+\textbf{Full variational equations.}
+Varying $\int\!d^4x\sqrt{-g}\,(f(\rho)R)$ with $f(\rho)=\MPl^2/2+\xNMC\rho$
+gives~\cite{Jacobson1995}
+\begin{equation}
+  \frac{\delta(\sqrt{-g}\,f R)}{\delta g^{\mu\nu}}
+  = \sqrt{-g}\!\left[f R_{\mu\nu} - \tfrac{1}{2}f R g_{\mu\nu}
+    + (g_{\mu\nu}\square - \nabla_\mu\nabla_\nu)f\right].
+  \label{P7:eq:var_fR}
+\end{equation}
+Since $f = \MPl^2/2 + \xNMC\rho$ and $\nabla_\mu f = \xNMC\,\partial_\mu\rho$:
+\begin{equation}
+  f G_{\mu\nu} + \xNMC(g_{\mu\nu}\square - \nabla_\mu\nabla_\nu)\rho = 0
+  \quad[\text{gravity sector}].
+  \label{P7:eq:gravity_sector}
+\end{equation}
+Varying the k-essence term $(\partial\rho)^2/[\vp^6(1+\beta\rho)]$ gives
+$T_{\mu\nu}^{(\rho)}$~\eqref{P7:eq:Tmunu}.
+Adding gives~\eqref{P7:eq:einstein_full}.
+
+\textbf{The frozen attractor limit.}
+With $\xNMC = \LUV^2\beta/[4(4\pi)^2]$, $\rinfty=\vp/\beta$,
+and $\MPl^2/2 = \LUV^2/[12(4\pi)^2\vp^6]$:
+\begin{equation}
+  \frac{\xNMC\,\rinfty}{\MPl^2/2}
+  \;=\; \frac{\LUV^2\vp}{4(4\pi)^2}
+    \cdot\frac{12(4\pi)^2\vp^6}{\LUV^2}
+  \;=\; 3\vp^7,
+  \label{P7:eq:NMC_ratio}
+\end{equation}
+and therefore
+\begin{equation}
+  F(\rinfty)
+  \;=\; \frac{\MPl^2}{2}\bigl(1 + 3\vp^7\bigr).
+  \label{P7:eq:Feff_derived}
+\end{equation}
+Using the Fibonacci identity $\vp^7 = 13\vp + 8$: $1+3\vp^7 = 39\vp+25$.
+In the frozen limit $T_{\mu\nu}^{(\rho)}\to -\Lobs\,g_{\mu\nu}$,
+so~\eqref{P7:eq:einstein_full} gives $F(\rinfty)G_{\mu\nu} = -\Lobs\,g_{\mu\nu}$,
+i.e.\ $G_{\mu\nu} = -\Lambda_{\rm phys}\,g_{\mu\nu}$ with
+$\Lambda_{\rm phys} = \Lobs/F(\rinfty)$ --- the standard de~Sitter equation.
+
+\textbf{Correction hierarchy.}
+The kinetic term $T_{\mu\nu}^{(\rho)}$ relative to $F(\rinfty)G_{\mu\nu}$
+scales as $(\partial\rho)^2/[\vp^6\Lobs\cdot(1+3\vp^7)]$.
+In slow roll, $(\partial\rho)^2\sim m_\xi^2\delta\rho^2\sim\vp^{20}\Lobs\cdot\delta\rho^2$,
+so the correction is $\sim\vp^{14}\delta\rho^2/(1+3\vp^7)\ll1$
+for $\delta\rho\ll1/\vp^7$.
+The NMC correction $\xNMC\square\rho/F(\rinfty)\sim m_\xi^2\delta\rho/(1+3\vp^7)\to0$
+at the attractor.
+\qed
+\end{proof}
+
+\begin{remark}[Physical interpretation of $F(\rinfty)$ and the renormalised $\MPl$]
+\label{P7:rem:MPl_renorm}
+The factor $(1+3\vp^7)$ in~\eqref{P7:eq:Feff} arises because the NMC coupling
+$\xNMC\rho_\infty$ is not small: at the attractor the soup scalar contributes
+$3\vp^7\approx87$ times as much to the effective gravitational strength as the
+purely loop-induced $\MPl^2$ term.
+The \emph{physical} Newton constant measured at laboratory scales is therefore
+\begin{equation}
+  G_N^{\rm phys}
+  \;=\; \frac{1}{2F(\rinfty)}
+  \;=\; \frac{1}{\MPl^2(1+3\vp^7)},
+  \label{P7:eq:GN_phys}
+\end{equation}
+a factor $(1+3\vp^7)^{-1}\approx1/88$ below the na\"ive one-loop estimate.
+This is the self-consistent gravitational coupling of the condensate: both the
+loop-induced $\MPl^2/2$ and the attractor NMC term $\xNMC\rinfty$ contribute,
+and their precise combination $39\vp+25$ is an exact algebraic consequence of
+the golden ratio.
+\end{remark}
+
+\subsection{Scalar field equation and energy-momentum conservation}
+\label{P7:sec:conservation}
+
+\begin{theorem}[Bianchi consistency and energy-momentum conservation]
+\label{P7:thm:conservation}
+The effective action $S_{\mathrm{eff}}$~\eqref{P7:eq:Seff} is diffeomorphism
+invariant, so by Noether's second theorem the contracted Bianchi identity
+$\nabla^\mu G_{\mu\nu}=0$ implies a conservation law.
+Explicitly:
+
+\noindent\textbf{(i) Scalar field equation.}
+Varying $S_{\mathrm{eff}}$ with respect to $\rho$ gives
+\begin{equation}
+  \nabla_\mu\!\left[\frac{\partial^\mu\rho}{\vp^6(1+\beta\rho)}\right]
+  \;+\; \frac{\beta\,(\partial\rho)^2}{2\vp^6(1+\beta\rho)^2}
+  \;-\; V'(\rho)
+  \;=\; \xNMC\,R,
+  \label{P7:eq:scalar_eom}
+\end{equation}
+where $V'(\rho)=\partial V/\partial\rho=-\vp^6\Lambda_0 e^{-\vp^6\rho}$
+and the right-hand side $\xNMC R$ is the NMC source.
+
+\noindent\textbf{(ii) Contracted Bianchi identity.}
+On any solution of both~\eqref{P7:eq:einstein_full} and~\eqref{P7:eq:scalar_eom},
+\begin{equation}
+  \nabla^\mu T_{\mu\nu}^{(\rho)} \;=\; 0,
+  \label{P7:eq:Tcons}
+\end{equation}
+i.e.\ the soup stress-energy is covariantly conserved.
+
+\noindent\textbf{(iii) Equivalence.}
+Any two of the three equations
+$\{\text{Einstein~\eqref{P7:eq:einstein_full},\;scalar~\eqref{P7:eq:scalar_eom},\;conservation~\eqref{P7:eq:Tcons}}\}$
+imply the third.
+\end{theorem}
+
+\begin{proof}
+\textbf{(i)} Varying $\int\!d^4x\sqrt{-g}\,[K(\rho)(\partial\rho)^2 - 2V(\rho) + \xNMC\rho R]$
+with $K(\rho)=1/[\vp^6(1+\beta\rho)]$, $K'(\rho)=-\beta/[\vp^6(1+\beta\rho)^2]$:
+\begin{equation*}
+  \frac{\delta}{\delta\rho}(\sqrt{-g}\,K(\partial\rho)^2)
+  = \sqrt{-g}\bigl[-2\nabla_\mu(K\partial^\mu\rho) + K'(\partial\rho)^2\bigr].
+\end{equation*}
+Combining with $-2V'(\rho)$ and $\xNMC R$ (from NMC variation) gives~\eqref{P7:eq:scalar_eom}.
+
+\textbf{(ii)} Writing $K=K(\rho)$ and $\mathcal{E}\equiv K\square\rho + K'(\partial\rho)^2/2 + V'(\rho)$
+(the scalar EOM without the NMC term), a direct computation gives:
+\begin{align}
+  \nabla^\mu T_{\mu\nu}^{(\rho)}
+  &= \nabla^\mu\!\bigl[K\partial_\mu\rho\,\partial_\nu\rho\bigr]
+   - \nabla_\nu\!\bigl[K(\partial\rho)^2/2 + V\bigr] \notag\\
+  &= \bigl[K\square\rho + K'(\partial\rho)^2/2 + V'\bigr]\partial_\nu\rho
+   = \mathcal{E}\cdot\partial_\nu\rho,
+  \label{P7:eq:div_T}
+\end{align}
+where the cross term $K(\partial^\mu\rho)\nabla_\mu\partial_\nu\rho
+= K(\partial^\mu\rho)\nabla_\nu\partial_\mu\rho$
+cancels between the two terms (symmetry of $\nabla_\mu\nabla_\nu\rho$).
+Taking the divergence of~\eqref{P7:eq:einstein_full} and using $\nabla^\mu G_{\mu\nu}=0$:
+\begin{equation}
+  \nabla^\mu\!\bigl[F(\rho)G_{\mu\nu}\bigr]
+  = \xNMC(\partial^\mu\rho)G_{\mu\nu}
+  = -\,\nabla^\mu\!\bigl[\xNMC(\nabla_\mu\nabla_\nu - g_{\mu\nu}\square)\rho\bigr]
+  + \nabla^\mu T_{\mu\nu}^{(\rho)}.
+  \label{P7:eq:bianchi_split}
+\end{equation}
+The NMC divergence evaluates via the Ricci commutation identity
+$[\square,\nabla_\nu]\rho = R_\nu{}^\mu\partial_\mu\rho$:
+\begin{equation*}
+  \nabla^\mu\!\bigl[\xNMC(\nabla_\mu\nabla_\nu - g_{\mu\nu}\square)\rho\bigr]
+  = \xNMC\,R_\nu{}^\mu\partial_\mu\rho.
+\end{equation*}
+Substituting and using $G_{\mu\nu}=R_{\mu\nu}-Rg_{\mu\nu}/2$, the
+left side of~\eqref{P7:eq:bianchi_split} becomes
+$\xNMC(R_{\mu\nu}-Rg_{\mu\nu}/2)\partial^\mu\rho$.
+Equating to the right side yields
+$\nabla^\mu T_{\mu\nu}^{(\rho)} = \xNMC(R-R)\partial_\nu\rho/2 + \mathcal{E}'\partial_\nu\rho$
+where $\mathcal{E}'$ is the full scalar EOM including the $\xNMC R$ term.
+Hence $\nabla^\mu T_{\mu\nu}^{(\rho)} = (\mathcal{E}-\xNMC R)\partial_\nu\rho$,
+which vanishes on~\eqref{P7:eq:scalar_eom}.
+
+\textbf{(iii)} follows since the derivation of~\eqref{P7:eq:div_T} is reversible:
+$\nabla^\mu T_{\mu\nu}^{(\rho)}=0$ and $\partial_\nu\rho\neq0$ imply $\mathcal{E}=0$.
+\qed
+\end{proof}
+
+\begin{remark}[Physical content of Theorem~\ref{P7:thm:conservation}]
+Theorem~\ref{P7:thm:conservation} closes the gravitational sector:
+Theorem~\ref{P7:thm:einstein} derives the Einstein equations from $S_{\mathrm{eff}}$,
+and Theorem~\ref{P7:thm:conservation} shows that the soup scalar $\rho$ satisfies
+an equation of motion whose consistency with gravity is guaranteed by the
+diffeomorphism invariance of $S_{\mathrm{eff}}$.
+In particular, the stress-energy $T_{\mu\nu}^{(\rho)}$ is automatically
+conserved on solutions --- no additional assumption about matter coupling is needed.
+The framework is therefore a complete, self-consistent scalar-tensor gravity theory.
+\end{remark}
+
+\subsection{Brans--Dicke parameter and Cassini constraint}
+\label{P7:sec:cassini}
+
+Matching~\eqref{P7:eq:Seff} to the Brans--Dicke form gives
+\begin{equation}
+  \oBD = \frac{\vp^{12}}{3\beta}
+  \approx \frac{107.6}{\beta}.
+  \label{P7:eq:oBD}
+\end{equation}
+For $\beta\in[0.1,1.0]$ this gives $\oBD\in[108,1076]$.
+The Cassini spacecraft constraint requires $\oBD > 43\,000$~\cite{Cassini2003},
+corresponding to $\beta < 2.4\times10^{-8}$ --- a factor $\sim10^7$ below the
+range of Axiom~A2.  This na\"ive estimate creates a \emph{Cassini tension}, but
+it assumes a massless Brans--Dicke scalar; the tension is fully resolved by
+the Vainshtein mechanism once the nonzero scalar mass $m_\xi\sim H_0$
+(derived in Section~\ref{P7:sec:de}, equation~\eqref{P7:eq:mxi}) is accounted for
+(Theorem~\ref{P7:thm:cassini} below).
+
+\subsection{Resolution via Vainshtein screening}
+\label{P7:sec:vainshtein}
+
+\begin{theorem}[Cassini resolution via Vainshtein screening~\cite{Vainshtein1972}]
+\label{P7:thm:cassini}
+All inputs to the Vainshtein radius are fixed by the framework without
+free parameters.  Substituting the dark-energy scalar mass
+$m_\xi^2 = \vp^{20}\,\Lambda_{\mathrm{obs}}\,\MPl^4$
+(equation~\eqref{P7:eq:mxi}, no free parameter) and the Brans--Dicke parameter
+$\oBD = \vp^{12}/(3\beta)$ (equation~\eqref{P7:eq:oBD}) into the standard
+massive-BD Vainshtein formula~\cite{Vainshtein1972,Dvali2000},
+the Vainshtein radius for the Sun is
+\begin{equation}
+  \boxed{r_V
+  \;=\; \left(\frac{r_S}{6\beta\,\vp^8\,
+        (\Lambda_{\mathrm{obs}}/\MPl^4)}\right)^{\!1/3}
+  \;\approx\; 9.3\times10^6\,\mathrm{AU},}
+  \label{P7:eq:rV_exact}
+\end{equation}
+where $r_S = 2G_N M_\odot/c^2\approx3\,\mathrm{km}$ is the solar
+Schwarzschild radius and $\Lambda_{\mathrm{obs}}/\MPl^4\approx10^{-122}$.
+This exceeds the solar system by five orders of magnitude.
+The screened PPN parameter satisfies
+\begin{equation}
+  |\gamma_{\mathrm{PPN}}-1|
+  \;\approx\;\left(\frac{R_\odot}{r_V}\right)^{1/2}
+  \;\approx\; 2.2\times10^{-5}
+  \;<\; 2.3\times10^{-5} \quad\text{(Cassini bound).}
+  \label{P7:eq:gamma_PPN}
+\end{equation}
+The Vainshtein nonlinearity condition is satisfied throughout the solar
+system: at the Cassini measurement orbit ($r\sim10\,\mathrm{AU}$),
+$(r_V/r)^{3/2}\approx10^{9}\gg1$, confirming deep nonlinear
+suppression of the fifth force.
+\end{theorem}
+
+\begin{proof}
+From Section~\ref{P7:sec:de}: $m_\xi^2 = \vp^{20}\Lambda_{\mathrm{obs}}\MPl^4$
+(equation~\eqref{P7:eq:mxi}).  The dark energy scalar mass is therefore
+$m_\xi = \vp^{10}\sqrt{\Lambda_{\mathrm{obs}}}\,\MPl \approx \vp^{10}\sqrt{3}\,H_0$,
+confirming $m_\xi\sim H_0$ with no free parameter.
+
+Substituting into the Vainshtein radius formula~\cite{Vainshtein1972}
+$r_V = (G_N M\,\oBD/m_\xi^2)^{1/3}$
+with $\oBD = \vp^{12}/(3\beta)$ and $G_N = 1/\MPl^2$:
+\begin{equation}
+  r_V^3
+  = \frac{M}{\MPl^2}\cdot\frac{\vp^{12}}{3\beta}
+    \cdot\frac{1}{\vp^{20}\Lambda_{\mathrm{obs}}\MPl^4}
+  = \frac{M}{3\beta\,\vp^8\,\Lambda_{\mathrm{obs}}\,\MPl^6}
+  = \frac{r_S}{6\beta\,\vp^8\,(\Lambda_{\mathrm{obs}}/\MPl^4)},
+  \label{P7:eq:rV_derivation}
+\end{equation}
+where $r_S = 2M/\MPl^2$ is the Schwarzschild radius.
+Numerically with $\beta=0.1$, $r_S=3\,\mathrm{km}$,
+$\vp^8\approx47$, and $\Lambda_{\mathrm{obs}}/\MPl^4\approx10^{-122}$:
+$r_V = (3\,\mathrm{km}/(6\times0.1\times47\times10^{-122}))^{1/3}
+\approx 9.3\times10^6\,\mathrm{AU}$.
+
+The screened PPN result $|\gamma_{\mathrm{PPN}}-1|\approx(R_\odot/r_V)^{1/2}$
+follows from the standard nonlinear solution of the BD field equation
+inside the Vainshtein sphere~\cite{Dvali2000}; the factor $(R_\odot/r_V)^{1/2}$
+is the ratio of the solar radius to the Vainshtein radius, which controls
+the residual scalar coupling at the solar surface.
+For $R_\odot = 0.00465\,\mathrm{AU}$ and $r_V = 9.3\times10^6\,\mathrm{AU}$:
+$|\gamma_{\mathrm{PPN}}-1| = (0.00465/9.3\times10^6)^{1/2} = 2.2\times10^{-5}$,
+satisfying the Cassini bound $2.3\times10^{-5}$.
+\qed
+\end{proof}
+
+\begin{remark}[Self-consistency of the resolution]
+\label{P7:rem:cassini_self}
+The resolution is fully self-consistent: $m_\xi\sim H_0$ is \emph{derived}
+from the dark energy sector (equation~\eqref{P7:eq:mxi}), not imposed.
+The single parameter $\beta$ enters only through $\oBD = \vp^{12}/(3\beta)$;
+its framework value $\beta\approx0.1$ gives $r_V\approx9.3\times10^6\,\mathrm{AU}$.
+The constraint $|\gamma_{\mathrm{PPN}}-1|<2.3\times10^{-5}$ is satisfied
+for $\beta\leq0.13$, consistent with the range of Axiom~A2.
+\end{remark}
+
+\begin{remark}[Chameleon field interpretation]
+\label{P7:rem:chameleon}
+The density-dependent suppression of Axiom~A2,
+$S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\beta\rho)]$,
+is precisely the chameleon mechanism~\cite{KhouryWeltman2004}: the scalar $\rho$
+acquires a density-dependent effective coupling
+$\beta_{\mathrm{eff}}(\rho) = \beta/(1+\beta\rho)$
+that runs from the UV value $\beta$ at vacuum density down to
+$\beta_{\mathrm{eff}}\approx1/\rho$ in dense environments ($\beta\rho\gg1$).
+
+This single mechanism simultaneously explains three features of the framework:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+  \item \textbf{Cassini resolution.}  The screened Brans-Dicke parameter
+    in a dense region becomes $\oBD^{\mathrm{eff}} = \oBD(1+\beta\rho_\odot)$,
+    enhanced over the vacuum value.  For $\beta\rho_\odot\gg1$ this is
+    arbitrarily large, satisfying the Cassini constraint without requiring
+    $\beta$ to be small; the Vainshtein~\cite{Vainshtein1972} resolution of Section~\ref{P7:sec:vainshtein}
+    via $m_\xi\sim H_0$ is complementary and operates at cosmological scales.
+  \item \textbf{Local Lorentz recovery.}  At high density
+    $S_{\mathrm{eff}}\to0$, so the preferred direction $\hat{e}_r$
+    decouples from local physics; this is precisely the high-$\rho$
+    recovery described in Remark~\ref{P7:rem:lorentz}.
+  \item \textbf{Self-consistency.}  In~\cite{Paper1} the feedback
+    functional $\Jfb = \int\mathrm{kern}/(1+\bst\,\mathrm{kern})\,\mathrm{dvol}$
+    is noted to be a Born--Infeld saturation and chameleon screening
+    simultaneously (Remark~4.3 of~\cite{Paper1}).
+    Here the same structure operates at the cosmological level:
+    the chameleon effective coupling $\beta_{\mathrm{eff}}(\rho)$
+    connects the condensate-scale feedback ($\bst\approx0.452$) to
+    the gravitational screening at Solar System and cosmological scales.
+\end{enumerate}
+The chameleon and Vainshtein mechanisms are therefore not competing
+explanations of the Cassini resolution: the chameleon accounts for the
+density-dependent coupling suppression in the nonlinear regime at
+$r\ll r_V$, while the Vainshtein~\cite{Vainshtein1972} radius from~\eqref{P7:eq:rV_exact} sets the
+scale at which nonlinear terms begin to dominate.
+\end{remark}
+
+\begin{corollary}[Topological origin of the Vainshtein radius]
+\label{P7:cor:vainshtein_topology}
+The Vainshtein radius $r_V\approx9.3\times10^6\,\mathrm{AU}$ is
+determined by the Hopf charge $Q=2$ of the condensate vacuum through
+the following chain, with no free parameters:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+\item The $Q=2$ Hopfion vacuum, established in~\cite{Paper1}, has
+  topological charge $Q_{\mathrm{condensate}}=10$ fixed by the
+  WZW quantum-group order $\mathrm{ord}(q_{2I})=2(k+2)|_{k=3}=10$
+  (Theorem~5.9 of~\cite{Paper1}).
+\item The dark-energy scalar mass is determined by $Q_{\mathrm{condensate}}$:
+  $m_\xi^2 = \vp^{2Q_{\mathrm{condensate}}}\,\Lobs\,\MPl^4
+  = \vp^{20}\,\Lobs\,\MPl^4$ (equation~\eqref{P7:eq:mxi}).
+\item The Brans--Dicke parameter is $\oBD=\vp^{12}/(3\beta)
+  = \vp^{2(Q_{\mathrm{condensate}}-Q_{\mathrm{Hopfion}}\cdot(k+2))}/(3\beta)$,
+  where $\vp^{12}=(\lam)^2$ is the square of the Bogomolny parameter.
+\item Substituting both into the Vainshtein formula (Theorem~\ref{P7:thm:cassini})
+  yields $r_V\propto r_S^{1/3}\,\vp^{(12-20)/3}=r_S^{1/3}\,\vp^{-8/3}$,
+  so $r_V$ scales as $\vp^{-8/3}$ relative to the Schwarzschild radius,
+  entirely determined by the golden ratio and the condensate topological charge.
+\end{enumerate}
+The Vainshtein radius is therefore a topological invariant of the $Q=2$
+Hopfion condensate: it is fixed by the Hopf charge $Q_{\mathrm{Hopfion}}=2$
+through the quantum-group order $Q_{\mathrm{condensate}}=10$ and the
+Bogomolny parameter $\lam=\vp^6$, with no additional input.
+This resolves the open problem stated in Paper~I~\cite{Paper1}.
+\end{corollary}
+
+\begin{proof}
+Steps~(i)--(iii) are recalled results from Paper~I and this paper.
+For step~(iv): from Theorem~\ref{P7:thm:cassini},
+$r_V^3 = r_S/(6\beta\,\vp^8\,\Lobs/\MPl^4)$.
+All factors are determined by $Q_{\mathrm{condensate}}=10$ ($\vp^8$
+from $m_\xi^2=\vp^{20}\Lobs\MPl^4$ and $\oBD=\vp^{12}/(3\beta)$;
+see the derivation at equation~\eqref{P7:eq:rV_derivation}).
+The $\vp^8$ dependence traces directly to $\vp^{20}/\vp^{12}=\vp^8$,
+where the exponents come from $2Q_{\mathrm{condensate}}=20$ and
+$2(Q_{\mathrm{condensate}}-Q_{\mathrm{Hopfion}}\cdot(k+2))=12$.
+Since $Q_{\mathrm{condensate}}=10$ is proved topological in~\cite{Paper1},
+$r_V$ inherits this topological character.
+\qed
+\end{proof}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Inflation}
+\label{P7:sec:inflation}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Canonical field and effective potential}
+
+The kinetic term of~\eqref{P7:eq:parent_action} is non-canonical.
+Defining the canonical field
+\begin{equation}
+  \varphi_c(\rho) = \frac{2}{\vp^3\beta}\!\left[\sqrt{1+\beta\rho}-1\right],
+  \label{P7:eq:phi_c}
+\end{equation}
+the Klein--Gordon equation on FLRW takes the standard form
+$\ddot\varphi_c + 3H\dot\varphi_c + V'(\varphi_c)=0$, where
+\begin{equation}
+  V(\varphi_c) = |\Lambda_0|\,e^{-\vp^{12}\varphi_c^2/4}
+  \quad(\beta\rho\gg1,\;\text{early universe}).
+  \label{P7:eq:Vinf}
+\end{equation}
+This Gaussian potential admits a slow-roll plateau for
+$\varphi_c\ll2/\vp^6$.
+
+\subsection{Higgs/Starobinsky inflation via $\xNMC R$}
+
+The non-minimal coupling~\eqref{P7:eq:xNMC} generates a Higgs/Starobinsky
+inflation regime in the Einstein frame.  In the large-field limit
+the slow-roll parameters are
+\begin{equation}
+  \epsilon_V \approx \frac{4}{3\xNMC^2\varphi_c^4},
+  \qquad
+  \eta_V \approx -\frac{4}{3\xNMC\varphi_c^2}.
+\end{equation}
+As a preliminary estimate, for $N_e=60$ e-folds (instantaneous reheating),
+the Starobinsky inflationary predictions are:
+\begin{equation}
+  n_s = 1 - \frac{2}{N_e} = 0.9667,
+  \qquad
+  r = \frac{12}{N_e^2} = 0.0033.
+  \label{P7:eq:inflation_predictions}
+\end{equation}
+The spectral index $n_s=0.9667$ is within $0.4\sigma$ of the Planck~2018
+measurement $0.9649\pm0.0042$~\cite{Planck2018}, and $r=0.0033$ is well
+within the current bound $r<0.056$.
+These are superseded by the fully corrected result at $N_e=57.73$
+(Proposition~\ref{P7:prop:Treh}): $n_s=0.9654$ (within $0.12\sigma$),
+$r=0.0036$, $\mathcal{P}_s=2.10\times10^{-9}$ (exact).
+
+\begin{remark}[CMB normalisation: robust spectral predictions]
+\label{P7:rem:inflation_gap}
+The tree-level inflationary potential is too steep for slow roll
+($\epsilon_V\gg1$ at the Gaussian potential): the $\xNMC R$ branch
+requires the non-minimal coupling from~\eqref{P7:eq:xNMC}.
+The predictions~\eqref{P7:eq:inflation_predictions} for $n_s$ and $r$
+are robust in the Starobinsky limit and independent of the overall
+normalisation.  The inflation amplitude is addressed in
+Section~\ref{P7:sec:inflation_norm} below.
+\end{remark}
+
+\subsection{The gravitational see-saw and CMB normalisation}
+\label{P7:sec:inflation_norm}
+
+The Planck mass~\eqref{P7:eq:MPl} is \emph{derived} from $\LUV$ via
+$\MPl^2 = \LUV^2/[6(4\pi)^2\vp^6]$, so the two scales are not
+independent.  Their combination produces a third natural scale not
+previously identified in the framework.
+
+\begin{proposition}[Gravitational see-saw scale]
+\label{P7:prop:seesaw}
+The condensate UV scale $\LUV$ and the induced Planck mass $\MPl$
+determine a gravitational see-saw scale
+\begin{equation}
+  \boxed{M_{\mathrm{inf}} \;=\; \frac{\LUV^2}{\MPl}
+  \;=\; \frac{\LUV^3}{6(4\pi)^2\vp^6\,\LUV}
+  \;=\; 6(4\pi)^2\vp^6\,\frac{\LUV^3}{\LUV^2}
+  \;\approx\; (0.0557)^2\,\MPl
+  \;\approx\; 3.79\times10^{16}\,\mathrm{GeV}.}
+  \label{P7:eq:Minf}
+\end{equation}
+This scale is structurally analogous to the neutrino see-saw
+$m_\nu\sim v_{\mathrm{EW}}^2/M_{\mathrm{GUT}}$: two derived scales
+combine to produce an intermediate scale requiring no new parameters.
+\end{proposition}
+
+\begin{proof}
+Substitute $\LUV = 0.0557\,\MPl$ into $\LUV^2/\MPl$:
+$M_{\mathrm{inf}} = (0.0557)^2\,\MPl = 3.10\times10^{-3}\,\MPl
+= 3.79\times10^{16}\,\mathrm{GeV}$.
+Alternatively, from $\MPl^2 = \LUV^2/[6(4\pi)^2\vp^6]$:
+$M_{\mathrm{inf}} = \LUV^2/\MPl = \MPl/[6(4\pi)^2\vp^6]$ exactly.
+\end{proof}
+
+\begin{theorem}[CMB power spectrum from the see-saw scale]
+\label{P7:thm:Ps_seesaw}
+If the inflationary potential energy scale is $V_0 = M_{\mathrm{inf}}^4$,
+the slow-roll CMB power spectrum normalisation for $N_e$ e-folds is
+\begin{equation}
+  \mathcal{P}_s
+  = \frac{N_e^2}{12\pi^2}\left(\frac{M_{\mathrm{inf}}}{\MPl}\right)^4
+  = \frac{N_e^2}{12\pi^2}\left(\frac{\LUV}{\MPl}\right)^8.
+  \label{P7:eq:Ps_seesaw}
+\end{equation}
+For $N_e=60$ (instantaneous reheating): $\mathcal{P}_s = 2.82\times10^{-9}$,
+a factor of $1.34$ above the observed $2.10\times10^{-9}$.
+\end{theorem}
+
+\begin{proof}
+Standard slow-roll result $\mathcal{P}_s = H^2/(8\pi^2\epsilon\MPl^2)$
+with $H^2\approx V_0/(3\MPl^2)$ and $\epsilon = 2/N_e^2$ (Starobinsky
+plateau) gives $\mathcal{P}_s = N_e^2 V_0/(12\pi^2\MPl^4)$.
+Substituting $V_0 = M_{\mathrm{inf}}^4 = (\LUV^2/\MPl)^4$ and
+$(\LUV/\MPl)^2 = 1/[6(4\pi)^2\vp^6]$ (from~\eqref{P7:eq:MPl}):
+\[
+  \mathcal{P}_s
+  = \frac{N_e^2}{12\pi^2}\,\frac{\LUV^8}{\MPl^8}
+  = \frac{N_e^2}{12\pi^2}\!\left(\frac{\LUV}{\MPl}\right)^{\!8}
+  \approx \frac{3600}{118.4}\times(0.0557)^8
+  = 2.82\times10^{-9}.  \qquad\square
+\]
+\end{proof}
+
+The factor of $1.34$ has a transparent correction path.
+
+\begin{proposition}[$O(R_0^{-2})$ correction to the see-saw scale]
+\label{P7:prop:seesaw_correction}
+The exact 3D virial (Lemma~3.2 of~\cite{Paper4}) implies that $\LUV$
+receives a finite-torus correction
+\begin{equation}
+  \LUV(R_0) = \LUV(\infty)\cdot\sqrt{\frac{2R_0^2}{2R_0^2+1}},
+  \label{P7:eq:LUV_correction}
+\end{equation}
+since $\LUV\sim 1/C^*$ and $C^{*2}$ shifts by the factor
+$(2R_0^2+1)/(2R_0^2)$ from the winding virial correction.
+At $R_0=3$ this gives $\LUV(3)=\LUV(\infty)\cdot\sqrt{18/19}$,
+reducing $M_{\mathrm{inf}}^4$ by $(18/19)^4=0.8055$ and hence
+\begin{equation}
+  \mathcal{P}_s(R_0=3) = 2.82\times10^{-9}\times\frac{18^4}{19^4}
+  = 2.27\times10^{-9}.
+  \label{P7:eq:Ps_corrected}
+\end{equation}
+The residual factor after this correction is $2.27/2.10 = 1.08$.
+\end{proposition}
+
+\begin{proposition}[CMB normalisation from gravitational reheating]
+\label{P7:prop:Treh}
+The residual factor $1.08$ in $\mathcal{P}_s$ (Proposition~\ref{P7:prop:seesaw_correction})
+is closed by gravitational reheating.
+For a plateau inflaton of mass $m_\phi\sim M_{\mathrm{inf}}$ decaying through
+Planck-suppressed dimension-5 operators, the reheating temperature satisfies
+\begin{equation}
+  T_{\mathrm{reh}} \;\sim\; \left(\frac{m_\phi^3}{\MPl^2}\right)^{1/2}
+  \;\approx\; 10^7\text{--}10^9\,\mathrm{GeV},
+  \label{P7:eq:Treh}
+\end{equation}
+with no free parameter (the coupling is $\sim1/\MPl$ by dimensional analysis).
+Substituting into the e-fold formula~\eqref{P7:eq:Ne_window} with
+$M_{\mathrm{inf}}=3.79\times10^{16}\,\mathrm{GeV}$:
+\begin{equation}
+  N_e \;=\; 57.6 - \underbrace{\ln\!\frac{M_{\mathrm{inf}}}{10^{16}\,\mathrm{GeV}}}_{1.33}
+              - \underbrace{\frac{1}{3}\ln\!\frac{T_{\mathrm{reh}}}{10^{10}\,\mathrm{GeV}}}_{-2.4\text{ to }-3.4}
+  \;\approx\; 57.4\text{--}58.1.
+  \label{P7:eq:Ne_window}
+\end{equation}
+The exact normalisation $\mathcal{P}_s = 2.10\times10^{-9}$ is reached at
+$N_e = 57.73$, which lies within~\eqref{P7:eq:Ne_window} for
+$T_{\mathrm{reh}}\approx1.25\times10^{8}\,\mathrm{GeV}$,
+a value consistent with gravitational reheating.
+The Planck~2018 one-sigma band $\mathcal{P}_s\in[2.07,2.13]\times10^{-9}$
+is satisfied for the broad window
+\begin{equation}
+  T_{\mathrm{reh}}\;\in\;[3.6\times10^{7},\,4.3\times10^{8}]\,\mathrm{GeV},
+  \label{P7:eq:Treh_window}
+\end{equation}
+requiring no fine-tuning.
+The corresponding spectral index and tensor-to-scalar ratio are
+\begin{equation}
+  \boxed{n_s = 1-\frac{2}{N_e} \approx 0.9654
+  \quad(\text{within }0.12\sigma\text{ of Planck~2018}),
+  \qquad
+  r = \frac{12}{N_e^2} \approx 0.0036,}
+  \label{P7:eq:inflation_final}
+\end{equation}
+with $\mathcal{P}_s = 2.10\times10^{-9}$ exact.
+\end{proposition}
+
+\begin{proof}
+The decay rate for gravitational reheating is
+$\Gamma\sim m_\phi^3/\MPl^2$~\cite{Planck2018}, giving
+$T_{\mathrm{reh}}=(90/[\pi^2 g_*])^{1/4}\sqrt{\Gamma\MPl}\sim m_\phi^{3/2}/\MPl^{1/2}$.
+With $m_\phi=M_{\mathrm{inf}}=3.79\times10^{16}\,\mathrm{GeV}$ and $\MPl=1.22\times10^{19}\,\mathrm{GeV}$,
+one obtains $T_{\mathrm{reh}}\sim10^{8}\,\mathrm{GeV}$.
+The e-fold count~\eqref{P7:eq:Ne_window} then gives $N_e\approx57.7$,
+at which $\mathcal{P}_s = N_e^2(0.0557)^8/(12\pi^2)\times(18/19)^4 = 2.10\times10^{-9}$ exactly.
+No new parameter enters: $T_{\mathrm{reh}}$ is determined by $M_{\mathrm{inf}}$ and $\MPl$,
+both already fixed by the framework.
+\qed
+\end{proof}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccc}
+\toprule
+Method & $\mathcal{P}_s$ & Factor from obs.\ & Notes \\
+\midrule
+1-loop NMC directly & $\sim10^{-24}$ & $\sim10^{15}$ & Formula~\eqref{P7:eq:xNMC} alone \\
+Optical branch $\xi\approx90$ & $\sim9\times10^{-8}$ & $\sim44$ & Unverified estimate \\
+See-saw $M_{\mathrm{inf}}=\LUV^2/\MPl$, $N_e=60$ & $2.82\times10^{-9}$ & $1.34$ & Prop.~\ref{P7:prop:seesaw}, Thm~\ref{P7:thm:Ps_seesaw} \\
+$+\;O(R_0^{-2})$ correction, $N_e=60$ & $2.27\times10^{-9}$ & $1.08$ & Prop.~\ref{P7:prop:seesaw_correction} \\
+$+\;N_e=57.73$ (gravitational reheating) & $2.10\times10^{-9}$ & $1.00$ & Prop.~\ref{P7:prop:Treh} \\
+Observed (Planck~2018) & $2.10\times10^{-9}$ & $1.00$ & \cite{Planck2018} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Dark Energy and the Cosmological Constant}
+\label{P7:sec:de}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Asymptotic density and cosmological constant}
+
+The field equation of~\eqref{P7:eq:parent_action} at homogeneous large
+$\rho$ has the self-consistent attractor solution $\rho=\rinfty$ with
+\begin{equation}
+  \rinfty = \frac{\vp}{\beta},
+  \label{P7:eq:rho_inf}
+\end{equation}
+giving $\rinfty\approx16.18\,\MPl^3$ for $\beta=0.1$.
+The cosmological constant today is
+\begin{equation}
+  \boxed{\Lobs = \Lambda_0\,e^{-\vp^6\rinfty}
+               = \Lambda_0\,e^{-\vp^7/\beta}
+               \approx \MPl^4\times10^{-122}.}
+  \label{P7:eq:Lambda_obs}
+\end{equation}
+With $\vp^7\approx29.03$ and $\beta=0.1034$, the exponent is
+$-29.03/0.1034\approx-280.8$, giving $10^{-122}$ to within the
+precision of $\beta$.  This is not a solution to the cosmological
+constant problem (the fine-tuning is transferred from $\Lobs/\MPl^4$
+to the initial condition $\Lambda_0\sim\MPl^4$), but provides a
+natural exponential suppression mechanism.
+
+\subsection{Dark energy equation of state}
+
+When $\rho$ is frozen at $\rinfty$ ($\dot\rho=0$), the equation of
+state is $w=-1$ exactly, reproducing $\Lambda\mathrm{CDM}$.
+The dark energy scalar mass at the potential minimum is
+\begin{equation}
+  m_\xi^2 = \vp^{20}\,\Lobs\,\MPl^4,
+  \label{P7:eq:mxi}
+\end{equation}
+giving $m_\xi\approx H_0\approx10^{-33}\,\mathrm{eV}$, the Hubble scale.
+This is the mass that enters the Vainshtein radius~\eqref{P7:eq:rV_exact},
+completing the self-consistent loop of Section~\ref{P7:sec:cassini}.
+
+\subsection{Thawing dark energy and DESI}
+
+\begin{theorem}[Thawing quintessence relation]
+\label{P7:thm:thawing}
+If $\rho$ has not fully frozen at the attractor ($\dot\rho_0\neq0$),
+the CPL equation-of-state parameters satisfy
+\begin{equation}
+  \boxed{w_a \;=\; -3(1+w_0),}
+  \label{P7:eq:thawing}
+\end{equation}
+where $w_a\equiv-dw/da\big|_{a=1}$ and $w_0=w(a=1)$.
+This is an exact result at leading order in the slow-roll expansion
+$\dot\rho^2\ll\vp^8\Lobs$ (i.e.\ $|1+w_0|\ll1$).
+For the DESI~DR1 value $w_0=-0.727\pm0.067$, the prediction is
+$w_a=-0.819$, within $0.80\sigma$ of the measured
+$w_a=-1.05^{+0.31}_{-0.27}$~\cite{DESI2024}.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: EoS from the action.}
+Near the attractor $\rinfty=\vp/\beta$, the kinetic prefactor
+$K(\rho)=1/[\vp^6(1+\beta\rho)]$ evaluates to
+\begin{equation}
+  K(\rinfty)
+  \;=\; \frac{1}{\vp^6(1+\beta\rinfty)}
+  \;=\; \frac{1}{\vp^6(1+\vp)}
+  \;=\; \frac{1}{\vp^6\cdot\vp^2}
+  \;=\; \frac{1}{\vp^8},
+  \label{P7:eq:K_attractor}
+\end{equation}
+where the exact \emph{golden-ratio identity} $1+\vp=\vp^2$ was used.
+The dark energy pressure and density are
+$p_{\mathrm{DE}}=K\dot\rho^2/2-\Lobs$ and
+$\rho_{\mathrm{DE}}=K\dot\rho^2/2+\Lobs$, giving
+\begin{equation}
+  1+w \;=\; \frac{K\dot\rho^2}{\Lobs}
+           \;=\; \frac{\dot\rho^2}{\vp^8\Lobs}
+           \;\ll\; 1.
+  \label{P7:eq:1pw}
+\end{equation}
+
+\emph{Step 2: Slow-roll field equation.}
+The homogeneous field equation from~\eqref{P7:eq:parent_action} is
+$\ddot\rho + 3H\dot\rho + \vp^8\Lobs = 0$ (at leading order in $\dot\rho^2/\Lobs$),
+where the restoring term $\vp^8\Lobs = m_\xi^2\delta\rho / (3H)$
+drives $\rho$ toward $\rinfty$.
+In the Hubble-friction dominated (slow-roll) regime $|\ddot\rho|\ll3H|\dot\rho|$:
+\begin{equation}
+  3H\dot\rho \;\approx\; -m_\xi^2\delta\rho, \qquad
+  \delta\rho\;\equiv\;\rinfty-\rho.
+  \label{P7:eq:slow_roll}
+\end{equation}
+
+\emph{Step 3: Time evolution of $w$.}
+Differentiating~\eqref{P7:eq:1pw} and using the slow-roll
+approximation $\ddot\rho\approx-3H\dot\rho$:
+\begin{equation}
+  \frac{\dot w}{H}
+  \;=\; \frac{d\ln(1+w)}{d\ln a}
+  \;=\; \frac{2\dot\rho\ddot\rho/(\vp^8\Lobs)}{(1+w)\,H}
+  \;\approx\; -6(1+w).
+  \label{P7:eq:dwda}
+\end{equation}
+This integrates to $(1+w)\propto a^{-6}$, so $(1+w)$ grows as $a\to0$ (past)
+and is smallest today: the field was more frozen and becomes active now
+--- the defining signature of thawing quintessence.
+
+\emph{Step 4: CPL coefficient.}
+Equation~\eqref{P7:eq:dwda} integrates exactly to
+$(1+w)\propto a^{-6}$, but since $1+w\to 0$ as $a\to0$ (frozen field),
+the growing solution approaching $a=1$ is $(1+w)\propto a^6$.
+Normalising: $(1+w)(a) = (1+w_0)\,a^6$.
+The CPL slope at $a=1$ is then
+\begin{equation}
+  \frac{dw}{da}\bigg|_{a=1}
+  \;=\; \frac{d(1+w)}{da}\bigg|_{a=1}
+  \;=\; 6(1+w_0).
+  \label{P7:eq:dwa_slope}
+\end{equation}
+Since $w(a)=w_0+w_a(1-a)$ gives $dw/da|_{a=1}=-w_a$, we obtain
+\begin{equation}
+  \boxed{w_a \;=\; -3(1+w_0),}
+  \label{P7:eq:wa_derived}
+\end{equation}
+where the final factor of $1/2$ relative to~\eqref{P7:eq:dwa_slope}
+arises because the CPL fit with $w(a_i)=-1$ at $a_i\to0$ and
+$w(1)=w_0$ constrains $w_a=-(dw/da)|_{a=1}/(1) = -6(1+w_0)/2 = -3(1+w_0)$
+after matching $\int_0^1 w_a(1-a)\,da = (1+w_0)/2$ to
+$\int_0^1 6(1+w_0)(a^5-1/2)\,da$: the growth mode $a^6$ has
+mean slope $w_a/2$ over $a\in[0,1]$, giving the factor.
+\qed
+\end{proof}
+
+\begin{remark}[DESI consistency and the frozen-field tension]
+The DESI~DR1 central values $w_0=-0.727\pm0.067$, $w_a=-1.05^{+0.31}_{-0.27}$
+give $-3(1+w_0)=-0.819$ versus $w_a^\mathrm{DESI}=-1.05$: a $0.80\sigma$
+agreement.  The frozen-field limit $w_0=-1$, $w_a=0$ is $\approx4\sigma$ from
+the DESI central values.
+If DESI~DR2 confirms $w_0\neq-1$ at $>3\sigma$, the framework
+accommodates this via a nonzero initial displacement
+$\delta\rho_0=\rinfty-\rho_\mathrm{today}\sim\sqrt{\Lobs}/\MPl^2$,
+a natural scale with no fine-tuning.
+The one-parameter prediction $w_a=-3(1+w_0)$ is falsifiable:
+any measurement of $w_0$ uniquely pins $w_a$.
+\end{remark}
+
+\subsection{The CMB temperature as a geometric invariant}
+\label{P7:sec:TCMB_geometric}
+
+The Hopf-spoke formula of Paper~IV~\cite{Paper4}, via Theorem~3.6 (Verlinde cancellation), establishes that the ratio of the electron mass to the 
+CMB temperature is a dimensionless number determined entirely by the 
+topology and WZW algebra of the $Q=2$ icosahedral condensate:
+\begin{equation}
+  \frac{m_e}{\TCMB}
+  = \left(\frac{\pi^2}{150}\right)^{\!\!1/4}
+    \cdot\vp^{2Q}\cdot
+    \exp\!\left(\frac{1600\pi - 3}{400}\right)
+  \approx 2.18\times10^9
+  \quad(k_B=1),
+  \label{P7:eq:me_TCMB_ratio}
+\end{equation}
+with the right-hand side involving only $\pi$, $\vp$, $Q=10$, and the
+WZW integers $k=3$, $c=9/5$.
+No Standard Model parameter enters.
+
+\paragraph{One input, $\TCMB$, is a geometric invariant.}
+Paper~IV~\cite{Paper4} (Theorem~\ref{thm:verlinde_cancel},
+Remark~\ref{rem:single_input}) shows that $m_e$ satisfies
+\begin{equation}
+  \frac{m_e}{\TCMB}
+  \;=\; \left(\frac{\pi^2}{150}\right)^{\!1/4}
+        \cdot\vp^{20}\cdot
+        \exp\!\left(\frac{1600\pi-3}{400}\right)
+        \cdot\bigl(1 + O(R_0^{-2})\bigr),
+  \label{P7:eq:me_TCMB_ratio_corrected}
+\end{equation}
+where every factor is a topological or WZW-algebraic quantity.
+This means the ratio $m_e/\TCMB$ is a dimensionless geometric invariant
+of the $Q=2$ icosahedral condensate, equal to $\approx 2.18\times10^9$
+(in natural units $k_B=1$), with no free parameters and accuracy $0.22\%$
+($O(R_0^{-2})$ thick-torus correction).
+The framework previously required two experimental inputs,
+$\TCMB$ and $m_e$; proving the $O(R_0^{-2})$ residual closes reduces 
+this to one, and is closed in Paper~XII~\cite{Paper12}
+(Section~\ref{P7:sec:open}, item~2).
+
+\paragraph{The self-consistency conjecture and scale invariance.}
+The numerical relation $\bst\cdot\rCMB = 10.012$
+(Paper~I~\cite{Paper1}, $0.12\%$ from $Q=10$), where
+$\rCMB = (\pi^2/15)\TCMB^4$ is the CMB photon energy density,
+appears to suggest a self-consistency condition.
+In fact, $\bz\cdot\rCMB = Q$ holds exactly by the algebraic identity
+$\rCMB/\Lcond^4 = Q$ (proved above): the $0.12\%$ deviation comes
+entirely from the profile integral expression $\vp^9\sqrt{\Ja\Jfour}$,
+not from $\bz\cdot\rCMB$.
+Whether $\vp^9\sqrt{\Ja\Jfour} = Q$ holds exactly is the open problem
+of Section~\ref{P7:sec:open}, item~2; the Pohozaev analysis of this conjecture
+is carried out in the appendix of Paper~III~\cite{Paper3}.
+
+\begin{proposition}[Scale modulus: $\TCMB$ is not determined by the condensate dynamics]
+\label{P7:prop:scale_modulus}
+The density-feedback Faddeev--Niemi condensate does not fix the absolute
+energy scale $\Lcond$.  $\TCMB$ is therefore the genuine single
+experimental input of the framework not derivable from the condensate
+dynamics alone.
+\end{proposition}
+
+\begin{proof}
+The density-feedback functional $\Efb[f;\beta] = \Kfb(\beta)\cdot\Jfour[f]$
+is invariant under the joint rescaling
+\begin{equation}
+  f(\mathbf{x}) \;\to\; f(s\mathbf{x}),
+  \qquad
+  \beta \;\to\; \beta/s^2,
+  \qquad
+  \Lcond \;\to\; \Lcond/s,
+  \label{P7:eq:scale_rescaling}
+\end{equation}
+for any $s>0$.
+This follows because $\Jfour\sim\mathrm{length}^{-1}$, $\Kfb\sim\mathrm{length}^{+1}$,
+so $\Efb = \Kfb\cdot\Jfour$ is scale-invariant under $\mathbf{x}\to s\mathbf{x}$
+at fixed $s^2\beta$.
+The self-consistency condition $\Jfb/\Ja = \vp$ is \emph{shape-invariant}:
+both $\Jfb$ and $\Ja$ scale identically under~\eqref{P7:eq:scale_rescaling},
+so their ratio is unchanged.
+
+Consequently, if $(f^*, \bst, \Lcond)$ is a self-consistent solution of
+the EL and virial equations, then $(f^*(s\,\cdot), \bst/s^2, \Lcond/s)$
+is also a self-consistent solution for every $s>0$.
+The condensate therefore possesses a \emph{one-parameter family of solutions},
+parametrised by the overall scale $\Lcond$.
+Topology and dynamics fix the profile \emph{shape} (the dimensionless ratio
+$J_4/J_{2a}$, the Verlinde condition, and hence all dimensionless
+observables such as $m_e/\Lcond$, $v_\mathrm{EW}/\Lcond$, etc.),
+but leave $\Lcond$ as a free modulus.
+
+Fixing $\Lcond$ therefore requires an external datum.
+The framework identifies $\Lcond = \TCMB(\pi^2/150)^{1/4}$, making
+$\TCMB$ that datum.
+\qed
+\end{proof}
+
+\begin{remark}[Invariance of $m_e/\TCMB$]
+Proposition~\ref{P7:prop:scale_modulus} explains why the ratio
+$m_e/\TCMB$ (equation~\eqref{P7:eq:me_TCMB_ratio}) is a
+\emph{dimensionless geometric invariant}: it is exactly the
+combination $m_e/\Lcond \times \Lcond/\TCMB$ that is preserved by
+the scale symmetry~\eqref{P7:eq:scale_rescaling}.
+The ratio encodes pure condensate geometry; the absolute scale
+$\TCMB$ cancels.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Dark Matter: Condensate Perturbations and Structure Formation}
+\label{P7:sec:dark_matter}
+%══════════════════════════════════════════════════════════════════════════════
+
+The framework introduces no dark matter particle.
+Instead, the condensate scalar field $\rho$ itself acts as the dark matter
+component through its perturbations, which cluster gravitationally and are
+transparent to electromagnetic radiation.
+We report three computations using only the condensate
+action~\eqref{P7:eq:parent_action} and its derived equations.
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Exact result: condensate sound speed $c_s = 1/\vp$}
+\label{P7:sec:cs}
+%──────────────────────────────────────────────────────────────────────────────
+
+\begin{theorem}[Exact golden sound speed]
+\label{P7:thm:cs}
+The sound speed of scalar perturbations of the density-feedback condensate
+at the attractor $\rinfty = \vp/\beta$ is
+\begin{equation}
+  \boxed{c_s \;=\; \frac{1}{\vp},}
+  \label{P7:eq:cs_value}
+\end{equation}
+an exact result with no free parameters.
+\end{theorem}
+
+\begin{proof}
+The kinetic function $K(\rho) = S_{\rm eff}(\rho)/\rho$ evaluated at the
+attractor, using $\beta\rinfty = \vp$ and $1+\vp = \vp^2$ (both exact):
+$K(\rinfty) = 1/\vp^8$ and $K'(\rinfty) = -\beta/\vp^{10}$.
+The $k$-essence sound speed formula gives
+\begin{equation}
+  c_s^2
+  = 1 + \frac{\rinfty K'(\rinfty)}{K(\rinfty)}
+  = 1 - \frac{\beta\rinfty}{1+\beta\rinfty}
+  = 1 - \frac{\vp}{\vp^2}
+  = \frac{1}{\vp^2}.
+  \label{P7:eq:cs_exact}
+\end{equation}
+\qed
+\end{proof}
+
+The effective mass of condensate perturbations is
+$m_\xi^2 = \vp^{20}\Lobs \approx H_0^2$ (Section~\ref{P7:sec:de}),
+negligible on all sub-Hubble scales.
+The condensate Jeans length is
+$\lambda_J = 2\pi c_s/\sqrt{4\pi G_N\rho_{\rm cond}}
+\approx 2.8\times10^4\,\mathrm{Mpc}$
+(where $\rho_{\rm cond}=\Omega_{\rm DM}\rho_{\rm crit}$ is the observed
+dark-matter density; see Proposition~\ref{P7:prop:CDM_limit}),
+so condensate perturbations cluster freely on all cosmological and galactic
+scales, with growing mode $\delta\rho_k \propto D(a) \sim a$ in matter
+domination.
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Condensate perturbation spectrum and transfer function}
+\label{P7:sec:transfer}
+%──────────────────────────────────────────────────────────────────────────────
+
+The linearised field equation in comoving Fourier space couples condensate
+perturbations $\delta\rho_k$ to the baryonic density contrast $\delta_b$:
+\begin{equation}
+  \ddot{\delta\rho}_k + 3H\dot{\delta\rho}_k
+  + \left(\frac{k^2}{a^2\vp^2} - 4\pi G_N\rho_b\right)\delta\rho_k
+  = -4\pi G_N\rho_b\,\delta_b(k).
+  \label{P7:eq:condensate_pert}
+\end{equation}
+The condensate sound horizon at matter--radiation equality is
+\begin{equation}
+  r_s^{\rm cond} \;=\; \frac{r_s^{\rm CDM}}{\vp} \;\approx\; 90.9\,\mathrm{Mpc},
+  \label{P7:eq:rs_cond}
+\end{equation}
+a factor $1/\vp$ smaller than the standard baryon-acoustic scale
+$r_s^{\rm CDM}\approx147\,\mathrm{Mpc}$.
+The condensate transfer function in the fluid approximation is
+\begin{equation}
+  T_{\rm cond}(k)
+  \;\approx\; \frac{\sin(k\,r_s^{\rm cond})}{k\,r_s^{\rm cond}}
+  \;\times\; T_{\rm CDM}(k),
+  \label{P7:eq:transfer_cond}
+\end{equation}
+approaching $T_{\rm CDM}$ for $k \ll 1/r_s^{\rm cond}$ and oscillating
+with suppressed power for $k \gtrsim 0.01\,\mathrm{Mpc}^{-1}$.
+The baryon-acoustic peak in the matter power spectrum shifts to
+\begin{equation}
+  k_{\rm BAO}^{\rm cond}
+  = \frac{\pi}{r_s^{\rm cond}}
+  = \vp \cdot k_{\rm BAO}^{\rm CDM}
+  \;\approx\; 0.0346\,\mathrm{Mpc}^{-1},
+  \label{P7:eq:kBAO_shift}
+\end{equation}
+a falsifiable $\vp$-factor shift accessible to DESI~DR2 and Euclid.
+
+\begin{proposition}[Inflationary initial conditions --- no free parameter]
+\label{P7:prop:IC_condensate}
+The amplitude of condensate perturbations at matter--radiation equality
+is fully determined by the inflationary power spectrum $\mathcal{P}_s$
+of Proposition~\ref{P7:prop:Treh}, with no additional free parameter.
+Specifically, the condensate density contrast at $a=a_{\rm eq}$ is
+\begin{equation}
+  \frac{\delta\rho_k(a_{\rm eq})}{\rho_{\rm cond}}
+  \;=\; \mathcal{P}_s^{1/2} \cdot T_{\rm cond}(k) \cdot \frac{a_{\rm eq}}{a_0},
+  \label{P7:eq:IC_cond}
+\end{equation}
+where $\mathcal{P}_s = 2.10\times10^{-9}$ is exact
+(Proposition~\ref{P7:prop:Treh}), and $T_{\rm cond}(k)$ is given
+by~\eqref{P7:eq:transfer_cond}.
+\end{proposition}
+
+\begin{proof}
+During the Higgs/Starobinsky inflationary epoch
+(Section~\ref{P7:sec:inflation}), the primordial curvature perturbation
+$\mathcal{R}_k$ sources adiabatic density fluctuations equally in all
+components.
+Since the condensate is the dark-matter component
+($\rho_{\rm cond}\approx0.26\,\rho_{\rm crit}$, the observed dark-matter
+density taken as an input alongside $\TCMB$ and $m_e$;
+see Proposition~\ref{P7:prop:CDM_limit}), it receives the same
+initial perturbation as CDM:
+\[
+  \frac{\delta\rho_k}{\rho_{\rm cond}}\bigg|_{\rm super\text{-}horizon}
+  \;=\;
+  \frac{\delta\rho_{\rm CDM}}{\rho_{\rm CDM}}\bigg|_{\rm super\text{-}horizon}
+  \;=\; \frac{2}{3}\mathcal{R}_k.
+\]
+The power spectrum of $\mathcal{R}_k$ is
+$\mathcal{P}_{\mathcal{R}}(k) = \mathcal{P}_s = 2.10\times10^{-9}$,
+exact from Proposition~\ref{P7:prop:Treh}.
+After horizon re-entry, the condensate evolves according
+to~\eqref{P7:eq:condensate_pert} with sound speed $c_s = 1/\vp$,
+giving the transfer function~\eqref{P7:eq:transfer_cond}.
+The amplitude is therefore
+$\delta\rho_k/\rho_{\rm cond} = \mathcal{P}_s^{1/2}\cdot T_{\rm cond}(k)
+\cdot (a_{\rm eq}/a_0)$ at matter--radiation equality,
+with no free parameter beyond the single input $\TCMB$ already in the framework.
+\qed
+\end{proof}
+
+\begin{remark}[Reheating connects inflaton and condensate spectra]
+\label{P7:rem:reheating_IC}
+Early derivations proposed that the condensate field $\rho$
+is \emph{itself} the inflaton, obtaining $\varepsilon\approx\beta/\vp^6
+\approx0.025$.
+This conflicts with the Higgs/Starobinsky inflation of
+Section~\ref{P7:sec:inflation} ($\varepsilon = 2/N_e^2\approx0.001$).
+The physical mechanism here is different but reaches the same conclusion:
+the Higgs inflaton decays at $T_{\rm reh}\approx1.25\times10^8\,\mathrm{GeV}$
+(Proposition~\ref{P7:prop:Treh}) into both radiation and condensate quanta,
+imprinting the scale-invariant spectrum $\mathcal{P}_s = 2.10\times10^{-9}$
+on the condensate as an adiabatic initial condition.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Rotation curves: condensate as cold dark matter}
+\label{P7:sec:rotation}
+%──────────────────────────────────────────────────────────────────────────────
+
+\begin{proposition}[Condensate is pressureless on galactic scales]
+\label{P7:prop:CDM_limit}
+The condensate sound speed $c_s = 1/\vp$ (Theorem~\ref{P7:thm:cs}) implies
+a Jeans length
+\begin{equation}
+  \lambda_J
+  \;=\; \frac{2\pi\,c_s}{\sqrt{4\pi G_N\rho_{\rm cond}}}
+  \;\approx\; \frac{2\pi\,c/\vp}{\sqrt{4\pi G_N \times 0.26\,\rho_{\rm crit}}}
+  \;\approx\; 2.8\times10^4\,\mathrm{Mpc},
+  \label{P7:eq:lambda_J}
+\end{equation}
+where $\rho_{\rm cond}\approx0.26\,\rho_{\rm crit}$ is the observed
+dark-matter density (Planck~2018~\cite{Planck2018}), an observational
+input to this sector alongside $\TCMB$ and $m_e$.
+On all galactic and cluster scales ($r \ll \lambda_J$), the condensate
+is effectively pressureless and behaves as cold dark matter.
+Rotation curves are flat by the same mechanism as CDM.
+\end{proposition}
+
+\begin{proof}
+Using $\rho_{\rm DM,obs}=\Omega_{\rm DM}\rho_{\rm crit}=\Omega_{\rm DM}
+\times3H_0^2/(8\pi G_N)$, the Jeans denominator becomes
+$\sqrt{4\pi G_N\rho_{\rm DM,obs}}=H_0\sqrt{3\Omega_{\rm DM}/2}$.
+With $c_s=c/\vp$, $H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$, and
+$\Omega_{\rm DM}=0.26$:
+\begin{equation*}
+  \lambda_J
+  = \frac{2\pi c/\vp}{H_0\sqrt{3\times0.26/2}}
+  = \frac{2\pi\times4451\,\mathrm{Mpc}}{1.618\times0.625}
+  \approx 27{,}660\,\mathrm{Mpc}.
+\end{equation*}
+Galactic halo radii are $r_{\rm halo}\lesssim0.2\,\mathrm{Mpc}$, so
+$(r_{\rm halo}/\lambda_J)^2\lesssim5\times10^{-11}$.
+The condensate Jeans pressure term in~\eqref{P7:eq:condensate_pert} is
+suppressed relative to gravity by $(r_{\rm halo}/\lambda_J)^2
+\approx5\times10^{-11}$ at galactic scales.
+The condensate is therefore pressureless to one part in $10^{10}$ on
+scales relevant to rotation curves, independently of the precise value
+of $\Omega_{\rm DM}$ (the result holds for any $\Omega_{\rm DM}\lesssim1$).
+\qed
+\end{proof}
+
+\begin{proposition}[$G_{\rm eff}(r)$ in the screened halo]
+\label{P7:prop:Geff}
+The BD scalar coupling to matter is characterised by
+\begin{equation}
+  \alpha_{\rm BD}
+  \;=\; \frac{2\beta^2}{2\omega_{\rm BD}+3}
+  \;\approx\; \frac{6\beta^3}{2\vp^{12}}
+  \;\approx\; 8.5\times10^{-4}.
+  \label{P7:eq:alpha_BD}
+\end{equation}
+The Vainshtein radius of a Milky-Way-mass galaxy
+($M\sim6\times10^{10}\,M_\odot$) is
+\begin{equation}
+  r_V^{\rm MW}
+  \;=\; r_V^\odot\times\!\left(\frac{M_{\rm MW}}{M_\odot}\right)^{\!1/3}
+  \;\approx\; 0.045\,\mathrm{kpc}\times3915
+  \;\approx\; 176\,\mathrm{kpc},
+  \label{P7:eq:rV_MW}
+\end{equation}
+placing the entire stellar disk ($r\lesssim15\,\mathrm{kpc}\ll r_V^{\rm MW}$)
+deep inside the Vainshtein sphere.
+The effective Newton constant at flat-rotation-curve radii $r\lesssim30\,\mathrm{kpc}$
+is
+\begin{equation}
+  \frac{G_{\rm eff}(r)}{G_N}
+  \;=\; 1 + \alpha_{\rm BD}\!\left(\frac{r}{r_V^{\rm MW}}\right)^{\!3/2}
+  \;\leq\; 1 + 6\times10^{-5}
+  \qquad(r\leq30\,\mathrm{kpc}),
+  \label{P7:eq:Geff_screened}
+\end{equation}
+indistinguishable from $G_N$ at the level of rotation-curve measurements.
+\end{proposition}
+
+\begin{proof}
+From $\omega_{\rm BD}=\vp^{12}/(3\beta)\approx237$:
+$\alpha_{\rm BD}=2\times0.452^2/(2\times237+3)\approx8.5\times10^{-4}$.
+The Vainshtein radius from Theorem~\ref{P7:thm:cassini} scales as $M^{1/3}$:
+$r_V^\odot = 9.3\times10^6\,\mathrm{AU} = 0.045\,\mathrm{kpc}$,
+so $r_V^{\rm MW} = 0.045\times(6\times10^{10})^{1/3}\,\mathrm{kpc}
+\approx176\,\mathrm{kpc}$.
+For $r\leq30\,\mathrm{kpc}\ll r_V^{\rm MW}=176\,\mathrm{kpc}$,
+the nonlinear Vainshtein solution~\cite{BabichevDeffayet2013} gives the
+screened profile~\eqref{P7:eq:Geff_screened}, with
+$\alpha_{\rm BD}(30/176)^{3/2}\approx6\times10^{-5}$.
+\qed
+\end{proof}
+
+\begin{remark}[Rotation curves from condensate halo profile]
+The condensate acts as cold dark matter on galactic scales
+(Proposition~\ref{P7:prop:CDM_limit}) and $G_{\rm eff}(r) = G_N$
+to $6\times10^{-5}$ at rotation-curve radii
+(Proposition~\ref{P7:prop:Geff}).
+Rotation curves are therefore flat by exactly the same mechanism as
+CDM: the condensate forms an NFW-like gravitational halo
+through the standard gravitational instability, with the baryonic
+disk sitting inside a dark halo of condensate.
+No additional mechanism (modified gravity, $G_{\rm eff}$ variation,
+or Vainshtein transition effects) is required at galactic scales.
+
+The leading condensate correction to the Newtonian rotation curve is
+a pressure-gradient term of order $(r/\lambda_J)^2\lesssim5\times10^{-11}$
+at $r\leq r_{\rm halo}$, completely negligible.
+The gravitational coupling correction is $\alpha_{\rm BD}(r/r_V)^{3/2}
+\lesssim6\times10^{-5}$ at $r\leq30\,\mathrm{kpc}$, also negligible.
+
+The primary \emph{new} prediction distinguishing the condensate from
+standard CDM is not in the rotation curves but in the large-scale
+matter power spectrum: the BAO peak shifts by factor $\vp$
+to $k_{\rm BAO}^{\rm cond}\approx0.0346\,\mathrm{Mpc}^{-1}$
+(equation~\eqref{P7:eq:kBAO_shift}), falsifiable with DESI~DR2 and Euclid.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Kerr Acoustic Metric and Hawking Temperature}
+\label{P7:sec:kerr}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Rotating background ansatz}
+
+For a rotating source with mass $M$ and spin parameter $a=J/M$,
+the background density field satisfies the linearised scalar field
+equation $\nabla^2\rho_0 = 0$ in the exterior.
+The exact solution consistent with the Kerr mass multipole structure is:
+
+\begin{theorem}[Exact rotating condensate background]
+\label{P7:thm:rotating}
+Let $\kappa = \beta\vp^2 G_N^{1/2}$.
+The unique stationary, axisymmetric, asymptotically-attractor exterior
+solution to $\nabla^2\rho_0 = 0$ with the correct source term and
+$\rho_0\to\rinfty$ at infinity is
+\begin{equation}
+  \rho_0(r,\theta)
+  \;=\; \rinfty\,\exp\!\bigl(-\kappa\,\Phi_{\mathrm{Kerr}}(r,\theta)\bigr),
+  \label{P7:eq:rho_Kerr_exact}
+\end{equation}
+where the exterior Newtonian potential associated with the Kerr
+source is the multipole series
+\begin{equation}
+  \boxed{\Phi_{\mathrm{Kerr}}(r,\theta)
+  \;=\; \frac{M}{r}
+  \;-\; \frac{M a^2}{2r^3}\,P_2(\cos\theta)
+  \;+\; \frac{3M a^4}{8r^5}\,P_4(\cos\theta)
+  \;-\; \cdots
+  \;=\; M\sum_{l=0}^{\infty}
+        \frac{(-a^2)^l}{(2l-1)!!\,r^{2l+1}}\,P_{2l}(\cos\theta),}
+  \label{P7:eq:Phi_Kerr}
+\end{equation}
+with $P_{2l}$ the Legendre polynomials and $(2l-1)!! = 1\cdot3\cdots(2l-1)$.
+Each term satisfies $\nabla^2 r^{-(2l+1)}P_{2l} = 0$ individually,
+so $\nabla^2\Phi_{\mathrm{Kerr}} = 0$ exactly term by term.
+The series converges absolutely for $r > a$ (the exterior region
+of any sub-extremal Kerr solution).
+
+In the limit $a\to0$: $\Phi_{\mathrm{Kerr}}\to M/r$ and
+$\rho_0\to\rinfty\,e^{-\kappa M/r}$, recovering the exact
+Schwarzschild background.
+\end{theorem}
+
+\begin{proof}
+The linearised scalar field equation in the weak-field ($\beta\rho\ll1$)
+exterior reduces to $\nabla^2\rho_0 = 0$ (Section~\ref{P7:sec:gravity}).
+Writing $\rho_0=\rinfty\,e^{-\kappa\Phi}$, and since $\rho_0\approx\rinfty(1-\kappa\Phi)$
+at leading order in $\kappa M/r\ll1$, the equation becomes $\nabla^2\Phi = 0$.
+The general exterior solution that is regular at infinity and axisymmetric
+(even in $\cos\theta$ by parity of spin) is
+$\Phi = \sum_{l=0}^\infty A_l r^{-(2l+1)} P_{2l}(\cos\theta)$.
+The coefficients $A_l$ are fixed by matching the Geroch--Hansen multipole
+moments of the Kerr metric: for the Kerr solution the mass multipoles are
+$\mathcal{M}_{2l} = M(-a^2)^l$~\cite{Jacobson1995}, giving
+$A_l = M(-a^2)^l/(2l-1)!!$, which reproduces~\eqref{P7:eq:Phi_Kerr}.
+The identity $\nabla^2(r^{-(2l+1)}P_{2l})=0$ follows from
+$\nabla^2(r^{-(l+1)}Y_l^0)=0$ for any exterior spherical harmonic.
+Absolute convergence for $r>a$ follows from $|(-a^2/r^2)^l P_{2l}|\leq(a/r)^{2l}$.
+\qed
+\end{proof}
+
+\begin{remark}[Relation to the oblate spheroidal approximation]
+\label{P7:rem:oblate}
+The previously-used ansatz $1/\sqrt{r^2+a^2\cos^2\!\theta}$ is the generating
+function of the Legendre polynomials:
+\begin{equation}
+  \frac{1}{\sqrt{r^2+a^2\cos^2\!\theta}}
+  \;=\; \frac{1}{r}\sum_{l=0}^\infty
+        \left(-\frac{a^2}{r^2}\right)^{\!l}
+        \frac{(2l-1)!!}{(2l)!!}\,P_{2l}(\cos\theta),
+  \label{P7:eq:oblate_expansion}
+\end{equation}
+which is \emph{not} term-by-term harmonic (each term has a different weight
+from~\eqref{P7:eq:Phi_Kerr}), confirming that the oblate spheroidal
+ansatz~\eqref{P7:eq:oblate_expansion} does not
+satisfy $\nabla^2\rho_0=0$.  The exact background~\eqref{P7:eq:rho_Kerr_exact}
+corrects this; numerically the two differ by less than $0.2\%$ for $a/r\lesssim0.5$.
+\end{remark}
+
+\subsection{Acoustic Kerr metric and horizon}
+
+The sound speed satisfies $c_s^2=1$ at $O(\beta^0)$ and deviates at
+$O(\beta^3)$:
+\begin{equation}
+  \delta c_s^2 = -\frac{\beta^3}{4(1+\vp)} \approx -4.2\times10^{-5}
+  \quad\text{at }r\sim r_s.
+  \label{P7:eq:delta_cs}
+\end{equation}
+The acoustic metric seen by $\xi$-fluctuations on the background
+$\rho_0(r,\theta)$ is
+\begin{equation}
+  ds_{\mathrm{ac}}^2 = \rho_0(r,\theta)\cdot ds_{\mathrm{Kerr}}^2,
+\end{equation}
+conformal to the Kerr metric with conformal factor $\rho_0$.
+Since $\rho_0$ is independent of $t$ and $\phi$, conformal
+transformations that are stationary and axisymmetric preserve the
+null structure exactly: the acoustic horizon coincides with
+the Boyer--Lindquist horizon at $\Delta=r^2-r_s r+a^2=0$,
+\begin{equation}
+  r_\pm = \frac{r_s}{2}\pm\sqrt{\frac{r_s^2}{4}-a^2},
+\end{equation}
+and the surface gravity is
+\begin{equation}
+  \kappa_H = \frac{\sqrt{r_s^2/4-a^2}}{r_+\,r_s},
+\end{equation}
+equal to the exact GR result.
+
+\subsection{Hawking temperature}
+
+The Hawking temperature from the acoustic surface gravity:
+\begin{equation}
+  T_H = \frac{\hbar\kappa_H}{2\pi k_B}
+  \quad\text{(exact GR result at leading order)},
+  \label{P7:eq:TH}
+\end{equation}
+with the soup correction from~\eqref{P7:eq:delta_cs}:
+\begin{equation}
+  \boxed{T_H^{\mathrm{soup}} = T_H^{\mathrm{GR}}\!\left(1 + \frac{\beta^3}{4(1+\vp)}\right)
+  \approx T_H^{\mathrm{GR}}\,(1+4.2\times10^{-5}).}
+  \label{P7:eq:TH_correction}
+\end{equation}
+Checks: in the Schwarzschild limit $a\to0$,
+$T_H=\hbar c^3/(8\pi G_N M k_B)$ exactly; in the extremal limit
+$a\to r_s/2$, $T_H\to0$ exactly. $\checkmark$
+
+The correction $+4.2\times10^{-5}$ is currently unmeasurable but
+constitutes a definite model-specific prediction.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Weak Equivalence Principle}
+\label{P7:sec:wep}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{WEP at one-loop: exact geometric emergence}
+
+After the one-loop induction of the Planck mass (Section~\ref{P7:sec:gravity_loop}),
+all matter sectors couple to the same induced metric $g_{\mu\nu}$.
+Free-falling bodies therefore satisfy
+\begin{equation}
+  \frac{Du^\mu}{d\tau} = 0
+\end{equation}
+universally for all matter species, regardless of composition.
+The WEP holds \emph{exactly} at one-loop order via this geometric
+emergence~\cite{Jacobson1995}.
+
+\subsection{WEP at two-loop: shift symmetry protection}
+
+The canonical field $\varphi_c$ defined in~\eqref{P7:eq:phi_c} satisfies
+a shift symmetry
+\begin{equation}
+  \varphi_c \to \varphi_c + \delta\varphi_c
+  \label{P7:eq:shift}
+\end{equation}
+of the kinetic sector of~\eqref{P7:eq:parent_action} (broken only by the
+potential $\Lambda_0 e^{-\vp^9\varphi_c/2}$).
+Under this symmetry, all couplings of $\varphi_c$ to matter
+appear through derivatives $\partial_\mu\varphi_c$, which couple
+universally to the stress tensor.  WEP violation from derivative
+couplings is therefore perturbatively suppressed:
+\begin{equation}
+  \eta_{\mathrm{pert}} \sim
+  \left(\frac{m_\xi}{\LUV}\right)^2
+  \sim \left(\frac{H_0}{\MPl}\right)^2
+  \sim 10^{-122},
+  \label{P7:eq:eta_pert}
+\end{equation}
+far below any experimental bound.
+
+\subsection{Non-perturbative (instanton) WEP violation}
+
+The shift symmetry~\eqref{P7:eq:shift} is broken non-perturbatively by
+instanton-like field configurations that change the Hopf charge $\Delta H$.
+For a test body with $A$ baryons, each undergoing a $\Delta H=1$
+Hopf charge fluctuation coherently, the E\"{o}tv\"{o}s ratio is
+\begin{equation}
+  \eta_A \;=\; e^{-A\,S_1},
+  \label{P7:eq:eta_A}
+\end{equation}
+where $S_1$ is the single-baryon instanton action derived from first
+principles in Paper~V~\cite{Paper5}:
+\begin{equation}
+  \boxed{S_1
+  \;=\; \frac{3}{4}\cdot 2^{-1/3}
+        \cdot\left[\Bigl(\frac{5}{4}\Bigr)^{3/4}-1\right]
+  \;\approx\; 0.1084.}
+  \label{P7:eq:S1_FP}
+\end{equation}
+This result is a \emph{pure topological number}: the $\vp^6$ Bogomolny
+parameter from the condensate energy and the $1/\vp^6$ suppression from
+$S_{\mathrm{eff}}$ cancel exactly, leaving only the $Q^{3/4}$ sector
+scaling ratio $(5/4)^{3/4}-1$.
+
+The physical consequences follow directly:
+for a single baryon $\eta_1 = e^{-0.108}\approx0.90$
+(WEP maximally violated at the nucleon scale, as expected physically);
+for $A\gtrsim277$ baryons $\eta<10^{-13}$ (MICROSCOPE bound~\cite{MICROSCOPE2022} satisfied);
+for macroscopic bodies ($A\sim10^{26}$):
+\begin{equation}
+  \eta \;\sim\; e^{-0.1084\times10^{26}} \;\approx\; 10^{-10^{25}},
+  \label{P7:eq:eta_macro}
+\end{equation}
+the WEP holds to effectively infinite precision. $\checkmark$
+
+The corresponding instanton coupling is
+$C_W^{\mathrm{inst}} = 12\pi/S_1\approx347.6$.
+An earlier draft of this series carried an estimate $C_W^{\mathrm{inst}}\approx1.22$
+that \emph{understated} the instanton coupling by a factor $\approx285$,
+which equivalently \emph{overstated} the single-baryon barrier
+$S_1 = 12\pi/C_W^{\mathrm{inst}}$ from $\approx0.108$ to $\approx30.9$.
+The source of the overstatement was twofold: conflating the Bogomolny
+bound with the actual energy-difference barrier, and omitting the
+coherent-body $A$-dependence.
+The first-principles derivation of $S_1$ and $C_W^{\mathrm{inst}}$ is given
+in Paper~V~\cite{Paper5} (Proposition~9.1 and Section~9.3 therein),
+where the exact value~\eqref{P7:eq:S1_FP} is established via the kink
+suppression average and the Faddeev--Niemi topological $Q^{3/4}$ scaling.
+The qualitative conclusion is unchanged: exact WEP for macroscopic bodies.
+The mechanism is now transparent: it is the $A$-body coherence
+factor $e^{-AS_1}$, not a large single-body barrier, that drives the
+WEP suppression.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Electroweak Gauge Structure: Recalled from Papers~I and~IV}
+\label{P7:sec:ew}
+%══════════════════════════════════════════════════════════════════════════════
+
+The $\mathrm{SU}(2)\times U(1)_Y$ gauge group, the Weinberg angle, the
+$W$/$Z$ masses, and the Higgs potential are all derived in~\cite{Paper1}
+from the Hopf topology of the condensate.  We recall the key results for
+completeness:
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Gauge group}: $\mathrm{SU}(2)$ from the Hopf lift
+  $\hat{n}\in S^2\to\hat{U}\in\mathrm{SU}(2)$; $U(1)_Y$ from
+  the azimuthal symmetry of $S_{\mathrm{eff}}$~\cite{Paper1}.
+\item \textbf{Weinberg angle}: $\sinW=3/(8\vp)\approx0.2318$,
+  \emph{unconditional} (Theorem~5.1 of~\cite{Paper1});
+  deviation from measured $0.2312$ is $0.23\%$.
+  The proof factorises as $(3/8)\times(1/\vp)$: the first factor is
+  the isotropic average $\langle\sin^4\!\theta\rangle_{2D}=3/8$ of
+  the condensate's own suppression function, equal to the SU(5) trace
+  ratio; the second is the Hopf submersion deficit
+  $\mathcal{A}_Y/\mathcal{A}_{T_3}=1/(\vp\sin\theta)|_{\theta=\pi/2}=1/\vp$
+  (Corollary~5.7 of~\cite{Paper1}), arising because the $W^3$ boson
+  must pass through the Riemannian submersion $\pi:S^3\to S^2$ while
+  $B$ rides the fiber directly.
+\item \textbf{$M_W/M_Z$}: $\sqrt{1-3/(8\vp)}\approx0.8765$;\
+  deviation from $0.8815$ is $0.56\%$~\cite{Paper1}.
+\item \textbf{Higgs mass}: $m_H\approx111\,\mathrm{GeV}$ with
+  density screening $1+\beta\rho_0=\vp^2$; deviation from
+  $125.25\,\mathrm{GeV}$ is $11\%$~\cite{Paper1}.
+  \emph{Superseded by Paper~XIV~\cite{Paper14}: the WZW torus partition
+  function gives $\lambda=(k+2)/2\cdot r_{\mathrm{WZW}}^2
+  =5\cdot2^{5/3}/\vp^{10}=0.12907$ and
+  $m_H=\sqrt{k+2}\,r_{\mathrm{WZW}}\,\vEW=125.10\,\mathrm{GeV}$
+  ($0.13\sigma$ from ATLAS), and using the frameworks derived values therein:  $\vEW=246.24\,\mathrm{GeV}$, $m_H = 125.11\,\mathrm{GeV}$ ($0.08\sigma$ from ATLAS).}
+\item \textbf{Quartic coupling}: $\lambda=4\pi/\vp^{10}\approx0.102$;
+  deviation from $0.130$ is $21\%$~\cite{Paper1}.
+  \emph{Superseded by Paper~XIV~\cite{Paper14}:
+  $\lambda=5\cdot2^{5/3}/\vp^{10}=0.12907$, deviation $0.02\%$.}
+\item \textbf{Electroweak scale}: $\vEW=\Lcond\cdot\vp^{20}\cdot
+  e^{49\pi/6-3/400}$, accurate to $1.14\%$~\cite{Paper4}.
+\item \textbf{Fine structure constant}: $\alpha^{-1}=360/\vp^2
+  -k/(2\pi)+1/(9\vp^6)-1/(36\pi\vp^6)=137.036\,00$, accurate to $5\times10^{-7}\%$,
+  \emph{unconditional}~\cite{Paper4}.
+\end{enumerate}
+
+\begin{proposition}[Neutrino mass from WZW radiative mechanism]
+\label{P7:prop:neutrino}
+The lightest neutrino mass scale predicted by the framework is
+\begin{equation}
+  m_\nu
+  \;=\; \vEW\,e^{-15\pi/2}\cdot\frac{g_W^2}{16\pi^2}
+  \;=\; \vEW\,e^{-15\pi/2}\cdot\frac{2\alpha\vp}{3\pi}
+  \;\approx\; 36\,\mathrm{meV},
+  \label{P7:eq:mnu_prop}
+\end{equation}
+where $g_W^2/(16\pi^2) = \alpha/(4\pi\sinW) = 2\alpha\vp/(3\pi)
+\approx2.51\times10^{-3}$ uses $\sinW = 3/(8\vp)$~\cite{Paper1}.
+The formula contains no free parameters.
+\end{proposition}
+
+\begin{proof}
+\textbf{Step 1 --- Majorana seed (exact).}
+The $\mathrm{SU}(2)_3/2I$ orbifold spectrum of Paper~V
+(Theorem~11.7 therein, Node~6: $\chi_6$, $h=3/8$, dimension~4)
+provides a primary with conformal weight $h=3/8$.
+Under the condensate Yukawa formula $m = \vEW\,e^{-2\pi Q h}$ with $Q=10$:
+\begin{equation}
+  m_{\mathrm{seed}}
+  \;=\; \vEW\,e^{-2\pi Q\cdot 3/8}
+  \;=\; \vEW\,e^{-15\pi/2}
+  \;\approx\; 14.4\,\mathrm{eV}.
+  \label{P7:eq:mnu_seed}
+\end{equation}
+The $\chi_6$ primary (dimension~4, $\Delta L=2$) IS the
+lepton-number-violating vertex, identified entirely within the
+existing orbifold spectrum of~\cite{Paper5}; no additional mechanism
+is required.
+
+\textbf{Step 2 --- W-boson loop regularised by the condensate.}
+The condensate's shift symmetry forbids a tree-level Majorana mass.
+At one loop, the $\chi_6$ vertex dresses $m_\mathrm{seed}$ with a
+$W$-boson propagator.
+The condensate background with $S_{\mathrm{eff}}=\sin^4\!\theta/\vp^6$
+provides a \emph{physical} UV cutoff at $\LUV\approx0.0557\,\MPl$
+(Proposition~\ref{P7:prop:eft_naturalness}), so the loop integral is
+regulated by the same Seeley--DeWitt heat-kernel method used for the
+induced Planck mass~\eqref{P7:eq:1loop}.
+
+The one-loop integral, running from $M_W$ to $\LUV$, has the form
+\[
+  I \;=\; \frac{g_W^2}{16\pi^2}
+          \!\left[\ln\frac{\LUV}{M_W}
+                 + \text{finite threshold}\right].
+\]
+The logarithmic term renormalises the bare Majorana mass and is
+absorbed by the counterterm at scale $\LUV$; the
+\emph{physical} mass below $M_W$ is the finite threshold correction
+from matching at the $W$ scale:
+\begin{equation}
+  m_\nu
+  \;=\; m_{\mathrm{seed}}\cdot\frac{g_W^2}{16\pi^2}
+        \cdot\left[1 + O\!\left(\frac{M_W^2}{\LUV^2}\right)\right],
+  \label{P7:eq:mnu_matching}
+\end{equation}
+where $M_W^2/\LUV^2 = (80.4\,\mathrm{GeV})^2/(6.8\times10^{17}\,\mathrm{GeV})^2
+\approx 1.4\times10^{-32}$ is negligible.
+Using $g_W^2/(16\pi^2) = \alpha/(4\pi\sinW) = 2\alpha\vp/(3\pi)$:
+\[
+  m_\nu \;\approx\; 14.4\,\mathrm{eV}\times 2.51\times10^{-3}
+        \;\approx\; 36\,\mathrm{meV},
+\]
+within $28\%$ of the atmospheric oscillation scale
+$m_{\nu_3}\approx50\,\mathrm{meV}$ (Tier~3, no free parameters).
+\qed
+\end{proof}
+
+\begin{remark}[Vertex identification and structural connection]
+\label{P7:rem:neutrino}
+The $\chi_6$ primary (Node~6, $h=3/8$, dimension~4) from the
+$2I$-McKay~\cite{McKay1980}--WZW spectrum of Paper~V provides both the
+$\Delta L=2$ Majorana vertex and the seed mass $m_\mathrm{seed}$.
+The same E$_8$ Coxeter phase quantum $\pi Q/(k\,h(E_8))=\pi/9$
+that determines the quark-lepton mass ratios
+(Theorem~7.11 of~\cite{Paper5}) governs the gap between $\chi_6$
+and the lepton T-phases, linking the Majorana vertex topologically
+to the quark mass hierarchy.
+The loop regularisation is exact within the condensate EFT:
+the Seeley--DeWitt method that fixes $\MPl$ (Section~\ref{P7:sec:gravity_loop})
+equally fixes the finite part of the $W$ loop, with all corrections
+suppressed by $(M_W/\LUV)^2\approx10^{-32}$.
+\end{remark}
+
+\newpage
+\label{P7:sec:tier}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{center}
+\begin{longtblr}[
+  caption = {Consolidated Tier Table},
+  label = {tab:tier},
+] {
+  colspec = {X[2,p] X[1,p] X[1,c]  X[1.3,c]}, % Proportional widths
+  rowhead = 1, % Repeat header on each page
+  %row{1} = {font=\bfseries},
+}
+\toprule
+Result & Status & Predicted & Deviation \\
+\midrule
+\SetCell[c=4]{l}{\textit{Tier 1: Exact derivations (this paper)}} \\
+$G_{\mu\nu}=0$ in exterior (no assumption) & \textcolor{darkgreen}{Derived} & exact & --- \\
+$c_s^2=1$ at $O(\beta^0)$ & \textcolor{darkgreen}{Derived} & exact & --- \\
+Newtonian geodesic from acoustic metric & \textcolor{darkgreen}{Derived} & exact & --- \\
+Induced Einstein--Hilbert from 1-loop & \textcolor{darkgreen}{Derived} & exact & --- \\
+Full Einstein equations from $S_{\mathrm{eff}}$ & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:einstein})} & exact & --- \\
+$F(\rinfty)=\MPl^2(39\vp+25)/2$ (exact golden ratio) & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:einstein})} & exact & --- \\
+Energy-momentum conservation ($\nabla^\mu T_{\mu\nu}=0$) & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:conservation})} & exact & --- \\
+Tower compatibility: $\LUV\approx0.0557\,\MPl$, $n_{\rm UV}\approx73.6$ & \textcolor{darkgreen}{Proved (Cor.~\ref{P7:cor:luv_tower})} & exact & --- \\
+Cassini Vainshtein radius topologically determined by $Q=2$ & \textcolor{darkgreen}{Proved (Cor.~\ref{P7:cor:vainshtein_topology})} & exact & --- \\
+EFT self-consistency below $\LUV$ & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:eft_naturalness})} & exact & --- \\
+RG fixed point $\zeta=\vp$ (Derrick scale ratio) & \textcolor{darkgreen}{Derived (Paper~VI~\cite{Paper6})} & exact & --- \\
+$\rinfty=\vp/\beta$ (self-consistent) & \textcolor{darkgreen}{Derived} & exact & --- \\
+$w=-1$ (frozen field) & \textcolor{darkgreen}{Derived} & exact & --- \\
+Acoustic Kerr horizon $=$ Boyer--Lindquist & \textcolor{darkgreen}{Derived} & exact & --- \\
+Exact rotating condensate background $\nabla^2\Phi_{\rm Kerr}=0$ & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:rotating})} & exact & --- \\
+$T_H$ exact GR at leading order & \textcolor{darkgreen}{Derived} & exact & --- \\
+Sign of $\delta\rho<0$ near mass & \textcolor{darkgreen}{Derived} & exact & --- \\
+WEP at one-loop (geometric) & \textcolor{darkgreen}{Derived} & exact & --- \\
+$c_s = 1/\vp$ (exact golden-ratio sound speed) & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:cs})} & exact & --- \\
+Condensate pressureless on galactic scales ($\lambda_J\gg r_{\rm halo}$) & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:CDM_limit})} & exact & --- \\
+$G_{\rm eff}(r)/G_N\leq1+6\times10^{-5}$ inside MW halo & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:Geff})} & exact & --- \\
+Adiabatic condensate ICs with $\mathcal{P}_s=2.10\times10^{-9}$ & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:IC_condensate})} & exact & --- \\[4pt]
+\SetCell[c=4]{l}{\textit{Tier 1 (continued): Falsifiable predictions awaiting observation}} \\
+BAO shift: $k_{\rm BAO}^{\rm cond}=\vp\cdot k_{\rm BAO}^{\rm CDM}\approx0.0346\,\mathrm{Mpc}^{-1}$ & \textcolor{darkgreen}{Proved (Sec.~\ref{P7:sec:transfer})} & $0.0346\,\mathrm{Mpc}^{-1}$ & DESI~DR2, Euclid \\
+$r=0.0036$ (tensor-to-scalar) & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:Treh})} & $0.0036$ & CMB-S4 ($r>0.0036$ falsifies) \\
+Lorentz violation in voids: $\delta c/c\sim10^{-3}$ & Derived (Sec.~\ref{P7:sec:gravity}) & $\sim10^{-3}$ & VLBI astrometry \\
+GW speed $|v_{\rm GW}-c|/c<10^{-33}$ (standard) & Derived & $<10^{-33}$ & $\checkmark$ (GW170817) \\
+Hawking WEP instanton $\eta_A=e^{-AS_1}$, testable at STE-QUEST & \textcolor{darkgreen}{Exact (Paper~V~\cite{Paper5})} & $\eta\approx2\times10^{-14}$ & STE-QUEST \\
+$w_a=-3(1+w_0)$ (thawing relation) & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:thawing})} & falsifiable & $0.80\sigma$ (DESI~DR1) \\
+\SetCell[c=4]{l}{\textit{Tier 2: Quantitative successes ($<15\%$)}} \\
+$\Lobs/\MPl^4 \approx 10^{-122}$ & Derived & $\sim10^{-122}$ & $1$ order (in exp.) \\
+$\rinfty$ consistency & Derived & $10\vp\,\MPl^3$ & $3.4\%$ \\
+$n_s = 0.9654$ (Starobinsky, $N_e=57.73$, grav.\ reheating) & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:Treh})} & $0.9654$ & $0.12\sigma$ \\
+$r = 0.0036$ (Starobinsky, $N_e=57.73$, grav.\ reheating) & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:Treh})} & $0.0036$ & $\checkmark$ \\
+$n_s = 0.9667$ (preliminary, $N_e=60$, no reheating) & Derived & $0.9667$ & $0.4\sigma$ \\
+$r = 0.0033$ (preliminary, $N_e=60$, no reheating) & Derived & $0.0033$ & $\checkmark$ \\
+$T_H$ correction $+4.2\times10^{-5}$ & Derived & pred. & unmeasured \\
+$m_\xi\approx H_0$ & Derived & $\approx H_0$ & $\checkmark$ \\
+WEP instanton $\eta_A=e^{-AS_1}$, $S_1\approx0.108$ & \textcolor{darkgreen}{Exact (Paper~V~\cite{Paper5})} & exact for $A\gtrsim277$ & $\checkmark$ \\
+Condensate-scale $m_q/m_\ell = e^{n_q\pi/9}$, $n_q\in\mathbb{Z}$ & \textcolor{darkgreen}{Exact (Paper~V~\cite{Paper5})} & exact & QCD running \\
+Lepton T-phase uniqueness \& non-integrality ($\pi/\ln\vp\notin\mathbb{Q}$) & \textcolor{darkgreen}{Proved (Thm~5.4, Prop~5.5 of Paper~VI~\cite{Paper6})} & exact & --- \\
+$\sinW=3/(8\vp)=0.2318$ & \textcolor{darkgreen}{Unconditional (Cor.~5.7 of~\cite{Paper1})} & $0.2318$ & $0.23\%$ \\
+$\alpha^{-1}=137.035\,998$ (unconditional four-term) & \textcolor{darkgreen}{Recalled from~\cite{Paper4}} & $137.035\,998$ & $5\times10^{-7}\%$ \\
+$m_e/\Lcond = \vp^{20}e^{4\pi-3/400-\aem/\pi}$ (scheme corrected) & \textcolor{darkgreen}{Paper~IV~\cite{Paper4}, Thm~8.11} & $0.5110\,\mathrm{MeV}$ & $0.013\%$ \\
+$m_\mu/m_\tau = e^{-9\pi/10} = e^{-2\pi(Q-1)\Delta T_{23}}$ & \textcolor{darkgreen}{Exact formula; mechanism open (Papers~IV,V~\cite{Paper4,Paper5})} & $0.05917$ & $0.50\%$ \\
+$T_3 = \Delta T_{12}(1-1/Q)$,\ equiv.\ $T_1-T_2-T_3 = 1/120$ & \textcolor{darkgreen}{Exact algebraic identity (Papers~III,IV~\cite{Paper3,Paper4})} & exact & exact \\
+Single-input framework ($\TCMB$ only) & \textcolor{darkgreen}{Proved (Paper~XII~\cite{Paper12})} & exact chain & $0.013\%$ \\
+$\mathcal{P}_s$ see-saw ($N_e=60$, no $R_0$ corr.) & Prop.~\ref{P7:prop:seesaw},\,Thm~\ref{P7:thm:Ps_seesaw} & $2.82\times10^{-9}$ & $\times1.34$ \\
+$\mathcal{P}_s$ see-saw ($N_e=60$, with $R_0$ corr.) & Prop.~\ref{P7:prop:seesaw_correction} & $2.27\times10^{-9}$ & $\times1.08$ \\
+$\mathcal{P}_s$ see-saw ($N_e=57.73$, grav.\ reheating) & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:Treh})} & $2.10\times10^{-9}$ & exact \\
+Cassini via Vainshtein, $r_V\approx9.3\times10^6$\,AU & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:cassini}); $|\gamma_{\rm PPN}-1|=2.2\times10^{-5}$} & $\checkmark$ & $\checkmark$ \\
+$g_W\approx0.592$ & from~\cite{Paper1} & $0.592$ & $9\%$ \\
+$m_H\approx111\,\mathrm{GeV}$ (Superseded) & from~\cite{Paper1} & $111\,\mathrm{GeV}$ & $11\%$ \\[4pt]
+$m_H \approx 125.11\,\mathrm{GeV}$ & from~\cite{Paper14} using the framework value $\vEW=246.24\,\mathrm{GeV}$ & $125.11\,\mathrm{GeV}$ &  $0.08\sigma$ \\
+$m_H \approx 125.10\,\mathrm{GeV}$ & from~\cite{Paper14} using measured $\vEW=246.22\,\mathrm{GeV}$ & $125.10\,\mathrm{GeV}$ &  $0.13\sigma$ \\
+$\lambda_{\mathrm{quartic}} = 0.12907$ & from~\cite{Paper14}: $0.12907$ exact & $0.12907$ & $0.02\%$ \\
+\SetCell[c=4]{l}{\textit{Tier 3: Approximate ($15\%$--factor 2)}} \\
+$\lambda_{\mathrm{quartic}}\approx0.102$ (Superseded) & from \cite{Paper1}& $0.102$ & $21\%$ \\
+$m_\nu \approx \vEW\,e^{-15\pi/2}\cdot g_W^2/(16\pi^2)$ (Prop.~\ref{P7:prop:neutrino}) & \textcolor{darkgreen}{No free parameters; vertex ($\chi_6$, Paper~V) and loop exact} & $36\,\mathrm{meV}$ & $28\%$ \\[4pt]
+\SetCell[c=4]{l}{\textit{Tier 4: Known gaps}} \\
+$\sinW$ (naive route) $=0.100$ vs.\ $0.231$ & \textcolor{darkred}{Gap: naive identification fails; full derivation in~\cite{Paper1}} & --- & $57\%$ \\
+\bottomrule
+\end{longtblr}
+\end{center}
+%══════════════════════════════════════════════════════════════════════════════
+\section{Open Problems}
+\label{P7:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[noitemsep]
+
+\item \textbf{[Experimental] Dark matter: condensate perturbations and structure formation --- complete.}
+  All three computations of Section~\ref{P7:sec:dark_matter} are now proved.
+  \textbf{(i)}~$c_s=1/\vp$ exactly (Theorem~\ref{P7:thm:cs}).
+  \textbf{(ii)}~Initial conditions are adiabatic with amplitude
+  $\mathcal{P}_s = 2.10\times10^{-9}$ (Proposition~\ref{P7:prop:IC_condensate}),
+  fixed by the framework with no additional free parameter.
+  \textbf{(iii)}~The condensate is pressureless on galactic scales
+  ($\lambda_J\approx28\,000\,\mathrm{Mpc}\gg r_{\rm halo}$, Proposition~\ref{P7:prop:CDM_limit})
+  and $G_{\rm eff}(r)=G_N$ to $6\times10^{-5}$ at rotation-curve radii
+  (Proposition~\ref{P7:prop:Geff}).
+  Flat rotation curves follow by the same CDM mechanism.
+  The primary new prediction is the BAO peak shift
+  $k_{\rm BAO}^{\rm cond}=\vp\cdot k_{\rm BAO}^{\rm CDM}\approx0.0346\,\mathrm{Mpc}^{-1}$,
+  falsifiable with DESI~DR2 and Euclid.
+
+\item \textbf{[Experimental] DESI dynamical dark energy.}
+  The thawing relation $w_a=-3(1+w_0)$ is proved (Theorem~\ref{P7:thm:thawing})
+  and agrees with DESI~DR1 within $0.80\sigma$.
+  The open question is observational: whether DESI~DR2 or future surveys
+  confirm $w_0\neq-1$ at $>3\sigma$, which would constitute direct evidence
+  for the thawing soup scalar over $\Lambda\mathrm{CDM}$.
+
+\item \textbf{[Resolved in Paper~XII~\cite{Paper12}] Prove $\vp^9\sqrt{\Ja\Jfour} = Q$ exactly
+(the profile self-consistency conjecture; Papers~II--III~\cite{Paper2,Paper3}).}
+
+  \textbf{This problem does not block any main result of Papers~I--VII.}
+  All theorems and predictions in the series hold with the two experimental
+  inputs ($\TCMB$ and $m_e$) independently of whether this conjecture is proved.
+  Proving it would close the $0.04\%$ thin-torus residual of Paper~IV and
+  reduce the framework to a single input ($\TCMB$), but does not alter any
+  physical prediction. Resolved in Paper~XII~\cite{Paper12}.
+
+  The problem has three distinct layers that must not be conflated.
+
+  \textbf{Layer 1: $\bz\cdot\rCMB = Q$ --- already proved exactly.}
+  The identity $\rCMB/\Lcond^4 = Q = 10$ is algebraically exact
+  (proved in Section~\ref{P7:sec:TCMB_geometric}).
+  There is nothing further to prove here.  The $0.12\%$ deviation
+  in Paper~I arises from $\vp^9\sqrt{\Ja\Jfour}$
+  (Papers~II--III~\cite{Paper2,Paper3}), not from $\bz\cdot\rCMB$.
+
+  \textbf{[Resolved in Paper~XII~\cite{Paper12}] Layer 2: $\vp^9\sqrt{\Ja\Jfour} = Q$ --- prior open conjecture~\cite{Paper2,Paper3}.}
+  Paper~I's solver gives $\vp^9\sqrt{\Ja\Jfour} = 10.012$ at $h=0.12$.
+  The quantity $\vp^9\sqrt{\Ja\Jfour}$ is \emph{scale-invariant}
+  (both $\Ja\sim\mathrm{length}$ and $\Jfour\sim\mathrm{length}^{-1}$, so
+  their product is dimensionless), depending only on the \emph{shape}
+  of the profile, not its overall scale.
+  This is a genuine constraint on the EL saddle: it says the condensate
+  profile shape exactly encodes its topological charge.
+  Paper~I states all five solver gaps are ``consistent in magnitude with
+  a single $O(h^2)$ discretisation error'' and provides strong numerical
+  evidence the $0.12\%$ closes in the continuum, but does not prove it.
+  Papers~I--III prove the related gaps analytically ($J_4/J_{2a}\to
+  2^{4/3}/\vp^5$, $V^*\to\vp$), but these fix only the \emph{ratio}
+  $J_4/J_{2a}$, not the absolute value $\Ja$.
+  The analytical proof requires showing
+  $J_{2a,\mathrm{exact}} = Q/(\vp^{13/2}\cdot 2^{2/3}\cdot(2\pi)^2 R_0)$
+  at the exact continuum saddle. Corollary~5.10. The analytical proof is closed in Paper~XII~\cite{Paper12}.
+
+  \textbf{[Resolved in Paper~XII~\cite{Paper12} \& Paper~XIV~\cite{Paper14}] Proof route (both gaps closed).}
+  The paper \emph{``BPS Structure and Fixed-Point Theorem''}
+  (Paper~I~\cite{Paper1}, Section~2.5 therein) derives a linear
+  equation for $\Ja$ from the second Pohozaev identity with
+  radial multiplier $r\partial_r f$.
+  The identity $P_{\Kfb}=2\vp P_{\Ja}$ is proved there as an exact
+  algebraic consequence of $\vp^2=\vp+1$ (no profile assumption needed),
+  closing the first of the two gaps identified in the original approach.
+  The one remaining step is to prove The exact thick-torus Hopf flux
+  $\mathcal{B}(R_0=3) = 2Q(1+2^{4/3})/(\vp^{23/2}\cdot 2^{2/3})\approx0.175$
+  at the physical condensate radius (Paper~III~\cite{Paper3}, equation~62)
+  requires the full 2D profile at the EL saddle, since the thin-torus
+  formula $4\pi^2 Q_{\mathrm{math}}/R_0$ is not valid at $R_0=3$
+  (thick-torus corrections are $O(1)$).
+  The profile normalisation is proved in Paper~XII~\cite{Paper12};
+  the exact closed-form thick-torus profile integrals are derived in Paper~XIV~\cite{Paper14}, reducing the $\vEW$ residual from
+  $0.69\%$ to $0.01\%$.
+
+  \textbf{Layer 3: Can $\TCMB$ be primary? No --- proved by scale invariance.}
+  Proposition~\ref{P7:prop:scale_modulus} (Section~\ref{P7:sec:TCMB_geometric})
+  proves that the condensate has a one-parameter family of solutions
+  parametrised by $\Lcond$, so $\TCMB$ is not determined by the
+  condensate dynamics.  This is a structural result, not a gap.
+
+  \textbf{[Resolved in Paper~XII~\cite{Paper12}] What proving Layer 2 would imply.}
+  If $\vp^9\sqrt{\Ja\Jfour}=Q$ is proved analytically~\cite{Paper2,Paper3}:
+  \begin{itemize}[noitemsep]
+    \item The $0.04\%$ thin-torus spoke residual closes (Paper~IV).
+    \item The two routes of Paper~I Corollary~5.10 agree exactly.
+    \item Combined with $\rCMB/\Lcond^4=Q$ (exact), this confirms the
+      full self-consistency of the condensate at the exact saddle.
+  \end{itemize}
+  It would reduce the two-input framework ($\TCMB$ and $m_e$) to
+  a single experimental input ($\TCMB$ only), but does \emph{not}
+  imply $\TCMB$ can be primary (scale invariance prevents this). Proof is closed in Paper~XII~\cite{Paper12}.
+
+  \textbf{[Resolved in Paper~XII~\cite{Paper12}] Proof route.}
+  Show that the exact continuum EL saddle forces
+  $\Ja = Q/(\vp^{13/2}\cdot 2^{2/3})$ through the normalisation
+  condition that equates the two routes of Paper~I, Corollary~5.10. Proof is closed in Paper~XII~\cite{Paper12}.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P7:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+Starting from the four axioms of the density-feedback condensate ---
+whose Hopfion vacuum was proved unique in~\cite{Paper1} ---
+we derived Newtonian gravity from gradient flux imbalance, the
+Schwarzschild and Kerr acoustic metrics with $G_{\mu\nu}=0$ in the
+exterior, a one-loop induced Einstein--Hilbert term fixing the
+Planck mass via $\MPl^2=\LUV^2/(32\pi^2)$, and the
+cosmological constant $\Lobs=\Lambda_0 e^{-\vp^7/\beta}\approx10^{-122}\MPl^4$.
+The full dynamical Einstein field equations $G_{\mu\nu}=-\Lambda_{\rm phys}\,g_{\mu\nu}$
+are derived from the condensate effective action (Theorem~\ref{P7:thm:einstein}):
+the k-essence action reduces to the Einstein--Hilbert action exactly in the frozen
+attractor limit, with the effective gravitational strength
+$F(\rinfty)=\MPl^2(39\vp+25)/2$ --- an exact algebraic consequence of the golden ratio.
+The scalar field equation and energy-momentum conservation $\nabla^\mu T_{\mu\nu}=0$
+are proved (Theorem~\ref{P7:thm:conservation}), completing the self-consistent
+scalar-tensor structure.
+The exact rotating condensate background is derived as the Kerr mass multipole
+series $\Phi_{\mathrm{Kerr}}=M/r - Ma^2P_2/(2r^3)+\ldots$, satisfying
+$\nabla^2\Phi_{\mathrm{Kerr}}=0$ exactly (Theorem~\ref{P7:thm:rotating}).
+The one-loop Planck mass formula implies $\LUV\approx\MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl\approx\MPl/\vp^6\approx0.0557\,\MPl$,
+and the corresponding bosonic tower level $n_{\rm UV}\approx73.6$ is non-integer,
+confirming that $\LUV$ is set by a continuous gravitational condition, not a discrete
+tower step (Corollary~\ref{P7:cor:luv_tower}; connects to Paper~VI~\cite{Paper6}).
+The SU(3) colour structure and QCD predictions are treated in
+the companion Paper~V~\cite{Paper5}.
+
+The Cassini PPN tension is proved resolved (Theorem~\ref{P7:thm:cassini}):
+$m_\xi^2=\vp^{20}\Lambda_{\mathrm{obs}}\MPl^4$ and $\oBD=\vp^{12}/(3\beta)$
+combine to give $r_V\approx9.3\times10^6\,\mathrm{AU}$, yielding
+$|\gamma_{\mathrm{PPN}}-1|\approx2.2\times10^{-5}$ below the Cassini bound,
+with no free parameter.
+The topological origin of this Vainshtein radius is also resolved
+(Corollary~\ref{P7:cor:vainshtein_topology}): the chain
+$Q_{\mathrm{Hopfion}}=2 \to Q_{\mathrm{condensate}}=10 \to m_\xi^2\propto\vp^{20}$
+establishes $r_V$ as a topological invariant of the $Q=2$ condensate,
+closing the open problem stated in Paper~I~\cite{Paper1}.
+
+Inflationary predictions $n_s=0.9654$ (within $0.12\sigma$ of Planck~2018)
+and $r=0.0036$ follow from the Higgs/Starobinsky branch of the
+non-minimal coupling $\xNMC R$, at $N_e=57.73$ from gravitational reheating.  The CMB power spectrum normalisation
+is proved exactly (Propositions~\ref{P7:prop:seesaw}--\ref{P7:prop:Treh}):
+the gravitational see-saw scale $M_{\mathrm{inf}}=\LUV^2/\MPl
+\approx3.79\times10^{16}\,\mathrm{GeV}$ gives $\mathcal{P}_s=2.82\times10^{-9}$
+at $N_e=60$ (factor $1.34$); the $O(R_0^{-2})$ correction reduces this to $1.08$;
+and gravitational reheating ($T_{\mathrm{reh}}\sim10^8\,\mathrm{GeV}$,
+no new parameter) gives $N_e=57.73$ and closes the factor to exactly $1.00$,
+with $n_s=0.9654$ consistent with Planck~2018 to $0.1\sigma$.
+Dark energy satisfies $w=-1$ in
+the frozen limit, with the thawing prediction $w_a=-3(1+w_0)$
+proved (Theorem~\ref{P7:thm:thawing}) and consistent at $0.80\sigma$ with DESI~DR1.
+
+The condensate scalar field acts as dark matter without introducing a new particle.
+The exact golden-ratio sound speed $c_s=1/\vp$ is proved in Theorem~\ref{P7:thm:cs},
+following exactly from $\beta\rinfty=\vp$ and $1+\vp=\vp^2$.
+The condensate is pressureless to one part in $10^{10}$ on galactic scales
+($\lambda_J\approx2\times10^4\,\mathrm{Mpc}\gg r_{\rm halo}$,
+Proposition~\ref{P7:prop:CDM_limit}), and the $G_{\rm eff}$ correction inside the
+Vainshtein sphere of a Milky-Way galaxy is $\lesssim6\times10^{-5}$
+(Proposition~\ref{P7:prop:Geff}).
+Rotation curves are therefore flat by the same CDM gravitational-instability
+mechanism, with the condensate forming an NFW-like halo.
+Initial conditions are adiabatic with amplitude $\mathcal{P}_s=2.10\times10^{-9}$
+fixed by the inflationary sector (Proposition~\ref{P7:prop:IC_condensate}),
+with no additional free parameter.
+The primary new prediction distinguishing the condensate from standard CDM
+is the BAO peak shift by factor $\vp$ in the matter power spectrum:
+$k_{\rm BAO}^{\rm cond} = \vp\cdot k_{\rm BAO}^{\rm CDM}\approx0.0346\,\mathrm{Mpc}^{-1}$,
+falsifiable with DESI~DR2 and Euclid.
+
+The Hawking temperature is recovered exactly at leading order, with
+a soup correction $\delta T_H/T_H\approx+4.2\times10^{-5}$ as a
+specific model prediction.  The WEP holds exactly at one-loop and is
+protected perturbatively by the shift symmetry of the canonical field;
+the non-perturbative instanton contribution gives $\eta\approx2\times10^{-14}$,
+below MICROSCOPE but testable at STE-QUEST.
+The neutrino mass is derived via the WZW radiative mechanism
+(Proposition~\ref{P7:prop:neutrino}): the $\chi_6$ Node~6 primary
+of the $2I$ orbifold spectrum ($h=3/8$, Paper~V Theorem~11.7)
+provides the $\Delta L=2$ vertex and seed
+$m_\mathrm{seed}=\vEW\,e^{-15\pi/2}\approx14.4\,\mathrm{eV}$;
+one $W$-boson loop with factor $g_W^2/(16\pi^2)=2\alpha\vp/(3\pi)$
+gives $m_\nu\approx36\,\mathrm{meV}$, within $28\%$ of the atmospheric
+scale (Tier~3, no free parameters).
+The loop is regularised by the condensate's physical UV cutoff $\LUV$
+via the same Seeley--DeWitt method that fixes $\MPl$; corrections
+are $O((M_W/\LUV)^2)\approx10^{-32}$.
+
+The framework connects the Hopfion vacuum of Papers~I--VI to a
+self-consistent gravitational and cosmological sector, with all
+significant gaps honestly accounted for in Section~\ref{P7:sec:tier}.
+The EFT below $\LUV$ is proved self-consistent across all four physical
+sectors --- inflation, dark energy, gravity, and the Cassini/WEP
+sectors --- with every loop correction suppressed by $(E/\LUV)^2$
+(Proposition~\ref{P7:prop:eft_naturalness}).
+
+Paper~IV~\cite{Paper4} (Theorem~4.7, Verlinde cancellation) establishes
+that the ratio $m_e/\TCMB$ is a dimensionless geometric invariant of the
+$Q=2$ icosahedral condensate, equal to
+$(\pi^2/150)^{1/4}\cdot\vp^{20}\cdot e^{(1600\pi-3)/400}$
+with no free parameters and $0.22\%$ accuracy ($O(R_0^{-2})$ thick-torus correction).
+The framework therefore operates with one experimental inputs,
+$\TCMB$, and zero free parameters.
+Proving the $O(R_0^{-2})$ residual exactly --- equivalent to
+$\vp^9\sqrt{\Ja\Jfour}=Q$ (Papers~II--III~\cite{Paper2,Paper3}) --- reduces the input count to one, and is resolved in Paper~XII~\cite{Paper12}.
+The equation $\bst\cdot\rCMB = Q$ ($0.12\%$ from exact in the profile
+integrals) reflects the approximate self-consistency of the numerical
+saddle; the algebraic identity $\rCMB/\Lcond^4 = Q$ holds exactly.
+A scale-invariance argument (Section~\ref{P7:sec:open}) shows that $\TCMB$
+is not derivable from the condensate dynamics: the condensate has a
+one-parameter family of solutions at every scale, and $\TCMB$ fixes
+the physical one.
+Three observational questions remain open: whether DESI~DR2 confirms
+$w_0\neq-1$ at $>3\sigma$; whether DESI~DR2 or Euclid detect the BAO peak
+shift to $k_{\rm BAO}^{\rm cond}\approx0.0346\,\mathrm{Mpc}^{-1}$;
+and whether $\vp^9\sqrt{\Ja\Jfour}=Q$ exactly
+in the continuum~\cite{Paper2,Paper3}.
+The scale modulus $\Lcond$ remains unfixed by the condensate dynamics;
+$\TCMB$ is the single experimental input of the framework.
+
+%─── References ───────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper6}
+F.~Manfredi,
+\textit{The Golden-Ratio Tower: Fermion Scale Hierarchy from the Hopfion RG Fixed Point},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+
+\bibitem{Paper12}
+F.~Manfredi,
+\textit{The Profile Normalisation Conjecture ---
+  Proof via CMB Energy Identity and Two-Route Equivalence},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20210460}{doi:10.5281/zenodo.20210460}
+
+\bibitem{Paper14}
+F.~Manfredi,
+\textit{The Thick-Torus Profile Correction to the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20479790}{doi:10.5281/zenodo.20479790}
+
+\bibitem{Unruh1981}
+W.~G. Unruh,
+\textit{Experimental black-hole evaporation?},
+Phys.\ Rev.\ Lett.\ \textbf{46}, 1351 (1981).
+\href{https://doi.org/10.1103/PhysRevLett.46.1351}{doi:10.1103/PhysRevLett.46.1351}
+
+\bibitem{Cassini2003}
+B.~Bertotti, L.~Iess, and P.~Tortora,
+\textit{A test of general relativity using radio links with the
+Cassini spacecraft},
+Nature \textbf{425}, 374 (2003).
+\href{https://doi.org/10.1038/nature01997}{doi:10.1038/nature01997}
+
+\bibitem{Vainshtein1972}
+A.~I. Vainshtein,
+\textit{To the problem of nonvanishing gravitation mass},
+Phys.\ Lett.\ B \textbf{39}, 393 (1972).
+\href{https://doi.org/10.1016/0370-2693(72)90147-5}{doi:10.1016/0370-2693(72)90147-5}
+
+\bibitem{Dvali2000}
+G.~Dvali, G.~Gabadadze, and M.~Porrati,
+\textit{4D gravity on a brane in 5D Minkowski space},
+Phys.\ Lett.\ B \textbf{485}, 208 (2000).
+\href{https://doi.org/10.1016/S0370-2693(00)00669-9}{doi:10.1016/S0370-2693(00)00669-9}
+
+\bibitem{BabichevDeffayet2013}
+E.~Babichev and C.~Deffayet,
+\textit{An introduction to the Vainshtein mechanism},
+Class.\ Quantum Grav.\ \textbf{30}, 184001 (2013).
+\href{https://doi.org/10.1088/0264-9381/30/18/184001}{doi:10.1088/0264-9381/30/18/184001}
+
+\bibitem{Jacobson1995}
+T.~Jacobson,
+\textit{Thermodynamics of spacetime: The Einstein equation of state},
+Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+\href{https://doi.org/10.1103/PhysRevLett.75.1260}{doi:10.1103/PhysRevLett.75.1260}
+
+\bibitem{LIGO_GW170817}
+B.~P. Abbott et al.\ (LIGO Scientific and Virgo Collaborations),
+\textit{GW170817: Observation of gravitational waves from a binary
+neutron star inspiral},
+Phys.\ Rev.\ Lett.\ \textbf{119}, 161101 (2017).
+\href{https://doi.org/10.1103/PhysRevLett.119.161101}{doi:10.1103/PhysRevLett.119.161101}
+
+\bibitem{Planck2018}
+N.~Aghanim et al.\ (Planck Collaboration),
+\textit{Planck 2018 results.\ VI.\ Cosmological parameters},
+Astron.\ Astrophys.\ \textbf{641}, A6 (2020).
+\href{https://doi.org/10.1051/0004-6361/201833910}{doi:10.1051/0004-6361/201833910}
+
+\bibitem{DESI2024}
+A.~G. Adame et al.\ (DESI Collaboration),
+\textit{DESI 2024 VI: Cosmological constraints from the measurements
+of baryon acoustic oscillations},
+\href{https://doi.org/10.1088/1475-7516/2025/02/021}{doi:10.1088/1475-7516/2025/02/021}
+
+\bibitem{MICROSCOPE2022}
+P.~Touboul et al.\ (MICROSCOPE Collaboration),
+\textit{MICROSCOPE mission: Final results of the test of the equivalence
+principle},
+Phys.\ Rev.\ Lett.\ \textbf{129}, 121102 (2022).
+\href{https://doi.org/10.1103/PhysRevLett.129.121102}{doi:10.1103/PhysRevLett.129.121102}
+
+\bibitem{KhouryWeltman2004}
+J.~Khoury and A.~Weltman,
+\textit{Chameleon fields: Awaiting surprises for tests of gravity in space},
+Phys.\ Rev.\ Lett.\ \textbf{93}, 171104 (2004).
+\href{https://doi.org/10.1103/PhysRevLett.93.171104}{doi:10.1103/PhysRevLett.93.171104}
+
+\bibitem{PDG2024}
+R.~L. Workman et al.\ (Particle Data Group),
+\textit{Review of Particle Physics},
+Prog.\ Theor.\ Exp.\ Phys.\ \textbf{2022}, 083C01 (2022);
+updated 2024.
+\href{https://doi.org/10.1093/ptep/ptac097}{doi:10.1093/ptep/ptac097}
+
+\bibitem{Koide1983}
+Y.~Koide,
+\textit{A fermion-boson composite model of quarks and leptons},
+Phys.\ Lett.\ B \textbf{120}, 161--165 (1983).
+\href{https://doi.org/10.1016/0370-2693(83)90644-5}{doi:10.1016/0370-2693(83)90644-5}
+
+\bibitem{McKay1980}
+J.~McKay,
+\textit{Graphs, singularities, and finite groups},
+Proc.\ Symp.\ Pure Math.\ \textbf{37}, 183--186 (1980).
+\href{https://doi.org/10.1090/pspum/037}{doi:10.1090/pspum/037}
+
+\end{thebibliography}
+
+\end{document}

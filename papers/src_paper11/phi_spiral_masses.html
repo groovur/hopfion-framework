@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>φ-Spiral Mass Hierarchy — Hopfion Framework</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;background:#000;font-family:'Georgia',serif}
+canvas{display:block}
+
+/* ── Slide-out tab handles (mobile only, shown via @media) ── */
+.panel-tab{
+  display:none;
+  position:absolute;
+  background:rgba(4,4,18,0.88);border:1px solid #ffffff2a;
+  color:#F5E642;font-size:18px;line-height:1;
+  padding:10px 7px;border-radius:0 7px 7px 0;
+  cursor:pointer;z-index:20;user-select:none;
+  transition:opacity .2s;
+}
+.controls-tab{
+  display:none;
+  position:absolute;
+  background:rgba(4,4,18,0.88);border:1px solid #ffffff2a;
+  color:#F5E642;font-size:18px;line-height:1;
+  padding:10px 7px;border-radius:7px 0 0 7px;
+  cursor:pointer;z-index:20;user-select:none;
+  transition:opacity .2s;
+}
+
+#panel{
+  position:absolute;top:90px;left:12px;
+  color:#e0e0f0;font-size:11.5px;line-height:1.75;
+  background:rgba(4,4,18,0.88);
+  padding:12px 16px;border-radius:9px;
+  border:1px solid #ffffff1a;
+  max-width:244px;pointer-events:all;user-select:none;
+  transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s;
+  z-index:10;
+}
+#panel h1{font-size:18.5px;font-weight:normal;color:#F5E642;margin-bottom:4px}
+#panel h2{font-size:13.5px;font-weight:normal;color:#F5E642;margin-bottom:4px}
+#panel .sub{color:#8888aa;font-size:10.5px;margin-bottom:8px;pointer-events:none}
+#panel .row{display:flex;align-items:center;gap:7px;margin:1px 0;cursor:pointer;padding:2px 4px;border-radius:4px;transition:background .12s}
+#panel .row:hover{background:rgba(255,255,255,0.06)}
+#panel .row.dimmed{opacity:0.35}
+#panel .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+#panel .sq{width:9px;height:9px;border-radius:1px;flex-shrink:0}
+#panel .di{width:9px;height:9px;transform:rotate(45deg);flex-shrink:0;border-radius:1px}
+#panel .divider{border-top:1px solid #ffffff14;margin:7px 0}
+#panel .formula{font-style:italic;color:#FF6B9D;font-size:10.5px;margin-top:4px;pointer-events:none}
+#panel .grp-head{color:#8888aa;font-size:10px;margin:5px 0 2px;pointer-events:none;letter-spacing:.4px}
+#controls{
+  position:absolute;top:90px;right:12px;
+  display:flex;flex-direction:column;gap:7px;
+  pointer-events:all;
+  transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s;
+  z-index:10;
+}
+#slider-panel{
+  background:rgba(4,4,18,0.88);border:1px solid #ffffff1a;
+  border-radius:9px;padding:11px 14px 10px;
+  color:#e0e0f0;font-size:11.5px;min-width:220px;
+}
+#slider-panel label{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+#slider-panel .lbl{color:#aaaacc;font-size:11px}
+#slider-panel .val{color:#F5E642;font-size:12px;font-weight:bold;min-width:30px;text-align:right}
+#arms-slider{
+  width:100%;height:3px;cursor:pointer;accent-color:#F5E642;
+  background:linear-gradient(to right,#F5E642 var(--pct,40%),#333355 var(--pct,40%));
+  border-radius:2px;outline:none;appearance:none;-webkit-appearance:none;
+}
+#arms-slider::-webkit-slider-thumb{
+  appearance:none;-webkit-appearance:none;
+  width:14px;height:14px;border-radius:50%;
+  background:#F5E642;cursor:pointer;
+  box-shadow:0 0 6px #F5E64288;
+}
+#arms-hint{color:#8888aa;font-size:10px;margin-top:5px;line-height:1.5}
+.btn{
+  background:rgba(4,4,18,0.82);border:1px solid #ffffff22;
+  color:#c8c8e0;font-size:11px;padding:5px 12px;
+  border-radius:6px;cursor:pointer;font-family:'Georgia',serif;
+  transition:background .15s;
+}
+.btn:hover{background:rgba(255,255,255,0.08)}
+#tooltip{
+  position:absolute;display:block;
+  background:rgba(4,4,18,0.93);border:1px solid #ffffff28;
+  color:#e8e8f8;font-size:12px;padding:6px 11px;
+  border-radius:7px;pointer-events:none;
+  font-family:'Georgia',serif;line-height:1.6;max-width:200px;
+  z-index:30;
+  opacity:0;
+  transition:opacity 0.35s ease;
+}
+
+/* ── Mobile layout ── */
+@media (max-width: 700px),(pointer:coarse) {
+  #panel{
+    top:0;left:0;border-radius:0 9px 9px 0;
+    max-width:240px;max-height:100vh;overflow-y:auto;
+    transform:translateX(0);
+  }
+  #panel.collapsed{
+    transform:translateX(-100%);
+    opacity:0;pointer-events:none;
+  }
+  .panel-tab{
+    display:flex;align-items:center;justify-content:center;
+    top:50%;transform:translateY(-50%);
+    left:0;width:22px;min-height:48px;
+  }
+  .panel-tab.shifted{ left:240px; }
+
+  #controls{
+    top:auto;bottom:0;right:0;
+    flex-direction:column;
+    border-radius:9px 0 0 0;
+    transform:translateX(0);
+  }
+  #controls.collapsed{
+    transform:translateX(110%);
+    opacity:0;pointer-events:none;
+  }
+  .controls-tab{
+    display:flex;align-items:center;justify-content:center;
+    top:50%;transform:translateY(-50%);
+    right:0;width:22px;min-height:48px;
+  }
+  .controls-tab.shifted{ right:calc(min(260px, 60vw)); }
+
+  #tooltip{font-size:14px;padding:8px 13px;max-width:220px;}
+  #arms-slider{height:6px;}
+  #arms-slider::-webkit-slider-thumb{width:20px;height:20px;}
+}
+</style>
+</head>
+<body>
+<body>
+<div id="panel">
+  <h1>The Golden Tower</h1>
+  <h2>φ-Spiral Mass Hierarchy</h2>
+  <div class="sub">m<sub>n</sub> = Λ<sub>cond</sub>·φ<sup>−2n</sup> · log-radius<br>
+  Drag / scroll · hover for details · click legend to toggle</div>
+
+  <div class="divider"></div>
+  <div class="grp-head">PARTICLE PHYSICS</div>
+  <div class="row" id="tog-framework" onclick="toggleGroup('framework')">
+    <span class="dot" style="background:#F5E642"></span>Framework scales<div>(Λ<sub>cond</sub>, M<sub>Pl</sub>…)</div>
+  </div>
+  <div class="row" id="tog-leptons" onclick="toggleGroup('leptons')">
+    <span class="dot" style="background:#FF6B9D"></span>Leptons (e, μ, τ)
+  </div>
+  <div class="row" id="tog-quarks" onclick="toggleGroup('quarks')">
+    <span class="sq" style="background:#FF8C42"></span>Quarks (u,d,s,c,b,t)
+  </div>
+  <div class="row" id="tog-bosons" onclick="toggleGroup('bosons')">
+    <span class="di" style="background:#56CFE1"></span>Gauge bosons (W,Z,H)
+  </div>
+  <div class="row" id="tog-qcd" onclick="toggleGroup('qcd')">
+    <span class="dot" style="background:#E84855"></span>Λ<sub>QCD</sub> / T<sub>CMB</sub> / ν
+  </div>
+
+  <div class="divider"></div>
+  <div class="grp-head">ELEMENTS BY FIRST IE</div>
+  <div class="row" id="tog-alkali" onclick="toggleGroup('alkali')">
+    <span class="dot" style="background:#FF4757;width:7px;height:7px"></span>Alkali metals (Grp 1)
+  </div>
+  <div class="row" id="tog-noble" onclick="toggleGroup('noble')">
+    <span class="dot" style="background:#00D2FF;width:7px;height:7px"></span>Noble gases (Grp 18)
+  </div>
+  <div class="row" id="tog-halogen" onclick="toggleGroup('halogen')">
+    <span class="dot" style="background:#DA8EFF;width:7px;height:7px"></span>Halogens (Grp 17)
+  </div>
+  <div class="row" id="tog-pblock" onclick="toggleGroup('pblock')">
+    <span class="dot" style="background:#2ED573;width:7px;height:7px"></span>C/N/O group (Grp 14–16)
+  </div>
+  <div class="row" id="tog-dblock" onclick="toggleGroup('dblock')">
+    <span class="dot" style="background:#C7A84F;width:7px;height:7px"></span>d-block metals (Grp 3–12)
+  </div>
+  <div class="row" id="tog-other" onclick="toggleGroup('other')">
+    <span class="dot" style="background:#888;width:7px;height:7px"></span>Other elements (Grp 2, 13…)
+  </div>
+
+  <div class="divider"></div>
+  <div class="formula">m<sub>μ</sub>/m<sub>τ</sub> = e<sup>−9π/10</sup>  (0.5%)</div>
+  <div class="formula" style="color:#FF8C42;font-size:10px">m<sub>s</sub> ≈ m<sub>μ</sub><sup>WZW</sup>  (T-matrix identity)</div>
+</div>
+
+<div id="controls">
+  <div id="slider-panel">
+    <label>
+      <span class="lbl">Levels per revolution</span>
+      <span class="val" id="arms-val">6</span>
+    </label>
+    <input type="range" id="arms-slider" min="0.618" max="10" step="0.0236" value="6"/>
+    <div id="arms-hint">
+      ← fewer: points spread &amp; wrap<br>
+      → more: points compress &amp; stack
+    </div>
+  </div>
+  <button class="btn" onclick="resetCamera()">Reset view</button>
+  <button class="btn" onclick="toggleLabels()">Toggle labels</button>
+  <button class="btn" id="btn-natural" onclick="toggleNatural()">Show: all 118</button>
+</div>
+<div id="tooltip"></div>
+<div class="panel-tab" id="panel-tab" onclick="togglePanel()">&#8250;</div>
+<div class="controls-tab" id="controls-tab" onclick="toggleControls()">&#8249;</div>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.168.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.168.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const PHI    = (1+Math.sqrt(5))/2;
+const LNPHI  = Math.log(PHI);
+const KB     = 8.617333262e-5;
+const LCOND  = 1.1895e-4;
+const YSCALE = 0.182;
+const RS     = 1.0;
+const MAX_N  = 77;
+let ARMS = 6;
+
+function rLog(lvl){ return RS * Math.log(1 + lvl * 0.8); }
+function nLevel(m_eV){ return -Math.log(m_eV/LCOND)/(2*LNPHI); }
+
+function spiralPos(n){
+  const lvl = Math.abs(n);
+  const theta = 2*Math.PI * lvl / ARMS;
+  const r = rLog(lvl);
+  return new THREE.Vector3(r*Math.cos(theta), lvl*YSCALE, r*Math.sin(theta));
+}
+
+// Scene
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x03030e);
+scene.fog = new THREE.FogExp2(0x03030e, 0.011);
+
+const camera = new THREE.PerspectiveCamera(52, window.innerWidth/window.innerHeight, 0.01, 600);
+camera.position.set(5.5, 2.8, 6.2);
+camera.lookAt(0, 1.5, 0);
+
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 1.5, 0);
+controls.enableDamping = true; controls.dampingFactor = 0.055;
+controls.minDistance = 0.3; controls.maxDistance = 120;
+controls.update();
+
+const INIT_CAM = camera.position.clone();
+const INIT_TGT = controls.target.clone();
+window.resetCamera = () => {
+  camera.position.copy(INIT_CAM);
+  controls.target.copy(INIT_TGT);
+  controls.update();
+};
+
+scene.add(new THREE.AmbientLight(0x7788bb, 0.55));
+const sun = new THREE.DirectionalLight(0xfff4e0, 1.6);
+sun.position.set(10,16,8); scene.add(sun);
+const fill1 = new THREE.PointLight(0x2244ff,0.5,30); fill1.position.set(-6,3,-6); scene.add(fill1);
+const fill2 = new THREE.PointLight(0xff4488,0.3,20); fill2.position.set(6,4,2);   scene.add(fill2);
+
+// Starfield
+(function(){
+  const pos=[];
+  for(let i=0;i<2000;i++) pos.push((Math.random()-.5)*300,(Math.random()-.5)*300,(Math.random()-.5)*300);
+  const geo=new THREE.BufferGeometry();
+  geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  scene.add(new THREE.Points(geo,new THREE.PointsMaterial({color:0xffffff,size:0.09,transparent:true,opacity:0.4})));
+})();
+
+// ── REGISTRY ─────────────────────────────────────────────────────────────
+// dynObjects: {mesh, nVal, dx, dy, isLabel, isTorus, light, groupKey, pairMesh}
+// pairMesh: for element labels, this is the sphere they belong to (so offset stays coupled)
+const dynObjects = [];
+const dynTubes   = [];
+const dynLines   = [];
+const dynArrows  = [];
+const labelMeshes = [];
+const interactable = [];
+let spiralMesh = null;
+const spiralGroup = new THREE.Group(); scene.add(spiralGroup);
+
+// Group visibility state
+const groupVisible = {
+  framework:true, leptons:true, quarks:true, bosons:true, qcd:true,
+  alkali:true, noble:true, halogen:true, pblock:true, dblock:true, other:true
+};
+// groupObjects: groupKey → array of {mesh, isLabel}
+const groupObjects = {};
+function registerInGroup(key, mesh, isLabel=false){
+  if(!groupObjects[key]) groupObjects[key]=[];
+  groupObjects[key].push({mesh, isLabel});
+}
+
+window.toggleGroup = (key) => {
+  groupVisible[key] = !groupVisible[key];
+  const visible = groupVisible[key];
+  (groupObjects[key]||[]).forEach(({mesh,isLabel})=>{
+    // Respect synthetic filter
+    const dobj = dynObjects.find(o=>o.mesh===mesh);
+    const natOk = !dobj || dobj.elementZ===undefined || showingAllElements || isNatural(dobj.elementZ);
+    mesh.visible = visible && natOk;
+  });
+  const el = document.getElementById('tog-'+key);
+  if(el) el.classList.toggle('dimmed', !visible);
+};
+
+// ── Natural vs synthetic toggle ───────────────────────────────────────────
+// Natural: Z <= 92, excluding Tc (Z=43) and Pm (Z=61)
+let showingAllElements = true;
+function isNatural(Z){ return Z <= 92 && Z !== 43 && Z !== 61; }
+
+window.toggleNatural = () => {
+  showingAllElements = !showingAllElements;
+  const btn = document.getElementById('btn-natural');
+  if(btn) btn.textContent = showingAllElements ? 'Show: natural only (90)' : 'Show: all 118';
+  // Update visibility of element objects based on their Z
+  dynObjects.forEach(o => {
+    if(o.elementZ === undefined) return; // only element objects have elementZ
+    const grpVis = groupVisible[o.groupKey];
+    const natVis = showingAllElements || isNatural(o.elementZ);
+    o.mesh.visible = grpVis && natVis;
+  });
+};
+
+
+let labelsVisible = true;
+window.toggleLabels = () => {
+  labelsVisible = !labelsVisible;
+  labelMeshes.forEach(m => {
+    // Only toggle if its group is currently visible
+    const dobj = dynObjects.find(o=>o.mesh===m);
+    const gv = dobj ? groupVisible[dobj.groupKey] : true;
+    m.visible = labelsVisible && gv;
+  });
+};
+
+// ── SPIRAL BACKBONE ───────────────────────────────────────────────────────
+function buildSpiralMesh(){
+  if(spiralMesh){ spiralGroup.remove(spiralMesh); spiralMesh.geometry.dispose(); }
+  const pts=[];
+  for(let i=0;i<=14400;i++) pts.push(spiralPos(-i*(MAX_N/14400)));
+  const curve = new THREE.CatmullRomCurve3(pts);
+  const geo   = new THREE.TubeGeometry(curve, 14400, 0.006, 8, false);
+  const mat   = new THREE.MeshStandardMaterial({
+    color:0x223355, emissive:0x112233, emissiveIntensity:0.4,
+    roughness:0.6, metalness:0.2, transparent:true, opacity:0.7
+  });
+  spiralMesh = new THREE.Mesh(geo, mat);
+  spiralGroup.add(spiralMesh);
+}
+
+// ── LEVEL RINGS ───────────────────────────────────────────────────────────
+const ringGroup = new THREE.Group(); scene.add(ringGroup);
+function buildRings(){
+  while(ringGroup.children.length) ringGroup.remove(ringGroup.children[0]);
+  for(let lvl=5; lvl<=MAX_N; lvl+=5){
+    const pos = spiralPos(-lvl);
+    const r   = rLog(lvl);
+    const geo = new THREE.RingGeometry(r*0.97, r*1.005, 96);
+    const mat = new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0.022,side:THREE.DoubleSide});
+    const ring = new THREE.Mesh(geo, mat);
+    ring.rotation.x = Math.PI/2;
+    ring.position.y = pos.y;
+    ringGroup.add(ring);
+  }
+}
+
+// ── LABEL HELPER ──────────────────────────────────────────────────────────
+// pairSphere: the 3D sphere mesh this label belongs to (for positional coupling)
+function makeLabel(nVal, text, color, scale, dx, dy, groupKey, pairSphere=null){
+  scale = scale||1.0; dx = dx||0.18; dy = dy||0.10;
+  const cv=document.createElement('canvas'); cv.width=256; cv.height=72;
+  const ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,256,72);
+  ctx.font=`bold ${Math.round(36*scale)}px Georgia`;
+  ctx.fillStyle=color||'#e8e8f0'; ctx.shadowColor='#000008'; ctx.shadowBlur=8;
+  ctx.fillText(text, 4, 52*scale+6);
+  const tex=new THREE.CanvasTexture(cv);
+  const geo=new THREE.PlaneGeometry(0.55*scale, 0.14*scale);
+  const mat=new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false,side:THREE.DoubleSide});
+  const mesh=new THREE.Mesh(geo,mat);
+  const pos=spiralPos(nVal);
+  mesh.position.set(pos.x+dx*scale, pos.y+dy*scale, pos.z);
+  scene.add(mesh);
+  labelMeshes.push(mesh);
+  const dobj = {mesh, nVal, dx:dx*scale, dy:dy*scale, isLabel:true, groupKey, pairSphere};
+  dynObjects.push(dobj);
+  registerInGroup(groupKey, mesh, true);
+  return mesh;
+}
+
+// ── PARTICLE HELPERS ──────────────────────────────────────────────────────
+const raycaster=new THREE.Raycaster(), mouse=new THREE.Vector2();
+
+function addSphere(nVal, color, r, info, emissiveI, groupKey){
+  emissiveI = emissiveI||1.1;
+  const geo=new THREE.SphereGeometry(r,20,20);
+  const mat=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:emissiveI,roughness:0.3,metalness:0.25});
+  const m=new THREE.Mesh(geo,mat); m.position.copy(spiralPos(nVal)); scene.add(m);
+  const pl=new THREE.PointLight(color,0.35,r*28); pl.position.copy(spiralPos(nVal)); scene.add(pl);
+  dynObjects.push({mesh:m, nVal, dx:0, dy:0, isLabel:false, light:pl, groupKey});
+  interactable.push({mesh:m, info});
+  registerInGroup(groupKey, m);
+  return m;
+}
+
+function addCube(nVal, color, r, info, groupKey){
+  const geo=new THREE.BoxGeometry(r,r,r);
+  const mat=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:0.7,roughness:0.4,metalness:0.35});
+  const m=new THREE.Mesh(geo,mat); m.position.copy(spiralPos(nVal)); scene.add(m);
+  dynObjects.push({mesh:m, nVal, dx:0, dy:0, isLabel:false, groupKey});
+  interactable.push({mesh:m, info});
+  registerInGroup(groupKey, m);
+  return m;
+}
+
+function addDiamond(nVal, color, r, info, groupKey){
+  const geo=new THREE.OctahedronGeometry(r,0);
+  const mat=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:0.9,roughness:0.15,metalness:0.6});
+  const m=new THREE.Mesh(geo,mat); m.position.copy(spiralPos(nVal)); scene.add(m);
+  dynObjects.push({mesh:m, nVal, dx:0, dy:0, isLabel:false, groupKey});
+  interactable.push({mesh:m, info});
+  registerInGroup(groupKey, m);
+  return m;
+}
+
+function addTorus(nVal, color, r, tube, info, groupKey){
+  const geo=new THREE.TorusGeometry(r,tube,12,48);
+  const mat=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:0.8,roughness:0.3,metalness:0.3});
+  const m=new THREE.Mesh(geo,mat); m.rotation.x=Math.PI/2;
+  m.position.copy(spiralPos(nVal)); scene.add(m);
+  dynObjects.push({mesh:m, nVal, dx:0, dy:0, isLabel:false, isTorus:true, groupKey});
+  interactable.push({mesh:m, info});
+  registerInGroup(groupKey, m);
+  return m;
+}
+
+// ── TUBES / LINES / ARROWS ────────────────────────────────────────────────
+const tubeGroup = new THREE.Group(); scene.add(tubeGroup);
+function registerTube(n1, n2, color, opacity, tubeR){
+  dynTubes.push({n1, n2, color, opacity, tubeR});
+}
+function rebuildTubes(){
+  while(tubeGroup.children.length){ const c=tubeGroup.children[0]; tubeGroup.remove(c); c.geometry.dispose(); }
+  dynTubes.forEach(({n1,n2,color,opacity,tubeR})=>{
+    const pts=[];
+    for(let i=0;i<=50;i++) pts.push(spiralPos(n1+(n2-n1)*i/50));
+    const curve=new THREE.CatmullRomCurve3(pts);
+    const geo=new THREE.TubeGeometry(curve,50,tubeR,8,false);
+    const mat=new THREE.MeshStandardMaterial({color,emissive:color,emissiveIntensity:0.5,transparent:opacity<1,opacity,roughness:0.5});
+    tubeGroup.add(new THREE.Mesh(geo,mat));
+  });
+}
+
+const lineGroup = new THREE.Group(); scene.add(lineGroup);
+function registerLine(n1, n2){ dynLines.push({n1, n2}); }
+function rebuildLines(){
+  while(lineGroup.children.length){ const c=lineGroup.children[0]; lineGroup.remove(c); c.geometry.dispose(); }
+  dynLines.forEach(({n1,n2})=>{
+    const pts=[spiralPos(n1), spiralPos(n2)];
+    const geo=new THREE.BufferGeometry().setFromPoints(pts);
+    const mat=new THREE.LineDashedMaterial({color:0xFF8C42,dashSize:0.04,gapSize:0.03,transparent:true,opacity:0.7});
+    const line=new THREE.Line(geo,mat); line.computeLineDistances();
+    lineGroup.add(line);
+  });
+}
+
+const arrowGroup = new THREE.Group(); scene.add(arrowGroup);
+const arrowAnnotLabel = [];
+function registerArrow(n1, n2){ dynArrows.push({n1, n2}); }
+function rebuildArrows(){
+  while(arrowGroup.children.length) arrowGroup.remove(arrowGroup.children[0]);
+  dynArrows.forEach(({n1,n2},i)=>{
+    const p1=spiralPos(n1), p2=spiralPos(n2);
+    const dir=new THREE.Vector3().subVectors(p2,p1).normalize();
+    const len=p1.distanceTo(p2)*0.88;
+    arrowGroup.add(new THREE.ArrowHelper(dir,p1,len,0xFF6B9D,0.07,0.05));
+    if(arrowAnnotLabel[i]){
+      const mid=new THREE.Vector3().addVectors(p1,p2).multiplyScalar(0.5);
+      mid.x+=0.28;
+      arrowAnnotLabel[i].position.copy(mid);
+    }
+  });
+}
+
+// ── PHYSICS PARTICLES ─────────────────────────────────────────────────────
+function N(m){ return nLevel(m); }
+
+// Framework
+addSphere(N(LCOND),       0xF5E642, 0.065, 'Λcond = 1.19×10⁻⁴ eV\nCondensate ground state\nn = 0 (hub)', 3, 'framework');
+makeLabel(N(LCOND), 'Λcond','#F5E642',1.1,0.18,0.10,'framework');
+addSphere(N(2.7255*KB),   0x7FFFD4, 0.030, 'TCMB = 2.73 K = 2.35×10⁻⁴ eV\nCMB temperature (input 1)\nn = −0.71', 1.0, 'qcd');
+makeLabel(N(2.7255*KB),'TCMB','#7FFFD4',0.85,0.18,0.10,'qcd');
+addSphere(N(36e-3),       0x9DBAFF, 0.022, 'mν ≈ 36 meV (prediction)\nSeesaw from Paper VII\nn = −5.94', 0.9, 'qcd');
+makeLabel(N(36e-3),'mν','#9DBAFF',0.75,0.18,0.10,'qcd');
+
+// Leptons
+const nMe=N(0.51099895e6), nMmu=N(105.6583755e6), nMtau=N(1776.86e6);
+const sMe  = addSphere(nMe,   0xFF6B9D, 0.048, 'mₑ = 0.511 MeV\nElectron — input 2\nn = −23.05\nWZW residual: 0.47%', 1.2, 'leptons');
+makeLabel(nMe,  'mₑ','#FF6B9D',1.0,0.18,0.10,'leptons', sMe);
+const sMmu = addSphere(nMmu,  0xFF6B9D, 0.044, 'mμ = 105.66 MeV\nMuon\nn = −28.59\nWZW leading: −9.5%', 1.1, 'leptons');
+makeLabel(nMmu,'mμ','#FF6B9D',1.0,0.18,0.10,'leptons', sMmu);
+const sMtau= addSphere(nMtau, 0xFF6B9D, 0.048, 'mτ = 1776.86 MeV\nTau lepton\nn = −31.52\nm_μ/m_τ = e^{-9π/10}  0.5%', 1.2, 'leptons');
+makeLabel(nMtau,'mτ','#FF6B9D',1.0,0.18,0.10,'leptons', sMtau);
+registerTube(nMe, nMmu, 0xFF6B9D, 0.55, 0.010);
+registerTube(nMmu, nMtau, 0xFF6B9D, 0.55, 0.010);
+
+// Quarks
+[[2.2e6,'u','n=−24.6'],[4.7e6,'d','n=−25.4'],
+ [93.5e6,'s','n=−28.5  ← T_total(s)=T_μ'],[1.27e9,'c','n=−31.2'],
+ [4.18e9,'b','n=−32.4'],[172.76e9,'t','n=−36.3']
+].forEach(([m,sym,note])=>{
+  const sz=m>10e9?0.036:m>100e6?0.030:0.024;
+  const sq = addCube(N(m), 0xFF8C42, sz*2,
+    `m${sym} = ${m>1e9?(m/1e9).toPrecision(3)+' GeV':(m/1e6).toPrecision(3)+' MeV'}\nQuark\n${note}`, 'quarks');
+  makeLabel(N(m),'m'+sym,'#FF8C42',0.78,-0.18,0.06,'quarks', sq);
+});
+
+// QCD
+const tQCD = addTorus(N(208e6), 0xE84855, 0.07, 0.016, 'ΛQCD = 208 MeV\nQCD confinement scale\nPaper V\nn = −29.3', 'qcd');
+makeLabel(N(208e6),'ΛQCD','#E84855',0.95,0.18,0.10,'qcd', tQCD);
+
+// Gauge bosons
+[[80.377e9,'mW','80.38 GeV'],[91.1876e9,'mZ','91.19 GeV'],[125.25e9,'mH','125.25 GeV']
+].forEach(([m,sym,val])=>{
+  const sd = addDiamond(N(m), 0x56CFE1, 0.036,`${sym} = ${val}\nGauge boson\nn = ${N(m).toFixed(2)}`, 'bosons');
+  makeLabel(N(m),sym,'#56CFE1',0.85,0.18,0.10,'bosons', sd);
+});
+
+// EW / UV / MPl
+const sVEW = addDiamond(N(246.2e9), 0xA8FF3E, 0.052, 'vEW = 246.2 GeV\nHiggs VEV\nPaper VI\nn = −36.6', 'framework');
+makeLabel(N(246.2e9),'vEW','#A8FF3E',1.0,0.18,0.10,'framework', sVEW);
+const sLUV = addDiamond(N(6.8e17*1e9), 0xA8FF3E, 0.058, 'ΛUV = 6.8×10¹⁷ GeV\nUV cutoff\nn = −73.6', 'framework');
+makeLabel(N(6.8e17*1e9),'ΛUV','#A8FF3E',1.0,0.18,0.10,'framework', sLUV);
+const sMPl = addSphere(N(1.22e19*1e9), 0xF5E642, 0.072, 'MPl = 1.22×10¹⁹ GeV\nPlanck mass\nInduced: MPl²=ΛUV²/32π²\nn = −76.6', 2.5, 'framework');
+makeLabel(N(1.22e19*1e9),'MPl','#F5E642',1.1,0.18,0.10,'framework', sMPl);
+
+// ── CHEMICAL ELEMENTS ─────────────────────────────────────────────────────
+const EL_DATA=[
+  ['H',13.598,1,1],
+  ['He',24.587,18,2],
+  ['Li',5.392,1,3],
+  ['Be',9.323,2,4],
+  ['B',8.298,13,5],
+  ['C',11.26,14,6],
+  ['N',14.534,15,7],
+  ['O',13.618,16,8],
+  ['F',17.423,17,9],
+  ['Ne',21.565,18,10],
+  ['Na',5.139,1,11],
+  ['Mg',7.646,2,12],
+  ['Al',5.986,13,13],
+  ['Si',8.152,14,14],
+  ['P',10.487,15,15],
+  ['S',10.36,16,16],
+  ['Cl',12.968,17,17],
+  ['Ar',15.76,18,18],
+  ['K',4.341,1,19],
+  ['Ca',6.113,2,20],
+  ['Sc',6.561,3,21],
+  ['Ti',6.828,4,22],
+  ['V',6.746,5,23],
+  ['Cr',6.767,6,24],
+  ['Mn',7.434,7,25],
+  ['Fe',7.902,8,26],
+  ['Co',7.881,9,27],
+  ['Ni',7.64,10,28],
+  ['Cu',7.727,11,29],
+  ['Zn',9.394,12,30],
+  ['Ga',5.999,13,31],
+  ['Ge',7.9,14,32],
+  ['As',9.815,15,33],
+  ['Se',9.752,16,34],
+  ['Br',11.814,17,35],
+  ['Kr',13.999,18,36],
+  ['Rb',4.177,1,37],
+  ['Sr',5.695,2,38],
+  ['Y',6.217,3,39],
+  ['Zr',6.634,4,40],
+  ['Nb',6.759,5,41],
+  ['Mo',7.092,6,42],
+  ['Tc',7.28,7,43],
+  ['Ru',7.361,8,44],
+  ['Rh',7.459,9,45],
+  ['Pd',8.337,10,46],
+  ['Ag',7.576,11,47],
+  ['Cd',8.994,12,48],
+  ['In',5.786,13,49],
+  ['Sn',7.344,14,50],
+  ['Sb',8.64,15,51],
+  ['Te',9.01,16,52],
+  ['I',10.451,17,53],
+  ['Xe',12.13,18,54],
+  ['Cs',3.894,1,55],
+  ['Ba',5.212,2,56],
+  ['La',5.577,3,57],
+  ['Ce',5.539,3,58],
+  ['Pr',5.473,3,59],
+  ['Nd',5.525,3,60],
+  ['Pm',5.582,3,61],
+  ['Sm',5.644,3,62],
+  ['Eu',5.67,3,63],
+  ['Gd',6.15,3,64],
+  ['Tb',5.864,3,65],
+  ['Dy',5.939,3,66],
+  ['Ho',6.022,3,67],
+  ['Er',6.108,3,68],
+  ['Tm',6.184,3,69],
+  ['Yb',6.254,3,70],
+  ['Lu',5.426,3,71],
+  ['Hf',6.825,4,72],
+  ['Ta',7.55,5,73],
+  ['W',7.864,6,74],
+  ['Re',7.833,7,75],
+  ['Os',8.438,8,76],
+  ['Ir',8.967,9,77],
+  ['Pt',8.959,10,78],
+  ['Au',9.226,11,79],
+  ['Hg',10.438,12,80],
+  ['Tl',6.108,13,81],
+  ['Pb',7.417,14,82],
+  ['Bi',7.289,15,83],
+  ['Po',8.417,16,84],
+  ['At',9.32,17,85],
+  ['Rn',10.748,18,86],
+  ['Fr',4.073,1,87],
+  ['Ra',5.279,2,88],
+  ['Ac',5.17,3,89],
+  ['Th',6.307,3,90],
+  ['Pa',5.89,3,91],
+  ['U',6.194,3,92],
+  ['Np',6.266,3,93],
+  ['Pu',6.026,3,94],
+  ['Am',5.974,3,95],
+  ['Cm',5.991,3,96],
+  ['Bk',6.198,3,97],
+  ['Cf',6.282,3,98],
+  ['Es',6.42,3,99],
+  ['Fm',6.5,3,100],
+  ['Md',6.58,3,101],
+  ['No',6.65,3,102],
+  ['Lr',4.9,3,103],
+  ['Rf',6.011,4,104],
+  ['Db',6.8,5,105],
+  ['Sg',7.8,6,106],
+  ['Bh',7.7,7,107],
+  ['Hs',7.6,8,108],
+  ['Mt',7.4,9,109],
+  ['Ds',9.6,10,110],
+  ['Rg',10.6,11,111],
+  ['Cn',11.97,12,112],
+  ['Nh',7.306,13,113],
+  ['Fl',8.628,14,114],
+  ['Mc',5.576,15,115],
+  ['Lv',7.704,16,116],
+  ['Ts',10.748,17,117],
+  ['Og',12.0,18,118]
+];
+const GRP_COLOR={1:0xFF4757,2:0xFF6B81,3:0xFFA502,4:0xFF6348,5:0xECCC68,
+  6:0xA4B0BE,7:0x747D8C,8:0x636e72,9:0x2d3436,10:0x5352ED,
+  11:0xC7A84F,12:0x70A1FF,13:0x7BED9F,14:0x2ED573,15:0x1E90FF,
+  16:0xFFA07A,17:0xDA8EFF,18:0x00D2FF};
+const GRP_NAME={1:'Alkali metals',2:'Alkaline earth',3:'Lanthanides/Actinides',
+  4:'Ti group',5:'V group',6:'Cr group',7:'Mn group',8:'Fe group',9:'Co group',
+  10:'Ni group',11:'Cu group',12:'Zn group',
+  13:'p-block 13',14:'C group',15:'N group',16:'O/S group',17:'Halogens',18:'Noble gases'};
+
+// Map periodic group → our toggle key
+function grpToToggle(g){
+  if(g===1) return 'alkali';
+  if(g===18) return 'noble';
+  if(g===17) return 'halogen';
+  if(g>=14 && g<=16) return 'pblock';
+  if(g>=3 && g<=12) return 'dblock';
+  return 'other';  // groups 2, 13, lanthanides, etc.
+}
+
+EL_DATA.forEach(([sym,ie,grp,Z])=>{
+  const nVal=N(ie);
+  const col=GRP_COLOR[grp]||0x888888;
+  const tkey = grpToToggle(grp);
+
+  // Sphere
+  const geo=new THREE.SphereGeometry(0.018,8,8);
+  const mat=new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:0.55,roughness:0.6});
+  const sphere=new THREE.Mesh(geo,mat); sphere.position.copy(spiralPos(nVal)); scene.add(sphere);
+  dynObjects.push({mesh:sphere, nVal, dx:0, dy:0, isLabel:false, groupKey:tkey, elementZ:Z});
+  interactable.push({mesh:sphere, info:`${sym}  Z=${Z}\nAZE: ${Z}${sym} (A=most stable)\nFirst IE = ${ie.toFixed(3)} eV\nGroup ${grp}: ${GRP_NAME[grp]||''}\nn = ${nVal.toFixed(3)}`});
+  registerInGroup(tkey, sphere);
+
+  // Label — tightly coupled to sphere via pairSphere
+  const cv=document.createElement('canvas'); cv.width=96; cv.height=48;
+  const ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,96,48);
+  ctx.font='bold 22px Georgia';
+  ctx.fillStyle='#'+col.toString(16).padStart(6,'0');
+  ctx.shadowColor='#000010'; ctx.shadowBlur=5;
+  ctx.fillText(sym,2,36);
+  const tex=new THREE.CanvasTexture(cv);
+  const lg=new THREE.PlaneGeometry(0.16,0.08);
+  const lm=new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false,side:THREE.DoubleSide});
+  const lmesh=new THREE.Mesh(lg,lm);
+  const pos=spiralPos(nVal);
+  lmesh.position.set(pos.x+0.10, pos.y+0.05, pos.z);
+  scene.add(lmesh);
+  labelMeshes.push(lmesh);
+  dynObjects.push({mesh:lmesh, nVal, dx:0.10, dy:0.05, isLabel:true, groupKey:tkey, pairSphere:sphere, elementZ:Z});
+  registerInGroup(tkey, lmesh, true);
+});
+
+// ── ANNOTATIONS ───────────────────────────────────────────────────────────
+registerArrow(nMmu, nMtau);
+(function(){
+  const p1=spiralPos(nMmu), p2=spiralPos(nMtau);
+  const mid=new THREE.Vector3().addVectors(p1,p2).multiplyScalar(0.5); mid.x+=0.28;
+  const cv=document.createElement('canvas'); cv.width=320; cv.height=60;
+  const ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,320,60);
+  ctx.font='italic 22px Georgia'; ctx.fillStyle='#FF6B9D';
+  ctx.shadowColor='#000018'; ctx.shadowBlur=8;
+  ctx.fillText('mμ/mτ = e⁻⁹π/¹⁰  (0.5%)',4,44);
+  const tex=new THREE.CanvasTexture(cv);
+  const mesh=new THREE.Mesh(new THREE.PlaneGeometry(0.65,0.12),
+    new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
+  mesh.position.copy(mid); scene.add(mesh);
+  labelMeshes.push(mesh);
+  arrowAnnotLabel.push(mesh);
+  dynObjects.push({mesh, nVal:(nMmu+nMtau)/2, dx:0.28, dy:0, isLabel:true, isArrowAnnot:true, groupKey:'leptons'});
+  registerInGroup('leptons', mesh, true);
+})();
+
+registerLine(N(93.5e6), nMmu);
+(function(){
+  const ps=spiralPos(N(93.5e6)), pm=spiralPos(nMmu);
+  const mid=new THREE.Vector3().addVectors(ps,pm).multiplyScalar(0.5); mid.x-=0.4;
+  const cv=document.createElement('canvas'); cv.width=320; cv.height=52;
+  const ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,320,52);
+  ctx.font='italic 20px Georgia'; ctx.fillStyle='#FF8C42';
+  ctx.shadowColor='#000018'; ctx.shadowBlur=6;
+  ctx.fillText('ms ≈ mμWZW  (Paper V)',4,38);
+  const tex=new THREE.CanvasTexture(cv);
+  const mesh=new THREE.Mesh(new THREE.PlaneGeometry(0.62,0.10),
+    new THREE.MeshBasicMaterial({map:tex,transparent:true,depthWrite:false,side:THREE.DoubleSide}));
+  mesh.position.copy(mid); scene.add(mesh);
+  labelMeshes.push(mesh);
+  dynObjects.push({mesh, nVal:(N(93.5e6)+nMmu)/2, dx:-0.4, dy:0, isLabel:true, groupKey:'quarks'});
+  registerInGroup('quarks', mesh, true);
+})();
+
+// ── INITIAL BUILD ─────────────────────────────────────────────────────────
+buildSpiralMesh();
+buildRings();
+rebuildTubes();
+rebuildLines();
+rebuildArrows();
+toggleNatural();
+
+// ── REPOSITION ALL ────────────────────────────────────────────────────────
+function repositionAll(){
+  buildSpiralMesh();
+  buildRings();
+  rebuildTubes();
+  rebuildLines();
+  rebuildArrows();
+
+  dynObjects.forEach(o=>{
+    if(o.isArrowAnnot) return;
+    const pos = spiralPos(o.nVal);
+
+    if(o.isLabel && o.pairSphere){
+      // Couple label to its sphere's current world position
+      // This keeps element symbol right next to its dot even after resize
+      o.mesh.position.set(
+        o.pairSphere.position.x + o.dx,
+        o.pairSphere.position.y + o.dy,
+        o.pairSphere.position.z
+      );
+    } else if(o.isLabel){
+      o.mesh.position.set(pos.x + o.dx, pos.y + o.dy, pos.z);
+    } else {
+      o.mesh.position.copy(pos);
+      if(o.isTorus) o.mesh.rotation.x = Math.PI/2;
+      if(o.light)  o.light.position.copy(pos);
+    }
+  });
+  // Re-apply natural/synthetic visibility after repositioning
+  dynObjects.forEach(o=>{
+    if(o.elementZ === undefined) return;
+    const grpVis = groupVisible[o.groupKey];
+    const natVis = showingAllElements || isNatural(o.elementZ);
+    o.mesh.visible = grpVis && natVis;
+  });
+}
+
+// ── SLIDER ────────────────────────────────────────────────────────────────
+const slider   = document.getElementById('arms-slider');
+const armsVal  = document.getElementById('arms-val');
+
+function updateSliderTrack(){
+  const min=parseFloat(slider.min), max=parseFloat(slider.max), val=parseFloat(slider.value);
+  slider.style.setProperty('--pct', ((val-min)/(max-min)*100).toFixed(1)+'%');
+}
+slider.addEventListener('input', ()=>{
+  ARMS = parseFloat(slider.value);
+  armsVal.textContent = ARMS % 1 === 0 ? ARMS : ARMS.toFixed(1);
+  updateSliderTrack();
+  repositionAll();
+});
+updateSliderTrack();
+
+// ── TOOLTIP ───────────────────────────────────────────────────────────────
+const tooltip = document.getElementById('tooltip');
+renderer.domElement.addEventListener('pointermove', e=>{
+  mouse.x = (e.clientX/window.innerWidth)*2-1;
+  mouse.y = -(e.clientY/window.innerHeight)*2+1;
+});
+
+function checkHover(){
+  // On mobile (touch) the tooltip is managed by touch events — don't interfere
+  if(isMobile()) return;
+  raycaster.setFromCamera(mouse, camera);
+  const hits = raycaster.intersectObjects(interactable.map(o=>o.mesh).filter(m=>m.visible));
+  if(hits.length){
+    const obj = interactable.find(o=>o.mesh===hits[0].object);
+    if(obj){
+      tooltip.style.opacity='1';
+      tooltip.style.left=(window.innerWidth/2*(mouse.x+1)+10)+'px';
+      tooltip.style.top=(window.innerHeight/2*(-mouse.y+1)+10)+'px';
+      tooltip.innerHTML=obj.info.replace(/\n/g,'<br>');
+      return;
+    }
+  }
+  tooltip.style.opacity='0';
+}
+
+// ── ANIMATE ───────────────────────────────────────────────────────────────
+let frame=0;
+function animate(){
+  requestAnimationFrame(animate);
+  frame++;
+  controls.update();
+  labelMeshes.forEach(m=>{ if(m.visible) m.quaternion.copy(camera.quaternion); });
+  if(frame%2===0) checkHover();
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize',()=>{
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  // Reposition all labels so they stay coupled to their spheres
+  repositionAll();
+});
+// ── MOBILE: panel / controls slide-out ────────────────────────────────────
+const isMobile = () => window.innerWidth <= 700 || window.matchMedia('(pointer:coarse)').matches;
+
+let panelCollapsed    = false;
+let controlsCollapsed = false;
+let collapseTimer     = null;
+
+function setPanelCollapsed(v){
+  panelCollapsed = v;
+  const panel = document.getElementById('panel');
+  const tab   = document.getElementById('panel-tab');
+  if(!panel || !tab) return;
+  panel.classList.toggle('collapsed', v);
+  tab.classList.toggle('shifted', !v);
+  tab.innerHTML = v ? '&#8250;' : '&#8249;';
+}
+function setControlsCollapsed(v){
+  controlsCollapsed = v;
+  const ctrl = document.getElementById('controls');
+  const tab  = document.getElementById('controls-tab');
+  if(!ctrl || !tab) return;
+  ctrl.classList.toggle('collapsed', v);
+  tab.classList.toggle('shifted', !v);
+  tab.innerHTML = v ? '&#8249;' : '&#8250;';
+}
+window.togglePanel    = () => { setPanelCollapsed(!panelCollapsed);     resetCollapseTimer(); };
+window.toggleControls = () => { setControlsCollapsed(!controlsCollapsed); resetCollapseTimer(); };
+
+function resetCollapseTimer(){
+  if(!isMobile()) return;
+  clearTimeout(collapseTimer);
+  collapseTimer = setTimeout(() => {
+    setPanelCollapsed(true);
+    setControlsCollapsed(true);
+  }, 4000);
+}
+
+window.addEventListener('load', () => {
+  if(isMobile()){
+    setTimeout(() => { setPanelCollapsed(true); setControlsCollapsed(true); }, 2000);
+  }
+});
+
+['panel','controls'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('touchstart', () => resetCollapseTimer(), {passive:true});
+});
+
+// ── MOBILE: touch tooltip ─────────────────────────────────────────────────
+let touchDismissTimer = null;
+
+function showTooltipAt(clientX, clientY, info){
+  const tt = document.getElementById('tooltip');
+  clearTimeout(touchDismissTimer);
+  tt.innerHTML = info.replace(/\n/g,'<br>');
+  tt.style.left = Math.min(clientX + 14, window.innerWidth  - 230) + 'px';
+  tt.style.top  = Math.min(clientY + 14, window.innerHeight - 130) + 'px';
+  tt.style.opacity = '1';
+  touchDismissTimer = setTimeout(() => { tt.style.opacity = '0'; }, 3000);
+}
+
+function dismissTooltip(){
+  clearTimeout(touchDismissTimer);
+  document.getElementById('tooltip').style.opacity = '0';
+}
+
+function findObjectAtTouch(clientX, clientY){
+  const rect = renderer.domElement.getBoundingClientRect();
+  const mx = ((clientX - rect.left)/rect.width)  * 2 - 1;
+  const my = -((clientY - rect.top)/rect.height) * 2 + 1;
+  const rc = new THREE.Raycaster();
+  rc.params.Points = { threshold: 0.12 };
+  rc.params.Line   = { threshold: 0.08 };
+  rc.setFromCamera({x:mx, y:my}, camera);
+  const meshList = interactable.map(o=>o.mesh).filter(m=>m.visible);
+  let hits = rc.intersectObjects(meshList);
+  if(!hits.length){
+    let best = null, bestDist = Infinity;
+    meshList.forEach(mesh => {
+      const pos = mesh.position.clone().project(camera);
+      const dx = pos.x - mx, dy = pos.y - my;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if(d < 0.07 && d < bestDist){ bestDist = d; best = mesh; }
+    });
+    if(best) hits = [{object: best}];
+  }
+  if(!hits.length) return null;
+  return interactable.find(o => o.mesh === hits[0].object) || null;
+}
+
+// touchend: fires after finger lifts — no flicker, clean position
+renderer.domElement.addEventListener('touchend', e => {
+  if(!isMobile()) return;
+  if(e.changedTouches.length !== 1) return;
+  const t = e.changedTouches[0];
+  const obj = findObjectAtTouch(t.clientX, t.clientY);
+  if(obj){
+    showTooltipAt(t.clientX, t.clientY, obj.info);
+    e.preventDefault();
+  } else {
+    dismissTooltip();
+  }
+}, {passive:false});
+
+// touchstart: only preventDefault if tap will hit an object (stops orbit starting)
+renderer.domElement.addEventListener('touchstart', e => {
+  if(!isMobile()) return;
+  if(e.touches.length !== 1) return;
+  const t = e.touches[0];
+  if(findObjectAtTouch(t.clientX, t.clientY)) e.preventDefault();
+}, {passive:false});
+
+
+</script>
+</body>
+</html>

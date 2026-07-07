@@ -1,0 +1,2737 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref,xcolor,enumitem,booktabs,array}
+\usepackage{graphicx,subcaption}
+
+\hypersetup{colorlinks=true,linkcolor={blue!60!black},
+  citecolor={blue!60!black},urlcolor={blue!60!black}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfour}{J_4}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\twoI}{2I}
+\newcommand{\twoT}{2T}
+\newcommand{\QH}{Q_H}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\Ztwo}{\mathbb{Z}_2}
+\newcommand{\Zthree}{\mathbb{Z}_3}
+\newcommand{\dimq}[1]{d_{#1}}
+\newcommand{\Tmat}{T}
+\newcommand{\Jones}{V}
+\newcommand{\lk}{\mathrm{lk}}
+\newcommand{\phistar}{\phi^*}
+
+\title{\textbf{Preimage Topology and Confinement:\\
+The $Q_H=3$ Sector of the Density-Feedback Hopfion}
+\\[0.6em]
+{\large Companion Paper XVIII to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- June 2026}
+\author{Frederick Manfredi}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Papers~XV and~XVI establish the $\QH=3$ (trefoil $T_{2,3}$, binary
+tetrahedral group $\twoT$) sector as the baryon sector and identify
+confinement with the simple-current condition $\dimq{3/2}=1$ at
+WZW level $k=3$.  Paper~XVII further resolves the Dirac/Majorana
+question for the $\QH=1$ neutrino sector via the Wess--Zumino descent.
+The present paper develops the \emph{dynamical} content of $\QH=3$
+confinement by analysing the Hopf preimage topology of the torus
+knot/link tower and deriving three results.
+(1)~\textbf{Confinement from Jones polynomial arithmetic: fusion, not sector, splits rational from irrational.}
+The satellite Jones invariant of the $\QH=3$ trefoil (computed via
+the $(2,3)$-cable/companion construction of Section~\ref{P18:sec:satellite})
+satisfies $|\Jones_{\rm sat}(q_5)|=1/\vp$ at the WZW root $q_5=e^{2\pi i/5}$,
+and the Hopf link's invariant satisfies $|\Jones_{T(2,2)}(q_5)|=1/\vp$
+also: the two sectors carry the \emph{same} modulus, related by the
+single phase $\Jones_{\rm sat}(q_5)=q_5^{-1}\cdot\Jones_{T(2,2)}(q_5)$,
+not by an inversion of the golden ratio.
+A satellite twist family (Proposition~\ref{P18:prop:satellite_twist_family})
+reveals where the rational/irrational split actually lies: every
+\emph{fused} (genuine torus knot, odd half-twist count $n$)
+configuration has an irrational $\vp$-related modulus, while every
+\emph{unfused} (cables not yet merged, even $n$) configuration has a
+rational invariant ($V=1$ at $n=4$, $V=-1$ at $n=6$) --- the split
+tracks fusion of the cable strands, not which $\QH$ sector is
+involved. Whether the physical formation path passes through the
+rational unfused configuration at $n=4$, and whether the family's
+period ($10$) coincides with the quantum-group order
+$Q_{\mathrm{gr}}=2(k+2)=10$, are noted as open conjectures
+(Section~\ref{P18:sec:jones}), not established results.
+(2)~\textbf{Forced pion emission.}  The reaction
+$\QH=2+\QH=2\to\QH=3+\QH=1$ is topologically forced by charge
+conservation ($2+2=3+1$) and the component structure of the
+satellite construction (Proposition~\ref{P18:prop:satellite}):
+of the four initial circles, three fuse into the trefoil and
+one cannot be absorbed, producing the $\QH=1$ spectator.
+Pion emission in baryon formation is therefore a topological
+necessity, not a dynamical accident.
+(3)~\textbf{Process-dependent $\phistar$ prediction.}  The three
+crossing vertices of $T_{2,3}$ are 120° apart in azimuth and their
+tangent vectors lie exactly in the $z=0$ plane.  When a baryon
+($\QH=3$) fragments to produce $\rho^+\rho^-$ ($\QH=2$ pairs), the
+relative decay-plane angle $\phistar$ is set by this crossing geometry,
+predicting a distribution $W(\phistar)\propto 1+a_3\cos(3\phistar)$
+peaked at $\phistar=2\pi/3$, with $a_1=a_2=0$ enforced by $\Zthree$
+symmetry.  Photon-initiated $\rho^+\rho^-$ production (no $\QH=3$
+parent) carries no such geometric constraint, giving the standard
+helicity-governed $a_2\cos(2\phistar)$ form.  The process-dependence
+is a parameter-free, falsifiable prediction.
+Two speculative correspondences --- a six-quark counting from
+$\binom{3}{1}+\binom{3}{2}=6$ midpoint-breaking combinations, and an
+isospin assignment from the $\Ztwo$ writhe asymmetry of $T_{2,3}$ ---
+are recorded as conjectures.
+\end{abstract}
+
+\tableofcontents
+\bigskip\newpage
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P18:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+The density-feedback Faddeev--Niemi (FN) Hopfion framework
+assigns each topological sector $\QH=N$ its own identity through a
+McKay-correspondence group, a WZW conformal field theory, and a
+knot or link geometry.  Through Paper~XVII~\cite{Paper17}, the three
+matter sectors are settled at the qualitative level:
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lllllll}
+\toprule
+$\QH$ & Particle & Group & McKay & WZW & $Q_{\mathrm{gr}}$ & $\dimq{}$ \\
+\midrule
+$1$ & Neutrino & $\Ztwo$ & $\widehat{A}_1$ & $\SU(2)_1$ & $6$ & $\vp$ \\
+$2$ & Charged lepton & $\twoI$ & $\widehat{E}_8$ & $\SU(2)_3$ & $10$ & $\vp$ \\
+$3$ & Baryon & $\twoT$ & $\widehat{E}_6$ & $(E_6)_1$ & $3$ & $1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+What remains missing is the \emph{dynamical} content of confinement
+in the $\QH=3$ sector: why does the simple-current condition
+$\dimq{3/2}=1$ manifest as string-breaking, what topological reaction
+rules govern the production of $\QH=2$ and $\QH=1$ objects from a
+$\QH=3$ parent, and what experimental signatures follow?
+
+This paper answers those questions in three stages.
+
+\paragraph{Stage 1 (Sections~\ref{P18:sec:jones}--\ref{P18:sec:preimage}).}
+We establish the Jones polynomial as the correct knot-invariant
+framework for the sector hierarchy.  The satellite Jones invariant
+of the $T(2,n)$ tower at the WZW root $q_5=e^{2\pi i/5}$ exhibits
+a precise structure: every fused (genuine torus knot) member carries
+an irrational modulus, while every unfused (cables not yet merged)
+member carries a rational value.  Both $|\Jones_{T(2,2)}(q_5)|$
+($\QH=2$, Hopf link) and $|\Jones_{\rm sat}(T(2,3))(q_5)|$
+($\QH=3$, trefoil satellite) equal $1/\vp$, related by the single
+phase $q_5^{-1}$; the rational/irrational distinction tracks fusion
+of the cable strands, not the $\QH=2\to\QH=3$ transition itself.
+The Verlinde quantum dimension condition $\dimq{3/2}=1$
+(Paper~XVII~\cite{Paper17}, Proposition~7.2 %\ref{P17:prop:dimq_confinement}
+) remains the independent, established confinement criterion; how it
+relates to the fused/unfused split of the satellite family is
+discussed but not resolved.
+
+\paragraph{Stage 2 (Sections~\ref{P18:sec:preimage}--\ref{P18:sec:pion}).}
+We analyse the Hopf preimage structure of each sector.  For $\QH=2$,
+the preimage of a regular value on $S^2$ under the Hopf map is the
+two-component Hopf link $T(2,2)$.  For $\QH=3$, the correct
+preimage configuration is the trefoil $T(2,3)$ (a single knotted
+circle), reached from $T(2,2)$ by the satellite/cable construction.
+This determines the topological reaction rules and, in particular,
+forces pion emission ($\QH=1$) as a necessary companion of baryon
+($\QH=3$) formation from two $\QH=2$ objects.
+
+\paragraph{Stage 3 (Sections~\ref{P18:sec:phi_star}--\ref{P18:sec:arcseg}).}
+We derive the process-dependent $\phistar$ prediction from the exact
+geometry of $T_{2,3}$'s crossing vertices, connect it to the
+arc-segment energy partition of Paper~XVI~\cite{Paper16}, and
+identify the experimental test that distinguishes baryon-initiated
+from photon-initiated $\rho^+\rho^-$ production.
+
+Sections~\ref{P18:sec:quark_count}--\ref{P18:sec:isospin} collect speculative
+correspondences, clearly flagged as conjectures, that connect the
+12-site fraying pattern to quark flavour counting and the $\Ztwo$
+writhe asymmetry to isospin.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Jones Polynomial at the WZW Root of Unity}
+\label{P18:sec:jones}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The WZW root of unity}
+\label{P18:sec:root_of_unity}
+
+The $\SU(2)_k$ WZW model at level $k$ has modular data governed by
+the $q$-deformation parameter $q = e^{i\pi/(k+2)}$.  At $k=3$,
+\begin{equation}
+  q = e^{i\pi/5}, \qquad q^2 = e^{2\pi i/5}.
+  \label{P18:eq:q_wzw}
+\end{equation}
+This is a primitive 10th root of unity (equivalently a primitive
+5th root of $q^2$).  The quantum integers $[n]_q =
+(q^n-q^{-n})/(q-q^{-1})$ at this value satisfy $[5]_q = 0$
+(the truncation that gives the finite WZW representation ring),
+and the quantum dimension of the spin-$j$ representation is
+\begin{equation}
+  \dimq{j} = [2j+1]_q = \frac{\sin((2j+1)\pi/5)}{\sin(\pi/5)},
+  \label{P18:eq:dimq}
+\end{equation}
+recovering Table~1 of Paper~XVII~\cite{Paper17} at $k=3$:
+$\dimq{1/2} = \vp$, $\dimq{1} = \vp$, $\dimq{3/2} = 1$,
+$\dimq{2} = 0$ (the null representation, boundary of the representation
+ring).
+
+\subsection{Jones polynomials of the torus link/knot tower}
+
+The Jones polynomial $\Jones_L(q)$ of a link $L$, evaluated at
+$q = e^{2\pi i/5}$ (the squared WZW root), encodes exactly the
+quantum-dimension data of the WZW representation theory.
+
+\begin{theorem}[Satellite Jones invariant of the trefoil]
+\label{P18:thm:trefoil_satellite_jones}
+Let $q_5=e^{2\pi i/5}$.  The trefoil $T(2,3)$ is not a free-standing
+knot in this framework: by Proposition~\ref{P18:prop:satellite} it is the
+$(2,3)$-cable of one component of the $\QH=2$ Hopf link, with the
+other (companion) component still present and linked.  Computing the
+Jones invariant of this configuration correctly --- via the
+Kauffman-bracket/Temperley--Lieb cabling formula applied to the
+diagram with the companion included, rather than to the trefoil taken
+as an abstract free-standing knot --- gives
+\begin{equation}
+  \Jones_{\mathrm{sat}}(q_5) \;=\; \frac{q_5^3}{\vp},
+  \qquad
+  |\Jones_{\mathrm{sat}}(q_5)| \;=\; \frac{1}{\vp}.
+  \label{P18:eq:trefoil_satellite_value}
+\end{equation}
+This is irrational: the golden ratio is present in the trefoil's
+satellite invariant at $q_5$, not absent from it.
+\end{theorem}
+
+\begin{proof}
+See \texttt{papers/src\_paper18/jones\_T23\_satellite\_check.py}. The
+calculation engine (a first-principles Kauffman-bracket/Temperley-Lieb
+calculator, \texttt{kauffman\_bracket\_engine.py} in the same
+directory) is validated by exact reproduction of the standard
+tabulated Jones polynomials of the free trefoil
+($V(t)=-t^4+t^3+t$) and the free Hopf link
+($V(t)=-t^{1/2}-t^{5/2}$) before being applied to the satellite
+diagram (cable strands twisted $\sigma_1^3$, companion linked once
+with each cable strand, matching the physical construction of
+Proposition~\ref{P18:prop:satellite}).  The resulting link has two
+components (the fused cable pair and the separate companion),
+verified by an independent permutation/component-count check in the
+same script.
+\qed
+\end{proof}
+
+\begin{remark}[The free-standing evaluation, for comparison]
+\label{P18:rem:trefoil_satellite_correction}
+Evaluated as an abstract, free-standing knot (i.e.\ ignoring the
+satellite embedding of Proposition~\ref{P18:prop:satellite}), the
+trefoil's Jones polynomial at $q_5$ is $-q_5^{-1}+q_5^3+q_5$, of
+modulus $\sqrt{4-\vp}$ --- a different irrational value from the
+satellite invariant of Theorem~\ref{P18:thm:trefoil_satellite_jones}.
+Neither is an integer, and the golden ratio is present in both.
+Whether and how the trefoil's departure from the integer value $1$
+(the Jones invariant of the $\QH=2$ Hopf link's own unknotted
+companion, prior to cabling) relates to the transience of the
+$\QH=3$ sector is not yet established and is left open.
+\end{remark}
+
+\begin{proposition}[The trefoil within the satellite twist family]
+\label{P18:prop:satellite_twist_family}
+Consider the family of satellite invariants obtained by varying the
+number of half-twists $n$ between the two cable strands, with the
+companion linked once to each cable strand throughout as in
+Theorem~\ref{P18:thm:trefoil_satellite_jones} (the case $n=3$).  The
+modulus $|\Jones_{\mathrm{sat}}^{(n)}(q_5)|$ is periodic in $n$ with
+period $10$, and satisfies the mirror symmetry
+$|\Jones_{\mathrm{sat}}^{(n)}(q_5)|=|\Jones_{\mathrm{sat}}^{(10-n)}(q_5)|$.
+At the four smallest cases:
+\begin{align}
+  n=3\ (\text{trefoil }T(2,3),\ \QH=3,\ \text{fused}):
+    &\quad |\Jones_{\mathrm{sat}}(q_5)| = 1/\vp,
+    \label{P18:eq:sat_n3}\\
+  n=4\ (\text{unfused, three components}):
+    &\quad \Jones_{\mathrm{sat}}(q_5) = 1,
+    \label{P18:eq:sat_n4}\\
+  n=5\ (\text{cinquefoil } T(2,5),\ \text{fused}):
+    &\quad |\Jones_{\mathrm{sat}}(q_5)| = \vp,
+    \label{P18:eq:sat_n5}\\
+  n=6\ (\text{unfused, three components}):
+    &\quad \Jones_{\mathrm{sat}}(q_5) = -1.
+    \label{P18:eq:sat_n6}
+\end{align}
+Every fused configuration computed (odd $n$, a genuine torus knot)
+gives an irrational, golden-ratio-related modulus; every unfused
+configuration computed (even $n$, two separate, un-merged cable
+strands) gives a rational value.
+\end{proposition}
+
+\begin{proof}
+See \texttt{papers/src\_paper18/jones\_satellite\_twist\_family.py},
+which extends the calculation of
+Theorem~\ref{P18:thm:trefoil_satellite_jones} to general twist number $n$
+and verifies the stated period, symmetry, and exact values
+symbolically.
+\end{proof}
+
+\begin{remark}[Where the integer value $-1$ actually occurs]
+\label{P18:rem:minus_one_at_n6}
+The value $\Jones(q_5)=-1$ originally claimed in this section for the
+trefoil does occur in this family --- exactly, at $n=6$, an unfused
+three-component configuration --- rather than at $n=3$.
+\end{remark}
+
+\begin{remark}[The confinement criterion: fusion, not sector, and a phase relation between $\QH=2$ and $\QH=3$]
+\label{P18:rem:richer_criterion}
+The satellite twist family of Proposition~\ref{P18:prop:satellite_twist_family},
+together with a direct computation of the (uncabled) Hopf link's own
+Jones invariant, gives a confinement criterion that is different
+from --- and more subtle than --- the original integer/irrational
+framing.  We record three pieces of structure and one open question.
+
+\textbf{(A) Confinement marks fusion, not sector.}
+The rationality-class split tracks whether the cable strands
+have \emph{fused} into a genuine torus knot, not which topological
+sector is involved:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ccccl}
+\toprule
+$n$ & Components & $|\Jones_{\rm sat}(q_5)|$ & Rational? & Notes \\
+\midrule
+3 & 2 (fused, $T(2,3)$) & $1/\vp$ & no & $\QH=3$ trefoil \\
+4 & 3 (unfused)          & $1$ & \textbf{yes} & \\
+5 & 2 (fused, $T(2,5)$) & $\vp$ & no & cinquefoil \\
+6 & 3 (unfused)          & $1$ & \textbf{yes} & [$V=-1$, so rational] \\
+\bottomrule
+\end{tabular}
+\end{center}
+Every fused (odd $n$) state computed is irrational; every unfused
+(even $n$) state computed is rational.  Whether the physical
+formation path from $\QH=2$ to $\QH=3$ actually passes through the
+$n=4$ configuration, and whether its rationality is what produces the
+flat-bottomed energy landscape of Paper~XVI~\cite{Paper16}
+(Remark~\ref{P18:rem:saddle_difficulty}), is an open conjecture, not
+established: nothing in this section identifies the twist parameter
+$n$ with a physically continuous coordinate of the actual
+condensate dynamics.
+
+\textbf{(B) The Hopf link and the trefoil satellite carry the same
+modulus, related by a phase.}  Direct computation of the (uncabled)
+Hopf link's own Jones polynomial (not the disjoint-union factor, a
+different quantity discussed below) gives
+\begin{equation}
+  |\Jones_{T(2,2)}(q_5)| \;=\; \frac{1}{\vp}
+  \;=\; |\Jones_{\rm sat}(T(2,3))(q_5)|,
+  \qquad
+  \Jones_{\rm sat}(q_5) \;=\; q_5^{-1}\cdot\Jones_{T(2,2)}(q_5).
+  \label{P18:eq:phase_relation}
+\end{equation}
+The two sectors carry the \emph{same} modulus; they are distinguished
+by a single unit of the phase $q_5$, not by an inversion of the
+golden ratio.  Whether this phase relation has independent physical
+content, or how (if at all) it connects to the simple-current
+condition $\dimq{3/2}=1$ (an established, independent confinement
+criterion from Paper~XVII~\cite{Paper17}, Proposition~7.2), is not
+established here.
+(The disjoint-union factor $-(q_5^{1/2}+q_5^{-1/2})=-\vp$, used
+elsewhere in this paper for multi-component reactions,
+Theorem~\ref{P18:thm:jones_rule}, is a different quantity from
+$\Jones_{T(2,2)}(q_5)$ and should not be conflated with it.)
+
+\textbf{(C) The tower structure is $\{1/\vp, 1, \vp, -1, \ldots\}$.}
+The fused states (odd $n$) have moduli alternating between $1/\vp$
+and $\vp$ under the mirror symmetry
+$|\Jones_{\rm sat}^{(n)}|=|\Jones_{\rm sat}^{(10-n)}|$;
+the unfused states (even $n$) alternate between $V=1$ and $V=-1$.
+This period is $10$; whether this is the same $10$ as the
+quantum-group order $Q_{\rm gr}=2(k+2)=10$ of the framework
+(Paper~I~\cite{Paper1}), or a coincidence of this specific tangle's
+eigenvalue orders, is an open question and is not established.
+
+\textbf{(D) Where $-1$ lives: the unfused sector at $n=6$.}
+The value $V=-1$ that was originally claimed for the trefoil ($n=3$)
+does occur in the family, but at $n=6$ (an unfused, three-component
+configuration, the next rational step beyond the cinquefoil).
+The classical identity $V_{T(2,3)}(i)=-1$ holds at the 4th root of
+unity $t=i=e^{2\pi i/4}$ (the $k=2$ WZW level, the Arf invariant
+identity $V_K(i)=(-1)^{{\rm Arf}(K)}$), which is unrelated to
+the $k=3$ WZW structure used throughout this framework.
+The precise placement of $-1$ at $n=6$ (unfused, rational) rather
+than $n=3$ (fused, irrational) is itself consistent with the
+fused/unfused rule of point~(A).
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Hopf Preimage Structure and the Torus Knot Tower}
+\label{P18:sec:preimage}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Preimage circles and the Hopf fibration}
+\label{P18:sec:preimage_hopf}
+
+For a smooth map $\mathbf{n}:\mathbb{R}^3\to S^2$ in the homotopy
+class $\QH=N$ (Hopf degree $N$), the preimage $\mathbf{n}^{-1}(p)$
+of a regular value $p\in S^2$ is a disjoint union of smooth oriented
+circles $\{\gamma_a\}$ in $\mathbb{R}^3$.  The Hopf invariant is
+recoverable from the total pairwise linking number:
+\begin{equation}
+  \QH \;=\; \sum_{a<b} \lk(\gamma_a,\gamma_b),
+  \label{P18:eq:hopf_link}
+\end{equation}
+where $\lk$ denotes the Gauss linking number.
+
+\begin{definition}[Torus knot/link tower]
+\label{P18:def:torus_tower}
+The \emph{torus knot/link $T(2,n)$} is defined as the closure of
+the two-strand braid $\sigma_1^n\in B_2$, embedded on the standard
+torus $\mathbb{T}^2\hookrightarrow S^3$ as the curve that winds $2$
+times around the longitude and $n$ times around the meridian.
+For $n$ odd, $T(2,n)$ is a \emph{knot} (one component).
+For $n$ even, $T(2,n)$ is a \emph{link} (two components, linking
+number $n/2$).
+\end{definition}
+
+\begin{proposition}[Preimage topology of the $T(2,n)$ tower]
+\label{P18:prop:preimage_tower}
+In the density-feedback FN framework, the minimal-action condensate
+configuration in sector $\QH=N$ has the following preimage topology:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item $\QH=1$: preimage is a single unknotted circle $T(2,1)$.
+\item $\QH=2$: preimage is the two-component Hopf link $T(2,2)$,
+  with $\lk(\gamma_1,\gamma_2)=1$ and the single
+  pair gives $\QH=2\cdot\lk=2$.
+\item $\QH=3$: preimage is the trefoil knot $T(2,3)$, a single
+  knotted circle.  The three self-crossings of $T(2,3)$ in its
+  standard diagram correspond structurally to the three quark
+  crossing vertices of Paper~XV--XVI.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For $\QH=1$: a degree-1 map $S^3\to S^2$ (Hopf map) has as its
+fibres unknotted circles by the Hopf fibration.  The preimage of
+any regular value is a single fibre, hence an unknot.
+
+For $\QH=2$: the standard Hopf map $\eta:S^3\to S^2$ has Hopf
+degree~1.  A degree-2 map can be constructed as $\eta\circ f$
+where $f:S^3\to S^3$ is a degree-2 map.  The preimage of a regular
+value under a degree-2 Hopf map consists of two circles whose
+mutual linking number equals the Hopf degree:
+$\QH=2\cdot\lk(\gamma_1,\gamma_2)$, so $\lk=1$ and the preimage
+is the Hopf link $T(2,2)$, giving $\QH=2$.
+(See Remark~\ref{P18:rem:link_convention} for the linking-number
+convention.)
+
+For $\QH=3$: the minimal-energy knot with three crossings is the
+trefoil $T(2,3)$.  In the Seifert fibration of $S^3$, the trefoil
+sits as the $(2,3)$-torus knot with self-linking number (framing)
+$3$ in the Seifert fibered structure.  Its three crossing sites are
+the structurally distinguished points identified with the three
+quark vertices in Papers~XV--XVI.
+\qed
+\end{proof}
+
+\begin{remark}[Linking number convention and the $\QH$ formula]
+\label{P18:rem:link_convention}
+Equation~\eqref{P18:eq:hopf_link} holds in the convention where the
+Hopf link $T(2,2)$ has $\lk(\gamma_1,\gamma_2)=1$ and contributes
+$\QH=2$ as the sum over the \emph{two-component preimage} with
+total degree computed from the Seifert surface.  For a two-component
+preimage $\{\gamma_1,\gamma_2\}$ with each circle winding once
+around the longitude of the condensate torus, the Hopf degree is
+$\QH=2\cdot({\rm winding}) = 2$, matching the two-linked-circle
+picture.  The key point for what follows is not the precise formula
+but the topological fact: $\QH=2$ preimage is a two-component Hopf
+link, $\QH=3$ preimage is a single knotted circle (trefoil).
+\end{remark}
+
+\subsection{The satellite construction: from Hopf link to trefoil}
+\label{P18:sec:satellite}
+
+The step $\QH=2\to\QH=3$ in the condensate topology corresponds
+to the satellite knot construction in classical knot theory.
+
+\begin{definition}[Satellite knot]
+\label{P18:def:satellite}
+Let $K$ be a knot in $S^3$ and $P$ a knot in the solid torus
+$D^2\times S^1$.  The \emph{satellite knot} $S(K,P)$ is obtained
+by embedding $D^2\times S^1$ tubularly around $K$ and taking the
+image of $P$ under this embedding.
+\end{definition}
+
+\begin{proposition}[Trefoil as satellite of the Hopf link]
+\label{P18:prop:satellite}
+The trefoil $T(2,3)$ is the satellite of the unknot $U$ with
+pattern the $(2,3)$-cable, equivalently the closure of the braid
+$\sigma_1^3\in B_2$ after cabling.  More precisely:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item The Hopf link $T(2,2)$ contains a natural solid-torus neighbourhood
+  $N(\gamma_1)$ of its first component $\gamma_1$.
+\item Threading the second component $\gamma_2$ (the $\QH=1$ unknot)
+  through $N(\gamma_1)$ with the correct framing converts the
+  two-component link $T(2,2)\cup\gamma_2$ into the single-component
+  trefoil $T(2,3)$.
+\item The framing required is the $(2,3)$-cable framing: the threaded
+  circle must wind $2$ times around the longitude of $N(\gamma_1)$
+  and $3$ times around the meridian, which is precisely the torus knot
+  winding condition $T(2,3)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+This is the standard cable/satellite construction for torus knots.
+The $(2,3)$-cable of the unknot $U$ inside $N(U)\cong D^2\times S^1$
+is the torus knot $T(2,3)$.  The connection to $T(2,2)$ follows from
+the fact that $T(2,2)=L(2)$, the standard Hopf link, and its first
+component bounds a Seifert disc whose boundary can be used to guide
+the cabling.  See~\cite{Rolfsen1976}, Chapter~4.
+\qed
+\end{proof}
+
+\begin{remark}[Physical meaning of the satellite construction]
+\label{P18:rem:satellite_physical}
+In the condensate, the satellite construction says: the $\QH=3$
+trefoil configuration is the unique topological completion of the
+$\QH=2$ Hopf-link configuration obtained by threading one additional
+circle (the $\QH=1$ unknot) through the torus with the $(2,3)$-cable
+framing.  This framing is not a free choice: it is the
+minimal-action framing in the $\QH=3$ sector, dictated by the
+same BPS saddle condition (Paper~I~\cite{Paper1}, Theorem~3.4) that
+fixes $\lambda_{\rm eff}^*=\vp^6/2^{1/3}$.  The three crossing
+sites of the resulting trefoil are the energetically preferred loci
+where the cabling geometry meets the condensate curvature maximum.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Topological Reaction Rules}
+\label{P18:sec:reaction_rules}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Jones polynomial arithmetic as a selection rule}
+\label{P18:sec:skein_rules}
+
+The Jones polynomial at $q_5=e^{2\pi i/5}$ obeys the Skein relation:
+\begin{equation}
+  q_5^{-1}\Jones_{L_+} - q_5\Jones_{L_-}
+  = (q_5^{1/2}-q_5^{-1/2})\Jones_{L_0},
+  \label{P18:eq:skein}
+\end{equation}
+where $L_+$, $L_-$, $L_0$ differ at a single crossing.
+At the root $q_5=e^{2\pi i/5}$, the coefficient
+$q_5^{1/2}-q_5^{-1/2}=2i\sin(\pi/5)=i\sqrt{(5-\sqrt5)/2}$ is
+irrational, so the Skein relation does not in general preserve
+rationality.  Rationality is a special property of specific links
+at this root.
+
+\begin{definition}[Rationality class]
+\label{P18:def:rational_class}
+A satellite configuration in the twist family of
+Proposition~\ref{P18:prop:satellite_twist_family} is in the
+\emph{rational class} at the WZW root $q_5$ if its satellite Jones
+invariant $\Jones_{\rm sat}(q_5)\in\mathbb{Q}$; otherwise it is in
+the \emph{irrational class}.  By
+Proposition~\ref{P18:prop:satellite_twist_family}, fused
+configurations (genuine torus knots, odd $n$) are irrational and
+unfused configurations (even $n$, cables not yet merged) are rational.
+For the sectors of this framework: $\QH=2$ (Hopf link) has
+$|\Jones_{T(2,2)}(q_5)|=1/\vp$ (irrational); $\QH=3$ (trefoil,
+satellite at $n=3$) has $|\Jones_{\rm sat}(q_5)|=1/\vp$ (irrational);
+and the unfused configuration at $n=4$ has
+$\Jones_{\rm sat}^{(4)}(q_5)=1$ (rational).
+\end{definition}
+
+\begin{theorem}[Jones polynomial selection rule]
+\label{P18:thm:jones_rule}
+At the WZW root $q_5=e^{2\pi i/5}$, topological reactions
+in the density-feedback condensate obey the following constraints:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item \textbf{Charge conservation}: $\sum_i Q_{H,i}$ is conserved.
+\item \textbf{Rationality factorisation}: If the initial state is in the
+  irrational class and the final state contains a rational-class
+  component (in the sense of Definition~\ref{P18:def:rational_class}),
+  at least one other final-state component must be irrational.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) follows from homotopy invariance of the Hopf degree.
+
+(ii): The irrational content ($\vp$-factors) of the satellite Jones
+product is carried by the fused (irrational-class) components.
+A rational-class component contributes a rational factor; for
+the total product to remain consistent, the remaining irrational
+content must balance.  The disjoint-union factor
+$-(q_5^{1/2}+q_5^{-1/2})=-\vp$ is irrational, so multi-component
+states carry irrational factors that must be tracked across reactions.
+Paper~XIX~\cite{Paper19} (Theorem~7.3) %\ref{P19:thm:unit_reaction_rule}
+upgrades this to a unit-equivalence statement in $\mathbb{Z}[\zeta_5]$,
+providing the precise bookkeeping.
+\qed
+\end{proof}
+
+\begin{remark}[Proof status of Theorem~\ref{P18:thm:jones_rule}]
+Theorem~\ref{P18:thm:jones_rule}(ii) is stated as a selection
+rule whose precise statement requires specifying the Jones polynomial
+of multi-component configurations in the condensate, which involves
+a choice of disjoint-union formula that is fixed here by the Kauffman
+bracket normalisation of Paper~XVII~\cite{Paper17},
+Remark~11.4%\ref{P17:rem:kauffman}
+.  A complete proof requires extending
+the knot-invariant framework of Papers~XV--XVI to multi-component
+reactions, which is the programme for Papers~XIX--XX.  We state it
+as a theorem here because the structure is exact; the gap is in the
+formal bookkeeping for multi-component states.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Forced Pion Emission}
+\label{P18:sec:pion}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Pion emission is topologically forced]
+\label{P18:thm:pion_forced}
+The reaction
+\begin{equation}
+  \QH=2 \;+\; \QH=2 \;\longrightarrow\; \QH=3 \;+\; \QH=1
+  \label{P18:eq:reaction_pion}
+\end{equation}
+is the unique minimal topological reaction that:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item conserves Hopf charge ($2+2=3+1$);
+\item converts two irrational-class objects into one rational-class
+  object (the $\QH=3$ trefoil) with one irrational-class companion;
+\item minimises the number of components in the final state.
+\end{enumerate}
+The $\QH=1$ product is identified with the pion ($\pi^\pm$ or
+$\pi^0$) of the physical baryon sector.  Pion emission in baryon
+formation is therefore a topological necessity.
+\end{theorem}
+
+\begin{proof}
+Charge conservation requires the final state to have total Hopf
+charge 4.  The minimal decomposition into sectors with $\QH\geq1$
+that includes a $\QH=3$ object is $4=3+1$.  Alternatives are
+$4=3+1$, $4=2+2$ (no $\QH=3$), $4=2+1+1$, $4=1+1+1+1$ (all $\QH=1$).
+Only $3+1$ satisfies both the charge conservation and the requirement
+of producing a confined ($\QH=3$) baryon.  The $\QH=1$ remainder is
+therefore uniquely forced.
+
+At the preimage level: two $\QH=2$ Hopf links (four circles total)
+must reconfigure into the trefoil preimage.  The trefoil is a
+single-component knot.  Of the four initial circles, three must
+fuse into the trefoil via the satellite construction
+(Proposition~\ref{P18:prop:satellite}); the fourth remaining circle
+becomes the $\QH=1$ unknot spectator.  This fourth circle cannot
+be absent: a four-circle configuration cannot collapse to a single
+knot without producing a residual, as the linking number is conserved
+modulo the reaction topology.
+\qed
+\end{proof}
+
+\begin{corollary}[Pion as topological spectator]
+\label{P18:cor:pion_spectator}
+In the reaction~\eqref{P18:eq:reaction_pion}, the $\QH=1$ pion is the
+preimage circle that does not participate in forming the trefoil.
+Its internal dynamics are governed by $\SU(2)_1$ WZW theory with
+$V^*=1$ and Majorana statistics (Paper~XVII~\cite{Paper17},
+Corollary~9.13%\ref{P17:cor:majorana}
+).  The pion is the lightest
+topological object and the necessary companion of every
+topological baryon-formation event.
+\end{corollary}
+
+\begin{remark}[$\QH=2+\QH=1$ reaction]
+\label{P18:rem:qh2_qh1}
+The complementary reaction
+$\QH=2+\QH=1\to\QH=3$ is the satellite construction directly:
+the $\QH=1$ unknot threads through the $\QH=2$ Hopf link with
+the $(2,3)$-cable framing to produce the trefoil.  This reaction
+has no spectator, since all three preimage circles are consumed
+in forming the trefoil.  Energetically this is the simpler
+baryon-formation channel; it corresponds physically to the
+absorption of a pion by a lepton-sector object to produce a baryon,
+i.e.\ the topological analogue of $e^-+\pi^+\to p$.
+\end{remark}
+
+\begin{remark}[Higher-charge incoming objects and minimality of the listed channels]
+\label{P18:rem:higher_charge_incoming}
+Theorem~\ref{P18:thm:pion_forced} and Remark~\ref{P18:rem:qh2_qh1} list the
+\emph{minimal} charge-conserving production channels for $\QH=3$.
+A natural question is whether the incoming perturbation could carry
+$\QH>1$: topological charge conservation requires only that the
+\emph{total} incoming charge sum to~$3$, so the full set of allowed
+reactions includes, for example,
+\[
+  \QH=3 + \QH=0 \;\to\; \QH=3
+  \quad\text{(trivial; } \QH=0 \text{ is the condensate ground state)},
+\]
+as well as in principle any decomposition $n_1+n_2+\cdots=3$ with
+$n_i\geq1$.  In particular a $\QH=4$ or higher object could in
+principle collide with a $\QH=2$ target and deposit charge.
+
+The two channels listed are the physically minimal cases for three
+independent reasons.  First, they involve only sectors that the
+framework has established as stable or well-defined: $\QH=1$
+(neutrino/pion, stable, Paper~XVII~\cite{Paper17}) and $\QH=2$
+(charged lepton, stable, Paper~I~\cite{Paper1}).  A $\QH\geq4$
+incoming object would itself be transient --- the framework
+establishes no stability or metastability for $\QH\geq4$ --- and
+whether a transient-on-transient interaction can produce a
+stable $\QH=3$ before both decay is a dynamical question outside
+the current scope.  Second, the listed channels are the
+lowest-energy threshold reactions: higher incoming $\QH$ requires
+higher total production energy, so they are the first channels to
+open as collision energy increases.  Third, the
+$\QH=2+\QH=2\to\QH=3+\QH=1$ channel is already the one identified
+with real hadronic processes (the topological analogue of
+$e^-+e^-\to p+\bar\nu$), so the minimal cases are also the
+physically realised ones.
+
+A related point is that charge conservation plus energy minimisation
+also determines the final state: a $\QH=2+\QH=2$ collision could
+in principle produce $\QH=4$ (conserving charge) rather than
+$\QH=3+\QH=1$.  The $\QH=4$ final state is disfavoured for the same
+reason a $\QH\geq4$ incoming object is: no stable $\QH=4$
+configuration is established by the framework, and the energetic cost
+of a higher-charge object exceeds that of the $3+1$ split.  The
+selection principle is therefore: topological charge conservation
+permits any channel whose charges sum correctly; energy minimisation
+and stability of the final-state objects together select the minimal
+split into established-stable sectors.
+\end{remark}
+
+\begin{remark}[Kinematic path of the $\QH=2\to\QH=3$ transition]
+\label{P18:rem:crossing_path}
+The satellite construction of Proposition~\ref{P18:prop:satellite} names
+the topological endpoint of the $\QH=2+\QH=1\to\QH=3$ reaction but
+does not describe the \emph{geometric path} from start to finish.
+The following three-step sequence provides that path.
+
+\textbf{Preliminary: the $\QH=2$ Hopfion is two tubes, not one.}
+The density-feedback stabilised $\QH=2$ Hopfion is built on the
+Hopf link $T(2,2)$: two unknotted circles, each an independent tube
+of condensate field, linked once around each other.  This is not a
+single tube reconfiguring; it is two distinct tube components
+$\gamma_1$ (outer) and $\gamma_2$ (inner) from the outset.  Because
+the density-feedback functional $K_{\rm fb}+\vp^6 J_4$ is
+rotationally symmetric around the torus axis, the two tubes are
+energetically equivalent: there is no preferred point along either
+component where a perturbation is more likely to act.  The
+``splitting point'' that the construction assigns at $t=\pi$ is a
+calculational convenience, not a physical feature; any toroidal
+angle would give the same field by symmetry.
+
+\textbf{Step~1 (writhe injection, inner tube deforms).}  The
+incoming $\QH=1$ perturbation acts on the inner component $\gamma_2$,
+injecting one writhe unit and deforming its path from a planar
+unknotted circle into a figure-eight-like intermediate.  This is a
+\emph{geometric}, not topological, change: the linking number of
+$\gamma_2$ with $\gamma_1$ is unchanged, and no crossing has been
+committed.  The outer component $\gamma_1$ and its neighbourhood
+$N(\gamma_1)$ remain approximately unperturbed at this stage.
+
+\textbf{Step~2 (threading begins, inner approaches outer core).}
+The deformed inner component $\gamma_2$ begins to approach the
+interior of the outer component's solid-torus neighbourhood
+$N(\gamma_1)$.  The approach is \emph{forced to be asymmetric}
+by the $(2,3)$-cable framing constraint of
+Proposition~\ref{P18:prop:satellite}: $\gamma_2$ must wind twice around
+the longitude and three times around the meridian of $N(\gamma_1)$.
+A symmetric approach --- $\gamma_2$ approaching the core of
+$N(\gamma_1)$ from directly opposite --- would instead produce a
+doubly-wound configuration, which is a different topological sector
+($\QH=2$ doubly wound, energetically penalised by the
+density-feedback suppression).  The asymmetric threading is
+therefore not a contingent feature of any particular perturbation:
+it is the only geometric path consistent with the framing
+constraint.  As threading proceeds, $\gamma_2$'s own loop tightens
+to accommodate the winding, with the tube topology of both
+components preserved throughout.
+
+\textbf{Step~3 (single-site threading generates all three crossings).}
+The three crossings of the trefoil $T(2,3)$ do not appear as three
+discrete sequential events with the threading choosing among
+alternatives.  Once $\gamma_2$ has threaded through $N(\gamma_1)$
+with the $(2,3)$-cable framing of Proposition~\ref{P18:prop:satellite},
+all three crossings of $T(2,3)$ are geometrically determined
+simultaneously as continuous consequences of the completed cable
+winding.  In the braid group language, the trefoil is the closure
+of $\sigma_1^3\in B_2$: the exponent $3$ counts the crossings of the
+resulting knot, but the threading event that produces them is
+\emph{one} continuous geometric process, not three discrete choices.
+The ``unique valid crossing'' of the transition is therefore the
+\emph{single perturbation site} where the threading of $\gamma_2$
+into $N(\gamma_1)$ begins --- and this site is unique in the sense
+that its location is set by the initial $\QH=1$ perturbation, but
+once the threading commences the three crossings of the completed
+$T(2,3)$ are fixed by the cable framing, not chosen individually.
+
+This picture is directly visible in the $T(2,q)$ construction sweep
+of Figure~\ref{P18:fig:qpol_sweep}: as $q_{\rm pol}$ moves continuously
+from $2.0$ toward $3.0$ (with $\alpha_{\rm wind}=0$ throughout), the
+single perturbation site of $q=2.3$ evolves continuously into the
+three-lobe, three-crossing structure of $q\to3$, without ever
+requiring a discrete ``choice'' between multiple candidate crossing
+sites.  The rubber-band picture of a single tube reconfiguring, in
+which one might imagine multiple candidate crossings competing to
+be committed, is misleading here: the $\QH=2$ Hopfion is two tubes
+throughout, and the transition is one threading event, not three
+crossing events.
+
+\textbf{The crossing is the decay site.}  Step~3 completes the
+$\QH=3$ topology, but the crossing vertex that does so is
+simultaneously the site of maximum $S_{\rm eff}$ and minimum
+$\rho_{J_4}$ (Proposition~\ref{P18:prop:anticorrelation}).  The
+anti-correlation is causal: the density-feedback suppression is
+strongest at the crossings (maximum curvature $\kappa=0.399$),
+which depletes the topological flux there to its minimum.  The
+crossing is the decay site not because suppression is weak but
+because the field is thinnest: the topological bottleneck where
+suppression is strongest is also where the structure is most
+vulnerable to reversal, since the minimum $\rho_{J_4}$ means
+the least energy is locally available to sustain the crossing.
+The consequence is that decay begins at formation.  A candidate
+explanation --- not established, offered here as a conjecture
+consistent with the abstract's own hedging of this same point --- is
+that the crossing vertex has no stable irrational algebraic anchor
+because the formation event passes through the unfused intermediate
+configuration ($n=4$ in the twist family of
+Proposition~\ref{P18:prop:satellite_twist_family}), whose satellite
+Jones invariant is rational ($\Jones_{\mathrm{sat}}^{(4)}(q_5)=1$,
+equation~\eqref{P18:eq:sat_n4}), before fusing to the irrational
+$n=3$ value ($|\Jones_{\mathrm{sat}}^{(3)}(q_5)|=1/\vp$,
+Theorem~\ref{P18:thm:trefoil_satellite_jones}).  On this conjectural
+reading, a rational invariant provides no irrational BPS fixed point
+in the profile space, offering one possible account of why the
+$\QH=3$ energy landscape has a flat plateau
+(Remark~\ref{P18:rem:saddle_difficulty}) rather than a unique sharp
+minimum; whether the formation path genuinely passes through $n=4$ is
+not established (Section~\ref{P18:sec:jones}).  What \emph{is}
+established, independent of this conjecture, is that the flat plateau
+itself is an observed numerical fact (Papers~XV/XVI gradient-flow
+searches) and that the satellite invariant is irrational at $n=3$: on
+either reading, the formation event reaches $n=3$ with the crossing
+already trying to reverse.
+What sustains the $\QH=3$ configuration transiently is not an
+energy barrier but the incoming kinetic energy from the $\QH=2+\QH=1$
+reaction, which must be redistributed through the cascade of
+Remark~\ref{P18:rem:implode_explode} before the crossing can reverse.
+The baryon is metastable in the dynamical sense (it persists while
+the kinetic energy is being shed) not the energetic sense (there is
+no potential-energy barrier preventing decay).  This distinction
+is the correct reading of the ``flat-bottomed $\QH=3$ energy
+landscape'' of Remark~\ref{P18:rem:saddle_difficulty}: flat means no
+barrier, not no configuration.
+\end{remark}
+
+\begin{remark}[Two sub-thresholds and the virtual baryon regime]
+\label{P18:rem:two_thresholds}
+Remark~\ref{P18:rem:crossing_path} describes the geometry of a successful
+$\QH=2\to\QH=3$ transition.  The energy threshold of
+Remark~\ref{P18:rem:production_conditions} controls whether that
+transition occurs at all --- but the threshold is not a single
+number.  It has internal structure: two distinct sub-thresholds
+separate three physically distinct regimes.
+
+\textbf{Sub-threshold I (commitment threshold).}  This is the minimum
+kinetic energy required to drive the fold of Step~2 and the crossing
+of Step~3 in Remark~\ref{P18:rem:crossing_path} against the restoring
+force of the density-feedback suppression.  Below this threshold the
+reaction fails at Step~2 or Step~3: the fold reverts before the
+cable framing is achieved, or the crossing forms with the wrong
+handedness and immediately unwinds.  In either case the field returns
+elastically to the $\QH=2$ sector.  This is the dynamical mechanism
+of confinement in the framework: below the commitment threshold the
+condensate actively restores $\QH=2$, not merely by forbidding free
+quarks by fiat but by reversing the geometric sequence that would
+have produced them.
+
+\textbf{Sub-threshold II (ejection threshold).}  This is the minimum
+kinetic energy required for the implosion--explosion cascade of
+Remark~\ref{P18:rem:implode_explode} to run to completion before the
+committed crossing reverses.  The crossing is immediately trying to
+reverse (Remark~\ref{P18:rem:crossing_path}: decay begins at formation),
+so the cascade --- lobe implosion, inward energy redistribution,
+redirection through the crossing bottleneck (where $S_{\rm eff}$
+is maximal and $\rho_{J_4}$ is minimal ---
+Proposition~\ref{P18:prop:anticorrelation}),
+geometric separation of the ejected $\QH=1$ object --- must complete
+before the crossing unwinds.  Once the daughter $\QH=1$ object has
+separated far enough that reconnection is geometrically impossible,
+ejection is irreversible.  The ejection threshold is therefore
+strictly higher than the commitment threshold, because it requires
+not only committing the crossing but sustaining it through the full
+cascade timescale.
+
+\textbf{The virtual baryon regime.}  Between the two sub-thresholds
+lies a regime in which the $\QH=3$ crossing is committed but the
+cascade cannot complete before reversal.  The field momentarily
+achieves $\QH=3$ topology, then the crossing unwinds and the system
+returns to $\QH=2$ without ejecting a $\QH=1$ daughter.  This is a
+\emph{virtual} $\QH=3$ fluctuation: topologically real while it
+exists, but producing no observable final-state quark.  Whether this
+regime is physically wide (the two sub-thresholds are well-separated)
+or narrow (the cascade is fast relative to the reversal timescale and
+the sub-thresholds nearly coincide) is an open question, addressable
+by the kick-strength sweep of the dynamical integrator described in
+the companion numerical programme (sweeping \texttt{kick\_strength}
+from the $\QH=2$ starting state and watching $J_4$ for a transient
+excursion into $\QH=3$ territory followed by return rather than
+sustained ejection).
+
+\textbf{Summary.}  Any perturbation above the ejection threshold
+commits the $\QH=3$ crossing and sustains it through the full
+cascade, ejecting a $\QH=1$ daughter irreversibly.  Any perturbation
+between the two sub-thresholds commits the crossing but fails to
+sustain it, producing a virtual $\QH=3$ fluctuation with no
+observable quark emission.  Any perturbation below the commitment
+threshold restores $\QH=2$ elastically.  The energy threshold of
+Remark~\ref{P18:rem:production_conditions} should be read as the
+\emph{ejection} threshold (the physically observable one); the
+commitment threshold and the width of the virtual-baryon regime are
+the quantitative open questions that the dynamic integrator sweep
+would resolve.
+\end{remark}
+
+\begin{figure}[htp]
+    \centering
+    \begin{subfigure}[T]{\linewidth}
+        \begin{minipage}[T]{0.3\textwidth}
+            \includegraphics[width=0.95\linewidth]{n_initial_q2.00_a0.00.png}
+        \end{minipage}\begin{minipage}[T]{0.7\textwidth}
+            \caption{$q=2.0$, $\alpha=0$: the $T(2,2)$ Hopf-link
+            construction with $\QH=2$ field winding. The two-tube structure
+            forms a clean ring with smooth color gradient of the two linked
+            circles $\gamma_1$ (outer) and $\gamma_2$ (inner), each an
+            independent tube of condensate field. The slight visible
+            strain is an artefact of the two-strand construction
+            ansatz (the density-feedback stabilised $\QH=2$ lepton
+            vacuum is the gradient-flow saddle at $C_2^*=3.4318$, not
+            this initial construction).}
+        \end{minipage}
+        \label{P18:fig:qpol_q20}
+    \end{subfigure}
+    \begin{subfigure}[T]{\linewidth}
+        \begin{minipage}[T]{0.3\textwidth}
+            \includegraphics[width=0.95\linewidth]{n_initial_q2.30_a0.00.png}
+        \end{minipage}\begin{minipage}[T]{0.7\textwidth}
+            \caption{$q=2.3$, $\alpha=0$: the threading event has begun
+            at a single site (visible on the left, approximately
+            $9$~o'clock), where the two arc-halves of the
+            construction can no longer be stitched together smoothly
+            because the $T(2,q)$ curve no longer closes in $[0,\pi)$
+            for $q>2$.  The inner tube $\gamma_2$ has begun to
+            deform toward and thread through $N(\gamma_1)$ at this
+            single location; the topology is still $\QH=2$
+            ($\alpha=0$, no winding commitment).  This site is the
+            geometric precursor of the trefoil threading of
+            Remark~\ref{P18:rem:crossing_path}.}
+        \end{minipage}
+        \label{P18:fig:qpol_q23}
+    \end{subfigure}
+    \begin{subfigure}[T]{\linewidth}
+        \begin{minipage}[T]{0.3\textwidth}
+            \includegraphics[width=0.95\linewidth]{n_initial_q2.50_a0.00.png}
+        \end{minipage}\begin{minipage}[T]{0.7\textwidth}
+            \caption{$q=2.5$, $\alpha=0$: the threading of $\gamma_2$
+            through $N(\gamma_1)$ is well underway.  The inner tube has
+            deformed substantially into the outer tube's neighbourhood,
+            and the three-lobe structure of the incipient trefoil is
+            already visible even though the topology is still $\QH=2$
+            ($\alpha=0$).  The construction curve does not close in
+            $[0,2\pi)$ at non-integer $q$; consequently the field is
+            somewhat disorganised across the whole ring, but the
+            dominant geometric feature remains the single threading
+            event initiated at $q\approx2.3$.}
+        \end{minipage}
+        \label{P18:fig:qpol_q25}
+    \end{subfigure}
+    \begin{subfigure}[T]{\linewidth}
+        \begin{minipage}[T]{0.3\textwidth}
+            \includegraphics[width=0.95\linewidth]{n_initial_q2.70_a0.00.png}
+        \end{minipage}\begin{minipage}[T]{0.7\textwidth}
+            \caption{$q=2.7$, $\alpha=0$: At the field-orientation
+            discontinuity at approximately 9 o'clock, the inner component
+            $\gamma_2$ is approaching the interior of $N(\gamma_1)$: the
+            three-lobe structure of the trefoil is now well defined and
+            geometrically present while still under the $\mathcal{Q}_H=2$
+            topology. The strain site of $q=2.5$ is beginning to collapse 
+            toward a tube closure site as $q\to 3$.}
+        \end{minipage}
+        \label{P18:fig:qpol_q27}
+    \end{subfigure}
+    \begin{subfigure}[T]{\linewidth}
+        \begin{minipage}[T]{0.3\textwidth}
+            \includegraphics[width=0.95\linewidth]{n_initial_q2.90_a0.00.png}
+        \end{minipage}\begin{minipage}[T]{0.7\textwidth}
+            \caption{$q=2.9$, $\alpha=0$: near-trefoil geometry.  The
+            construction curve is close to $T(2,3)$ but not yet closed
+            in $[0,2\pi)$ (closure gap $\approx0.56$ in coordinate
+            units).  The two-tube structure of $q=2.0$ has consolidated
+            into approximately a single continuous tube with three lobes
+            --- the characteristic trefoil geometry --- via the single
+            threading event initiated at $q\approx2.3$.  At $q=3$ the
+            curve closes and the configuration completes to a proper
+            $T(2,3)$; the topological commitment
+            ($\QH=2\to\QH=3$) is controlled separately by
+            $\alpha_{\rm wind}$.}
+        \end{minipage}
+        \label{P18:fig:qpol_q29}
+    \end{subfigure}
+    \caption{Geometric path of the $\QH=2\to\QH=3$ transition,
+    visualised via the $T(2,q)$ construction family at fixed
+    $\QH=2$ field winding ($\alpha_{\rm wind}=0$, so $\Phi=\chi+2\tau$
+    throughout), viewed in directional-arrow mode.
+    Arrow direction encodes $\mathbf{n}(\mathbf{x})$;
+    colour encodes $\mathbf{n}$ direction on $S^2$.
+    All panels: $N=64$, $h=0.175$, $R_0=3$, $r_0=0.874$, $C^*=2.5062$,
+    produced by \texttt{hopf\_link\_construction_v2.py} with
+    \texttt{--verify\_only} (no gradient flow).
+    The parameter $q_{\rm pol}\in[2,3]$ controls the curve geometry
+    only; the field topology is $\QH=2$ at all five panels.
+    The sequence shows the $\QH=2$ Hopfion as two linked tubes at
+    $q=2.0$ (Panel~\subref{fig:qpol_q20}), the single-site threading
+    event initiating at $q=2.3$ (Panel~\subref{fig:qpol_q23},
+    approximately 9~o'clock), progressing at $q=2.5$
+    (Panel~\subref{fig:qpol_q25}), and consolidating into the
+    near-trefoil geometry at $q=2.9$ (Panel~\subref{fig:qpol_q29}).
+    The transition proceeds via a single continuous threading event,
+    not via multiple discrete crossings competing to be chosen; the
+    three crossings of the completed $T(2,3)$ emerge simultaneously
+    as continuous consequences of the completed cable framing
+    (Remark~\ref{P18:rem:crossing_path} Step~3).  The topological
+    commitment ($\alpha_{\rm wind}=0\to1$) is a separate parameter
+    that is zero throughout this figure.  Note that $q=2.0$
+    carries a slight construction strain (the true density-feedback
+    stabilised $\QH=2$ vacuum is the gradient-flow saddle at
+    $C_2^*=3.4318$; the construction shown here is the initial
+    two-strand ansatz, not the converged saddle field).}
+    \label{P18:fig:qpol_sweep}
+\end{figure}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{The $T(2,q)$ geometric interpolation: geometry without topology}
+\label{P18:sec:twoq_interpolation}
+%──────────────────────────────────────────────────────────────────────────────
+
+Figure~\ref{P18:fig:qpol_sweep} makes visible something that the algebraic
+description of Remarks~\ref{P18:rem:crossing_path} and~\ref{P18:rem:two_thresholds}
+can only state abstractly: the geometric threading site that
+eventually commits $\QH=3$ topology is already present in the field
+before any topological commitment has been made, and it is a
+\emph{single} site, not a set of alternatives.  The five panels
+sweep the construction curve from $T(2,2)$ to $T(2,2.9)$ while
+holding the field winding fixed at $\alpha_{\rm wind}=0$ (pure
+$\QH=2$, $\Phi=\chi+2\tau$ throughout), so the field topology is
+$\QH=2$ at every panel.  The only thing changing is the curve
+geometry, controlled by $q_{\rm pol}$.
+
+\begin{observation}[Geometric precursor at $q=2.3$]
+\label{P18:obs:precursor}
+At $q_{\rm pol}=2.3$, the directional-arrow field already displays a
+sharp field-orientation discontinuity at one site on the ring (left,
+approximately 9~o'clock in (Figure~\ref{P18:fig:qpol_sweep}\subref{fig:qpol_q23})).
+This is not a topological event: the Whitehead $\QH$ of the field remains
+$2$ at this value, and the linking number of $\gamma_2$ with $\gamma_1$ is
+unchanged.  It is a geometric event: the $T(2,q)$ curve no longer
+closes in $[0,\pi)$ for $q>2$, so the two arc-halves can no longer
+be joined smoothly with the same Bishop frame, and the construction
+field records the mismatch as a strain site.
+
+The location of this strain site is the geometric precursor of the
+single threading event of Step~2 (Remark~\ref{P18:rem:crossing_path}).
+The field is showing, at $q=2.3$ and topology $\QH=2$, exactly where
+the eventual topological commitment will occur if $\alpha_{\rm wind}$
+is increased toward~$1$: this single site, not a set of independent
+candidate crossings, is where the threading of $\gamma_2$ into
+$N(\gamma_1)$ begins.  Geometry precedes topology: the threading
+site is identified before the topological commitment is made.
+\end{observation}
+
+The progression across the five panels makes the geometric structure
+of Remark~\ref{P18:rem:crossing_path} visible as a continuous
+deformation.
+
+\textbf{$q=2.0$ (Figure~\ref{P18:fig:qpol_sweep}\subref{fig:qpol_q20}).}  The $T(2,2)$
+Hopf-link construction with $\QH=2$ field winding.  The two-tube
+structure is directly visible: two distinct linked tubes
+$\gamma_1$ (outer) and $\gamma_2$ (inner).  The slight visible
+strain is an artefact of the two-strand ansatz (the true
+density-feedback stabilised $\QH=2$ vacuum is the gradient-flow
+saddle at $C_2^*=3.4318$, not this initial field).  The two tubes
+are energetically equivalent at this stage: there is no preferred
+point along either component where a perturbation would
+preferentially act, consistent with the rotational symmetry of
+$K_{\rm fb}+\vp^6 J_4$.
+
+\textbf{$q=2.3$ (Figure~\ref{P18:fig:qpol_sweep}\subref{fig:qpol_q23}).}  The inner component
+$\gamma_2$ has deformed under the incoming $\QH=1$ perturbation: one
+writhe unit has been injected, and the threading of $\gamma_2$ into
+$N(\gamma_1)$ has begun at a single site (visible at approximately
+9~o'clock in the panel).  This corresponds to Step~1 of
+Remark~\ref{P18:rem:crossing_path} --- writhe injection, inner tube
+deforms --- with the strain site identifying the figure-eight
+intermediate expressed in the field.  The outer component $\gamma_1$
+and $N(\gamma_1)$ remain approximately unperturbed away from the
+threading site.
+
+\textbf{$q=2.5$ (Figure~\ref{P18:fig:qpol_sweep}\subref{fig:qpol_q25}).}  The threading of
+$\gamma_2$ through $N(\gamma_1)$ is well underway.  The inner tube
+has deformed substantially into the outer tube's neighbourhood, and
+the three-lobe structure of the incipient trefoil is already visible
+even though the topology is still $\QH=2$.  Because the $T(2,q)$
+curve does not close in $[0,2\pi)$ for non-integer $q$, the field
+across the ring is somewhat disorganised, but the dominant geometric
+feature remains the single threading event initiated at $q\approx2.3$
+--- not a set of independent competing crossings.
+
+\textbf{$q=2.7$--$2.9$ (Figure~\ref{P18:fig:qpol_sweep}[\subref{fig:qpol_q27},
+\subref{fig:qpol_q29}]).}  The threading
+has consolidated: what began at $q=2.3$ as a strain concentrated at a
+single site has, by $q=2.9$, become the near-complete trefoil
+geometry.  The two-tube structure of $q=2.0$ has consolidated into
+approximately a single continuous tube with three lobes, with the
+$T(2,q)$ curve close to $T(2,3)$ (closure gap $\approx0.56$ in
+coordinate units) and $\gamma_2$'s loop tightened substantially to
+accommodate the cable winding.  All three trefoil crossings are now
+geometrically present as continuous consequences of the completed
+single threading event, not as three independently chosen events
+--- a physical distinction that the T(2,q) sweep makes visible in a
+way the algebraic braid-group description
+($\sigma_1^3\in B_2$) cannot.
+
+\textbf{What $\alpha_{\rm wind}=0$ shows throughout.}  The separation
+of $q_{\rm pol}$ and $\alpha_{\rm wind}$ into independent parameters
+exposes what the full $T(2,3)$ construction conflates.  The entire
+$q=2.0\to2.9$ progression is purely geometric: the topology is $\QH=2$
+at every step, and no topological commitment has occurred.
+Once $\alpha_{\rm wind}$ is increased toward~$1$ at fixed
+$q_{\rm pol}\approx2.9$, the field winding transitions from $\QH=2$ to
+$\QH=3$ and the condensate enters the baryon sector.  The single
+threading site of the $\alpha_{\rm wind}=0$ sweep and the three
+crossings of the fully committed $T(2,3)$ are the same geometric
+event, viewed at different values of the topological commitment
+parameter: the sweep at $\alpha_{\rm wind}=0$ shows the threading
+without commitment; the completed $T(2,3)$ at
+$\alpha_{\rm wind}=1$ shows the same event with the topology
+committed.
+
+
+\begin{remark}[Production conditions: a two-threshold structure]
+\label{P18:rem:production_conditions}
+Theorem~\ref{P18:thm:pion_forced} and Remark~\ref{P18:rem:qh2_qh1} establish
+\emph{which} reactions are topologically permitted; they say nothing
+about \emph{when} a $\QH=3$ object actually forms.  Two independent
+physical conditions must both be satisfied, neither of which is
+addressed by the topological selection rule alone.
+
+\textbf{(i) Energy threshold.}  Writing $E(\QH{=}n)$ for the physical
+rest energy of a sector-$n$ object on a common scale, the reactions
+require
+\[\Delta E_{2+2} = E(\QH{=}3)+E(\QH{=}1)-2E(\QH{=}2) \;>\;0\]
+\[\qquad\text{or}\qquad\]
+\[\Delta E_{2+1} = E(\QH{=}3)-E(\QH{=}2)-E(\QH{=}1) \;>\;0\]
+to be supplied as kinetic energy of the incoming objects.  With the
+physical identification $\QH=3\leftrightarrow$ baryon,
+$\QH=2\leftrightarrow$ charged lepton, $\QH=1\leftrightarrow$
+neutrino/pion (Paper~XVII~\cite{Paper17}), $E(\QH{=}3)$ is set by the
+baryon mass scale, which exceeds the charged-lepton and pion rest
+masses by two to three orders of magnitude on the physical scale.
+Both reactions are therefore kinematically closed at rest: they
+require the colliding objects to carry substantial kinetic energy,
+not merely to exist.  This is the topological-sector statement of an
+ordinary threshold reaction, structurally identical to
+$e^-+\pi^+\to p$ (the real-world analogue already noted in
+Remark~\ref{P18:rem:qh2_qh1}) requiring the pion or electron to be
+relativistic.  The dimensionless condensate-normalisation ratio
+$E_{\rm fb}^{(3)}/E_{\rm fb}^{(2)}=N_3^2/N_2^2=9/100$ (Paper~XV,
+\S\,``The lepton--quark hierarchy'') is a statement about the two
+sectors'
+\emph{own} saddle energy scales and should not be read as a
+reaction-threshold estimate: $\Delta E$ requires the physical mass
+formulas of Paper~XVII, not this dimensionless ratio.
+
+\textbf{(ii) Rate/density threshold.}  Even when $\Delta E>0$ is
+locally available as kinetic energy, the reaction occurs at a rate
+proportional to the local number density of the colliding species:
+$\Gamma_{2+2}\propto n_{\QH=2}^2\langle\sigma v\rangle$ for the
+$\QH{=}2+\QH{=}2$ channel, $\Gamma_{2+1}\propto
+n_{\QH=2}\,n_{\QH=1}\langle\sigma v\rangle$ for the satellite channel.
+In a dilute vacuum, even a population of individually energetic
+$\QH=2$ objects encounters a collision partner too rarely for
+$\QH=3$ formation to proceed at any appreciable rate.
+
+\textbf{Where both conditions hold simultaneously.}  Ordinary
+laboratory and astrophysical vacuum satisfies neither condition.
+Three environments satisfy both:
+\begin{enumerate}[noitemsep,label=(\alph*)]
+\item \emph{Collider beams}: the energy threshold is supplied
+  externally (beam energy), and the density threshold is irrelevant
+  for a single engineered beam-beam collision.
+\item \emph{The primordial quark-gluon plasma}: thermal energy
+  $kT\sim T_c$ near the QCD deconfinement temperature supplies the
+  energy threshold, while the high ambient number density of the
+  early universe supplies the rate threshold; both conditions hold
+  together automatically as the plasma cools through $T_c$, which is
+  the standard picture of baryon formation in the early universe.
+\item \emph{Compact-object extremes} (neutron star cores, merger
+  events, black hole horizons): extreme density supplies the rate
+  threshold, and the gravitational/thermal energy released supplies
+  the kinetic threshold.
+\end{enumerate}
+This two-threshold structure --- not a single internal-field
+quantity such as $S_{\rm eff}(\theta,\rho)$ of
+Proposition~\ref{P18:prop:anticorrelation}, which describes the
+\emph{internal} structural weak points of an already-formed
+$\QH=3$ object rather than the conditions for its formation --- is
+the correct framework-level statement of why $\QH=3$ objects are
+rare in the vacuum and require special formation conditions.  A
+quantitative version, computing $\Delta E_{2+2}$ and
+$\Delta E_{2+1}$ directly from the mass formulas of
+Paper~XVII~\cite{Paper17} rather than from the qualitative
+identification above, is Open Problem~O6 below.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The $\phistar$ Prediction from $T_{2,3}$ Geometry}
+\label{P18:sec:phi_star}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The acoplanarity angle $\phistar$}
+\label{P18:sec:phi_star_def}
+
+Let $\rho^+\rho^-$ be a pair of $\rho$ mesons (each $\QH=2$)
+produced in the rest frame of the pair from the string-breaking of
+a $\QH=3$ baryon.  The \emph{acoplanarity angle} $\phistar$ is
+defined as the angle between the two decay planes in the $\rho^+\rho^-$
+rest frame:
+\begin{equation}
+  \cos\phistar = \frac{(\hat{n}_+\times\hat{p})\cdot
+                       (\hat{n}_-\times\hat{p})}
+                      {|\hat{n}_+\times\hat{p}|\,|\hat{n}_-\times\hat{p}|},
+  \label{P18:eq:phi_star_def}
+\end{equation}
+where $\hat{n}_\pm$ are the unit normals to the $\rho^\pm$ decay
+planes and $\hat{p}$ is the beam direction (or the $\rho^+$
+momentum direction in the pair CM frame).  The distribution
+$W(\phistar)$ is the main observable.
+
+\subsection{Geometric derivation of $W(\phistar)$}
+\label{P18:sec:phi_star_geom}
+
+The trefoil $T_{2,3}$ with standard parameters $R_0=3$, $r_0$
+(Paper~XVI~\cite{Paper16}) is embedded as:
+\begin{equation}
+  \Gamma(t) = \bigl((R_0+r_0\cos 3t)\cos 2t,\;
+               (R_0+r_0\cos 3t)\sin 2t,\;
+               r_0\sin 3t\bigr), \quad t\in[0,2\pi).
+  \label{P18:eq:trefoil_param}
+\end{equation}
+The three crossing vertices occur at
+$t_n = \pi/6 + 2\pi n/3$, $n=0,1,2$ (Paper~XVI,
+Proposition~13.3).%\ref{P16:prop:geom_data}
+
+\begin{theorem}[Crossing geometry of $T_{2,3}$]
+\label{P18:thm:crossing_geometry}
+For the parametrisation~\eqref{P18:eq:trefoil_param}:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item The tangent vector $\dot\Gamma(t_n)$ lies exactly in the
+  $z=0$ plane at each crossing: $\dot\Gamma_z(t_n)=3r_0\cos(3t_n)
+  =3r_0\cos(\pi/2)=0$.
+\item The azimuthal angles of $\dot\Gamma(t_n)$ are
+  $\alpha_n = 2t_n+\pi/2 = \pi/3+2\pi n/3+\pi/2$ modulo $2\pi$,
+  separated by exactly $2\pi/3$ for $n=0,1,2$.
+\item Each pair of adjacent crossings is separated by exactly
+  $2\pi/3$ in the azimuthal direction.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i): $\dot\Gamma_z(t)=3r_0\cos(3t)$.  At $t_n=\pi/6+2\pi n/3$:
+$3t_n=\pi/2+2\pi n$, so $\cos(3t_n)=0$ exactly.
+
+(ii): The azimuthal direction of the tangent is determined by
+$\dot\Gamma_x$ and $\dot\Gamma_y$ at $t=t_n$, where by (i) the
+$z$-component vanishes.  Computing:
+$\dot\Gamma_{xy}(t_n)\propto(-\sin(2t_n),\cos(2t_n))$
+(the azimuthal unit vector at angle $2t_n+\pi/2$).
+For $n=0,1,2$: the angles $2t_n=\pi/3+4\pi n/3$ are
+$\pi/3$, $\pi/3+4\pi/3$, $\pi/3+8\pi/3$ modulo $2\pi$,
+each separated by $4\pi/3$, which is $2\pi/3$ modulo $2\pi/3$.
+
+(iii) follows from (ii) by the $\Zthree$ symmetry of the parametrisation.
+\qed
+\end{proof}
+
+\begin{theorem}[$\phistar$ distribution for baryon-initiated production]
+\label{P18:thm:phi_star}
+When a $\QH=3$ baryon fragments to produce a $\rho^+\rho^-$ pair
+at two of its three crossing vertices, and the decay-plane
+orientation of each $\rho$ meson is set by the tangent direction at
+its production crossing, the $\phistar$ distribution is:
+\begin{equation}
+  W(\phistar) = \frac{1}{2\pi}\bigl[1 + a_3\cos(3\phistar)\bigr],
+  \qquad a_1=a_2=0,
+  \label{P18:eq:phi_star_dist}
+\end{equation}
+with $a_3\neq0$ and the distribution peaked at $\phistar=2\pi/3$
+(and its images under $\Zthree$).
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{P18:thm:crossing_geometry}(iii), adjacent crossing
+tangents are separated by $2\pi/3$.  The decay-plane normal of a
+$\rho$ meson produced at crossing $n$ is determined by the tangent
+direction $\hat\alpha_n$ at that crossing (since energy ejected
+along the tangent in the $z=0$ plane defines the decay plane).  For
+$\rho^+$ produced at crossing $n$ and $\rho^-$ at crossing $n+1$,
+the relative angle between their decay-plane normals is
+$\phistar=\alpha_{n+1}-\alpha_n=2\pi/3$ (by
+Theorem~\ref{P18:thm:crossing_geometry}).
+
+The distribution $W(\phistar)$ is a function on $[0,2\pi)$ that
+must be invariant under the $\Zthree$ symmetry ($\phistar\to
+\phistar+2\pi/3$).  The Fourier decomposition
+$W(\phistar)=\frac{1}{2\pi}\sum_n c_n e^{in\phistar}$ is restricted
+by $\Zthree$-invariance to $c_n=0$ unless $3|n$, giving
+$W(\phistar)\propto 1+a_3\cos(3\phistar)+a_6\cos(6\phistar)+\cdots$.
+The leading non-zero coefficient $a_3\neq0$ reflects the 120°
+crossing geometry; higher harmonics $a_6,a_9,\ldots$ are
+suppressed by powers of $r_0/R_0\ll1$.
+\qed
+\end{proof}
+
+\begin{remark}[Contrast with photon-initiated production]
+\label{P18:rem:photon_contrast}
+For $e^+e^-\to\gamma^*\to\rho^+\rho^-$ (photon-initiated, no
+$\QH=3$ parent), the two $\rho$ mesons are produced from the
+photon's $J^{PC}=1^{--}$ quantum numbers.  The $\phistar$
+distribution is then governed by transverse photon helicity:
+\begin{equation}
+  W_{\gamma}(\phistar) = \frac{1}{2\pi}\bigl[
+    1 + a_2^\gamma\cos(2\phistar)
+  \bigr],
+  \label{P18:eq:phi_star_photon}
+\end{equation}
+with $a_2^\gamma\neq0$ (from the transverse photon polarisation)
+and $a_1=a_3=0$ (no $\Zthree$ geometry in the initial state).
+The distinction between $\cos(3\phistar)$ (baryon-initiated) and
+$\cos(2\phistar)$ (photon-initiated) is unambiguous and parameter-free.
+\end{remark}
+
+\subsection{Coplanarity at symmetric three-jet events}
+\label{P18:sec:coplanarity}
+
+A complementary prediction concerns the three-jet topology when
+all three crossings are the production vertices simultaneously
+(baryon $\to$ three quarks/jets).
+
+\begin{proposition}[Three-jet coplanarity from B-departure geometry]
+\label{P18:prop:coplanarity}
+The three primary jets from a $\QH=3$ baryon exit at the three
+B-segment departure zones, immediately past the three crossing
+vertices.  By Theorem~\ref{P18:thm:crossing_geometry}(i), the tangent
+at each crossing lies exactly in the $z=+r_0$ horizontal plane
+(zero $z$-component), and the three departure directions are
+separated by $2\pi/3$.  The three primary jets therefore lie in
+a common elevated plane $z=+r_0$, giving zero intrinsic
+acoplanarity at the topological level.  Residual acoplanarity in
+LEP three-jet events~\cite{Abe1997,Acton1993,Botner1992} is
+attributed to perturbative soft-gluon radiation, consistent with
+this prediction.
+\end{proposition}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Connection to the Arc-Segment Energy Partition}
+\label{P18:sec:arcseg}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~XVI~\cite{Paper16} computes the $J_4$ energy partition of
+$T_{2,3}$ into six arc-segments (three A-segments of 90° each,
+three B-segments of 30° each) and records the three categories
+of field disturbance in the 12-site fraying pattern.  We connect
+these numerical findings to the topological framework above.
+
+\begin{proposition}[A-segment dominance]
+\label{P18:prop:arcseg_dominance}
+The A-segments (midpoint-to-crossing, 90°) carry $\approx79\%$
+of the total $J_4$ charge at energy density $\rho_A/\rho_B\approx1.23$
+(Paper~XVI~\cite{Paper16}, Table~1, $N=96$ grid).
+The Hopf flux is concentrated in the propagation arms between midpoints
+and crossings, not at the crossing vertices themselves.
+\end{proposition}
+
+\begin{proposition}[$\rho_{J_4}$ anti-correlates with $S_{\mathrm{eff}}$]
+\label{P18:prop:anticorrelation}
+The effective suppression $S_{\rm eff}(\theta,\rho)=
+\sin^4\theta/[\vp^6(1+\beta\rho)]$ is maximised at the crossing
+vertices ($\kappa=0.399$, curvature maximum) and minimised at the
+midpoints ($\kappa=0.026$, factor~15 below crossings).
+The field $\rho_{J_4}$ is depleted precisely where $S_{\rm eff}$
+is largest: the crossing vertices are topological bottlenecks
+where the field is constrained to its minimum.
+This anti-correlation is the condensate-level signature of the
+confinement condition: where confinement is strongest
+(pure colour, simple-current, $\dimq{3/2}=1$), topological flux
+is minimal.
+\end{proposition}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Crossing vertices as topological lenses: the energy cascade}
+\label{P18:sec:cascade}
+%──────────────────────────────────────────────────────────────────────────────
+
+The anti-correlation of Proposition~\ref{P18:prop:anticorrelation}
+reveals that crossing vertices are not energy sources but
+\emph{topological lenses}: they redirect incoming energy
+from the A-segment into the B-segment departure channel.
+The following proposition makes this precise.
+
+\begin{proposition}[Energy cascade through the $T_{2,3}$ tube]
+\label{P18:prop:cascade_p18}
+The physical energy cascade in the $\QH=3$ condensate, as observed in
+the $N=256$, $h=0.0375$ gradient-flow run of Paper~XVI~\cite{Paper16}
+(Remark~12.3%\ref{P18:rem:gf_twophase_p18}
+), follows the causal chain:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item \textbf{Initial fraying at distal lobes.}
+  The three outer distal lobe sites ($R_{xy}=R_0+r_0=3.874$, $z=0$,
+  $\kappa=0.349$) are the first to show visible energy depletion,
+  appearing at the outward (vacuum-facing) face of the tube as early
+  as step~50 after Phase~1 exit.  The lobes sit at maximum radial
+  extent, where the condensate density is most thinly distributed
+  over the largest tube circumference and the gradient toward vacuum is
+  most directly aligned with the outward radial direction.  This makes
+  radial exposure, not curvature, the operative weakness at the lobe.
+\item \textbf{Crossing depletion propagates inward.}
+  Simultaneously with lobe fraying, the crossing vertices
+  ($R_{xy}=R_0$, $z=+r_0$, $\kappa=0.399$) show depletion on their
+  outer (vacuum-facing) side of the tube.  By step~1000 this depletion
+  has propagated to the inner side.  The crossing acts as a
+  \emph{topological lens}: it cannot radiate outward (the tangent lies
+  exactly in the $z=+r_0$ horizontal plane), so the depletion is inward
+  propagation of the structural failure arriving from the lobe side.
+  No densification occurs at the crossings at any stage.
+\item \textbf{Redirection at B-segment departure (primary jets 1, 2, 3).}
+  Energy that does not exit at the lobe is redirected at the crossing
+  into the B-segment departure zone, propagating radially outward in
+  the $z=+r_0$ horizontal plane, 120° from its two partners.
+  The three primary jets are coplanar in the $z=+r_0$ plane.
+\item \textbf{Secondary lobe emission (jets 4, 5, 6).}
+  Energy propagating along the B-segment arc (30°) reaches the distal
+  lobe at $R_{xy}=R_0+r_0$, $z=0$, with tangent z-component
+  $+0.321|\dot\Gamma|$ (upward from $z=0$, below the three-jet plane
+  at $z=+r_0$).  Secondary emission here is deflected
+  $\approx16^\circ$--$19^\circ$ from the three-jet event plane
+  (Section~\ref{P18:sec:fourjet}).
+\item \textbf{Midpoints last.}
+  The three midpoint torsion-twist sites ($R_{xy}=R_0-r_0=2.126$,
+  $z=0$, $\kappa=0.026$) show only minor perturbation throughout,
+  remaining the last and least disturbed category.  Their inner
+  radial position ($R_{xy}$ minimum) provides the most protection
+  from vacuum exposure; their $S_{\rm eff}$ minimum reflects
+  geometric weakness, but this is secondary to radial exposure in
+  determining the empirical onset order.
+\end{enumerate}
+The crossing vertex is an energy \emph{redirector}, not an energy
+\emph{source}.  The three conventional quark jets exit from the
+B-segment departure zones.  The distal lobes are the primary
+structural failure sites; the midpoints are the most protected.
+\end{proposition}
+
+\begin{remark}[Implosion, then explosion]
+\label{P18:rem:implode_explode}
+The $N=256$ snapshots of Figure~\ref{P18:fig:gf_n256_cascade} support a
+two-stage decay picture sharper than ``lobes fray first.''  At
+step~$1000$ the three lobes deplete together but diffusely, with no
+organised escape route; by step~$2000$--$3000$ the depleted energy is
+\emph{not} found in the vacuum outside the tube but reflected inward
+along the A-segment (the inward-deflecting behaviour already noted
+following equation~\eqref{P18:eq:lobe_angle} and in the discussion of the
+$N=256$ run above).  This is an \emph{implosion}: the three lobes,
+sharing the same maximal radial exposure, collapse together under the
+surrounding density gradient, and the resulting energy is funnelled
+inward rather than escaping outward, because the topological floor
+forbids the field from simply unwinding into vacuum.
+
+By step~$8000$ (Figure~\ref{P18:fig:gf_n256_8000}) the field has
+reorganised into sharply bounded bright arcs against clearly emptied
+gaps --- the signature of an \emph{explosion} phase, in which the
+energy displaced inward by the lobe implosion is redirected through
+the crossings.  The crossings are the loci of \emph{maximum}
+$S_{\rm eff}$ (Proposition~\ref{P18:prop:anticorrelation}): the
+density-feedback suppression is strongest there, and $\rho_{J_4}$
+is consequently depleted to its minimum.  The crossings are not
+release valves where suppression is weak; they are topological
+bottlenecks where suppression is strongest, through which energy
+is forced because the topological floor forbids any direct
+radial escape to vacuum.  The crossing acts as a
+\emph{redirector} throughout: during the implosion phase
+($n\lesssim3000$) it receives energy funnelled inward from the
+lobes; during the explosion phase ($n\gtrsim3000$) it pushes that
+energy into the B-segment departure channels, where the field can
+finally exit.  The crossings are thus never sources in the
+energetic sense --- they are conduits, and the energy that
+emerges at the B-departure zones was originally carried by the
+lobes.
+
+The trefoil vortex knots realised in water by Kleckner and
+Irvine~\cite{Kleckner2013} offer a partial, but only partial,
+analogy.  There, reconnection is observed where two strands of the
+knot draw close, become nearly parallel, and twist around one another
+before colliding~\cite{Kleckner2013} --- a description that maps most
+naturally onto the \emph{crossings} of $T_{2,3}$, where the two
+strands of the condensate trefoil pass nearest each other, not onto
+the lobes.  The $\QH=3$ condensate's depletion instead begins at the
+lobes, the points of maximal radial exposure to vacuum, and only later
+reaches the crossings.  This is a genuine point of disanalogy, not a
+detail to be smoothed over: the two systems share a qualitative
+two-stage character (a build-up phase followed by a localised release)
+but differ in which geometric feature of the knot triggers the first
+stage --- proximity of strands in the fluid case, radial exposure to
+vacuum in the condensate case, a difference traceable to the
+density-feedback term $\sin^4(f)$ having no counterpart in ordinary
+viscous reconnection (Remark~\ref{P18:rem:saddle_difficulty}).
+\end{remark}
+
+\begin{remark}[Cascade ordering]
+\label{P18:rem:cascade_ordering}
+
+The $N=256$ gradient-flow data shows directly that the operative
+weakness is \emph{radial exposure} (distance from the tube axis
+relative to the vacuum boundary), not curvature.
+
+The midpoints at $R_{xy}=R_0-r_0=2.126$ are geometrically unconstrained
+(low $\kappa$) but radially protected.  The distal lobes at
+$R_{xy}=R_0+r_0=3.874$ are geometrically intermediate ($\kappa=0.349$)
+but radially exposed.  Under gradient flow that minimises $E_{\rm geom}$
+globally, the field finds it cheapest to shed energy at the most exposed
+sites first.
+
+Conjecture~\ref{P18:conj:six_quarks} (six quarks from midpoint-breaking
+combinatorics) The midpoints remain the structurally weakest sites under
+Frenet geometry and the most likely breaking sites under thermal or quantum
+fluctuations beyond gradient flow. The gradient-flow ordering reflects
+the specific path of steepest descent from the family boundary, not the
+equilibrium stability hierarchy.
+\end{remark}
+
+\begin{remark}[Why the saddle point is elusive in Paper~XVI]
+\label{P18:rem:saddle_difficulty}
+Proposition~\ref{P18:prop:anticorrelation} and
+Theorem~\ref{P18:thm:trefoil_satellite_jones} together explain a structural
+difficulty reported in Paper~XVI~\cite{Paper16}: the gradient-flow
+algorithm converges to the $\QH=3$ energy-density field but does
+not locate a unique sharp BPS saddle.
+
+At $\QH=2$, the BPS saddle condition $K_{\rm fb}/J_4=\vp^6/2^{1/3}$
+has a unique solution $C^*$ because $\vp$ is irrational: the
+condition pins the profile to a single algebraically irrational
+fixed point.  The irrationality is the anchor.
+
+At $\QH=3$, the satellite Jones invariant of the trefoil
+(Theorem~\ref{P18:thm:trefoil_satellite_jones}) satisfies
+$|\Jones_{\rm sat}(q_5)|=1/\vp$ (irrational --- the same modulus as
+the $\QH=2$ Hopf link's own invariant, related to it by a single
+phase, Remark~\ref{P18:rem:richer_criterion}), together with the
+simple-current condition $\dimq{3/2}=1$.  Since the trefoil's own
+invariant is irrational, the argument used at $\QH=2$ does not, on
+its own, explain why gradient flow fails to locate a sharp $\QH=3$
+saddle.  One conjectural candidate explanation is that the physical
+\emph{formation path} to the trefoil passes through an unfused
+intermediate configuration (the $n=4$ member of the satellite twist
+family, Proposition~\ref{P18:prop:satellite_twist_family}), which
+does have a fully rational satellite invariant
+$\Jones_{\rm sat}^{(4)}(q_5)=1$ (equation~\eqref{P18:eq:sat_n4}); if
+so, it would be the rationality of this intermediate, not the
+irrational value of the completed trefoil, that removes the
+irrational algebraic anchor during formation.  This is \emph{not}
+established: nothing here demonstrates that the twist parameter $n$
+corresponds to a physically continuous coordinate of the actual
+formation dynamics, as opposed to being a convenient parametrisation
+of a family of diagrams.
+
+The gradient flow nonetheless converges to the $\QH=3$ family
+(explaining why the arc-segment partition, fraying pattern, and
+$\rho_{J_4}$--$S_{\rm eff}$ anti-correlation are all reproducible
+and stable) without converging to a specific point within it
+(explaining why a unique $C^*$ is not found).  Whether this
+elusiveness reflects the rational $n=4$ intermediate conjectured
+above, some other feature of the formation dynamics, or is better
+understood some other way remains open.
+
+The gradient flow instead settles at the
+family boundary $K_{\min}\approx2289$ (Paper~XVI~\cite{Paper16},
+Proposition~\ref{P18:prop:anticorrelation}), which is a genuine physical
+quantity --- the lowest energy accessible within the flat family ---
+rather than an irrational BPS fixed point.
+
+A consequence of the flatness is that the minor radius $r_0=0.874$
+is set by the profile construction ansatz rather than by a BPS
+minimisation.  Paper~XVII~\cite{Paper17} (Remark~11.2 %\ref{P17:rem:solar_angle}
+)
+identifies the sharp condition $r_0=2R_0/(3\vp+2)=0.8754$ under
+which the midpoint emission angle of $T_{2,3}$ equals the leading-order
+solar mixing angle $\arctan(1/\vp)$ exactly ($0.16\%$ match).  A
+tighter candidate, $r_0=R_0/C_2^*=0.8742$ ($0.02\%$ match), is
+motivated by the satellite construction
+(Proposition~\ref{P18:prop:satellite},
+Remark~\ref{P18:rem:satellite_physical}): if $1/C_2^*$ is the
+dimensionless tube radius of $N(\gamma_1)$, $r_0$ inherits its scale
+from the $\QH=2$ profile-sharpness constant $C_2^*=3.4318$ derived
+in Paper~I~\cite{Paper1}, Theorem~3.1 and Paper~XV~\cite{Paper15},
+Remark~6.1.  %\ref{P15:rem:r0_origin}
+Neither candidate is derived from the $\QH=3$ Euler--Lagrange
+equations; the flat landscape admits both.
+
+The two forms of the solar-angle candidate are related by the
+standard Fibonacci identity $\vp^4=3\vp+2$, giving
+$2R_0/(3\vp+2) = 2R_0/\vp^4 = 6/\vp^4$ at $R_0=3$.
+Substituting the proved Bogomolny parameter $\lambda_3=\vp^6$
+yields the equivalent form
+\begin{equation}
+  \lambda_3\cdot r_0 \;=\; 2R_0\cdot\vp^2,
+  \label{P18:eq:lambda3_r0_check}
+\end{equation}
+which follows algebraically:
+$\vp^6\cdot(2R_0/\vp^4)=2R_0\vp^2$.  This shows that the solar-angle
+candidate $r_0=2R_0/(3\vp+2)$ is self-consistent with the
+independently-derived $\lambda_3=\vp^6$: two constants fixed by
+different arguments of the framework satisfy~\eqref{P18:eq:lambda3_r0_check}
+identically.  With the numerical value $r_0=0.874$ (rather than the
+exact candidate $0.8754$), the left side of~\eqref{P18:eq:lambda3_r0_check}
+differs from the right by $0.16\%$, the same discrepancy as the
+$r_0$ comparison itself --- as expected, since the two statements are
+algebraically equivalent.
+
+The flat-bottomed landscape (an established numerical fact, Papers~XV/XVI
+gradient-flow searches; the rational-$n=4$-intermediate account of
+\emph{why} it is flat, above, remains conjectural) means that
+gradient-flow minimisation cannot select a preferred $r_0$: the
+energy is monotone in $r_0$ over the candidate range, with no minimum.  Equation~\eqref{P18:eq:lambda3_r0_check} is
+therefore a \emph{consistency} statement, not a falsifiability
+criterion: it shows the constants do not contradict each other, but
+the $\QH=3$ gradient flow cannot decide between the two candidates.
+The decisive test would be a first-principles derivation of $r_0$
+from the $\QH=2$ tube geometry via the satellite construction
+(Proposition~\ref{P18:prop:satellite}), not a numerical minimisation.
+
+\textbf{This instability is not a numerical artefact of the kind that
+afflicts knotted vortices in a real fluid.} Laboratory trefoil vortex
+knots, realised by Kleckner and Irvine~\cite{Kleckner2013} (2013) in water, unknot within a
+few hundred milliseconds via a localised reconnection event driven by
+viscosity --- an imperfection of the medium that an ideal, inviscid
+fluid would not have. The $\QH=3$ condensate's instability has the
+opposite origin: it is a property of the medium's own energy
+functional, not a departure from an ideal one. The density-feedback
+term $\sin^4(f)$ is what gives the $\QH=1$ sector its topological
+floor, the energy floor below which no further unwinding is possible,
+while leaving $\QH=3$ free to relax toward the $(2{+}1)$ configuration
+identified in Section~\ref{P18:sec:z3_drift}, in the same qualitative
+direction the trefoil vortex took in the tank. The geometry, including
+the feedback term, prefers the lighter configuration; that preference,
+not a flaw in the medium, is what fixes where the $\QH=3$ sector
+settles.
+\end{remark}
+
+\subsection{Gradient-flow cascade: $N=192$ symmetry breaking and $N=256$ cascade ordering}
+\label{P18:sec:z3_drift}
+Two gradient-flow runs reported in Paper~XVI~\cite{Paper16}
+(Remark~12.3%\ref{P18:rem:gf_twophase_p18}
+) provide complementary evidence for the structure of the $\QH=3$ energy
+landscape.
+
+\textbf{$N=192$ run: spontaneous $\Zthree$ breaking.}
+At step $n=4000$ ($J_4\approx1600$) the field is approximately
+$\Zthree$-symmetric.  At step $n=6000$ ($J_4\approx702$) the symmetry
+is spontaneously broken: two outer lobe sites carry elevated $\rho_{J_4}$
+while the third outer lobe and its adjacent midpoint are depleted.
+Energy has concentrated on either side of the depleted region.
+This $(2{+}1)$ lobe splitting arises from floating-point accumulation in
+Adam's moment estimates ($\sim10^{-7}$ per step) on the flat valley floor
+(Remark~\ref{P18:rem:saddle_difficulty}); the particular direction selected is
+seed-dependent.  The observation demonstrates that the flat landscape
+admits $(2{+}1)$ deformations at near-zero energy cost, consistent with
+Conjecture~\ref{P18:conj:six_quarks}.
+
+\begin{figure}[htp]
+    \centering
+        \begin{subfigure}[T]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{n_2000_density.png}
+        \caption{Step $n=2000$ (Phase~1 exit / early Phase~2):
+        energy-density view, $J_4=2834$, directional arrows
+        off, density threshold $21\%$.
+        The $\rho_{J_4}$ distribution is approximately
+        $\mathbb{Z}_3$-symmetric: all three outer lobe sites carry
+        comparable flux, and the three A-segment tube bodies
+        are approximately uniformly bright.  The initial breaking can
+        be observed at the midpoint on the right arc. And 2 outer lobe
+        regions on the left upper and lower arcs can be seen concentrating
+        energy, consistent with the
+        $\rho_{J_4}$--$S_{\rm eff}$ anti-correlation
+        (Proposition~\ref{P18:prop:anticorrelation}).
+        This configuration represents the field near the
+        $K$-minimum ($K_{\min}\approx2289$), the boundary of the
+        flat-bottomed $\QH=3$ energy family
+        (Remark~\ref{P18:rem:gf_twophase_p18}).}
+        \label{P18:fig:gf_n192_4000}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[T]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{n_6000_arrows.png}
+        \caption{Step $n=6000$ (Phase~2 drift): directional-arrow
+        view, $J_4=702$, density threshold $6\%$.
+        Arrow direction encodes $\mathbf{n}(\mathbf{x})$;
+        arrow color encodes $\rho_{J_4}$.
+        The $\mathbb{Z}_3$ symmetry of Construction~11.27 of Paper~XVI~\cite{Paper16}
+        is demonstrably broken: two outer lobe sites (upper-left and
+        lower arcs) retain dense, coherent flux with high density arrows,
+        while the third outer lobe and its adjacent midpoint (right
+        arc, approximately $3$ o'clock) are depleted, with
+        less coherent and dense arrows.  Energy has concentrated
+        on either side of the depleted regions; the crossing
+        sites show asymmetric $\rho_{J_4}$ depletion around
+        the tube.  This $(2{+}1)$ lobe splitting is the spatial
+        signature of a single-midpoint string-breaking mode
+        (Section~\ref{P18:sec:z3_drift},~\ref{P18:rem:gf_twophase_p18}).}
+        \label{P18:fig:gf_n192_6000}
+    \end{subfigure}
+    \caption{$\QH=3$ condensate field at steps $n=2000$ and
+    $n=6000$ of the \textbf{$N=192$, $h=0.05$ run} (the lower-resolution
+    run in which Adam-optimiser floating-point noise drives a
+    spontaneous, asymmetric $\Ztwo$-breaking event), visualised by
+    \texttt{hopfion\_viewer.html} using $1.5\times10^5$ particles
+    ($R_0=3$, $r_0=0.874$, $C^*=2.5062$).
+    \emph{Left}: energy-density mode; particle brightness
+    encodes $\rho_{J_4}$, hue encodes $\mathbf{n}$ direction.
+    \emph{Right}: directional-arrow mode; each arrow represents
+    a sample point with direction $\mathbf{n}$ and color
+    proportional to $\rho_{J_4}^{1/2}$.
+    The transition from approximate $\mathbb{Z}_3$ symmetry (left)
+    to spontaneously broken $(2{+}1)$ lobe distribution (right)
+    occurs during Phase~2 on the flat-bottomed $\QH=3$ energy
+    landscape (Remark~12.3 of Paper~XVI~\cite{Paper16}): %\ref{P16:rem:gf_twophase}
+    the gradient flow drifts from the $\mathbb{Z}_3$-symmetric locus
+    along a $(2{+}1)$ flat direction corresponding to
+    single-midpoint string breaking.  One conjectural (not established,
+    Remark~\ref{P18:rem:saddle_difficulty}) account of the absent
+    restoring force is that the formation event passes through the
+    unfused intermediate, which has rational satellite invariant
+    $\Jones_{\rm sat}^{(4)}(q_5)=1$
+    (Proposition~\ref{P18:prop:satellite_twist_family}), leaving no
+    irrational algebraic anchor during formation.  This $N=192$ run is retained
+    here as a record of the asymmetric $(2{+}1)$ breaking mode
+    actually observed at lower resolution: it is a genuine alternative
+    deformation accessible on the flat valley floor
+    (Remark~\ref{P18:rem:saddle_difficulty}), distinct from the
+    symmetric three-lobe collapse seen at higher resolution
+    (Figure~\ref{P18:fig:gf_n256_cascade}), and is consistent with
+    Conjecture~\ref{P18:conj:six_quarks}'s combinatorics of
+    single-site versus multi-site breaking patterns.}
+    \label{P18:fig:gf_n192_snapshots}
+\end{figure}
+
+\textbf{$N=256$ run: direct observation of fraying site ordering.}
+The higher-resolution run ($N=256$, $h=0.0375$, $\delta_{\max}=2^\circ$)
+suppresses the Adam-induced symmetry breaking and reveals the fraying
+onset order directly (Figure~\ref{P18:fig:gf_n256_cascade}).  At step~$50$
+the field is dense and approximately $\Ztwo$-symmetric, immediately
+following Phase~1 exit.  By step~$1000$, $J_4$ has fallen $42\%$ and
+depletion is diffuse, with the three outer lobes shedding together
+rather than any single category of site standing out; crossing sites
+show simultaneous outer-tube depletion, while midpoint disturbance
+remains negligible.  By step~$3000$, the depletion has organised into
+a continuous pattern rather than a diffuse one, and the energy density
+at the lobes is densifying on both sides of the break while deflecting
+\emph{inward} rather than outward --- the onset of the implosion phase
+of Remark~\ref{P18:rem:implode_explode}.  By step~$8000$, the field has
+reorganised into sharply bounded bright arcs against emptied gaps with
+large local reorientation of $\mathbf{n}$, consistent with the
+explosion phase in which energy displaced inward by the lobe collapse
+is redirected through the crossing bottlenecks (maximum-$S_{\rm eff}$
+sites, Proposition~\ref{P18:prop:anticorrelation}) and exits at the
+B-departure zones.  Midpoints remain
+the least disturbed category throughout the run.
+
+The empirical ordering (lobes deplete first and together; crossings
+follow, first as redirectors then as the explosion-phase source;
+midpoints last) is incorporated into the revised
+Proposition~\ref{P18:prop:cascade_p18} and the implosion--explosion picture of
+Remark~\ref{P18:rem:implode_explode}.  The observation that no energy
+exits outward during the implosion phase is direct numerical evidence
+for the topological barrier of the $\QH=3$ sector: the field reaches
+the boundary of the flat family and reflects inward, confirming that
+confinement operates even within the gradient-flow dynamics, before
+the delayed outward release at the crossings during the explosion
+phase.
+
+\begin{figure}[htp]
+    \centering
+    \begin{subfigure}[T]{0.23\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{n_000050.png}
+        \caption{Step $n=50$: $J_4=5602$, $\bar r=3.595$.
+        The tube is dense and approximately $\mathbb{Z}_3$-symmetric;
+        all three lobes, all three crossings, and the A-segment
+        bodies appear comparably bright.  This is the field
+        immediately following Phase~1 exit, before any visible
+        depletion.}
+        \label{P18:fig:gf_n256_50}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[T]{0.23\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{n_001000.png}
+        \caption{Step $n=1000$: $J_4=3239$, $\bar r=3.570$.
+        $J_4$ has fallen by $42\%$.  Depletion is diffuse and
+        distributed around the full loop rather than concentrated
+        at a single category of site; no single lobe, crossing, or
+        midpoint yet stands out as uniquely emptied.  This is
+        consistent with the radial-exposure mechanism of
+        Proposition~\ref{P18:prop:cascade_p18}: all three lobes, sharing the
+        same maximal radial extent, begin shedding together.}
+        \label{P18:fig:gf_n256_1000}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[T]{0.23\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{n_003000.png}
+        \caption{Step $n=3000$: $J_4=2717$, $\bar r=3.566$.
+        A continuous bright arc has organised across roughly half
+        the structure, with the remainder visibly sparser.  The
+        depletion pattern has localised: this is the onset of the
+        \emph{implosion} phase, in which the tube collapses inward
+        from the lobes rather than radiating outward into vacuum
+        (Remark~\ref{P18:rem:implode_explode}).}
+        \label{P18:fig:gf_n256_3000}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[T]{0.23\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{n_008000.png}
+        \caption{Step $n=8000$: $J_4=1406$, $\bar r=3.561$.
+        $J_4$ has halved again.  The surviving flux is organised
+        into sharply-bounded bright arcs against clearly emptied
+        gaps, with strong angular excursions in $\mathbf{n}$
+        (colour) indicating large local reorientation rather than
+        uniform fading.  This is consistent with the \emph{explosion}
+        phase: energy displaced inward by the lobe implosion is
+        redirected through the crossing bottlenecks
+        (maximum-$S_{\rm eff}$ sites,
+        Proposition~\ref{P18:prop:anticorrelation}) and exits at the
+        B-departure zones
+        (Remark~\ref{P18:rem:implode_explode}).}
+        \label{P18:fig:gf_n256_8000}
+    \end{subfigure}
+    \caption{$\QH=3$ condensate field at steps $n=50$, $1000$,
+    $3000$, $8000$ of the $N=256$, $h=0.0375$ gradient-flow run,
+    visualised by \texttt{hopfion\_viewer.html} using
+    $1.5\times10^5$ particles ($R_0=3$, $r_0=0.874$, $C^*=2.5062$).
+    Energy-density mode throughout; particle brightness encodes
+    $\rho_{J_4}$, hue encodes $\mathbf{n}$ direction.  Unlike the
+    $N=192$ run of Figure~\ref{P18:fig:gf_n192_snapshots}, the higher
+    resolution suppresses Adam-induced floating-point symmetry
+    breaking and shows the three outer lobes depleting together,
+    not asymmetrically: this is the direct numerical evidence for
+    Proposition~\ref{P18:prop:cascade_p18}'s revised cascade ordering
+    (lobes first, simultaneously) and for the
+    implosion--explosion picture of
+    Remark~\ref{P18:rem:implode_explode}.}
+    \label{P18:fig:gf_n256_cascade}
+\end{figure}
+
+\begin{remark}[Three remarks on interpretation.  First, the solver computes]
+\label{P18:rem:three_remark_interpretation}
+$E_{\rm geom}=K\!\cdot\!J_4$ as a global sum; the redistribution is
+genuine global dynamics, not a per-segment artefact.  Second, the
+revised ordering does not invalidate Conjecture~\ref{P18:conj:six_quarks}:
+the midpoints remain the geometrically weakest sites under Frenet
+analysis, and under thermal or quantum fluctuations they are still the
+expected breaking sites; the gradient-flow ordering reflects the steepest
+descent from the family boundary, not the equilibrium stability hierarchy.
+Third, the near-perfect $\Zthree$ symmetry of the $N=256$ run throughout
+Phase~2 confirms that the $(2{+}1)$ breaking in the $N=192$ run was a
+numerical artefact of the larger per-step rotations.
+\end{remark}
+
+
+\begin{remark}[Two-phase landscape, Z3-symmetry breaking, and the Jones
+  polynomial explanation]
+\label{P18:rem:gf_twophase_p18}
+The data from the $N=216$, $h=0.05$  with:
+Phase 2: $lr=5^{-5}$, $\Delta{max}=5.0°$ per point and
+Phase transition: K rises > 1.0 above its minimum,
+run confirm the two-phase structure
+and refine the sector boundary estimate to $K_{\min}\approx2289$
+(improved from $2294$, $N=192$, $h=0.05$ with:
+Phase 2: lr=0.0001, $\Delta{max}=9.0°$ per point
+Phase transition: K rises > 2.0 above its minimum), consistent with resolution
+convergence toward the continuum value).
+
+\emph{Phase~1} genuinely operates within the $\QH=3$ sector: the field
+sharpens without topology change, $\bar r$ drifts toward $R_0=3$,
+and the gradient norm approaches a natural plateau.  The $K$-minimum
+marks the closest numerical approach to the $\QH=3$ sector boundary
+before the field begins to drift toward the vacuum.
+
+\emph{Phase~2} exposes a structural feature of the $\QH=3$ landscape that
+is not numerical in origin.  Visual inspection of the energy-density field
+$\rho_{J_4}$ at steps $n=4000$ and $n=6000$ (Figure~\ref{P18:fig:gf_n192_snapshots})
+reveals that the field spontaneously breaks the exact $\mathbb{Z}_3$ symmetry
+of Paper~XVI~\cite{Paper16}, Construction~11.27 during Phase~2.  At step
+$n=4000$ the distribution is approximately $\mathbb{Z}_3$-symmetric.  By
+step $n=6000$, with $J_4$ halved to $702$, the symmetry is broken: two of
+the three outer lobe sites carry elevated $\rho_{J_4}$, while the third
+outer lobe and its adjacent midpoint have lost energy.  Energy has built
+up on either side of the depleted region, and the crossing sites show
+asymmetric depletion consistent with the $\rho_{J_4}$--$S_{\rm eff}$
+anti-correlation (Proposition~\ref{P18:prop:anticorrelation}) operating
+non-uniformly around the tube.  The overall energy distribution is not
+$\mathbb{Z}_3$-symmetric.
+
+The mechanism is the following.  Construction~11.27 of Paper~XVI~\cite{Paper16}
+is exactly $\mathbb{Z}_3$-symmetric, and Phase~1 preserves this because
+the gradient of $E_{\rm geom}$ at a $\mathbb{Z}_3$-symmetric configuration
+is itself $\mathbb{Z}_3$-symmetric.  Phase~2, however, operates on the
+flat-bottomed energy valley discussed in
+Remark~\ref{P18:rem:saddle_difficulty}: without an irrational
+algebraic anchor to pin the profile to a unique minimum, the
+landscape is locally flat and no restoring force returns the field
+to the symmetric locus after any perturbation.  Floating-point
+accumulation in Adam's adaptive moment estimates breaks $\mathbb{Z}_3$
+at the $\sim10^{-7}$ level over thousands of steps; once off the symmetric
+locus, the gradient flow drifts along the asymmetric flat directions with
+no restoring force.
+
+The observed asymmetry pattern---two lobes retaining energy, one lobe and
+its adjacent midpoint losing energy---is a $(2{+}1)$ splitting of the
+trefoil's three outer lobes.  This is precisely the pattern predicted by
+Conjecture~\ref{P18:conj:six_quarks} for the lightest single-midpoint
+string-breaking mode: breaking one of the three midpoint torsion-twist sites
+produces a $(2{+}1)$ separation of the tube's $\mathbb{Z}_3$ structure.  The
+gradient flow is spontaneously selecting one of the three symmetry-equivalent
+$(2{+}1)$ directions on the flat valley floor.  This is not a coincidence in
+the sense that the Jones polynomial rationality forces the field onto a
+flat landscape where all three $(2{+}1)$ directions are accessible; it is
+physically significant that the drift is toward a well-defined string-breaking
+mode rather than an arbitrary deformation.
+-
+Grid refinement addresses the numerical resolution problem; the structural
+$\mathbb{Z}_3$-symmetry breaking during Phase~2 is a topological feature of
+the $\QH=3$ flat landscape and will persist at any resolution.
+\end{remark}
+
+\begin{remark}[$K_{\min}$ resolution convergence and three-point extrapolation]
+\label{P18:rem:kmin_extrapolation}
+The $K_{\min}$ values from three gradient-flow runs at increasing resolution
+are:
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$N$ & $h$ & $K_{\min}$ & Points across tube \\
+\midrule
+144 & 0.075 & 2313.9 & 10.6 \\
+192 & 0.050 & 2289\phantom{.0} & 16.0 \\
+256 & 0.0375 & 2268\phantom{.0} & 21.3 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The successive drops are $\Delta K_1=-24.9$ ($N=144\to192$) and
+$\Delta K_2=-21.0$ ($N=192\to256$), with $h$-ratios $h_1/h_2=1.5$ and
+$h_2/h_3=4/3$.  Fitting the power law
+$K_{\min}(h)\approx K_{\min}^\infty+A\,h^\alpha$ to the three points
+gives $\alpha\approx0.75\pm0.15$ and
+\begin{equation}
+  K_{\min}^\infty \;\approx\; 2230\text{--}2245,
+  \label{P18:eq:kmin_extrap}
+\end{equation}
+with the uncertainty reflecting the range of $\alpha$ consistent with the
+data.  The convergence is monotone from above, consistent with an
+$O(h^\alpha)$ discretisation error with $\alpha$ slightly below~1 (likely
+from the interplay of second-order finite differences and the
+Construction~C initial condition's residual grid-scale structure).
+The continuum $K_{\min}^\infty$ is the family-boundary energy of the
+$\QH=3$ sector in grid units; its conversion to physical units requires
+$L_{\rm cond}$ (open problem of Paper~XVI~\cite{Paper16},
+Section~16.1 %\ref{P16:sec:saddle_prerequisite}).
+\end{remark}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{The Botner measurement framework and $\beta_3$}
+\label{P18:sec:botner}
+%──────────────────────────────────────────────────────────────────────────────
+
+The DELPHI measurement of three-jet event orientation in $Z^0$
+hadronic decays~\cite{Botner1992} establishes the mathematical
+framework within which the topological $\phistar$ prediction
+should be tested.  The differential cross-section for
+$e^+e^-\to\gamma/Z\to q\bar{q}g$ in the helicity frame is:
+\begin{equation}
+  \frac{16\pi}{3}\frac{d^2\sigma}{d\cos\theta\,d\chi}
+  = (1+\cos^2\!\theta)\sigma_U + 2\sigma_L\sin^2\!\theta
+    + 2\sigma_T\sin^2\!\theta\cos 2\chi
+    - 2\sqrt{2}\,\sigma_I\sin 2\theta\cos\chi,
+  \label{P18:eq:botner_full}
+\end{equation}
+where $\theta$ is the polar angle between the electron beam and
+the thrust axis, and $\chi$ is the azimuthal angle between the
+three-jet event plane and the plane of the thrust axis and beam.
+Integrating over $\cos\theta$ gives:
+\begin{equation}
+  \frac{1}{\sigma}\frac{d\sigma}{d\chi}
+  = \frac{1+\beta\cos 2\chi}{2\pi},
+  \qquad
+  \beta = \frac{\sigma_T/\sigma_U}{1+\sigma_L/\sigma_U},
+  \label{P18:eq:botner_chi}
+\end{equation}
+a $\cos 2\chi$ modulation from the $\mathbb{Z}_2$ symmetry of
+the spin-1 photon/Z production mechanism.
+
+\begin{proposition}[Topological $\phistar$ distribution in Botner form]
+\label{P18:prop:botner_analog}
+By direct analogy with~\eqref{P18:eq:botner_chi}, the $\phistar$
+distribution for baryon-initiated $\rho^+\rho^-$ production is:
+\begin{equation}
+  \frac{1}{\sigma}\frac{d\sigma}{d\phistar}
+  = \frac{1+\beta_3\cos 3\phistar}{2\pi},
+  \label{P18:eq:botner_phiS}
+\end{equation}
+where the coefficient $\beta_3$ is determined by the arc-segment
+geometry of $T_{2,3}$ rather than by electroweak parameters.
+Its natural estimate from the arc-segment energy ratio is:
+\begin{equation}
+  \beta_3^{\rm est} \;\sim\;
+  \frac{J_4^A - J_4^B}{J_4^A + J_4^B}
+  = \frac{79\% - 21\%}{79\% + 21\%}
+  = \frac{58}{100} = 0.58,
+  \label{P18:eq:beta3_est}
+\end{equation}
+where $J_4^A/J_4^B \approx 3.76$ from Paper~XVI~\cite{Paper16}.
+This is a geometric prediction with no free parameters:
+$\beta_3$ is fixed by the $T_{2,3}$ energy partition.
+
+The key distinction from~\eqref{P18:eq:botner_chi}:
+photon/Z-initiated production gives $\cos 2\chi$
+($\mathbb{Z}_2$ from spin-1 photon), while baryon-initiated
+production gives $\cos 3\phistar$ ($\Zthree$ from $T_{2,3}$
+trefoil).  These are orthogonal signals with different
+angular frequencies and physically distinct origins.
+\end{proposition}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection{Four-jet out-of-plane structure and the Jeremie anomaly}
+\label{P18:sec:fourjet}
+%──────────────────────────────────────────────────────────────────────────────
+
+\begin{remark}[Two distinct orderings: depletion order versus jet hardness]
+\label{P18:rem:two_orderings}
+The implosion--explosion picture of Remark~\ref{P18:rem:implode_explode}
+revises \emph{which site depletes first} in the condensate dynamics
+(the lobes), but this is a different question from \emph{which
+outgoing jet is hardest} in a collider final state, addressed by the
+propositions below.  The two orderings need not coincide, and do not:
+the lobes are the first sites to lose energy (the trigger of the
+implosion), while the crossings --- the maximum-$S_{\rm eff}$
+bottlenecks (Proposition~\ref{P18:prop:anticorrelation}) --- never
+release energy directly but redirect it into the B-departure zones,
+where the primary jets 1--3 emerge.  The crossing vertex is a
+\emph{redirector} throughout (Proposition~\ref{P18:prop:cascade_p18}), and
+the hardest jets exit at the B-departures, not at the crossings
+themselves.  The jet-hardness ordering of
+Proposition~\ref{P18:prop:jet_bound} therefore remains the relevant
+ordering for collider observables (jets~1--3 hardest, at B-departure
+exits coplanar at $z=+r_0$; jets~4--6 softer, at the lobes), even
+though the \emph{condensate-internal} depletion sequence runs the
+other way (lobes first, crossings last to show depletion because
+they are topologically protected by maximum $S_{\rm eff}$, midpoints
+avoided throughout due to their topological positioning in the
+trefoil).  The geometric content of
+Propositions~\ref{P18:prop:fourjet_oop} and~\ref{P18:prop:jet_bound} below is
+unaffected by the revised cascade ordering; only its physical
+narrative is sharpened by it.
+\end{remark}
+
+\begin{proposition}[Out-of-plane deflection of the 4th jet]
+\label{P18:prop:fourjet_oop}
+The 12-site fraying pattern of Proposition~\ref{P18:prop:jet_bound}
+divides into four groups of three sites each, one group per
+$\Zthree$-symmetric geometric role.  Any single group, if it acts
+as an emission mechanism, produces three symmetric jets separated
+by $2\pi/3$ in azimuth.  The 4th jet is therefore the \emph{first
+emission from a second group}, which is a geometrically distinct
+category of site.  Whether this category difference translates into
+an out-of-plane deflection depends on which two groups are the
+first and second to emit:
+
+\begin{itemize}[noitemsep]
+\item If jets 1--3 come from the B-segment departure exits
+  ($z=+r_0$, tangent horizontal) and jets 4--6 come from any group
+  at $z=0$ (lobes or midpoints), the 4th jet is out of the
+  three-jet event plane in elevation.
+\item If jets 1--3 come from B-departure exits and jets 4--6 come
+  from the crossing approach-side entry disturbances (also
+  $z=+r_0$, tangent horizontal), the 4th jet is in the same plane
+  but azimuthally offset by $60°$ from jets 1--3.
+\item If both groups are at $z=0$ (lobes and midpoints), the two
+  groups differ in tangent elevation ($0.321|\dot\Gamma|$ at lobes
+  versus $0.525|\dot\Gamma|$ at midpoints), so jets 4--6 emerge at
+  a different elevation angle than jets 1--3.
+\end{itemize}
+
+Except for the (B-departure, entries) same-plane pairing, some
+out-of-plane structure --- either in elevation or in emission
+angle --- is generic to the 4th jet under any ordering that
+alternates between distinct site groups.
+
+The specific numerical prediction is set by the group identification.
+Under the ordering of Proposition~\ref{P18:prop:jet_bound} (jets 1--3
+at B-departure exits, jet 4 at the first distal lobe), the lobe
+secondary emission has tangent z-component $+0.321|\dot\Gamma|$ at
+$z=0$, giving:
+\begin{equation}
+  \Delta\theta_{\rm lobe}
+  = \arcsin\!\left(\frac{r_0\cdot0.321}{R_{xy,\rm lobe}}\right)^{1/2}
+  \;\approx\; 16^\circ\text{--}19^\circ,
+  \label{P18:eq:lobe_angle}
+\end{equation}
+using $r_0=0.874$, $R_{xy,\rm lobe}=R_0+r_0=3.874$.
+This is a discrete geometric prediction, not a
+continuous perturbative distribution.  Standard QCD predicts
+a unimodal distribution of 4th-jet angles centred near $0°$
+(soft collinear emission approximately in-plane); the framework
+predicts a preferred deflection near $16$--$19°$ below the
+three-jet plane under the specific ordering above, and a
+preferred deflection at some other discrete angle under any other
+alternating ordering.  A broad, unimodal QCD-like distribution is
+inconsistent with all such orderings.
+\end{proposition}
+
+\begin{remark}[The Jeremie anomaly]
+\label{P18:rem:jeremie}
+Jeremie et al.~\cite{Jeremie2006} studied the Bengtsson-Zerwas
+(BZ) angle $\chi_{\rm BZ}$ between the plane of (jet-1,\,jet-2)
+and the plane of (jet-3,\,jet-4) in four-jet events from the OPAL
+detector at LEP.  They found that shape differences between
+experiment and the ERT QCD matrix-element prediction concentrate
+in the region $m_3+m_4>10\,\mathrm{GeV}$, where $m_3+m_4$ is
+the summed invariant mass of the two least energetic jets.
+
+The framework predicts (Proposition~\ref{P18:prop:fourjet_oop}) that
+the 4th jet comes from a geometrically distinct site group from
+jets 1--3, producing a discrete out-of-plane deflection at a
+specific angle rather than a broad perturbative distribution.
+Under the specific ordering of Proposition~\ref{P18:prop:jet_bound}
+(jets 1--3 at B-departure exits, jet 4 as the first distal lobe
+emission), the deflection is $\approx16$--$19°$ below the
+three-jet plane; under any alternating-group ordering
+(Proposition~\ref{P18:prop:fourjet_oop}), the deflection is at a
+different specific angle.  A non-trivial $\chi_{\rm BZ}$ between
+the plane of (jet-1, jet-2) and the plane of (jet-3, jet-4)
+follows in any case where jets~1--3 and jet~4 do not share the
+same site group.  Furthermore, tube-carried non-perturbative jets
+are expected to have higher invariant mass than perturbative
+collinear gluons, consistent with the anomaly appearing precisely
+at large $m_3+m_4$.  The Jeremie anomaly is thus consistent with
+the framework's generic prediction of a topologically-distinct
+4th jet, whichever specific ordering of site groups is realised.
+\end{remark}
+
+\begin{proposition}[Jet multiplicity upper bound and energy ordering]
+\label{P18:prop:jet_bound}
+From the 12-site fraying pattern of Paper~XVI, the maximum number
+of topologically distinct ejection events from a single $\QH=3$
+baryon is 12.  The sites divide into four groups with distinct
+geometric roles:
+\begin{itemize}[noitemsep]
+\item \textbf{3 sites: B-segment departure exits} (one per crossing,
+  departure side).  These are the primary hard jets: the energy
+  arriving from the A-segment is redirected at the crossing lens and
+  exits on the B-segment departure side, propagating in the
+  $z=+r_0$ horizontal plane, 120° apart.  These give jets 1, 2, 3.
+\item \textbf{3 sites: distal lobe secondary emissions} (one per
+  outer lobe). Energy propagating past the B-departure exit continues
+  along the B-segment arc (30°) to the distal lobe, where it exits
+  with tangent z-component $+0.321|\dot\Gamma|$, tilted
+  $\approx16^\circ$--$19^\circ$ below the three-jet event plane.
+  These give jets 4, 5, 6.
+\item \textbf{3 sites: crossing approach-side entry disturbances}
+  (one per crossing, approach side, 60° offset from the departure
+  site at the same crossing).  The field is compressed as incoming
+  A-segment energy approaches the crossing bottleneck; this entry
+  disturbance is visible in the fraying pattern but represents a
+  softer emission than the primary departure exit.
+  These give jets 7, 8, 9.
+\item \textbf{3 sites: midpoint torsion-twist residuals}
+  (one per midpoint, lowest $J_4$, softest).
+  These give jets 10, 11, 12.
+\end{itemize}
+This constitutes a topological upper bound: a single $\QH=3$
+condensate soliton cannot produce more than 12 distinct jets,
+in contrast to standard perturbative QCD which predicts no hard
+upper limit.
+The energy ordering from hardest to softest, under the assumption
+that B-departure exits are the dominant primary emission channel,
+is:
+\begin{equation}
+  \underbrace{\text{B-dep exits (3)}}_{\text{hard, coplanar at }z=+r_0}
+  \;\to\;
+  \underbrace{\text{Lobe (3)}}_{\approx16^\circ\text{--}19^\circ\text{ off-plane}}
+  \;\to\;
+  \underbrace{\text{B-dep entries (3)}}_{\text{softer, near-plane}}
+  \;\to\;
+  \underbrace{\text{Midpoint (3)}}_{\text{softest, residual}},
+  \label{P18:eq:jet_ordering}
+\end{equation}
+consistent with the five-jet measurement at LEP being the
+experimental ceiling (lobe, entry-disturbance, and midpoint jets
+are too soft to resolve at $Z$-peak energies) and with the
+prediction that above 12 jets the rate must vanish for a single
+$\QH=3$ object.
+
+Two features of this ordering are more robust than the specific
+identification of each group.  First, the topological upper bound
+of 12 total jets holds for any ordering; it depends only on the
+site-group counting, not on which group emits hardest.  Second,
+the midpoints are the softest group (jets~10--12) in any ordering:
+their inner radial position ($R_{xy}=R_0-r_0=2.126$) shields them
+from vacuum exposure, so they are the last sites to release energy
+in the gradient-flow cascade
+(Figure~\ref{P18:fig:gf_n256_cascade}) and correspondingly produce the
+softest jets.  The ordering of the middle two groups (lobes vs
+entry disturbances as jets~4--6 vs 7--9) depends on which emission
+mechanism dominates: direct topologically-suppressed lobe release
+versus entry-side compression at the crossing.  The specific
+ordering above assumes lobe direct emission is more efficient
+than entry-disturbance emission, consistent with the lobes'
+maximum radial exposure driving early depletion in the cascade;
+under any ordering, the 4th jet is out of the three-jet plane
+(Proposition~\ref{P18:prop:fourjet_oop}).
+\end{proposition}
+\label{P18:sec:speculative}
+%══════════════════════════════════════════════════════════════════════════════
+
+The following two sections record speculative correspondences between
+the $T_{2,3}$ geometry and the quark sector structure.  Both are
+flagged as conjectures: they are internally consistent with the
+framework and make falsifiable predictions, but lack derivations from
+first principles within the density-feedback action.  The requirement
+for any future derivation to reproduce these structures is recorded
+as a constraint.
+
+\subsection{Six-quark counting from midpoint-breaking combinatorics}
+\label{P18:sec:quark_count}
+
+\begin{conjecture}[Six-quark combinatorial]
+\label{P18:conj:six_quarks}
+The $\QH=3$ baryon decays by losing topological integrity at one
+or more of its three midpoint torsion-twist sites
+(Paper~XVI~\cite{Paper16}, Remark~13.4).   %\ref{P16:rem:torsion_contrast}
+The six quark flavours correspond to the six distinct non-trivial
+breaking patterns:
+\begin{equation}
+  \binom{3}{1}+\binom{3}{2} = 3+3 = 6,
+  \label{P18:eq:quark_count}
+\end{equation}
+where $\binom{3}{k}$ counts the number of ways to break exactly
+$k$ of the three midpoint sites.  Breaking all three simultaneously
+returns the system to the vacuum and does not produce a quark state;
+breaking zero sites is the unperturbed baryon.
+
+The six patterns divide naturally into two isospin triplets:
+the $\binom{3}{1}=3$ single-breaking patterns (one midpoint broken)
+and the $\binom{3}{2}=3$ double-breaking patterns (two midpoints
+broken), corresponding to the charge-$+2/3$ and charge-$-1/3$
+quarks respectively, or vice versa.
+\end{conjecture}
+
+\begin{remark}[Constraints on any future derivation]
+\label{P18:rem:quark_constraint}
+Any derivation of the quark mass spectrum $\{m_u,m_d,m_s,m_c,m_b,m_t\}$
+within this framework must satisfy:
+(i)~reproduce the $3+3$ combinatorial pattern;
+(ii)~assign the correct isospin ($+2/3$ vs $-1/3$) to each triplet;
+(iii)~the energy cost of each breaking pattern must be derivable
+from the arc-segment $J_4$ data of Paper~XVI, specifically from
+the deficit $\delta J_4$ at each midpoint site relative to the
+adjacent A-segment average.
+\end{remark}
+
+\subsection{Isospin from the $\Ztwo$ writhe asymmetry}
+\label{P18:sec:isospin}
+
+\begin{conjecture}[Writhe asymmetry and isospin]
+\label{P18:conj:isospin}
+The trefoil $T_{2,3}$ has a $\Ztwo$ writhe asymmetry: the three
+crossing vertices sit at $z=+r_0$ (above the equatorial plane),
+while the three midpoints and three outer-lobe distal points sit
+at $z=0$ (Paper~XVI, Proposition~13.3).  %\ref{P16:prop:geom_data}
+This is an exact $\Ztwo$ asymmetry: the knot is not symmetric under
+$z\to-z$.
+
+The isospin assignment $I_3=+1/2$ (charge $+2/3$) corresponds to
+the crossing-vertex network ($z=+r_0$), and $I_3=-1/2$ (charge
+$-1/3$) corresponds to the midpoint/distal-lobe network ($z=0$).
+The physical origin is: under any external field distinguishing
+the two $z$-levels, the $\Ztwo$ asymmetry selects which breaking
+mode is energetically favoured, thereby selecting which quark
+charge emerges.  In the absence of such a field, both isospin
+values are equally probable, consistent with isospin conservation
+in strong interactions.
+\end{conjecture}
+
+\begin{proposition}[Isospin-triplet mass-scale ratio from tangent geometry]
+\label{P18:prop:isospin_mass_ratio}
+The exit tangent at each of the three site categories has a
+distinct $z$-component (Paper~XVI, Proposition~13.3): %\ref{P16:prop:geom_data}
+zero at the crossing vertices ($\dot\Gamma_z=0$, exact), and nonzero
+at the midpoints and distal lobes ($\dot\Gamma_z\approx-0.525$ and
+$\dot\Gamma_z\approx+0.321$ respectively, in units of $|\dot\Gamma|$).
+Define the dimensionless \emph{out-of-plane fraction} at a site as
+$\dot\Gamma_z^2$ (with $|\dot\Gamma|=1$), so that the crossing
+network exits entirely in-plane (out-of-plane fraction $0$, in-plane
+fraction $1$) and the midpoint/distal-lobe network exits with
+averaged out-of-plane fraction
+\begin{equation}
+  \langle\dot\Gamma_z^2\rangle_{M,L}
+  = \tfrac12\bigl(0.525^2+0.321^2\bigr) = 0.189.
+  \label{P18:eq:outofplane_avg}
+\end{equation}
+Under Conjecture~\ref{P18:conj:isospin}, the crossing network (charge
+$+2/3$, up-type) and the midpoint/distal-lobe network (charge
+$-1/3$, down-type) are proposed to set their respective mass scales
+through this geometric factor:
+\begin{equation}
+  \frac{M_{\rm down}}{M_{\rm up}}
+  \;\sim\;
+  \frac{\langle\dot\Gamma_z^2\rangle_{M,L}}{1-\dot\Gamma_z^2\big|_{C}}
+  = \frac{0.189}{1} = 0.189.
+  \label{P18:eq:isospin_mass_ratio}
+\end{equation}
+Taking $M_{\rm up}$ and $M_{\rm down}$ as the geometric-mean mass
+of each isospin triplet, $M_{\rm up}=(m_u m_c m_t)^{1/3}$ and
+$M_{\rm down}=(m_d m_s m_b)^{1/3}$, the measured value
+(PDG~\cite{PDG2024}) is
+\begin{equation}
+  \frac{M_{\rm down}}{M_{\rm up}}
+  = \frac{(0.00467\times0.0934\times4.18)^{1/3}}
+         {(0.00216\times1.27\times172.69)^{1/3}}
+  = \frac{0.1222\,{\rm GeV}}{0.7795\,{\rm GeV}} = 0.157,
+  \label{P18:eq:isospin_mass_ratio_obs}
+\end{equation}
+a $21\%$ discrepancy from the geometric estimate
+\eqref{P18:eq:isospin_mass_ratio}.  This is a zero-free-parameter
+estimate: both $0.525$ and $0.321$ are exact tangent
+$z$-components from Paper~XVI's trefoil geometry, not fitted
+quantities.  The $21\%$ residual is comparable to, and better than,
+several of the mechanisms ruled out in Paper~XVI's systematic
+survey (undershoots ranging from a factor of $1.7$ to $49$), and is
+consistent with the always-positive residual pattern of Paper~XVI
+\S12 if a further generation-universal correction (not yet
+identified) applies equally to both triplets.
+\end{proposition}
+
+\begin{remark}[Scope of Proposition~\ref{P18:prop:isospin_mass_ratio}]
+\label{P18:rem:isospin_mass_ratio_scope}
+The identification of $M_{\rm down}/M_{\rm up}$ with the
+out-of-plane/in-plane tangent-fraction ratio is \emph{motivated} by
+the writhe asymmetry of Conjecture~\ref{P18:conj:isospin} but is not
+\emph{derived} from the density-feedback action: no argument is
+given here for why mass scale should be proportional to this
+specific geometric ratio, as opposed to some other function of the
+tangent data.  It is recorded because it is the first
+zero-free-parameter numerical connection between the trefoil's
+exact geometry and the observed two-triplet mass hierarchy, and
+because the $21\%$ residual is small enough to warrant further
+investigation.  It does \emph{not} address the intra-triplet
+hierarchy ($m_u\ll m_c\ll m_t$ or $m_d\ll m_s\ll m_b$), which
+requires either the generation-dependent string-tension
+contribution of Paper~XVI \S12 or a dynamical (non-static)
+treatment of the $\QH=2+\QH=1\to\QH=3$ formation event, both left
+for future work.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Experimental Status and Predictions}
+\label{P18:sec:experiment}
+%══════════════════════════════════════════════════════════════════════════════
+
+We collect the falsifiable predictions of this paper, ordered by
+sharpness and current experimental accessibility.
+
+\begin{enumerate}[leftmargin=2em,label=\textbf{P\arabic*.}]
+
+\item \textbf{Process-dependent $\phistar$ in $\rho^+\rho^-$.}
+The $\phistar$ distribution in $\rho^+\rho^-$ from baryon
+string-breaking (e.g.\ $p\bar{p}\to\rho^+\rho^-X$ at low
+$p_T$) should satisfy $(1/\sigma)d\sigma/d\phistar =
+(1+\beta_3\cos 3\phistar)/2\pi$ with $\beta_3\approx0.58$
+(Proposition~\ref{P18:prop:botner_analog}), peaked at
+$\phistar=2\pi/3$.  The same process from $e^+e^-$ gives
+$(1+\beta\cos 2\chi)/2\pi$ (Botner~\cite{Botner1992}).
+The two signals have different angular frequencies (3 vs 2)
+and different physical origins; they are unambiguously
+distinguishable and parameter-free.
+
+\item \textbf{Three-jet coplanarity.}
+Three-jet events from $\QH=3$ baryon fragmentation are coplanar
+in the $z=+r_0$ plane at the topological level
+(Proposition~\ref{P18:prop:coplanarity}).  The Botner
+measurement~\cite{Botner1992} of $\chi$ orientation in
+$e^+e^-\to q\bar{q}g$ is consistent with this; a dedicated
+comparison using events from baryon-initiated production with
+NLO corrections removed is the required test.
+
+\item \textbf{Pion emission in every baryon-formation event.}
+The reaction $\QH=2+\QH=2\to\QH=3+\QH=1$ predicts pion
+emission is topologically forced (Theorem~\ref{P18:thm:pion_forced}).
+The ratio $\sigma(\QH=3+\QH=1)/\sigma(\QH=3)=1$ in the pure
+topological channel.
+
+\item \textbf{Baryon formation from $e^-+\pi^+\to p$ type reactions.}
+The satellite construction $\QH=2+\QH=1\to\QH=3$
+(Remark~\ref{P18:rem:qh2_qh1}) predicts that pion-free baryon
+formation requires a $\QH=1$ initial-state object.
+
+\item \textbf{4th-jet out-of-plane deflection.}
+The 4th jet is topologically required to come from a different
+site group than jets 1--3
+(Proposition~\ref{P18:prop:fourjet_oop}), producing a discrete
+preferred deflection angle rather than a broad perturbative
+distribution.  Under the specific ordering of
+Proposition~\ref{P18:prop:jet_bound} (jets 1--3 at B-departure
+exits, jet~4 at the first distal lobe), the deflection is
+$\Delta\theta_{\rm lobe}\approx16$--$19°$ below the three-jet
+event plane; under any alternating-group ordering, the
+deflection is at a different discrete angle.  The generic
+prediction --- a discrete out-of-plane 4th jet at a specific
+predicted angle rather than a broad in-plane distribution ---
+is robust to the specific group ordering.  The anomaly in the
+Bengtsson-Zerwas angle at $m_3+m_4>10\,{\rm GeV}$ reported by
+Jeremie et al.~\cite{Jeremie2006} is consistent with this
+prediction (Remark~\ref{P18:rem:jeremie}).
+
+\item \textbf{Jet multiplicity upper bound at 12.}
+The topological upper bound of 12 jets per $\QH=3$ baryon
+(Proposition~\ref{P18:prop:jet_bound}) predicts that at high enough
+centre-of-mass energy the jet multiplicity distribution from
+identified baryons drops to zero above 12, rather than continuing
+to grow as $\alpha_s^{(N-2)}$ as standard QCD would predict.
+At LEP energies this is invisible (midpoint and lobe jets are
+below resolution threshold), but distinguishable at future
+lepton colliders above $\sim 500\,{\rm GeV}$.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Open Problems}
+\label{P18:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em,label=\textbf{O\arabic*.}]
+
+\item \textbf{Multi-component Jones polynomial framework.}
+The topological selection rules of Section~\ref{P18:sec:reaction_rules}
+require a systematic treatment of Jones polynomials for
+multi-component initial and final states, including the
+disjoint-union formula and the Skein-algebra action on reaction
+channels. Deferred to future work.
+
+\item \textbf{Computation of $\beta_3$ from first principles.}
+Proposition~\ref{P18:prop:botner_analog} estimates $\beta_3\approx0.58$
+from the A/B arc-segment energy ratio.  A derivation from the
+density-feedback action would require computing the decay-plane
+orientation distribution given the condensate energy profile.
+
+\item \textbf{Quark mass from midpoint-breaking energetics.}
+Conjecture~\ref{P18:conj:six_quarks} requires deriving the energy
+cost $\delta J_4$ of each midpoint-site breaking.
+
+\item \textbf{Confirmation of the Jeremie anomaly and $\Delta\theta$ measurement.}
+A dedicated analysis of the BZ angle distribution in
+four-jet events from baryon-initiated production, isolating the
+$m_3+m_4>10\,{\rm GeV}$ region and comparing to the
+$16$--$19°$ out-of-plane prediction of
+Proposition~\ref{P18:prop:fourjet_oop}, would constitute
+a direct test of the energy cascade of
+Proposition~\ref{P18:prop:cascade_p18}.
+
+\item \textbf{Isospin from first principles.}
+Conjecture~\ref{P18:conj:isospin} connects isospin to the $\Ztwo$
+writhe asymmetry; a derivation from WZW boundary conditions
+is required.
+
+\item \textbf{Quantitative production thresholds for $\QH=3$.}
+Remark~\ref{P18:rem:production_conditions} identifies a two-threshold
+structure (kinetic energy and collision/number-density rate)
+governing where $\QH=3$ objects can form, but only qualitatively.
+A quantitative treatment requires: (a) computing
+$\Delta E_{2+2}=E(\QH{=}3)+E(\QH{=}1)-2E(\QH{=}2)$ and
+$\Delta E_{2+1}=E(\QH{=}3)-E(\QH{=}2)-E(\QH{=}1)$ on a common
+physical scale from the mass formulas of Paper~XVII~\cite{Paper17};
+(b) an estimate of the cross-section $\langle\sigma v\rangle$ for
+each channel from the condensate action, to convert the rate
+threshold into a number-density requirement; and (c) a check that
+the resulting threshold conditions correctly reproduce the QCD
+deconfinement temperature $T_c\sim150$--$160\,{\rm MeV}$ as the
+condition under which both thresholds are simultaneously satisfied
+in the early universe.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P18:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+This paper develops the dynamical content of $\QH=3$ confinement
+through five main results.
+
+\begin{enumerate}[noitemsep]
+\item \textbf{Jones polynomial arithmetic: fusion, not sector, splits
+  rational from irrational.}
+The satellite Jones invariant of the trefoil
+(Theorem~\ref{P18:thm:trefoil_satellite_jones}) satisfies
+$|\Jones_{\rm sat}(q_5)|=1/\vp$, the \emph{same} modulus as the Hopf
+link's own invariant $|\Jones_{T(2,2)}(q_5)|=1/\vp$; the two sectors
+are related by the single phase $q_5^{-1}$, not by an inversion of
+the golden ratio (Remark~\ref{P18:rem:richer_criterion}).  The
+satellite twist family (Proposition~\ref{P18:prop:satellite_twist_family})
+shows instead that rationality tracks whether the cable strands have
+\emph{fused} into a genuine torus knot: every fused (odd twist count)
+configuration computed is irrational, every unfused (even twist
+count) configuration computed is rational.  Whether the physical
+formation path passes through the rational unfused intermediate at
+$n=4$, and whether this accounts for the absence of a unique
+irrational BPS fixed point, is recorded as an open conjecture
+(Remark~\ref{P18:rem:saddle_difficulty}), not established.
+The simple-current condition $\dimq{3/2}=1$ remains the independent,
+established confinement criterion of Paper~XVII; it is numerically
+distinct from $|\Jones_{\rm sat}(q_5)|=1/\vp$ ($1\ne1/\vp$), and no
+identification between the two is asserted here.
+
+\item \textbf{Pion emission is topologically forced.}
+$\QH=2+\QH=2\to\QH=3+\QH=1$ is the unique minimal charge-conserving
+reaction forming a baryon from two $\QH=2$ objects
+(Theorem~\ref{P18:thm:pion_forced}).
+
+\item \textbf{Crossing vertices are topological lenses; energy ordering
+  is 3-3-3-3.}
+The $\rho_{J_4}$ field is minimum at crossing vertices, maximum
+in A-segment bodies.  Energy does not exit \emph{from} crossings;
+it arrives via A-segments, is redirected at crossings, and exits
+at B-segment departure zones (Proposition~\ref{P18:prop:cascade_p18}).
+The full jet energy ordering (hardest to softest) is
+four groups of three, under the assumption that B-departure exits
+dominate the primary emission channel:
+(1)~primary B-departure exits (jets 1--3: hard, coplanar at $z=+r_0$);
+(2)~distal lobe secondaries (jets 4--6: moderate energy,
+$\approx16^\circ$--$19^\circ$ off the three-jet plane);
+(3)~crossing approach-side entry disturbances (jets 7--9: softer);
+(4)~midpoint torsion-twist residuals (jets 10--12: softest).
+The midpoints-last portion of this ordering is a robust cascade
+observation (Figure~\ref{P18:fig:gf_n256_cascade}); the specific
+ordering of the middle two groups depends on which emission
+mechanism dominates.  In any group-alternating ordering, the 4th
+jet is topologically distinct from jets 1--3 and out of the
+three-jet plane (Proposition~\ref{P18:prop:fourjet_oop}).
+The topological upper bound is 12 jets per baryon
+(Proposition~\ref{P18:prop:jet_bound}).
+
+\item \textbf{Process-dependent $\phistar$ prediction in Botner form.}
+By analogy with the Botner three-jet measurement~\cite{Botner1992},
+the baryon-initiated distribution is
+$(1+\beta_3\cos 3\phistar)/2\pi$ with
+$\beta_3\approx0.58$ from the A/B arc-segment energy ratio
+(Proposition~\ref{P18:prop:botner_analog}).
+Photon-initiated gives $(1+\beta\cos 2\chi)/2\pi$.
+These differ in angular frequency (3 vs 2) and have no
+common parameters.  The Jeremie anomaly at $m_3+m_4>10\,{\rm GeV}$
+in four-jet BZ angle distributions~\cite{Jeremie2006} is consistent
+with a topologically-distinct 4th jet at a discrete out-of-plane
+angle (Remark~\ref{P18:rem:jeremie}).
+
+\item \textbf{Speculative correspondences.}
+The $3+3$ midpoint-breaking six-quark combinatorial
+(Conjecture~\ref{P18:conj:six_quarks}) and the $\Ztwo$ writhe
+isospin assignment (Conjecture~\ref{P18:conj:isospin}) are
+recorded as falsifiable conjectures.
+\end{enumerate}
+
+The complete sector hierarchy, including the $\QH=1$ Majorana
+prediction of Paper~XVII~\cite{Paper17}, is summarised by the quantum
+dimensions $\dimq{1/2}=\dimq{1}=\vp$, $\dimq{3/2}=1$
+(Paper~XVII, Proposition~7.2).
+
+%══════════════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper15}
+F.~Manfredi,
+\textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+
+\bibitem{Paper16}
+F.~Manfredi,
+\textit{Quark Generation Masses in the Density-Feedback Hopfion:
+A Survey of Ruled-Out Mechanisms and the $Q_H=3$ Gradient-Flow Landscape},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.21012650}{doi:10.5281/zenodo.21012650}
+
+\bibitem{Paper17} F.~Manfredi,
+\textit{The $Q_H=1$ Sector of the
+Density-Feedback Hopfion: Topology, Group Structure, Colour Exclusion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21013412}{doi:10.5281/zenodo.21013412}
+
+\bibitem{Jones1985}
+V.~F.~R.~Jones,
+\textit{A polynomial invariant for knots via von Neumann algebras},
+Bull.\ Amer.\ Math.\ Soc.\ \textbf{12}, 103--111 (1985).
+\href{https://doi.org/10.1090/S0273-0979-1985-15304-2}{doi:10.1090/S0273-0979-1985-15304-2}
+
+\bibitem{Kauffman1987}
+L.~H.~Kauffman,
+\textit{State models and the Jones polynomial},
+Topology \textbf{26}, 395--407 (1987).
+\href{https://doi.org/10.1016/0040-9383(87)90009-7}{doi:10.1016/0040-9383(87)90009-7}
+
+\bibitem{Witten1989}
+E.~Witten,
+\textit{Quantum field theory and the Jones polynomial},
+Commun.\ Math.\ Phys.\ \textbf{121}, 351--399 (1989).
+\href{https://doi.org/10.1007/BF01217730}{doi:10.1007/BF01217730}
+
+\bibitem{Rolfsen1976}
+D.~Rolfsen,
+\textit{Knots and Links},
+Publish or Perish, Berkeley (1976).
+ISBN 978-0914098164
+
+\bibitem{BirmanBrendle2005}
+J.~S.~Birman and T.~E.~Brendle,
+\textit{Braids: A Survey},
+in \textit{Handbook of Knot Theory} (Elsevier, 2005), 19--103.
+\href{https://doi.org/10.48550/arXiv.math/0409205}{doi:10.48550/arXiv.math/0409205}
+
+\bibitem{Faddeev1997}
+L.~D. Faddeev and A.~J. Niemi,
+\textit{Stable knot-like structures in classical field theory},
+Nature \textbf{387}, 58 (1997).
+\href{https://doi.org/10.1038/387058a0}{doi:10.1038/387058a0}
+
+\bibitem{Botner1992}
+O.~Botner et al.\ (DELPHI Collaboration),
+\textit{Study of orientation of three-jet events in $Z^0$ hadronic
+decays using the DELPHI detector},
+Phys.\ Lett.\ B \textbf{284}, 177--187 (1992).
+\href{https://inspirehep.net/literature/338132}{https://inspirehep.net/literature/338132}
+
+\bibitem{Jeremie2006}
+H.~Jeremie, P.~Leblanc, E.~Lefebvre, D.~Davignon and G.~Karapetian,
+\textit{Remarks concerning the study of four-jet events from hadronic
+decays of the $Z^0$},
+arXiv:hep-ex/0611048 (2006).
+\href{https://doi.org/10.48550/arXiv.hep-ex/0611048}{doi:10.48550/arXiv.hep-ex/0611048}
+
+\bibitem{Kleckner2013}
+D.~Kleckner and W.~T.~M.~Irvine,
+\textit{Creation and dynamics of knotted vortices},
+Nature Physics \textbf{9}, 253--258 (2013).
+\href{https://doi.org/10.1038/nphys2560}{doi:10.1038/nphys2560}
+
+\bibitem{Amaldi2005}
+J.~Abdallah et al.\ (DELPHI Collaboration),
+\textit{Measurement of the energy dependence of hadronic jet rates and
+the strong coupling $\alpha_s$ from the four-jet rate with the DELPHI
+detector at LEP},
+Eur.\ Phys.\ J.\ C \textbf{38}, 413--426 (2005).
+\href{https://doi.org/10.1140/epjc/s2004-02060-7}{doi:10.1140/epjc/s2004-02060-7}
+
+\bibitem{Abe1997}
+K.~Abe et al.\ (SLD Collaboration),
+\textit{Measurement of leading particle effects in decays of $Z^0$
+bosons into light flavors},
+Phys.\ Rev.\ Lett.\ \textbf{78}, 3442--3446 (1997).
+\href{https://doi.org/10.1103/PhysRevLett.78.3442}{10.1103/PhysRevLett.78.3442}
+
+
+\bibitem{Acton1993}
+P.~D.~Acton et al.\ (OPAL Collaboration),
+\textit{A determination of $\alpha_s(M_{Z^0})$ at LEP using resummed
+QCD calculations},
+Z.\ Phys.\ C \textbf{59}, 1--20 (1993).
+\href{https://doi.org/10.1007/BF01555834}{10.1007/BF01555834}
+
+\bibitem{PDG2024}
+S.~Navas et al.\ (Particle Data Group),
+\textit{Review of Particle Physics},
+Phys.\ Rev.\ D \textbf{110}, 030001 (2024).
+\href{https://doi.org/10.1103/PhysRevD.110.030001}{doi:10.1103/PhysRevD.110.030001}
+
+\bibitem{McKay1980}
+J.~McKay,
+\textit{Graphs, singularities, and finite groups},
+Proc.\ Symp.\ Pure Math.\ \textbf{37}, 183--186 (1980).
+\href{https://doi.org/10.1090/pspum/037}{doi:10.1090/pspum/037}
+
+\bibitem{Verlinde1988}
+E.~Verlinde,
+\textit{Fusion rules and modular transformations in 2D conformal field theory},
+Nucl.\ Phys.\ B \textbf{300}, 360--376 (1988).
+\href{https://doi.org/10.1016/0550-3213(88)90603-7}{doi:10.1016/0550-3213(88)90603-7}
+
+\end{thebibliography}
+
+\end{document}

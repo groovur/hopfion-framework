@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Hopfion — Topological Soliton · R₀=3</title>
+  <link rel="stylesheet" href="css/style.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;background:#000;font-family:'Georgia',serif}
+canvas{display:block}
+#panel{position:absolute;top:64px;left:14px;color:#e0e0f0;font-size:11.5px;
+  line-height:1.85;background:rgba(4,4,18,0.90);padding:13px 17px;
+  border-radius:9px;border:1px solid #ffffff1a;max-width:264px;
+  max-height:calc(100vh - 100px);overflow-y:auto;
+  pointer-events:all;user-select:none;z-index:10;
+  scrollbar-width:thin;scrollbar-color:#ffffff22 transparent}
+#panel::-webkit-scrollbar{width:4px}
+#panel::-webkit-scrollbar-track{background:transparent}
+#panel::-webkit-scrollbar-thumb{background:#ffffff28;border-radius:2px}
+#panel h1{font-size:17px;font-weight:normal;color:#F5E642;margin-bottom:2px}
+#panel h2{font-size:11px;font-weight:normal;color:#F5E642;opacity:.72;margin-bottom:6px}
+#panel .sub{color:#8888aa;font-size:10px;margin-bottom:9px}
+#panel .divider{border-top:1px solid #ffffff16;margin:7px 0}
+#panel .row{display:flex;align-items:center;gap:8px;margin:1px 0;cursor:pointer;
+  padding:3px 5px;border-radius:4px;transition:background .12s}
+#panel .row:hover{background:rgba(255,255,255,0.06)}
+#panel .row.active .dot{box-shadow:0 0 7px 2px currentColor}
+#panel .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;opacity:.85;transition:box-shadow .2s}
+#panel .note{color:#8888aa;font-size:9.5px;margin:5px 4px 0;line-height:1.5}
+#panel .key{color:#ff8833;font-size:9.5px;margin-top:4px;font-style:italic}
+#controls{position:absolute;top:80px;right:14px;display:flex;flex-direction:column;gap:7px;pointer-events:all;z-index:10}
+.cbox{background:rgba(4,4,18,0.90);border:1px solid #ffffff1a;border-radius:9px;
+  padding:11px 15px;color:#e0e0f0;font-size:11.5px;min-width:218px}
+.cbox label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.cbox .lb{color:#aaaacc;font-size:11px}
+.cbox .vl{color:#F5E642;font-size:12px;font-weight:bold;min-width:36px;text-align:right}
+.sl{width:100%;height:3px;cursor:pointer;accent-color:#F5E642;
+  background:linear-gradient(to right,#F5E642 var(--pct,50%),#333355 var(--pct,50%));
+  border-radius:2px;outline:none;appearance:none;-webkit-appearance:none}
+.sl::-webkit-slider-thumb{appearance:none;width:13px;height:13px;border-radius:50%;
+  background:#F5E642;cursor:pointer;box-shadow:0 0 5px #F5E64288}
+.btn{background:rgba(4,4,18,0.82);border:1px solid #ffffff22;color:#c8c8e0;
+  font-size:11px;padding:5px 12px;border-radius:6px;cursor:pointer;
+  font-family:'Georgia',serif;transition:background .15s;width:100%}
+.btn:hover{background:rgba(255,255,255,0.09)}
+#loading{position:fixed;inset:0;background:#03030e;display:flex;align-items:center;
+  justify-content:center;color:#F5E642;font-size:16px;z-index:999;letter-spacing:.05em}
+#cb{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:9px;background:rgba(4,4,18,0.85);
+  border:1px solid #ffffff14;border-radius:7px;padding:6px 14px;
+  pointer-events:none;z-index:10;font-size:10px;white-space:nowrap}
+#cb .cl{color:#777}
+.gr{width:110px;height:8px;border-radius:3px;
+  background:linear-gradient(to right,#08082e,#4422bb,#F5E642,#ff5500,#440000)}
+/* ── Slide-out tab handles (mobile only) ── */
+.panel-tab{
+  display:none;
+  position:absolute;
+  background:rgba(4,4,18,0.88);border:1px solid #ffffff2a;
+  color:#F5E642;font-size:18px;line-height:1;
+  padding:10px 7px;border-radius:0 7px 7px 0;
+  cursor:pointer;z-index:20;user-select:none;
+  transition:opacity .2s;
+}
+.controls-tab{
+  display:none;
+  position:absolute;
+  background:rgba(4,4,18,0.88);border:1px solid #ffffff2a;
+  color:#F5E642;font-size:18px;line-height:1;
+  padding:10px 7px;border-radius:7px 0 0 7px;
+  cursor:pointer;z-index:20;user-select:none;
+  transition:opacity .2s;
+}
+
+/* Add transitions to panels so collapse animates */
+#panel{transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s;}
+#controls{transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s;}
+
+/* ── Mobile layout ── */
+@media (max-width: 700px),(pointer:coarse) {
+  #panel{
+    top:64px;left:0;border-radius:0 9px 9px 0;
+    max-width:240px;max-height:100vh;overflow-y:auto;
+    transform:translateX(0);
+  }
+  #panel.collapsed{
+    transform:translateX(-100%);
+    opacity:0;pointer-events:none;
+  }
+  .panel-tab{
+    display:flex;align-items:center;justify-content:center;
+    top:50%;transform:translateY(-50%);
+    left:0;width:22px;min-height:48px;
+  }
+  .panel-tab.shifted{ left:240px; }
+
+  #controls{
+    top:auto;bottom:0;right:0;
+    flex-direction:column;
+    border-radius:9px 0 0 0;
+    transform:translateX(0);
+  }
+  #controls.collapsed{
+    transform:translateX(110%);
+    opacity:0;pointer-events:none;
+  }
+  .controls-tab{
+    display:flex;align-items:center;justify-content:center;
+    top:50%;transform:translateY(-50%);
+    right:0;width:22px;min-height:48px;
+  }
+  .controls-tab.shifted{ right:calc(min(260px, 60vw)); }
+
+  .sl::-webkit-slider-thumb{width:20px;height:20px;}
+}
+</style>
+</head>
+<body>
+<div id="loading">Computing condensate density…</div>
+<div id="panel">
+  <h1>The Hopfion Torus (Q<sub>H</sub>=2)</h1>
+  <h2>A topological soliton of the quantum condensate · R<sub>0</sub>=3, C*=3.4318</h2>
+  <div class="sub">Drag to rotate · scroll to zoom · click legend to toggle</div>
+  <div class="divider"></div>
+  <div class="row active" id="tog-supp" onclick="tog('supp',this)">
+    <span class="dot" style="color:#F5E642;background:#F5E642"></span>
+    Hopf energy density — inner-wall crescent
+  </div>
+  <div class="row active" id="tog-core" onclick="tog('core',this)">
+    <span class="dot" style="color:#88ddff;background:#88ddff"></span>
+    Inner axis thread — tube-core energy concentration &nbsp;<span style="color:#555;font-size:9px">ρ&lt;0.4</span>
+  </div>
+  <div class="row" id="tog-ring" onclick="tog('ring',this)">
+    <span class="dot" style="color:#ff8833;background:#ff8833"></span>
+    Transition ring (ρ=1, f₀=π/2 isosurface)
+  </div>
+  <div class="row active" id="tog-bvp0" onclick="tog('bvp0',this)">
+    <span class="dot" style="color:#3366dd;background:#3366dd"></span>
+    f₂ · Inner core &nbsp;<span style="color:#555;font-size:9px">ρ=0.3, f₂=−0.0045</span>
+  </div>
+  <div class="row active" id="tog-bvp1" onclick="tog('bvp1',this)">
+    <span class="dot" style="color:#4499cc;background:#4499cc"></span>
+    f₂ · Inner core 2 &nbsp;<span style="color:#555;font-size:9px">ρ=0.5, f₂=−0.032</span>
+  </div>
+  <div class="row" id="tog-bvp2" onclick="tog('bvp2',this)">
+    <span class="dot" style="color:#44bbaa;background:#44bbaa"></span>
+    f₂ · Approaching transition &nbsp;<span style="color:#555;font-size:9px">ρ=0.7, f₂=−0.107</span>
+  </div>
+  <div class="row" id="tog-bvp3" onclick="tog('bvp3',this)">
+    <span class="dot" style="color:#88cc44;background:#88cc44"></span>
+    f₂ · Outer transition &nbsp;<span style="color:#555;font-size:9px">ρ=1.5, f₂=−0.093</span>
+  </div>
+  <div class="row active" id="tog-bvp4" onclick="tog('bvp4',this)">
+    <span class="dot" style="color:#ccaa33;background:#ccaa33"></span>
+    f₂ · Outer region &nbsp;<span style="color:#555;font-size:9px">ρ=2.0, f₂=−0.027</span>
+  </div>
+  <div class="row active" id="tog-bvp5" onclick="tog('bvp5',this)">
+    <span class="dot" style="color:#44dd88;background:#44dd88"></span>
+    f₂ · Wing extension &nbsp;<span style="color:#555;font-size:9px">ρ≥2.8, f₂=+0.006</span>
+  </div>
+  <div class="row active" id="tog-cross" onclick="tog('cross',this)">
+    <span class="dot" style="color:#cc88ff;background:#cc88ff"></span>
+    Cross-section (φ=0) — Paper I colormap
+  </div>
+  <div class="row active" id="tog-ico" onclick="tog('ico',this)">
+    <span class="dot" style="color:#e8c840;background:#e8c840"></span>
+    600-cell (2I) &nbsp;<span style="color:#555;font-size:9px">120 quaternions · 720 edges · 8 shells</span>
+  </div>
+  <div class="divider"></div>
+  <div class="key">φ = (1+√5)/2 — encoded in the 600-cell geometry</div>
+  <div class="note">
+    2I ⊂ SU(2): 120 unit quaternions = vertices of the 600-cell on S³.
+    Stereographic projection S³→ℝ³ reveals 8 concentric shells.
+    Outer icosahedron (w=−φ/2) sits at <b>r=R₀=3</b>.<br>
+    Identity (1,0,0,0) → <b>origin</b> = intersection of 3 golden
+    rectangles = center of the Hopfion = fixed point of all 120
+    symmetries of 2I.
+  </div>
+  <div class="note">
+    At ρ=1 transition ring:
+    inner wall (r=2): dens = 27.7 &nbsp;|&nbsp; outer (r=4): 7.7<br>
+    Ratio <b>3.6×</b>, matching Paper I Panel B
+  </div>
+  <div class="note" style="margin-top:4px">
+    Inner axis thread (ρ&lt;0.4): residual Hopf energy inside the tube
+    cross-section — the concentration that emerges at the torus centre
+    when the condensate is energetically perturbed toward the poles.
+    Visible in dynamical integrator runs as a bright central node.
+  </div>
+  <div class="note" style="color:#777;margin-top:4px">
+    The knot in the condensate whose toroidal geometry<br>
+    encodes the WZW lepton sector.
+  </div>
+  <div class="divider"></div>
+  <div id="stats" style="font-size:10px;color:#aaaacc;line-height:1.7">
+    <span style="color:#888">Live · deformation=1.0</span><br>
+    Δ(ρ=1) = 0.311 · r<sub>center</sub> = 2.689<br>
+    Inner/outer = 3.6× · Shafranov = 10.4% R₀
+  </div>
+</div>
+<div id="controls">
+  <div class="cbox">
+    <label><span class="lb">BVP band opacity</span><span class="vl" id="opv">35%</span></label>
+    <input class="sl" id="op" type="range" min="10" max="100" step="5" value="35"/>
+    <label style="margin-top:7px"><span class="lb">Particle count</span><span class="vl" id="dv">40k</span></label>
+    <input class="sl" id="dc" type="range" min="1" max="5" step="1" value="3"/>
+    <label style="margin-top:7px"><span class="lb">Max tube radius ρ</span><span class="vl" id="rv">2.4</span></label>
+    <input class="sl" id="rc" type="range" min="0.3" max="2.85" step="0.05" value="2.4"/>
+    <label style="margin-top:7px"><span class="lb">Shafranov deformation</span><span class="vl" id="sv">0→1</span></label>
+    <input class="sl" id="sc" type="range" min="0.0" max="1.0" step="0.02" value="1.0"/>
+  </div>
+  <button class="btn" onclick="resetCam()">Reset camera</button>
+</div>
+<div id="cb">
+  <span class="cl">f₀=</span><span class="ck">0</span>
+  <div class="gr"></div>
+  <span class="ck">π</span>
+  <span class="cl">· low</span>
+  <div style="width:55px;height:8px;border-radius:3px;background:linear-gradient(to right,#08082e,#ff8800)"></div>
+  <span class="cl">high density</span>
+</div>
+<div class="panel-tab" id="panel-tab" onclick="togglePanel()">&#8250;</div>
+<div class="controls-tab" id="controls-tab" onclick="toggleControls()">&#8249;</div>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.168.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.168.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ── CONSTANTS ────────────────────────────────────────────────────────────────
+const PHI = (1+Math.sqrt(5))/2;
+const CS  = 3.4318;
+const R0  = 3.0;
+const TWO_PI = 2*Math.PI;
+
+// ── BASE PROFILE (BS ansatz) ─────────────────────────────────────────────────
+const sinf0 = r => { const t=Math.pow(Math.max(r,1e-9),2*CS); return 2*Math.pow(Math.max(r,1e-9),CS)/(t+1); };
+const f0val = r => 2*Math.atan(Math.pow(Math.max(r,1e-9),-CS));
+
+// ── CORRECTED PHYSICS: C*_eff = C* × R₀/r ───────────────────────────────────
+// The toroidal winding sin²f/r² effectively stiffens the profile on the inner
+// wall (r < R₀), where r is smaller. This is captured by an effective C* that
+// scales as R₀/r — matching Paper I Panel B inner-wall concentration 3.6×.
+function hopfDens(rho, chi) {
+  const r = R0 + rho*Math.cos(chi);
+  if (r < 0.1) return 0;
+  const s = sinf0(rho); const s4 = s*s*s*s;
+  const CS_eff = CS * R0 / r;       // inner wall: larger → sharper gradient
+  const rho2 = Math.max(rho*rho, 1e-8);
+  return s4 * ((CS_eff*CS_eff + 1) / rho2 + 1.0/(r*r));
+}
+
+// ── PRE-COMPUTED DENSITY TABLE (120×256) ─────────────────────────────────────
+// Built once at startup (~5ms), used for fast bilinear lookup during sampling.
+const NR=120, NC=256, RHO_MAX=3.0;
+const DTAB = new Float32Array(NR*NC);
+let D_MAX = 0;
+for (let ri=0;ri<NR;ri++) {
+  const rho = ri/(NR-1)*RHO_MAX;
+  for (let ci=0;ci<NC;ci++) {
+    const chi = ci/NC*TWO_PI;
+    const d   = hopfDens(rho, chi);
+    DTAB[ri*NC+ci] = d;
+    if (d > D_MAX) D_MAX = d;
+  }
+}
+
+function densLookup(rho, chi) {
+  // bilinear interpolation on the pre-computed table
+  const ri = Math.min((rho/RHO_MAX)*(NR-1), NR-1.001);
+  const ci = (((chi%TWO_PI)+TWO_PI)%TWO_PI)/TWO_PI * NC;
+  const ri0=Math.floor(ri), ri1=Math.min(ri0+1,NR-1);
+  const ci0=Math.floor(ci)%NC,  ci1=(ci0+1)%NC;
+  const fr=ri-ri0, fc=ci-Math.floor(ci);
+  return (1-fr)*((1-fc)*DTAB[ri0*NC+ci0] + fc*DTAB[ri0*NC+ci1])
+        +   fr *((1-fc)*DTAB[ri1*NC+ci0] + fc*DTAB[ri1*NC+ci1]);
+}
+
+// ── PRE-COMPUTED SHAFRANOV SHIFTS ─────────────────────────────────────────────
+// COM of corrected hopfDens over chi at each rho.
+// Δ(ρ) = −ρ·∫dens·cosχ dχ / ∫dens dχ   (negative → toward inner wall)
+// Values from Python pre-computation (Paper I corrected physics):
+const SHAF_RHO = [0.00, 0.25, 0.50, 1.00, 1.50, 2.00, 2.50];
+const SHAF_DEL = [0.0, 0.0192, 0.0771, 0.3114, 0.7116, 1.2896, 2.0555];
+function shafranovShift(rho) {
+  if (rho <= 0) return 0;
+  for (let i=0;i<SHAF_RHO.length-1;i++) {
+    if (rho >= SHAF_RHO[i] && rho <= SHAF_RHO[i+1]) {
+      const t=(rho-SHAF_RHO[i])/(SHAF_RHO[i+1]-SHAF_RHO[i]);
+      return SHAF_DEL[i]*(1-t)+SHAF_DEL[i+1]*t;
+    }
+  }
+  return SHAF_DEL[SHAF_DEL.length-1];
+}
+
+// ── DEFORMED TORUS POSITION ───────────────────────────────────────────────────
+// kappa capped at 0.88 → rho_eff(chi=π)=rho*(1−kappa)>0 always (no inversion).
+// Delta capped so inner wall stays > 0.2 from axis.
+function torusPos(rho, chi, phi, boost=1.0) {
+  const kappa  = Math.min(0.88, (rho/R0)*(rho/R0)*boost*0.6);
+  const dlimit = Math.max(0, R0 - rho*(1-kappa) - 0.2);
+  const Delta  = Math.min(shafranovShift(rho)*boost, dlimit);
+  const r_cen  = R0 - Delta;
+  const rho_eff= rho*(1 + kappa*Math.cos(chi));
+  const r      = r_cen + rho_eff*Math.cos(chi);
+  const y      = rho*Math.sin(chi);
+  return [r*Math.cos(phi), y, r*Math.sin(phi)];
+}
+
+// ── COLOUR MAPS ───────────────────────────────────────────────────────────────
+function fCol(f) {
+  const t=Math.max(0,Math.min(1,f/Math.PI)); let r,g,b;
+  if(t<.25){const u=t/.25;r=.04+u*.22;g=.04+u*.04;b=.22+u*.58;}
+  else if(t<.5){const u=(t-.25)/.25;r=.26+u*.70;g=.08+u*.70;b=.80-u*.62;}
+  else if(t<.75){const u=(t-.5)/.25;r=.96;g=.78-u*.48;b=.18-u*.14;}
+  else{const u=(t-.75)/.25;r=.96-u*.46;g=.30-u*.27;b=.04;}
+  return[Math.max(0,Math.min(1,r)),Math.max(0,Math.min(1,g)),Math.max(0,Math.min(1,b))];
+}
+
+// f2 BVP profile (Paper XIV)
+const F2R=[0.05,.1,.2,.3,.5,.7,1.0,1.2,1.5,2.0,2.5,2.78,3.0,4.0,5.0];
+const F2V=[0,-5.98e-5,-8.2e-4,-4.50e-3,-3.21e-2,-1.07e-1,-2.12e-1,-1.80e-1,-9.25e-2,-2.68e-2,-4.0e-3,0,2.60e-3,5.5e-3,6.63e-3];
+function f2(rho){if(rho<=F2R[0])return 0;if(rho>=F2R[F2R.length-1])return F2V[F2V.length-1];
+  for(let i=0;i<F2R.length-1;i++){if(rho>=F2R[i]&&rho<=F2R[i+1]){const t=(rho-F2R[i])/(F2R[i+1]-F2R[i]);return F2V[i]*(1-t)+F2V[i+1]*t;}}return 0;}
+
+// ── SCENE ─────────────────────────────────────────────────────────────────────
+const scene=new THREE.Scene();
+scene.background=new THREE.Color(0x03030e);
+scene.fog=new THREE.FogExp2(0x03030e,.007);
+
+const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.01,500);
+camera.position.set(8,4.5,10);
+
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth,innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.toneMapping=THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure=1.18;
+document.body.appendChild(renderer.domElement);
+
+const orb=new OrbitControls(camera,renderer.domElement);
+orb.enableDamping=true;orb.dampingFactor=.05;orb.minDistance=2;orb.maxDistance=80;orb.update();
+
+scene.add(new THREE.AmbientLight(0x8899cc,.45));
+const sun=new THREE.DirectionalLight(0xfff5e8,1.25);sun.position.set(8,14,6);scene.add(sun);
+const fl1=new THREE.PointLight(0x2233ff,.55,35);fl1.position.set(-7,5,-7);scene.add(fl1);
+const fl2=new THREE.PointLight(0xff6633,.4,25);fl2.position.set(7,-4,5);scene.add(fl2);
+
+(()=>{const a=[];for(let i=0;i<2500;i++)a.push((Math.random()-.5)*300,(Math.random()-.5)*300,(Math.random()-.5)*300);
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(a,3));
+  scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xffffff,size:.07,transparent:true,opacity:.28})));})();
+
+// ── LAYER REGISTRY ────────────────────────────────────────────────────────────
+const LAY={supp:[],ring:[],bvp0:[],bvp1:[],bvp2:[],bvp3:[],bvp4:[],bvp5:[],cross:[],ico:[],core:[]};
+const ON ={supp:true,ring:false,bvp0:true,bvp1:true,bvp2:false,bvp3:false,bvp4:true,bvp5:true,cross:true,ico:true,core:true};
+function addL(k,o){LAY[k].push(o);scene.add(o);o.visible=ON[k];}
+window.tog=(k,el)=>{ON[k]=!ON[k];LAY[k].forEach(o=>o.visible=ON[k]);el.classList.toggle('active',ON[k]);};
+
+// ── GLOBAL STATE ──────────────────────────────────────────────────────────────
+let bvpOpacity = 0.35, boost = 1.0;
+
+// ── 2. PARTICLE CLOUD ─────────────────────────────────────────────────────────
+// Uses pre-computed table for fast rejection sampling.
+const DCOUNTS=[8000,20000,40000,65000,100000];
+let curD=2, curRmax=2.4;
+
+function buildCloud(n,rmax,bst){
+  LAY.supp.forEach(o=>{scene.remove(o);o.geometry?.dispose();});LAY.supp.length=0;
+  const pos=[],col=[];let placed=0;
+  for(let k=0;k<n*15&&placed<n;k++){
+    const rho=rmax*Math.sqrt(Math.random());
+    const chi=Math.random()*TWO_PI;
+    const phi=Math.random()*TWO_PI;
+    const d=densLookup(rho,chi);
+    if(Math.random()>d/D_MAX*1.05)continue;
+    const[x,y,z]=torusPos(rho,chi,phi,bst);
+    pos.push(x,y,z);
+    // Warm gold glow — hotter (white) at density peak
+    const t=Math.min(1,d/D_MAX);
+    col.push(t*1.0+.3*t, t*.65+.1*t, t*.05);
+    placed++;
+  }
+  if(!pos.length)return;
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',   new THREE.Float32BufferAttribute(col,3));
+  addL('supp',new THREE.Points(g,new THREE.PointsMaterial({
+    vertexColors:true,size:.05,transparent:true,opacity:.82,
+    sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending
+  })));
+}
+
+// ── 3. INNER AXIS THREAD — tube-core energy ─────────────────────────────────
+// The hopfDens formula has non-trivial energy at very small ρ (near the tube
+// centreline) but the main buildCloud's rejection sampling at rmax≥0.3 mostly
+// misses it because D_MAX is set by the inner-wall crescent (ρ~1, χ=π) which
+// dominates. This dedicated layer samples ONLY the ρ∈[0, 0.4] core region,
+// showing the energy thread that runs through the tube's own axis.
+// Coloured cool cyan-white to contrast with the warm-gold outer crescent.
+function buildCoreAxis(bst){
+  LAY.core.forEach(o=>{scene.remove(o);o.geometry?.dispose();});LAY.core.length=0;
+  const NCORE=6000;  // dedicated sample budget for this region
+  const RHO_CORE=0.4;  // max tube-radius for this layer
+  const pos=[],col=[];let placed=0;
+
+  // Compute local max density inside the core region for proper rejection
+  let D_CORE=0;
+  for(let ri=0;ri<60;ri++){
+    const rho=ri/59*RHO_CORE;
+    for(let ci=0;ci<64;ci++){
+      const chi=ci/64*TWO_PI;
+      const d=hopfDens(rho,chi);
+      if(d>D_CORE) D_CORE=d;
+    }
+  }
+  if(D_CORE<1e-12) return;  // nothing to show
+
+  for(let k=0;k<NCORE*30&&placed<NCORE;k++){
+    const rho=RHO_CORE*Math.sqrt(Math.random());  // uniform in area
+    const chi=Math.random()*TWO_PI;
+    const phi=Math.random()*TWO_PI;
+    const d=densLookup(rho,chi);
+    if(Math.random()>d/D_CORE) continue;
+    const[x,y,z]=torusPos(rho,chi,phi,bst);
+    pos.push(x,y,z);
+    // Cool cyan-white: dim at low density, bright white at core
+    const t=Math.min(1,d/D_CORE);
+    const brightness=t*0.7+0.3;
+    col.push(brightness*0.55, brightness*0.85, brightness*1.0);
+    placed++;
+  }
+  if(!pos.length) return;
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',   new THREE.Float32BufferAttribute(col,3));
+  addL('core',new THREE.Points(g,new THREE.PointsMaterial({
+    vertexColors:true,size:.04,transparent:true,opacity:.65,
+    sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending
+  })));
+}
+function buildRing(bst){
+  LAY.ring.forEach(o=>{scene.remove(o);o.geometry?.dispose?.();});LAY.ring.length=0;
+  const rho_t=1.0;const NP=500,NC=200;
+  const pos=[],col=[];
+  for(let i=0;i<NP;i++){
+    const phi=i/NP*TWO_PI;
+    for(let j=0;j<NC;j++){
+      const chi=j/NC*TWO_PI;
+      const[x,y,z]=torusPos(rho_t,chi,phi,bst);pos.push(x,y,z);
+      const d=densLookup(rho_t,chi);
+      const t=Math.min(1,d/D_MAX); // 0..1: inner wall peaks at 1
+      // Colour: white→gold→orange based on density (inner wall = white)
+      col.push(.5+t*.5, .3+t*.4, t*.05);
+    }
+  }
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',   new THREE.Float32BufferAttribute(col,3));
+  addL('ring',new THREE.Points(g,new THREE.PointsMaterial({
+    vertexColors:true,size:.045,transparent:true,opacity:.9,
+    sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending
+  })));
+  // Accent light on the inner-wall side
+  const Delta=Math.min(shafranovShift(1.0)*bst, Math.max(0,R0-1.0*(1-0.067)-0.2));
+  const pl=new THREE.PointLight(0xff8833,1.8,12);pl.position.set(R0-Delta-1.0,0,0);addL('ring',pl);
+}
+
+// ── 4. BVP CORRECTION BANDS — individual clean mesh surfaces ─────────────────
+// Each band is a torus shell at a fixed ρ coloured by f₂(ρ)·cos(2χ)/R₀².
+// Blue  → profile flattened (correction negative)
+// Amber → profile steepened (correction positive)
+// Transition point ρ=1.0 is omitted — already shown by the transition ring.
+
+const BVP_BANDS = [
+  // { key, rho, f2val,  dotRGB,              label }
+  { key:'bvp0', rho:0.30, f2v:-0.00450, rgb:[0.20,0.40,1.00] },
+  { key:'bvp1', rho:0.50, f2v:-0.03210, rgb:[0.26,0.60,0.80] },
+  { key:'bvp2', rho:0.70, f2v:-0.10700, rgb:[0.27,0.73,0.67] },
+  { key:'bvp3', rho:1.50, f2v:-0.09250, rgb:[0.53,0.80,0.27] },
+  { key:'bvp4', rho:2.00, f2v:-0.02680, rgb:[0.80,0.67,0.20] },
+  { key:'bvp5', rho:3.50, f2v:+0.00600, rgb:[0.27,0.87,0.53] },
+];
+const MAX_F2 = 0.212;  // |f2| at ρ=1 (peak magnitude for normalization)
+
+function buildBVPBand(band, bst) {
+  const {key, rho, f2v} = band;
+  LAY[key].forEach(o=>{scene.remove(o);o.geometry?.dispose();o.material?.dispose();});
+  LAY[key].length=0;
+  // Relative strength for opacity/size scaling
+  const strength = Math.min(1, Math.abs(f2v)/MAX_F2 * 3.0);
+  const NP=240, NC=96;
+  const pos=[], col=[];
+  for (let i=0; i<NP; i++) {
+    const phi = i/NP*TWO_PI;
+    for (let j=0; j<NC; j++) {
+      const chi = j/NC*TWO_PI;
+      // Only emit points where |cos(2χ)| is significant — reveals the 4-lobe pattern
+      const c2 = Math.cos(2*chi);
+      if (Math.abs(c2) < 0.15) continue;
+      const correction = f2v * c2;
+      if (Math.abs(correction) < Math.abs(f2v)*0.1) continue;
+      const [x,y,z] = torusPos(rho, chi, phi, bst);
+      pos.push(x, y, z);
+      // Blue where profile is flattened, amber where steepened
+      const t = correction / MAX_F2;
+      let r2,g2,b2;
+      if (t <= 0) {
+        const u = Math.min(1, -t*2.5);
+        r2=0.05+u*0.10; g2=0.20+u*0.35; b2=0.45+u*0.55;
+      } else {
+        const u = Math.min(1, t*2.5);
+        r2=0.45+u*0.50; g2=0.25+u*0.30; b2=0.02+u*0.04;
+      }
+      const [br,bg,bb]=band.rgb;
+      col.push(r2*0.65+br*0.35*strength, g2*0.65+bg*0.35*strength, b2*0.65+bb*0.35*strength);
+    }
+  }
+  if (!pos.length) return;
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',    new THREE.Float32BufferAttribute(col,3));
+  const ptSize = 0.04 + strength*0.03;
+  const opacity = bvpOpacity * (0.55 + strength*0.30);
+  addL(key, new THREE.Points(g, new THREE.PointsMaterial({
+    vertexColors:true, size:ptSize, transparent:true, opacity,
+    sizeAttenuation:true, depthWrite:false, blending:THREE.AdditiveBlending
+  })));
+}
+
+function buildAllBVP(bst){
+  BVP_BANDS.forEach(b => buildBVPBand(b, bst));
+}
+// Black→purple→red→orange→yellow→white  (matplotlib 'inferno')
+function inferno(t) {
+  t = Math.max(0, Math.min(1, t));
+  let r,g,b;
+  if (t < .2)  { const u=t/.2;    r=.001+u*.18;  g=.000+u*.01;  b=.014+u*.28; }
+  else if (t<.4){ const u=(t-.2)/.2; r=.181+u*.47;  g=.010+u*.05;  b=.294+u*.07; }
+  else if (t<.6){ const u=(t-.4)/.2; r=.651+u*.24;  g=.060+u*.10;  b=.364-u*.26; }
+  else if (t<.8){ const u=(t-.6)/.2; r=.891+u*.09;  g=.160+u*.34;  b=.104-u*.08; }
+  else           { const u=(t-.8)/.2; r=.980+u*.02;  g=.500+u*.47;  b=.024+u*.36; }
+  return [r,g,b];
+}
+
+// ── 5. CROSS-SECTION with inferno colormap (Paper I Panel B style) ───────────
+function buildCross(bst){
+  LAY.cross.forEach(o=>{scene.remove(o);o.geometry?.dispose?.();o.material?.dispose?.();});LAY.cross.length=0;
+  const NR=90,NC=220;const pos=[],col=[],idx=[];
+  for(let i=0;i<=NR;i++){
+    const rho=i/NR*2.85;
+    for(let j=0;j<=NC;j++){
+      const chi=j/NC*TWO_PI;
+      const[x,y]=torusPos(rho,chi,0,bst);pos.push(x,y,0);
+      const d=densLookup(rho,chi);
+      const t=Math.min(1,Math.pow(d/D_MAX,.5)); // sqrt for more dynamic range
+      const[r2,g2,b2]=inferno(t);
+      col.push(r2,g2,b2);
+    }
+  }
+  for(let i=0;i<NR;i++)for(let j=0;j<NC;j++){
+    const a=i*(NC+1)+j;idx.push(a,a+1,a+(NC+1)+1,a,a+(NC+1)+1,a+(NC+1));
+  }
+  const g=new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',   new THREE.Float32BufferAttribute(col,3));
+  g.setIndex(idx);
+  addL('cross',new THREE.Mesh(g,new THREE.MeshBasicMaterial({
+    vertexColors:true,transparent:true,opacity:.55,side:THREE.DoubleSide,depthWrite:false
+  })));
+  // ρ=1 transition ring overlay
+  const rp=[];for(let j=0;j<=220;j++){const chi=j/220*TWO_PI;const[x,y]=torusPos(1.0,chi,0,bst);rp.push(new THREE.Vector3(x,y,.01));}
+  addL('cross',new THREE.Line(new THREE.BufferGeometry().setFromPoints(rp),
+    new THREE.LineBasicMaterial({color:0x00e5ff,transparent:true,opacity:.75})));
+}
+
+// ── 600-CELL — Binary Icosahedral Group 2I on S³ ─────────────────────────────
+// 120 unit quaternions = vertices of the 600-cell = elements of 2I ⊂ SU(2).
+// Stereographic projection from south pole (-1,0,0,0) → ℝ³:
+//   identity (1,0,0,0) → (0,0,0) = intersection of golden rectangles = Hopfion center
+//   outer icosahedron (w=-φ/2) → r = R₀ = 3  (the Hopfion's natural scale)
+// 8 concentric shells become visible, encoding the 4D depth of the symmetry.
+function build600Cell() {
+  LAY.ico.forEach(o=>{scene.remove(o);o.geometry?.dispose?.();o.material?.dispose?.();});
+  LAY.ico.length=0;
+
+  const phi = PHI;
+
+  // ── Generate 120 vertices of 2I ──────────────────────────────────────────
+  const v4 = [];
+
+  // Group 1 (8): ±e_i  (unit basis quaternions)
+  for (let i=0;i<4;i++) for (const s of [1,-1]) {
+    const v=[0,0,0,0]; v[i]=s; v4.push(v);
+  }
+
+  // Group 2 (16): (±1,±1,±1,±1)/2
+  for (let m=0;m<16;m++)
+    v4.push([(m>>3&1)?-.5:.5,(m>>2&1)?-.5:.5,(m>>1&1)?-.5:.5,(m&1)?-.5:.5]);
+
+  // Group 3 (96): even permutations of (0, ±½, ±1/(2φ), ±φ/2)
+  const EP=[[0,1,2,3],[0,2,3,1],[0,3,1,2],[1,0,3,2],[1,2,0,3],[1,3,2,0],
+            [2,0,1,3],[2,1,3,0],[2,3,0,1],[3,0,2,1],[3,1,0,2],[3,2,1,0]];
+  const seen=new Set();
+  for (const s1 of [1,-1]) for (const s2 of [1,-1]) for (const s3 of [1,-1]) {
+    const vals=[0, s1*0.5, s2/(2*phi), s3*phi/2];
+    for (const p of EP) {
+      const v=[vals[p[0]],vals[p[1]],vals[p[2]],vals[p[3]]];
+      const key=v.map(x=>Math.round(x*1e5)).join(',');
+      if (!seen.has(key)) { seen.add(key); v4.push(v); }
+    }
+  }
+
+  // ── Stereographic projection: south pole (-1,0,0,0) → ℝ³ ─────────────────
+  // Scale so outer icosahedron (raw max r≈3.078) lands at R₀=3
+  const RAW_MAX = 3.078, SC = R0/RAW_MAX;
+  const v3 = v4.map(v => {
+    const [w,x,y,z]=v;
+    if (Math.abs(w+1)<0.01) return null;  // south pole → skip
+    const d=1+w;
+    return [x/d*SC, y/d*SC, z/d*SC];
+  });
+
+  // ── Render edges (720, length 1/φ in 4D) ─────────────────────────────────
+  const eDist2=1/(phi*phi), ePts=[];
+  for (let i=0;i<v4.length;i++) {
+    if (!v3[i]) continue;
+    for (let j=i+1;j<v4.length;j++) {
+      if (!v3[j]) continue;
+      const d2=v4[i].reduce((s,vi,k)=>s+(vi-v4[j][k])**2,0);
+      if (Math.abs(d2-eDist2)<0.02) ePts.push(...v3[i],...v3[j]);
+    }
+  }
+  const eGeo=new THREE.BufferGeometry();
+  eGeo.setAttribute('position',new THREE.Float32BufferAttribute(ePts,3));
+  addL('ico',new THREE.LineSegments(eGeo,new THREE.LineBasicMaterial({
+    color:0xddbb44,transparent:true,opacity:0.18
+  })));
+
+  // ── Render vertices (119 projected) coloured by w (depth in S³) ──────────
+  // w=+1 (identity, center) → white · w≈+φ/2 (inner) → gold
+  // w≈0 (equatorial) → teal · w≈-φ/2 (outer icosahedron) → violet
+  const vPts=[], vCol=[], vSize=[];
+  for (let i=0;i<v4.length;i++) {
+    if (!v3[i]) continue;
+    vPts.push(...v3[i]);
+    const w=v4[i][0], t=(w+1)/2;  // 0=south, 1=north/identity
+    let r2,g2,b2;
+    if (t>0.9) { r2=1;g2=1;b2=1; }          // identity → white
+    else if (t>0.8) { r2=1;g2=0.88;b2=0.3; } // inner ico → gold
+    else if (t>0.4) { r2=0.2;g2=0.8;b2=0.7; }// equatorial → teal
+    else if (t>0.1) { r2=0.3;g2=0.4;b2=1.0; }// inner-outer → blue
+    else { r2=0.7;g2=0.3;b2=1.0; }           // outer ico → violet
+    vCol.push(r2,g2,b2);
+  }
+  const vGeo=new THREE.BufferGeometry();
+  vGeo.setAttribute('position',new THREE.Float32BufferAttribute(vPts,3));
+  vGeo.setAttribute('color',   new THREE.Float32BufferAttribute(vCol,3));
+  addL('ico',new THREE.Points(vGeo,new THREE.PointsMaterial({
+    vertexColors:true,size:0.13,transparent:true,opacity:0.92,
+    sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending
+  })));
+
+  // ── Find outer icosahedron vertices (r ≈ R₀) and draw golden rectangles ──
+  const outer=[];
+  for (let i=0;i<v4.length;i++) {
+    if (!v3[i]) continue;
+    const r=Math.sqrt(v3[i].reduce((s,x)=>s+x*x,0));
+    if (Math.abs(r-R0)<0.25) outer.push(v3[i]);
+  }
+  // Group into 3 rectangles by which coordinate is nearest zero.
+  // The 12 outer icosahedron vertices split cleanly:
+  //   rectGroups[0]: x≈0 plane  (orange)
+  //   rectGroups[1]: y≈0 plane  (teal)
+  //   rectGroups[2]: z≈0 plane  (violet)
+  const rectCols=[0xff7733,0x44ddaa,0xaa55ff];
+  const rectGroups=[[], [], []];
+  for (const p of outer) {
+    const ai=p.map(Math.abs);
+    const mi=ai.indexOf(Math.min(...ai)); // 0=x, 1=y, 2=z is near-zero
+    rectGroups[mi].push(p);
+  }
+  // Draw each rectangle (sort by angle in its own plane, connect 4 points)
+  for (let ri=0;ri<3;ri++) {
+    const grp=rectGroups[ri].slice(0,4); // exactly 4 vertices per rectangle
+    if (grp.length<4) continue;
+    const ci=ri;               // near-zero axis: 0=x, 1=y, 2=z
+    const ai=(ci+1)%3, bi=(ci+2)%3; // the two varying axes
+    grp.sort((a,b)=>Math.atan2(a[bi],a[ai])-Math.atan2(b[bi],b[ai]));
+    const rPts=[...grp,grp[0]].flatMap(p=>p);
+    const rGeo=new THREE.BufferGeometry();
+    rGeo.setAttribute('position',new THREE.Float32BufferAttribute(rPts,3));
+    addL('ico',new THREE.Line(rGeo,new THREE.LineBasicMaterial({
+      color:rectCols[ri],transparent:true,opacity:0.75
+    })));
+    // Label long side "φ" and short side "1" on first rectangle only
+    const v0=grp[0],v1=grp[1],v2=grp[2];
+    const d01=Math.sqrt(v0.reduce((s,x,k)=>s+(x-v1[k])**2,0));
+    const d12=Math.sqrt(v1.reduce((s,x,k)=>s+(x-v2[k])**2,0));
+    const [longA,longB,shortA,shortB]=d01>d12?[v0,v1,v1,v2]:[v1,v2,v0,v1];
+    const makeSprite=(txt,color,x,y,z)=>{
+      const cv=document.createElement('canvas');cv.width=64;cv.height=36;
+      const ctx=cv.getContext('2d');ctx.font='bold 26px Georgia';ctx.fillStyle=color;
+      ctx.shadowColor='#000';ctx.shadowBlur=5;ctx.fillText(txt,4,28);
+      const m=new THREE.Mesh(new THREE.PlaneGeometry(.35,.2),
+        new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(cv),transparent:true,depthWrite:false,side:THREE.DoubleSide}));
+      m.position.set(x,y,z);addL('ico',m);return m;
+    };
+    const lm=longA.map((v,k)=>(v+longB[k])/2);
+    const sm=shortA.map((v,k)=>(v+shortB[k])/2);
+    if (ri===0) {  // label only the first rectangle to avoid clutter
+      makeSprite('φ',`#${rectCols[ri].toString(16).padStart(6,'0')}`,lm[0]+.2,lm[1]+.2,lm[2]);
+      makeSprite('1',`#${rectCols[ri].toString(16).padStart(6,'0')}`,sm[0]+.2,sm[1]+.2,sm[2]);
+    }
+  }
+
+  // ── Center sphere: identity quaternion (1,0,0,0) → origin ────────────────
+  // This IS the intersection of all three golden rectangles.
+  // Physically: the center of the Hopfion, the fixed point of all 120 symmetries.
+  const cGeo=new THREE.SphereGeometry(0.18,12,12);
+  const cMat=new THREE.MeshStandardMaterial({
+    color:0xffffff,emissive:0xffffff,emissiveIntensity:0.8,
+    transparent:true,opacity:0.95
+  });
+  addL('ico',new THREE.Mesh(cGeo,cMat));
+  const pl=new THREE.PointLight(0xffffff,0.8,4);pl.position.set(0,0,0);addL('ico',pl);
+  // Label
+  const cv2=document.createElement('canvas');cv2.width=140;cv2.height=40;
+  const ctx2=cv2.getContext('2d');ctx2.font='14px Georgia';ctx2.fillStyle='#ffffff';
+  ctx2.shadowColor='#000';ctx2.shadowBlur=5;ctx2.fillText('1∈2I · identity',2,28);
+  const lbl=new THREE.Mesh(new THREE.PlaneGeometry(0.9,.25),
+    new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(cv2),transparent:true,depthWrite:false,side:THREE.DoubleSide}));
+  lbl.position.set(0.5,0.3,0);addL('ico',lbl);
+}
+
+// ── BUILD ─────────────────────────────────────────────────────────────────────
+document.getElementById('loading').style.display='none';
+
+// Boot animation: morph from boost=0 to boost=1 over 2.5s
+let bootPhase = true;
+const BOOT_DURATION = 2500;
+const BOOT_START = Date.now();
+boost = 0;  // start at 0 for animation
+
+//buildCloud(DCOUNTS[curD], curRmax, 0);
+//buildRing(0);
+//buildAllBVP(0);
+//buildCross(0);
+//buildCoreAxis(0);
+build600Cell();
+
+// ── LIVE STATS ────────────────────────────────────────────────────────────────
+function F_BPS(C){return C*(2*C+1)/((C*C+1)*(3*C-1));}
+const R_WZW = Math.pow(2,4/3)/Math.pow((1+Math.sqrt(5))/2,5);
+function updateStats(bst){
+  const Delta1 = Math.min(shafranovShift(1.0)*bst, Math.max(0,R0-1.0*(1-0.067)-0.2));
+  const d_in   = densLookup(1.0, Math.PI);
+  const d_out  = densLookup(1.0, 0.0);
+  const ratio  = d_out>0 ? d_in/d_out : 1;
+  const r_cen  = (R0-Delta1).toFixed(3);
+  document.getElementById('stats').innerHTML =
+    `<span style="color:#888">Live · deformation=${bst.toFixed(2)}</span><br>`+
+    `Δ(ρ=1) = ${Delta1.toFixed(3)} · r<sub>center</sub> = ${r_cen}<br>`+
+    `Inner/outer = ${ratio.toFixed(1)}× · Shafranov=${(Delta1/R0*100).toFixed(1)}% R₀`;
+}
+updateStats(0);
+
+// ── SLIDERS ───────────────────────────────────────────────────────────────────
+function trk(el){const mn=+el.min,mx=+el.max,v=+el.value;el.style.setProperty('--pct',((v-mn)/(mx-mn)*100).toFixed(1)+'%');}
+function rebuildAll(){buildCloud(DCOUNTS[curD],curRmax,boost);buildRing(boost);buildAllBVP(boost);buildCross(boost);buildCoreAxis(boost);updateStats(boost);}
+document.getElementById('op').addEventListener('input',function(){
+  trk(this); bvpOpacity=+this.value/100;
+  document.getElementById('opv').textContent=this.value+'%';
+  buildAllBVP(boost);
+}); trk(document.getElementById('op'));
+const DL=['8k','20k','40k','65k','100k'];
+document.getElementById('dc').addEventListener('input',function(){trk(this);curD=+this.value-1;document.getElementById('dv').textContent=DL[curD];buildCloud(DCOUNTS[curD],curRmax,boost);});trk(document.getElementById('dc'));
+document.getElementById('rc').addEventListener('input',function(){trk(this);curRmax=+this.value;document.getElementById('rv').textContent=curRmax.toFixed(1);buildCloud(DCOUNTS[curD],curRmax,boost);});trk(document.getElementById('rc'));
+document.getElementById('sc').addEventListener('input',function(){
+  trk(this); boost=+this.value; bootPhase=false;
+  document.getElementById('sv').textContent=boost.toFixed(2);
+  rebuildAll();
+}); trk(document.getElementById('sc'));
+
+// ── AUTO-ROTATION: resumes 3s after last user interaction ─────────────────────
+let lastInteract = 0, autoRotate = true;
+renderer.domElement.addEventListener('pointerdown', () => { autoRotate=false; lastInteract=Date.now(); });
+renderer.domElement.addEventListener('wheel',       () => { autoRotate=false; lastInteract=Date.now(); });
+
+const IC=camera.position.clone();
+window.resetCam=()=>{camera.position.copy(IC);orb.target.set(0,0,0);orb.update();};
+const ringLights=LAY.ring.filter(o=>o.isLight);
+
+function animate(){
+  requestAnimationFrame(animate); orb.update();
+
+  // Boot animation
+  if (bootPhase) {
+    const elapsed = Date.now() - BOOT_START;
+    const t = Math.min(1, elapsed / BOOT_DURATION);
+    const eased = t < .5 ? 2*t*t : 1 - Math.pow(-2*t+2,2)/2; // ease-in-out
+    const newBoost = eased;
+    if (Math.abs(newBoost - boost) > 0.015) {
+      boost = newBoost;
+      document.getElementById('sc').value = boost;
+      trk(document.getElementById('sc'));
+      document.getElementById('sv').textContent = boost.toFixed(2);
+      rebuildAll();
+    }
+    if (t >= 1) { bootPhase = false; boost = 1.0; rebuildAll(); }
+  }
+
+  // Auto-rotation resumes 3s after last touch
+  if (!autoRotate && Date.now() - lastInteract > 3000) autoRotate = true;
+  if (autoRotate) scene.rotation.y += .0015;
+
+  const t=Date.now()*.0013;
+  ringLights.forEach(l=>l.intensity=1.4+0.7*Math.sin(t));
+  LAY.cross.filter(o=>o.isMesh&&o.material?.map).forEach(m=>m.quaternion.copy(camera.quaternion));
+  LAY.ico.filter(o=>o.isMesh&&o.material?.map).forEach(m=>m.quaternion.copy(camera.quaternion));
+  renderer.render(scene, camera);
+}
+animate();
+window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+
+// ── MOBILE: panel / controls slide-out ────────────────────────────────────
+const isMobile = () => window.innerWidth <= 700 || window.matchMedia('(pointer:coarse)').matches;
+
+let panelCollapsed    = false;
+let controlsCollapsed = false;
+let collapseTimer     = null;
+
+function setPanelCollapsed(v){
+  panelCollapsed = v;
+  const panel = document.getElementById('panel');
+  const tab   = document.getElementById('panel-tab');
+  if(!panel || !tab) return;
+  panel.classList.toggle('collapsed', v);
+  tab.classList.toggle('shifted', !v);
+  tab.innerHTML = v ? '&#8250;' : '&#8249;';
+}
+function setControlsCollapsed(v){
+  controlsCollapsed = v;
+  const ctrl = document.getElementById('controls');
+  const tab  = document.getElementById('controls-tab');
+  if(!ctrl || !tab) return;
+  ctrl.classList.toggle('collapsed', v);
+  tab.classList.toggle('shifted', !v);
+  tab.innerHTML = v ? '&#8249;' : '&#8250;';
+}
+window.togglePanel    = () => { setPanelCollapsed(!panelCollapsed);     resetCollapseTimer(); };
+window.toggleControls = () => { setControlsCollapsed(!controlsCollapsed); resetCollapseTimer(); };
+
+function resetCollapseTimer(){
+  if(!isMobile()) return;
+  clearTimeout(collapseTimer);
+  collapseTimer = setTimeout(() => {
+    setPanelCollapsed(true);
+    setControlsCollapsed(true);
+  }, 4000);
+}
+
+window.addEventListener('load', () => {
+  if(isMobile()){
+    setTimeout(() => { setPanelCollapsed(true); setControlsCollapsed(true); }, 2000);
+  }
+});
+
+['panel','controls'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('touchstart', () => resetCollapseTimer(), {passive:true});
+});
+</script>
+</body>
+</html>

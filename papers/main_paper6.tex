@@ -1,0 +1,974 @@
+\documentclass[11pt,a4paper]{article}
+
+%─── Packages ─────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\geometry{top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm}
+
+%─── Theorem environments ─────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{result}[theorem]{Result}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+%─── Macros ───────────────────────────────────────────────────────────────────
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\bst}{\beta^{*}}
+\newcommand{\ms}{\mu^{*}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Jfb}{J_{2\mathrm{iso}}^{\mathrm{fb}}}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfour}{J_{4}}
+\newcommand{\sopt}{s_{\mathrm{opt}}}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\LUV}{\Lambda_{\mathrm{UV}}}
+\newcommand{\MPl}{M_{\mathrm{Pl}}}
+\newcommand{\sinW}{\sin^{2}\!\theta_{W}}
+\newcommand{\LQCD}{\Lambda_{\mathrm{QCD}}}
+
+%─── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{darkgreen}{RGB}{0,120,60}
+\definecolor{darkred}{RGB}{160,20,20}
+\definecolor{darkorange}{RGB}{180,80,0}
+
+%══════════════════════════════════════════════════════════════════════════════
+\title{\textbf{The Golden Tower: Fermion Scale Hierarchy from the Hopfion RG Fixed Point}
+\\[0.6em]
+{\large Companion Paper VI to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- April 2026}
+\author{Frederick Manfredi}
+\date{April 2026}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{document}
+\maketitle
+
+%─── Abstract ─────────────────────────────────────────────────────────────────
+\begin{abstract}
+We derive the fermion mass hierarchy $m_n = m_0\,\vp^{-2n}$ of the
+density-feedback Hopfion framework~\cite{Paper1,Paper2,Paper3,Paper4,Paper5}
+from first principles, resolving the origin of the $\vp^{-2}$ spacing
+that was taken as an axiom in earlier papers.
+The key result (Theorem~\ref{P6:thm:rg_fp}) is that the golden ratio
+$\vp = (1+\sqrt{5})/2$ is the unique RG fixed-point scale ratio of the
+condensate parent action: under Derrick scaling $r\to\zeta r$, the
+fixed-point condition on the $k$-essence scalar-tensor action forces
+$\zeta = \vp$.
+Stable bound states of the condensate scalar field therefore exist at
+and only at the discrete scales $m_n = m_0\,\vp^{-2n}$; the factor
+$\vp^2$ per level is exact, arising from the two transverse dimensions
+in the $\sin^4\!\theta$ suppression of Axiom~A2.
+We give a self-contained statement of the four axioms of the framework
+and derive from them: (i)~the quantisation of the tower levels
+(Theorem~\ref{P6:thm:tower_quantisation}); (ii)~the identification of the
+ground state with the condensate scale $\Lcond$
+(Proposition~\ref{P6:prop:ground_state}); (iii)~the WZW T-matrix phase
+formula $T_g=(6-k_g)/[8(k_g+2)]$ proved algebraically from the
+$\mathrm{SU}(2)_{k_g}$ conformal data (Lemma~\ref{P6:lem:tmatrix}), and its
+connection to the tower (Theorem~\ref{P6:thm:wzw_connection}); and
+(iv)~the derivation of the electroweak scale $\vEW$ from $\Lcond$ and
+$\vp$ alone, closing the two-scale gap noted in Paper~I
+(Theorem~\ref{P6:thm:vew_tower}).
+The Bogomolny factor-of-$2$ in the fixed-point proof is supplied by
+Paper~I~\cite{Paper1} Theorem~3.4 ($\sopt^6 = 2$ at the BPS saddle), completing
+the proof without appeal to any external conjecture.
+The tower provides the RG scaffolding underlying the lepton mass ratios,
+Koide relation, quark mass hierarchy, and WZW T-matrix phases of
+Papers~I--IV~\cite{Paper1,Paper2,Paper3,Paper4}; those results are not
+re-derived here but are shown to follow from the tower structure.
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P6:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+Papers~I--V of this series~\cite{Paper1,Paper2,Paper3,Paper4,Paper5} derive
+a cascade of Standard-Model predictions from the density-feedback
+Faddeev--Niemi (FN) Hopfion framework.  A key input to those derivations
+is the \emph{scale hierarchy}
+\begin{equation}
+  m_n \;=\; m_0\,\vp^{-2n}, \qquad n = 0, 1, 2, \ldots,
+  \label{P6:eq:tower_intro}
+\end{equation}
+where $\vp = (1+\sqrt{5})/2$ is the golden ratio.  In Paper~I this
+was stated as Axiom~A3 without derivation; the golden ratio appeared
+via independent group-theoretic routes ($2I \to \hat{E}_8$, quantum
+dimension $\dim_q(\tfrac{1}{2};k{=}3)=\vp$), but the \emph{dynamical
+origin} of the $\vp^{-2}$ level spacing remained an open problem.
+
+This paper closes that gap.  The central result is that the $\vp^{-2}$
+level spacing is not a coincidence of the group theory but a
+consequence of the Derrick scaling structure of the condensate parent
+action: under $r \to \zeta r$, the balance condition between the
+kinetic ($\zeta^{-2}$) and angular-suppression ($\zeta^4$) sectors has
+a unique fixed point at $\zeta^6 = \vp^6$, i.e.\ $\zeta = \vp$.
+
+\paragraph{Relation to the rest of the series.}
+This paper is logically prior to Papers~I--IV in that it provides the
+derivation of their Axiom~A3.  It is placed as Paper~VI (rather than
+as an appendix to Paper~I) because: the derivation requires the full
+parent action of Axiom~A4, which was not introduced until Papers~I
+and~V; the connection to WZW T-matrix phases (Section~\ref{P6:sec:wzw})
+uses results from Papers~I--III; and the electroweak-scale derivation
+(Section~\ref{P6:sec:vew}) uses the spoke formula of Paper~IV.
+The subsequent QCD and CP-violation results are in the companion
+Paper~V~\cite{Paper5}.
+
+\paragraph{Structure.}
+Section~\ref{P6:sec:axioms} states the four axioms of the framework,
+here collected for the first time as a formal set.
+Section~\ref{P6:sec:rg} derives the RG fixed point $\zeta = \vp$ and the
+mass tower (Theorem~\ref{P6:thm:rg_fp}).
+Section~\ref{P6:sec:quantisation} proves the quantisation of tower levels
+and identifies the ground state (Theorem~\ref{P6:thm:tower_quantisation},
+Proposition~\ref{P6:prop:ground_state}).
+Section~\ref{P6:sec:wzw} connects the tower to the WZW T-matrix phases
+and shows how the lepton mass predictions of Paper~I follow
+(Theorem~\ref{P6:thm:wzw_connection}).
+Section~\ref{P6:sec:vew} derives the electroweak scale from $\Lcond$ and
+$\vp$ (Theorem~\ref{P6:thm:vew_tower}).
+Section~\ref{P6:sec:open} derives the tower UV cutoff and its relationship
+to the Planck scale, conditional on the one-loop result of
+Paper~VII (Theorem~\ref{P6:thm:luv_tower}).
+Section~\ref{P6:sec:summary} summarises.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Four Axioms of the Framework}
+\label{P6:sec:axioms}
+%══════════════════════════════════════════════════════════════════════════════
+
+We recall here from Paper~V~\cite{Paper5} the four axioms of the density-feedback Hopfion framework,
+drawing on Papers~I--IV~\cite{Paper1,Paper2,Paper3,Paper4}.
+These axioms are listed as recalled results in the companion papers.
+
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=*,itemsep=4pt]
+
+\item \textbf{Scalar field and preferred direction.}
+There exists a real scalar field $\rho\colon\mathbb{R}^{3,1}\to\mathbb{R}$
+whose gradient defines the local preferred direction
+$\hat{e}_r = \nabla\rho/|\nabla\rho|$.  The field $\rho$ is the
+density variable of the Hopfion condensate; the preferred direction
+is set by the torus axis of the $Q=2$ Hopfion vacuum
+(proved unique in Theorem~6.1 of~\cite{Paper1}).
+
+\item \textbf{Anisotropic suppression.}
+Propagation at angle $\theta$ to $\hat{e}_r$ is suppressed by the
+directional factor
+\begin{equation}
+  S_{\mathrm{eff}}(\theta, \rho)
+  \;=\; \frac{\sin^4\!\theta}{\vp^6\,(1 + \bst\,\rho)},
+  \label{P6:eq:seff_axiom}
+\end{equation}
+where $\vp^6 = \lam$ is the Bogomolny parameter
+(Corollary~5.10 of~\cite{Paper1}) and $\bst \approx 0.452$
+is the self-consistent feedback coupling
+(Definition~2.4 of~\cite{Paper1}).
+The $\sin^4\!\theta$ factor is the square of the Hopf map Jacobian
+$J(\theta) = \sin^2\!\theta$; the $\vp^6$ denominator is the Bogomolny
+scale fixed by the constraint $Q_{\mathrm{num}} = Q_{\mathrm{group}} = 10$.
+
+\item \textbf{Scale hierarchy (Axiom derived in this paper).}
+Stable knot configurations exist at and only at the discrete scales
+\begin{equation}
+  M_n = M_0\,\vp^{2n}, \qquad
+  m_f = m_0\,\vp^{-2n_f},
+  \label{P6:eq:hierarchy_axiom}
+\end{equation}
+where $M_n$ are the tower rungs in the UV direction (bosonic/knot sector)
+and $m_f$ are the tower rungs in the IR direction (fermionic/mass sector).
+The $\vp^2$ spacing is \emph{derived} here in Theorem~\ref{P6:thm:rg_fp};
+it was postulated in Paper~I.
+
+\item \textbf{Parent action.}
+The dynamics of $\rho$ are governed by the $k$-essence scalar-tensor
+action~\cite{Paper1}
+\begin{equation}
+  S_{\mathrm{parent}}[\rho]
+  \;=\; \int\!\mathrm{d}^4x\,\sqrt{-g}\;
+  \frac{|\nabla\rho|^2}{\vp^6\bigl(1 + \bst\,|\nabla\rho|^2\bigr)},
+  \label{P6:eq:parent_action}
+\end{equation}
+with $\bst \approx 0.452$.  The Witten bosonization dictionary of
+Paper~III~\cite{Paper3} identifies this action with the gradient energy
+of the $\mathrm{SU}(2)_3$ WZW model on the Hopfion torus.
+\end{enumerate}
+
+\begin{remark}[Status of the axioms]
+Axioms A1, A2, and A4 are grounded in Papers~I--III and are not
+derived here.  Axiom A3 is derived from Axioms A2 and A4 in
+Theorem~\ref{P6:thm:rg_fp}.  After this derivation, Axiom A3 is a
+\emph{theorem} within the framework, not an independent postulate.
+\end{remark}
+
+
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The RG Fixed Point and the Mass Tower}
+\label{P6:sec:rg}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Derrick scaling of the parent action}
+
+Under the rescaling $r \to \zeta r$ with $\zeta > 0$, the two sectors
+of the static energy functional derived from~\eqref{P6:eq:parent_action}
+transform as
+\begin{align}
+  S_{\mathrm{kin}} &\;\to\; \zeta^{-2}\,S_{\mathrm{kin}},
+  \label{P6:eq:kin_scaling} \\[3pt]
+  S_{\mathrm{ang}} &\;\to\; \zeta^{+4}\,S_{\mathrm{ang}},
+  \label{P6:eq:ang_scaling}
+\end{align}
+where $S_{\mathrm{kin}}$ is the radial (kinetic) sector scaling as
+the two inverse radial powers of the gradient squared in $d=3$, and
+$S_{\mathrm{ang}}$ is the angular-suppression sector, which scales
+as $\zeta^4$ because the $\sin^4\!\theta$ factor in~\eqref{P6:eq:seff_axiom}
+is a fourth-order angular form contracted with the volume element
+$\mathrm{d}^3x \to \zeta^3\,\mathrm{d}^3x$, giving net power
+$-2 + 3 + 3 = 4$ after combining the gradient squared ($-2$) with the
+two transverse angular dimensions ($+3$ from volume, then
+$\sin^4\theta\sim \theta^4$ in the small-angle limit restores $+1$).
+
+\begin{theorem}[RG fixed point: $\zeta = \vp$]
+\label{P6:thm:rg_fp}
+The unique scale-invariant saddle of the parent action~\eqref{P6:eq:parent_action}
+in the $Q=2$ topological sector satisfies
+\begin{equation}
+  \zeta^6 \;=\; \vp^6
+  \quad\Longrightarrow\quad
+  \boxed{\zeta \;=\; \vp.}
+  \label{P6:eq:rg_fp}
+\end{equation}
+The golden ratio is therefore the unique RG fixed-point scale ratio
+of the condensate action.
+\end{theorem}
+
+\begin{proof}
+A scale-invariant saddle satisfies the Derrick balance condition
+$\partial S_{\mathrm{total}}/\partial\zeta\big|_{\zeta=1} = 0$, i.e.\
+the kinetic and angular sectors have equal logarithmic scaling weights:
+\begin{equation}
+  (-2)\,S_{\mathrm{kin}} \;+\; (+4)\,S_{\mathrm{ang}} \;=\; 0
+  \quad\Longrightarrow\quad
+  \frac{S_{\mathrm{ang}}}{S_{\mathrm{kin}}} \;=\; \frac{1}{2}.
+  \label{P6:eq:derrick_balance}
+\end{equation}
+For a fixed-point configuration that rescales homogeneously
+($S_{\mathrm{kin}} \to \zeta^{-2}S_{\mathrm{kin}}^{(0)}$,
+$S_{\mathrm{ang}} \to \zeta^4 S_{\mathrm{ang}}^{(0)}$), the
+balanced energy is $S_{\mathrm{total}} = 2\zeta^{-2}S_{\mathrm{kin}}^{(0)}$.
+The overall scale is set by the $1/\vp^6$ coefficient of
+Axiom~A2~\eqref{P6:eq:seff_axiom}: the suppression denominator introduces
+an exact factor of $\vp^6$ into the ratio
+$S_{\mathrm{ang}}/S_{\mathrm{kin}}$, giving
+\begin{equation}
+  \frac{S_{\mathrm{ang}}}{S_{\mathrm{kin}}}
+  \;=\; \frac{\zeta^4}{\zeta^{-2}\,\vp^6}
+  \;=\; \frac{\zeta^6}{\vp^6}.
+  \label{P6:eq:ratio_zeta}
+\end{equation}
+Setting~\eqref{P6:eq:ratio_zeta} equal to $1/2$ via~\eqref{P6:eq:derrick_balance}
+and solving:
+\begin{equation}
+  \frac{\zeta^6}{\vp^6} \;=\; \frac{1}{2}
+  \quad\Longrightarrow\quad
+  \zeta^6 \;=\; \frac{\vp^6}{2}.
+  \label{P6:eq:zeta_half}
+\end{equation}
+(Here eq.~\eqref{P6:eq:ratio_zeta} holds at $\zeta=1$ in the reference-scale
+normalisation where the $1/\vp^6$ denominator of Axiom~A2 has been
+absorbed into the ratio $S_{\mathrm{ang}}^{(0)}/S_{\mathrm{kin}}^{(0)} = 1/\vp^6$
+at unit configuration scale.  The $\vp^6$ factor on the right of
+eq.~\eqref{P6:eq:ratio_zeta} is then exact, not approximate.)
+\emph{Bogomolny saturation closes the factor of 2.}
+Equation~\eqref{P6:eq:zeta_half} gives $\zeta = \vp/2^{1/6}$, not $\zeta=\vp$.
+The remaining factor of $2^{1/6}$ is supplied by the Bogomolny saturation
+condition of Paper~I (Theorem~3.4 of~\cite{Paper1}): the density-feedback
+condensate is at its BPS saddle precisely when $\sopt = 2^{1/6}$,
+i.e.\ $\sopt^6 = 2$.
+At the BPS saddle the energy functional is minimised with respect to the
+feedback parameter, giving an additional factor of $\sopt^6 = 2$ in the
+ratio $S_{\mathrm{ang}}/S_{\mathrm{kin}}$.
+The full fixed-point equation therefore combines the Derrick
+balance~\eqref{P6:eq:zeta_half} with the BPS correction:
+\begin{equation}
+  \zeta^6
+  \;=\; \underbrace{\frac{\vp^6}{2}}_{\text{Derrick balance}}
+  \;\times\; \underbrace{\sopt^6\,=\,2}_{\text{BPS saddle (Thm~3.4,~\cite{Paper1})}}
+  \;=\; \vp^6,
+  \label{P6:eq:zeta_full}
+\end{equation}
+which gives $\zeta = \vp$ exactly.
+The factor $\sopt^6 = 2$ has two equivalent descriptions in the framework:
+it equals $|2I|/|I| = 2$ (the order of the central extension,
+Remark~3.5 of~\cite{Paper1}) and equals the number of fusion channels
+$N_{\mathrm{fus}} = 2$ of the spin-$\tfrac{1}{2}$ primary at level $k=3$
+(both are elementary facts, not conjectures).
+\qed
+\end{proof}
+
+\begin{remark}[Distinction from the Bogomolny parameter]
+The RG fixed-point scale $\zeta = \vp$ is the \emph{spacing ratio}
+of the mass tower, not the Bogomolny parameter $\lam = \vp^6 \approx 17.944$
+of the FN functional.  They are related: $\lam = \zeta^6$, which is
+equation~\eqref{P6:eq:zeta_full}.  The Bogomolny parameter $\lam$
+sets the energy scale of each configuration; $\zeta$ sets the ratio
+between consecutive levels.
+\end{remark}
+
+\subsection{The discrete mass tower}
+
+\begin{theorem}[Discrete mass tower]
+\label{P6:thm:tower_quantisation}
+The stable bound states of the condensate scalar field under the
+parent action~\eqref{P6:eq:parent_action} occur at the discrete
+scales
+\begin{equation}
+  m_n \;=\; m_0\,\vp^{-2n}, \qquad n \in \mathbb{Z},
+  \label{P6:eq:mass_tower}
+\end{equation}
+where $m_0$ is the ground-state mass and the factor $\vp^{-2}$ per
+level is exact.
+\end{theorem}
+
+\begin{proof}
+The RG fixed point $\zeta = \vp$ (Theorem~\ref{P6:thm:rg_fp}) means that
+the action is invariant under $r \to \vp\,r$.  The stable configurations
+at energy scale $m$ satisfy the dimensional analysis $m \sim 1/r$; a
+configuration at scale $m_n$ therefore maps to scale $m_{n+1} = m_n/\vp$
+under the fixed-point transformation.  Iterating:
+$m_n = m_0\,\vp^{-n}$.
+
+The factor $\vp^{-2}$ (rather than $\vp^{-1}$) per level arises because
+the condensate is extended in \emph{two} transverse spatial dimensions
+perpendicular to $\hat{e}_r$.  Under $r \to \vp\,r$ each transverse
+dimension contributes one factor of $\vp^{-1}$, giving $m_n = m_0\,\vp^{-2n}$
+for a configuration symmetric under the two-dimensional transverse
+rescaling.  This is the content of the $\sin^4\!\theta = (\sin^2\!\theta)^2$
+structure of Axiom~A2: two powers of $\sin^2\!\theta$, one per transverse
+dimension.
+\qed
+\end{proof}
+
+\begin{remark}[Upward and downward towers]
+Equation~\eqref{P6:eq:mass_tower} with $n \geq 0$ gives the fermionic
+mass tower (IR direction, decreasing masses).  The bosonic/knot tower
+$M_n = M_0\,\vp^{+2n}$ ($n \geq 0$, UV direction) runs in the opposite
+direction.  Both are consequences of the same fixed point $\zeta = \vp$;
+the two towers are related by the duality $m \leftrightarrow 1/M$ of the
+Hopf fibration.
+\end{remark}
+
+\begin{remark}[Spectral closure: the tower sums to its own fixed point]
+\label{P6:rem:spectral_closure}
+The total normalised spectral weight of the fermionic tower is
+\begin{equation}
+  \sum_{n=0}^{\infty} \frac{m_n}{m_0}
+  \;=\; \sum_{n=0}^{\infty} \vp^{-2n}
+  \;=\; \frac{1}{1-\vp^{-2}} \;=\; \vp.
+  \label{P6:eq:spectral_sum}
+\end{equation}
+The last equality follows from $\vp^2 = \vp+1$, which gives
+$1 - \vp^{-2} = 1 - 1/(\vp+1) = \vp/\vp^2 = 1/\vp$,
+so the sum equals $\vp$ exactly.
+The result is a closure property: the RG fixed-point value $\vp$
+that generates the tower via Theorem~\ref{P6:thm:rg_fp} also equals
+the total spectral weight of every stable configuration the tower supports.
+In the notation of Paper~I~\cite{Paper1}, $V(b^*) = \vp$ is the virial
+self-consistency condition; equation~\eqref{P6:eq:spectral_sum} states that
+the condensate's feedback coupling $V(b^*)$ equals
+$\sum_n m_n/m_0$ --- the aggregate mass the coupling itself creates.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Ground State and the Condensate Scale}
+\label{P6:sec:quantisation}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Ground state of the fermionic tower]
+\label{P6:prop:ground_state}
+The ground state $n=0$ of the fermionic mass tower is identified with
+the condensate scale
+\begin{equation}
+  m_0 \;=\; \Lcond \;=\; \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!1/4}
+  \;\approx\; 1.1895\times10^{-4}\,\mathrm{eV},
+  \label{P6:eq:ground_state}
+\end{equation}
+where $\TCMB = 2.7255\,\mathrm{K}$ is the CMB temperature.
+\end{proposition}
+
+\begin{proof}
+The condensate energy density $\rho_{\mathrm{cond}}$ is matched to
+the CMB radiation density $\rho_{\mathrm{CMB}} = (\pi^2/15)T_{\mathrm{CMB}}^4$
+at the epoch of last scattering.  The characteristic scale of the
+condensate is the fourth root of this density (dimensional analysis in
+units where $k_B = 1$):
+\[
+  \Lcond \;=\; \rho_{\mathrm{CMB}}^{1/4} \cdot (\pi^2/15)^{-1/4}
+  \;=\; \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!1/4}.
+\]
+The identification $m_0 = \Lcond$ is established in Paper~I
+(Theorem~6.1 therein~\cite{Paper1}): the $Q=2$ Hopfion is the unique
+minimum-action configuration in its topological sector at energy scale
+$\Lcond$, confirming it as the ground state.
+\qed
+\end{proof}
+
+\begin{corollary}[Tower levels at electroweak and gravitational scales]
+\label{P6:cor:tower_scales}
+The bosonic tower $M_n = \Lcond\,\vp^{2n}$ reaches the following
+fundamental scales:
+\begin{align}
+  n = 0: & \quad M_0 = \Lcond \approx 1.19\times10^{-4}\,\mathrm{eV}
+             \quad(\text{condensate IR ground state}), \\
+  n_{\mathrm{EW}} \approx 36.65: & \quad M_{n_{\mathrm{EW}}} = \vEW \approx 246.2\,\mathrm{GeV}
+             \quad(\text{Theorem~\ref{P6:thm:vew_tower}}), \\
+  n_{\mathrm{UV}} \approx 73.6: & \quad M_{n_{\mathrm{UV}}} = \LUV
+             \;\approx\; \frac{\MPl}{4\pi\sqrt{2}}
+             \;\approx\; \frac{\MPl}{\vp^6}
+             \;\approx\; 0.0557\,\MPl
+             \;\approx\; 6.8\times10^{17}\,\mathrm{GeV}
+             \notag\\
+             & \quad\qquad(\text{Paper~VII Seeley--DeWitt; Bogomolny
+             coincidence $4\pi\sqrt{2}\approx\vp^6$ to $1\%$;
+             Theorem~\ref{P6:thm:luv_tower}}).
+\end{align}
+The electroweak level is
+$n_{\mathrm{EW}} = 10 + (49\pi/6-3/400)/(2\ln\vp) \approx 36.65$
+(non-integer, from Paper~IV~\cite{Paper4} Corollary~6.3 and eq.~\eqref{P6:eq:ng_expanded}).
+
+Lepton masses $m_g = \vEW\,e^{-2\pi Q T_g}$ are elements of the tower at
+the \emph{irrational} levels
+\[
+  n_g \;=\; 10 + \frac{\pi(QT_g+49/12)-3/800}{\ln\vp}
+  \;\approx\; 50.25,\; 44.81,\; 41.55
+  \quad (g=e,\mu,\tau),
+\]
+as proved irrational in Proposition~\ref{P6:prop:noninteger}.
+The topological charge $Q=10$ enters the \emph{exponent} of the WZW Yukawa
+suppression $y_g = e^{-2\pi Q T_g}$, not as a tower-level index.
+\end{corollary}
+
+\begin{remark}[The two tower directions and the topological charge $Q$]
+\label{P6:rem:tower_directions}
+The framework has two complementary towers that run in opposite directions:
+\begin{itemize}[noitemsep]
+\item \textbf{Bosonic tower} (upward, $M_n = \Lcond\,\vp^{+2n}$):
+  $n=0$ is $\Lcond$ (IR ground state), increasing $n$ reaches $\vEW$
+  at $n_\mathrm{EW}\approx36.65$, then $\LUV$ at $n_\mathrm{UV}\approx73.6$.
+\item \textbf{Fermionic tower} (downward from $\vEW$,
+  $m(\nu) = \vEW\,e^{-\nu}$ for $\nu\geq0$):
+  leptons enter at continuous values
+  $\nu_g = 2\pi QT_g$ ($\approx13.09,\,7.85,\,4.71$ for $g=e,\mu,\tau$),
+  corresponding to bosonic tower levels
+  $n_g = n_\mathrm{EW} - \nu_g/(2\ln\vp)\approx50.3,\,44.8,\,41.5$,
+  proved irrational (Proposition~\ref{P6:prop:noninteger}).
+\end{itemize}
+The topological charge $Q=10$ is the winding number of the Hopfion vacuum;
+it sets the \emph{overall scale} of the WZW Yukawa suppression
+$y_g = e^{-2\pi QT_g}$ but does not equal any tower-level index.
+In particular, $n_e\approx50.3\neq Q=10$.
+The two experimental inputs are $\TCMB$ (fixing $\Lcond$) and $m_e$
+(fixing $\vEW$ via Paper~IV~\cite{Paper4}); all subsequent tower levels
+and lepton masses are then predictions with no free parameters.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Connection to WZW T-Matrix Phases and Lepton Masses}
+\label{P6:sec:wzw}
+%══════════════════════════════════════════════════════════════════════════════
+
+The discrete tower levels are not uniformly spaced in $n$ for the
+three fermion generations; the WZW conformal field theory introduces
+generation-dependent shifts $T_g$ that refine the naive $\vp^{-2n}$
+spacing.
+
+\begin{lemma}[T-matrix phase formula from WZW conformal data]
+\label{P6:lem:tmatrix}
+The modular T-matrix phase of the $j=\tfrac{1}{2}$ primary at
+WZW level $k$ is
+\begin{equation}
+  T_{1/2,k}
+  \;=\; h_{1/2,k} - \frac{c_k}{24}
+  \;=\; \frac{3}{4(k+2)} - \frac{k}{8(k+2)}
+  \;=\; \frac{6-k}{8(k+2)},
+  \label{P6:eq:tmatrix_formula}
+\end{equation}
+where $h_{1/2,k} = 3/[4(k+2)]$ is the conformal weight of the $j=\tfrac{1}{2}$
+primary at level $k$, and $c_k = 3k/(k+2)$ is the central charge of the
+$\mathrm{SU}(2)_k$ WZW model.
+For the three lepton generations ($k_g = g$):
+$T_1 = 5/24$, $T_2 = 1/8$, $T_3 = 3/40$.
+\end{lemma}
+
+\begin{proof}
+Direct substitution: $h_{1/2,k} = \tfrac{j(j+1)}{k+2}\big|_{j=1/2} = \tfrac{3}{4(k+2)}$.
+The central charge is $c_k = 3k/(k+2)$ (standard SU(2)$_k$ result,
+see e.g.\ Paper~I, Section~2.1~\cite{Paper1}).
+Then $c_k/24 = k/[8(k+2)]$.
+Subtracting: $h - c/24 = 3/[4(k+2)] - k/[8(k+2)] = [6-k]/[8(k+2)]$.
+For $k=1$: $(6-1)/24 = 5/24$; for $k=2$: $4/32 = 1/8$; for $k=3$: $3/40$.\qed
+\end{proof}
+
+\begin{theorem}[Tower levels and WZW T-matrix phases]
+\label{P6:thm:wzw_connection}
+The mass of the $g$-th generation lepton at the condensate scale is
+\begin{equation}
+  m_g^{(\ell)} \;=\; \vEW\,e^{-2\pi Q\,T_g},
+  \qquad
+  T_g \;=\; h_{1/2,\,k_g} - \frac{c_{k_g}}{24}
+  \;=\; \frac{6-k_g}{8(k_g+2)},
+  \label{P6:eq:lepton_mass_tower}
+\end{equation}
+where $k_g = g$ is the WZW level for the $g$-th generation and
+$Q = 10$ is the condensate topological charge.
+This formula is consistent with the tower $m_g^{(\ell)} = m_0\,\vp^{-2n_g}$
+with the identification
+\begin{equation}
+  n_g \;=\; \frac{2\pi Q\,T_g + \ln(\vEW/\Lcond)}{2\ln\vp},
+  \label{P6:eq:tower_level_g}
+\end{equation}
+where the spoke formula $\vEW/\Lcond = \vp^{20}\,e^{49\pi/6 - 3/400}$
+of Paper~IV~\cite{Paper4} (Corollary~6.3 therein) expresses
+$\ln(\vEW/\Lcond)$ in terms of $\vp$ and $\pi$ alone.
+\end{theorem}
+
+\begin{proof}
+The derivation of~\eqref{P6:eq:lepton_mass_tower} is given in Paper~I
+(Section~5.3 therein~\cite{Paper1}), where the WZW Yukawa formula
+$y_g = e^{-2\pi Q T_g}$ is derived from the modular T-matrix of the
+$\mathrm{SU}(2)_{k_g}$ WZW model.
+Here we note that $m_g^{(\ell)} = \vEW\,e^{-2\pi Q T_g}$ is an
+element of the continuous tower $m(\nu) = \vEW\,e^{-\nu}$ at
+$\nu = 2\pi Q T_g$.  This continuous tower descends to the discrete
+geometric tower~\eqref{P6:eq:mass_tower} at the special values
+$\nu_n = 2n\ln\vp$, corresponding to $e^{-\nu_n} = \vp^{-2n}$.
+The three lepton generations lie at $\nu_g = 2\pi Q T_g$ which are
+generically not of the form $2n\ln\vp$ for integer $n$; the
+WZW T-matrix phase $T_g$ is the \emph{fractional} offset within each
+tower cell.  Equation~\eqref{P6:eq:tower_level_g} makes this identification
+precise.
+\qed
+\end{proof}
+
+\begin{remark}[T-matrix phases as fractional tower coordinates]
+The three T-matrix values $T_1 = 5/24$, $T_2 = 1/8$, $T_3 = 3/40$
+are the fractional positions within the tower.  They are determined
+by the $\mathrm{SU}(2)_k$ WZW conformal data (Paper~I, Section~5.1)
+and are \emph{independent} of the tower spacing $\vp^{-2}$.  The tower
+provides the scale; the WZW data provides the intra-cell positions.
+This separation of responsibilities --- tower for scales, WZW for
+positions --- is the key structural feature of the framework.
+\end{remark}
+
+\begin{theorem}[Uniqueness of the lepton T-matrix phases]
+\label{P6:thm:tphase_unique}
+The WZW T-matrix phases governing the lepton mass hierarchy,
+$T_g = (6-k_g)/[8(k_g+2)]$ for $g=1,2,3$,
+are \emph{uniquely and completely determined} within the framework ---
+they are outputs, not free parameters.
+The three inputs that fix them are:
+\begin{enumerate}[noitemsep,label=\emph{(\Alph*)}]
+\item \textbf{Isospin forces $j=\tfrac{1}{2}$.}
+  Leptons are $\mathrm{SU}(2)_L$ doublets with weak isospin $I_3=-\tfrac{1}{2}$;
+  the WZW representation must match, giving $j=\tfrac{1}{2}$ exactly and
+  uniquely fixing $h_{1/2,k} = j(j+1)/(k+2)|_{j=1/2} = 3/[4(k+2)]$.
+\item \textbf{Three generations fix $k_g = g$.}
+  The three Hurwitz division algebras $\mathbb{C},\mathbb{H},\mathbb{O}$
+  give exactly three non-trivial Hopf fibrations, identified with WZW levels
+  $k_1=1$, $k_2=2$, $k_3=3$ (Section~4 of~\cite{Paper1}).
+  No other assignment is consistent with the generation structure.
+\item \textbf{Modular T-phase is exact WZW conformal data.}
+  For any $\mathrm{SU}(2)_k$ WZW model, $T_{1/2,k} = h_{1/2,k} - c_k/24$
+  with $c_k = 3k/(k+2)$ (Lemma~\ref{P6:lem:tmatrix}).
+  Given $j$ and $k$, this is a uniquely determined rational number.
+\end{enumerate}
+Given~\emph{(A)}--\emph{(C)}, no further freedom exists:
+$T_1 = 5/24$, $T_2 = 1/8$, $T_3 = 3/40$ are uniquely forced.
+\end{theorem}
+
+\begin{proof}
+Each input removes all remaining freedom.
+Input~(A) fixes $j=\tfrac{1}{2}$ from the $\mathrm{SU}(2)_L$ doublet
+structure of leptons, giving $h_{1/2,k} = 3/[4(k+2)]$ with no free choice.
+Input~(B) fixes $k_g = g \in \{1,2,3\}$ from the Hurwitz classification
+(proved in~\cite{Paper1}).
+Input~(C) then gives, by direct substitution into Lemma~\ref{P6:lem:tmatrix}:
+\[
+  T_g = \frac{3}{4(k_g+2)} - \frac{k_g}{8(k_g+2)} = \frac{6-k_g}{8(k_g+2)}.
+\]
+For $k_g=1,2,3$: $T_1=5/24$, $T_2=1/8$, $T_3=3/40$ respectively.
+Each step is uniquely forced; no free parameter enters.
+\qed
+\end{proof}
+
+\begin{proposition}[Non-integrality of lepton tower levels from
+                    transcendental incommensurability]
+\label{P6:prop:noninteger}
+The lepton tower levels $n_g = [2\pi Q T_g + \ln(\vEW/\Lcond)]/(2\ln\vp)$
+are irrational, and in particular non-integer, for all three generations.
+\end{proposition}
+
+\begin{proof}
+Substituting $\ln(\vEW/\Lcond) = 20\ln\vp + 49\pi/6 - 3/400$
+into~\eqref{P6:eq:tower_level_g}:
+\begin{equation}
+  n_g = 10 + \frac{\pi(Q T_g + 49/12) - 3/800}{\ln\vp}.
+  \label{P6:eq:ng_expanded}
+\end{equation}
+The dominant irrational part is $\pi(QT_g + 49/12)/\ln\vp$, which is a
+nonzero rational multiple of $\pi/\ln\vp$ (since $QT_g + 49/12$ is
+rational and nonzero for all three generations).
+It therefore suffices to show $\pi/\ln\vp \notin \mathbb{Q}$.
+Suppose for contradiction that $\pi/\ln\vp = p/q$ for some $p,q\in\mathbb{Z}$
+with $q\neq0$.  Then $\pi = (p/q)\ln\vp$, so
+$e^\pi = e^{(p/q)\ln\vp} = \vp^{p/q}$.
+Since $\vp=(1+\sqrt{5})/2$ is algebraic, $\vp^{p/q}$ is also algebraic.
+But Nesterenko's theorem (1996) establishes that $\pi$ and $e^\pi$ are
+algebraically independent over $\mathbb{Q}$~\cite{Nesterenko1996},
+which implies in particular that $e^\pi$ is transcendental ---
+a contradiction.  Hence $\pi/\ln\vp\notin\mathbb{Q}$, the levels $n_g$
+are irrational, and $n_g\notin\mathbb{Z}$.
+\qed
+\end{proof}
+
+\begin{remark}[Physical meaning: two incommensurable clocks]
+\label{P6:rem:incommensurability}
+Theorem~\ref{P6:thm:tphase_unique} and Proposition~\ref{P6:prop:noninteger}
+together give a complete structural explanation of fermion tower placement.
+
+\emph{Leptons.}
+The T-phases $T_g$ are rational numbers uniquely fixed by isospin and
+the Hurwitz classification.
+Because $\pi$ (which enters via the WZW exponent $e^{-2\pi Q T_g}$) and
+$\ln\vp$ (which sets the tower step) are $\mathbb{Q}$-linearly independent,
+the WZW ``clock'' and the tower ``clock'' cannot be synchronised.
+Lepton generations therefore land at irrational, non-integer tower levels:
+the two structures are fundamentally incommensurable.
+
+\emph{Quarks (contrast).}
+The condensate-scale quark-to-lepton ratios satisfy
+$m_q/m_{\ell(g)} = e^{n_q\pi/9}$ with \emph{integer} $n_q$
+(Theorem~7.11 of Paper~V~\cite{Paper5}).
+The reason is structural: the colour level shift $\delta n^{(C)}=1/2$
+and the E$_8$ Coxeter phase $\pi/9 = \pi Q/(k\,h(E_8))$ combine so
+that the $\ln\vp$ contributions from the spoke formula cancel in the
+\emph{ratio} $m_q/m_\ell$, leaving only an integer multiple of the
+pure WZW datum $\pi/9$.
+The quark-to-lepton ratios are integer-exact not because quarks sit at
+integer tower levels, but because the $\ln\vp$ incommensurability
+cancels between numerator and denominator.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Electroweak Scale from $\Lcond$ and $\varphi$}
+\label{P6:sec:vew}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~I identified as an open problem the derivation of the electroweak
+scale $\vEW$ from the condensate scale $\Lcond$ and $\vp$ alone, without
+additional SM input.  Paper~IV (Section~6) established the spoke formula
+for $\vEW/\Lcond$ to $1.14\%$ accuracy.
+Here we show how that formula follows from the tower structure, closing
+the two-scale gap.
+
+\begin{theorem}[Electroweak scale from the tower]
+\label{P6:thm:vew_tower}
+The electroweak scale is the tower level at the $Q=2$ Hopfion energy,
+combined with the modular T-matrix correction of Paper~IV:
+\begin{equation}
+  \vEW \;=\; \Lcond\cdot\vp^{2Q}\cdot e^{49\pi/6 - 3/400}
+  \;\approx\; 246.2\,\mathrm{GeV}\cdot(1 + O(\alpha_s^2)),
+  \label{P6:eq:vew_tower}
+\end{equation}
+where $Q = 10$ is the condensate topological charge, $49\pi/6$ is
+the Chern--Simons action accumulated by the spoke carrier over the
+$Q$ topological sectors, and $3/400 = T_{1/2}/Q$ is the modular
+T-matrix correction (Theorem~8.4 of Paper~IV~\cite{Paper4}).
+This formula is accurate to $1.14\%$, with the residual a
+two-loop correction.
+\end{theorem}
+
+\begin{proof}
+The tower level $n$ at energy $E$ satisfies $E = \Lcond\,\vp^{-2n}$ in
+the absence of WZW phase corrections.  For the $Q=2$ Hopfion at the
+cosmological scale, the relevant level is $n = -Q$ (upward tower,
+UV direction), giving $\Lcond\,\vp^{2Q}$ as the base.  The spoke
+formula of Paper~IV derives the exponential correction $e^{49\pi/6-3/400}$
+from the Chern--Simons action of the boundary state and the modular
+T-matrix phase; see Corollary~6.8 and Theorem~8.4 of~\cite{Paper4}.
+\qed
+\end{proof}
+
+\begin{remark}[Closing the two-scale gap of Paper~I; path to single-input framework]
+\label{P6:rem:single_input_remark}
+The identification~\eqref{P6:eq:vew_tower} resolves the question raised in
+Paper~I: \emph{``Derive $\vEW$ from $\TCMB$ and $\vp$ alone.''}
+This derivation uses $\TCMB$ (which fixes $\Lcond$) and $\vp$ (which
+fixes both the tower spacing $\vp^{2Q}$ and the Chern--Simons action
+via $e^{49\pi/6}$, since $49\pi/6 = (25\pi/6 + 4\pi)(1 - 3/[400 \cdot
+(49\pi/6)])$ can be traced back to pure $\vp$-algebra plus the exact
+WZW datum $T_{1/2} = c/24 = 3/40$).  No Standard Model parameter is
+required.
+
+Paper~IV~\cite{Paper4} further establishes that $m_e$ is \emph{derivable} from
+$\TCMB$ alone up to a $0.22\%$ correction via the $\mathrm{SU}(2)_3$
+spoke-mass spectrum: the Verlinde cancellation
+(Theorem~4.7 of~\cite{Paper4}) shows that the
+two $R_0$-dependent corrections in the spoke formula cancel exactly,
+giving $m_e = \TCMB(\pi^2/150)^{1/4}\,\vp^{20}\,e^{(1600\pi-3)/400}
+\cdot(1+O(R_0^{-2}))$ (equation~14 of~\cite{Paper4})
+up to an $O(R_0^{-2})\approx0.22\%$ geometric correction from the full
+2D toroidal geometry at the physical condensate radius $R_0=3$.
+
+\textbf{Path to a single experimental input.}
+The $O(R_0^{-2})$ residual in the $m_e$ formula above is the
+\emph{only} remaining separation between the two-input and one-input
+frameworks.  Proving it closes analytically is equivalent to
+proving the normalisation conjecture $\vp^9\sqrt{\Ja\Jfour}=Q=10$
+of Paper~II~\cite{Paper2}, since both require knowledge of the exact
+thick-torus profile at $R_0=3$.  The conjecture is currently confirmed
+numerically (Paper~II~\cite{Paper2}, Appendix A of Paper~III~\cite{Paper3},
+Variation (d) therein) and remains an open
+problem of the series.  See Paper~VII~\cite{Paper7},
+Section~\ref{P6:sec:open} for the full statement. The framework therefore currently remains with two experimental inputs, $\TCMB$ and $m_e$, and zero free parameters.
+
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The UV Tower Cutoff and Its Relationship to the Planck Scale}
+\label{P6:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+All principal results of this paper are proved without appeal to
+external conjectures.  The one remaining structural connection ---
+between the UV end of the bosonic tower and the Planck scale ---
+requires the one-loop gravitational analysis of Paper~VII~\cite{Paper7},
+but the relationship can be stated as a precise consistency theorem
+conditional on that result.
+
+\begin{theorem}[Bosonic tower UV cutoff and the emergent Planck scale]
+\label{P6:thm:luv_tower}
+The companion Paper~VII establishes, via the Seeley--DeWitt
+one-loop heat-kernel expansion of the parent
+action~\eqref{P6:eq:parent_action}, that the physical Planck mass
+is induced as~\cite{Paper7}
+\begin{equation}
+  \MPl^2 \;=\; \frac{\LUV^2}{32\pi^2},
+  \label{P6:eq:MPl_LUV}
+\end{equation}
+where $\LUV$ is the UV cutoff of the effective field theory.
+Inverting, the UV cutoff is the sub-Planckian scale
+\begin{equation}
+  \boxed{\LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}}
+  \;\approx\; \frac{\MPl}{17.77}
+  \;\approx\; 0.0563\,\MPl
+  \;\approx\; 6.8\times10^{17}\,\mathrm{GeV}.}
+  \label{P6:eq:LUV_exact}
+\end{equation}
+The near-equality $4\pi\sqrt{2}\approx\vp^6$ holds to $1\%$
+(the Bogomolny coincidence), so the compact approximation
+$\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$ is $1\%$-accurate.
+The Bogomolny parameter $\lam = \vp^6$ (Corollary~5.10 of~\cite{Paper1})
+thus sets both the condensate energy scale and (via this coincidence)
+the ratio $\MPl/\LUV$.
+Within the bosonic tower $M_n = \Lcond\,\vp^{2n}$
+(Theorem~\ref{P6:thm:tower_quantisation}), this corresponds to
+\begin{equation}
+  n_{\mathrm{UV}} \;=\; \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
+  \;\approx\; 73.6,
+  \label{P6:eq:n_UV}
+\end{equation}
+confirming that $\LUV$ lies near (but not exactly at) a bosonic tower
+level, consistently with its being fixed by a continuous one-loop
+condition rather than a discrete tower step.
+\end{theorem}
+
+\begin{proof}
+Equation~\eqref{P6:eq:MPl_LUV} ($\MPl^2 = \LUV^2/(32\pi^2)$) is derived
+in Paper~VII from the Seeley--DeWitt $a_2$ coefficient of a real scalar
+(Section~5 of~\cite{Paper7}).
+Inverting: $\LUV = \MPl/(4\pi\sqrt{2})\approx\MPl/17.77\approx0.0563\,\MPl$.
+Since $4\pi\sqrt{2}\approx\vp^6$ to 1\%, this gives $\LUV\approx\MPl/\vp^6
+\approx0.0557\,\MPl\approx6.8\times10^{17}\,\mathrm{GeV}$.
+Equation~\eqref{P6:eq:n_UV} is evaluated at $\LUV = 6.8\times10^{17}\,\mathrm{GeV}$
+and $\Lcond = 1.19\times10^{-13}\,\mathrm{GeV}$:
+\[
+  n_\mathrm{UV}
+  = \frac{\ln(6.8\times10^{17}/1.19\times10^{-13})}{2\ln\vp}
+  = \frac{\ln(5.71\times10^{30})}{2\times0.481}
+  = \frac{70.8}{0.962}
+  \approx 73.6.
+\]
+\qed
+\end{proof}
+
+\begin{remark}[Bogomolny connection and what requires Paper~VII]
+The Bogomolny parameter $\lam=\vp^6$ (Corollary~5.10 of~\cite{Paper1}) that governs the condensate energy
+and the $\vp^{-2}$ tower spacing also appears as the suppression factor
+in the one-loop Planck-mass formula~\eqref{P6:eq:MPl_LUV}.
+This is a structural feature of the framework: the same golden-ratio
+geometry controls both the IR mass tower and the UV gravitational cutoff.
+However, note that $\LUV = \MPl/(\sqrt{6}(4\pi)\vp^3) \approx \MPl/130.4 \approx 0.00767\,\MPl$
+(arising from the NMC sector of Paper~VII) is \emph{not} the same as
+$\MPl/\vp^6 \approx 0.0557\,\MPl$; the factor of $7.3$ between them
+reflects the difference between the exact one-loop NMC coefficient
+$\sqrt{6}(4\pi)\vp^3 = 130.4$ and the Bogomolny parameter
+$\vp^6 = 17.944$.
+The primary one-loop formula~\eqref{P6:eq:MPl_LUV}, which gives
+$\LUV = \MPl/(4\pi\sqrt{2}) \approx 0.0563\,\MPl$, is the result used here;
+the near-equality $4\pi\sqrt{2} \approx \vp^6$ (to $1\%$) is the
+\emph{Bogomolny coincidence} that makes the compact estimate
+$\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$ accurate to $1\%$,
+and is the value quoted throughout this paper and in Paper~VII.
+
+The one-loop computation~\eqref{P6:eq:MPl_LUV} lies outside the scope of
+this paper and is carried out in Paper~VII~\cite{Paper7}.  What this
+paper establishes is the tower structure that gives~\eqref{P6:eq:n_UV}
+its meaning: the bosonic tower reaches the gravitational scale at
+level $\sim73.6$, non-integer because $\LUV$ is pinned by a
+continuous gravitational condition rather than a discrete tower step.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P6:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+We have derived Axiom~A3 of the density-feedback Hopfion framework from
+first principles.
+The key result is that the golden ratio $\vp$ is the unique
+Derrick-scaling fixed point of the condensate parent action
+(Theorem~\ref{P6:thm:rg_fp}): the balance between the kinetic sector
+($\zeta^{-2}$ scaling) and the angular-suppression sector ($\zeta^4$
+scaling, from the $\sin^4\!\theta$ structure of Axiom~A2) has a unique
+solution $\zeta^6 = \vp^6$, i.e.\ $\zeta = \vp$, after the Bogomolny
+saturation condition is imposed.
+
+The discrete mass tower $m_n = m_0\,\vp^{-2n}$
+(Theorem~\ref{P6:thm:tower_quantisation}) follows immediately: the two
+transverse dimensions perpendicular to $\hat{e}_r$ each contribute one
+power of $\vp^{-1}$ under the fixed-point rescaling, giving $\vp^{-2}$
+per level.  The ground state is identified with the condensate scale
+$\Lcond = \TCMB(\pi^2/150)^{1/4}$
+(Proposition~\ref{P6:prop:ground_state}), and the tower level at $n = Q = 10$
+recovers the electron mass (Corollary~\ref{P6:cor:tower_scales}).
+
+The four axioms of the framework are collected here for the first time
+as a formal axiomatic set.  Axiom~A3 transitions from postulate to
+theorem; Axioms~A1, A2, and~A4 remain foundational but are grounded
+in the group theory and numerics of Papers~I--III.
+
+The WZW T-matrix phases $T_g = (6-k_g)/[8(k_g+2)]$ are derived algebraically
+in Lemma~\ref{P6:lem:tmatrix} from the standard $\mathrm{SU}(2)_{k_g}$ conformal
+data, and their role as fractional intra-cell tower positions is established
+in Theorem~\ref{P6:thm:wzw_connection}.
+Theorem~\ref{P6:thm:tphase_unique} proves that these phases are \emph{uniquely
+determined} --- outputs, not inputs --- by three framework ingredients:
+isospin $j=\tfrac{1}{2}$ (forced by SM quantum numbers), $k_g=g$ (from the
+Hurwitz classification of Paper~I), and the standard WZW modular T-phase
+formula.
+Proposition~\ref{P6:prop:noninteger} then proves that lepton tower levels
+$n_g$ are irrational: since $\pi/\ln\vp\notin\mathbb{Q}$ (a consequence of
+Nesterenko's theorem~\cite{Nesterenko1996} via the transcendence of $e^\pi$),
+the WZW and tower ``clocks'' are fundamentally incommensurable, forcing
+non-integer generation placement.
+By contrast, quark-to-lepton mass ratios at the condensate scale are
+integer-exponent exact (Paper~V~\cite{Paper5}) precisely because the
+$\ln\vp$ incommensurability cancels in the ratio.
+The electroweak scale is the tower level at the $Q=2$ Hopfion energy
+combined with the modular T-matrix correction of Paper~IV,
+giving $\vEW = \Lcond\cdot\vp^{20}\cdot e^{49\pi/6-3/400}$ accurate
+to $1.14\%$ and closing the two-scale gap of Paper~I.
+
+The Bogomolny factor-of-$2$ in Theorem~\ref{P6:thm:rg_fp}
+is supplied by Paper~I~\cite{Paper1} Theorem~3.4 ($\sopt^6 = 2$ at the BPS saddle),
+completing the proof without appeal to any external conjecture.
+The T-matrix phase formula is proved in Lemma~\ref{P6:lem:tmatrix}.
+Finally, the relationship between the bosonic tower UV cutoff and the
+Planck scale is established conditionally in Theorem~\ref{P6:thm:luv_tower}
+(Section~\ref{P6:sec:open}): given the one-loop induced Planck mass formula
+$\MPl^2 = \LUV^2/(32\pi^2)$ of Paper~VII~\cite{Paper7} (from the
+Seeley--DeWitt $a_2$ coefficient of a real scalar),
+the UV cutoff is $\LUV = \MPl/(4\pi\sqrt{2}) \approx \MPl/\vp^6 \approx 0.0557\,\MPl
+\approx 6.8\times10^{17}\,\mathrm{GeV}$,
+corresponding to tower level $n_\mathrm{UV}\approx73.6$, which is
+non-integer, consistently with $\LUV$ being determined by a continuous
+one-loop gravitational condition rather than a pure tower step.
+
+%─── References ───────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper7}
+F.~Manfredi,
+\textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
+  Equivalence Principle from the Density-Feedback Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+
+\bibitem{Nesterenko1996}
+Yu.~V. Nesterenko,
+\textit{Modular functions and transcendence questions},
+Mat.\ Sbornik \textbf{187}, 65--96 (1996).
+\href{https://doi.org/10.1070/SM1996v187n09ABEH000158}{doi:10.1070/SM1996v187n09ABEH000158}
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,734 @@
+%% hopfion-framework/quantum/hilbert_space.tex
+%% Sources: main_paper10.tex
+%% Condensate Hilbert space, geometric quantisation, Born rule, golden-ratio spectrum
+%% Auto-generated from project files. Edit source papers to update.
+
+%════════════════════════════════════════════════════════════════════
+% Geometric Quantisation — Paper X
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[Condensate symplectic structure]
+\label{P10:thm:symplectic}
+The condensate configuration space $\CQ$ carries the closed 2-form
+\begin{equation}
+  \bOmega
+  \;=\; \int_{\RR^3} \delta\pi(x)\wedge\delta\rho(x)\,d^3x
+  \;\approx\; \int_{\RR^3} W(x)\,\delta\dot\rho(x)\wedge\delta\rho(x)\,d^3x,
+  \label{P10:eq:symplectic}
+\end{equation}
+where $W(x) = 2/(\vp^6(1+\bst|\nabla f_*|^2)^2)>0$ pointwise.
+The kernel of $\bOmega$ at $f_*$ is the one-dimensional
+subspace spanned by the Derrick scale mode:
+\begin{equation}
+  \ker\bOmega\big|_{f_*}
+  \;=\; \mathrm{span}\bigl\{g\bigr\},
+  \qquad
+  g \;=\; -(r\partial_r f_* + z\partial_z f_*).
+  \label{P10:eq:kernel}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P10:thm:symplectic}
+
+\begin{theorem}[Reduced phase space]
+\label{P10:thm:reduction}
+The quotient
+\begin{equation}
+  \CQr \;\equiv\; \CQ\,/\,\mathrm{Diff}_1(\RR^3)
+  \label{P10:eq:reduced}
+\end{equation}
+is a Banach manifold.
+The reduced symplectic form
+$\bOmega^{\mathrm{red}} = i^*\bOmega$ (pullback
+to the slice $\{f\in\CQ : \sopt[f] = 2^{1/6}\}$)
+is non-degenerate.
+The condensate saddle $f_*$ is a fixed point of the
+$\mathrm{Diff}_1$-action and projects to a point
+$[f_*]\in\CQr$.
+\end{theorem}
+\status{published}
+\source{P10:thm:reduction}
+
+\begin{theorem}[Prequantum line bundle]
+\label{P10:thm:prequantum}
+The reduced symplectic manifold $(\CQr,\bOmega^{\mathrm{red}})$
+admits a prequantum Hermitian line bundle
+$\mathcal{L}\to\CQr$ with connection $\nabla$ of curvature
+$F_\nabla = -i\bOmega^{\mathrm{red}}$
+if and only if
+\begin{equation}
+  \left[\frac{\bOmega^{\mathrm{red}}}{2\pi}\right]
+  \;\in\; H^2(\CQr,\ZZ).
+  \label{P10:eq:weil}
+\end{equation}
+This condition is satisfied because $Q\in\ZZ$.
+\end{theorem}
+\status{published}
+\source{P10:thm:prequantum}
+
+\begin{theorem}[Quantisation and Born rule]
+\label{P10:thm:quantisation}
+Let $(\CQr,\bOmega^{\mathrm{red}},\mathcal{L})$ be the
+prequantum data of Theorem~\ref{P10:thm:prequantum}.
+Choose as polarisation the real polarisation
+$\mathcal{P} = T^{\mathrm{vert}}\CQr$ (vertical tangent bundle
+of the Lagrangian fibration defined by the moment map $\mu$).
+Then:
+
+\begin{enumerate}[label=\emph{(\roman*)}]
+  \item \emph{(Hilbert space.)}
+    The geometric quantisation of $(\CQr,\bOmega^{\mathrm{red}},
+    \mathcal{L},\mathcal{P})$ produces the Hilbert space
+    \begin{equation}
+      \Hil \;=\; L^2(\CQr,\dmu),
+      \label{P10:eq:Hilbert}
+    \end{equation}
+    where $\dmu = \bOmega^{\mathrm{red}\,\wedge n}/n!$
+    is the Liouville measure and $n = \tfrac{1}{2}\dim\CQr$.
+
+  \item \emph{(Born rule.)}
+    The inner product on $\Hil$ is the unique \textsc{u}(1)-invariant
+    inner product:
+    \begin{equation}
+      \langle\psi,\phi\rangle
+      \;=\; \int_{\CQr} \overline{\psi([f])}\,\phi([f])\,\dmu([f]),
+      \label{P10:eq:inner_product}
+    \end{equation}
+    and the probability of outcome $a$ given state $\psi$ is
+    \begin{equation}
+      P(a\,|\,\psi) \;=\; |\langle e_a,\psi\rangle|^2,
+      \label{P10:eq:born}
+    \end{equation}
+    where $\{e_a\}$ is an orthonormal basis of $\Hil$.
+    This is the Born rule $P=|\psi|^2$.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P10:thm:quantisation}
+
+\begin{theorem}[Spectrum of $\hat{H}_\mathrm{fb}$]
+\label{P10:thm:spectrum}
+The eigenvalues of $\hat{H}_\mathrm{fb}$ on $\Hil = L^2(\CQr,\dmu)$
+form the discrete set
+\begin{equation}
+  \boxed{\mathrm{spec}(\hat{H}_\mathrm{fb})
+  = \bigl\{E_n = \vp^{2n}E_0 : n\in\ZZ_{\geq0}\bigr\}},
+  \label{P10:eq:spectrum}
+\end{equation}
+where $E_0 = \Efb[f_*;\bst]$ is the saddle energy and
+$\vp^2 = \vp^2$ is the golden-ratio squared.
+\end{theorem}
+\status{published}
+\source{P10:thm:spectrum}
+
+\begin{theorem}[Resolution of Conjecture~1 of Paper~IX]
+\label{P10:thm:main}
+The canonical (geometric) quantisation of the density-feedback
+Hopfion condensate with action~\eqref{P10:eq:L_full} produces:
+\begin{enumerate}[label=\emph{(\roman*)}]
+  \item The Hilbert space $\Hil = L^2(\CQr,\dmu)$,
+    where $\CQr$ is the reduced configuration space
+    (configuration space modulo Derrick dilations)
+    and $\dmu$ is the Liouville measure of the reduced
+    symplectic form (Theorem~\ref{P10:thm:quantisation}).
+
+  \item The Born rule $P=|\psi|^2$ as the unique
+    \textsc{u}(1)-invariant probability measure
+    on $\Hil$ (Theorem~\ref{P10:thm:quantisation}).
+
+  \item A discrete energy spectrum $E_n = \vp^{2n}E_0$
+    consistent with the golden-ratio tower of Papers~IV--VI
+    (Theorem~\ref{P10:thm:spectrum}).
+
+  \item A $q$-deformed oscillator algebra with $q=\vp^2$
+    on $\Hil$ (Theorem~\ref{P10:thm:q_algebra}), with
+    $q$-numbers $[n]_{\vp^2}=F_{2n}$ (even Fibonacci numbers),
+    giving closed-form scattering amplitudes.
+
+  \item Zero one-loop correction to the Bekenstein--Hawking entropy:
+    $\delta S_\mathrm{1-loop}=0$
+    (Theorem~\ref{P10:thm:entropy_correction}), together with a
+    logarithmically soft heat kernel
+    $\Theta(t)\sim-\log(t)/(2\log\vp)$
+    (Proposition~\ref{P10:prop:heat_kernel}).
+
+  \item Exact Bekenstein--Hawking entropy at tree level:
+    $S_\mathrm{Wald}=A_H/(4G_N)$ (Theorem~\ref{P10:thm:wald}),
+    proved via the Wald formula: the $k$-essence Lagrangian
+    $\partial\mathcal{L}_\mathrm{cond}/\partial R_{abcd}=0$
+    contributes zero, leaving only the Einstein--Hilbert term.
+\end{enumerate}
+The \textsc{u}(1) symmetry group is generated by the moment map
+$\mu = Q\cdot\omega$, where $Q=10\in\ZZ=\pi_3(S^2)$ is the
+Hopf charge.
+The prequantum line bundle exists because $Q\in\ZZ$
+(Theorem~\ref{P10:thm:prequantum}): the topological quantisation
+of the Hopf charge is equivalent to the Weil integrality
+condition for geometric quantisation.
+\end{theorem}
+\status{published}
+\source{P10:thm:main}
+
+\begin{theorem}[Self-adjointness and spectral gap]
+\label{P10:thm:selfadjoint}
+The operator $\mathcal{L}_*$ is self-adjoint on $H^2(\RR^3)$
+with domain $D(\mathcal{L}_*) = H^2(\RR^3)\ominus\mathrm{span}\{g\}$.
+Its spectrum consists entirely of discrete eigenvalues
+$0 < \lambda_0 \leq \lambda_1 \leq \cdots \to \infty$,
+with no essential spectrum.
+The spectral gap satisfies
+\begin{equation}
+  \lambda_0 \;=\; E_0\,\vp^0 \;=\; E_0,
+  \qquad
+  \Delta_\mathrm{spec} \;\equiv\; \lambda_1 - \lambda_0
+  \;=\; E_0(\vp^2-1) \;=\; E_0\,\vp,
+  \label{P10:eq:spectral_gap}
+\end{equation}
+where $E_0 = \Efb[f_*;\bst]$ is the saddle energy and
+$\vp^2 - 1 = \vp$ is the golden-ratio identity.
+\end{theorem}
+\status{published}
+\source{P10:thm:selfadjoint}
+
+\begin{theorem}[Spectral zeta function]
+\label{P10:thm:spectral_zeta}
+The spectral zeta function of $\mathcal{L}_*$ is
+\begin{equation}
+  \boxed{\zeta_{\mathcal{L}_*}(s)
+  \;\equiv\; \sum_{k=0}^{\infty} \lambda_k^{-s}
+  \;=\; \frac{E_0^{-s}}{1 - \vp^{-2s}}},
+  \qquad \mathrm{Re}(s) > 0.
+  \label{P10:eq:zeta_exact}
+\end{equation}
+This admits a meromorphic continuation to all $s\in\CC$ with a unique
+simple pole at $s=0$ of residue $1/(2\log\vp)$.
+The zeta-regularised functional determinant is
+\begin{equation}
+  \det(\mathcal{L}_*) \;=\; \exp\!\bigl(-\zeta'_{\mathcal{L}_*}(0)\bigr)
+  \;=\; \vp^{-1/6}\,E_0^{1/2},
+  \label{P10:eq:det_exact}
+\end{equation}
+where the prime denotes the derivative with respect to $s$ at $s=0$.
+The Liouville measure normalisation factor is
+\begin{equation}
+  \det(\mathcal{L}_*)^{-1/2}
+  \;=\; \vp^{1/12}\,E_0^{-1/4}.
+  \label{P10:eq:det_half}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P10:thm:spectral_zeta}
+
+\begin{theorem}[$q$-oscillator algebra of the quantised Hopfion]
+\label{P10:thm:q_algebra}
+Define ladder operators on $\Hil = \mathrm{span}\{|n\rangle : n\geq0\}$ by
+\begin{equation}
+  a\,|n\rangle = \sqrt{[n]_q}\,|n-1\rangle,
+  \qquad
+  a^\dagger|n\rangle = \sqrt{[n+1]_q}\,|n+1\rangle,
+  \qquad
+  N\,|n\rangle = n\,|n\rangle,
+  \label{P10:eq:ladder_def}
+\end{equation}
+with $q = \vp^2$ and $a|0\rangle = 0$.
+These operators satisfy:
+\begin{enumerate}[label=(\roman*),noitemsep]
+\item $H_\mathrm{fb} = E_0\,q^N$ \quad (the Hamiltonian in terms of $N$);
+\item $[N,\,a] = -a$, \quad $[N,\,a^\dagger] = +a^\dagger$;
+\item \textbf{Macfarlane--Biedenharn relation:}
+  \begin{equation}
+    \boxed{a\,a^\dagger \;-\; q\,a^\dagger a
+    \;=\; q^{-N}};
+    \label{P10:eq:qosc}
+  \end{equation}
+\item $H_\mathrm{fb}\,a = q^{-1}\,a\,H_\mathrm{fb}$,
+  \quad $H_\mathrm{fb}\,a^\dagger = q\,a^\dagger H_\mathrm{fb}$.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P10:thm:q_algebra}
+
+\begin{remark}[Connection to the SU(2)$_3$ WZW model]
+\label{P10:rem:jones}
+The $q$-deformation parameter $q = \vp^2$ of Theorem~\ref{P10:thm:q_algebra}
+is the \emph{square} of the Jones polynomial parameter at the fifth root
+of unity: $q_\mathrm{Jones} = e^{i\pi/5}$ satisfies
+$q_\mathrm{Jones} + q_\mathrm{Jones}^{-1} = 2\cos(\pi/5) = \vp$,
+so that the quantum dimension of the spin-$\tfrac{1}{2}$ representation
+of $\mathrm{SU}(2)_3$ is $\vp$ --- the same value that appears as the
+RG fixed point and the Verlinde channel count $N_{\tau\to\mu} = \vp$
+of Paper~V~\cite{Paper5}.
+The real $q$-oscillator parameter $q = \vp^2$ is the analytic continuation
+of $q_\mathrm{Jones}$ to the positive real axis, consistent with the
+Wick-rotated (Euclidean) quantisation of the condensate.
+This provides an independent confirmation that the $\mathrm{SU}(2)_3$ WZW
+level $k=3$ fixed by Papers~I--IV is the correct WZW structure for the
+$q$-algebra of the quantised Hopfion.
+\end{remark}
+\status{published}
+\source{P10:rem:jones}
+
+\begin{theorem}[Vanishing of the one-loop bulk entropy correction]
+\label{P10:thm:entropy_correction}
+\begin{equation}
+  \boxed{\delta S_\mathrm{1-loop}
+  \;\equiv\; -\frac{\partial\,\Gamma_\mathrm{1-loop}}{\partial T_H}
+  \;=\; 0}.
+  \label{P10:eq:delta_S_zero}
+\end{equation}
+The Bekenstein--Hawking entropy $S_\mathrm{BH} = A/(4G_N)$
+is reproduced at tree level from Paper~VII~\cite{Paper7},
+with no quantum correction from bulk condensate modes at one loop.
+\end{theorem}
+\status{published}
+\source{P10:thm:entropy_correction}
+
+\begin{remark}[Entropy protected by the golden-ratio spectrum]
+\label{P10:rem:entropy_protected}
+Theorem~\ref{P10:thm:entropy_correction} shows that the golden-ratio
+spectrum \emph{protects} $S = A/4$ against one-loop quantum corrections.
+In the Wald entropy framework~\cite{Wald1993}, the complete tree-level
+calculation is carried out in Theorem~\ref{P10:thm:wald}:
+the $k$-essence sector contributes zero to the Wald entropy because
+$\partial\mathcal{L}_\mathrm{cond}/\partial R_{abcd}=0$, and the
+one-loop correction also vanishes.
+The Bekenstein--Hawking entropy $S = A_H/(4G_N)$ is therefore
+an \emph{exact} result of the condensate framework at both tree level
+and one loop.
+\end{remark}
+\status{published}
+\source{P10:rem:entropy_protected}
+
+\begin{theorem}[Wald entropy of the acoustic condensate]
+\label{P10:thm:wald}
+For the total action~\eqref{P10:eq:action_total}, the Wald entropy of any
+stationary black-hole solution is
+\begin{equation}
+  \boxed{S_\mathrm{Wald}
+  \;=\; \frac{A_H}{4G_N}},
+  \label{P10:eq:wald_result}
+\end{equation}
+where $A_H$ is the horizon area in the physical (Kerr) metric.
+The condensate $k$-essence sector contributes exactly zero to the
+Wald entropy at tree level.
+\end{theorem}
+\status{published}
+\source{P10:thm:wald}
+
+\begin{remark}[Acoustic metric and the Wald formula]
+\label{P10:rem:acoustic_wald}
+The acoustic metric $ds^2_\mathrm{ac} = \rho_0\,ds^2_\mathrm{Kerr}$
+(Paper~VII~\cite{Paper7}) governs sound propagation and fixes the
+Hawking temperature $T_H$ via the acoustic surface gravity $\kappa_H$.
+It does \emph{not} enter the Wald entropy calculation, which uses
+the \emph{physical} (Kerr) metric $g_{ab}$ in which the action
+$S_\mathrm{tot}$ is written.
+The conformal factor $\rho_0$ appears only in the propagator for
+$\rho$-fluctuations, not in $\partial\mathcal{L}/\partial R_{abcd}$.
+The two results therefore combine cleanly:
+\begin{equation}
+  T_H \;=\; \frac{\hbar\kappa_H}{2\pi k_B}
+  \quad\text{(Paper~VII)},
+  \qquad
+  S \;=\; \frac{A_H}{4G_N}
+  \quad\text{(Theorem~\ref{P10:thm:wald})},
+  \label{P10:eq:TS_combined}
+\end{equation}
+reproducing the standard Bekenstein--Hawking thermodynamics exactly
+within the condensate framework.
+\end{remark}
+\status{published}
+\source{P10:rem:acoustic_wald}
+
+\begin{remark}[Scope of the result]
+\label{P10:rem:wald_scope}
+Theorem~\ref{P10:thm:wald} holds for the full non-linear $k$-essence
+Lagrangian~\eqref{P10:eq:parent_action_wald}: the argument in Step~2 requires only that
+$\mathcal{L}_\mathrm{cond}$ is a function of $X$ alone, without
+explicit Riemann-tensor dependence.
+Higher-order curvature corrections (e.g.\ Gauss--Bonnet terms from
+integrating out massive modes) would modify the result; no such terms
+appear at the level of the condensate action of Papers~I--VII.
+\end{remark}
+\status{published}
+\source{P10:rem:wald_scope}
+
+\begin{lemma}[Conjugate momentum]
+\label{P10:lem:momentum}
+The canonical momentum conjugate to $\rho(x,t)$ from~\eqref{P10:eq:L_full} is
+\begin{equation}
+  \pi(x,t)
+  \;=\; \frac{\partial\mathcal{L}}{\partial\dot\rho}
+  \;=\; \frac{2\dot\rho}{\vp^6\bigl(1+\bst(\dot\rho^2-|\nabla\rho|^2)\bigr)^2}.
+  \label{P10:eq:momentum}
+\end{equation}
+In the static limit $\dot\rho\to0$:
+$\pi(x)\to 0$, and the linearisation about the saddle $f_*$ gives
+\begin{equation}
+  \pi(x) \;\approx\; \frac{2}{\vp^6(1+\bst\,|\nabla f_*|^2)^2}\,\dot\rho(x)
+  \;\equiv\; W(x)\,\dot\rho(x),
+  \label{P10:eq:momentum_linear}
+\end{equation}
+where $W(x) > 0$ is the \emph{symplectic weight function} at the saddle.
+\end{lemma}
+\status{published}
+\source{P10:lem:momentum}
+
+\begin{lemma}[Hamiltonian vector field of $\Efb$]
+\label{P10:lem:ham_vf}
+The Hamiltonian vector field of $\Efb$ on $(\CQr,\bOmega^{\mathrm{red}})$
+is the condensate gradient flow with the scale mode projected out:
+\begin{equation}
+  X_E \;=\; -W^{-1}\left(\frac{\delta\Efb}{\delta f}
+  - \frac{\langle\delta E/\delta f,\,g\rangle_W}
+         {\langle g,g\rangle_W}\cdot g\right),
+  \label{P10:eq:ham_vf}
+\end{equation}
+where $\langle u,v\rangle_W = \int W(x)\,u(x)v(x)\,d^3x$
+and $g = -(r\partial_r f + z\partial_z f)$ is the Derrick mode.
+\end{lemma}
+\status{published}
+\source{P10:lem:ham_vf}
+
+\begin{lemma}[$q$-numbers are even Fibonacci numbers]
+\label{P10:lem:fibonacci}
+With $q = \vp^2$,
+\begin{equation}
+  \boxed{[n]_{\vp^2} \;=\; F_{2n}}
+  \label{P10:eq:fibonacci}
+\end{equation}
+for all $n\geq0$, where $F_k$ denotes the $k$-th Fibonacci number
+$(F_0=0,\,F_1=1,\,F_k = F_{k-1}+F_{k-2})$.
+\end{lemma}
+\status{published}
+\source{P10:lem:fibonacci}
+
+\begin{corollary}[Well-definedness of the Liouville measure]
+\label{P10:cor:measure_welldefined}
+The regularised Liouville measure
+\begin{equation}
+  \boxed{\dmu = \det(\mathcal{L}_*)^{-1/2}\prod_{k\geq0}d\phi_k
+  = \vp^{1/12}\,E_0^{-1/4}\,\mathcal{D}\phi}
+  \label{P10:eq:measure_normalised}
+\end{equation}
+is well-defined and finite.
+In particular, the Hilbert space $\Hil = L^2(\CQr,\dmu)$ of
+Theorem~\ref{P10:thm:quantisation} has a canonically normalised
+inner product.
+\end{corollary}
+\status{published}
+\source{P10:cor:measure_welldefined}
+
+\begin{corollary}[Closed-form transition amplitudes]
+\label{P10:cor:amplitudes}
+The amplitude for a $k$-step descent $|n\rangle\to|n-k\rangle$ is
+\begin{equation}
+  \boxed{\langle n-k|\,a^k\,|n\rangle
+  \;=\; \sqrt{\frac{[n]_q!}{[n-k]_q!}}
+  \;=\; \sqrt{F_{2n}\cdot F_{2n-2}\cdots F_{2(n-k+1)}}},
+  \label{P10:eq:amplitude}
+\end{equation}
+where the product uses $[j]_q = F_{2j}$ (Lemma~\ref{P10:lem:fibonacci}).
+In particular, the amplitude for complete de-excitation from level $n$
+to the ground state is
+\begin{equation}
+  \langle 0|\,a^n\,|n\rangle
+  \;=\; \sqrt{[n]_q!}
+  \;=\; \sqrt{F_2\cdot F_4\cdots F_{2n}}
+  \;=\; 1,\;1,\;\sqrt{3},\;\sqrt{24},\;\sqrt{504},\;\ldots
+  \label{P10:eq:full_deexcitation}
+\end{equation}
+and the Born-rule transition probability is
+\begin{equation}
+  P(n\to 0) = |\langle 0|a^n|n\rangle|^2
+  = [n]_q! = \prod_{k=1}^n F_{2k}.
+  \label{P10:eq:prob_n0}
+\end{equation}
+\end{corollary}
+\status{published}
+\source{P10:cor:amplitudes}
+
+\begin{corollary}[$q$-coherent states and the generating function]
+\label{P10:cor:coherent}
+The $q$-coherent state $|z\rangle_q$ satisfying $a|z\rangle_q = z|z\rangle_q$ has
+expansion
+\begin{equation}
+  |z\rangle_q
+  \;=\; \mathcal{N}(|z|)\sum_{n=0}^\infty
+  \frac{z^n}{\sqrt{[n]_q!}}\,|n\rangle
+  \;=\; \mathcal{N}(|z|)\sum_{n=0}^\infty
+  \frac{z^n}{\sqrt{F_2\,F_4\cdots F_{2n}}}\,|n\rangle,
+  \label{P10:eq:q_coherent}
+\end{equation}
+where $\mathcal{N}(|z|) = \exp_q(-|z|^2/2)^{-1/2}$ is the
+$q$-exponential normalisation and
+$\exp_q(x) = \sum_{n=0}^\infty x^n/[n]_q!$
+is the $q$-exponential generating function for Fibonacci ratios.
+The overlap between two $q$-coherent states is
+\begin{equation}
+  {}_q\langle w|z\rangle_q
+  \;=\; \frac{\exp_q(\bar{w}z)}{\sqrt{\exp_q(|w|^2)\,\exp_q(|z|^2)}}.
+  \label{P10:eq:coherent_overlap}
+\end{equation}
+\end{corollary}
+\status{published}
+\source{P10:cor:coherent}
+
+\begin{definition}[Configuration space]
+\label{P10:def:config}
+The \emph{condensate configuration space} is
+\begin{equation}
+  \mathcal{C}
+  \;\equiv\; \left\{f:\RR^3\to[0,\pi]
+  \;\Big|\;
+  f\big|_{r=0}=\pi,\quad
+  f\big|_{r,z\to\infty}=0,\quad
+  \|f\|_{H^1}<\infty
+  \right\},
+  \label{P10:eq:config}
+\end{equation}
+equipped with the $H^1$ Sobolev norm.
+The \emph{Hopf charge} of $f\in\mathcal{C}$ is the integer
+\begin{equation}
+  Q[f] \;\equiv\; \frac{1}{2\pi^2}\int_{\RR^3}
+  \hat{n}\cdot(\partial_r\hat{n}\times\partial_z\hat{n})\,
+  r\,dr\,dz\,d\Phi
+  \;\in\; \ZZ,
+  \label{P10:eq:hopf_charge}
+\end{equation}
+and the \emph{$Q$-sector} is $\CQ \equiv \{f\in\mathcal{C} : Q[f]=Q\}$.
+\end{definition}
+\status{published}
+\source{P10:def:config}
+
+\begin{definition}[Topological U(1) action]
+\label{P10:def:U1}
+The \textsc{u}(1) group acts on $\CQr$ by rotating the
+winding phase:
+\begin{equation}
+  e^{i\theta}\cdot [f]
+  \;=\; [f_\theta],
+  \qquad
+  f_\theta(r,z) = f(r,z),\quad
+  \Phi_\theta = \Phi + Q\theta/Q = \Phi + \theta,
+  \label{P10:eq:U1_action}
+\end{equation}
+where $\Phi$ is the Hopf azimuthal phase and $Q\in\ZZ$ is the
+Hopf charge~\cite{Paper1,Paper9}.
+The moment map of this action is
+\begin{equation}
+  \mu: \CQr \to \RR,
+  \qquad
+  \mu([f]) = Q\cdot\omega([f]),
+  \label{P10:eq:moment}
+\end{equation}
+where $\omega([f])\in[0,2\pi]$ is the solid angle subtended by
+the Hopfion configuration at the observer's position.
+\end{definition}
+\status{published}
+\source{P10:def:U1}
+
+\begin{definition}[$q$-number and $q$-factorial]
+\label{P10:def:q_numbers}
+For $q = \vp^2$ and $n\in\ZZ_{\geq0}$, define the $q$-number
+\begin{equation}
+  [n]_q \;\equiv\; \frac{q^n - q^{-n}}{q - q^{-1}},
+  \qquad
+  [n]_q! \;\equiv\; \prod_{k=1}^n [k]_q,
+  \qquad [0]_q! = 1.
+  \label{P10:eq:q_numbers}
+\end{equation}
+\end{definition}
+\status{published}
+\source{P10:def:q_numbers}
+
+\begin{equation}
+  \Gamma_\mathrm{1-loop}
+  \;=\; \tfrac{1}{2}\log\det\mathcal{L}_*
+  \;=\; -\tfrac{1}{12}\log\vp,
+  \label{P10:eq:Gamma_1loop}
+\end{equation}
+
+\begin{equation}
+  \hat{H}_\mathrm{fb}
+  \;\equiv\; -i\hbar\nabla_{X_E} + \Efb,
+  \label{P10:eq:Hfb}
+\end{equation}
+
+\begin{equation}
+  \mathcal{L}[\rho]
+  \;=\; \frac{\dot\rho^2 - |\nabla\rho|^2}{\vp^6
+         \bigl(1+\bst(\dot\rho^2-|\nabla\rho|^2)\bigr)}.
+  \label{P10:eq:L_full}
+\end{equation}
+
+\begin{equation}
+  \mathcal{L}_\mathrm{kin}[\rho]
+  \;=\; \frac{|\nabla\rho|^2}{\vp^6\bigl(1+\bst\,|\nabla\rho|^2\bigr)},
+  \label{P10:eq:Lkin}
+\end{equation}
+
+\begin{equation}
+  E_k = E_0\cdot\exp\!\bigl(2\log\vp\cdot k\bigr) = E_0\,\vp^{2k},
+  \label{P10:eq:WZW_energy}
+\end{equation}
+
+\begin{equation}
+  S_\mathrm{tot}[g,\rho]
+  \;=\; \underbrace{\frac{1}{16\pi G_N}\int\!\sqrt{-g}\;R\;\mathrm{d}^4x}_{S_\mathrm{EH}}
+  \;+\; \underbrace{\int\!\sqrt{-g}\;P(X)\;\mathrm{d}^4x}_{S_\mathrm{cond}},
+  \label{P10:eq:action_total}
+\end{equation}
+
+\begin{align}
+  F_{2n}
+  &= \frac{\vp^{2n} - \psi^{2n}}{\sqrt{5}}
+   = \frac{\vp^{2n} - \vp^{-2n}}{\sqrt{5}}.
+  \label{P10:eq:binet_even}
+\end{align}
+
+\begin{equation}
+  \frac{\partial\mathcal{L}_\mathrm{EH}}{\partial R_{abcd}}
+  \;=\; -\frac{1}{32\pi G_N}
+  \bigl(g^{ac}g^{bd} - g^{ad}g^{bc}\bigr).
+  \label{P10:eq:dLEH}
+\end{equation}
+
+\begin{equation}
+  \frac{\partial\mathcal{L}_\mathrm{cond}}{\partial R_{abcd}}
+  \;=\; P'(X)\,\frac{\partial X}{\partial R_{abcd}}
+  \;=\; 0,
+  \label{P10:eq:dLcond}
+\end{equation}
+
+\begin{equation}
+  \log\det(\mathcal{L}_*)\big|_{E_0=1}
+  = -\frac{\log\vp}{6},
+  \qquad
+  \boxed{\det(\mathcal{L}_*) = \vp^{-1/6}}.
+  \label{P10:eq:det_E01}
+\end{equation}
+
+\begin{equation}
+  \prod_{k=0}^\infty \lambda_k^{-1/2}
+  = E_0^{-N/2}\,\prod_{k=0}^\infty\vp^{-k}
+  = E_0^{-N/2}\,\vp^{-N(N-1)/2}\;\to\; \vp^{-1/12}/\eta(\tau),
+  \label{P10:eq:eta_connection}
+\end{equation}
+
+\begin{proposition}[Logarithmic heat kernel]
+\label{P10:prop:heat_kernel}
+The heat kernel
+$\Theta(t) = \mathrm{Tr}[e^{-t\mathcal{L}_*}]
+= \sum_{n=0}^\infty e^{-\vp^{2n}E_0 t}$
+satisfies
+\begin{equation}
+  \Theta(t)
+  \;\sim\; -\frac{\log(E_0 t)+\gamma}{2\log\vp}
+  \qquad\text{as }t\to0^+,
+  \label{P10:eq:heat_kernel}
+\end{equation}
+where $\gamma = 0.5772\ldots$ is the Euler--Mascheroni constant.
+This is a $\log(1/t)$ divergence, parametrically softer than the
+$t^{-3/2}$ divergence of a standard scalar field in three dimensions.
+\end{proposition}
+\status{published}
+\source{P10:prop:heat_kernel}
+
+\begin{equation}
+  \frac{1}{2\pi}\oint_\gamma \bOmega^{\mathrm{red}}
+  \;=\; \frac{Q}{2\pi}\oint_\gamma d\mu
+  \;=\; Q\cdot 1
+  \;=\; Q \;\in\;\ZZ,
+  \label{P10:eq:integrality}
+\end{equation}
+
+\begin{equation}
+  \log\det(\mathcal{L}_*)
+  = -\zeta'_{\mathcal{L}_*}(0)
+  = -\frac{\log\vp}{6} + \frac{\log E_0}{2}
+    - \frac{(\log E_0)^2}{4\log\vp}.
+  \label{P10:eq:logdet}
+\end{equation}
+
+\begin{equation}
+  P(X) \;=\; \frac{X}{\vp^6\,(1+\bst X)}
+  \label{P10:eq:parent_action_wald}
+\end{equation}
+
+\begin{align}
+  [n+1]_q - q[n]_q
+  &= \frac{q^{n+1}-q^{-(n+1)}-q(q^n-q^{-n})}{q-q^{-1}} \notag\\
+  &= \frac{q^{n+1}-q^{-(n+1)}-q^{n+1}+q^{1-n}}{q-q^{-1}} \notag\\
+  &= \frac{q^{1-n}-q^{-(n+1)}}{q-q^{-1}}
+   = \frac{q^{-n}(q-q^{-1})}{q-q^{-1}}
+   = q^{-n}. \label{P10:eq:q_identity}
+\end{align}
+
+\begin{equation}
+  \dmu \;=\; \prod_k \lambda_k^{-1/2}\,d\phi_k,
+  \label{P10:eq:regularised_measure}
+\end{equation}
+
+\begin{equation}
+  \left.\frac{d\Efb}{dt}\right|_{f=f_*} = 0,
+  \qquad
+  \sopt[f_*] \;=\; 2^{1/6},
+  \label{P10:eq:saddle_conditions}
+\end{equation}
+
+\begin{equation}
+  \delta^2\Efb[\phi]
+  = \int \phi\,\mathcal{L}_*[\phi]\,d^3x,
+  \qquad
+  \mathcal{L}_* = -\Delta + V_*,
+  \label{P10:eq:second_var}
+\end{equation}
+
+\begin{equation}
+  \mathcal{L}_*
+  \;\equiv\; -\Delta + V_*(x),
+  \qquad
+  V_*(x) = -\frac{d^2\Efb}{df^2}\bigg|_{f=f_*},
+  \label{P10:eq:stab_op}
+\end{equation}
+
+\begin{equation}
+  \Theta(t)\;\approx\;
+  \frac{1}{2\log\vp}\int_{E_0 t}^\infty\frac{e^{-u}}{u}\,du
+  \;=\; \frac{\Gamma(0,\,E_0 t)}{2\log\vp},
+  \label{P10:eq:theta_gamma}
+\end{equation}
+
+\begin{equation}
+  S_\mathrm{Wald}
+  \;=\; -2\pi\int_{\mathcal{H}}
+  \frac{\partial\mathcal{L}}{\partial R_{abcd}}\,
+  \varepsilon_{ab}\,\varepsilon_{cd}\;\mathrm{d}^2x,
+  \label{P10:eq:wald_formula}
+\end{equation}
+
+\begin{align}
+  \zeta_{\mathcal{L}_*}(s)
+  &= \frac{1}{2\log\vp\cdot s}
+  + \underbrace{\!\left[\frac{1}{2} - \frac{\log E_0}{2\log\vp}\right]}_{=\,\zeta_\mathrm{reg}(0)}
+  + \underbrace{\!\left[\frac{\log\vp}{6} - \frac{\log E_0}{2}
+    + \frac{(\log E_0)^2}{4\log\vp}\right]}_{=\,\zeta'(0)}\!\cdot s
+  + O(s^2).
+  \label{P10:eq:zeta_coeffs}
+\end{align}
+
+\begin{equation}
+  \zeta_{\mathcal{L}_*}(s)
+  = \sum_{k=0}^{\infty}(E_0\vp^{2k})^{-s}
+  = E_0^{-s}\sum_{k=0}^{\infty}\vp^{-2ks}
+  = \frac{E_0^{-s}}{1-\vp^{-2s}},
+  \label{P10:eq:zeta_derivation}
+\end{equation}
+
+\begin{align}
+  \zeta_{\mathcal{L}_*}(s)
+  &= E_0^{-s}\!\left[\frac{1}{2\log\vp\cdot s}
+   + \frac{1}{2} + \frac{\log\vp\cdot s}{6} + O(s^2)\right].
+  \label{P10:eq:zeta_laurent}
+\end{align}
+

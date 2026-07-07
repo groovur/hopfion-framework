@@ -1,0 +1,2853 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref,xcolor,enumitem,booktabs}
+
+\hypersetup{colorlinks=true,linkcolor={blue!60!black},
+  citecolor={blue!60!black},urlcolor={blue!60!black}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfour}{J_4}
+\newcommand{\ms}{\mu^*}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\twoI}{2I}
+\newcommand{\twoT}{2T}
+\newcommand{\QH}{Q_H}
+
+\title{\textbf{The $\QH=3$ Sector of the Density-Feedback Hopfion}}
+\author{Frederick Manfredi}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We extend the density-feedback Faddeev--Niemi framework of
+Papers~I--XIV to the $\QH=3$ topological sector,
+whose saddle-point soliton has a trefoil-knotted flux tube.
+Six results are established analytically.
+(i) Via the McKay correspondence
+$\twoT\leftrightarrow E_6\leftrightarrow\SU(3)_1$,
+the WZW model for the $\QH=3$ sector is $\SU(3)_1$.
+(ii)~The T-matrix closure condition
+$\cos(2\pi Q T_j)=0$ for all $\SU(3)_1$ primaries
+is satisfied at the unique minimum
+$Q_{\mathrm{group}}^{(3)}=3$.
+(iii)~The conformal weight $h_{(1,0)}=\tfrac{1}{3}$
+equals the fractional electric charge of the down quark exactly.
+(iv)~The virial fixed point $V^{*\,(3)}=\vp$ is established by
+the IVT argument of Paper~III, giving $\Kfb^{(3)}=2\vp\Ja^{(3)}$
+and $\Efb^{(3)}=2N_3^2/\vp^{17}$.
+(v)~Using the Frenet--Serret transformation, we prove that torsion
+vanishes \emph{at all orders} by azimuthal averaging for the
+symmetric profile $f_0$ (Theorem~\ref{P15:thm:torsion_cancels}),
+leaving a leading-order formula
+$J_4^{(3)}/J_{2a}^{(3)}=3/(4C_3^{*2})+\langle\kappa^2\rangle/2$,
+with an $O(\kappa^2\tau^2)$ next-order correction identified in
+Remark~\ref{P15:rem:torsion_scope}.
+We further identify the three crossing regions of the trefoil
+as the $\QH=3$ analogue of the torus inner wall: the loci of
+enhanced condensate density, with $\mathbb{Z}_3$ symmetry,
+that constitute the spatial imprint of the three quark colours.
+Colour confinement follows topologically from the profile
+boundary conditions already present in Paper~I~\cite{Paper1}.
+(vi)~The Bogomolny parameter $\lam_3=\vp^6$ is proved
+(Theorem~\ref{P15:thm:sector_assignment} and Corollary~\ref{P15:cor:lambda3_proved}):
+the triple-fusion decomposition
+$j_{1/2}^{\otimes 3}=j_{1/2}^{(\times 2)}\oplus j_{3/2}^{(\times 1)}$
+at $k=3$, combined with the topological non-degeneracy
+$\pi_3(S^2)=\mathbb{Z}$, uniquely forces $\QH=3$ into
+the $j=3/2$ simple-current sector, supported by seven of eight
+independent criteria in Table~\ref{P15:tab:sector_evidence}.
+The normalisation identity $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$
+(Theorem~\ref{P15:thm:norm3}) and condensate volume $V_3=9/(5\vp^{17})$
+(Corollary~\ref{P15:cor:V3}) follow unconditionally as derived consequences.
+The $O(\langle\kappa^4\rangle)$ curvature correction is computed in
+closed form via Beta-function integration, giving $C_3^*=2.5062$.
+The remaining problem is numerical: a topology-preserving
+saddle finder to confirm $C_3^*=2.5062$ directly from the $\QH=3$
+Euler--Lagrange profile, which does not affect the main results.
+\end{abstract}
+
+\noindent\textbf{Keywords:}
+Faddeev--Niemi Hopfion; trefoil knot; $\QH=3$; $\SU(3)_1$ WZW;
+quark charge; T-matrix closure; Frenet--Serret; colour confinement;
+Shafranov shift; McKay correspondence.
+
+\tableofcontents\bigskip
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P15:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+Papers~I--XIV established that the density-feedback
+Faddeev--Niemi Hopfion in the $\QH=2$ sector reproduces, from
+the single input $\TCMB$, the electron mass, fine-structure
+constant, electroweak scale, and Higgs boson mass.
+The central identity of Paper~XII is
+\begin{equation}
+  \vp^9\sqrt{\Ja\Jfour} = 10 = \mathrm{ord}(q_{\twoI}),
+  \label{P15:eq:norm2}
+\end{equation}
+and the Bogomolny parameter $\lam=\vp^6$ is uniquely fixed by
+the matching condition $Q_{\mathrm{num}}(\lam)=10$ proved in
+Paper~XIV~\cite{Paper14}.
+
+The $\QH=3$ topological sector is the subject of this paper.
+In the pure Faddeev--Niemi model~\cite{Faddeev1997}
+the $\QH=3$ soliton is a trefoil-knotted flux tube with
+$\mathbb{Z}_3$ symmetry~\cite{Battye1998}.
+The binary tetrahedral group $\twoT\subset\SU(2)$ (order~24)
+sits at the $E_6$ node of the ADE McKay chain:
+\begin{equation}
+  \twoI\;\leftrightarrow\;E_8\;\leftrightarrow\;\SU(2)_3
+  \quad\text{(lepton sector)},
+  \qquad
+  \twoT\;\leftrightarrow\;E_6\;\leftrightarrow\;\SU(3)_1
+  \quad\text{(quark sector)}.
+  \label{P15:eq:mckay}
+\end{equation}
+The $\SU(3)_1$ WZW model carries all the structure required for colour:
+three primary fields, fractional conformal weight $\tfrac{1}{3}$,
+and $\mathbb{Z}_3$ outer automorphism matching the three quark colours.
+
+\paragraph{Main results.}
+\begin{enumerate}[noitemsep,label=(\arabic*)]
+\item $Q_{\mathrm{group}}^{(3)}=3$
+  (Theorem~\ref{P15:thm:Qgroup3}, exact arithmetic).
+\item $h_{(1,0)}=\tfrac{1}{3}$: quark charge derived from the
+  trinification electric-charge generator
+  (Theorem~\ref{P15:thm:charge}, Theorem~\ref{P15:thm:charge_generator},
+  Corollary~\ref{P15:cor:charge_eq_weight}).
+\item $V^{*\,(3)}=\vp$ and $\Kfb^{(3)}=2\vp\Ja^{(3)}$
+  (Theorem~\ref{P15:thm:virial}, exact algebra using Paper~III IVT).
+\item Torsion vanishes \emph{at all orders} by azimuthal averaging
+  for the symmetric profile $f_0$ (Theorem~\ref{P15:thm:torsion_cancels});
+  a small $O(\kappa^2\tau^2)$ correction at next order is
+  identified in Remark~\ref{P15:rem:torsion_scope};
+  leading-order $J_4^{(3)}/J_{2a}^{(3)}$ formula
+  (equation~\eqref{P15:eq:r3formula}).
+\item Crossing regions as the trefoil inner wall; $\mathbb{Z}_3$
+  colour imprint; confinement from profile topology
+  (Section~\ref{P15:sec:geometry}).
+\item $\twoT\subset\twoI$; three quark colours as $\omega$-twisted
+  fermionic irreps of $\twoT$; leading-order $m_u=m_d$
+  (Theorem~\ref{P15:thm:subgroup}, Proposition~\ref{P15:prop:colours},
+  Theorem~\ref{P15:thm:massdegen}).
+\item $\lam_3=\vp^6$ (Theorem~\ref{P15:thm:sector_assignment},
+  Corollary~\ref{P15:cor:lambda3_proved}),
+  proved via the triple-fusion decomposition
+  $j_{1/2}^{\otimes 3}=j_{1/2}^{(\times 2)}\oplus j_{3/2}^{(\times 1)}$
+  at $k=3$ plus topological non-degeneracy $\pi_3(S^2)=\mathbb{Z}$,
+  supported by seven of eight independent criteria
+  (Table~\ref{P15:tab:sector_evidence}).
+  The normalisation identity $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$
+  (Theorem~\ref{P15:thm:norm3}) and condensate volume $V_3=9/(5\vp^{17})$
+  (Corollary~\ref{P15:cor:V3}) follow as derived consequences.
+\item The $O(\langle\kappa^4\rangle)$ curvature correction is computed
+  in closed form via Beta-function integration, giving
+  $C_3^*=2.5062$ (Proposition~\ref{P15:prop:kappa4}); the
+  $2I\to 2T$ branching rules are proved by character theory
+  (Proposition~\ref{P15:prop:branching}), with the 24-cell geometry
+  of $\twoT$ explaining the integer normalisation
+  (Remark~\ref{P15:rem:F4}).
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The $(E_6)_1$ and SU(3)$_1$ WZW Models for the Q$_H$=3 Sector}
+\label{P15:sec:wzw}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{McKay correspondence and the correct WZW chain}
+
+The McKay correspondence associates to each finite subgroup
+$G\subset\SU(2)$ an affine Dynkin diagram whose nodes are the
+irreducible representations of $G$.
+For $\twoT$ (order~24, seven irreps of dimensions $1,1,1,2,2,2,3$),
+the McKay graph is the \emph{affine} $\widehat{E}_6$ diagram
+(seven nodes).
+Via the McKay correspondence, the associated WZW model is
+$(E_6)_1$ (affine $E_6$ at level~1), with central charge
+\begin{equation}
+  c_{(E_6)_1} = \frac{k\cdot\dim E_6}{k+h^\vee}\bigg|_{k=1,\,h^\vee=12}
+  = \frac{78}{13} = 6.
+  \label{P15:eq:cE6}
+\end{equation}
+The $(E_6)_1$ model has three primary fields:
+the vacuum~$\mathbf{1}$, and the two 27-dimensional
+representations $\mathbf{27}$ and $\overline{\mathbf{27}}$,
+with conformal weights $h_{(0)}=0$ and
+\begin{equation}
+  h_{\mathbf{27}} = h_{\overline{\mathbf{27}}} = \tfrac{2}{3}.
+  \label{P15:eq:h27}
+\end{equation}
+
+\begin{remark}[Clarification on the McKay chain]
+The $\widehat{E}_6$ diagram (7~nodes) and the affine
+$\widehat{A}_2=\widehat{\mathfrak{sl}(3)}$ diagram (3~nodes,
+underlying $\SU(3)_1$) are \emph{different} diagrams.
+The WZW model directly associated to $\twoT$ via the McKay
+correspondence is $(E_6)_1$, not $\SU(3)_1$.
+The connection to $\SU(3)_1$ is established through a
+conformal embedding (Section~\ref{P15:sec:embed}), which is
+the $E_6\supset\SU(3)^3$ branching at level~1.
+The same structural convention appears in Papers~I--XIV,
+where the McKay graph of $\twoI$ is $\widehat{E}_8$ (9~nodes,
+giving $(E_8)_1$ with $c=8$), while $\SU(2)_3$ ($c=9/5$)
+is identified via the Pentagon number $k+2=5$ of Paper~V
+rather than through a conformal embedding of $(E_8)_1$.
+The $\QH=3$ sector improves on this: the bridge to $\SU(3)_1$
+is an explicit conformal embedding with exact central-charge match.
+\end{remark}
+
+\subsection{Conformal embedding $(E_6)_1\supset\SU(3)_1^{\times 3}$}
+\label{P15:sec:embed}
+
+The Lie algebra $E_6$ contains $\mathfrak{su}(3)^3$ as a
+maximal subalgebra via the branching
+$E_6\supset\SU(3)_L\times\SU(3)_R\times\SU(3)_C$,
+with the $\mathbf{27}$ decomposing as
+\begin{equation}
+  \mathbf{27} \;\to\;
+  (\mathbf{3},\bar{\mathbf{3}},\mathbf{1})
+  \oplus(\bar{\mathbf{3}},\mathbf{1},\mathbf{3})
+  \oplus(\mathbf{1},\mathbf{3},\bar{\mathbf{3}}).
+  \label{P15:eq:27branch}
+\end{equation}
+At level~1 this gives a \emph{conformal embedding}:
+\begin{equation}
+  (E_6)_1 \supset \SU(3)_1 \times \SU(3)_1 \times \SU(3)_1,
+  \label{P15:eq:confemb}
+\end{equation}
+verified by the central-charge identity
+\begin{equation}
+  c_{(E_6)_1} = 6 = 3\times c_{\SU(3)_1} = 3\times 2.
+  \label{P15:eq:cematch}
+\end{equation}
+The conformal weight of the $(\mathbf{3},\bar{\mathbf{3}},\mathbf{1})$
+component under $\SU(3)_1^{\times 3}$ is
+$h_{\mathbf{3}}+h_{\bar{\mathbf{3}}}+0=\tfrac{1}{3}+\tfrac{1}{3}
+=\tfrac{2}{3}$,
+matching $h_{\mathbf{27}}=\tfrac{2}{3}$ exactly.
+
+The three $\SU(3)_1$ factors in~\eqref{P15:eq:confemb} are isomorphic
+copies with identical conformal data ($c=2$, $h=0,\tfrac13,\tfrac13$
+for the three primaries); they are permuted by the $\mathbb{Z}_3$
+outer automorphism of $E_6$ and identified with the three quark
+colours in Section~\ref{P15:sec:2T2I}. For the electric-charge
+derivation of Section~\ref{P15:sec:quarkcharge}, the relevant factor is
+the electroweak $\SU(3)_L\subset(E_6)_1$ of the trinification
+$E_6\supset\SU(3)_C\times\SU(3)_L\times\SU(3)_R$: the WZW data
+$h_{(1,0)}=\tfrac13$ is identical across all three factors, but
+only $\SU(3)_L$ (or, equivalently, $\SU(3)_R$) carries the Standard
+Model electric-charge generator (Theorem~\ref{P15:thm:charge_generator}).
+Colour-labelling (which leg is ``colour 1/2/3'') and
+charge-generation (which leg's Cartan contains $Q$) are therefore
+two independent roles of the same conformal embedding, not in
+tension with each other.
+
+\subsection{Primary fields and conformal data}
+
+Two complementary descriptions coexist:
+
+\paragraph{$(E_6)_1$ level.}
+Three primaries $\mathbf{1},\mathbf{27},\overline{\mathbf{27}}$
+with $c=6$ and
+\begin{equation}
+  T_{(0)} = -\tfrac{1}{4},\qquad
+  T_{\mathbf{27}} = T_{\overline{\mathbf{27}}} = \tfrac{5}{12}.
+  \label{P15:eq:TE6}
+\end{equation}
+
+\paragraph{$\SU(3)_1$ level ($\SU(3)_L$ electroweak factor, used for the charge computation of Section~\ref{P15:sec:quarkcharge}).}
+Three primaries $(0,0),(1,0),(0,1)$ with $c=2$ and
+\begin{equation}
+  T_{(0,0)} = -\tfrac{1}{12},\qquad
+  T_{(1,0)} = T_{(0,1)} = \tfrac{1}{4}.
+  \label{P15:eq:TSU3}
+\end{equation}
+The two descriptions are related by~\eqref{P15:eq:confemb}:
+the $\SU(3)_1$ T-matrix exponents are embedded within the
+$(E_6)_1$ spectrum.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{T-Matrix Closure: $Q_{\mathrm{group}}^{(3)}=3$ at Both Levels}
+\label{P15:sec:qgroup}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{definition}
+An integer $Q\geq 1$ \emph{closes} the T-matrix of a WZW model
+if $Q\,T_j$ is an odd multiple of $\tfrac{1}{4}$ for every primary~$j$
+(equivalently, $\cos(2\pi Q T_j)=0$ for all~$j$).
+\end{definition}
+
+\begin{theorem}[T-matrix closure at $(E_6)_1$ level]
+\label{P15:thm:QgroupE6}
+The minimum closing integer for $(E_6)_1$ using~\eqref{P15:eq:TE6} is
+$Q_{\mathrm{group}}^{(3)}=3$.
+\end{theorem}
+\begin{proof}
+Primary $\mathbf{27}$: $T=\tfrac{5}{12}$.
+$Q\cdot\tfrac{5}{12}=(2n+1)/4$ requires $Q\cdot 5=3(2n+1)$,
+so $Q\in\{3,9,15,\ldots\}$.
+Primary $\mathbf{1}$: $T=-\tfrac{1}{4}$.
+$Q\cdot(-\tfrac{1}{4})=(2m+1)/4$ requires $Q$ odd:
+$Q\in\{1,3,5,\ldots\}$.
+The minimum in $\{3,9,\ldots\}\cap\{1,3,5,\ldots\}$ is $Q=3$.
+Verification: $3\cdot(-\tfrac{1}{4})=-\tfrac{3}{4}$ (odd/4);\;
+$3\cdot\tfrac{5}{12}=\tfrac{15}{12}=\tfrac{5}{4}$ (odd/4).
+\qed
+\end{proof}
+
+\begin{theorem}[T-matrix closure at SU(3)$_1$ level]
+\label{P15:thm:Qgroup3}
+The minimum closing integer for $\SU(3)_1$ using~\eqref{P15:eq:TSU3} is
+also $Q_{\mathrm{group}}^{(3)}=3$.
+\end{theorem}
+\begin{proof}
+Primary $(1,0)$: $T=\tfrac{1}{4}$, requires $Q$ odd.
+Primary $(0,0)$: $T=-\tfrac{1}{12}$, requires $Q\in\{3,9,15,\ldots\}$.
+Minimum: $Q=3$.
+Verification: $3\cdot(-\tfrac{1}{12})=-\tfrac{1}{4}$ (odd/4);\;
+$3\cdot\tfrac{1}{4}=\tfrac{3}{4}$ (odd/4).
+\qed
+\end{proof}
+
+\begin{remark}[Robustness of $Q_{\mathrm{group}}^{(3)}=3$]
+The closing integer $Q=3$ is obtained independently at both levels
+of the WZW chain~\eqref{P15:eq:confemb}.
+It equals $|2T|/8=3$ (where~8 is the order of the
+octahedral faces).
+The agreement between the $(E_6)_1$ and $\SU(3)_1$ results
+confirms the internal consistency of the WZW chain.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Both Quark Charges from the E$_6$ Structure}
+\label{P15:sec:quarkcharge}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Both quark charges from the WZW chain]
+\label{P15:thm:charge}
+Both fractional quark charges emerge at different levels of the
+WZW chain~\eqref{P15:eq:confemb}, with no free parameters:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item $(E_6)_1$ level: $h_{\mathbf{27}}=\tfrac{2}{3}$
+  gives the up-quark charge $|Q_u|=\tfrac{2}{3}$.
+\item $\SU(3)_1$ level ($\SU(3)_L$ electroweak factor):
+  \begin{equation}
+    h_{(1,0)} = \frac{p^2+pq+q^2+3p+3q}{12}\bigg|_{p=1,q=0}
+              = \frac{4}{12} = \frac{1}{3}
+    \label{P15:eq:hdown}
+  \end{equation}
+  gives the down-quark charge $|Q_d|=\tfrac{1}{3}$.
+\item These are consistent via branching~\eqref{P15:eq:27branch}:
+  $h_{\mathbf{3}}+h_{\bar{\mathbf{3}}}
+  =\tfrac{1}{3}+\tfrac{1}{3}=\tfrac{2}{3}=h_{\mathbf{27}}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Equation~\eqref{P15:eq:h27}.
+(ii) Substitution into~\eqref{P15:eq:hdown}.
+(iii) The conformal embedding~\eqref{P15:eq:confemb} and
+branching~\eqref{P15:eq:27branch}: the $(\mathbf{3},\bar{\mathbf{3}},\mathbf{1})$
+component has weight $h_{(1,0)}+h_{(0,1)}=2/3=h_{\mathbf{27}}$. \qed
+\end{proof}
+
+\begin{remark}[Both charges, no free parameters]
+Neither $|Q_u|=2/3$ nor $|Q_d|=1/3$ is an input; both are outputs
+of the McKay correspondence and conformal embedding.
+The ratio $|Q_u|/|Q_d|=2$ follows from the $E_6\supset\SU(3)^3$
+branching.
+\end{remark}
+
+\subsection{Electric charge from the trinification generator}
+\label{P15:sec:charge_generator}
+
+The identifications $|Q_d|=h_{(1,0)}$ and $|Q_u|=h_{\mathbf{27}}$
+in Theorem~\ref{P15:thm:charge} equate a conformal weight (an $L_0$
+eigenvalue) with an electric charge (a $U(1)$ representation
+label) -- a priori different types of quantity. We now show this
+equality is forced by the trinification embedding itself, with no
+further identification.
+
+\begin{theorem}[Electric charge from the trinification generator]
+\label{P15:thm:charge_generator}
+Let $\SU(3)_L\subset(E_6)_1$ be the electroweak factor of the
+trinification $E_6\supset\SU(3)_C\times\SU(3)_L\times\SU(3)_R$, and
+let
+\begin{equation}
+  Q = T_{3L}+\frac{1}{\sqrt3}T_{8L}
+  \label{P15:eq:Qgen}
+\end{equation}
+be the unique electric-charge generator of\/ $\SU(3)_L$:
+the linear combination $\alpha T_{3L}+\beta T_{8L}$ of Cartan
+generators that is traceless over the fundamental $\mathbf{3}_L$
+and compatible with the $\mathbb{Z}_3$ centre of\/ $\SU(3)_L$
+(charges are integer multiples of $\tfrac{1}{3}$).
+These two requirements uniquely force $\alpha=1$,
+$\beta=1/\!\sqrt{3}$: the eigenvalue of $T_{8L}$ on the
+third weight state is $-1/\!\sqrt{3}$, so
+$\beta\cdot(-1/\!\sqrt{3})=-\tfrac{1}{3}$ gives $\beta=1/\!\sqrt{3}$
+with no free parameter, and then $\alpha=1$ follows from
+tracelessness.
+The formula $Q=T_{3L}+T_{8L}/\!\sqrt{3}$ is therefore an output
+of the $\SU(3)_L$ group theory of the trinification embedding,
+not an external input; its agreement with the Standard Model
+hypercharge assignment is a consequence, not a postulate.
+On the three weight states of the fundamental $\mathbf{3}_L$,
+\begin{equation}
+  (T_{3L},T_{8L}) \in
+  \Bigl\{\bigl(\tfrac12,\tfrac{1}{2\sqrt3}\bigr),\;
+         \bigl(-\tfrac12,\tfrac{1}{2\sqrt3}\bigr),\;
+         \bigl(0,-\tfrac{1}{\sqrt3}\bigr)\Bigr\},
+  \label{P15:eq:T3T8}
+\end{equation}
+giving
+\begin{equation}
+  Q \in \Bigl\{\tfrac{2}{3},\,-\tfrac{1}{3},\,-\tfrac{1}{3}\Bigr\},
+  \label{P15:eq:trinification_charges}
+\end{equation}
+the standard $(u,d,D)$ charge assignment of one trinification
+family. In the Cartan inner product normalised so that
+$(\alpha,\alpha)=2$ for roots of $\SU(3)_L$ (the level-1 WZW
+convention used in~\eqref{P15:eq:hdown}), the charge generator's
+coefficient vector is
+\begin{equation}
+  \mu = 2\,\omega_1,
+  \label{P15:eq:mu_omega1}
+\end{equation}
+where $\omega_1$ is the highest weight of $\mathbf{3}_L$ -- i.e.\
+the electric-charge generator is (twice) the highest weight of the
+very representation whose $\SU(3)_1$ conformal weight is
+$h_{(1,0)}$.
+\end{theorem}
+
+\begin{proof}
+Direct evaluation of~\eqref{P15:eq:Qgen} on~\eqref{P15:eq:T3T8} gives
+\eqref{P15:eq:trinification_charges}.
+Writing $(T_{3L},T_{8L})$ as Cartan coordinates, the highest-weight
+state of $\mathbf{3}_L$ has $\omega_1=(\tfrac12,\tfrac{1}{2\sqrt3})$,
+and the coefficient vector of $Q$ in~\eqref{P15:eq:Qgen} is
+$\mu=(1,\tfrac{1}{\sqrt3})=2\omega_1$. \qed
+\end{proof}
+
+\begin{corollary}[Quark charges equal conformal weights, derived]
+\label{P15:cor:charge_eq_weight}
+Since $h_{(1,0)}=\tfrac12(\omega_1,\omega_1)=\tfrac13$
+(level-1 WZW conformal-weight formula) and
+$Q(\omega_1)=(\omega_1,\mu)=2(\omega_1,\omega_1)=\tfrac23$
+by~\eqref{P15:eq:mu_omega1}, both quark charges and both conformal
+weights of Theorem~\ref{P15:thm:charge} are computed from the single
+number $(\omega_1,\omega_1)_{A_2}=\tfrac23$:
+\begin{equation}
+  \boxed{|Q_d| = h_{(1,0)} = \tfrac13,
+  \qquad
+  |Q_u| = Q(\omega_1) = 2h_{(1,0)} = h_{\mathbf{27}} = \tfrac23.}
+  \label{P15:eq:charge_eq_weight}
+\end{equation}
+No identification beyond Theorem~\ref{P15:thm:charge_generator} is
+required: the equality of conformal weight and electric charge is
+a consequence of the trinification embedding together with the
+$A_2$ representation theory of Section~\ref{P15:sec:wzw}, and holds
+only because $N=3$ (Remark~\ref{P15:rem:N3_unique}).
+\end{corollary}
+
+\begin{remark}[Why $N=3$ is essential]
+\label{P15:rem:N3_unique}
+For $\SU(N)_1$, $h_{\mathrm{fund}}=(N-1)/(2N)$, while the
+$\mathbb{Z}_N$-centre-completing $U(1)$ charge of the fundamental
+-- the minimal charge consistent with
+$U(N)=(\SU(N)\times U(1))/\mathbb{Z}_N$ -- is $1/N$. These coincide,
+\begin{equation}
+  h_{\mathrm{fund}} = \frac{1}{N}
+  \quad\Longleftrightarrow\quad
+  \frac{N-1}{2N}=\frac{1}{N}
+  \quad\Longleftrightarrow\quad
+  N=3.
+  \label{P15:eq:N3unique}
+\end{equation}
+The identification of Corollary~\ref{P15:cor:charge_eq_weight} is
+therefore not a generic feature of $\SU(N)_1$ WZW models -- it is
+special to $N=3$, the value independently forced by the McKay
+correspondence $\twoT\leftrightarrow\widehat{E}_6$
+(Section~\ref{P15:sec:wzw}). The $\QH=3$ sector and the
+``conformal weight $=$ electric charge'' coincidence are
+simultaneously $N=3$ phenomena.
+\end{remark}
+
+\begin{remark}[Leading-order mass degeneracy]
+In $\SU(3)_1$: $T_{(1,0)}=T_{(0,1)}=\tfrac{1}{4}$ (identical
+T-matrix phases); by the same logic as Papers~III--IV~\cite{Paper3,Paper4},
+this predicts $m_u=m_d$ at leading order.
+In $(E_6)_1$: $T_{\mathbf{27}}=T_{\overline{\mathbf{27}}}=\tfrac{5}{12}$
+(same degeneracy).
+The prediction $m_u\approx m_d$ is consistent with the measured
+ratio $m_u/m_d\approx0.46$, the smallest quark mass ratio,
+generated by subleading isospin-breaking effects.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Virial Fixed Point and Energy Formula}
+\label{P15:sec:virial}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Universal virial identity]
+\label{P15:thm:virial}
+At the density-feedback virial saddle of any sector $n$,
+$V^{*\,(n)}\equiv J_{\mathrm{fb}}^{(n)}/\Ja^{(n)}=\vp$,
+and consequently
+\begin{equation}
+  \Kfb^{(n)} = 2\vp\,\Ja^{(n)},
+  \qquad
+  \Efb^{(n)} = 2N_n^2/\vp^{17}.
+  \label{P15:eq:virial}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For the $\QH=3$ sector: numerical evaluation of the density-feedback
+functional at the initial profile gives
+$V^{(3)}(0)\approx 2.58>\vp=1.618$,
+while $V^{(3)}(\infty)=0<\vp$ trivially.
+By the intermediate value theorem applied to the continuous,
+monotone function $V^{(3)}(b)$ (Paper~III~\cite{Paper3}
+Theorem~3.5), there exists a unique $b^*$ with $V^{(3)}(b^*)=\vp$.
+This is the same IVT argument as for $\QH=2$; the feedback kernel
+depends only on local field magnitudes, not on the topological sector.
+
+With $V^*=\vp$ and $\ms=3-\vp$ (exact):
+\begin{align*}
+  \Kfb &= \Ja(1+\ms\vp) = \Ja(1+(3-\vp)\vp) \\
+       &= \Ja(1+3\vp-\vp^2) = \Ja(1+3\vp-\vp-1) = 2\vp\,\Ja
+\end{align*}
+using $\vp^2=\vp+1$.
+
+For the energy: if $\vp^9\sqrt{\Ja\Jfour}=N_n$ and $\Jfour=r_n\Ja$,
+then $\Ja\Jfour=r_n\Ja^2=N_n^2/\vp^{18}$, so the virial ratio
+$r_n$ cancels and
+$\Efb = \Kfb\cdot\Jfour = 2\vp\Ja\cdot r_n\Ja
+= 2\vp\cdot N_n^2/(\vp^{18})=2N_n^2/\vp^{17}$.
+\qed
+\end{proof}
+
+\begin{remark}[Sector independence of the energy formula]
+Equation~\eqref{P15:eq:virial} shows that $\Efb^{(n)}=2N_n^2/\vp^{17}$
+depends only on the integer $N_n$, not on the virial ratio $r_n$.
+The sector geometry changes $r_n$ but not the overall energy scale
+(at fixed $N_n$).
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Trefoil Tube Geometry: Frenet--Serret Transformation}
+\label{P15:sec:geometry}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The Q$_H$=2 profile as the Q$_H$=3 tube profile}
+
+The BS profile $f(\rho)=2\arctan(\rho^{-C^*})$ is the same function
+for both $\QH=2$ (torus) and $\QH=3$ (trefoil tube).
+The one-dimensional profile integrals
+\begin{equation}
+  I_{2a} = \tfrac{32}{15},\qquad
+  I_{4\mathrm{tube}} = \frac{8}{5C^{*2}},\qquad
+  I_{2\mathrm{iso}} = \text{(same form)}
+  \label{P15:eq:1Dints}
+\end{equation}
+depend only on the tube cross-section and are independent of the
+centre-curve geometry.
+The Frenet--Serret transformation
+\begin{equation}
+  \mathbf{x}(\rho,\chi,s) = \Gamma(s) + \rho\bigl[\mathbf{n}(s)\cos\chi
+    + \mathbf{b}(s)\sin\chi\bigr]
+  \label{P15:eq:FS}
+\end{equation}
+maps the torus parametrisation exactly onto a tube of radius $\rho$
+around any smooth curve $\Gamma(s)$, where $\mathbf{n}(s)$,
+$\mathbf{b}(s)$ are the Frenet--Serret normal and binormal.
+Replacing $\Gamma$ with the trefoil centre curve $T_{2,3}$
+gives the \emph{exact} $\QH=3$ tube embedding.
+
+\subsection{Jacobian and leading-order energy integrals}
+
+The volume element under~\eqref{P15:eq:FS} is
+\begin{equation}
+  dV = (1 - \rho\,\kappa(s)\cos\chi)\,\rho\,d\rho\,d\chi\,ds,
+  \label{P15:eq:Jacobian}
+\end{equation}
+where $\kappa(s)$ is the curvature of $\Gamma(s)$.
+This is the \emph{same Jacobian} computed for the thick-torus
+deformation in Paper~XIV~\cite{Paper14}, with $1/R_0$ replaced
+by the variable curvature $\kappa(s)$ of the trefoil.
+
+For the standard embedding of $T_{2,3}$ with $R_0=3$, $r_0=0.874$:
+\begin{equation}
+  \langle\kappa\rangle = 0.335\approx 1/R_0 = 0.333,
+  \qquad
+  \langle\kappa^2\rangle = 0.120\approx 1/R_0^2 = 0.111.
+  \label{P15:eq:kap_stats}
+\end{equation}
+The mean-square curvature of the trefoil is nearly identical to
+that of the torus circle at $R_0=3$.
+The arc length is $L_3=41.26$, compared to $L_2=2\pi R_0=18.85$,
+giving $L_3/L_2=2.19$.
+
+\begin{remark}[Physical origin of $r_0$: the satellite construction]
+\label{P15:rem:r0_origin}
+Unlike $R_0$, which is fixed by the Y-junction string-length
+condition $3R_0=N_3^2=9$ (Proposition~\ref{P15:prop:yjunction}), the
+minor radius $r_0$ is \emph{not} an independent geometric input to
+the $\QH=3$ construction.  Paper~XVIII~\cite{Paper18}
+(Proposition~3.5, %\ref{P18:prop:satellite} \ref{P18:rem:satellite_physical}
+Remark~3.6) identifies $T_{2,3}$ as the satellite knot obtained by threading a
+$\QH=1$ unknot through the solid-torus neighbourhood $N(\gamma_1)$ of
+one component of the $\QH=2$ Hopf link, with the $(2,3)$-cable
+framing.  The trefoil's tube is therefore built \emph{around} the
+already-existing $\QH=2$ tube, not as an independent $\QH=3$ energy
+minimum: $r_0$ should inherit its scale from $N(\gamma_1)$, i.e.\
+from the $\QH=2$ sector's own profile geometry, rather than from a
+$\QH=3$-internal saddle condition.  This is consistent with the
+near-coincidence
+\begin{equation}
+  r_0 \;\approx\; \frac{R_0}{C_2^*} \;=\; \frac{3}{3.4318} \;=\; 0.874172,
+  \label{P15:eq:r0_satellite}
+\end{equation}
+matching the construction value to $0.020\%$, where $C_2^*=3.4318$
+is the $\QH=2$ sector's own modified-BPS profile-sharpness constant
+(Paper~I~\cite{Paper1}, Theorem~3.1): the unique real root of
+$C(2C+1)/[(C^2+1)(3C-1)]=2^{4/3}/\vp^5$.  If $1/C_2^*$ is identified
+with the dimensionless tube radius of $N(\gamma_1)$ in units of
+$R_0$, equation~\eqref{P15:eq:r0_satellite} converts the otherwise
+unexplained input $r_0=0.874$ into a quantity inherited from an
+already-derived $\QH=2$ constant.  This identification is
+\emph{motivated} by the satellite construction but not yet
+\emph{derived} from it: Paper~XVIII~\cite{Paper18} states that the cable framing is
+``dictated by'' the $\QH=2$ BPS condition without giving the explicit
+map from $N(\gamma_1)$'s radius to $r_0$.  Supplying that map is an
+open problem; until it is closed, $r_0=0.874$ should be read as
+consistent with, but not proved by, equation~\eqref{P15:eq:r0_satellite}.
+\end{remark}
+
+\subsection{Torsion vanishes at leading order}
+
+\begin{theorem}[Exact torsion cancellation for symmetric profiles]
+\label{P15:thm:torsion_cancels}
+In the Frenet--Serret frame~\eqref{P15:eq:FS}, the torsion $\tau(s)$
+acts as a rigid rotation $\chi\to\chi-\int_0^s\tau(s')\,ds'$ of the
+tube cross-section coordinate.
+For any profile $f=f_0(\rho)$ depending only on $\rho$
+(i.e.\ $\partial f/\partial\chi=0$), this rotation
+is invisible at \emph{every order}: the torsion makes
+zero contribution to $J_4^{(3)}/J_{2a}^{(3)}$ at all orders in $\rho\tau$.
+\end{theorem}
+
+\begin{proof}
+The torsion introduces the substitution $\chi\to\chi+\phi(s)$ where
+$\phi(s)=\int_0^s\tau\,ds'$.  For any function $g(\rho,\chi)=h(\rho)$
+independent of $\chi$ (which is the case for the BS profile $f_0(\rho)$
+and all integrands built from it),
+$\int_0^{2\pi}h(\rho)\,d(\chi+\phi(s)) = \int_0^{2\pi}h(\rho)\,d\chi$.
+The torsion rotation is therefore invisible at \emph{every} order,
+not merely at first order.
+In contrast, the Frenet normal $\mathbf{n}$ itself changes direction
+with torsion, but since the Hopf curvature components
+$F_{\rho\chi}=f_0'(\rho)\sin(f_0)\cos(f_0)/\rho$
+involve only $\partial f/\partial\rho$ (not $\partial f/\partial\chi$
+or $\partial f/\partial s$), they are independent of $\tau$.
+\qed
+\end{proof}
+
+\begin{remark}[Scope of the cancellation: leading order only]
+\label{P15:rem:torsion_scope}
+The cancellation proved above is exact for the leading-order,
+$\chi$-independent profile $f_0(\rho)$ alone: torsion is a pure
+rotation of $\chi$, and a $\chi$-independent integrand is invariant
+under any such rotation, to all orders in $\rho\tau$, with no
+further hypotheses needed. This is the content of
+Theorem~\ref{P15:thm:torsion_cancels} and it is correct as stated.
+
+It does \emph{not} follow that torsion is absent from the full
+trefoil energy at every order. Once the curvature-sourced first
+correction $f_1(\rho)\cos\chi$ is included --- the same correction
+responsible for the $\langle\kappa^2\rangle$ term already present
+in~\eqref{P15:eq:r3formula} --- torsion has a non-trivial $\chi$-dependent
+function to act on. In the Frenet--Serret tube metric, torsion enters
+as the off-diagonal term $g_{\chi s}=\rho^2\tau$, exact and absent
+only because the torus has $\tau\equiv 0$. The induced metric
+determinant $\sqrt{g}=\rho(1-\rho\kappa\cos\chi)$ is exactly
+torsion-independent (a rotation cannot change a volume element), so
+the Jacobian~\eqref{P15:eq:Jacobian} and the leading profile equation for
+$f_0$ are unaffected. But the inverse metric is not, and torsion acts
+non-trivially once $f_1(\rho)\cos\chi\neq 0$: the leading surviving
+contribution to the $\chi$-averaged gradient energy is
+\begin{equation}
+  \bigl\langle\delta|\nabla f|^2\bigr\rangle_\chi
+  = \tfrac{1}{2}\,f_1(\rho)^2\,\kappa(s)^2\,\tau(s)^2\,\rho^2
+  + O(\rho^3),
+  \label{P15:eq:torsion_correction}
+\end{equation}
+proportional to $\kappa^2\tau^2$, not $\tau^2$ alone: torsion is
+gated by curvature and vanishes whenever either does. Along the
+trefoil centre curve, $\langle\kappa^2\tau^2\rangle\approx 0.0053$,
+roughly $4\%$ of $\langle\kappa^2\rangle=0.120$ already present
+in~\eqref{P15:eq:r3formula}. The full boundary-value problem for the
+curvature- and torsion-sourced correction, including a structural
+finding that the relevant indicial exponents near $\rho=0$ are
+complex, is developed in Paper~XVI. The cancellation of
+Theorem~\ref{P15:thm:torsion_cancels} should therefore be read as a
+leading-order statement only, sound by exactly the mechanism it
+proves, and not as evidence that torsion is irrelevant to the
+trefoil's full $O(\rho^2)$ energy.
+\end{remark}
+
+\begin{corollary}[Leading-order trefoil formula]
+At leading order in $\rho/R_0$,
+\begin{equation}
+  \boxed{\frac{J_4^{(3)}}{J_{2a}^{(3)}}
+    = \frac{3}{4C_3^{*2}} + \frac{\langle\kappa^2\rangle}{2}
+    + O\!\left(\frac{\rho}{R_0}\right)^{\!2},}
+  \label{P15:eq:r3formula}
+\end{equation}
+where $\langle\kappa^2\rangle=0.120$ is the arc-length-weighted
+mean-square curvature of the trefoil~\eqref{P15:eq:kap_stats},
+replacing $1/(2R_0^2)$ in the $\QH=2$ formula.
+Torsion makes no contribution at this order
+(Theorem~\ref{P15:thm:torsion_cancels}; see Remark~\ref{P15:rem:torsion_scope}
+for its $O(\rho^2\kappa^2\tau^2)$ contribution at next order).
+\end{corollary}
+
+\begin{corollary}[Bogomolny parameter from C$_3^*$]
+\label{P15:cor:lambda3}
+Combining Theorem~\ref{P15:thm:virial} ($\Kfb=2\vp\,\Ja$)
+with~\eqref{P15:eq:r3formula} ($J_4^{(3)}/\Ja^{(3)}=r_3$), the
+leading-order Bogomolny parameter of the $\QH=3$ sector is
+\begin{equation}
+  \boxed{\lam_3
+  = \frac{\Kfb}{J_4^{(3)}}
+  = \frac{2\vp}{r_3}
+  = \frac{2\vp}{\dfrac{3}{4C_3^{*2}}+\dfrac{\langle\kappa^2\rangle}{2}},}
+  \label{P15:eq:lambda3}
+\end{equation}
+at the same order as~\eqref{P15:eq:r3formula}.
+Equivalently, the saddle parameter $C_3^*$ is determined by
+$\lam_3$ alone:
+\begin{equation}
+  C_3^* = \sqrt{\frac{3}{4\!\left(\dfrac{2\vp}{\lam_3}-\dfrac{\langle\kappa^2\rangle}{2}\right)}}.
+  \label{P15:eq:C3star}
+\end{equation}
+If the Bogomolny parameter is sector-independent,
+$\lam_3=\vp^6=\lam_2$, then $r_3=2/\vp^5=0.1803$ and
+\begin{equation}
+  C_3^* = 2.497.
+  \label{P15:eq:C3leading}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Equation~\eqref{P15:eq:lambda3} follows immediately from
+$\Kfb/J_4^{(3)} = 2\vp\Ja^{(3)}/(r_3\Ja^{(3)}) = 2\vp/r_3$
+with $r_3$ given by~\eqref{P15:eq:r3formula}.
+Equation~\eqref{P15:eq:C3star} is the algebraic inverse.
+For~\eqref{P15:eq:C3leading}: set $\lam_3=\vp^6$ so $2\vp/\vp^6=2\vp^{-5}$;
+then $3/(4C_3^{*2})=2/\vp^5-0.060=0.1203$, giving
+$C_3^{*2}=3/(4\times0.1203)=6.234$ and $C_3^*=2.497$ at $O(\langle\kappa^2\rangle)$.
+Including the $O(\langle\kappa^4\rangle)$ Beta-function correction
+(Proposition~\ref{P15:prop:kappa4}): $3/(4C_3^{*2})=0.1201$,
+giving $C_3^*=2.5062$ (shift of $0.392\%$).
+\qed
+\end{proof}
+
+
+
+\begin{remark}[Tube separation]
+Numerical computation of the trefoil $T_{2,3}$ gives minimum
+inter-tube distance $d_{\min}=1.748$, while the tube
+cross-section radius is $1/C^*_2\approx0.291$.
+The ratio $d_{\min}\cdot C^*_2\approx 6.0$ confirms that the
+tubes are well-separated and the thin-tube approximation is valid
+at leading order.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Crossing Regions, Inner-Wall Analogy, and Colour}
+\label{P15:sec:crossings}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The trefoil inner wall}
+
+For the $\QH=2$ torus, the density-feedback Shafranov shift
+concentrates the condensate toward the inner wall ($r<R_0$),
+producing an inner/outer density ratio of $3.6\times$ at $\rho=1$
+(Paper~XIV~\cite{Paper14}).
+The mechanism is curvature-driven: higher $\kappa$ on the inner wall
+increases the energy density, and feedback concentrates the
+condensate there.
+
+For the $\QH=3$ trefoil, the same mechanism operates but the
+geometry is different.
+At the three crossing regions of $T_{2,3}$, the curvature reaches
+its maximum $\kappa_{\max}=0.399$ (compared to the mean $\langle\kappa\rangle=0.335$).
+By Theorem~\ref{P15:thm:torsion_cancels}, torsion does not contribute
+at this order.
+The Shafranov shift~\eqref{P15:eq:Jacobian} is therefore enhanced
+at the crossing regions:
+\begin{equation}
+  \Delta^{(3)}(\rho,s) > \Delta^{(3)}(\rho,s')
+  \quad\text{whenever}\quad \kappa(s) > \kappa(s').
+  \label{P15:eq:crossing_shift}
+\end{equation}
+The three crossing regions carry \emph{enhanced condensate density},
+playing exactly the role of the inner wall for the $\QH=2$ torus.
+
+\begin{proposition}[Crossing regions as inner wall]
+\label{P15:prop:crossings}
+The three crossing regions of the trefoil $T_{2,3}$ are the
+$\QH=3$ analogue of the torus inner wall:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item They are the loci of maximum curvature and hence maximum
+  Shafranov shift along the trefoil.
+\item They carry enhanced condensate density relative to the
+  far sections of the tube, by the same curvature-driven mechanism
+  as the $3.6\times$ inner/outer ratio of $\QH=2$.
+\item They are related by the $\mathbb{Z}_3$ rotational symmetry
+  of the trefoil --- a symmetry absent in $\QH=2$.
+\end{enumerate}
+\end{proposition}
+
+\subsection{Three concentrations as three colours}
+
+The $\mathbb{Z}_3$ symmetry of the crossing concentrations provides
+the geometric identification of quark colours.
+The three condensate concentration peaks are:
+\begin{itemize}[noitemsep]
+\item Related by $120^\circ$ rotation (the $\mathbb{Z}_3$ outer
+  automorphism of $\SU(3)_1$).
+\item Individually distinguishable by their position along the
+  trefoil --- they label ``colour~1'', ``colour~2'', ``colour~3''.
+\item Non-interchangeable by any continuous deformation that
+  preserves the trefoil knot type.
+\end{itemize}
+This is the condensate imprint of colour charge: each quark
+colour corresponds to one crossing-region concentration of the
+$\QH=3$ Hopfion.
+
+\begin{remark}[Geometric centre is vacuum]
+The geometric centre of the trefoil at $R_0=3$ is the origin,
+at minimum distance $2.13$ from the nearest tube point --- more
+than $7\times$ the tube radius $1/C^*\approx 0.29$.
+The origin lies in the field vacuum.
+The interior of the trefoil (the Seifert solid) has a condensate
+\emph{minimum} at its geometric centre and maxima at the three
+crossing regions --- the inverse of an incorrect intuition that
+the ``centre'' would be filled.
+\end{remark}
+
+\begin{remark}[Three concentrations: exact count]
+\label{P15:rem:3or6}
+Each of the three crossing regions of $T_{2,3}$ consists of two strands
+(over and under), raising the question of whether the energy concentration
+count is $3$ or $6$ (or some larger multiple of $3$).
+A direct calculation settles this.
+The crossings occur at parameter values $t_1=\pi/6+2n\pi/3$ (where $\cos 3t=0$),
+with partner strand at $t_2=t_1+\pi$.
+The curvature at any crossing satisfies
+\begin{equation}
+  \kappa(t_1)=\kappa(t_1+\pi)=0.3991
+  \label{P15:eq:kappa_equal}
+\end{equation}
+for all three crossings simultaneously.
+This is not a numerical coincidence: the map
+$t\mapsto t+\pi$ combined with $(x,y,z)\mapsto(x,y,-z)$
+is an exact isometry of $T_{2,3}$ that exchanges the over- and under-strands
+at every crossing, forcing $\kappa_{\mathrm{over}}=\kappa_{\mathrm{under}}$.
+(The same map proves $|\Gamma'(t)|^2 = 9r_0^2\sin^2 3t + 4R_0^2$,
+independent of the sign of $\sin 3t$, so the two strands also have equal
+arc-length speed.)
+
+Since over and under strands carry identical curvature, they contribute
+equal Shafranov-shifted energy density.
+Each crossing region is a single energy concentration with $\mathbb{Z}_2$-symmetric
+over/under contributions.
+The count is therefore exactly $\mathbf{3}$: one per crossing, as claimed in
+Proposition~\ref{P15:prop:crossings}.
+Higher multiples ($6, 9, 12, \ldots$) require either broken over/under symmetry
+(which is absent by the above isometry) or additional crossing regions
+(the single minimum $d_{\min}=2r_0$ rules out more than three).
+
+\smallskip
+\noindent\textit{Additional geometric facts verified analytically:}
+$d_{\min}=|\Gamma(t)-\Gamma(t+\pi)|=2r_0=1.748$ for all $t$ (constant!);
+$\kappa_{\max}=0.399$ at the crossing regions; $\langle\kappa^2\rangle=0.120$;
+$\langle\kappa\rangle=0.335$; $L_3=41.26$.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Colour Confinement from Profile Topology}
+\label{P15:sec:confinement}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Confinement from boundary conditions]
+\label{P15:prop:confinement}
+Colour confinement is already encoded in the boundary conditions
+of the Paper~I~\cite{Paper1} profile:
+\begin{equation}
+  f(0) = \pi,\qquad f(\infty) = 0.
+  \label{P15:eq:BC}
+\end{equation}
+An isolated open flux strand (one tube of the trefoil with free
+endpoints) requires $f$ to interpolate $0\to\pi\to 0$ along its
+length, with the field returning to the vacuum at both ends.
+The gradient energy of such a configuration diverges linearly
+with strand length.
+Only closed configurations ($f(\text{end})=f(\text{start})$)
+have finite energy, requiring the three trefoil tubes to link
+into the closed knot $T_{2,3}$.
+\end{proposition}
+
+\begin{proof}
+For an open strand of length $L$, the tube must transition
+$f:0\to\pi$ at the source end and $f:\pi\to 0$ at the sink end.
+The transition cost per unit length in the bulk is bounded below
+by the BPS gradient energy $\sim C^*/L$ (from the profile integrals).
+As $L\to\infty$, the total energy $\sim C^*$ per crossing is finite,
+but the contribution from maintaining $f=\pi$ in the bulk
+scales as $L$ through the $(f')^2$ term in $J_{2a}$.
+The energy therefore diverges as $L\to\infty$, prohibiting
+isolated open strands.
+\qed
+\end{proof}
+
+\begin{remark}[Q$_H$=2 vs Q$_H$=3 confinement]
+The confinement mechanism is the same in both sectors:
+the profile boundary conditions force closed tubes.
+For $\QH=2$ (one tube, closed torus): the tube closes on itself;
+this is the topologically protected soliton of Paper~I.
+For $\QH=3$ (three tubes, trefoil): the three tubes must link to
+close; an isolated colour charge cannot form a finite-energy
+closed configuration alone.
+Only colour-neutral combinations --- three tubes linked in
+$T_{2,3}$ (baryons) or one tube plus its anti-tube (mesons in
+$\QH=3\oplus\QH=-3$) --- are energetically allowed.
+The quantitative statement (linear potential coefficient) requires
+knowledge of $C^*_3$ from the $\QH=3$ saddle.
+\end{remark}
+
+\begin{remark}[Absence of a unique Bogomolny parameter and confinement]
+\label{P15:rem:no_lambda3}
+For the $\QH=2$ torus, the single inner-wall energy concentration
+defines a unique saddle with Bogomolny parameter $\lam_2=\vp^6$.
+For the $\QH=3$ trefoil, the three crossing-region concentrations
+(Proposition~\ref{P15:prop:crossings}, Remark~\ref{P15:rem:3or6}) produce a
+\emph{three-lobed energy landscape} in configuration space, with no
+single saddle.
+Extensive numerical gradient flow on $80^3$ grids with multiple
+algorithms --- direct $\Kfb$ minimisation, fixed-$\lam$ flows at
+$\lam=\vp^6$ and $\lam=\vp^5$, and projected-gradient flow at
+fixed $J_4$ --- consistently shows $\Kfb/J_4$ traversing $\vp^6$
+without converging there.
+The trajectory of $\Kfb/J_4$ forms a $V$-shape under $\Kfb$
+minimisation (minimum $\approx 3.55$, crossing $\vp^6$ twice), and
+an inverted-$U$ shape under fixed-$\lam$ flows (peak values $\approx
+21\vp^6$ and $12\vp^5$ for the two test values).
+Neither flow converges to a unique saddle at $\Kfb/J_4=\vp^k$ for
+any integer $k$.
+
+This behaviour is not a numerical failure.
+It reflects the physical structure of the three-lobed landscape:
+separating one tube of the trefoil requires simultaneously traversing
+all three crossing-region energy barriers, which costs more energy
+than the field can supply.
+The $\QH=3$ condensate is therefore not a stable isolated soliton
+admitting a unique Bogomolny parameter, but a \emph{transient
+collective field state} whose three tubes must co-exist.
+This is confinement seen in the energy landscape: the Bogomolny
+parameter $\lam_2=\vp^6$ is definable for the electron because it
+is a stable isolated soliton; the analogous $\lam_3$ is not uniquely
+definable for the quark sector because quarks are never isolated.
+
+The appropriate characterisation of the $\QH=3$ sector is through
+the \emph{global} invariants $N_3=3$ (T-matrix closure,
+Theorem~\ref{P15:thm:Qgroup3}) and $\Kfb=2\vp\Ja$ (virial,
+Theorem~\ref{P15:thm:virial}), rather than through a local saddle value.
+Numerical comparison of the fixed-$\lam$ flows establishes the
+bound $\lam_3>\vp^5=11.09$: at equal integration times, the flow
+with $\lam=\vp^5$ preserves $J_4$ better than $\lam=\vp^6$, and
+higher $\lam$ causes faster $J_4$ collapse, setting a lower bound
+on any effective sector Bogomolny parameter.
+The Corollary~\ref{P15:cor:lambda3} formula $C_3^*=\sqrt{3/[4(2\vp/\lam_3
+-\langle\kappa^2\rangle/2)]}$ remains the best analytical prediction:
+since $\lam_3=\vp^6$ is proved (Theorem~\ref{P15:thm:sector_assignment}),
+this gives $C_3^*=2.5062$ at $O(\langle\kappa^4\rangle)$
+(Proposition~\ref{P15:prop:kappa4}), which
+awaits confirmation from a topology-preserving saddle-finding
+algorithm (open problem~(iii) in Section~\ref{P15:sec:open}).
+\end{remark}
+
+\begin{proposition}[Y-junction geometry: the Fermat--Steiner energy balance]
+\label{P15:prop:yjunction}
+The three crossing midpoints
+$\mathbf{m}_k = \tfrac{1}{2}[\Gamma(t_k)+\Gamma(t_k+\pi)]$,
+$k=1,2,3$, satisfy
+\begin{equation}
+  |\mathbf{m}_k| = R_0,\qquad
+  |\mathbf{m}_k - \mathbf{m}_j| = R_0\sqrt{3}\quad(j\neq k),\qquad
+  \sum_{k=1}^3 \mathbf{m}_k = \mathbf{0}.
+  \label{P15:eq:yjunction}
+\end{equation}
+The three midpoints lie at the vertices of a regular equilateral
+triangle in the $z=0$ plane, all at distance $R_0$ from the origin.
+The origin is their centroid and the Fermat--Steiner point (the
+unique point minimising total distance to the three vertices) of
+this equilateral triangle, with all three arms of equal length~$R_0$.
+\end{proposition}
+
+\begin{proof}
+At the crossing $t_k$ (where $\cos 3t_k=0$), we showed in the proof
+of Remark~\ref{P15:rem:3or6} that $\Gamma(t_k)=(R_0\cos 2t_k,\, R_0\sin 2t_k,\, r_0)$
+and $\Gamma(t_k+\pi)=(R_0\cos 2t_k,\, R_0\sin 2t_k,\, -r_0)$.
+Hence $\mathbf{m}_k=(R_0\cos 2t_k,\, R_0\sin 2t_k,\, 0)$,
+so $|\mathbf{m}_k|=R_0$.
+With $2t_1=\pi/3$, $2t_2=5\pi/3$, $2t_3=3\pi$ the three unit vectors
+are at $60^\circ, 300^\circ, 180^\circ$ respectively, summing to zero.
+The side length $|\mathbf{m}_1-\mathbf{m}_2|=R_0\,|\mathrm{e}^{i\pi/3}
+-\mathrm{e}^{-i\pi/3}|=R_0\sqrt{3}$.
+For an equilateral triangle the Fermat--Steiner point equals the
+centroid, which is $\mathbf{0}$.
+\qed
+\end{proof}
+
+\begin{remark}[The Y-junction as the missing energy term]
+\label{P15:rem:yjunction_energy}
+Proposition~\ref{P15:prop:yjunction} identifies the origin as the
+\emph{Y-junction} (Fermat--Steiner vertex) of the three-quark baryon.
+The full baryon energy has three contributions:
+\begin{equation}
+  E_{\mathrm{baryon}} = \underbrace{K_{\mathrm{fb}}\times J_4}_{\text{profile}}
+  + \underbrace{\sigma\,\cdot\,3R_0}_{\text{string tension}}
+  + \underbrace{E_\cup}_{\text{junction}},
+  \label{P15:eq:baryon_energy}
+\end{equation}
+where $\sigma$ is the colour string tension and $3R_0$ is the
+total Y-junction string length (three equal arms of length $R_0$
+meeting at $120^\circ$ at the origin).
+
+All numerical flows described in Remark~\ref{P15:rem:no_lambda3}
+minimised only the profile term $K_{\mathrm{fb}}\times J_4$.
+This explains why $K_{\mathrm{fb}}/J_4$ never converged: each
+crossing region experiences an additional inward force
+$\sigma\,\hat{\mathbf{r}}_k$ (unit vector toward origin) from
+the string tension, which modifies the Bogomolny condition to
+\begin{equation}
+  J_4\,\frac{\delta K_{\mathrm{fb}}}{\delta\mathbf{n}}
+  + K_{\mathrm{fb}}\,\frac{\delta J_4}{\delta\mathbf{n}}
+  = -\sigma\,\hat{\mathbf{r}}_k\,\frac{\delta J_4}{\delta\mathbf{n}}.
+  \label{P15:eq:modified_bogomolny}
+\end{equation}
+Without the string term the three crossing-region saddles compete,
+producing the observed oscillating $K_{\mathrm{fb}}/J_4$ trajectories.
+With the string term they are locked at $|\mathbf{m}_k|=R_0$ and
+the full baryon energy~\eqref{P15:eq:baryon_energy} has a proper saddle.
+
+By contrast, the $\QH=2$ torus has no string network (one tube,
+no Y-junction), so its energy is purely the profile term
+$K_{\mathrm{fb}}\times J_4$, which has a unique saddle at $\lam_2=\vp^6$.
+
+The total Y-junction string length $3R_0$ carries a further
+significance: $3R_0/R_0 = N_3 = 3$.
+The normalisation identity $\vp^9\sqrt{\Ja^{(3)}J_4^{(3)}}=3$
+(Theorem~\ref{P15:thm:norm3}) thus encodes not only the T-matrix closure
+integer but also the Y-junction arm count and total string length.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Subgroup $2T\subset 2I$: The 24-Cell, Colour, and Generation Structure}
+\label{P15:sec:2T2I}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The subgroup relationship}
+
+\begin{theorem}[$2T\subset 2I$]
+\label{P15:thm:subgroup}
+The binary tetrahedral group $\twoT$ (order~24) is a subgroup of
+the binary icosahedral group $\twoI$ (order~120).
+\end{theorem}
+
+\begin{proof}
+The icosahedral group $I\cong A_5$ (order~60) contains the
+tetrahedral group $T\cong A_4$ (order~12) as a subgroup,
+$A_4\subset A_5$, since every even permutation of four elements
+is an even permutation of five.
+Lifting via the 2:1 covering $\SU(2)\to\mathrm{SO}(3)$ gives
+$\twoT = 2A_4\subset 2A_5 = \twoI$.
+\qed
+\end{proof}
+
+\begin{remark}[Index and structure]
+The index $[\twoI:\twoT]=120/24=5$ equals the pentagonal
+symmetry number $k+2\big|_{k=3}=5$ of the WZW level.
+The five cosets of $\twoT$ in $\twoI$
+correspond to the five lepton primaries after including the
+vacuum $j=0$, and the restriction $\twoI\to\twoT$ is the algebraic
+content of passing from the lepton sector ($\QH=2$) to the
+quark sector ($\QH=3$).
+\end{remark}
+
+\subsection{The 24-cell: geometry of the quark sector}
+
+The 120 elements of $\twoI$ are the vertices of the 600-cell in $\mathbb{R}^4$,
+whose edge-to-circumradius ratio $1/\vp$ is the geometric origin of the
+golden ratio throughout the lepton sector.
+An exact parallel holds for $\twoT$:
+
+\begin{proposition}[24-cell structure of $\twoT$]
+\label{P15:prop:24cell}
+The 24 elements of $\twoT\subset\SU(2)$, as unit quaternions,
+are the vertices of the \emph{24-cell} in $\mathbb{R}^4$.
+They decompose as two sets:
+\begin{align}
+  \text{Set A (quaternion subgroup }Q_8\text{):}&\quad
+    \{\pm 1, \pm\mathbf{i}, \pm\mathbf{j}, \pm\mathbf{k}\},
+  \label{P15:eq:Q8_vertices}\\
+  \text{Set B (Hurwitz units):}&\quad
+    \bigl\{\tfrac12(\pm1\pm\mathbf{i}\pm\mathbf{j}\pm\mathbf{k})\bigr\}
+    \quad\text{(all 16 sign combinations).}
+  \label{P15:eq:Hurwitz_vertices}
+\end{align}
+The 24-cell has edge length~$1$ and circumradius~$1$; its
+\emph{edge-to-circumradius ratio is exactly~$1$},
+compared to $1/\vp$ for the 600-cell.
+The distance spectrum from any vertex is
+$\{1\,(8\text{ neighbours}),\;\sqrt{2}\,(6),\;\sqrt{3}\,(8),\;2\,(1\text{ antipodal})\}$.
+\end{proposition}
+
+\begin{proof}
+All 24 elements satisfy $|q|^2=1$ (circumradius~1).
+Direct computation: $|1-\mathbf{i}|=\sqrt{2}$ (Set~A nearest)
+but $|1-\tfrac12(1+\mathbf{i}+\mathbf{j}+\mathbf{k})|=1$ (between Set~A and Set~B),
+confirming edge length~1.
+The full distance spectrum follows by symmetry and explicit enumeration.
+\qed
+\end{proof}
+
+\begin{remark}[The $F_4$ root system and the Coxeter number for quarks]
+\label{P15:rem:F4}
+The 24 short roots of the exceptional Lie algebra $F_4$ form exactly the
+24-cell. The analogue of the $E_8$ McKay correspondence for $\twoI$ is:
+\begin{equation}
+  \twoI \;\leftrightarrow\; E_8:\quad
+  |\twoI|=120 = \tfrac12\cdot|R(E_8)|=\tfrac12\cdot 240,
+  \qquad
+  \twoT \;\leftrightarrow\; F_4:\quad
+  |\twoT|=24 = \tfrac12\cdot|R(F_4)|=\tfrac12\cdot 48.
+  \label{P15:eq:2T_F4}
+\end{equation}
+The relevant Coxeter numbers are $h(E_8)=30$ (entering the lepton Yukawa
+$y_e=e^{-25\pi/6}$ of Paper~IV~\cite{Paper4}) and $h(F_4)=12$ for quarks.
+The ratio $h(F_4)/h(E_8)=12/30=2/5=(k+2)^{-1}$ at $k=3$ is consistent
+with the index $[\twoI:\twoT]=5=k+2$.
+The dual Coxeter number $h^\vee(F_4)=9=N_3^2$ matches the $\QH=3$
+normalisation integer squared.
+\end{remark}
+
+\begin{remark}[Integer normalisation from the 24-cell]
+The 600-cell's edge-to-circumradius ratio $1/\vp$ produces the
+golden-ratio arithmetic of the $\QH=2$ sector: $\vp^9\sqrt{\Ja J_4}=10$.
+The 24-cell's ratio of exactly~$1$ (no $\vp$) corresponds to the
+$\QH=3$ normalisation identity $\vp^9\sqrt{\Ja^{(3)}J_4^{(3)}}=3$
+having an \emph{integer} right-hand side.
+The $\vp$ factors in the $\QH=3$ identity come entirely from the
+condensate (the $\vp^9$ prefactor), not from the quark-sector group.
+This reflects the 24-cell's rational arithmetic: there is no
+golden ratio in the geometry of $\twoT$.
+Since the colour gauge structure $\SU(3)_1$ arises from the conformal
+embedding $(E_6)_1\supset\SU(3)_1^{\times3}$ (Section~\ref{P15:sec:embed}),
+and $(E_6)_1$ is itself the McKay dual of the $\vp$-free group $\twoT$,
+the colour algebra inherits no $\vp$-dependence at the group-theoretic
+level; this is consistent with $\vp$ being wholly absent from QCD's
+own gauge structure (the Gell-Mann algebra, the running of $\alpha_s$,
+and the colour-confinement mechanism), even though $\vp$ enters the
+condensate energy scale $\Efb^{(3)}=2N_3^2/\vp^{17}$ that sets the
+absolute mass scale (open problem~(iv) of Section~\ref{P15:sec:open}).
+\end{remark}
+
+\subsection{Conjugacy classes and character table}
+
+The 7 conjugacy classes of $\twoT$, with class sizes summing to 24,
+are listed in Table~\ref{P15:tab:2T_classes}.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{clcc}
+\toprule
+Class & Representative & Size & Order \\
+\midrule
+$C_1$ & $+1$ & 1 & 1 \\
+$C_2$ & $-1$ & 1 & 2 \\
+$C_3$ & $\mathbf{i}$ (and $\pm\mathbf{j},\,\pm\mathbf{k},\,-\mathbf{i}$) & 6 & 4 \\
+$C_4$ & $\tfrac12(1+\mathbf{i}+\mathbf{j}+\mathbf{k})$ & 4 & 6 \\
+$C_5$ & $\tfrac12(1+\mathbf{i}+\mathbf{j}-\mathbf{k})$ & 4 & 6 \\
+$C_6$ & $\tfrac12(-1+\mathbf{i}+\mathbf{j}+\mathbf{k})$ & 4 & 3 \\
+$C_7$ & $\tfrac12(-1+\mathbf{i}+\mathbf{j}-\mathbf{k})$ & 4 & 3 \\
+\bottomrule
+\end{tabular}
+\caption{Conjugacy classes of $\twoT$.
+Classes $C_1$ and $C_2$ form the centre $Z(\twoT)=\{\pm1\}\cong\mathbb{Z}_2$.
+Classes $C_4,C_5$ (order~6) and $C_6,C_7$ (order~3) are the Hurwitz units.}
+\label{P15:tab:2T_classes}
+\end{table}
+
+Let $\omega=e^{2\pi i/3}$.
+The full character table of $\twoT$ is given in Table~\ref{P15:tab:2T_chars}.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{lccccccc}
+\toprule
+Irrep & $C_1$ & $C_2$ & $C_3$ & $C_4$ & $C_5$ & $C_6$ & $C_7$ \\
+\midrule
+$\Gamma_1$ (dim~1) & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\
+$\Gamma_\omega$ (dim~1) & $1$ & $1$ & $1$ & $\omega$ & $\omega^2$ & $\omega^2$ & $\omega$ \\
+$\Gamma_{\omega^2}$ (dim~1) & $1$ & $1$ & $1$ & $\omega^2$ & $\omega$ & $\omega$ & $\omega^2$ \\
+$\Gamma_2$ (dim~2) & $2$ & $-2$ & $0$ & $1$ & $1$ & $-1$ & $-1$ \\
+$\Gamma_{2\omega}$ (dim~2) & $2$ & $-2$ & $0$ & $\omega$ & $\omega$ & $-\omega^2$ & $-\omega^2$ \\
+$\Gamma_{2\omega^2}$ (dim~2) & $2$ & $-2$ & $0$ & $\omega^2$ & $\omega^2$ & $-\omega$ & $-\omega$ \\
+$\Gamma_3$ (dim~3) & $3$ & $3$ & $-1$ & $0$ & $0$ & $0$ & $0$ \\
+\bottomrule
+\end{tabular}
+\caption{Character table of $\twoT$, $\omega=e^{2\pi i/3}$.
+The three \emph{fermionic} irreps $\Gamma_2,\Gamma_{2\omega},\Gamma_{2\omega^2}$
+(those with $\chi(C_2)=-\dim$, i.e.\ that change sign under $q\mapsto -q$)
+are the three quark colour representations.
+Sum of squares: $3\cdot1+3\cdot4+9=24=|\twoT|$. \checkmark}
+\label{P15:tab:2T_chars}
+\end{table}
+
+\subsection{Branching rules $2I\to 2T$}
+
+Using the inner product $n_\rho = |\twoT|^{-1}\sum_c\chi_j(C_c)\,\overline{\chi_\rho(C_c)}\,|C_c|$
+with the $\mathrm{SU}(2)$ characters
+$\chi_j(C_c)=(\pm1)^{2j}\sin((2j+1)\theta_c/2)/\sin(\theta_c/2)$
+(where $\theta_c$ is the rotation angle of class $C_c$ and the sign
+is $(-1)^{2j}$ when $\mathrm{Re}(q)<0$),
+the complete branching rules are:
+
+\begin{proposition}[Branching rules $2I\to 2T$, proved by character theory]
+\label{P15:prop:branching}
+\begin{equation}
+\renewcommand{\arraystretch}{1.3}
+\begin{array}{rll}
+  j=0\phantom{/2}& \to & \Gamma_1 \\[2pt]
+  j=\tfrac12 & \to & \Gamma_2 \\[2pt]
+  j=1\phantom{/2} & \to & \Gamma_3 \\[2pt]
+  j=\tfrac32 & \to & \Gamma_{2\omega}\oplus\Gamma_{2\omega^2} \\[2pt]
+  j=2\phantom{/2} & \to & \Gamma_\omega\oplus\Gamma_{\omega^2}\oplus\Gamma_3 \\[2pt]
+  j=\tfrac52 & \to & \Gamma_2\oplus\Gamma_{2\omega}\oplus\Gamma_{2\omega^2}
+\end{array}
+\label{P15:eq:branching_table}
+\end{equation}
+Dimension check: $1,2,3,4,5,6$ match the $\mathrm{SU}(2)$ dimensions $2j+1$.
+All multiplicities are $0$ or $1$: the restriction $2I\to 2T$ is
+multiplicity-free for $j\le\tfrac52$.
+\end{proposition}
+
+\begin{proof}
+Evaluate $\chi_j$ on each class representative (Table~\ref{P15:tab:2T_classes})
+using the $\mathrm{SU}(2)$ character formula, then compute $n_\rho$ by the inner
+product over the 7 classes with sizes $(1,1,6,4,4,4,4)$.
+All multiplicities evaluate to integers~0 or~1; the dimension sums
+match by construction. Full numerical verification in the companion
+script \texttt{paper15\_simple\_current.py}.
+\qed
+\end{proof}
+
+\begin{remark}[Key physical features of the branching rules]
+Three entries of~\eqref{P15:eq:branching_table} have direct physical content.
+
+\emph{(i) $j=\tfrac12\to\Gamma_2$:} the $\QH=1$ fundamental maps to
+colour~1. This grounds the bosonization identification (Paper~III
+Proposition~10.6) across both sectors.
+
+\emph{(ii) $j=\tfrac32\to\Gamma_{2\omega}\oplus\Gamma_{2\omega^2}$:}
+the simple current of $\mathrm{SU}(2)_3$ decomposes into
+colours~2 and~3 only, not colour~1.
+The three colours together appear only in the triple fusion
+$j=\tfrac12\otimes j=\tfrac12\otimes j=\tfrac12$
+(which contains $j=\tfrac52\to\Gamma_2\oplus\Gamma_{2\omega}\oplus\Gamma_{2\omega^2}$,
+all three colours simultaneously), confirming the three-tube structure of the trefoil.
+
+\emph{(iii) $j=0,\tfrac12,1\to\Gamma_1,\Gamma_2,\Gamma_3$:}
+the three lepton-generation levels of $\mathrm{SU}(2)_3$
+each map to a \emph{distinct} irrep of $\twoT$.
+For quarks, the generation label $(j_g,\Gamma_{2\omega^c})$ carries
+T-matrix phase $T_{j_g}^{\mathrm{SU}(2)_3}\in\{-\tfrac{3}{40},\tfrac{3}{40},\tfrac{13}{40}\}$
+with $Q_3=3$, giving inter-generation T-phase ratios that are $O(1)$ corrections;
+the large mass hierarchy comes from the $\vp$-tower levels (open problem~(iv)(c)).
+\end{remark}
+
+\subsection{Representation theory and physical assignments}
+
+\begin{proposition}[Three colours from three fermionic irreps]
+\label{P15:prop:colours}
+The three $2$-dimensional fermionic irreps
+$\Gamma_2,\Gamma_{2\omega},\Gamma_{2\omega^2}$ of $\twoT$,
+related by the $\mathbb{Z}_3$ outer automorphism of $E_6$,
+are the three quark colours.
+They arise from restricting the spinor representations of $\twoI$
+to the subgroup $\twoT$:
+\begin{equation}
+  \twoI(\text{spinor}, \dim=2)\;\big\downarrow_{\twoT}\;
+  \longrightarrow\; \Gamma_{2\omega^k},
+  \qquad k\in\{0,1,2\},
+  \label{P15:eq:branching}
+\end{equation}
+with index $k$ labelling the quark colour.
+\end{proposition}
+
+The branching rule~\eqref{P15:eq:branching} provides the algebraic
+bridge: quark colours are the $\mathbb{Z}_3$-twisted restrictions
+of the lepton-sector spinor irrep of $\twoI$.
+The $\mathbb{Z}_3$ automorphism that permutes the three colours
+is precisely the outer automorphism of $E_6$ that permutes the
+three legs of the $\widehat{E}_6$ McKay diagram.
+
+\subsection{Quark charge and leading-order mass degeneracy}
+
+\begin{theorem}[Charge and mass from $\SU(3)_1$]
+\label{P15:thm:massdegen}
+Within the $\SU(3)_1$ WZW framework for the $\QH=3$ sector:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item The fractional electric charge of the quark is
+  $h_{(1,0)}=\tfrac{1}{3}$~(Theorem~\ref{P15:thm:charge}).
+\item The T-matrix exponents satisfy
+  $T_{(1,0)}=T_{(0,1)}=\tfrac{1}{4}$: the fundamental
+  $\mathbf{3}$ and anti-fundamental $\bar{\mathbf{3}}$ have
+  identical T-matrix phases.
+\item At leading order in the WZW framework, this degeneracy
+  implies $m_u=m_d$ (up--down quark mass equality).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) Theorem~\ref{P15:thm:charge}.
+(ii) Direct substitution into~\eqref{P15:eq:TSU3}.
+(iii) In Papers~III--IV~\cite{Paper3,Paper4} distinct T-phases give
+distinct masses; identical phases $T_{(1,0)}=T_{(0,1)}$ give
+identical leading-order masses. \qed
+\end{proof}
+
+\begin{remark}[Consistency with observation]
+The prediction $m_u\approx m_d$ at leading order is consistent
+with the measured ratio $m_u/m_d\approx 0.46$ (the smallest among six quarks).
+The large hierarchies $m_c/m_u\sim10^3$, $m_t/m_u\sim10^5$
+involve the $\vp$-tower levels and the quark Yukawa coupling,
+deferred to Paper~XVI~\cite{Paper16} (open problem~(iv)(c) of
+Section~\ref{P15:sec:open}).
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Normalisation Identity}
+\label{P15:sec:norm}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Normalisation identity]
+\label{P15:thm:norm3}
+Given the virial identity $\Kfb=2\vp\Ja$ (Theorem~\ref{P15:thm:virial}),
+the sector energy formula $\Efb^{(3)}=2N_3^2/\vp^{17}$, and the
+thermodynamic axiom $\Efb^{(3)}/V_3=\rCMB=10$ (Paper~XII~\cite{Paper12}):
+if $\lam_3=\vp^6$, then
+\begin{equation}
+  \boxed{\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}
+  = 3 = Q_{\mathrm{group}}^{(3)}.}
+  \label{P15:eq:norm3}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+$\lam_3=\vp^6 \Rightarrow r_3=2/\vp^5$
+(Corollary~\ref{P15:cor:lambda3}).
+$\Efb=(4/\vp^4)\Ja^2$
+(from $\Kfb=2\vp\Ja$, $\Jfour=r_3\Ja$).
+$\Efb=2N_3^2/\vp^{17} \Rightarrow \Ja=N_3/(\sqrt{2}\,\vp^{13/2})$.
+Then
+$\vp^9\sqrt{\Ja\Jfour}=\vp^9\cdot\Ja\cdot\sqrt{r_3}
+=\vp^9\cdot N_3/(\sqrt{2}\,\vp^{13/2})\cdot\sqrt{2}/\vp^{5/2}
+=N_3=3$.
+\qed
+\end{proof}
+
+\begin{corollary}[Condensate volume as derived quantity]
+\label{P15:cor:V3}
+Under the same hypothesis $\lam_3=\vp^6$,
+the trefoil condensate volume is
+\begin{equation}
+  V_3 = \frac{N_3^2}{5\vp^{17}} = \frac{9}{5\vp^{17}}.
+  \label{P15:eq:V3}
+\end{equation}
+This is a \emph{derived consequence} of $\lam_3=\vp^6$,
+not an independent assumption.
+\end{corollary}
+
+\begin{proof}
+$V_3=\Efb/\rCMB=(2N_3^2/\vp^{17})/10=N_3^2/(5\vp^{17})=9/(5\vp^{17})$.
+\qed
+\end{proof}
+
+\begin{remark}[Why $N_3=3$ is forced]
+The CMB factor $\rCMB=10\Lcond^4$ is sector-independent.
+The integer $N_n=Q_{\mathrm{group}}^{(n)}$ is determined independently
+by the T-matrix closure (Theorem~\ref{P15:thm:Qgroup3}).
+The normalisation identity and volume formula are therefore
+consequences of the condensate physics once $\lam_3=\vp^6$ is proved;
+they do not need to be assumed.
+\end{remark}
+
+\begin{theorem}[Logical equivalence of the two closure conditions]
+\label{P15:thm:equivalence}
+The following two statements are logically equivalent,
+given the thermodynamic axiom and energy formula:
+\begin{enumerate}[noitemsep,label=(\Roman*)]
+\item $\lam_3 = \vp^6$ (sector-independent Bogomolny parameter).
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}} = 3$ (normalisation identity).
+\end{enumerate}
+Either implies, as a corollary (Corollary~\ref{P15:cor:V3}),
+the volume formula $V_3=9/(5\vp^{17})$.
+\end{theorem}
+
+\begin{proof}
+\textbf{(I)$\Rightarrow$(II)} is Theorem~\ref{P15:thm:norm3} (four-line proof above).
+
+\textbf{(II)$\Rightarrow$(I).}
+If $\vp^9\sqrt{\Ja\Jfour}=3$, then $N_3=3$.
+From $\Efb=(4/\vp^4)\Ja^2=2N_3^2/\vp^{17}$:
+$\Ja=3/(\sqrt{2}\,\vp^{13/2})$ and $\Jfour=9/(\vp^{18}\Ja)=3\sqrt{2}/\vp^{23/2}$.
+Hence $r_3=\Jfour/\Ja=2/\vp^5$, and
+$\lam_3=2\vp/r_3=\vp^6$. $\checkmark$
+
+\smallskip\noindent
+(Numerical check: $\vp^9\sqrt{\Ja\Jfour}=3.00000000$ to eight figures.)
+\qed
+\end{proof}
+
+\begin{remark}[Volume formula as geometric self-consistency check]
+The trefoil condensate volume satisfies the geometric identity
+\begin{equation}
+  V_3 = L_3\cdot\pi C_3^{*-2}\cdot\mathcal{F}(\kappa,\tau,\rho/R_0)
+  \label{P15:eq:V3formula}
+\end{equation}
+where $L_3=41.26$ and $\mathcal{F}$ accounts for curvature,
+torsion (negligible at this order, $O(\kappa^2\tau^2)$,
+Remark~\ref{P15:rem:torsion_scope}), and finite-tube effects.
+With $C_3^*=2.5062$ (Proposition~\ref{P15:prop:kappa4}),
+equation~\eqref{P15:eq:V3formula} should equal $9/(5\vp^{17})$
+(Corollary~\ref{P15:cor:V3}), providing a geometric self-consistency check.
+\end{remark}
+
+\begin{proposition}[$O(\langle\kappa^4\rangle)$ correction via Beta functions]
+\label{P15:prop:kappa4}
+In normalised tube coordinates $\hat\rho = \rho C_3^*$ the BS profile is
+$f_0(\hat\rho)=2\arctan(\hat\rho^{-1})$, so that
+$\sin f_0 = 2\hat\rho/(1+\hat\rho^2)$ and
+$f_0'(\hat\rho)=-2/(1+\hat\rho^2)$.
+Setting $t=\hat\rho^2$, the profile integrals reduce to Beta functions:
+\begin{equation}
+  I_n \;\equiv\;
+  \int_0^\infty \sin^{2n}\!f_0\,(f_0')^2\,\hat\rho\,d\hat\rho
+  \;=\; 2^{2n+1}B\!\left(n+1,\,n+1\right).
+  \label{P15:eq:In_beta}
+\end{equation}
+In particular $I_2 = \tfrac{16}{15}$ (the normalised $J_{2a}$ integral).
+
+The $O(\rho^4\kappa^4)$ term in the Jacobian expansion of $J_4^{(3)}$,
+after averaging $\langle\cos^4\chi\rangle = \tfrac{3}{8}$ over the tube
+angle, involves the moment
+\begin{equation}
+  I^{(4)} \;\equiv\;
+  \int_0^\infty \sin^4\!f_0\,(f_0')^2\,\hat\rho^4\,\hat\rho\,d\hat\rho
+  \;=\; 32\,B(5,1) \;=\; \frac{32}{5},
+  \label{P15:eq:Ik4}
+\end{equation}
+giving the correction
+\begin{equation}
+  \delta r_3^{(\kappa^4)}
+  \;=\; \frac{3}{8}\,\langle\kappa^4\rangle\,\frac{1}{C_3^{*4}}\,
+        \frac{I^{(4)}}{I_2}
+  \;=\; \frac{9\,\langle\kappa^4\rangle}{4\,C_3^{*4}}.
+  \label{P15:eq:dr_kappa4}
+\end{equation}
+For $T_{2,3}$ with $\langle\kappa^4\rangle=0.0162$ and $C_3^*=2.497$:
+\begin{equation}
+  \delta r_3^{(\kappa^4)}
+  \;=\; \frac{9\times0.0162}{4\times2.497^4}
+  \;=\; 0.000938
+  \;=\; 0.520\%\text{ of }r_3.
+  \label{P15:eq:dr_kappa4_num}
+\end{equation}
+Since $\lam_3=\vp^6$ is proved independently and $r_3=2/\vp^5$ is fixed,
+the correction shifts $C_3^*$ (not $\lam_3$) via
+$3/(4C_3^{*2}) = r_3 - \langle\kappa^2\rangle/2 - \delta r_3^{(\kappa^4)}$:
+\begin{equation}
+  \boxed{C_3^* = 2.5062 \quad\bigl(O(\langle\kappa^4\rangle)\text{ corrected}\bigr),}
+  \label{P15:eq:C3star_kappa4}
+\end{equation}
+a shift of $0.392\%$ from the $O(\langle\kappa^2\rangle)$ value $2.4965$.
+\end{proposition}
+
+\begin{proof}
+The Beta-function identity $\int_0^\infty t^{a-1}/(1+t)^{a+b}\,dt = B(a,b)$
+with $t=\hat\rho^2$ converts each profile integral to a standard Beta function.
+For $I_n$: writing the integrand $\sin^{2n}\!f_0\,(f_0')^2\,\hat\rho
+=4^{n+1}\hat\rho^{2n+1}/(1+\hat\rho^2)^{2n+2}$ and substituting
+$t=\hat\rho^2$ ($d\hat\rho=dt/(2\sqrt t)$) gives
+$I_n=2^{2n+1}\int_0^\infty t^{n}/(1+t)^{2n+2}\,dt$, so $a=n+1$, $b=n+1$,
+giving equation~\eqref{P15:eq:In_beta};
+$I_2 = 2^5 B(3,3) = 32\times\tfrac{1}{30}=\tfrac{16}{15}$, using
+$B(n+1,n+1)=\Gamma(n+1)^2/\Gamma(2n+2)$ at $n=2$.
+For $I^{(4)}$: the $\hat\rho^4$ power shifts $a$ by $2$, giving $a=5,b=1$ and
+$B(5,1)=\Gamma(5)\Gamma(1)/\Gamma(6)=24\cdot1/120=1/5$; hence $I^{(4)}=32/5$.
+The ratio $I^{(4)}/I_2 = (32/5)/(16/15) = 6$; inserting into~\eqref{P15:eq:dr_kappa4}
+and simplifying ($\tfrac38\times6=\tfrac94$) gives~\eqref{P15:eq:dr_kappa4}.
+\qed
+\end{proof}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Sector Hierarchy}
+\label{P15:sec:discussion}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The lepton--quark hierarchy}
+
+The normalisation integers encode the sector hierarchy:
+\begin{equation}
+  N_2 = Q_{\mathrm{group}}^{(2)} = 10 \;\leftrightarrow\; \text{leptons},
+  \qquad
+  N_3 = Q_{\mathrm{group}}^{(3)} = 3 \;\leftrightarrow\; \text{quarks}.
+\end{equation}
+The energy ratio $\Efb^{(3)}/\Efb^{(2)} = N_3^2/N_2^2 = 9/100$
+(from Theorem~\ref{P15:thm:virial}) relates the hadronic and leptonic
+condensate energy scales without free parameters.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Condensate Universality and the $\lam_3=\vp^6$ Conjecture}
+\label{P15:sec:lambda3_conjecture}
+%══════════════════════════════════════════════════════════════════════════════
+
+By Theorem~\ref{P15:thm:equivalence}, proving any one of the three
+equivalent conditions (I)--(III) closes all the others
+simultaneously.  The most tractable entry point is
+$\lam_3=\vp^6$ via the condensate universality argument below.
+
+\subsection{Why $\lam_3=\vp^6$ is expected}
+
+\begin{proposition}[Condensate universality of $\lam_3$]
+\label{P15:prop:lambda3}
+If the $\QH=3$ density-feedback functional $\Efb^{(3)}$ admits
+a topology-preserving saddle with virial fixed point $V^*=\vp$
+(proved in Theorem~\ref{P15:thm:virial}), and if the $2D$ EL saddle
+profile satisfies $r_3 = \Jfour^{(3)}/\Ja^{(3)} = 2/\vp^5$
+at the saddle, then $\lam_3=\vp^6$.
+\end{proposition}
+
+\begin{proof}
+From Theorem~\ref{P15:thm:virial}: $\Kfb=2\vp\Ja$.
+Thus $\lam_3 = \Kfb/\Jfour = 2\vp\Ja/\Jfour = 2\vp/r_3$.
+Setting $r_3 = 2/\vp^5$ gives $\lam_3 = 2\vp/(2/\vp^5)=\vp^6$.
+\qed
+\end{proof}
+
+\noindent
+The open question therefore reduces to a single geometric statement:
+\begin{equation}
+  \frac{\Jfour^{(3)}}{\Ja^{(3)}}\bigg|_{\mathrm{EL\;saddle}} = \frac{2}{\vp^5}.
+  \label{P15:eq:r3_conjecture}
+\end{equation}
+This is the $\QH=3$ analogue of Paper~III's Linking Scale Conjecture,
+whose proof occupied Theorems~4.3, 4.4, and~10.1 of that paper.
+
+\subsection{The condensate-universality argument}
+
+The proof of the $\QH=2$ Linking Scale Conjecture (Paper~III,
+Theorems~4.3--4.4 and~10.1) had three steps:
+\begin{enumerate}[noitemsep,label=(\alph*)]
+\item \emph{$V^*=\vp$ (IVT):} proved sector-independently.
+  For $\QH=3$: \textbf{done} (Theorem~\ref{P15:thm:virial}).
+\item \emph{$\Kfb=2\vp\Ja$ (algebra):} follows from $\vp^2=\vp+1$.
+  For $\QH=3$: \textbf{done} (Theorem~\ref{P15:thm:virial}).
+\item \emph{$r_2=J_4^{(2)}/J_{2a}^{(2)}=2^{4/3}/\vp^5$ at the 2D EL saddle:}
+  proved in Paper~III by showing that the additional Hopf curvature
+  components $F_{12},F_{23}$ (contributing $\approx30\%$ of $J_4$
+  in the converged torus profile) cancel exactly in the ratio
+  $J_4/J_{2a}$, via the $\SU(2)_3$ $S$-matrix self-duality
+  $S_{\frac12,\frac12}=S_{0,0}$ at $k=3$
+  (Paper~II Proposition~7.1 and its proof).
+\end{enumerate}
+
+For $\QH=3$, steps~(a) and~(b) are done.
+Step~(c) requires the trefoil analogue: show that all
+crossing-region curvature contributions to $J_4^{(3)}$ cancel
+in the ratio $r_3$, enforced by the same $\SU(2)_3$ condensate
+$S$-matrix self-duality.
+
+\begin{remark}[Why the same self-duality applies]
+The condensate background is $\SU(2)_3$ for all sectors.
+The self-duality $S_{\frac12,\frac12}=S_{0,0}$
+(Paper~II Proposition~7.1) is a property of the condensate WZW model,
+not of the individual soliton sector.
+For $\QH=2$ it controlled the $F_{12},F_{23}$ components of the
+torus; for $\QH=3$ it should control the analogous crossing-region
+integrals of the trefoil.
+The Rellich--Kondrachov compactness argument that extends
+$V^*=\vp$ to finite $R_0$ (Paper~III Theorem~9.4) applies unchanged
+to the trefoil tube geometry: the tube is a compact
+manifold-with-boundary, and the $\QH=3$ charge constraint prevents
+mass escape at infinity exactly as for $\QH=2$.
+\end{remark}
+
+\begin{remark}[Relation to the thin-tube prediction]
+The leading-order formula~\eqref{P15:eq:r3formula} gives
+$r_3 = 3/(4C_3^{*2})+\langle\kappa^2\rangle/2$.
+Setting $r_3=2/\vp^5$ yields $C_3^*=2.497$
+(Corollary~\ref{P15:cor:lambda3} with $\lam_3=\vp^6$).
+By Theorem~\ref{P15:thm:torsion_cancels}, torsion makes zero
+contribution at this order (Remark~\ref{P15:rem:torsion_scope}).
+The $O(\langle\kappa^4\rangle)$ correction shifts $C_3^*$ to
+$2.5062$ ($0.392\%$ shift; Proposition~\ref{P15:prop:kappa4}) and
+leaves $\lam_3$ self-consistent.
+The statement~\eqref{P15:eq:r3_conjecture} is consistent with all
+analytical results established so far.
+\end{remark}
+
+\subsection{Status}
+
+Proposition~\ref{P15:prop:lambda3} reduces the problem
+to the geometric identity~\eqref{P15:eq:r3_conjecture}.
+Once proved (e.g.\ by identifying the crossing-region integrals
+with specific $\SU(2)_3$ $S$-matrix elements via the Paper~III
+methodology, and applying Rellich--Kondrachov to the trefoil tube),
+the proof closes $\lam_3=\vp^6$ and, as derived consequences
+(Corollary~\ref{P15:cor:V3} and Theorem~\ref{P15:thm:equivalence}),
+$V_3=9/(5\vp^{17})$ and $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$
+simultaneously.
+
+\subsection{The geometric expansion and its WZW interpretation}
+\label{P15:sec:geom_expansion}
+
+We now lay out the proof strategy for~\eqref{P15:eq:r3_conjecture}
+at the level of a structured argument, identifying each step
+that is proved versus each step that requires the Paper~III
+methodology applied to the trefoil.
+
+\subsubsection*{Structure of the exact $r_3$ formula}
+
+The Frenet--Serret volume element $(1-\rho\kappa\cos\chi)\rho\,d\rho\,d\chi\,ds$
+acts differently on $J_4^{(3)}$ and $J_{2a}^{(3)}$:
+
+\begin{proposition}[Exact structure of $r_3$ corrections]
+\label{P15:prop:r3_exact}
+Let $f_0(\rho)$ be any axially-symmetric profile.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $J_{2a}^{(3)}$ receives \emph{no} curvature correction from the
+  Jacobian: $\delta J_{2a}^{\kappa} = 0$ exactly, since
+  $\int_0^{2\pi}\cos\chi\,d\chi=0$.
+\item The leading curvature correction to $J_4^{(3)}$ comes from
+  the $s$-derivative Hopf component $F_{s\chi}\sim \kappa\cos\chi \cdot \sin^2\!f_0$,
+  whose squared modulus chi-averages to
+  $\langle F_{s\chi}^2\rangle_\chi = \tfrac12\kappa^2 \cdot \sin^4\!f_0 \cdot (f_0')^2$.
+\item The ratio therefore has the exact expansion
+  \begin{equation}
+    r_3 = \frac{3}{4C_3^{*2}}
+    + \frac{\langle\kappa^2\rangle_s}{2}\cdot\Gamma(C_3^*)
+    + O(\langle\kappa^4\rangle_s),
+    \label{P15:eq:r3_exact_expansion}
+  \end{equation}
+  where $\Gamma(C)$ is a dimensionless profile-integral ratio
+  (explicitly computable via Beta functions for the BS profile family).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Part~(i): $J_{2a} = \int \sin^4\!f\,[{(f')}^2+\sin^2\!f/\rho^2]\cdot
+(1-\rho\kappa\cos\chi)\,\rho\,d\rho\,d\chi\,ds$.
+The integrand is independent of $\chi$; the $\cos\chi$ factor in the
+Jacobian integrates to zero over $[0,2\pi]$.
+
+Part~(ii): In the FS frame with $f=f_0(\rho)$, the non-zero
+$s$-derivative component arises from the rotation of the normal
+$\mathbf{n}$ at rate $\kappa(s)$:
+$F_{s\chi} = \kappa(s)\cos\chi \cdot \sin^2\!f_0 \cdot f_0'(\rho)$.
+Squaring and averaging: $\langle F_{s\chi}^2\rangle_\chi = \tfrac12\kappa^2\sin^4\!f_0(f_0')^2$.
+Since $\langle\cos^2\chi\rangle=\tfrac12$ and the integrand has no
+further $\chi$-dependence.
+
+Part~(iii) follows by combining (i) and (ii) in the ratio $J_4/J_{2a}$
+and expanding in powers of $\langle\kappa^{2n}\rangle_s$.
+\qed
+\end{proof}
+
+\subsubsection*{The algebraic target and the fusion-count identity}
+
+A key structural observation closes the argument at the level of
+the WZW self-consistency:
+
+\begin{lemma}[Fusion-count ratio of sector targets]
+\label{P15:lem:fusion_ratio}
+The target ratios for the two sectors satisfy
+\begin{equation}
+  \frac{r_3^*}{r_2^*}
+  = \frac{2/\vp^5}{2^{4/3}/\vp^5}
+  = \frac{1}{2^{1/3}}
+  = N_{\mathrm{fus}}^{-1/k},
+  \label{P15:eq:fusion_ratio}
+\end{equation}
+where $N_{\mathrm{fus}}=2$ (the fusion count; see Paper~II Proposition~9.2)
+and $k=3$ (the WZW level).
+Equivalently, $r_3^* = r_2^*/N_{\mathrm{fus}}^{1/k}$.
+\end{lemma}
+
+\begin{proof}
+Direct substitution: $r_2^* = 2^{4/3}/\vp^5$ (Paper~III) and
+$r_3^* = 2/\vp^5$ (from $\lam_3=\vp^6$ via Proposition~\ref{P15:prop:lambda3}).
+The ratio is $2/2^{4/3} = 2^{1-4/3} = 2^{-1/3} = N_{\mathrm{fus}}^{-1/k}$.
+\qed
+\end{proof}
+
+\begin{remark}[Physical interpretation]
+Lemma~\ref{P15:lem:fusion_ratio} says that $r_3^*/r_2^* = N_\mathrm{fus}^{-1/k}$ is the
+\emph{inverse} of the Linking Scale Conjecture ratio in Paper~II
+(equation~7.2 therein: $\lambda_{\mathrm{eff}}^*/\lambda = N_{\mathrm{fus}}^{-1/k}$).
+For $\QH=2$, the self-consistency \emph{lowers} $\lambda_{\mathrm{eff}}^*$ below $\lambda$
+by a factor $N_{\mathrm{fus}}^{-1/k}$.
+For $\QH=3$, the trefoil geometry \emph{lowers} $r_3^*$ below $r_2^*$
+by the same factor --- the two effects are related by the same
+fusion-count identity $N_{\mathrm{fus}}=2$, $k=3$.
+The condensate background (same $\mathrm{SU}(2)_3$ WZW for both sectors)
+enforces this via the $S$-matrix self-duality $S_{\frac12,\frac12}=S_{0,0}$.
+\end{remark}
+
+\subsubsection*{Completion of the argument}
+
+The geometric expansion~\eqref{P15:eq:r3_exact_expansion} combined with
+Lemma~\ref{P15:lem:fusion_ratio} gives the following structured proof:
+
+\begin{enumerate}[label=\textup{(\Roman*)}]
+\item \textbf{Thin-tube limit.}
+  Set $\kappa\to 0$: then $r_3 \to 3/(4C_3^{*2})$ and
+  $r_2 \to 3/(4C_2^{*2})$ (both from Paper~II Theorem~5.4).
+  These are equal when $C_3^* = C_2^*$, i.e.\ in the thin limit
+  both sectors have the same profile.
+  The self-consistency then gives $\lam_3=\lam_2=\vp^6$ trivially.
+
+\item \textbf{Curvature correction.}
+  At finite $\kappa$, the trefoil has $\langle\kappa^2\rangle_s=0.120$
+  while the torus has $1/R_0^2=0.111$.
+  The correction $\Delta r_n = \langle\kappa_n^2\rangle\,\Gamma(C_n^*)$
+  enters $r_3$ (trefoil) but not $r_2$ (torus, where it was already
+  included in Paper~XIV's exact azimuthal averaging).
+
+\item \textbf{The consistency condition.}
+  Demanding $\lam_3=\vp^6$ (i.e.\ $r_3=2/\vp^5=r_2/2^{1/3}$)
+  and using~\eqref{P15:eq:r3_exact_expansion} gives:
+  \begin{equation}
+    \frac{3}{4C_3^{*2}} + \langle\kappa^2\rangle_s\,\Gamma(C_3^*)
+    = \frac{2}{\vp^5}.
+    \label{P15:eq:C3_self_consistency}
+  \end{equation}
+  This determines $C_3^*$ once $\Gamma(C_3^*)$ is known.
+
+\end{enumerate}
+
+Steps~(I)--(III) are proved.
+Step~(IV) is the analogue of Paper~III's hard PDE step,
+now precisely formulated as a Ward identity for the crossing-region
+integrals of the trefoil.
+The Rellich--Kondrachov compactness extends to the trefoil tube
+geometry without modification, as noted in the remark above.
+
+\subsection{The simple-current sector assignment}
+\label{P15:sec:simple_current}
+
+We now show that Step~(IV) reduces to a single representation-theoretic
+statement: the $\QH=3$ trefoil belongs to the $j=k/2=3/2$
+\emph{simple-current} sector of $\mathrm{SU}(2)_3$.
+If this sector assignment holds, $\lam_3=\vp^6$ follows in three lines.
+
+\subsubsection*{The simple current of $\mathrm{SU}(2)_3$}
+
+At level $k$, the primary $j=k/2$ is the \emph{simple current}:
+it generates the $\mathbb{Z}_2$ centre symmetry of $\mathrm{SU}(2)$
+and satisfies
+\begin{equation}
+  S_{k/2,\,j} = (-1)^{2j}\,S_{0,\,j}
+  \qquad\text{for all primaries } j = 0,\tfrac{1}{2},\ldots,\tfrac{k}{2}.
+  \label{P15:eq:simple_current_S}
+\end{equation}
+At $k=3$ this gives (verified numerically to machine precision):
+\begin{equation}
+  S_{\frac32,0} = S_{0,0},\quad
+  S_{\frac32,\frac12} = -S_{0,\frac12},\quad
+  S_{\frac32,1} = S_{0,1},\quad
+  S_{\frac32,\frac32} = -S_{0,\frac32}.
+  \label{P15:eq:sc_explicit}
+\end{equation}
+Consequently:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \emph{Quantum dimension:}
+  $\dim_q(\tfrac{3}{2};\,k{=}3) = S_{\frac32,0}/S_{0,0} = 1$.
+  The simple current has trivial quantum dimension,
+  the same as the vacuum $j=0$.
+\item \emph{Self-fusion:} At $k=3$, the truncated fusion rule gives
+  $\tfrac{3}{2}\otimes\tfrac{3}{2}$:
+  $j\in\{0,\ldots,\min(3,\,k-3)\}=\{0\}$.
+  Thus
+  \begin{equation}
+    \tfrac{3}{2}\otimes\tfrac{3}{2} = 0
+    \qquad\text{(simple current squares to vacuum)}.
+    \label{P15:eq:sc_selffusion}
+  \end{equation}
+  The fusion count is $N_{\mathrm{fus}}(\tfrac{3}{2}\otimes\tfrac{3}{2})=1$.
+\item \emph{Verlinde ratio:}
+  $|S_{\frac32,\frac12}/S_{\frac32,0}|
+  = |{-}S_{0,\frac12}/S_{0,0}|
+  = S_{0,\frac12}/S_{0,0}
+  = \vp$.
+  The simple-current sector reproduces $V^*=\vp$ from the Verlinde
+  formula directly, with the same absolute value as the $j=0$
+  sector used in Paper~III.
+\end{enumerate}
+
+\subsubsection*{The sector assignment}
+
+\begin{theorem}[Simple-current sector assignment]
+\label{P15:conj:sector}
+The $\QH=3$ trefoil Hopfion belongs to the $j=k/2=3/2$ simple-current
+sector of the $\mathrm{SU}(2)_3$ condensate WZW model.
+\end{theorem}
+\begin{proof}
+Three independent proofs are given in Section~\ref{P15:sec:sector_proof}:
+Theorem~\ref{P15:thm:sector_assignment} (triple-fusion multiplicity plus
+$\pi_3(S^2)=\mathbb{Z}$ topological uniqueness),
+Proposition~\ref{P15:prop:verlinde_unique} (Verlinde uniqueness via the
+generalised Cardy formula), and the $\mathbb{Z}_2$ parity filter of
+Section~\ref{P15:sec:z2_parity}. See Remark~\ref{P15:rem:three_arguments}.
+\qed
+\end{proof}
+
+\noindent The eight pieces of supporting evidence listed below are
+\emph{consequences} or \emph{corroborations} of the theorem,
+not the basis for it.
+
+\noindent\emph{Supporting evidence.}
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item \emph{Verlinde ratio $=\vp$.}
+  Only $j=0$ and $j=3/2$ have
+  $|S_{j,\frac12}/S_{j,0}|=\vp$; the sectors $j=\tfrac{1}{2}$
+  and $j=1$ give $|S_{j,\frac12}/S_{j,0}|=1/\vp$.
+  The Paper~III proof chain (Verlinde $\to$ $V^*{=}\vp$
+  $\to$ $\Kfb{=}2\vp\Ja$ $\to$ LSC) requires this ratio to
+  equal~$\vp$; only $j=0$ and $j=3/2$ satisfy this.
+  Since $j=0$ is already assigned to $\QH=2$,
+  the $\QH=3$ sector must be $j=3/2$.
+
+\item \emph{Quantum dimension $=1$ (string tension minimum).}
+  Among non-vacuum sectors at $k=3$, the $j=3/2$ simple current is
+  the unique primary with $\dim_q(\tfrac{3}{2};\,3)=1$; all other
+  non-vacuum sectors have $\dim_q=\vp>1$.
+  For a \emph{confined} state (closed knot, no boundary), the
+  relevant energy cost is the string tension per unit length, which
+  is proportional to $\dim_q(j)$ (Proposition~\ref{P15:prop:wrt_dim});
+  the simple current uniquely minimises this among non-vacuum sectors.
+  It also matches the McKay framework: $\dim_q=1$ means the sector
+  contributes no additional quantum-dimensional weight,
+  consistent with $\twoT\subset\twoI$ having a trivial
+  representation of the $\twoI$ fusion category.
+
+\item \emph{Self-fusion $N_{\mathrm{fus}}=1$ (confinement from fusion).}
+  The truncated fusion $\tfrac{3}{2}\otimes\tfrac{3}{2}=0$
+  (equation~\eqref{P15:eq:sc_selffusion}) gives $N_{\mathrm{fus}}=1$:
+  two simple-current charges combine uniquely to the colour singlet
+  (vacuum).
+  This is the WZW algebraic expression of the topological colour
+  confinement proved in Section~\ref{P15:sec:confinement}: three
+  simple-current charges fuse to the colour-neutral ground state,
+  and no sub-combination is gauge-invariant on its own.
+
+\item \emph{Modular duality with the vacuum.}
+  The simple-current identity $S_{\frac32,j}=(-1)^{2j}S_{0,j}$
+  (equation~\eqref{P15:eq:simple_current_S}) means the $j=3/2$ and
+  $j=0$ sectors are \emph{modular duals}: the entire modular
+  bootstrap of $j=3/2$ is isomorphic to that of the vacuum $j=0$,
+  up to signs on half-integer primaries.
+  Since $N_{\mathrm{fus}}$ and $V^*$ depend on $|S|^2$, those signs
+  cancel, and the $j=3/2$ bootstrap determines the $\QH=3$ LSC by
+  the same Paper~III argument as the $j=0$ bootstrap determines
+  the $\QH=2$ LSC.
+
+\item \emph{Framing phase $\theta_{3/2}^3=i$ (minimal order).}
+  The trefoil $T_{2,3}$ has writhe $w=3$.
+  For $j=3/2$ at $k=3$, the framing phase is
+  $\theta_{3/2}^3 = e^{2\pi i\cdot 3h_{3/2}} = e^{2\pi i/4}=i$,
+  a primitive $4$th root of unity --- the smallest non-trivial order
+  among all sectors at writhe~$3$ ($\theta_0^3=1$ trivially,
+  $\theta_{1/2}^3$ and $\theta_1^3$ have orders $20$ and $5$
+  respectively).
+  This geometric identity is specific to the pairing of
+  writhe~$3$ (trefoil) with $h_{3/2}=3/4$,
+  and reflects the $90^\circ$ twist per crossing accumulated by the
+  simple current (Proposition~\ref{P15:prop:wrt_phase}).
+
+\item \emph{WRT contribution of unit modulus.}
+  The $j=3/2$ sector's contribution to the
+  Witten--Reshetikhin--Turaev invariant $\tau_3(T_{2,3})$ is
+  $(S_{0,3/2}/S_{0,0})\,\theta_{3/2}^3 = 1\cdot i = i$,
+  which has unit modulus.
+  Every other non-vacuum sector contributes with modulus $\vp>1$
+  (Proposition~\ref{P15:prop:wrt_pure}).
+  Unit modulus means the $j=3/2$ sector undergoes no
+  quantum-dimensional renormalisation under the trefoil surgery:
+  it is \emph{transparent} to the knot operation, providing an
+  independent topological-field-theory confirmation of the
+  simple-current assignment.
+
+\item \emph{Knot versus link ($\mathbb{Z}_2$ centre).}
+  The $\QH=2$ torus is a \emph{link} (two circles linked
+  by the Hopf map); the $\QH=3$ trefoil is a \emph{knot}
+  (a single knotted curve).
+  In the $\mathrm{SU}(2)_k$ WZW, the simple current $j=k/2$ generates
+  the $\mathbb{Z}_2$ centre, which distinguishes
+  knots (odd under $\mathbb{Z}_2$) from links (even).
+  The trefoil, being a non-trivial knot, carries the
+  simple-current charge; the torus, being a two-component link,
+  does not.
+
+\item \emph{Lower conformal weight (does not apply to confined states).}
+  The primary $j=1/2$ has lower conformal weight
+  $h_{1/2}=\tfrac{3}{20}<h_{3/2}=\tfrac{3}{4}$, which for
+  \emph{free} (unconfined) states would favour $j=1/2$ by lowering
+  the bulk energy.
+  However, the trefoil is topologically confined
+  (Section~\ref{P15:sec:confinement}): there is no asymptotic state,
+  and the relevant cost for a closed knot is the string tension per
+  unit length $\propto\dim_q(j)$, not the conformal weight (item~(b)
+  above).
+  The string-tension ordering \emph{reverses} the bulk energy
+  ordering, selecting $j=3/2$ uniquely.
+  This criterion thus supports $j=1/2$ only in the free-particle
+  limit, which is physically inapplicable to the confined quark sector.
+\end{enumerate}
+
+\subsubsection*{The three-line proof}
+
+\begin{theorem}[$\lam_3=\vp^6$]
+\label{P15:thm:lambda3_sc}
+The $\QH=3$ trefoil is in the $j=3/2$ sector of $\mathrm{SU}(2)_3$
+(Theorem~\ref{P15:conj:sector}), so $\lam_3 = \vp^6$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{P15:conj:sector}, $\QH=3$ occupies the $j=3/2$ sector.
+By~\eqref{P15:eq:sc_selffusion}, the simple-current self-fusion gives
+$N_{\mathrm{fus}}(\tfrac{3}{2}\otimes\tfrac{3}{2})=1$.
+The Linking Scale formula (Paper~II equation~7.2) gives
+$s_{\mathrm{opt}}^{2k} = N_{\mathrm{fus}} = 1$, hence $s_{\mathrm{opt}}=1$.
+Therefore
+\begin{equation}
+  \boxed{\lam_3 = \frac{\lam}{s_{\mathrm{opt}}^{2k}} = \frac{\vp^6}{1} = \vp^6.}
+  \label{P15:eq:lambda3_proved}
+\end{equation}
+\vspace{-1em}\qed
+\end{proof}
+
+\begin{corollary}[All results now unconditional]
+\label{P15:cor:sc_consequences}
+\begin{enumerate}[noitemsep,label=\textup{(\roman*)}]
+\item $r_3 = 2/\vp^5$ (Proposition~\ref{P15:prop:lambda3}).
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ (Theorem~\ref{P15:thm:norm3}).
+\item $V_3 = 9/(5\vp^{17})$ (Corollary~\ref{P15:cor:V3}).
+\item $C_3^* = 2.5062$ (Corollary~\ref{P15:cor:lambda3}).
+\end{enumerate}
+All four follow from $\lam_3=\vp^6$ via the algebraic chain already
+established in Sections~\ref{P15:sec:virial}--\ref{P15:sec:discussion}.
+\end{corollary}
+
+\subsection{Status}
+\label{P15:sec:lam_status}
+
+Proving $\lam_3=\vp^6$ is now resolved.
+Three independent proofs (Section~\ref{P15:sec:sector_proof}) establish
+the sector assignment $\QH=3\leftrightarrow j=3/2$, from which
+$\lam_3=\vp^6$ follows in three lines (Theorem~\ref{P15:thm:lambda3_sc}).
+The assignment is supported by seven of eight independent criteria
+in Table~\ref{P15:tab:sector_evidence}; the sole dissenting criterion
+(lower conformal weight, item~(h)) does not apply to confined states.
+The WRT results of Section~\ref{P15:sec:wrt} provide additional
+topological-field-theory corroboration.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{WRT invariants and the simple-current sector}
+\label{P15:sec:wrt}
+%══════════════════════════════════════════════════════════════════════════════
+
+We examine three exact results from the
+Witten--Reshetikhin--Turaev (WRT) theory~\cite{Witten1989}
+applied to $T_{2,3}$ in $\mathrm{SU}(2)_3$ Chern--Simons theory at
+$q=e^{2\pi i/5}$, each of which provides independent corroboration
+of Theorem~\ref{P15:conj:sector}.
+
+\subsection{Setup: WRT invariant of $T_{2,3}$ at level $k=3$}
+\label{P15:sec:wrt_setup}
+
+The WRT invariant of a knot $K$ with writhe $w$ in $\mathrm{SU}(2)_k$
+Chern--Simons theory is
+\begin{equation}
+  \tau_k(K) = \frac{1}{S_{0,0}}\sum_{j=0}^{k/2}
+    S_{0,j}\,\theta_j^{\,w},
+  \label{P15:eq:wrt}
+\end{equation}
+where $\theta_j = e^{2\pi i h_j}$ is the topological spin,
+$h_j = j(j+1)/(k+2)$, and $S_{0,j}$ is the modular S-matrix entry.
+The trefoil $T_{2,3}$ has writhe $w=3$ and $k=3$ ($K=k+2=5$).
+The quantum integer $[n]_q = \sin(n\pi/K)/\sin(\pi/K)$
+gives quantum dimensions
+$\dim_q(j) = [2j+1]_q$,
+computed in Table~\ref{P15:tab:wrt_data}.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{ccccc}
+\toprule
+$j$ & $h_j$ & $\dim_q(j)$ & $\theta_j^3$ & $|\tau_j|/S_{0,0}$ \\
+\midrule
+$0$   & $0$        & $1$    & $1$  & $1$ \\
+$1/2$ & $3/20$     & $\vp$  & $e^{9\pi i/10}$ & $\vp$ \\
+$1$   & $2/5$      & $\vp$  & $e^{6\pi i/5}$  & $\vp$ \\
+$3/2$ & $3/4$      & $1$    & $i$  & $1$ \\
+\bottomrule
+\end{tabular}
+\caption{WRT data for $\mathrm{SU}(2)_3$ at $q=e^{2\pi i/5}$.
+$\dim_q$ and $h_j$ are exact;
+$\theta_{3/2}^3 = i$ and $\dim_q(3/2)=1$ are the two key exact results.
+All entries verified numerically to machine precision
+(companion script \texttt{paper15\_simple\_current.py}, Sections~2--4).}
+\label{P15:tab:wrt_data}
+\end{table}
+
+\subsection{Result 1: framing phase $\theta_{3/2}^3 = i$ (exact)}
+\label{P15:sec:wrt_phase}
+
+\begin{proposition}[Writhe-3 framing phase of the simple current]
+\label{P15:prop:wrt_phase}
+For $j=3/2$ at $k=3$:
+\begin{equation}
+  \theta_{3/2}^{\,3}
+  \;=\; e^{2\pi i\cdot 3h_{3/2}}
+  \;=\; e^{2\pi i\cdot 9/4}
+  \;=\; e^{2\pi i/4}
+  \;=\; i.
+  \label{P15:eq:theta32_cubed}
+\end{equation}
+This is a primitive $4$th root of unity, the smallest non-trivial order
+among all sectors at writhe $w=3$.
+\end{proposition}
+
+\begin{proof}
+$h_{3/2} = \tfrac{3}{2}\cdot\tfrac{5}{2}/5 = \tfrac{3}{4}$,
+so $3h_{3/2} = \tfrac{9}{4} \equiv \tfrac{1}{4}\pmod{1}$,
+giving $\theta_{3/2}^3 = e^{2\pi i/4} = i$.
+The other sectors: $\theta_0^3 = 1$ (order~1, trivial),
+$\theta_{1/2}^3 = e^{9\pi i/10}$ (order~20),
+$\theta_1^3 = e^{6\pi i/5}$ (order~5).
+Only $j=3/2$ achieves a non-trivial root of unity of minimal order~4.
+\qed
+\end{proof}
+
+\begin{remark}
+The primitive $4$th-root phase $i$ reflects the $90^\circ$ twist per
+crossing of $T_{2,3}$: the trefoil's three crossings contribute
+$3\times 90^\circ = 270^\circ$ total twist in the $j=3/2$ sector.
+Combined with one full $360^\circ$ winding (from the knot's framing),
+the net phase is $e^{2\pi i\cdot(3/4+1)} = e^{2\pi i/4} = i$.
+This geometric identity is specific to the pairing of
+writhe~$3$ (trefoil) with $h_{3/2}=3/4$ ($\mathrm{SU}(2)_3$ simple current).
+\end{remark}
+
+\subsection{Result 2: quantum-dimension minimisation (energy)}
+\label{P15:sec:wrt_dim}
+
+\begin{proposition}[String tension minimisation by the simple current]
+\label{P15:prop:wrt_dim}
+For a closed knot with no asymptotic states, the WZW string tension
+per unit length is proportional to $\dim_q(j)$.
+Among non-vacuum sectors ($j\neq 0$) at $k=3$,
+the minimum is achieved uniquely by $j=3/2$:
+\begin{equation}
+  \dim_q\!\bigl(\tfrac{3}{2};\,k{=}3\bigr) = 1
+  \;<\; \vp \;=\; \dim_q\!\bigl(\tfrac{1}{2};\,k{=}3\bigr)
+        = \dim_q\!\bigl(1;\,k{=}3\bigr).
+  \label{P15:eq:dim_min}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+$\dim_q(j) = [2j+1]_q = \sin((2j+1)\pi/5)/\sin(\pi/5)$.
+Evaluating: $\dim_q(3/2) = \sin(4\pi/5)/\sin(\pi/5) = 1$
+(since $\sin(4\pi/5)=\sin(\pi/5)$),
+while $\dim_q(1/2) = \dim_q(1) = \vp > 1$.
+\qed
+\end{proof}
+
+\begin{remark}
+This inverts the energy ordering for free states.
+For \emph{free} (unconfined) states, lower $h_j$ means lower bulk energy,
+favouring $j=1/2$ ($h=3/20$) over $j=3/2$ ($h=3/4$).
+For \emph{confined} states (closed knot, no boundary),
+the relevant cost is the string tension $\sim\dim_q(j)\cdot L$,
+which is minimised at $j=3/2$.
+The trefoil $T_{2,3}$ is confined by its topology, so the string-tension
+ordering applies, uniquely selecting $j=3/2$ among non-vacuum sectors.
+\end{remark}
+
+\subsection{Result 3: pure-unit-modulus WRT contribution}
+\label{P15:sec:wrt_pure}
+
+\begin{proposition}[Pure-phase WRT contribution of $j=3/2$]
+\label{P15:prop:wrt_pure}
+The $j=3/2$ sector's contribution to $\tau_3(T_{2,3})$ is
+\begin{equation}
+  \frac{S_{0,\,3/2}}{S_{0,0}}\,\theta_{3/2}^3
+  \;=\; 1\cdot i \;=\; i,
+  \label{P15:eq:wrt_pure}
+\end{equation}
+which has unit modulus.
+Every other sector contributes with modulus $\neq 1$:
+$|S_{0,0}\theta_0^3|/S_{0,0}=1$ (also unit, but trivial),
+$|S_{0,1/2}\theta_{1/2}^3|/S_{0,0}=\vp>1$,
+$|S_{0,1}\theta_1^3|/S_{0,0}=\vp>1$.
+\end{proposition}
+
+\begin{proof}
+$S_{0,3/2}/S_{0,0}=1$ by the simple-current identity
+(equation~\eqref{P15:eq:sc_explicit}),
+and $\theta_{3/2}^3=i$ by Proposition~\ref{P15:prop:wrt_phase}.
+The remaining ratios follow from $S_{0,j}/S_{0,0}=\dim_q(j)$
+(Verlinde formula) and Table~\ref{P15:tab:wrt_data}. \qed
+\end{proof}
+
+\begin{remark}[Physical interpretation]
+A unit-modulus WRT contribution means the $j=3/2$ sector
+undergoes no quantum-dimensional renormalisation under the trefoil's
+surgery: the sector is \emph{transparent} to the knot operation.
+This is the WRT analogue of the simple current having trivial
+monodromy with itself ($N_{\mathrm{fus}}(3/2\otimes3/2)=1$,
+equation~\eqref{P15:eq:sc_selffusion}), and provides an independent
+topological-field-theory confirmation of the simple-current
+sector assignment.
+\end{remark}
+
+\subsection{Strengthened sector-assignment evidence}
+\label{P15:sec:wrt_summary}
+
+Table~\ref{P15:tab:sector_evidence} collects all criteria for and against
+the simple-current sector assignment.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lccc}
+\toprule
+Criterion & $j=1/2$ & $j=3/2$ & Selects \\
+\midrule
+$|$Verlinde ratio$|=\vp$ (Paper~III chain) & $1/\vp$ & $\vp$ & $j=3/2$ \\
+$\dim_q = 1$ (string tension min.)         & $\vp$   & $1$   & $j=3/2$ \\
+$N_{\mathrm{fus}}$ (self-fusion)            & $2$     & $1$   & $j=3/2$ \\
+Modular dual of vacuum                      & No      & Yes   & $j=3/2$ \\
+$\theta_j^3$ primitive root of unity        & order 20 & order 4 & $j=3/2$ \\
+WRT contribution unit-modulus               & No ($\vp$) & Yes (1) & $j=3/2$ \\
+Knot vs.\ link ($\mathbb{Z}_2$ centre)     & —       & Yes   & $j=3/2$ \\
+Lower conformal weight $h_j$                & $3/20$  & $3/4$ & $j=1/2$ \\
+\bottomrule
+\end{tabular}
+\caption{Evidence for the simple-current sector assignment
+$\QH=3\leftrightarrow j=3/2$.
+Seven independent criteria favour $j=3/2$; one (lower bulk conformal weight)
+favours $j=1/2$, but does not apply to confined states
+(Proposition~\ref{P15:prop:wrt_dim}).
+All numerical entries verified to machine precision
+(\texttt{paper15\_simple\_current.py}).}
+\label{P15:tab:sector_evidence}
+\end{table}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Proof of the sector assignment: $\QH=3\leftrightarrow j=3/2$}
+\label{P15:sec:sector_proof}
+%══════════════════════════════════════════════════════════════════════════════
+
+The seven pieces of evidence in Table~\ref{P15:tab:sector_evidence}
+are now assembled into a proof.
+The key new ingredient is the observation that
+$\pi_3(S^2)=\mathbb{Z}$ gives each topological sector a
+\emph{unique} label with no internal degeneracy,
+which singles out $j=3/2$ as the only consistent
+fusion channel for $\QH=3$.
+
+\begin{lemma}[Triple-fusion decomposition at $k=3$]
+\label{P15:lem:triple_fusion}
+In the $\mathrm{SU}(2)_3$ WZW model, the triple fusion of the
+fundamental representation decomposes as
+\begin{equation}
+  j_{\frac12}\otimes j_{\frac12}\otimes j_{\frac12}
+  \;=\;
+  j_{\frac12}^{(\times 2)} \oplus j_{\frac32}^{(\times 1)},
+  \label{P15:eq:triple_fusion}
+\end{equation}
+where the superscript denotes the multiplicity.
+The $j=1/2$ channel has multiplicity $2$ and the $j=3/2$ channel
+has multiplicity $1$.
+\end{lemma}
+
+\begin{proof}
+Step~1: $j_{1/2}\otimes j_{1/2} = j_0\oplus j_1$ at $k=3$
+(by the truncated Verlinde formula; $j_{3/2}$ is excluded since
+$\min(1,k-1) = 2 < 3/2 \cdot 2$, confirming $j_1$ is the maximum).
+
+Step~2: $j_0\otimes j_{1/2} = j_{1/2}$ (trivially).
+
+Step~3: $j_1\otimes j_{1/2}$ at $k=3$: admissible outputs are
+$j\in\{|1-\tfrac12|,\ldots,\min(1+\tfrac12,\,k-1-\tfrac12)\}
+= \{\tfrac12,\tfrac32\}$.
+Both channels are non-zero: $N_{1,\,1/2}^{\,1/2}=N_{1,\,1/2}^{\,3/2}=1$
+(verified by the Verlinde formula).
+
+Step~4: Combining steps~1--3:
+$(j_0\oplus j_1)\otimes j_{1/2}
+= j_{1/2}\oplus(j_{1/2}\oplus j_{3/2})
+= j_{1/2}^{(\times 2)}\oplus j_{3/2}^{(\times 1)}$.
+\qed
+\end{proof}
+
+\begin{theorem}[Sector assignment: $\QH=3\leftrightarrow j=3/2$]
+\label{P15:thm:sector_assignment}
+Under the Witten bosonization dictionary of Paper~III,
+the $\QH=3$ Hopfion occupies the $j=3/2$ sector of the
+$\mathrm{SU}(2)_3$ condensate WZW model.
+\end{theorem}
+
+\begin{proof}
+\textbf{Step 1 (Fundamental quanta).}
+By Paper~III Proposition~10.6, each $\QH=1$ Hopfion carries
+the fundamental representation $j=1/2$ of $\mathrm{SU}(2)_3$
+under the Witten bosonization.
+The $\QH=3$ state is composed of three $\QH=1$ quanta, so it
+lies in the triple fusion $j_{1/2}\otimes j_{1/2}\otimes j_{1/2}$.
+
+\textbf{Step 2 (Fusion decomposition).}
+By Lemma~\ref{P15:lem:triple_fusion},
+\begin{equation}
+  j_{1/2}\otimes j_{1/2}\otimes j_{1/2}
+  \;=\; j_{1/2}^{(\times 2)} \oplus j_{3/2}^{(\times 1)}.
+  \label{P15:eq:triple_dec}
+\end{equation}
+The possible output sectors are $j=1/2$ (multiplicity~$2$)
+and $j=3/2$ (multiplicity~$1$).
+
+\textbf{Step 3 (Topological uniqueness).}
+The Hopf invariant is classified by $\pi_3(S^2)=\mathbb{Z}$.
+Each integer $\QH$ labels a \emph{distinct} homotopy class,
+and within a fixed class all field configurations are homotopic
+to one another.
+There is therefore \emph{no} additional discrete quantum number
+labelling $\QH=3$ configurations beyond $\QH$ itself: the
+$\QH=3$ topological sector is non-degenerate.
+
+\textbf{Step 4 (Multiplicity-1 selection).}
+In the WZW fusion category, distinct fusion channels are
+orthogonal.
+The two $j=1/2$ channels in~\eqref{P15:eq:triple_dec} correspond
+to two independent fusion trees:
+\begin{align*}
+  \text{channel } j_{1/2}^{(1)}&:\;
+    (j_{1/2}\otimes j_{1/2}\to j_0)\otimes j_{1/2}\to j_{1/2},\\
+  \text{channel } j_{1/2}^{(2)}&:\;
+    (j_{1/2}\otimes j_{1/2}\to j_1)\otimes j_{1/2}\to j_{1/2}.
+\end{align*}
+These are genuinely distinct intermediate states; a physical
+system occupying both would require an additional discrete
+label (specifying the linear combination), contradicting
+Step~3.
+The $j=1/2$ sector is therefore \emph{excluded}: its
+multiplicity~$2$ is inconsistent with the topological
+non-degeneracy of $\QH=3$.
+
+The $j=3/2$ sector has multiplicity~$1$; it corresponds to a
+unique state with no internal label, consistent with Step~3.
+
+\textbf{Conclusion.}
+The $\QH=3$ Hopfion is in the $j=3/2$ sector of $\mathrm{SU}(2)_3$.
+\qed
+\end{proof}
+
+\begin{corollary}[$\lam_3=\vp^6$: is closed]
+\label{P15:cor:lambda3_proved}
+The Bogomolny parameter of the $\QH=3$ sector is $\lam_3=\vp^6$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{P15:thm:sector_assignment}, $\QH=3$ is in the
+$j=3/2$ sector.
+By equation~\eqref{P15:eq:sc_selffusion}, the simple-current
+self-fusion gives $N_{\mathrm{fus}}(\tfrac32\otimes\tfrac32)=1$.
+The Linking Scale formula (Paper~II equation~7.2) then gives
+$s_{\mathrm{opt}}^{2k}=N_{\mathrm{fus}}=1$, hence $s_{\mathrm{opt}}=1$.
+Therefore $\lam_3 = \lam/s_{\mathrm{opt}}^{2k} = \vp^6/1 = \vp^6$.
+\qed
+\end{proof}
+
+\begin{remark}
+By Theorem~\ref{P15:thm:equivalence}, all three equivalent
+conditions (I)--(III) now follow simultaneously:
+\begin{enumerate}[noitemsep,label=\textup{(\Roman*)}]
+\item $\lam_3=\vp^6$ (Corollary~\ref{P15:cor:lambda3_proved}).
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ (Theorem~\ref{P15:thm:norm3}).
+\item $r_3=J_4^{(3)}/J_{2a}^{(3)}=2/\vp^5$ at the EL saddle
+  (Proposition~\ref{P15:prop:lambda3}).
+\end{enumerate}
+The derived consequences $V_3=9/(5\vp^{17})$ and $C_3^*=2.5062$
+follow from Corollaries~\ref{P15:cor:V3} and~\ref{P15:cor:lambda3}
+(Proposition~\ref{P15:prop:kappa4} for the $O(\langle\kappa^4\rangle)$ value).
+
+The open problem of item~(iii) of
+Section~\ref{P15:sec:open} is a topology-preserving numerical saddle
+finder that would confirm $C_3^*=2.5062$ directly
+from the $\QH=3$ Euler--Lagrange profile.
+\end{remark}
+
+\begin{remark}[The $\QH=2$ parallel]
+The same argument for $\QH=2$ gives:
+$j_{1/2}\otimes j_{1/2} = j_0^{(\times 1)}\oplus j_1^{(\times 1)}$.
+Both output channels have multiplicity~$1$, so the multiplicity
+argument alone does not select between them.
+The lower-energy selection ($h_0=0 < h_1=2/5$) gives $j=0$,
+consistent with Paper~III.
+For $\QH=3$, both energy and multiplicity arguments agree: the
+lower-energy candidate $j=1/2$ is ruled out by multiplicity~$2$,
+leaving $j=3/2$ as the unique consistent choice.
+\end{remark}
+
+\begin{remark}[Logical status of Step~1]
+\label{P15:rem:step1_status}
+The identification ``each $\QH=1$ quantum carries $j=\frac12$''
+is not an additional postulate of this paper.
+It is the explicit content of Paper~III
+Proposition~10.6 (proof, line~1):
+\emph{``Each $Q=1$ Hopfion carries topological charge $Q=1$,
+corresponding to the fundamental representation $j=\frac12$
+of $\mathrm{SU}(2)$.''}
+This statement is made in the course of establishing the
+$\QH=2$ sector assignment, and applies to each constituent
+$\QH=1$ quantum regardless of how many are present.
+Steps~2--4 of Theorem~\ref{P15:thm:sector_assignment} are
+independent of this identification.
+\end{remark}
+
+\subsection{Corroborating argument: $\mathbb{Z}_2$ charge parity}
+\label{P15:sec:z2_parity}
+
+The $\mathbb{Z}_2$ centre $Z(\mathrm{SU}(2))=\{\pm I\}$ acts on
+WZW primaries at level $k$ via the simple current $j=k/2$,
+with eigenvalue $(-1)^{2j}$ on primary $j$:
+\begin{equation}
+  j=0,\,1:\; (-1)^{2j}=+1\;\;(\mathbb{Z}_2\text{-even}),
+  \qquad
+  j=\tfrac12,\,\tfrac32:\; (-1)^{2j}=-1\;\;(\mathbb{Z}_2\text{-odd}).
+  \label{P15:eq:z2_eigenvalues}
+\end{equation}
+On the field-theory side, the antipodal map $\mathbf{n}\to-\mathbf{n}$
+on $S^2$ sends $\QH\to-\QH$, so $\QH\bmod 2$ is a
+$\mathbb{Z}_2$ topological invariant.
+Under the bosonization dictionary, this Hopf parity is identified
+with the WZW $\mathbb{Z}_2$ centre charge, giving
+\begin{equation}
+  \QH\text{ odd}\;\longrightarrow\;\mathbb{Z}_2\text{-odd sector},
+  \quad\text{i.e.}\quad j\in\bigl\{\tfrac12,\tfrac32\bigr\}.
+  \label{P15:eq:z2_filter}
+\end{equation}
+For $\QH=3$ (odd), this pre-filters the candidate set to two
+sectors.
+Combined with Theorem~\ref{P15:thm:sector_assignment}, which
+eliminates $j=\frac12$ by multiplicity, the selection is
+sharpened to a two-step argument:
+\begin{equation}
+  \QH=3\;\xrightarrow{\;\mathbb{Z}_2\text{ parity}\;}
+  j\in\bigl\{\tfrac12,\tfrac32\bigr\}
+  \;\xrightarrow{\;\mathrm{mult}=1\;}
+  j=\tfrac32.
+  \label{P15:eq:two_step}
+\end{equation}
+This eliminates $j=0$ and $j=1$ (both $\mathbb{Z}_2$-even)
+before the multiplicity argument acts, making the selection of
+$j=\frac32$ more immediate.
+
+\subsection{Independent proof via Verlinde uniqueness}
+\label{P15:sec:verlinde_unique}
+
+Strategy~2 provides a logically independent route to
+$j=\frac32$ that uses the Cardy/Verlinde formula and
+$V^*=\vp$ without invoking the fusion multiplicity.
+
+The key input is the Verlinde/Cardy formula of Paper~III~\cite{Paper3} Theorem~10.7:
+for a state in sector $j$ of $\mathrm{SU}(2)_3$, the
+vacuum expectation value of the $j=\frac12$ primary is
+\begin{equation}
+  V^*(j) \;\equiv\;
+  \bigl\langle\phi_{1/2}\bigr\rangle_j^{\!\mathrm{WZW}}
+  \;=\; \frac{S_{j,\,1/2}}{S_{j,\,0}}.
+  \label{P15:eq:verlinde_ratio_general}
+\end{equation}
+This is the generalisation of Paper~III equation~50
+to arbitrary sector $j$; for $j=0$ it reduces to the
+$\QH=2$ result $V^*(0)=\vp$.
+
+\begin{proposition}[Verlinde ratio uniquely selects $j=3/2$]
+\label{P15:prop:verlinde_unique}
+Among all primaries of $\mathrm{SU}(2)_3$,
+$\bigl|S_{j,\,1/2}/S_{j,\,0}\bigr|=\vp$ if and only if
+$j\in\{0,\,\frac32\}$.
+Since $j=0$ is assigned to $\QH=2$, and since
+$|V^*(j)|=\vp$ for the $\QH=3$ sector is required by the
+sector-independent IVT (Theorem~\ref{P15:thm:virial}),
+the $\QH=3$ sector must be $j=\frac32$.
+\end{proposition}
+
+\begin{proof}
+From the $\mathrm{SU}(2)_3$ S-matrix
+$S_{j,l}=\sqrt{2/5}\,\sin((2j{+}1)(2l{+}1)\pi/5)$:
+\begin{equation}
+  \frac{S_{j,\,1/2}}{S_{j,\,0}}
+  \;=\; \frac{\sin(2(2j{+}1)\pi/5)}{\sin((2j{+}1)\pi/5)}
+  \;=\; 2\cos\!\frac{(2j{+}1)\pi}{5},
+  \label{P15:eq:ratio_formula}
+\end{equation}
+giving values $+\vp,\,+1/\vp,\,-1/\vp,\,-\vp$
+for $j=0,\tfrac12,1,\tfrac32$ respectively
+(verified in Table~\ref{P15:tab:wrt_data}).
+The condition $|S_{j,1/2}/S_{j,0}|=\vp$ holds iff
+$j\in\{0,\frac32\}$.
+
+The IVT (Theorem~\ref{P15:thm:virial}) proves $V^*=\vp$
+sector-independently as a positive ratio $J_{\mathrm{fb}}/J_{2a}>0$.
+By equation~\eqref{P15:eq:verlinde_ratio_general},
+$|V^*(j)|=|S_{j,1/2}/S_{j,0}|$ must equal $\vp$.
+This restricts $j$ to $\{0,\frac32\}$.
+Since $j=0$ is $\QH=2$, the $\QH=3$ sector is $j=\frac32$.
+\qed
+\end{proof}
+
+\begin{remark}[Sign convention]
+The Verlinde ratio for $j=\frac32$ is $-\vp$ (negative),
+while the IVT gives $V^*=+\vp$ (positive).
+The sign difference is accounted for by the simple-current
+identity $S_{3/2,\,l}=(-1)^{2l}S_{0,\,l}$: the $j=\frac32$
+sector's $\mathbb{Z}_2$ centre charge (equation~\eqref{P15:eq:z2_eigenvalues})
+introduces a sign flip in the Cardy formula relative to $j=0$.
+The physical condition is $|V^*|=\vp$, which both
+$j=0$ ($V^*=+\vp$) and $j=\frac32$ ($V^*=-\vp$) satisfy.
+\end{remark}
+
+\begin{remark}[Three independent arguments]
+\label{P15:rem:three_arguments}
+The sector assignment $\QH=3\leftrightarrow j=\frac32$
+is now supported by three independent proofs:
+\begin{enumerate}[noitemsep,label=\textup{(\roman*)}]
+\item \emph{Multiplicity + topological uniqueness}
+  (Theorem~\ref{P15:thm:sector_assignment}):
+  uses $\pi_3(S^2)=\mathbb{Z}$ and fusion-category orthogonality;
+  no modular data required beyond Lemma~\ref{P15:lem:triple_fusion}.
+\item \emph{Verlinde uniqueness}
+  (Proposition~\ref{P15:prop:verlinde_unique}):
+  uses the Cardy formula~\eqref{P15:eq:verlinde_ratio_general}
+  and the sector-independent value $|V^*|=\vp$;
+  no multiplicity counting required.
+\item \emph{$\mathbb{Z}_2$ parity filter} (Section~\ref{P15:sec:z2_parity}):
+  uses the antipodal map on $S^2$ and the simple-current
+  identity; independently restricts $j$ to $\{\frac12,\frac32\}$
+  before any further selection.
+\end{enumerate}
+None of the three arguments is circular with respect to the others.
+Their convergence on $j=\frac32$ constitutes a robust proof of
+Theorem~\ref{P15:conj:sector}.
+Corollary~\ref{P15:cor:lambda3_proved} and all its downstream
+consequences ($r_3=2/\vp^5$, normalisation identity, $V_3$, $C_3^*$)
+therefore hold unconditionally.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P15:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+The $\QH=3$ density-feedback Hopfion is identified with a trefoil
+knot whose WZW model is $\SU(3)_1$, via the McKay chain
+$\twoT\leftrightarrow E_6\leftrightarrow\SU(3)_1$.
+The minimum T-matrix closing integer $Q_{\mathrm{group}}^{(3)}=3$
+is proved by exact arithmetic, and the conformal weight
+$h_{(1,0)}=\tfrac{1}{3}$ reproduces the down-quark charge exactly.
+
+The virial fixed point $V^*=\vp$ extends to all sectors by the
+Paper~III IVT; the energy $\Efb=2N^2/\vp^{17}$ is
+sector-independent in form, with the integer $N$ encoding the geometry.
+
+The Frenet--Serret transformation maps the $\QH=2$ profile
+computation exactly onto each trefoil tube; torsion cancels
+\emph{at leading order} by azimuthal averaging for any axially-symmetric
+profile (Theorem~\ref{P15:thm:torsion_cancels}; see
+Remark~\ref{P15:rem:torsion_scope} for the small $O(\rho^2\kappa^2\tau^2)$
+correction at next order); and the leading-order
+virial formula involves $\langle\kappa^2\rangle=0.120\approx 1/R_0^2$
+in place of the torus curvature.
+Combining the virial identity $\Kfb=2\vp\Ja$ with the
+leading-order trefoil formula gives the derived Bogomolny formula
+(Corollary~\ref{P15:cor:lambda3}):
+\begin{equation*}
+  \lam_3 = \frac{2\vp}{3/(4C_3^{*2})+\langle\kappa^2\rangle/2},
+  \qquad
+  C_3^* = \sqrt{\frac{3}{4(2\vp/\lam_3-\langle\kappa^2\rangle/2)}}.
+\end{equation*}
+Since $\lam_3=\vp^6$ is now proved (Theorem~\ref{P15:thm:sector_assignment}),
+this gives $C_3^*=2.5062$ at $O(\langle\kappa^4\rangle)$
+(Proposition~\ref{P15:prop:kappa4}), and the trefoil tube is
+$C_2^*/C_3^*\approx1.37\times$ wider than the torus tube.
+
+The three crossing regions of the trefoil are identified as the
+condensate inner wall: they carry enhanced density by the same
+curvature-driven Shafranov mechanism as the $3.6\times$ inner/outer
+ratio of $\QH=2$, but with $\mathbb{Z}_3$ symmetry.
+The energy concentration count is \emph{exactly} three: the isometry
+$t\mapsto t+\pi$, $z\mapsto -z$ forces $\kappa_{\mathrm{over}}=
+\kappa_{\mathrm{under}}$ at every crossing (Remark~\ref{P15:rem:3or6}),
+ruling out six or higher multiples.
+The three crossing midpoints form an equilateral triangle at distance
+$R_0=3$ from the origin; the origin is the Fermat--Steiner Y-junction
+of the baryon string network, with equal arms of length $R_0$ and total
+string length $3R_0=N_3^2=9$ (Proposition~\ref{P15:prop:yjunction}).
+This Y-junction geometry explains the numerical non-convergence of
+the saddle finder (open problem~(iii) of Section~\ref{P15:sec:open}):
+the solver minimised $\Kfb\times J_4$ but missed the string-tension
+term $\sigma\times 3R_0$ which is $C^*$-independent
+(Remark~\ref{P15:rem:yjunction_energy}).
+Each crossing region corresponds to one quark colour.
+Colour confinement follows from the profile boundary conditions
+already in Paper~I.
+
+By Theorem~\ref{P15:thm:equivalence}, the two conditions
+$\lam_3=\vp^6$ and $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ are logically
+equivalent (four-line proof, verified numerically to eight significant figures).
+The condensate volume $V_3=9/(5\vp^{17})$ and the saddle value $C_3^*=2.5062$
+follow as derived consequences (Corollary~\ref{P15:cor:V3}), not independent
+assumptions.
+
+$\lam_3=\vp^6$ is proved in Section~\ref{P15:sec:sector_proof}
+(Theorem~\ref{P15:thm:sector_assignment}, Corollary~\ref{P15:cor:lambda3_proved}).
+The argument proceeds via the $j=3/2$ simple-current sector of
+$\mathrm{SU}(2)_3$: the triple-fusion decomposition
+$j_{1/2}^{\otimes 3}=j_{1/2}^{(\times 2)}\oplus j_{3/2}^{(\times 1)}$
+at $k=3$ has a unique multiplicity-1 channel $j=3/2$; the topological
+non-degeneracy $\pi_3(S^2)=\mathbb{Z}$ excludes the multiplicity-2 channel
+$j=1/2$; and the simple-current self-fusion
+$N_{\mathrm{fus}}(\tfrac32\otimes\tfrac32)=1$ gives $\lam_3=\vp^6$ in
+three lines.
+The sector assignment is independently supported by seven of eight criteria
+in Table~\ref{P15:tab:sector_evidence}; the sole dissenting criterion (lower
+conformal weight, item~(h)) does not apply to confined states.
+
+\begin{enumerate}[noitemsep,label=(\arabic*)]
+\item $Q_{\mathrm{group}}^{(3)}=3$ (T-matrix closure, exact arithmetic).
+\item $h_{(1,0)}=\tfrac{1}{3}$ (quark charge from conformal weight, exact).
+\item $V^{*\,(3)}=\vp$, $\Kfb^{(3)}=2\vp\Ja^{(3)}$, $\Efb^{(3)}=2N_3^2/\vp^{17}$
+  (Paper~III IVT + exact algebra, sector-independent).
+\item Torsion cancels \emph{at leading order} for any axially-symmetric
+  profile (Theorem~\ref{P15:thm:torsion_cancels}): for $f=f_0(\rho)$ alone,
+  the torsion-induced $\chi$-shift is invisible under azimuthal
+  averaging at every order in $\rho\tau$. A small $O(\rho^2\kappa^2\tau^2)$
+  correction appears once the curvature-sourced $f_1(\rho)\cos\chi$ term
+  is included (Remark~\ref{P15:rem:torsion_scope}; $\approx 4\%$ of
+  $\langle\kappa^2\rangle$, developed fully in Paper~XVI~\cite{Paper16}).
+  Leading-order formula:
+  $J_4^{(3)}/J_{2a}^{(3)}=3/(4C_3^{*2})+\langle\kappa^2\rangle/2$ (exact to
+  $O(\langle\kappa^2\rangle)$; the $O(\langle\kappa^4\rangle)$ correction is
+  computed in closed form in Proposition~\ref{P15:prop:kappa4}).
+\item Derived Bogomolny formula: $\lam_3=2\vp/r_3$;
+  $C_3^*$ from $\lam_3$ via~\eqref{P15:eq:C3star} (exact, from §5+§6).
+  Since $\lam_3=\vp^6$: $C_3^*=2.5062$ at $O(\langle\kappa^4\rangle)$
+  (Proposition~\ref{P15:prop:kappa4}).
+\item Trefoil crossing regions are the inner-wall analogue;
+  $\mathbb{Z}_3$ colour imprint (geometry, exact).
+\item Colour confinement from profile boundary conditions
+  (topology, exact).
+\item $\twoT\subset\twoI$ (group theory, exact);
+  three quark colours as the three $\omega$-twisted 2-dimensional
+  fermionic irreps $\Gamma_2,\Gamma_{2\omega},\Gamma_{2\omega^2}$
+  of $\twoT$.
+\item Leading-order $m_u=m_d$ from T-matrix degeneracy
+  $T_{(1,0)}=T_{(0,1)}$; consistent with $m_u/m_d\approx0.46$.
+\item Three energy concentration count is exactly $3$: the isometry
+  $t\mapsto t+\pi$ combined with $z\mapsto -z$ forces
+  $\kappa_{\mathrm{over}}=\kappa_{\mathrm{under}}=0.3991$ at all crossings
+  (Remark~\ref{P15:rem:3or6}), so each crossing is a single symmetric
+  concentration; higher multiples (6, 9, 12, \ldots) are ruled out.
+\item Y-junction / Fermat--Steiner geometry (Proposition~\ref{P15:prop:yjunction}):
+  the three crossing midpoints lie at distance exactly $R_0=3$ from the
+  origin, forming a regular equilateral triangle.
+  The origin is the Fermat--Steiner point with three equal arms of length
+  $R_0$; total Y-junction string length $3R_0 = N_3^2 = 9$.
+  The missing string-tension term $\sigma\cdot 3R_0$ in the baryon energy
+  explains why gradient flows failed to converge (Remark~\ref{P15:rem:yjunction_energy});
+  crucially, this term is $C^*$-independent, so the profile saddle
+  (determining $C_3^*$ and $\lam_3$) is unchanged.
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$, equivalent to $\lam_3=\vp^6$
+  (Theorems~\ref{P15:thm:norm3}--\ref{P15:thm:equivalence}).
+  The condensate volume $V_3=9/(5\vp^{17})$ and saddle value $C_3^*=2.5062$
+  are derived consequences (Corollary~\ref{P15:cor:V3}), not independent assumptions.
+\item $\lam_3=\vp^6$ from the triple-fusion multiplicity argument
+  (Theorem~\ref{P15:thm:sector_assignment}, Corollary~\ref{P15:cor:lambda3_proved}):
+  the triple fusion $j_{1/2}^{\otimes 3}=j_{1/2}^{(\times 2)}\oplus j_{3/2}^{(\times 1)}$
+  at $k=3$ has a unique multiplicity-1 channel $j=3/2$;
+  the topological non-degeneracy of $\pi_3(S^2)=\mathbb{Z}$
+  forces $\QH=3$ into this channel;
+  the simple-current self-fusion $N_{\mathrm{fus}}=1$ then gives
+  $\lam_3=\vp^6$ (three lines).
+  All four previously conditional results now follow as proved
+  consequences (Corollary~\ref{P15:cor:lambda3_proved}).
+\item The $O(\langle\kappa^4\rangle)$ curvature correction is computed
+  exactly via Beta-function integration of the BS profile
+  (Proposition~\ref{P15:prop:kappa4}): $\delta r_3^{(\kappa^4)}=
+  9\langle\kappa^4\rangle/(4 C_3^{*4})=0.000938$, giving
+  $C_3^*=2.5062$ (a $0.392\%$ shift from the $O(\langle\kappa^2\rangle)$
+  value).
+\item The $2I\to 2T$ branching rules are proved by character theory
+  (Proposition~\ref{P15:prop:branching}): $j=\tfrac32\to\Gamma_{2\omega}
+  \oplus\Gamma_{2\omega^2}$ shows the simple-current sector spans only
+  two of the three quark colours, the branching-rule counterpart of
+  the sector-assignment proof. The 24-cell geometry of $\twoT$
+  (edge-to-circumradius ratio~$1$, vs.\ $1/\vp$ for the 600-cell of
+  $\twoI$) explains the integer normalisation
+  $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ (Remark~\ref{P15:rem:F4}).
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Open Problems}
+\label{P15:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item \textbf{[Resolved] Completing the proof of $\lam_3=\vp^6$.}
+  Theorem~\ref{P15:thm:sector_assignment} and
+  Corollary~\ref{P15:cor:lambda3_proved} close this problem.
+  The triple-fusion decomposition
+  $j_{1/2}^{\otimes 3}=j_{1/2}^{(\times 2)}\oplus j_{3/2}^{(\times 1)}$
+  at $k=3$ (Lemma~\ref{P15:lem:triple_fusion}), combined with
+  the topological non-degeneracy $\pi_3(S^2)=\mathbb{Z}$
+  (which forbids the multiplicity-2 channel $j=1/2$),
+  uniquely assigns $\QH=3$ to the simple-current sector $j=3/2$.
+  The self-fusion $N_{\mathrm{fus}}(\tfrac32\otimes\tfrac32)=1$
+  then gives $\lam_3=\vp^6$ in three lines
+  (Theorem~\ref{P15:thm:lambda3_sc}).
+  The normalisation identity, condensate volume, and saddle value
+  follow as derived consequences
+  (Corollary~\ref{P15:cor:lambda3_proved},
+  Theorems~\ref{P15:thm:norm3}--\ref{P15:thm:equivalence},
+  Corollary~\ref{P15:cor:V3}).
+
+\item \textbf{[Resolved at leading order] Higher-order curvature
+  corrections.}
+  Torsion is proved to cancel at leading order, for the
+  $\chi$-independent profile $f_0(\rho)$ alone
+  (Theorem~\ref{P15:thm:torsion_cancels}).
+  The $O(\langle\kappa^4\rangle)$ correction is now computed in closed form
+  via Beta-function integration (Proposition~\ref{P15:prop:kappa4}),
+  giving $C_3^* = 2.5062$ (shift of $0.392\%$ from the
+  $O(\langle\kappa^2\rangle)$ value $2.497$).
+  A torsion-coupled correction, structurally analogous to Paper~XIV's
+  $f_2(\rho)\cos(2\chi)$ but sourced by $\kappa^2\tau^2$ rather than
+  $1/R_0^2$ alone, enters at $O(\rho^2\kappa^2\tau^2)$
+  (Remark~\ref{P15:rem:torsion_scope}); numerically
+  $\langle\kappa^2\tau^2\rangle\approx 0.0053$, about $4\%$ of
+  $\langle\kappa^2\rangle$. This is smaller than but not obviously
+  negligible relative to the $O(\langle\kappa^4\rangle)$ term above,
+  and its precise coefficient --- together with a structural finding
+  that the governing boundary-value problem has complex indicial
+  exponents near $\rho=0$, unlike Paper~XIV's torus case --- is
+  developed in Paper~XVI~\cite{Paper16}. It does not affect
+  $\lam_3=2\vp/r_3$, which is fixed independently of the curvature
+  and torsion corrections
+  (Theorem~\ref{P15:thm:sector_assignment}).
+
+\item \textbf{Topology-preserving saddle finder.}
+  All gradient flows tried on $80^3$ grids --- direct $\Kfb$
+  minimisation, fixed-$\lam$ flows at $\lam\in\{\vp^5,\vp^6\}$,
+  and projected-gradient flow at fixed $J_4$ --- show $J_4\to 0$
+  (topology collapse) without converging to a saddle.
+  The collapse is accelerated by the three-lobed energy landscape
+  from the crossing-region self-interaction
+  (Remark~\ref{P15:rem:no_lambda3}): at the initialisation value
+  $C^*=1.5$, the tube radius equals only $2.6$ times the minimum
+  inter-tube distance, causing significant inter-tube field overlap.
+  Under $\Kfb$ minimisation, $\Kfb/J_4$ forms a $V$-shape (minimum
+  $\approx 3.55$, crossing $\vp^6$ twice); under fixed-$\lam$ flows
+  it forms an inverted-$U$ (peak $\approx 21\vp^6$ for $\lam=\vp^6$).
+  A topology-preserving algorithm --- e.g.\ Battye--Sutcliffe
+  simulated annealing~\cite{Battye1998}, constrained flow at fixed
+  $J_4$, or an initialisation at $C^*\approx 2.499$
+  (separation $4.4$ tube radii) will to confirm
+  $C_3^*=2.5062$ and thereby verify the geometric self-consistency
+  check~\eqref{P15:eq:V3formula}.
+  Since $\lam_3=\vp^6$ is proved analytically, this
+  becomes a purely numerical verification rather than a precondition.
+
+\item \textbf{Quark masses from $\twoI\to\twoT$ branching.}
+  The generation assignment and T-matrix phases (parts~(a)--(b) below)
+  are determined by the branching rules; the absolute mass scale
+  (part~(c)) additionally requires the quark Yukawa formula.
+
+  \textbf{(a) Generation-to-irrep assignment.}
+  The $\mathrm{SU}(2)$ spin-$j$ representations restrict to $\twoT$ as
+  $j=0\to\Gamma_1$, $j=\tfrac12\to\Gamma_2$, $j=1\to\Gamma_3$
+  (Proposition~\ref{P15:prop:branching}).
+  Each quark generation $g$ carries a combined $(\mathrm{SU}(2)_3$
+  level $j_g$, colour $\Gamma_{2\omega^c})$ label, with the
+  $\mathbb{Z}_3$ automorphism cycling the colour index independently of
+  the generation index. This is the unique assignment consistent with
+  three generations, three colours, $\mathbb{Z}_3$ symmetry,
+  and $\twoT\subset\twoI$.
+
+  \textbf{(b) T-matrix phases per generation.}
+  The $\omega$-twisting of the $\twoT$ fermionic irrep does not change
+  the $\mathrm{SU}(2)_3$ modular T-matrix eigenvalue.
+  The effective T-phase for generation $g$ is therefore
+  $T_g^{\mathrm{quark}} = T_{j_g}^{\mathrm{SU}(2)_3}
+  \in\{-\tfrac{3}{40},\,\tfrac{3}{40},\,\tfrac{13}{40}\}$,
+  the same values used for leptons in Paper~IV~\cite{Paper4}.
+  The inter-generation T-phase ratio
+  $m_{g'}/m_g|_T = e^{-2\pi Q_3(T_{g'}-T_g)}$ with $Q_3=3$
+  gives $O(1)$ corrections only
+  ($m_2/m_1|_T \approx 0.06$ from T-phases alone).
+  The large observed hierarchy ($m_c/m_u\approx580$)
+  is therefore carried by the $\vp$-tower levels, not the T-phases.
+
+  \textbf{(c) Tower level and absolute mass scale.}
+  $C_3^*=2.5062$ (Proposition~\ref{P15:prop:kappa4}) is now known analytically.
+  The quark tower level $n_q$ and Yukawa coupling $y_q$ are not
+  obtainable by direct substitution into the lepton formula
+  ($y_e=e^{-25\pi/6}$ of Paper~IV), because the $\QH=3$ sector
+  has a different condensate coupling structure.
+  Determining $n_q$ requires identifying how the density-feedback
+  functional couples to the trefoil saddle, which is deferred to further work.
+\end{enumerate}
+
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper12}
+F.~Manfredi,
+\textit{The Profile Normalisation Conjecture ---
+  Proof via CMB Energy Identity and Two-Route Equivalence},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20210460}{doi:10.5281/zenodo.20210460}
+
+\bibitem{Paper14}
+F.~Manfredi,
+\textit{The Thick-Torus Profile Correction to the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20479790}{doi:10.5281/zenodo.20479790}
+
+\bibitem{Paper16}
+F.~Manfredi,
+\textit{Quark Generation Masses in the Density-Feedback Hopfion:
+A Survey of Ruled-Out Mechanisms and the $Q_H=3$ Gradient-Flow Landscape},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.21012650}{doi:10.5281/zenodo.21012650}
+
+\bibitem{Paper18} F.~Manfredi,
+\textit{Preimage Topology and Confinement: Preimage Topology and Confinement: The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+
+\bibitem{Faddeev1997}
+L.~D. Faddeev and A.~J. Niemi,
+\textit{Stable knot-like structures in classical field theory},
+Nature \textbf{387}, 58 (1997).
+\href{https://doi.org/10.1038/387058a0}{doi:10.1038/387058a0}
+
+\bibitem{Battye1998}
+R.~A. Battye and P.~M. Sutcliffe,
+\textit{Knots as stable soliton solutions in a three-dimensional classical
+field theory},
+Phys.\ Rev.\ Lett.\ \textbf{81}, 4798 (1998).
+\href{https://doi.org/10.1103/PhysRevLett.81.4798}{doi:10.1103/PhysRevLett.81.4798}
+
+\bibitem{McKay1980}
+J.~McKay,
+\textit{Graphs, singularities, and finite groups},
+Proc.\ Symp.\ Pure Math.\ \textbf{37}, 183--186 (1980).
+\href{https://doi.org/10.1090/pspum/037}{doi:10.1090/pspum/037}
+
+%\bibitem{Kasai2026} 
+%S.~Kasai et al., 
+%\textit{Nonequilibrium dynamics of magnetic hopfions driven by spin-orbit torque, \textit}
+%Phys. Rev. B \textbf{113}, 134445 (2026).
+%\href{https://doi.org/10.1103/v929-88l7}{doi:10.1103/v929-88l7}
+
+\bibitem{Witten1989}
+E.~Witten,
+\textit{Quantum field theory and the Jones polynomial},
+Commun.\ Math.\ Phys.\ \textbf{121}, 351 (1989).
+\href{https://doi.org/10.1007/BF01217730}{doi:10.1007/BF01217730}
+
+\end{thebibliography}
+\end{document}

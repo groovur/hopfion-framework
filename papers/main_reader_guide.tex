@@ -1,0 +1,1211 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\DefTblrTemplate{firsthead, middlehead, lasthead}{default}{}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{parskip}
+
+\definecolor{sectionblue}{RGB}{0,70,140}
+\definecolor{calloutgray}{RGB}{240,240,245}
+\definecolor{warningamber}{RGB}{200,120,0}
+\definecolor{proofgreen}{RGB}{0,110,60}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=sectionblue,
+  urlcolor=sectionblue,
+  citecolor=sectionblue
+}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\aem}{\alpha_{\mathrm{em}}}
+\newcommand{\twoI}{2I}
+\newcommand{\Ehat}{\hat{E}_8}
+\newcommand{\bst}{\beta^*}
+\newcommand{\ERy}{E_{\mathrm{Ry}}}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Tsirelson}{2\sqrt{2}}
+\newcommand{\CHSH}{\mathrm{CHSH}}
+\newcommand{\xcond}{x_{\mathrm{cond}}}
+\newcommand{\vEW}{v_{\mathrm{EW}}}
+\newcommand{\mH}{m_H}
+
+\newenvironment{callout}[1]{%
+  \begin{trivlist}\item
+  \colorbox{calloutgray}{\parbox{0.96\textwidth}{%
+  \smallskip\textbf{#1}\par\smallskip
+}{}}%
+}{\end{trivlist}}
+
+\newenvironment{prerequisite}{%
+  \begin{trivlist}\item
+  \colorbox{calloutgray}{\parbox{0.96\textwidth}{%
+  \smallskip\textit{QFT/GR prerequisites for this section:}\par\smallskip
+}{}}%
+}{\end{trivlist}}
+
+\title{\textbf{A Reader's Guide to the Density-Feedback Hopfion Series\\[4pt]
+\large Papers I--XV: Entry Points, Technical Prerequisites, and Critical Evaluation}}
+\author{A technical companion for readers with background in QFT and GR}
+\date{2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Purpose and scope of this guide}
+%═══════════════════════════════════════════════════════════════════════════════
+
+This guide is written for a reader with graduate-level training in quantum field
+theory and general relativity who wants to evaluate the density-feedback
+Faddeev--Niemi Hopfion series (Papers~I--XV) critically. It does three things.
+
+First, it maps the logical structure of the series: which results follow from
+which, what is proved as a theorem, what is asserted as a claim, and where the
+genuine open questions are. Second, it identifies the minimum QFT/GR background
+needed to enter each paper without losing the thread. Third, it explicitly
+addresses the question a QFT-trained reader will ask first: does this framework
+contradict anything that is experimentally established, and if not, why not?
+
+The short answer to that last question is: no, it does not. The framework
+re-derives, from a single-input condensate model, the same numerical values that
+the Standard Model accommodates as free parameters. It does not predict
+deviations from known SM observables at any energy scale that has been probed;
+it predicts deviations only where the SM is silent (the cosmological sector,
+lepton Bell tests, and BAO peak position). The reader who expects a contradiction
+with established particle physics will not find one, and this guide explains
+precisely why.
+
+A word on the Foundational Companion paper, which is an ideal first read for
+anyone approaching the series. That paper collects three independent proofs that
+the WZW level is $k=3$, shows that every appearance of $\vp$ in the series is a
+consequence of the single equation $k+2=5$, and establishes the three-generation
+lepton count as a hard algebraic theorem. It is self-contained in about nine pages
+and requires only familiarity with WZW models and the Verlinde formula. Read it
+first.
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{The condensate in brief: what kind of theory is this?}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The field and its action}
+
+The theory has a single real scalar field $\rho(x)$, the condensate density, governed
+by a $k$-essence action:
+\begin{equation}
+  S_{\mathrm{cond}} = \int d^4x\,\sqrt{-g}\,\frac{|\nabla\rho|^2}{\vp^6(1+\bst|\nabla\rho|^2)},
+  \qquad \bst = 0.452.
+  \label{RG:eq:action}
+\end{equation}
+This is not an ad hoc choice. Paper~I~\cite{Paper1} establishes that the saddle-point solution of
+the density-feedback Faddeev--Niemi functional (a baby-Skyrme type functional on
+maps $S^3\to S^2$ with anisotropic gradient coupling) forces $\vp^6$ in the
+denominator through the Bogomolny self-duality condition $Q_{\mathrm{num}}=Q_{\mathrm{group}}$,
+where $Q=10$ is the topological Hopf charge. The coupling $\bst=0.452$ is fixed
+by a second self-consistency condition (the feedback stiffness $K_{\mathrm{fb}} = 2\vp J_a$),
+not by fitting to data. Paper~II~\cite{Paper2} proves the saddle-point condition analytically via a Pohozaev--Derrick identity.
+
+A QFT reader will recognise~\eqref{RG:eq:action} as a DBI-type or Born--Infeld kinetic
+term, closely related to $k$-essence dark energy models. The key difference from
+standard $k$-essence is that $\vp^6$ and $\bst$ are not free parameters: they are
+uniquely determined by the topology of the Hopfion solution.
+
+\subsection{What the condensate is not}
+
+The condensate is not a new fundamental particle added to the Standard Model.
+It is identified as the ground-state configuration of the existing scalar sector:
+the gradient-energy condensate of a topological soliton (a Hopfion with charge
+$Q=10$ in the icosahedral representation of $\mathrm{SU}(2)_3$) that is present
+in the vacuum of a scalar-tensor theory naturally consistent with gravity.
+Standard Model particles arise as
+excitations of this condensate, not as separate fields coupled to it.
+
+The QFT reader should think of this as analogous to how skyrmions describe
+baryons in the Skyrme model: the topological structure of the field configuration,
+not any particular interaction term, produces the observed quantum numbers.
+
+\subsection{One input and it's role}
+
+The entire framework takes one measured inputs:
+\begin{equation}
+  \TCMB = 2.7255\,\text{K}.
+\end{equation}
+$\TCMB$ sets the condensate scale $\mathcal{L}_{\mathrm{cond}}$ via
+$\mathcal{L}_{\mathrm{cond}} = \hbar c / (k_B \TCMB)$ (the de Broglie
+wavelength at the CMB temperature).
+Everything else is derived.
+Paper~XII~\cite{Paper12} (the profile normalisation paper) closes the last logical gap:
+it proves that the condensate's gradient energy density equals the CMB
+photon energy density at thermodynamic equilibrium, which forces
+$m_e/\mathcal{L}_{\mathrm{cond}} = \vp^{20}\,e^{4\pi-3/400 -\alpha/\pi}$
+(residual $0.013\%$).
+The framework therefore reduces to \emph{one} measured input, $\TCMB$,
+with $m_e$ becoming a derived quantity.
+
+This extreme parsimony is the framework's central claim and its central
+vulnerability: if any single derived prediction is wrong, the framework fails
+as stated. Section~\ref{RG:sec:consistency} catalogues the predictions and their
+current observational status.
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Reading map: how the papers relate}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\begin{center}
+\begin{longtblr}[
+  caption = {},
+  label = {tab:paper_relations},
+] {
+  colspec = {X[1,p] X[3.5,p] X[8.5,c]}, % Proportional widths
+  rowhead = 1, % Repeat header on each page
+  %row{1} = {font=\bfseries},
+}
+\toprule
+Paper & Core result & Depends on \\
+\midrule
+I & Saddle-point, $Q=10$, $k=3$, Koide relation &
+  Faddeev--Niemi functional; $\twoI$ McKay correspondence \\
+II & Analytic proof of LSC via Pohozaev identity &
+  Variational calculus; Derrick scaling \\
+III & LSC closed; $\aem$ two-term formula ($0.004\%$) &
+  Witten non-abelian bosonization; $\mathrm{SU}(2)_3$ WZW \\
+IV & Seven extensions: $\aem$ three-term ($0.0004\%$) and
+  four-term ($5\times10^{-7}\%$); spoke spectrum;
+  mass renormalization &
+  One-loop WZW; Chern--Simons; Verlinde formula \\
+V & Strong-force sector: QCD coupling, quark masses,
+  CKM matrix, CP violation &
+  $\mathbb{CP}^2$ Hopf fibration; semi-Dirac dispersion;
+  $E_8$ Coxeter exponents \\
+VI & Golden-ratio mass tower from RG fixed point;
+  lepton mass formula &
+  Derrick scaling; $k$-essence RG; WZW T-matrix \\
+VII & Gravity from condensate; GR; inflation; dark energy; dark matter;
+  cosmological constant &
+  Scalar-tensor EFT; chameleon mechanism; Starobinsky inflation \\
+VIII & Bell inequality geometry; CHSH from $\sin^4\theta/\vp^6$;
+  Paper~IX~\cite{Paper9} Monte Carlo &
+  Quantum information; Bell inequalities \\
+IX & Born rule from $\HH\to\CC$ projection; Tsirelson bound;
+  Malus interaction Hamiltonian &
+  Division algebras; Hopf fibration; Fourier analysis on $S^1$ \\
+X & Canonical quantisation; Hilbert space; golden-ratio spectrum;
+  Bekenstein--Hawking &
+  Geometric quantisation; Dirac constraint; spectral zeta function \\
+XI & $\vp$-spiral periodic table; Rydberg as tower level;
+  $Z_{\mathrm{eff}}(\mathrm{O})=2$ proved &
+  Corollary of Papers~III and~IV; HF atomic theory \\
+XII & Profile normalisation conjecture proved; $m_e$ derivable from $\TCMB$ alone &
+  Papers~I--III (energy integrals, virial); thermodynamic equilibrium axiom \\
+XIII & Atomic QM from condensate; Schr\"odinger equation, Pauli exclusion,
+  spin-$\tfrac{1}{2}$, mass anisotropy &
+  Paper~X~\cite{Paper10} (quantisation); Paper~VII~\cite{Paper7} (chameleon); Paper~I~\cite{Paper1} (Hopf charge) \\
+XIV & Thick-torus toroidal correction; Yukawa closure;
+  $\delta\vEW/\vEW$ from $0.69\%$ to $0.04\%$ &
+  Papers~I--III (profile integrals); Paper~IV~\cite{Paper4} (Yukawa formula) \\
+XV & $Q_H=3$ trefoil sector; quark charges from conformal weights;
+  $\lambda_3=\vp^6$ proved; normalisation identity $\vp^9\sqrt{J_{2a}J_4}=3$ &
+  Papers~II--III (LSC, bosonization); McKay correspondence;
+  $\mathrm{SU}(3)_1$ WZW; Verlinde formula; fusion categories \\
+\bottomrule
+\end{longtblr}
+\end{center}
+
+The logical spine is I$\to$III$\to$VI$\to$IX$\to$X$\to$XIII$\to$XV. Papers II and IV are
+extensions of I and III respectively; Papers V and VII branch off to the
+strong and gravitational sectors; Paper VIII~\cite{Paper8} provides numerical verification for IX;
+Paper XII closes the proof of the one-parameter chain;
+Paper~XIII~\cite{Paper13} extends the quantum theory to atomic physics;
+Paper~XIV~\cite{Paper14} closes the electroweak residual;
+Paper~XV~\cite{Paper15} extends the framework to the $Q_H=3$ quark sector
+and proves the trefoil Bogomolny parameter $\lambda_3=\vp^6$.
+A reader who wants the cleanest path to the most novel result should read the
+Foundational Companion, then I, III, VI, IX, X, XII, XIII, XIV, XV in order.
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Paper-by-paper entry guide}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Foundational Companion (start here)}
+
+\textit{Prerequisites:} $\mathrm{SU}(2)_k$ WZW models; Verlinde formula;
+McKay correspondence; binary icosahedral group $\twoI$.
+
+The paper proves one main theorem with five items. Items (a)--(c) give three
+independent derivations of $k=3$:
+\begin{itemize}[noitemsep]
+\item \textbf{Route 1 (numerical):} The formula
+  $\aem^{-1} = 360/\vp^2 - k/(2\pi) + 1/(9\vp^6) - 1/(36\pi\vp^6)$ from Paper~IV~\cite{Paper4}
+  gives $137.036$ at $k=3$ and excludes $k=4$ at $1.5\times10^7\,\sigma$.
+\item \textbf{Route 2 (algebraic):} The quantum dimension $d_{1/2} = 2\cos(\pi/(k+2))$
+  equals $\vp = 2\cos(\pi/5)$ if and only if $k+2=5$, i.e.\ $k=3$.
+  This is a bijective proof.
+\item \textbf{Route 3 (algebraic, strongest):} The WZW truncation
+  $j \leq k/2$ allows exactly three non-vacuum primaries at $k=3$
+  and algebraically excludes $j=2$, hence a fourth lepton generation.
+  This is independent of any numerical input.
+\end{itemize}
+Items (d)--(e) add the quark sector: lepton generations use SU(2)$_3$
+primary truncation; quark generations use $E_8$ Coxeter exponent saturation
+(six of eight exponents occupied; $\{23,29\}$ predict no fourth quark generation).
+These are structurally distinct but both rooted in the same $\twoI/\Ehat$ structure.
+
+The reader who finishes this paper knows the algebraic skeleton of the series.
+
+\subsection{Paper I: The Hopfion saddle point}
+
+\textit{Prerequisites:} Faddeev--Niemi functional; Hopf fibration $S^3\to S^2$;
+homotopy theory $\pi_3(S^2)=\ZZ$; McKay correspondence for finite subgroups of
+$\mathrm{SU}(2)$.
+
+Paper~I~\cite{Paper1} establishes that the saddle-point solution of the density-feedback
+functional has topological charge $Q=10$, proves the McKay correspondence
+$\twoI\leftrightarrow\Ehat$, and derives the WZW level $k=3$ from
+$\mathrm{ord}(q_{\twoI}) = 2(k+2) = 10$. This is the foundational algebraic
+identification from which all subsequent results flow.
+
+Key subtlety for the QFT reader: the Hopfion charge $Q=10$ is not an input.
+It emerges from the discrete icosahedral symmetry of the saddle-point orbit
+under $\twoI\subset\mathrm{SU}(2)$, and from the McKay correspondence.
+The Koide relation for lepton masses is derived as a corollary of the same
+$\twoI$ representation theory.
+
+\subsection{Papers II--III: The analytic backbone}
+
+\textit{Prerequisites (II):} Pohozaev--Derrick identity; variational analysis
+of nonlinear elliptic equations.
+
+\textit{Prerequisites (III):} Witten non-abelian bosonization ($\mathrm{SU}(N)_k$
+WZW from $N$ free Dirac fermions); Verlinde formula for fusion multiplicities;
+modular S-matrix.
+
+Paper~III~\cite{Paper3}contains the most important single result for a skeptical reader:
+the identification of the density-feedback condensate as the $\mathrm{SU}(2)_3$
+WZW model of three free Dirac fermions (Witten bosonization, Theorem
+~10.1). It is an exact equivalence
+proved via the LSC (Linking Scale Conjecture, proved as Theorem~2.2).
+The $\alpha$ two-term formula follows from the Verlinde fusion rules as a direct
+consequence: the golden angle $360/\vp^2$ is the geometric attractor of the
+icosahedral condensate, and $k/(2\pi)$ is the WZW anti-screening correction.
+
+A QFT reader will note that Witten bosonization normally applies in $1+1$ dimensions.
+Paper~III~\cite{Paper3} proves the full 3+1D equivalence in two steps.
+First, Theorem~10.3 establishes via
+explicit Kaluza--Klein reduction that the 3+1D $k$-essence action reduces to the
+2D WZW zero mode at energies $E \ll r_{\mathrm{core}}^{-1}$, with corrections
+bounded by $O(R_0^{-2})$; the Wess--Zumino term descends correctly via the
+Zumino--Faddeev descent equations; and the Hopf charge $Q=10$ is preserved by
+a homotopy argument.
+Second, Theorem~10.1 identifies the 2D zero-mode theory
+as the $\mathrm{SU}(2)_3$ WZW model via the Pohozaev identity and Witten
+non-abelian bosonization.
+The $\alpha$ formula then follows from the $\mathrm{SU}(2)_3$ Verlinde fusion rules.
+
+\subsection{Paper IV: The three and four-term $\aem^{-1}$ formula and the mass spectrum}
+
+\textit{Prerequisites:} One-loop WZW mass renormalisation; Chern--Simons amplitude;
+Verlinde formula; modular T-matrix.
+
+Paper~IV~\cite{Paper4} extends Paper~III~\cite{Paper3} in seven directions, of which the most significant
+for an independent reader are: (i) the three-term $\alpha$ formula
+($\aem^{-1} = 360/\vp^2 - k/(2\pi) + 1/(9\vp^6) = 137.036\,49$, $0.0004\%$ accuracy,
+Theorem~5.1), which is a one-loop WZW correction to the
+leading-order result of Paper~III; the four-term extension
+($\aem^{-1} = 360/\vp^2 - k/(2\pi) + 1/(9\vp^6) - 1/(36\pi\vp^6) = 137.036\,00$,
+$5\times10^{-7}\%$ accuracy, Theorem~5.3),
+where the fourth term is the Chern--Simons correction to the QED vacuum
+polarisation inside the condensate background; and (ii) the spoke mass spectrum
+(Theorem~6.11), which gives the ratio $m_e/\mathcal{L}_{\mathrm{cond}}
+= \vp^{20}\cdot e^{4\pi}\cdot(1+O(R_0^{-2}))$ from the WZW Chern--Simons
+one-loop amplitude.
+
+The reader should verify both formulas directly.
+The three-term formula uses $\vp^2 = (3+\sqrt{5})/2$, so $360/\vp^2 = 720/(3+\sqrt{5})$;
+$k/(2\pi) = 3/(2\pi)$; and $1/(9\vp^6) = 1/(9((1+\sqrt{5})/2)^6)$.
+The fourth term adds $-1/(36\pi\vp^6)$: exactly $T_3/(4\pi)$ with a sign flip,
+where the $4\pi$ is the Chern--Simons coupling normalisation at unit WZW level.
+All four computations are elementary and reproducible.
+
+Two points about the four-term series are worth holding clearly.
+First, the two-loop WZW correction is \emph{exactly zero}: the WZW beta
+function is one-loop exact (the model is a CFT), and the higher primaries
+$j=1$ and $j=3/2$ both satisfy $\cos(2\pi Q T_j) = 0$ at $k=3$, $Q=10$,
+contributing nothing to the real part of the T-matrix sum.
+The series is genuinely complete at four terms within the WZW framework.
+Second, the convergence ratio $T_4/T_3=1/(4\pi)\approx0.08$; Paper~IV
+estimates a further term at this rate would be $\sim6\times10^{-6}$ in
+$\aInv$ (Paper~IV, Remark 5.4), for illustration of convergence only ---
+the paper states the WZW series itself terminates at four terms
+(two-loop WZW vanishes exactly, as above). The current four-term
+residual, $|137.035\,998\,486-137.035\,999\,177|=6.9\times10^{-7}$, is
+well within experimental reach (current precision
+$\sim1$--$3\times10^{-8}$, e.g.\ Morel et al.\ 2020); Paper~IV
+attributes it to ordinary sub-leading QED physics outside the
+condensate framework with an as-yet-unverified candidate closed form.
+
+\subsection{Paper V: The strong force sector}
+
+\textit{Prerequisites:} $\mathbb{CP}^2$ Hopf fibration $S^1\hookrightarrow S^5\to\mathbb{CP}^2$;
+semi-Dirac anisotropic dispersion; $E_8$ root system and Coxeter exponents;
+CKM matrix; renormalisation group running of $\alpha_s$.
+
+Paper~V~\cite{Paper5} is the most technically involved paper in the series. It derives the
+QCD coupling $\alpha_s(M_Z)$, the quark mass ratios, the CKM matrix, and the CP
+violation phase from the same condensate structure, using the $\mathrm{SU}(3)$
+colour gauge group arising from the homotopy group $\pi_5(\mathbb{CP}^2)=\ZZ$.
+
+The central claim that requires independent scrutiny: the effective spatial
+dimension $d_{\mathrm{eff}}^{\mathrm{exact}} = 43/14$ (Proposition~5.1).
+This arises from the semi-Dirac anisotropic dispersion ($k_x^2/(2m_*)$ in one
+direction, $|k_y|$ in the perpendicular direction), which gives a density of
+states exponent $d_{\mathrm{eff}} = 1/2 + 3/2 = 2$ at leading order corrected
+to $43/14$ at subleading order. The reader should check this via the explicit
+dispersion integral (equation 9 of Paper~V~\cite{Paper5}).
+
+\subsection{Paper VI: The mass tower and electroweak scale}
+
+\textit{Prerequisites:} Derrick scaling; RG fixed-point analysis;
+$k$-essence Lagrangian; WZW T-matrix phases.
+
+Paper~VI~\cite{Paper6} derives the fermion mass formula from first principles. The golden ratio
+is not assumed; it emerges as the \emph{unique} RG fixed point of the condensate
+$k$-essence action under Derrick scaling (Theorem~):
+\begin{equation}
+  \frac{d\mathcal{E}[\rho_\lambda]}{d\lambda}\bigg|_{\lambda=\vp} = 0,
+  \quad
+  \frac{d^2\mathcal{E}[\rho_\lambda]}{d\lambda^2}\bigg|_{\lambda=\vp} > 0,
+\end{equation}
+where $\rho_\lambda(x) = \lambda^d\rho(\lambda x)$ is the Derrick dilation.
+The mass tower $m_n = m_0\,\vp^{-2n}$ follows as the spectrum of stable bound
+states at the fixed point. The WZW T-matrix phases then place each lepton at a
+precise irrational position between tower rungs via the two-clock structure
+(Sections 4--5 of Paper~VI).
+
+\subsection{Paper VII: Gravity, cosmology, inflation}
+
+\textit{Prerequisites:} Scalar-tensor gravity; Brans--Dicke theory; chameleon
+mechanism; Vainshtein screening;
+Starobinsky inflation; $k$-essence dark energy; Cassini PPN constraint.
+
+Paper~VII~\cite{Paper7} asks: what does the condensate action~\eqref{RG:eq:action}, now in $3+1$
+dimensions with non-minimal curvature coupling, predict for cosmology?
+The effective scalar-tensor action in the Jordan frame is
+\begin{equation}
+  S_{\mathrm{eff}} = \int d^4x\,\sqrt{-g}\,
+  \Bigl[\frac{F(\rho)}{2}R - \frac{|\nabla\rho|^2}{\vp^6(1+\bst|\nabla\rho|^2)}\Bigr],
+  \label{RG:eq:Seff}
+\end{equation}
+where $F(\rho_\infty) = M_{\mathrm{Pl}}^2(39\vp+25)/2$ at the attractor density
+(an exact golden-ratio identity from $\vp^2=\vp+1$, Theorem \texttt{thm:einstein}).
+Energy-momentum conservation $\nabla^\mu T_{\mu\nu}=0$ is derived, not assumed
+(Theorem \texttt{thm:conservation}).
+
+\textbf{Scalar-tensor and chameleon structure.}
+The denominator $1/(1+\bst\rho)$ in the kinetic term plays a dual role.
+At \emph{cosmological} densities $\rho\sim\rho_\infty=\vp/\bst$:
+the effective coupling $\beta_{\mathrm{eff}}(\rho) = \bst/(1+\bst\rho)^2$
+is suppressed, screening the scalar from gravitational coupling at large scales
+(the chameleon mechanism (Khoury--Weltman 2004)).
+At \emph{Solar System} densities $\rho\gg\rho_\infty$:
+the nonlinear kinetic term produces a large self-coupling that suppresses
+scalar fifth forces inside the Vainshtein radius
+$r_V \approx 9.3\times10^6\,\mathrm{AU}$ (Theorem~6.9,
+Corollary~6.12).
+The Vainshtein radius is a \emph{topological} invariant:
+$r_V \propto (G_N M_\odot / m_\xi^2)^{1/3}$
+with $m_\xi \sim H_0$ set by the condensate mass, which in turn is fixed
+by $Q=10$ and $\rho_\infty = \vp/\bst$.
+These two mechanisms operate at different scales and are not competing:
+the chameleon accounts for screening at $r\gg r_V$; the Vainshtein
+radius suppresses fifth forces at $r\ll r_V$.
+Remark~\texttt{rem:chameleon} discusses this complementarity explicitly;
+a QFT reader should work through it before accepting Paper~VII's
+Cassini resolution.
+
+\textbf{The cosmological constant.}
+The vacuum energy is not absent but bound inside the condensate. The cosmological constant problem is addressed via the chameleon mechanism
+built into the density-feedback denominator $1/(1+\bst\rho)$: the vacuum energy
+is screened at cosmological densities to give  $\Lambda_{\mathrm{obs}} \approx 10^{-122}M_{\mathrm{Pl}}^4$ as a geometric consequence of $\rho_\infty = \vp/\bst$ and $1+\vp=\vp^2$. The relevant attractor density $\rho_\infty$ is a fixed point of the
+condensate equation of motion; the screening is not a fine-tuning but
+a saddle-point condition.
+
+\textbf{Dark matter.}
+Condensate perturbations cluster gravitationally with sound speed
+$c_s = 1/\vp$ at density $\rho_\infty$ (exact from $\vp^2=\vp+1$).
+The Jeans length is $\approx20{,}000\,\mathrm{Mpc}$, so the condensate
+is pressureless on all galactic and cluster scales. No new particle is introduced.
+The primary prediction distinguishing this from CDM:
+a BAO peak shift by factor $\vp$ to $k_{\mathrm{BAO}}^{\mathrm{cond}}
+\approx0.0346\,\mathrm{Mpc}^{-1}$ (falsifiable with DESI DR2, Euclid).
+
+\textbf{Inflation.}
+The non-minimal coupling of $\rho$ to curvature gives a Higgs--Starobinsky
+branch with $n_s=0.9654$ ($0.12\sigma$ from Planck 2018),
+$r=0.0036$ (Proposition \texttt{prop:Treh}),
+and $\mathcal{P}_s = 2.10\times10^{-9}$ from gravitational reheating.
+
+\textbf{Thawing dark energy.}
+The most immediately verifiable prediction is the thawing dark-energy relation
+$w_a = -3(1+w_0)$ (Theorem \texttt{thm:thawing}), proved from the $k$-essence
+equation of state in the slowly-rolling limit. This gives a one-parameter
+prediction for the DESI DR2 $(w_0, w_a)$ plane. The DESI DR1 data are
+consistent at $0.80\sigma$; DESI DR2 will confirm or falsify this at the
+few-sigma level.
+
+\subsection{Papers VIII--IX: Bell inequalities and the Born rule}
+
+\textit{Prerequisites:} Bell inequalities; CHSH formalism; division algebras
+$\HH$, $\CC$, $\OO$; Hopf fibration $S^3\to S^2$; Fourier analysis on $S^1$.
+
+These two papers address the most conceptually striking aspect of the series:
+the framework's relationship to quantum mechanics. The suppression law
+$S(\theta) = \sin^4\theta/\vp^6$ is not just a Bell-violation weighting; its
+$\sin^4\theta$ factor is the squared quaternionic norm $|q|^4$ for $q\in S^3$,
+mapped to $S^2$ by the Hopf fibration.
+
+The central results:
+\begin{itemize}[noitemsep]
+\item The condensate correlation $\xcond(\theta) = 2\cos\theta/(1+\cos^2\theta)$
+  is the push-forward of $\cos\theta$ under the Hopf map (Paper~IX~\cite{Paper9} Theorem~3.2).
+  The Tsirelson gap $2\sqrt{2} - 2.363$ decomposes exactly into a Fourier harmonic
+  mismatch and a geometric projection error from the $\HH\to\CC$ averaging.
+\item The Born rule $P=|\psi|^2$ emerges from the condensate amplitudes when
+  complexified via the topological winding phase $\Phi = Q\omega$ (Theorem~5.2), proved as a mathematical theorem in Paper~IX~\cite{Paper9} and
+  justified as a physical statement by the canonical quantisation of Paper~X~\cite{Paper10}.
+\item The photon CHSH ceiling is exactly $\Tsirelson$ (Theorem~9.14),
+  reproduced by the Stokes/Malus observable with $m=2$ Fourier mode.
+  The lepton CHSH ceiling is $8/3 \approx 2.667$ (Proposition~8.4),
+  a distinct prediction for loophole-free lepton Bell tests. Both in Paper~IX~\cite{Paper9}.
+\end{itemize}
+
+The Malus interaction Hamiltonian
+$\langle\phi_n|H_{\mathrm{int}}|\alpha\rangle = g_{\mathrm{eff}}\cos(\phi_n-\alpha)$
+with $g_{\mathrm{eff}} \propto \vp^{-6}$ is derived from the Noether current of the
+$k$-essence action (Paper~IX~\cite{Paper9}. Theorem~9.8). Malus's law and the photon winding
+number $m_{\mathrm{phot}}=2$ are theorems, not inputs.
+
+\subsection{Paper X: Canonical quantisation}
+
+\textit{Prerequisites:} Geometric quantisation (Kirillov--Kostant--Souriau);
+Dirac constraint quantisation; spectral zeta functions; Macfarlane--Biedenharn
+$q$-deformed oscillators; Bekenstein--Hawking entropy; Wald entropy formula.
+
+Paper~X~\cite{Paper10} completes the series by constructing the full quantum theory. The
+parent $k$-essence Lagrangian determines a symplectic structure $\Omega$ on the
+field configuration space. After quotienting by Derrick dilations (the only
+negative-Hessian direction, Theorem~4.2), the reduced space
+admits prequantisation (Theorem~5.1) and geometric quantisation
+(Theorem~5.3).
+
+The resulting Hilbert space is $\mathcal{H} = L^2(\mathcal{C}_Q^{\mathrm{red}}, d\mu)$,
+the spectrum is $E_n = \vp^{2n}E_0$ (Theorem~6.3), and the
+$q$-deformation parameter is $q=\vp^2$ with $q$-numbers $[n]_{\vp^2} = F_{2n}$
+(the even Fibonacci numbers, Theorem~9.4). Transition amplitudes
+are exact Fibonacci ratios, making the theory exactly solvable.
+
+The Bekenstein--Hawking entropy is derived in two independent steps: the Wald
+entropy formula gives $S_{\mathrm{Wald}} = A_H/(4G_N)$ exactly at tree level
+(Theorem~10.5), and the one-loop correction vanishes exactly
+$\delta S_{1\text{-loop}} = 0$ because the spectral zeta function
+$\zeta_{\mathcal{L}_*}(s) = (\vp^{2s}-1)^{-1}\zeta_{\mathrm{Riemann}}(s)$ gives
+a temperature-independent effective action (Theorem~10.1).
+
+\subsection{Paper XI: The $\varphi$-spiral and the periodic table}
+
+\textit{Prerequisites:} Atomic units; Koopmans' theorem; Slater--Condon
+rules; Hartree--Fock theory.
+
+Paper~XI~\cite{Paper11} is a corollary of Papers~III and~IV rather than a new physical
+framework. Its central observation: since $\aem$ and $m_e$ are both derived
+from $\TCMB$ alone, the Rydberg energy $E_{\mathrm{Ry}} = \aem^2 m_e/2$
+is a \emph{fixed, calculable tower level} $n(E_{\mathrm{Ry}}) = -12.102$
+with no free parameters. The entire atomic energy scale is therefore a
+prediction of the condensate, not an input.
+
+Placing all first ionisation energies of the elements on the
+$\vp$-spiral $r = e^{n\ln\vp}$ produces three structural observations:
+(i) the visible electromagnetic spectrum ($1.77$--$3.1\,\mathrm{eV}$)
+coincides with the pure tower level $\mathcal{L}_{\mathrm{cond}}\vp^{20}
+= 1.799\,\mathrm{eV}$ to $1.7\%$, the same index as the electron mass;
+(ii) hydrogen and oxygen are near-degenerate on the spiral
+($\Delta n = 0.0015$, $0.15\%$), a geometric consequence of the Rydberg
+being a fixed tower level;
+(iii) Goldschmidt geochemical substitution pairs cluster within
+$\Delta n < 0.004$ on the spiral.
+
+The key new derivation (Propositions 5.1 and 5.3) proves $Z_{\mathrm{eff}}(\mathrm{O})=2$
+in two levels: Level~1 from $Z=8$ and the Slater--Condon exchange algebra alone
+(no numerical HF); Level~2 from the WZW Chern--Simons correction of Paper~IV~\cite{Paper4}
+giving the $0.087\%$ shift to $Z_{\mathrm{eff}}=2.00087$.
+
+\subsection{Paper XII: Profile normalisation and the one-parameter chain}
+
+\textit{Prerequisites:} Papers~I--III (gradient energy integrals $J_{2a}$,
+$J_4$; virial self-consistency $V(b^*)=\vp$; Linking Scale ratio
+$J_4/J_{2a}=2^{4/3}/\vp^5$); thermodynamics of a field in a radiation bath.
+
+Paper~XII~\cite{Paper12} closes the last logical gap in the series by proving the profile
+normalisation conjecture $\vp^9\sqrt{J_{2a}J_4}=10$, the step needed to
+make $m_e$ derivable from $\TCMB$ alone.
+The proof is short and uses no numerical input.
+
+\textbf{The key identity.}
+The condensate scale satisfies $\rho_{\mathrm{CMB}} = 10\,\Lambda_{\mathrm{cond}}^4$
+exactly: from $\Lambda_{\mathrm{cond}} = \TCMB(\pi^2/150)^{1/4}$ and
+$\rho_{\mathrm{CMB}} = (\pi^2/15)\TCMB^4$, the ratio is $150/15=10$,
+a pure arithmetic identity.
+The integer $10 = \mathrm{ord}(q_{2I})$ is therefore literally the CMB
+energy density in natural units.
+
+\textbf{The equivalence.}
+The paper proves that the conjecture is \emph{equivalent} to the thermodynamic
+condition $E_{\mathrm{fb}}/V_{\mathrm{torus}} = \rho_{\mathrm{CMB}}$:
+the condensate's gradient energy density equals the ambient CMB energy density.
+Using the proved ratio $J_4/J_{2a}=2^{4/3}/\vp^5$, both sides reduce to the
+geometric constraint $R_0 C^{*2} = 5/(\vp^{23}\pi^2)$.
+The equilibrium condition holds because the condensate torus adjusts its size
+until its energy density matches the CMB background --- the standard
+thermodynamic condition for a field embedded in a radiation bath.
+Combined with $\rho_{\mathrm{CMB}}=10\,\Lambda_{\mathrm{cond}}^4$, this forces
+the conjecture.
+
+\textbf{The one-parameter chain.}
+\[
+  \TCMB
+  \;\xrightarrow{\Lambda_{\mathrm{cond}}}\;
+  \rho_{\mathrm{CMB}}=10
+  \;\xrightarrow{E_{\mathrm{fb}}/V=\rho_{\mathrm{CMB}}}\;
+  \vp^9\sqrt{J_{2a}J_4}=10
+  \;\xrightarrow{\text{Paper~I~\cite{Paper1}}}\;
+  m_e = \Lambda_{\mathrm{cond}}\,\vp^{20}\,e^{4\pi-3/400}.
+\]
+
+\textbf{Additional results.}
+(i)~Pentagon identities $\vp=2\cos(\pi/5)$, $\sin(\pi/5)=\frac{1}{2}\sqrt{\mu^*}$,
+$\sin(2\pi/5)=\frac{\vp}{2}\sqrt{\mu^*}$ (where $\mu^*=3-\vp$).
+(ii)~Quadratically-convergent Newton--icosahedral series
+$q^*=\pi/5+d_1+d_2+\cdots$, $b^*=\tan^2(q^*)/8$, with first correction
+$d_1=\frac{\vp\sqrt{\mu^*}}{12}\cdot\frac{8\sqrt{\mu^*}-3\pi}{5\vp\sqrt{\mu^*}/4-\pi}$
+--- an alternating $(\vp,\pi)$-series structurally parallel to the $\alpha^{-1}$
+formula of Paper~IV~\cite{Paper4}.
+(iii)~Exact toroidal integral
+$I_{\mathrm{tor}}(x)=\frac{2}{15}\,{}_2F_1(2,2;\frac{7}{2};-x^2)$,
+with the exact evaluation $I_{\mathrm{tor}}(1)=\pi-3$ at equal radii $x=1$.
+
+\subsection{Paper XIII: Atomic quantum mechanics from the condensate}
+
+\textit{Prerequisites:} Paper~X~\cite{Paper10} (canonical quantisation, Hilbert space);
+Paper~VII~\cite{Paper7} (chameleon screening); Paper~I~\cite{Paper1} (Hopf charge $Q=10$, $\twoI$ symmetry);
+non-relativistic quantum mechanics (Schr\"odinger equation, angular momentum,
+Hartree--Fock theory).
+
+Paper~XIII~\cite{Paper13} proves that standard atomic and molecular quantum mechanics follows
+from the condensate quantum theory (Paper~X) without additional postulates.
+It contains ten main results in three groups.
+
+\textbf{Group 1: The Schr\"odinger equation.}
+The one-particle sector of the Paper~X~\cite{Paper10} Hilbert space, restricted to the
+translation fibration of the condensate, gives the momentum operator
+$\hat{p} = -i\hbar\nabla$ as the Noether current (Lemma \texttt{lem:momentum}).
+Born--Oppenheimer separation of the slow (nuclear) and fast (condensate)
+degrees of freedom yields the time-independent Schr\"odinger equation
+$H\psi = E\psi$ with $H = -\hbar^2\nabla^2/(2m_e) + V(r)$ as a mathematical
+theorem (Theorem~7.4). The non-adiabatic coupling
+vanishes \emph{exactly} (Theorem~7.7), not as an
+approximation --- a consequence of the condensate's spectral gap $\vp^2-1$.
+
+\textbf{Group 2: Spin and statistics.}
+The electron is a $Q=2$ (Paper~I~\cite{Paper1} gradient-knot. Its winding structure
+under $\twoI$ gives $\pi_1(\mathrm{SO}(3)) = \ZZ_2$ holonomy, proving
+spin-$\tfrac{1}{2}$ as a topological theorem (Theorem~8.1).
+Fermi statistics and the Pauli exclusion principle follow as corollaries.
+The complete spin tower $J = Q/4$ (Theorem~8.6) assigns
+$J=0$ to $Q=0$ (vacuum), $J=1/2$ to $Q=2$ (electron), $J=1$ to $Q=4$ (photon),
+$J=3/2$ to $Q=6$ (gravitino), $J=2$ to $Q=8$ (graviton).
+
+\textbf{Group 3: Atomic structure.}
+Chameleon screening (Paper~VII~\cite{Paper7}) at atomic densities exponentially suppresses
+the condensate correction to $O(e^{-\rho_{\rm atom}/\rho_\infty})$, proving
+that the Coulomb potential and spherical harmonics emerge from first principles
+(Paper~XII~\cite{Paper13}~Theorem~4.1). The result extends to
+multi-electron atoms: the Hartree--Fock equations are exact within the
+condensate framework (Paper~XII~\cite{Paper13}, Corollary~4.6).
+
+\textbf{Testable prediction.}
+The free-electron mass anisotropy in the CMB rest frame
+(Proposition~6.1):
+\begin{equation}
+  \frac{\Delta m}{m_e} = \frac{1}{\vp^8} \approx 2.13\%,
+\end{equation}
+measurable via Penning trap cyclotron frequency comparison at
+$\delta\omega/\omega \sim 10^{-4}$.
+
+\subsection{Paper XIV: Thick-torus toroidal correction and electroweak closure}
+
+\textit{Prerequisites:} Papers~I--III (gradient energy integrals $J_{2a}$,
+$J_4$; modified BPS equation; WZW normalization);
+Paper~IV~\cite{Paper4} (Yukawa coupling formula, $\vEW$ prediction);
+toroidal geometry; azimuthal averaging.
+
+Paper~XIV~\cite{Paper14} closes the last numerical gap in the series: the $0.69\%$
+residual between the predicted and measured electroweak VEV.
+The thin-torus approximation used in Paper~IV~\cite{Paper4} gives
+$\vEW^{\rm pred} = 247.9\,\mathrm{GeV}$ ($+0.69\%$ above the measured
+$246.2\,\mathrm{GeV}$). Paper~XIV~\cite{Paper14} computes the $O(R_0^{-2})$ thick-torus
+correction exactly.
+
+\textbf{The exact azimuthal reduction.}
+All $\chi$-integrals on the condensate torus (major radius $R_0=3$,
+minor radius $\rho$) are evaluated in closed form via three identities:
+$\langle r\rangle = R_0$, $\langle 1/r\rangle = 1/\sqrt{R_0^2-\rho^2}$,
+$\langle 1/r^2\rangle = R_0/(R_0^2-\rho^2)^{3/2}$ (Proposition~4.1).
+
+\textbf{The closed-form toroidal correction.}
+The 3D Faddeev--Niemi integrals decompose as
+(Theorem~4.3):
+\begin{align}
+  J_4^{3D} &= R_0\,I_4 + (\vp^8+1)\,I_{2a}^{\rm tor}, \\
+  J_{2a}^{3D} &= R_0\,I_{2a} + (\vp^8+1)\,I_4^{\rm tor},
+\end{align}
+where $Q_t^2 = \vp^8+1 \approx 47.979$ is the toroidal winding parameter
+and $I_n^{\rm tor}$ are 1D integrals with weight
+$\rho/\sqrt{R_0^2-\rho^2}$. The cross-coupling structure (azimuthal
+winding feeds $J_4$; Hopf density feeds $J_{2a}$, swapped from the
+1D assignment) resolves the factor-of-4.2 discrepancy between thin-torus
+and full 3D computations. At $C^*=3.4318$, $R_0=3$:
+$J_4^{3D}/J_{2a}^{3D} = 0.22717$ versus WZW target $0.22721$ ($0.018\%$).
+
+\textbf{Yukawa correction and closure.}
+The Paper~I~\cite{Paper1} WZW formula $d\ln y_e/dC^* = 1/(2k) = 1/6$ combined with
+$\delta C^* = C^{*,3D} - C^{*,{\rm thin}} = 3.432 - 3.392 = 0.040$
+gives (Corollary~4.7):
+\begin{equation}
+  \frac{\delta y_e}{y_e} = \exp\!\left[\frac{\delta C^*}{2k}\right] - 1
+  \approx +0.68\%,
+\end{equation}
+which reduces $\delta\vEW/\vEW$ from $+0.69\%$ to $0.04\%$ and
+$\delta\Lambda_{\mathrm{QCD}}/\Lambda_{\mathrm{QCD}}$ from $+0.97\%$
+to $0.04\%$. The toroidal parameter $\vp^8+1$ equals the Paper~XIII~\cite{Paper13}
+tangential mass numerator, connecting the thick-torus geometry to the
+free-electron mass anisotropy.
+
+\textbf{The Higgs boson mass.}
+The condensate's $Q=0$, $J=0$ sector (Paper~XIII spin tower $J=Q/4$) is the scalar
+Higgs sector. The condensate fills space as a scalar background whose VEV generates
+fermion masses; the Higgs boson is the radial breathing mode of the condensate around
+this equilibrium, not a topological excitation.
+The quartic self-coupling is (Theorem~6.11):
+\begin{equation}
+  \lambda = \frac{k+2}{2}\,r_{\mathrm{WZW}}^2
+  = \frac{5\cdot 2^{5/3}}{\vp^{10}} = 0.12907,
+\end{equation}
+giving Higgs mass $\mH = \sqrt{k+2}\,r_{\mathrm{WZW}}\,\vEW
+= \sqrt{5}\,(2^{4/3}/\vp^5)\,\vEW = 125.10\,\mathrm{GeV}$,
+which is $0.13\sigma$ from the ATLAS combined Run~1+2 measurement
+$125.11\pm0.11\,\mathrm{GeV}$ (residual $-0.01\%$).
+The derivation involves two layers.
+The \emph{profile layer}: the ratio $r_{\mathrm{WZW}} = J_4/J_{2a} = 2^{4/3}/\vp^5$
+is the same stiffness ratio that governs the Yukawa coupling and the toroidal
+correction; it determines $\lambda \propto r_{\mathrm{WZW}}^2$.
+The \emph{WZW layer}: the normalization factor $(k+2)/2 = 5/2$ equals the
+pentagon Parseval sum $\sum_{n=1}^{k+1}\sin^2(n\pi/(k+2)) = (k+2)/2$
+(a consequence of the $(k+2)$-th roots of unity summing to zero), proved to be
+the correct torus four-point normalization via the KZB $b$-cycle monodromy
+(Falceto--Gaw\c{e}dzki 1996): on the torus, periodic conformal block boundary
+conditions replace the plane OPE weights $(C^j)^2 d_j$ with the modular
+weights $d_j^2\sin^2(\pi/(k+2))$, which sum to $(k+2)/2$ by the Parseval
+identity.
+The plane result $(3-\vp)r_{\mathrm{WZW}}^2$ gives $\mH \approx 93\,\mathrm{GeV}$;
+the torus enhancement $\sqrt{5}\vp/2 \approx 1.809$ lifts this to $125.10\,\mathrm{GeV}$.
+
+\subsection{Paper XV: The $Q_H=3$ trefoil sector and quark charges}
+
+Paper~XV extends the framework from the $Q_H=2$ lepton sector (torus, $\twoI$,
+$\mathrm{SU}(2)_3$) to the $Q_H=3$ quark sector (trefoil knot $T_{2,3}$,
+binary tetrahedral group $2T$, $\mathrm{SU}(3)_1$).
+
+\textit{QFT/GR prerequisites:} WZW models and conformal field theory at level~1;
+Verlinde formula and modular S-matrix; McKay correspondence for finite
+subgroups of $\mathrm{SU}(2)$; basic knot theory (trefoil, writhe, Hopf invariant);
+fusion categories at level $k=3$.
+
+\textbf{The McKay chain.}
+The binary tetrahedral group $2T\subset\twoI$ ($|2T|=24$, index~5)
+has McKay graph $\widehat{E}_6$ (7~nodes), giving $(E_6)_1$ as the
+McKay-direct WZW model ($c=6$).
+The conformal embedding $(E_6)_1\supset\mathrm{SU}(3)_1^{\times 3}$
+via the trinification $E_6\supset\mathrm{SU}(3)_C\times\mathrm{SU}(3)_L\times\mathrm{SU}(3)_R$
+provides an exact central-charge match $c=6=3\times 2$.
+This is mathematically stronger than the pentagon identification
+$k+2=5$ used for $Q_H=2$: the latter has no conformal embedding
+from $(E_8)_1$ to $\mathrm{SU}(2)_3$ (different central charges $c=8$ vs.\ $9/5$).
+
+\textbf{Quark charges.}
+The trinification charge generator $Q=T_{3L}+T_{8L}/\!\sqrt{3}$
+is uniquely fixed by $\mathrm{SU}(3)_L$ group theory (tracelessness plus
+$\mathbb{Z}_3$ centre compatibility; no SM hypercharge matching is used).
+The charge-generator direction $\mu=2\omega_1$ and the $\mathrm{SU}(3)_1$
+conformal weight $h_{(1,0)}=(\omega_1,\omega_1)_{A_2}/2=1/3$
+give both quark charges from the single number
+$(\omega_1,\omega_1)_{A_2}=2/3$:
+$|Q_d|=h_{(1,0)}=1/3$, $|Q_u|=2h_{(1,0)}=2/3$.
+This holds only at $N=3$: the unique $N$ with
+$h_{\mathrm{fund}}(\mathrm{SU}(N)_1)=1/N$.
+
+\textbf{The Bogomolny parameter $\lambda_3=\vp^6$: proved.}
+The $j=3/2$ simple current of $\mathrm{SU}(2)_3$ has quantum dimension~$1$,
+self-fusion $\tfrac{3}{2}\otimes\tfrac{3}{2}=0$ ($N_{\mathrm{fus}}=1$),
+and the sector assignment $Q_H=3\leftrightarrow j=3/2$ is proved
+by three independent arguments:
+(i)~triple-fusion multiplicity plus $\pi_3(S^2)=\mathbb{Z}$
+topological uniqueness;
+(ii)~Verlinde uniqueness ($|S_{j,1/2}/S_{j,0}|=\vp$ only at
+$j=0$ and $j=3/2$);
+(iii)~$\mathbb{Z}_2$ charge parity pre-filtering.
+The LSC formula then gives $s_{\mathrm{opt}}^{2k}=1$,
+hence $\lambda_3=\vp^6$ in three lines.
+All previously conditional results ($r_3=2/\vp^5$,
+$\vp^9\sqrt{J_{2a}J_4}=3$, $V_3=9/(5\vp^{17})$, $C_3^*=2.5062$)
+are now unconditional.
+
+\textbf{The second-order curvature correction.}
+The leading-order trefoil formula $r_3 = 3/(4C_3^{*2})+\langle\kappa^2\rangle/2$
+gives $C_3^*=2.497$. The $O(\langle\kappa^4\rangle)$ correction is computed
+exactly via Beta-function integration of the BS profile in normalised tube
+coordinates: $\delta r_3^{(\kappa^4)} = 9\langle\kappa^4\rangle/(4 C_3^{*4})
+= 0.000938$ for $T_{2,3}$, shifting the saddle parameter to
+$C_3^*=2.5062$ ($0.392\%$ shift from the leading-order value). This is the
+trefoil-sector analogue of Paper~XIV's thick-torus correction, and likewise
+leaves $\lambda_3$ unaffected: the Bogomolny parameter is fixed independently
+by the sector-assignment proof, while the curvature correction refines only
+the geometric saddle parameter $C_3^*$.
+
+Three exact WRT results provide independent corroboration:
+the framing phase $\theta_{3/2}^3=i$ (primitive 4th root),
+the quantum dimension $\dim_q(3/2;3)=1$ (string tension minimised),
+and the pure-unit-modulus WRT contribution ($|$WRT$|=1$, no
+dimensional renormalisation under trefoil surgery).
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Does this framework contradict established physics?}
+\label{RG:sec:consistency}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The short answer}
+
+No. The framework as constructed \emph{reproduces} established observations,
+and does not replace them. Every SM observation it addresses is reproduced to at least
+the accuracy quoted in Papers~I--XV. No observed quantity is contradicted.
+
+The framework's novelty is not contradiction but compression: it reduces the
+Standard Model's $\sim30$ free parameters to one measured input.
+
+\subsection{Particle physics: what is derived vs measured}
+
+The table below gives the main SM-sector derivations and their residuals.
+
+\begin{center}
+\begin{longtblr}[
+  caption = {},
+  label = {tab:particle_physics},
+] {
+  colspec = {X[2,p] X[3.5,p] X[1,c] X[1,c]}, % Proportional widths
+  rowhead = 1, % Repeat header on each page
+}
+\toprule
+Observable & Source in series & Derived & Residual \\
+\midrule
++$\aem^{-1}$ (three-term) & P4, Thm~5.1 & 137.036\,49 & $0.0004\%$ \\
++$\aem^{-1}$ (four-term) & P4, Thm~5.3 & 137.036\,00 & $5\times10^{-7}\%$ \\
+$m_e$ & P12, profile norm & 0.511 MeV & $0.013\%$ \\
+$m_\mu/m_e$ & P6, WZW T-phase $T_1,T_2$ & 206.77 & $0.22\%$ \\
+$m_\tau/m_e$ & P6, WZW T-phase $T_3$ & 3477 & $0.34\%$ \\
+Koide sum rule & P1, $\twoI$ characters & exact & --- \\
+$\alpha_s(M_Z)$ & P5, semi-Dirac $d_{\mathrm{eff}}$ & 0.1185 & $2.4\%$ \\
+$m_u/m_d$ & P5, $E_8$ Coxeter exponents & within 1-loop & $<1\%$ \\
+CP phase $\delta_{\mathrm{CP}}$ & P5, holonomy & $71.2°$ & --- \\
+$|V_{cb}|$ & P5, WZW fusion & $0.04068$ & $0.4\%$ \\
+$n_s$ (CMB) & P7, Starobinsky branch & 0.9654 & $0.12\sigma$ \\
+$r$ (tensor-to-scalar) & P7, reheating & 0.0036 & --- \\
+$w_a$ (dark energy) & P7, thawing & $-3(1+w_0)$ & $0.80\sigma$ (DR1) \\
+$Z_{\mathrm{eff}}(\mathrm{O})$ & P11, Koopmans & $2.00087$ & $0.003\%$ \\
+Rydberg tower index & P11, corollary & $n(E_{\mathrm{Ry}})=-12.102$ & exact \\
+Schr\"odinger eqn & P13, Thm & derived & --- \\
+Spin-$\frac{1}{2}$ & P13, Thm & $J=Q/4$ & --- \\
+$\Delta m/m_e$ (anisotropy) & P13, Prop & $1/\vp^8 \approx 2.13\%$ & untested \\
+$\vEW$ & P14, Cor & $246.3\,\mathrm{GeV}$ & $0.04\%$ \\
+$\Lambda_{\mathrm{QCD}}$ & P14, tower & $208.0\,\mathrm{MeV}$ & $0.04\%$ \\
+$\mH$ ($\vEW$ measured) & P14, Thm & $125.10\,\mathrm{GeV}$ & $0.13\sigma$ \\
+$\mH$ (1-input) & P14, Thm & $125.11\,\mathrm{GeV}$ & $0.08\sigma$ \\
+$|Q_d|$ (down-quark charge) & P15, trinification & $1/3$ & exact \\
+$|Q_u|$ (up-quark charge) & P15, trinification & $2/3$ & exact \\
+\bottomrule
+\end{longtblr}
+\end{center}
+
+The residuals are not zero. The framework states this explicitly: at $k=3$
+the formula gives $\aem^{-1} = 137.036$, not $137.03599908\ldots$; the
+$5\times10^{-7}\%$ residual is acknowledged as a beyond-one-loop WZW correction not
+yet computed. Similarly for lepton masses. These are genuine open questions,
+not mismatches: the series never claims exact agreement beyond the order at
+which the calculation is performed.
+
+\subsection{What the framework does not predict (and why this is consistent)}
+
+\textbf{Neutrino masses.} The condensate framework predicts a normal hierarchy
+with lightest neutrino mass $\sim3\times10^{-3}$\,eV (Paper~VII~\cite{Paper7}, Proposition
+12.1), but the absolute mass scale requires input from
+cosmological data not yet available at the sensitivity needed.
+
+\textbf{Dark matter direct detection.} The condensate acts as dark matter via
+clustering of condensate perturbations (sound speed $c_s = 1/\vp$ at the
+attractor density), not through a new particle. It therefore predicts \emph{null
+results} in all dark-matter direct-detection experiments, consistent with all
+existing constraints.
+
+\textbf{Deviation from GR at laboratory scales.} The Vainshtein mechanism
+(Paper~VII~\cite{Paper7}, Theorem~6.9) suppresses scalar fifth-force
+corrections to Newtonian gravity at Solar System scales to below Cassini bounds.
+At laboratory scales the condensate is effectively GR.
+
+\textbf{New particles at the LHC.} The framework does not predict any new
+resonance below the condensate UV cutoff $\Lambda_{\mathrm{UV}} \approx
+0.0557\,M_{\mathrm{Pl}} \approx 10^{17}$\,GeV. The LHC energy scale is many
+orders of magnitude below this threshold.
+
+\subsection{The genuine tensions and open questions}
+
+Being precise about what is unresolved matters for a fair evaluation.
+
+\textbf{The $5\times10^{-7}\%$ residual in $\aem$.} The three-term formula is a
+one-loop WZW result. The four-term formula (Paper~IV~\cite{Paper4}, Theorem~5.3)
+reduces the residual from $0.0004\%$ to $5\times10^{-7}\%$
+($\alpha^{-1} = 137.036\,00$ vs measured $137.036\,00$).
+The fourth term $-1/(36\pi\vp^6) = -T_3/(4\pi)$ is the Chern--Simons
+correction to the QED vacuum polarisation inside the condensate background:
+the SU(2)$_3$ magnetic flux threads the QED loop, suppressing it by
+the CS coupling $1/(4\pi)$ per unit WZW level.
+The series $T_4/T_3 \approx 1/(4\pi) \approx 0.08$ converges geometrically;
+Paper~IV estimates a further term at this rate would be
+$\sim6\times10^{-6}$ in $\alpha^{-1}$ (Paper~IV, Remark 5.4), for
+illustration of convergence only --- the WZW series itself terminates
+at four terms (two-loop WZW vanishes exactly). The current four-term
+residual, $6.9\times10^{-7}$, is well within experimental reach
+(current precision $\sim1$--$3\times10^{-8}$, e.g.\ Morel et al.\ 2020);
+Paper~IV attributes it to ordinary sub-leading QED physics outside the
+condensate framework, and separately treats it as an open question with
+an as-yet-unverified candidate closed form.
+
+\textbf{The $\sigma_{\mathrm{xc}}$ derivation (equation 25) in Paper~XI~\cite{Paper11}.} The exchange shielding constant
+$\sigma_{\mathrm{xc}} = 1.55$ for the oxygen 2p orbital is confirmed by the
+Clementi--Raimondi Hartree--Fock table but is not derived from first principles
+within the framework. The formula is correct; its derivation is incomplete. This
+is acknowledged in Paper~XI~\cite{Paper11}.
+
+
+\textbf{The lepton CHSH ceiling.} The prediction $\CHSH_{\mathrm{lepton}} = 8/3$
+for loophole-free lepton Bell tests has not yet been tested. No existing Bell
+experiment uses lepton spin in the geometry required.
+
+\textbf{The BAO peak shift.} The prediction $k_{\mathrm{BAO}}^{\mathrm{cond}}
+= \vp \times k_{\mathrm{BAO}}^{\mathrm{CDM}} \approx 0.0346\,\mathrm{Mpc}^{-1}$
+distinguishes the condensate from standard CDM. It is falsifiable with DESI DR2
+and Euclid.
+
+\textbf{The WZW bosonization in 3+1D.}
+Paper~III~\cite{Paper3}, Theorem~10.3
+proves the 3+1D extension of the bosonization equivalence with explicit
+error bounds. The effective $\mathrm{SU}(2)_3$ WZW action arises from the
+zero mode of the Kaluza--Klein reduction at energies $E\ll r_{\mathrm{core}}^{-1}$,
+with corrections $O(R_0^{-2})$ matching the rate established independently
+by Proposition~8.3.
+The Wess--Zumino term descends correctly via the Zumino--Faddeev descent
+equations, the Hopf charge $Q=10$ is preserved by a homotopy argument,
+and the $\mathrm{SU}(2)$ 't~Hooft anomaly matches at level $k=3$.
+The remaining open item (noted in Remark~10.5)
+is the convergence of the KK mode expansion for non-static configurations;
+this affects the $O(R_0^{-2})\approx0.22\%$ subleading corrections
+but not the leading-order SM predictions.
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Technical prerequisites: a compact reading list}
+%═══════════════════════════════════════════════════════════════════════════════
+
+A reader with standard QFT/GR training will be comfortable with the following
+material and can enter the series at the level stated.
+
+\begin{center}
+\begin{longtblr}[
+  caption = {},
+  label = {tab:reading_list},
+] {
+  colspec = {X[3.8,p] X[5.5,p] X[3.5,p]}, % Proportional widths
+  rowhead = 1, % Repeat header on each page
+}
+%\begin{tabular}{p{3.8cm}p{5.5cm}p{3.5cm}}
+\toprule
+Topic & Needed for & Standard reference \\
+\midrule
+Faddeev--Niemi functional & Papers I, II & Faddeev--Niemi (1997) \\
+WZW models and $\mathrm{SU}(N)_k$ & Papers I, III, IV, VI & Di~Francesco et~al.\ (CFT book) \\
+Verlinde formula & Papers I, III, IV, V & Verlinde (1988) \\
+Derrick--Pohozaev identity & Papers II, VI & Derrick (1964) \\
+Non-abelian bosonization & Paper III & Witten (1984) \\
+Modular T-matrix / T-phases & Papers IV, VI & Di~Francesco et~al.\ \\
+McKay correspondence & Papers I, FC & McKay (1980) \\
+$k$-essence / scalar-tensor & Papers VI, VII & Armendariz-Picon et~al.\ (2001) \\
+Chameleon / Vainshtein & Paper VII & Khoury--Weltman (2004) \\
+Starobinsky inflation & Paper VII & Starobinsky (1980) \\
+Bell inequalities / CHSH & Papers VIII, IX & Bell (1964); CHSH (1969) \\
+Division algebras ($\HH$, $\CC$, $\OO$) & Papers IX, FC & Baez (2002) \\
+Geometric quantisation & Paper X & Woodhouse (1992) \\
+Spectral zeta functions & Paper X & Berger--Gauduchon--Mazet \\
+Wald entropy & Paper X & Wald (1993) \\
+HF theory / Slater rules & Paper XI & Condon--Shortley (1935) \\
+Goldschmidt geochemistry & Paper XI & Goldschmidt (1926) \\
+Non-rel.\ quantum mechanics & Paper XIII & Griffiths (2018) \\
+Born--Oppenheimer approx.\ & Paper XIII & Born--Oppenheimer (1927) \\
+Toroidal geometry & Paper XIV & do Carmo (1976) \\
+KZB equation on tori & Paper XIV & Falceto--Gaw\c{e}dzki (1996) \\
+Trefoil knot theory & Paper~XV & Rolfsen (1976); Adams (1994) \\
+Fusion categories / modular data & Paper~XV & Kitaev (2006); Di~Francesco et~al.\ \\
+Conformal embeddings & Paper~XV & Di~Francesco et~al.\ Ch.~18; Bais--Bouwknegt (1987) \\
+WRT knot invariants & Paper~XV & Witten (1989); Reshetikhin--Turaev (1991) \\
+\bottomrule
+\end{longtblr}
+\end{center}
+
+A reader who is unfamiliar with WZW models but strong in standard QFT should
+read Di~Francesco et~al.\ Chapters~14--16 (the $\mathrm{SU}(2)_k$ WZW model,
+the Kac--Moody algebra, the Verlinde formula, and the modular S and T matrices)
+before Papers~III--IV. This takes roughly two days and unlocks $\sim$70\% of the
+series.
+
+A reader new to Paper~XV who is comfortable with Papers~III and~IV needs additionally:
+Di~Francesco et~al.\ Chapter~18 (conformal embeddings, $E_6\supset\mathrm{SU}(3)^3$),
+and the basic theory of fusion categories at $k=3$ (Kitaev 2006, Section~12).
+The WRT invariant computation requires only the Verlinde S-matrix already used
+in Paper~III; no additional background in knot theory is strictly needed to
+follow the proofs, which reduce to combinatorial statements about fusion multiplicities.
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Questions a QFT reader will ask: direct answers}
+%═══════════════════════════════════════════════════════════════════════════════
+
+\textbf{Is the condensate a physical field or a mathematical convenience?}
+It is treated as physical: a topological soliton configuration of the vacuum
+scalar sector. Paper~X~\cite{Paper10} constructs its quantum theory rigorously, with a Hilbert
+space and a self-adjoint Hamiltonian. Whether the physical identification is
+correct is an experimental question, not a mathematical one.
+
+\textbf{Does it break Lorentz invariance?}
+No. The condensate has a preferred direction only locally (the icosahedral
+orientations of $\twoI$), and these average to an isotropic distribution
+over macroscopic scales. The action~\eqref{RG:eq:action} is Lorentz-covariant
+in $3+1$D; the density-feedback structure breaks Lorentz invariance only
+in the sense that any non-trivial vacuum does.
+
+\textbf{Is the bosonization in Paper~III~\cite{Paper3} rigorous?}
+The Witten bosonization equivalence $\mathrm{SU}(N)_k\,\mathrm{WZW}
+\leftrightarrow N$ free Dirac fermions is a proved theorem for $1+1$D QFT.
+Paper~III applies it at the 2D cross-section of the condensate (Theorem
+~10.1), proved rigorously via the LSC and Pohozaev identity.
+The 3+1D extension uses dimensional reduction and is not proved with the same
+rigour. A critical reader should treat the SM-sector predictions as conditional
+on this extension being valid.
+
+\textbf{Why does $\vp$ appear everywhere?}
+The Foundational Companion answers this cleanly: all appearances of $\vp$
+are consequences of $k+2=5$. This is not a coincidence or a design choice;
+it is a theorem. The pentagon diagonal-to-side ratio is $\vp$ precisely
+because $5$ is the number of sides, and $k=3$ forces $k+2=5$ through the
+three routes described in Section~3.1.
+
+\textbf{Are the SM numerical predictions genuine predictions or fits?}
+The framework takes one inputs ($\TCMB$) and derives the rest.
+There are no fitted parameters. However, the framework does make choices
+(using the Witten bosonization dictionary, using the $E_8$ Coxeter assignment
+for quarks, using the Starobinsky inflationary potential) that could in
+principle be made differently. The correct way to think about this is:
+the framework is a specific theoretical construction that makes definite,
+falsifiable predictions. Its predictions agree with observation to the
+accuracy computed. Whether a different construction with the same inputs
+could also agree is a separate question.
+
+\textbf{What would falsify it?}
+The framework is falsifiable at multiple scales simultaneously:
+\begin{enumerate}[noitemsep]
+\item $w_a \neq -3(1+w_0)$ at DESI DR2 or Euclid at $>3\sigma$.
+\item BAO peak position not shifted by factor $\vp$ at DESI DR2.
+\item Loophole-free lepton Bell test giving $\CHSH > 8/3$ at $>5\sigma$.
+\item CMB-S4 tensor-to-scalar ratio $r \gg 0.0036$.
+\item A new SM-sector resonance at energies accessible to current experiments.
+\item Free-electron mass anisotropy $\Delta m/m_e \neq 1/\vp^8$ in a Penning trap.
+\end{enumerate}
+Items 1--2 will be resolved within the next two to three years by DESI DR2.
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section{Summary: how to evaluate the series}
+%═══════════════════════════════════════════════════════════════════════════════
+
+The density-feedback Hopfion series is a self-consistent, internally rigorous
+attempt to derive the observed structure of particle physics and cosmology from
+a single topological field configuration with one experimental input.
+Paper~XII~\cite{Paper12} reduces the input to: $\TCMB$ alone, with $m_e$ following from
+the profile normalisation proof. Papers~XIII and~XIV extend the framework to atomic quantum mechanics and close the electroweak residual to $0.04\%$.
+
+It succeeds, within the accuracy of the computations performed, at reproducing:
+the fine structure constant, the three charged lepton masses and their Koide
+relation, the QCD coupling, the quark mass hierarchy, the CKM matrix, the CP
+phase, the CMB spectral observables, the dark energy equation of state,
+the Schr\"odinger equation, spin-$\tfrac{1}{2}$, the Pauli exclusion
+principle, the electroweak VEV to $0.04\%$, the QCD scale, and the Higgs boson mass
+to $0.13\sigma$ ($125.10\,\mathrm{GeV}$, residual $-0.01\%$).
+It does not contradict any established SM or GR observation.
+
+Its primary open vulnerabilities, for a rigorous evaluator, are: the $3+1$D
+bosonization extension (not fully rigorous), the subleading WZW corrections
+to $\aem$ (computed to one loop, not two), the experimental status of the
+DESI and BAO predictions (awaiting DR2), and the free-electron mass
+anisotropy prediction ($\Delta m/m_e = 1/\vp^8$, untested).
+
+The most important single result, in the view of this guide, is Paper~X's
+canonical quantisation. If the Hilbert space, Born rule, and Fibonacci spectrum
+of Paper~X~\cite{Paper10} are accepted as the quantum theory of the condensate, then every
+prediction of Papers~I--XI follows as consequences of a single, mathematically
+well-defined quantum field theory. Paper~XII~\cite{Paper12} then closes the chain: the condensate
+scale, and through it the electron mass, is fixed by $\TCMB$ alone via the
+thermodynamic equilibrium of the condensate with the CMB photon bath.
+Paper~XIII~\cite{Paper13} shows that standard quantum mechanics (the Schr\"odinger equation,
+spin, and the Pauli principle) follows from the condensate without additional
+postulates. Paper~XIV~\cite{Paper14} closes the electroweak residual to $0.04\%$ via the
+exact toroidal correction and derives the Higgs boson mass
+$\mH = \sqrt{k+2}\,r_{\mathrm{WZW}}\,\vEW = 125.10\,\mathrm{GeV}$
+($0.13\sigma$ from ATLAS combined) from the condensate's scalar sector, using the
+pentagon Parseval sum $(k+2)/2$ and the KZB torus conformal-block monodromy.
+Paper~XV~\cite{Paper15} extends the framework to the $Q_H=3$ quark sector via
+the McKay chain $2T\leftrightarrow(E_6)_1\supset\mathrm{SU}(3)_1^{\times 3}$,
+derives both quark charges ($|Q_d|=1/3$, $|Q_u|=2/3$) from the trinification
+conformal embedding with no Standard Model input, and proves $\lambda_3=\vp^6$
+via the triple-fusion multiplicity argument and the $j=3/2$ simple-current
+sector assignment (three independent proofs).
+These are the claims the series ultimately makes, and they are the claims that
+warrant the most careful scrutiny.
+
+%─── References ───────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper6}
+F.~Manfredi,
+\textit{The Golden-Ratio Tower: Fermion Scale Hierarchy from the Hopfion RG Fixed Point},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+
+\bibitem{Paper7}
+F.~Manfredi,
+\textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
+  Equivalence Principle from the Density-Feedback Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+
+\bibitem{Paper8}
+F.~Manfredi,
+\textit{Geometry-Dependent Bell Violations from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18737070}{doi:10.5281/zenodo.18737070}
+
+\bibitem{Paper9}
+F.~Manfredi,
+\textit{Division Algebras, the Born Rule, and the Tsirelson Bound
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20075227}{doi:10.5281/zenodo.20075227}
+
+\bibitem{Paper10}
+F.~Manfredi,
+\textit{Quantisation of the Hopfion Condensate: Hilbert Space,
+  Liouville Measure, and the Born Rule},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20075279}{doi:10.5281/zenodo.20075279}
+
+\bibitem{Paper11}
+F.~Manfredi,
+\textit{The Golden-Spiral as a Universal Mass Hierarchy Map:
+  From Condensate Scale to Chemical Periodicity},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20173763}{doi:10.5281/zenodo.20173763}
+
+\bibitem{Paper12}
+F.~Manfredi,
+\textit{Paper~XII: The Profile Normalisation Conjecture --- Proof via CMB Energy Identity and Two-Route Equivalence},
+\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+
+\bibitem{Paper13}
+F.~Manfredi,
+\textit{Atomic Quantum Mechanics from the Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20471482}{doi:10.5281/zenodo.20471482}
+
+\bibitem{Paper14}
+F.~Manfredi,
+\textit{The Thick-Torus Profile Correction to the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20479790}{doi:10.5281/zenodo.20479790}
+
+\bibitem{Paper15}
+F.~Manfredi,
+\textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+
+\end{thebibliography}
+
+\end{document}

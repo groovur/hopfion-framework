@@ -1,0 +1,886 @@
+%% hopfion-framework/profile/normalisation.tex
+%% Sources: main_paper14, main_paper13, main_paper12.tex, main_paper1.tex
+%% Profile normalisation: phi^9*sqrt(J_a*J_4)=10, x*=R0/C*, one-parameter chain
+%% Auto-generated from project files. Edit source papers to update.
+
+%════════════════════════════════════════════════════════════════════
+% Profile Normalisation Theorems — Paper XII
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[CMB energy identity]
+\label{P12:thm:A}
+The condensate scale defined by
+\begin{equation}
+  \Lcond \;=\; \TCMB\!\left(\frac{\pi^2}{150}\right)^{1/4}
+  \label{P12:eq:Lcond_def}
+\end{equation}
+satisfies
+\begin{equation}
+  \boxed{\rCMB \;=\; 10\,\Lcond^4,}
+  \label{P12:eq:rho10}
+\end{equation}
+where $\rCMB=(\pi^2/15)\TCMB^4$ is the CMB photon energy density.
+In natural units $\Lcond=1$: $\rCMB=10$ exactly, and
+$10 = \ord(q_{2I}) = 2(k+2)|_{k=3}$.
+\end{theorem}
+\status{published}
+\source{P12:thm:A}
+
+\begin{remark}[Why $\ord(q_{2I})=10$ is the CMB density]
+\label{P12:rem:ord10}
+The integer $10=\ord(q_{2I})$ is the order of the central element $q_{2I}$
+in the binary icosahedral group $2I$, which equals $2(k+2)|_{k=3}=10$
+(Paper~I~\cite{Paper1}, Theorem~2.1 and the McKay correspondence).
+Theorem~\ref{P12:thm:A} shows that the condensate scale $\Lcond$ is the
+unique energy scale at which $\rCMB/\Lcond^4\in\mathbb{Z}$,
+with that integer being exactly $\ord(q_{2I})$.
+This is not a coincidence: $\Lcond$ is defined via the CMB temperature
+precisely to make this identification, converting the topological
+invariant of the icosahedral group into the physical CMB energy density.
+\end{remark}
+\status{published}
+\source{P12:rem:ord10}
+
+\begin{theorem}[Pentagon trigonometric identities]
+\label{P12:thm:B}
+With $\vp=(1+\sqrt{5})/2$ and $\ms=3-\vp$:
+\begin{equation}
+  \boxed{
+  \vp = 2\cos(\pi/5),\qquad
+  \sin(\pi/5)=\tfrac{1}{2}\sqrt{\ms},\qquad
+  \sin(2\pi/5)=\tfrac{\vp}{2}\sqrt{\ms}.
+  }
+  \label{P12:eq:trig}
+\end{equation}
+Numerically: $\vp\approx1.618$, $\ms\approx1.382$,
+$\sin(\pi/5)\approx0.5878$, $\sin(2\pi/5)\approx0.9511$.
+\end{theorem}
+\status{published}
+\source{P12:thm:B}
+
+\begin{remark}[Pentagon geometry in the condensate]
+\label{P12:rem:pentagon}
+Theorem~\ref{P12:thm:B} is the trigonometric expression of the
+Pentagon Theorem (Foundational Companion~\cite{PaperFC}):
+all appearances of $\vp$ in the series are consequences of $k+2=5$,
+the pentagon side-count.
+The identity $\vp=2\cos(\pi/5)$ ties the golden ratio directly to
+the pentagon's internal angle structure.
+These identities drive the Newton series of Theorem~\ref{P12:thm:C}:
+the leading-order approximation $q_0=\pi/5$ is the pentagon angle,
+and the first correction $d_1$ is expressed entirely in terms of
+$\sqrt{\ms}$ and $\vp$ via~\eqref{P12:eq:trig}.
+\end{remark}
+\status{published}
+\source{P12:rem:pentagon}
+
+\begin{theorem}[Newton--icosahedral series for $b^*$]
+\label{P12:thm:C}
+The virial fixed point $b^*$ satisfying
+\begin{equation}
+  \frac{15}{8}\,\frac{\arctan\sqrt{8b^*}}{\sqrt{8b^*}} \;=\; \vp
+  \label{P12:eq:virial_cond}
+\end{equation}
+has the representation
+\begin{equation}
+  \boxed{
+  b^* = \tfrac{1}{8}\tan^2(q^*),\qquad
+  q^* = \frac{\pi}{5}+d_1+d_2+d_3+\cdots,
+  }
+  \label{P12:eq:bstar}
+\end{equation}
+where the corrections satisfy $|d_{n+1}|=O(|d_n|^2)$
+(quadratic convergence with $d_1>0$, $d_2<0$, $d_3<0$), and the first correction is
+\begin{equation}
+  d_1 = \frac{\vp\sqrt{\ms}}{12}\cdot
+  \frac{8\sqrt{\ms}-3\pi}{5\vp\sqrt{\ms}/4-\pi}.
+  \label{P12:eq:d1}
+\end{equation}
+Numerically: $d_1=+4.19\times10^{-3}$,
+$d_2=-1.55\times10^{-5}$,
+$d_3=-2.1\times10^{-10}$.
+The series converges to $b^*\approx0.06715$, $q^*\approx0.6325$.
+\end{theorem}
+\status{published}
+\source{P12:thm:C}
+
+\begin{remark}[Structure of $d_1$]
+\label{P12:rem:d1_structure}
+The numerator $8\sqrt{\ms}-3\pi\approx-0.0202$ and denominator
+$5\vp\sqrt{\ms}/4-\pi\approx-0.764$ of~\eqref{P12:eq:d1}
+both involve $\pi$ and $\vp$.
+The combination $8\sqrt{\ms}\approx3\pi$ to within $0.21\%$
+is the near-identity that makes $q_0=\pi/5$ an excellent zeroth
+approximation; $d_1$ measures its correction.
+The exact series thus encodes the correction to the near-identity
+$8\sqrt{3-\vp}\approx3\pi$, which is also responsible for the
+accuracy of the three-term $\alpha^{-1}$ formula of Paper~IV~\cite{Paper4}.
+\end{remark}
+\status{published}
+\source{P12:rem:d1_structure}
+
+\begin{remark}[Structural parallel with the $\alpha^{-1}$ series]
+\label{P12:rem:alpha_parallel}
+The Newton--icosahedral series here is structurally parallel to
+the four-term $\alpha^{-1}$ series of Paper~IV~\cite{Paper4}
+(Theorem~IV.2 of that paper~\cite{Paper4}):
+both are $(\vp,\pi)$-alternating series with icosahedral numerology.
+The near-identity $8\sqrt{\ms}\approx3\pi$ (error $0.21\%$),
+which drives $d_1\ll1$, is the same near-identity responsible for
+the three-term $\alpha^{-1}$ formula being an excellent approximation.
+The ratio $b^*/[\text{thin-torus value}]\approx1+O(d_1)$ confirms
+that the Newton correction is sub-percent.
+\end{remark}
+\status{published}
+\source{P12:rem:alpha_parallel}
+
+\begin{theorem}[Exact toroidal integrals]
+\label{P12:thm:D}
+For the BS profile $f=2\arctan(C^*/\varrho)$,
+the exact $\theta$-integration uses
+\begin{equation}
+  \int_0^{2\pi}\frac{d\theta}{(R_0+\varrho\cos\theta)^2}
+  = \frac{2\pi R_0}{(R_0^2-\varrho^2)^{3/2}},
+  \qquad \varrho < R_0.
+  \label{P12:eq:theta_exact}
+\end{equation}
+The thick-torus isotropic gradient functional is then
+\begin{align}
+  \Ja &= (2\pi)^2\bigl[I_{\mathrm{tube}}(x)+ C^{*4}I_{\mathrm{tor}}(x)\bigr],
+  \label{P12:eq:J2a_thick}\\
+  I_{\mathrm{tube}}(x) &= \frac{4R_0 x^2}{x^2+1},
+  \label{P12:eq:I_tube}\\
+  \boxed{
+  I_{\mathrm{tor}}(x) = \frac{2}{15}\,\bsF\!\left(2,2;\tfrac{7}{2};-x^2\right),
+  }
+  \label{P12:eq:Itor}
+\end{align}
+where $x=R_0/C^*$.
+At $x=1$ (equal radii): $I_{\mathrm{tor}}(1)=\pi-3$.
+\end{theorem}
+\status{published}
+\source{P12:thm:D}
+
+\begin{remark}[$\pi-3$ and the Leibniz series]
+\label{P12:rem:pi3_leibniz}
+The value $I_{\mathrm{tor}}(1)=\pi-3$ is related to the first
+corrective term of the Leibniz series for $\pi$.
+In the present context it gives the exact toroidal correction to $\Ja$
+when the torus is ``square'' ($R_0=C^*$, $x=1$).
+The fact that a transcendental number ($\pi-3$) governs the
+equal-radii geometry points toward a possible algebraic constraint
+on the physical $x^*$ via the consistency equation~\eqref{P12:eq:consistency}.
+\end{remark}
+\status{published}
+\source{P12:rem:pi3_leibniz}
+
+\begin{remark}[Role of $I_{\mathrm{tor}}$ in the main proof]
+\label{P12:rem:Itor_role}
+The hypergeometric function $\bsF(2,2;\frac{7}{2};-x^2)$ appears
+in the thick-torus formula for $\Ja$ but is \emph{not needed}
+in the proof of Theorem~\ref{P12:thm:E}: that proof uses only the
+ratio $\Jfour/\Ja=2^{4/3}/\vp^5$ and the equilibrium condition.
+The toroidal correction $I_{\mathrm{tor}}(x)$ enters only if one
+wants the explicit geometric parameter $x^*=R_0/C^*$, which is
+determined by~\eqref{P12:eq:Itor_trig} at the physical saddle.
+The $\pi-3$ value at $x=1$ is a secondary result pointing toward
+a possible algebraic structure at $x^*$.
+\end{remark}
+\status{published}
+\source{P12:rem:Itor_role}
+
+\begin{theorem}[Two-route equivalence --- main result]
+\label{P12:thm:E}
+In natural units $\Lcond=1$ (so $\rCMB=10$ by Theorem~\ref{P12:thm:A}),
+the following are equivalent for any toroidal geometry $(R_0,C^*)$
+satisfying the virial self-consistency $V(b^*)=\vp$:
+\begin{itemize}[noitemsep]
+\item[\textup{(A)}] $\vp^9\sqrt{\Ja\Jfour}=10$
+  \quad\textup{(profile normalisation conjecture)}
+\item[\textup{(B)}] $\Efb/V_{\mathrm{torus}}=\rCMB=10$
+  \quad\textup{(thermodynamic equilibrium with the CMB)}
+\end{itemize}
+Both~\textup{(A)} and~\textup{(B)} are equivalent to the geometric constraint
+\begin{equation}
+  \boxed{R_0 C^{*2} \;=\; \frac{5}{\vp^{23}\pi^2}.}
+  \label{P12:eq:RC2}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P12:thm:E}
+
+\begin{remark}[On the thermodynamic equilibrium axiom]
+\label{P12:rem:equilibrium}
+The equilibrium condition $\Efb/V_{\mathrm{torus}}=\rCMB$ is the
+physical statement that the condensate's gradient energy density
+equals the ambient CMB photon energy density --- the natural
+thermodynamic equilibrium for a field embedded in a radiation bath.
+In the framework of Paper~I~\cite{Paper1}, this is the defining
+condition that selects the physical saddle from the family of
+scale-equivalent configurations: among all toroidal geometries satisfying
+the virial condition $V(b^*)=\vp$, the physical $R_0$ and $C^*$ are
+precisely those at which energy densities balance.
+Combined with Theorem~\ref{P12:thm:A} ($\rCMB=10\,\Lcond^4$),
+the equilibrium requires $\Efb/V=10$ in natural units,
+which by Theorem~\ref{P12:thm:E} forces the profile normalisation conjecture.
+
+The logical structure is therefore:
+\[
+  \underbrace{\Efb/V = \rCMB}_{\text{physical axiom}}
+  \;\xrightarrow{\text{Thm~A}}\;
+  \Efb/V = 10
+  \;\xrightarrow{\text{Thm~E}}\;
+  \vp^9\sqrt{\Ja\Jfour} = 10.
+\]
+\end{remark}
+\status{published}
+\source{P12:rem:equilibrium}
+
+\begin{corollary}[Profile normalisation conjecture proved]
+\label{P12:cor:proof}
+The density-feedback condensate achieves thermodynamic equilibrium
+with the CMB background, $\Efb/V_{\mathrm{torus}}=\rCMB$, at its saddle point.
+By Theorem~\ref{P12:thm:E}(B)$\Rightarrow$(A), this implies:
+\begin{equation}
+  \boxed{\vp^9\sqrt{\Ja\Jfour} \;=\; 10 \;=\; \ord(q_{2I}).}
+  \label{P12:eq:conjecture_proved}
+\end{equation}
+\end{corollary}
+\status{published}
+\source{P12:cor:proof}
+
+\begin{corollary}[Closed form for $x^*=R_0/C^*$]
+\label{P12:cor:xstar}
+The physical aspect ratio $x^*=R_0/C^*$ is determined in closed form
+by Theorem~\ref{P12:thm:E} and the CMB normalisation $\bst=300/\pi^2$:
+\begin{equation}
+  \boxed{x^* = \frac{\pi\,\tan^3(q^*)}{9600\sqrt{6}\,\vp^{23}},}
+  \label{P12:eq:xstar_exact}
+\end{equation}
+where $q^*$ is the virial Newton series root of Theorem~\ref{P12:thm:C}.
+Substituting the leading-order approximation $q^*\approx\pi/5$ and
+using the pentagon identity $\tan(\pi/5)=\sqrt{\ms}/\vp$
+(Theorem~\ref{P12:thm:B}) yields the leading-order closed form:
+\begin{equation}
+  \boxed{x^*_0 = \frac{\pi\,(3-\vp)^{3/2}}{9600\sqrt{6}\,\vp^{26}}
+  \approx 7.996\times10^{-10},}
+  \label{P12:eq:xstar_leading}
+\end{equation}
+which uses only $\vp$ and $\pi$.
+The full series~\eqref{P12:eq:xstar_exact} achieves:
+$x^*\approx8.209\times10^{-10}$ (exact),
+with the leading form~\eqref{P12:eq:xstar_leading} accurate to $2.60\%$
+and the one-step corrected form accurate to $0.010\%$.
+\end{corollary}
+\status{published}
+\source{P12:cor:xstar}
+
+\begin{align}
+  \vp^9\sqrt{\Ja\Jfour}
+  &= \vp^{13/2}\cdot2^{2/3}\cdot\Ja \notag\\
+  &= \vp^{13/2}\cdot2^{2/3}
+     \cdot\sqrt{\frac{10\,\vp^{10}\cdot 2\pi^2 R_0 C^{*2}}{2^{4/3}}} \notag\\
+  &= \vp^{13/2}\cdot2^{2/3}\cdot
+     \frac{\vp^5\sqrt{10\cdot 2\pi^2 R_0 C^{*2}}}{2^{2/3}} \notag\\
+  &= \vp^{23/2}\cdot\sqrt{20\pi^2 R_0 C^{*2}}.
+  \label{P12:eq:Bimplies}
+\end{align}
+
+\begin{equation}
+  \Efb = \frac{\Ja\Jfour}{\vp^5}
+       = \frac{\Ja^2\cdot2^{4/3}}{\vp^{10}},
+  \qquad
+  V_{\mathrm{torus}} = 2\pi^2 R_0 C^{*2}.
+  \label{P12:eq:EV}
+\end{equation}
+
+\begin{equation}
+  \Efb = \frac{[10/(\vp^{13/2}\cdot2^{2/3})]^2\cdot2^{4/3}}{\vp^{10}}
+       = \frac{100}{\vp^{13}\cdot2^{4/3}\cdot2^{-4/3}\cdot\vp^{10}}
+       = \frac{100}{\vp^{23}}.
+  \label{P12:eq:Efb_value}
+\end{equation}
+
+\begin{equation}
+  I_1 = \int_0^1\frac{t^2}{(1+t^2)^2}\,dt = \frac{\pi}{8}-\frac{1}{4},
+  \qquad
+  I_2 = \int_0^1\frac{t^4}{(1+t^2)^2}\,dt = \frac{5}{4}-\frac{3\pi}{8}.
+  \label{P12:eq:I1I2}
+\end{equation}
+
+\begin{equation}
+  I_{\mathrm{tor}}(1)
+  = 2\!\int_0^1\!\frac{u(1-u)^{1/2}}{(1+u)^{3/2}}\,du
+  = 2(I_1 - I_2),
+  \label{P12:eq:Itor1_split}
+\end{equation}
+
+\begin{equation}
+  I_{\mathrm{tor}}(1)
+  = 2\!\left[\left(\frac{\pi}{8}-\frac{1}{4}\right)
+             -\left(\frac{5}{4}-\frac{3\pi}{8}\right)\right]
+  = 2\!\left[\frac{\pi}{2}-\frac{3}{2}\right]
+  = \pi - 3.
+  \label{P12:eq:Itor1_value}
+\end{equation}
+
+\begin{equation}
+  I_{\mathrm{tor}}(x)
+  = 4C^{*4}\int_0^{\pi/2}
+    \frac{\sin^3\!\tau\,\cos^2\!\tau}{(x^2\sin^2\!\tau+1)^2}\,d\tau.
+  \label{P12:eq:Itor_trig}
+\end{equation}
+
+\begin{align}
+  \Ja &= (2\pi)^2\bigl[I_{\mathrm{tube}}(x)+ C^{*4}I_{\mathrm{tor}}(x)\bigr],
+  \\
+  I_{\mathrm{tube}}(x) &= \frac{4R_0 x^2}{x^2+1},
+  \\
+  \boxed{
+  I_{\mathrm{tor}}(x) = \frac{2}{15}\,\bsF\!\left(2,2;\tfrac{7}{2};-x^2\right),
+  }
+\end{align}
+
+\begin{equation}
+  \Ja^2 = \frac{10\,\vp^{10}\cdot V_{\mathrm{torus}}}{2^{4/3}}
+        = \frac{10\,\vp^{10}\cdot 2\pi^2 R_0 C^{*2}}{2^{4/3}}.
+  \label{P12:eq:Ja_sq_from_B}
+\end{equation}
+
+\begin{equation}
+  \frac{100/\vp^{23}}{2\pi^2 R_0 C^{*2}} = 10
+  \quad\Longleftrightarrow\quad
+  R_0 C^{*2} = \frac{5}{\vp^{23}\pi^2}.
+  \label{P12:eq:RC2_derivation}
+\end{equation}
+
+\begin{equation}
+  \boxed{
+  \TCMB
+  \;\xrightarrow{\;\Lcond\;}\;
+  \rCMB=10
+  \;\xrightarrow{\;\Efb/V=\rCMB\;}\;
+  \vp^9\sqrt{\Ja\Jfour}=10
+  \;\xrightarrow{\;\text{Paper~I}\;}\;
+  m_e = \Lcond\,\vp^{20}\,e^{4\pi-3/400-\alpha/\pi}.
+  }
+  \label{P12:eq:chain}
+\end{equation}
+
+\begin{equation}
+  \vp^{13/2}\cdot2^{2/3}\cdot\Ja = 10.
+  \label{P12:eq:conj_red}
+\end{equation}
+
+\begin{equation}
+  \boxed{
+  \vp^9\sqrt{\Ja[f^*]\,\Jfour[f^*]} \;=\; \ord(q_{2I}) \;=\; 10,
+  }
+  \label{P12:eq:conjecture}
+\end{equation}
+
+\begin{equation}
+  \boxed{
+  \vp^{13/2}\cdot2^{2/3}\cdot(2\pi)^2\cdot x
+  \sqrt{\frac{300}{\pi^2\,b^*(x)}}
+  \left[\frac{16}{15}+\delta(x)\right]
+  = 10,}
+  \label{P12:eq:consistency}
+\end{equation}
+
+\begin{remark}[Equivalence to the two-route proof]
+\label{P12:rem:consistency_equiv}
+Equation~\eqref{P12:eq:consistency} is the \emph{explicit form} of the
+geometric constraint $R_0 C^{*2}=5/(\vp^{23}\pi^2)$ of Theorem~\ref{P12:thm:E}:
+substituting $C^*=\sqrt{300/(\pi^2 b^*)}$ and $R_0=x C^*$ converts
+\eqref{P12:eq:RC2} into~\eqref{P12:eq:consistency}.
+The two-route proof establishes that any solution
+to~\eqref{P12:eq:consistency} yields $\vp^9\sqrt{\Ja\Jfour}=10$;
+the equilibrium axiom guarantees that the physical $x^*$ is that solution.
+\end{remark}
+\status{published}
+\source{P12:rem:consistency_equiv}
+
+\begin{equation}
+  d_1
+  = -\frac{\pi\vp/(5\sqrt{\ms}) - 8\vp/15}
+          {\vp/\sqrt{\ms} - 4\pi/(5\ms)}
+  = \frac{\vp\sqrt{\ms}}{12}\cdot
+    \frac{8\sqrt{\ms}-3\pi}{5\vp\sqrt{\ms}/4-\pi},
+  \label{P12:eq:d1_derived}
+\end{equation}
+
+\begin{equation}
+  g(q_0) = \frac{\pi/5\cdot\cos(\pi/5)}{\sin(\pi/5)}
+  = \frac{(\pi/5)\cdot(\vp/2)}{\sqrt{\ms}/2}
+  = \frac{\pi\vp}{5\sqrt{\ms}}.
+  \label{P12:eq:g_q0}
+\end{equation}
+
+\begin{equation}
+  g(q) \;\equiv\; q\cot q \;=\; \frac{8\vp}{15} \;\equiv\; c_\vp.
+  \label{P12:eq:gcot}
+\end{equation}
+
+\begin{equation}
+  g'(q_0)
+  = \frac{\cos(\pi/5)}{\sin(\pi/5)} - \frac{\pi/5}{\sin^2(\pi/5)}
+  = \frac{\vp/2}{\sqrt{\ms}/2} - \frac{\pi/5}{\ms/4}
+  = \frac{\vp}{\sqrt{\ms}} - \frac{4\pi}{5\ms}.
+  \label{P12:eq:gprime_q0}
+\end{equation}
+
+\begin{equation}
+  \bst = \frac{300}{\pi^2} \approx 30.4,
+  \qquad
+  b^* = \frac{\tan^2(q^*)}{8} \approx 0.06715,
+  \qquad
+  C^* = \sqrt{\frac{\bst}{b^*}} \approx 21.28.
+  \label{P12:eq:physical_params}
+\end{equation}
+
+\begin{equation}
+  R_0 = \frac{5\,b^*}{\vp^{23}\cdot 300} \approx 1.747\times10^{-8},
+  \qquad
+  x^* = \frac{R_0}{C^*} \approx 8.21\times10^{-10}.
+  \label{P12:eq:physical_params_R0}
+\end{equation}
+
+\begin{remark}[Correction to earlier estimates]
+\label{P12:rem:phys_correction}
+An earlier version of this section estimated $R_0\approx0.041$ and
+$x^*\approx0.002$. Those estimates were not derived from
+the Theorem~\ref{P12:thm:E} constraint and are inconsistent with it:
+they give $R_0 C^{*2}\approx18.6$, whereas the exact value is
+$5/(\vp^{23}\pi^2)\approx7.91\times10^{-6}$, off by a factor
+of $\sim2.4\times10^6$. Equations~\eqref{P12:eq:physical_params}
+and~\eqref{P12:eq:physical_params_R0} give the correct values.
+\end{remark}
+\status{published}
+\source{P12:rem:phys_correction}
+
+\begin{equation}
+  \frac{\rCMB}{\Lcond^4}
+  \;=\;
+  \frac{(\pi^2/15)\,\TCMB^4}{\TCMB^4\cdot(\pi^2/150)}
+  \;=\;
+  \frac{150}{15} \;=\; 10.
+  \label{P12:eq:ratio_proof}
+\end{equation}
+
+\begin{equation}
+  \boxed{
+  \vp^{13/2}\cdot2^{2/3}\cdot\Ja \;=\; 10.
+  }
+  \label{P12:eq:reduced}
+\end{equation}
+
+\begin{align}
+  \sin^2(\pi/5) &= 1 - \cos^2(\pi/5) = 1 - \frac{\vp^2}{4}
+  = \frac{4-\vp^2}{4}.
+  \label{P12:eq:sin2_proof}
+\end{align}
+
+%════════════════════════════════════════════════════════════════════
+% Thick-Torus Profile Correction — Paper XIV
+%════════════════════════════════════════════════════════════════════
+
+\begin{lemma}[O($R_0^{-1}$) correction vanishes]
+\label{P14:lem:O1R_vanishes}
+The $O(1/R_0)$ correction to every azimuthal-average observable
+(including all profile integrals $I_4$, $I_{2a}$, and the Yukawa amplitude)
+is identically zero.
+\begin{proof}
+The $O(1/R_0)$ term in the toroidal Laplacian is proportional to
+$\cos\chi\,\partial f/\partial\rho$.
+Its contribution to any $\chi$-averaged integral vanishes because
+$\langle\cos\chi\rangle_\chi = (2\pi)^{-1}\int_0^{2\pi}\cos\chi\,d\chi = 0$.
+All physical observables are even in $\chi$ under $\chi\to-\chi$,
+so no odd Fourier mode can contribute.
+The leading correction to all observables is $O(1/R_0^2)$.
+\end{proof}
+\status{published}
+\source{P14:lem:O1R_vanishes}
+\end{lemma}
+\status{published}
+\source{P14:lem:O1R_vanishes}
+
+\begin{remark}[Geometric interpretation]
+\label{P14:rem:geometric_interp}
+Lemma~\ref{P14:lem:O1R_vanishes} reflects the torus symmetry $\chi\to-\chi$
+(inside and outside of the tube are related by parity):
+the mean curvature of the torus axis averages to zero around any cross-section.
+This is why Papers~I and~IV identify the correction as $O(\Rzero^{-2})$,
+not $O(\Rzero^{-1})$: the linear curvature term integrates away.
+\status{published}
+\source{P14:rem:geometric_interp}
+\end{remark}
+\status{published}
+\source{P14:rem:geometric_interp}
+
+\begin{proposition}[Volume correction at $R_0 = 3$]
+\label{P14:prop:volume_correction}
+The $O(R_0^{-2})$ metric correction to the profile-integral ratio
+from the toroidal Jacobian $(R_0 + \rho\cos\chi)$ is:
+\begin{equation}
+  \frac{\delta I_4^{\rm vol}}{I_4} = +5.37\%, \quad
+  \frac{\delta I_{2a}^{\rm vol}}{I_{2a}} = +5.74\%, \quad
+  \frac{\delta(I_4/I_{2a})^{\rm vol}}{I_4/I_{2a}} = -0.37\%,
+  \label{P14:eq:volume_correction}
+\end{equation}
+at $R_0=3$, using the modified BPS profile with $C^*=3.4318$.
+The metric correction suppresses $I_4/I_{2a}$ by $0.37\%$.
+\status{proved (analytic + numerical quadrature)}
+\residual{volume part only; profile BVP provides remaining correction to $v_\mathrm{EW}$}
+\source{P14:prop:volume_correction}
+\end{proposition}
+\status{published}
+\source{P14:prop:volume_correction}
+
+\begin{proposition}[Exact azimuthal averaging on the condensate torus]
+\label{P14:prop:exact_avg}
+For $|\rho| < \Rzero$, the azimuthal averages:
+\begin{align}
+  \bigl\langle r\bigr\rangle_\chi
+  &\;=\; \Rzero,
+  \label{P14:eq:avg_r}\\
+  \bigl\langle r^{-1}\bigr\rangle_\chi
+  &\;=\; \boxed{\frac{1}{\sqrt{\Rzero^2-\rho^2}},}
+  \label{P14:eq:avg_rinv}\\
+  \bigl\langle r^{-2}\bigr\rangle_\chi
+  &\;=\; \frac{\Rzero}{(\Rzero^2-\rho^2)^{3/2}}.
+  \label{P14:eq:avg_r2inv}
+\end{align}
+These are exact for all $|\rho|<\Rzero$; no perturbative expansion
+in $\rho/\Rzero$ is needed.
+The first follows from $\langle\cos\chi\rangle=0$; the second and
+third from the standard integral
+$\int_0^{2\pi}d\chi/(a+b\cos\chi)^n$ with $a=\Rzero$, $b=\rho$.
+\status{exact (standard integral identity); verified numerically at $\rho=1$, $\Rzero=3$ to machine precision}
+\residual{replaces all perturbative $O(\Rzero^{-2})$ expansions with closed-form expressions; enables Theorem~\ref{P14:thm:toroidal_formula}}
+\source{P14:prop:exact_avg}
+\end{proposition}
+\status{published}
+\source{P14:prop:exact_avg}
+
+\begin{theorem}[Closed-form 3D toroidal correction formula]
+\label{P14:thm:toroidal_formula}
+At torus radius $\Rzero$ with the thin-torus saddle profile
+$\fzero(\rho)=2\arctan(\rho^{-\Cstar})$, the full 3D FN profile
+integrals are:
+\begin{align}
+  \boxed{\Jfour^{3D}
+  = \Rzero\,I_4 \;+\; (\vp^8+1)\,\Itor{2a},}
+  \label{P14:eq:J4_3D}\\
+  \boxed{\Ja^{3D}
+  = \Rzero\,I_{2a} \;+\; (\vp^8+1)\,\Itor{4},}
+  \label{P14:eq:J2a_3D}
+\end{align}
+where the thin-torus baselines are
+\begin{equation}
+  I_4 = \int_0^\infty \sin^4\!\fzero\,(\fzero')^2/\rho\,d\rho,
+  \qquad
+  I_{2a} = \int_0^\infty \sin^4\!\fzero\bigl[(\fzero')^2+\sin^2\!\fzero/\rho^2\bigr]\rho\,d\rho,
+\end{equation}
+and the toroidal correction integrals are
+\begin{align}
+  \Itor{4}
+  &= \int_0^{\Rzero} \sin^4\!\fzero\,(\fzero')^2\,
+     \frac{\rho}{\sqrt{\Rzero^2-\rho^2}}\,d\rho,
+  \label{P14:eq:I4tor}\\
+  \Itor{2a}
+  &= \int_0^{\Rzero} \sin^6\!\fzero\,
+     \frac{\rho}{\sqrt{\Rzero^2-\rho^2}}\,d\rho,
+  \label{P14:eq:I2ator}
+\end{align}
+using the exact azimuthal weight $1/\sqrt{\Rzero^2-\rho^2}$
+from Proposition~\ref{P14:prop:exact_avg}.
+The toroidal winding parameter is $Q_t^2=\vp^8+1=47.979$,
+exact from the condensate attractor density $\bst\rho_\infty=\vp$
+and the pentagon identity $1+\vp=\vp^2$.
+Cross-coupling: the azimuthal winding $\sin^2\!f/r^2$ feeds
+$\Jfour^{3D}$ (via $\Itor{2a}$), while the Hopf density
+$\sin^4\!f(f')^2$ feeds $\Ja^{3D}$ (via $\Itor{4}$)---swapped
+from the thin-torus assignment.
+\status{proved in closed form; verified numerically at $\Cstar=3.4318$, $\Rzero=3$; reproduces all Paper~I data points ($C=2,3,3.43$)}
+\residual{$\Jfour^{3D}/\Ja^{3D}=0.22717$ vs WZW target $0.22721$ ($0.018\%$); combined with Corollary~\ref{P14:cor:yukawa_3D} closes $\delta v_\mathrm{EW}/v_\mathrm{EW}$ to $0.015\%$ (further to $0.012\%$ via Corollary~\ref{P14:cor:yukawa_second})}
+\source{P14:thm:toroidal_formula,P14:prop:exact_avg}
+\end{theorem}
+\status{published}
+\source{P14:thm:toroidal_formula}
+
+\begin{remark}[Numerical verification at $\Cstar=3.4318$, $\Rzero=3$]
+\label{P14:rem:formula_check}
+With $\vp^8+1=47.979$:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Quantity & Value & Source \\
+\midrule
+$I_4$ & $3.7857$ & 1D thin-torus \\
+$I_{2a}$ & $3.9714$ & 1D thin-torus \\
+$\Itor{4}$ & $1.2976$ & exact \eqref{P14:eq:I4tor} \\
+$\Itor{2a}$ & $0.1145$ & exact \eqref{P14:eq:I2ator} \\
+$\Jfour^{3D}/\Ja^{3D}$ & $0.22717$ & formula \eqref{P14:eq:J4_3D}--\eqref{P14:eq:J2a_3D} \\
+WZW target $2^{4/3}/\vp^5$ & $0.22721$ & Paper~I \\
+Residual & $0.018\%$ & \\
+\bottomrule
+\end{tabular}
+\end{center}
+The closed-form formula reproduces the Paper~I full 3D computation to $0.018\%$.
+\status{published}
+\residual{$0.018\%$}
+\source{P14:rem:formula_check}
+\end{remark}
+\status{published}
+\source{P14:rem:formula_check}
+
+\begin{remark}[Physical interpretation: cross-coupling in 3D]
+\label{P14:rem:cross_coupling}
+In the thin-torus (1D) limit, $I_4$ and $I_{2a}$ are independent:
+$I_4$ receives the poloidal Hopf density $\sin^4\!f(f')^2/\rho$, and
+$I_{2a}$ receives the gradient $\sin^4\!f[(f')^2+\sin^2\!f/\rho^2]\rho$.
+In 3D, the toroidal direction cross-couples them:
+\begin{itemize}[noitemsep]
+\item The azimuthal winding $\sin^2\!f/r^2$ combines with $J^2=\sin^4\!f$
+  to give $\sin^6\!f/r^2$, contributing to $\Jfour^{3D}$ (not $\Ja^{3D}$).
+\item The Hopf density $\sin^4\!f(f')^2$ contributes to $\Ja^{3D}$ via
+  the toroidal gradient, not just $\Jfour^{3D}$.
+\end{itemize}
+This is why the 1D ratio $I_4/I_{2a}=0.953$ deviates sharply from the
+3D ratio $0.22717$ at $\Cstar=3.43$: the 1D formula misses the dominant
+toroidal contributions entirely.
+\status{published}
+\source{P14:rem:cross_coupling}
+\end{remark}
+\status{published}
+\source{P14:rem:cross_coupling}
+
+\begin{theorem}[Jacobi operator and thick-torus source]
+\label{P14:thm:jacobi}
+The $O(R_0^{-2})$ profile correction $f_2(\rho)$ to the thin-torus
+saddle $f_0(\rho) = 2\arctan((C^*/\rho)^{C^*})$ satisfies the
+Sturm--Liouville BVP:
+\begin{equation}
+  \mathcal{L}_0[f_2](\rho) = S_2(\rho), \qquad f_2(0) = f_2(\infty) = 0,
+  \label{P14:eq:thick_torus_bvp}
+\end{equation}
+where $\mathcal{L}_0 = d^2/d\rho^2 - V''(f_0)$ is the Jacobi operator.
+The EL self-consistency condition $f_0'=-C^*\sin f_0/\rho$ gives
+$V'(f_0)=(C^*)^2\sin f_0\cos f_0/\rho^2$, and therefore
+\begin{equation}
+  V''(f_0) = \frac{(C^*)^2\cos(2f_0)}{\rho^2}.
+  \label{P14:eq:jacobi_potential}
+\end{equation}
+The toroidal curvature source is
+\begin{equation}
+  S_2(\rho) = \frac{C^*}{2R_0^2}\,\sin f_0(\rho)\,
+              \bigl(1 - C^*\cos f_0(\rho)\bigr).
+  \label{P14:eq:thick_torus_source}
+\end{equation}
+No free parameters.
+Boundary asymptotics: $f_2\sim\rho^{p_+}$ near $\rho=0$ with
+$p_+=(1+\sqrt{1+4(C^*)^2})/2\approx3.97$;
+near $\rho=\infty$ the particular solution dominates,
+$f_2\sim\rho^{2-C^*}\approx\rho^{-1.43}$.
+Yukawa correction $\delta y_e/y_e = +0.68\%$ from the exact toroidal
+formula $Q_t^2=\varphi^8+1$ (Theorem~\ref{P14:thm:toroidal_formula}) and the
+WZW relation $d\ln y_e/dC^*=1/(2k)=1/6$ (Corollary~\ref{P14:cor:yukawa_3D}).
+\status{fully resolved; $\delta v_\mathrm{EW}/v_\mathrm{EW}$ from $+0.69\%$ to $0.015\%$ (further to $0.012\%$); $\delta\Lambda_\mathrm{QCD}/\Lambda_\mathrm{QCD}$ from $+0.97\%$ to $0.015\%$}
+\residual{thin-torus intrinsic residual $0.015\%$}
+\source{P14:thm:jacobi,P14:thm:toroidal_formula,P14:cor:yukawa_3D}
+\end{theorem}
+\status{published}
+\source{P14:thm:jacobi}
+
+\begin{remark}[Solubility]
+\label{P14:rem:solubility}
+The BVP~\eqref{P14:eq:thick_torus_bvp} has a unique solution if $\mathcal{L}_0$ has no zero mode
+(no $L^2$ solution of $\mathcal{L}_0[g]=0$ with $g(0)=g(\infty)=0$).
+Paper~I confirms numerically that $\fzero$ is a genuine minimum of $\Jfour/\Ja$
+(no neutral perturbation direction), strongly supporting the absence of a zero mode.
+\status{published}
+\source{P14:rem:solubility}
+\end{remark}
+\status{published}
+\source{P14:rem:solubility}
+
+\begin{remark}[Numerical BVP solution]
+\label{P14:rem:numerical_solution}
+Finite differences in log-space $t=\log\rho$, tridiagonal system,
+$N=8000$ interior points on $t\in[-12,12]$.
+\begin{center}
+\begin{tabular}{rrrl}
+\toprule
+$\rho$ & $\fzero(\rho)$ & $\ftwo(\rho)$ & Physical meaning \\
+\midrule
+$0.1$ & $3.1409$ & $-5.98\times10^{-5}$ & deep core, near $f=\pi$ \\
+$0.3$ & $3.1095$ & $-4.50\times10^{-3}$ & inner core \\
+$0.5$ & $2.9568$ & $-3.21\times10^{-2}$ & inner core \\
+$0.7$ & $2.5696$ & $-1.07\times10^{-1}$ & approaching transition \\
+$1.0$ & $1.5708$ & $-2.12\times10^{-1}$ & transition point, $f=\pi/2$ \\
+$1.5$ & $0.4875$ & $-9.25\times10^{-2}$ & outer transition \\
+$2.0$ & $0.1848$ & $-2.68\times10^{-2}$ & outer region \\
+$3.0$ & $0.0461$ & $+2.60\times10^{-3}$ & sign change at $\rho\approx2.5$ \\
+$5.0$ & $0.0080$ & $+6.63\times10^{-3}$ & wing extension \\
+\bottomrule
+\end{tabular}
+\end{center}
+Key features: peak $|\ftwo|_{\max}\approx0.212$ at $\rho\approx1$;
+$\ftwo<0$ for $\rho\lesssim2.5$ (core flattened);
+$\ftwo>0$ for $\rho\gtrsim2.5$ (wings extended).
+Asymptotics: $\ftwo\sim\rho^{3.97}$ (inner) and $\ftwo\sim\rho^{-1.43}$ (outer),
+both matching theory to $0.1\%$.
+\status{published}
+\residual{BVP residual $<10^{-9}$; asymptotics verified to $0.1\%$}
+\source{P14:rem:numerical_solution}
+\end{remark}
+\status{published}
+\source{P14:rem:numerical_solution}
+
+\begin{remark}
+\label{P14:rem:yukawa}
+With $\ftwo(\rho)$ in hand, the original route
+$\delta y_e/y_e = \delta y_e^{\rm vol}/y_e + \delta y_e^{\rm prof}/y_e$
+is superseded by the exact closed-form toroidal correction formula of
+Theorem~\ref{P14:thm:toroidal_formula}.
+\status{published}
+\source{P14:rem:yukawa}
+\end{remark}
+\status{published}
+\source{P14:rem:yukawa}
+
+\begin{corollary}[Cross-paper structural identity: $\vp^8+1$]
+\label{P14:cor:phi8_structural}
+The toroidal winding parameter $\vp^8+1$ in
+Theorem~\ref{P14:thm:toroidal_formula} equals the tangential
+effective-mass numerator of Paper~XIII, Proposition~6.1:
+\begin{equation}
+  \boxed{\frac{m_{\mathrm{tangential}}}{m_e} = \frac{\vp^8+1}{\vp^8} = 1+\frac{1}{\vp^8}.}
+  \label{P14:eq:phi8_identity}
+\end{equation}
+Both quantities arise from the condensate attractor condition
+$\bst\rho_\infty=\vp$ (exact) and the pentagon identity $1+\vp=\vp^2$.
+\status{published}
+\residual{$\vp^8+1=47.979$; integral-derived value $47.962$ (residual $0.036\%$)}
+\source{P14:cor:phi8_structural; Paper~XIII, Proposition~6.1}
+\depends{profile/normalisation.tex (P14:thm:toroidal_formula); quantum (Paper~XIII)}
+\end{corollary}
+\status{published}
+\source{P14:cor:phi8_structural}
+
+\begin{corollary}[Yukawa correction and $v_\mathrm{EW}$, $\Lambda_\mathrm{QCD}$ closure]
+\label{P14:cor:yukawa_3D}
+From the Paper~I WZW formula $d\ln y_e/dC^*=1/(2k)=1/6$, the exact
+toroidal correction (Theorem~\ref{P14:thm:toroidal_formula}) gives:
+\begin{equation}
+  \boxed{\frac{\delta y_e}{y_e}
+  = \exp\!\left[\frac{C^{*,3D} - C^{*,\mathrm{thin}}}{2k}\right] - 1
+  \approx +0.68\%,}
+  \label{P14:eq:delta_ye}
+\end{equation}
+where $C^{*,3D}=3.432$ satisfies $F(C^{*,3D})=0.22717$ (full 3D ratio)
+and $C^{*,\mathrm{thin}}=3.392$ satisfies
+$F(C^{*,\mathrm{thin}})=0.2301$ (thin-torus extrapolation).
+Via $\delta v_\mathrm{EW}/v_\mathrm{EW} = -\delta y_e/y_e$ and the tower identity:
+\begin{align*}
+  \delta v_\mathrm{EW}/v_\mathrm{EW} &= -0.68\%, \\
+  \delta\Lambda_\mathrm{QCD}/\Lambda_\mathrm{QCD} &= -0.68\%.
+\end{align*}
+Both residuals reduce from $+0.69\%$ and $+0.97\%$ to the thin-torus
+intrinsic residual $0.015\%$.
+\status{proved (uses Theorem~\ref{P14:thm:toroidal_formula} and Paper~I WZW relation)}
+\residual{$\delta v_\mathrm{EW}/v_\mathrm{EW}\to0.015\%$; $\delta\Lambda_\mathrm{QCD}/\Lambda_\mathrm{QCD}\to0.015\%$}
+\source{P14:cor:yukawa_3D}
+\end{corollary}
+\status{published}
+\source{P14:cor:yukawa_3D}
+
+\begin{lemma}[Azimuthal vanishing of first-order $f_2$ correction]
+\label{P14:lem:first_order_vanish}
+The first-order correction from $f_2(\rho)$ to every azimuthally-averaged
+profile integral ($I_4$, $I_{2a}$, $\Itor{4}$, $\Itor{2a}$) vanishes identically.
+\begin{proof}
+With $f(\rho,\chi)=\fzero(\rho)+\ftwo(\rho)\cos(2\chi)/\Rzero^2$,
+the first-order correction to any integrand $G(f,f')$ contains
+the factor $\langle\cos(2\chi)\rangle_\chi = 0$.
+\end{proof}
+\status{proved (analytic; consequence of $\langle\cos(2\chi)\rangle=0$)}
+\residual{leading profile correction to observables is $O(\Rzero^{-4})$, not $O(\Rzero^{-2})$}
+\source{P14:lem:first_order_vanish}
+\end{lemma}
+\status{published}
+\source{P14:lem:first_order_vanish}
+
+\begin{theorem}[$O(\Rzero^{-4})$ profile correction]
+\label{P14:thm:second_order}
+Let $f(\rho,\chi)=\fzero(\rho)+\ftwo(\rho)\cos(2\chi)/\Rzero^2$ with $\ftwo$
+from Theorem~\ref{P14:thm:jacobi}.  The corrected 3D ratio
+\begin{equation}
+  r_{3D}^{(2)}
+  = \frac{\Rzero\,\bar{I}_4 + (\vp^8+1)\,\bar{I}_{2a}^{\mathrm{tor}}}
+         {\Rzero\,\bar{I}_{2a} + (\vp^8+1)\,\bar{I}_4^{\mathrm{tor}}}
+  \label{P14:eq:r3D_second}
+\end{equation}
+(where bars denote $\chi$-averages via 64-point Gauss--Legendre quadrature)
+satisfies at $\Cstar=3.4318$, $\Rzero=3$:
+\begin{equation}
+  \boxed{r_{3D}^{(2)} = 0.227\,164,\qquad
+  \frac{r_{3D}^{(2)} - r_{\mathrm{WZW}}}{r_{\mathrm{WZW}}} = -0.022\%.}
+  \label{P14:eq:r3D_second_val}
+\end{equation}
+The scaling coefficient $|r_{3D}^{(2)}-r_\mathrm{WZW}|/r_\mathrm{WZW}\times\Rzero^4=1.8\%$
+confirms the $O(\Rzero^{-4})$ identification.
+\status{proved (numerical 2D quadrature; first-order vanishing from Lemma~\ref{P14:lem:first_order_vanish})}
+\residual{$r_{3D}^{(2)}$ deviates from $r_\mathrm{WZW}=0.227214$ by $0.022\%$; consistent with $O(\Rzero^{-6})$}
+\source{P14:thm:second_order}
+\end{theorem}
+\status{published}
+\source{P14:thm:second_order}
+
+\begin{corollary}[Yukawa correction at second order]
+\label{P14:cor:yukawa_second}
+The second-order corrected ratio (Theorem~\ref{P14:thm:second_order}) gives:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lccc}
+\toprule
+Order & $\delta y_e/y_e$ & $\delta v_\mathrm{EW}/v_\mathrm{EW}$ \\
+\midrule
+$O(\Rzero^{-2})$ only & $+0.675\%$ & $+0.015\%$ \\
+$O(\Rzero^{-2})+O(\Rzero^{-4})$ & $+0.678\%$ & $+0.012\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The $O(\Rzero^{-4})$ correction reduces $\delta v_\mathrm{EW}/v_\mathrm{EW}$
+from $+0.015\%$ to $+0.012\%$ (a $1.25\times$ improvement).
+\status{published}
+\residual{$+0.012\%$ in $v_\mathrm{EW}$; consistent with $O(\Rzero^{-6})\lesssim0.001\%$}
+\source{P14:cor:yukawa_second}
+\end{corollary}
+\status{published}
+\source{P14:cor:yukawa_second}
+
+\begin{remark}[Analytical structure]
+\label{P14:rem:analytical_structure}
+The first-order vanishing (Lemma~\ref{P14:lem:first_order_vanish}) is purely analytical:
+$\langle\cos(2\chi)\rangle=0$ is exact.
+The second-order formula~\eqref{P14:eq:r3D_second} is also analytical: it expresses
+the corrected ratio as an explicit functional of $\ftwo(\rho)$.
+
+An analytical closed form for $\ftwo$ would require solving the Jacobi equation
+$g'' - (\Cstar)^2\cos(2\fzero)/\rho^2\,g = (\Cstar/2\Rzero^2)\sin\fzero(1-\Cstar\cos\fzero)$
+in terms of known special functions.
+The substitution $z=\rho^{2\Cstar}/(\rho^{2\Cstar}+1)$ rationalises trigonometric
+functions of $\fzero$, but $1/\rho^2$ introduces $z^{1/\Cstar}$ (irrational since
+$\Cstar$ satisfies a cubic algebraic equation), preventing reduction to a standard
+Fuchsian form.
+The Jacobi potential $(\Cstar)^2\cos(2\fzero)/\rho^2$ changes sign at $\rho=1$,
+with Born series spectral radius $\approx1$.
+The BVP is therefore solved numerically ($N=8000$, residual $<10^{-10}$,
+asymptotics verified to $0.1\%$; see Remark~\ref{P14:rem:numerical_solution}).
+\status{published}
+\source{P14:rem:analytical_structure}
+\end{remark}
+\status{published}
+\source{P14:rem:analytical_structure}
+

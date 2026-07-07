@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Trefoil Hopfion — Q_H=3</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{overflow:hidden;background:#000;font-family:'Georgia',serif}
+canvas{display:block}
+#panel{position:absolute;top:64px;left:14px;color:#e0e0f0;font-size:11.5px;
+  line-height:1.85;background:rgba(4,4,18,0.90);padding:13px 17px;
+  border-radius:9px;border:1px solid #ffffff1a;max-width:264px;
+  max-height:calc(100vh - 100px);overflow-y:auto;
+  pointer-events:all;user-select:none;z-index:10}
+#panel::-webkit-scrollbar{width:6px}
+#panel::-webkit-scrollbar-track{background:transparent}
+#panel::-webkit-scrollbar-thumb{background:#ffffff22;border-radius:3px}
+#panel::-webkit-scrollbar-thumb:hover{background:#ffffff3a}
+#panel h1{font-size:17px;font-weight:normal;color:#F5E642;margin-bottom:2px}
+#panel h2{font-size:11px;font-weight:normal;color:#F5E642;opacity:.72;margin-bottom:6px}
+#panel .sub{color:#8888aa;font-size:10px;margin-bottom:9px}
+#panel .divider{border-top:1px solid #ffffff16;margin:7px 0}
+#panel .row{display:flex;align-items:center;gap:8px;margin:1px 0;cursor:pointer;
+  padding:3px 5px;border-radius:4px;transition:background .12s}
+#panel .row:hover{background:rgba(255,255,255,0.06)}
+#panel .row.active .dot{box-shadow:0 0 7px 2px currentColor}
+#panel .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;opacity:.85;transition:box-shadow .2s}
+#panel .note{color:#8888aa;font-size:9.5px;margin:5px 4px 0;line-height:1.5}
+#panel .key{color:#ff8833;font-size:9.5px;margin-top:4px;font-style:italic}
+#panel .phase{display:inline-block;padding:2px 7px;border-radius:10px;
+  font-size:9.5px;letter-spacing:.04em;margin-left:4px}
+#controls{position:absolute;top:80px;right:14px;display:flex;flex-direction:column;gap:7px;pointer-events:all;z-index:10}
+.cbox{background:rgba(4,4,18,0.90);border:1px solid #ffffff1a;border-radius:9px;
+  padding:11px 15px;color:#e0e0f0;font-size:11.5px;min-width:228px}
+.cbox label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.cbox .lb{color:#aaaacc;font-size:11px}
+.cbox .vl{color:#F5E642;font-size:12px;font-weight:bold;min-width:48px;text-align:right}
+.sl{width:100%;height:3px;cursor:pointer;accent-color:#F5E642;
+  background:linear-gradient(to right,#F5E642 var(--pct,50%),#333355 var(--pct,50%));
+  border-radius:2px;outline:none;appearance:none;-webkit-appearance:none}
+.sl::-webkit-slider-thumb{appearance:none;width:13px;height:13px;border-radius:50%;
+  background:#F5E642;cursor:pointer;box-shadow:0 0 5px #F5E64288}
+.btn{background:rgba(4,4,18,0.82);border:1px solid #ffffff22;color:#c8c8e0;
+  font-size:11px;padding:5px 12px;border-radius:6px;cursor:pointer;
+  font-family:'Georgia',serif;transition:background .15s;width:100%}
+.btn:hover{background:rgba(255,255,255,0.09)}
+.btn.amber{border-color:#ffaa3344;color:#ffaa33}
+.btn.teal {border-color:#44ddbb44;color:#44ddbb}
+.btn.violet{border-color:#aa55ff44;color:#aa55ff}
+#loading{position:fixed;inset:0;background:#03030e;display:flex;align-items:center;
+  justify-content:center;color:#F5E642;font-size:16px;z-index:999;letter-spacing:.05em}
+#cb{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:9px;background:rgba(4,4,18,0.85);
+  border:1px solid #ffffff14;border-radius:7px;padding:6px 14px;
+  pointer-events:none;z-index:10;font-size:10px;white-space:nowrap}
+#cb .cl{color:#777}
+.gr{width:110px;height:8px;border-radius:3px;
+  background:linear-gradient(to right,#08082e,#4422bb,#F5E642,#ff5500,#440000)}
+.gr3{width:90px;height:8px;border-radius:3px;
+  background:linear-gradient(to right,#ffaa33 0% 33%,#44ddbb 33% 66%,#aa55ff 66% 100%)}
+
+/* slide-out tabs (mobile) */
+.panel-tab,.controls-tab{display:none;position:absolute;background:rgba(4,4,18,0.88);
+  border:1px solid #ffffff2a;color:#F5E642;font-size:18px;line-height:1;padding:10px 7px;
+  cursor:pointer;z-index:20;user-select:none;transition:opacity .2s}
+.panel-tab{border-radius:0 7px 7px 0}
+.controls-tab{border-radius:7px 0 0 7px}
+#panel{transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s}
+#controls{transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s}
+
+@media (max-width:700px),(pointer:coarse) {
+  #panel{top:64px;left:0;border-radius:0 9px 9px 0;max-width:240px;max-height:100vh;overflow-y:auto;transform:translateX(0)}
+  #panel.collapsed{transform:translateX(-100%);opacity:0;pointer-events:none}
+  .panel-tab{display:flex;align-items:center;justify-content:center;top:50%;
+    transform:translateY(-50%);left:0;width:22px;min-height:48px}
+  .panel-tab.shifted{left:240px}
+  #controls{top:auto;bottom:0;right:0;flex-direction:column;border-radius:9px 0 0 0;transform:translateX(0)}
+  #controls.collapsed{transform:translateX(110%);opacity:0;pointer-events:none}
+  .controls-tab{display:flex;align-items:center;justify-content:center;top:50%;
+    transform:translateY(-50%);right:0;width:22px;min-height:48px}
+  .controls-tab.shifted{right:calc(min(260px,60vw))}
+  .sl::-webkit-slider-thumb{width:20px;height:20px}
+}
+</style>
+</head>
+<body>
+<div id="loading">Threading the trefoil…</div>
+<div id="panel">
+  <h1>The Trefoil Hopfion (Q<sub>H</sub>=3)</h1>
+  <h2>The Quark Sector. Three quark colours from one knot · T<sub>2,3</sub>, R<sub>0</sub>=3, r<sub>0</sub>=0.874</h2>
+  <div class="sub">Drag to rotate · scroll to zoom · click legend to toggle</div>
+  <div class="divider"></div>
+
+  <div class="row active" id="tog-cloud" onclick="tog('cloud',this)">
+    <span class="dot" style="color:#F5E642;background:#F5E642"></span>
+    Energy density cloud
+  </div>
+  <div class="row active" id="tog-tube" onclick="tog('tube',this)">
+    <span class="dot" style="color:#7799ee;background:#7799ee"></span>
+    Tube surface (radius 1/C*)
+  </div>
+  <div class="row active" id="tog-mix" onclick="tog('mix',this)">
+    <span class="dot" style="color:#dd88ff;background:#dd88ff"></span>
+    Colour-mixing surface &nbsp;<span style="color:#555;font-size:9px">w<sub>k</sub>(t) at tube wall</span>
+  </div>
+  <div class="row active" id="tog-seff" onclick="tog('seff',this)">
+    <span class="dot" style="color:#ff4444;background:#ff4444"></span>
+    S<sub>eff</sub>(t) = sin⁴θ<sub>T</sub>/φ<sup>6</sup>
+  </div>
+  <div class="row active" id="tog-flux" onclick="tog('flux',this)">
+    <span class="dot" style="color:#cc88ff;background:#cc88ff"></span>
+    Flux rays — 3 colour/anti pairs
+  </div>
+  <div class="row active" id="tog-centre" onclick="tog('centre',this)">
+    <span class="dot" style="color:#ffcc88;background:#ffcc88"></span>
+    Trefoil centre curve T<sub>2,3</sub>
+  </div>
+  <div class="row active" id="tog-crossings" onclick="tog('crossings',this)">
+    <span class="dot" style="color:#ff66aa;background:#ff66aa"></span>
+    Three crossing regions
+  </div>
+  <div class="row" id="tog-z3" onclick="tog('z3',this)">
+    <span class="dot" style="color:#44ddaa;background:#44ddaa"></span>
+    ℤ<sub>3</sub> symmetry axis
+  </div>
+  <div class="row active" id="tog-cell24" onclick="tog('cell24',this)">
+    <span class="dot" style="color:#cc99ff;background:#cc99ff"></span>
+    24-cell of 2<em>T</em> &nbsp;<span style="color:#555;font-size:9px">binary tetrahedral group</span>
+  </div>
+<!--  <div class="row" id="tog-shaf" onclick="tog('shaf',this)">
+    <span class="dot" style="color:#ff8833;background:#ff8833"></span>
+    Shafranov shift glow at crossings
+  </div-->
+
+  <div class="divider"></div>
+  <div class="key">Why three concentrations exactly</div>
+  <div class="note">
+    The map t→t+π combined with z→−z is an exact isometry of T<sub>2,3</sub>:
+    over-strand and under-strand at every crossing have <em>identical</em>
+    curvature κ=0.399. Each crossing is one symmetric concentration,
+    so the count is exactly <b>3 = one per quark colour</b>.
+  </div>
+  <div class="note" style="color:#aa7777;font-style:italic">
+    Confinement: separating one tube would require simultaneously
+    crossing all three energy barriers. The universe makes a
+    quark–antiquark pair instead.
+  </div>
+  <div class="divider"></div>
+  <div class="note">
+    <b>S<sub>eff</sub>(t) = sin⁴θ<sub>T</sub>/φ<sup>6</sup></b>:
+    θ<sub>T</sub> = angle between tube tangent and ℤ<sub>3</sub> axis (z).
+    Peaks at all three crossings (θ<sub>T</sub>=90°, tangent exactly horizontal)
+  </div>
+  <div class="note">
+    <b>Flux rays</b>: at each crossing midpoint, two tangent directions
+    (over-strand and under-strand, 47.2° apart) define the colour/anti-colour
+    pair axis. The crossing midpoints all lie in the z=0
+    plane and their geometric center is the <b>origin</b> — the ℤ<sub>3</sub>
+    fixed point.
+  </div>
+  <div class="note">
+    <b>Colour mixing w<sub>k</sub>(t)</b>:
+    shows Gaussian proximity weights — pure colour at crossings,
+    equally mixed midway between.
+    Ribbon twist is uniform per arc length (Option&nbsp;C): 120° per crossing,
+    270° total, encoding θ<sub>3/2</sub><sup>3</sup> = <em>i</em> (prop:wrt_phase).
+  </div>
+
+  <div class="divider"></div>
+  <div class="note">
+    <b>24-cell of 2<em>T</em></b>: the 24 unit quaternions of the binary tetrahedral
+    group (order&nbsp;24), stereographically projected S³→ℝ³. then rotated so
+    the group's ℤ<sub>3</sub> axis [1,1,1]/√3 aligns with the trefoil's
+    physical ℤ<sub>3</sub> axis (z).
+    The McKay chain 2<em>T</em>&thinsp;↔&thinsp;E<sub>6</sub>&thinsp;↔&thinsp;SU(3)<sub>1</sub>
+    (§1, eq:mckay) identifies 2<em>T</em> as the group-theoretic backbone of the
+    Q<sub>H</sub>=3 quark sector, not this rotation itself.
+    Vertices coloured by dominant imaginary axis (red=<em>i</em>, green=<em>j</em>,
+    blue=<em>k</em>) — the ℤ<sub>3</sub> orbit {<em>i</em>,<em>j</em>,<em>k</em>} maps
+    to three quark colours. Edges connect pairs with positive quaternion inner product.
+  </div>
+
+  <div class="divider"></div>
+  <div id="stats" style="font-size:10px;color:#aaaacc;line-height:1.8">
+    <span id="st-cstar" style="color:#F5E642">C*₃ = 2.5062 &nbsp;·&nbsp; λ₃ = φ⁶ = 17.944</span><br>
+    <span id="st-tube">Tube radius 1/C* = 0.399 &nbsp;·&nbsp; Separation 4.4× radii</span><br>
+    <span id="st-note" style="color:#44ddbb;font-size:9.5px">Analytically proved — Theorem&nbsp;thm:sector_assignment</span>
+  </div>
+</div>
+
+<div id="controls">
+  <div class="cbox">
+    <div style="color:#F5E642;font-size:11px;margin-bottom:9px">
+      λ₃ = φ⁶ &nbsp;·&nbsp; C* = <span id="csv">2.506</span>
+      <div id="csnote" style="color:#44ddbb;font-size:9.5px;margin-top:2px">
+        Proved · Thm. thm:sector_assignment
+      </div>
+    </div>
+    <label><span class="lb">Particle count</span><span class="vl" id="dv">40k</span></label>
+    <input class="sl" id="dc" type="range" min="1" max="5" step="1" value="3"/>
+    <label style="margin-top:7px"><span class="lb">Density opacity</span><span class="vl" id="opv">82%</span></label>
+    <input class="sl" id="op" type="range" min="10" max="100" step="5" value="82"/>
+    <label style="margin-top:7px"><span class="lb">Tube fill (ρ max)</span><span class="vl" id="rv">0.95</span></label>
+    <input class="sl" id="rc" type="range" min="0.30" max="1.00" step="0.05" value="0.95"/>
+    <label style="margin-top:7px"><span class="lb">Profile C*</span><span class="vl" id="csv2">2.506</span></label>
+    <input class="sl" id="cs" type="range" min="0.30" max="2.506" step="0.001" value="2.506"/>
+    <div style="font-size:8.5px;color:#888;margin-top:2px;display:flex;justify-content:space-between">
+      <span>0.30</span><span style="color:#ffaa44">C*<sub>crit</sub>=1.144</span><span>2.506</span>
+    </div>
+  </div>
+
+  <button class="btn" onclick="resetCam()">Reset camera</button>
+</div>
+
+<div id="cb">
+  <span class="cl">S<sub>eff</sub>:</span>
+  <div style="width:80px;height:8px;border-radius:3px;background:linear-gradient(to right,#3a7bbf,#f0f0f0,#c83030)"></div>
+  <span class="cl">low→high</span>
+  <span class="cl">· vacuum</span>
+  <div style="width:55px;height:8px;border-radius:3px;background:linear-gradient(to right,#08082e,#ff8800)"></div>
+  <span class="cl">condensate</span>
+</div>
+
+<div class="panel-tab" id="panel-tab" onclick="togglePanel()">&#8250;</div>
+<div class="controls-tab" id="controls-tab" onclick="toggleControls()">&#8249;</div>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.168.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.168.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ── CONSTANTS ────────────────────────────────────────────────────────────────
+const PHI = (1+Math.sqrt(5))/2;
+const PHI5 = Math.pow(PHI,5);   // 11.0902
+const PHI6 = Math.pow(PHI,6);   // 17.9443
+const R0   = 3.0;
+const r0   = 0.874;             // trefoil shape param (R0/C*_2)
+const TWO_PI = 2*Math.PI;
+const KAPPA_MEAN = 0.3354;
+const KAPPA_MAX  = 0.3991;
+const KAPPA_SQ_MEAN = 0.1200;
+const L3 = 41.2644;
+const L2 = 2*Math.PI*R0;
+
+// Three crossings at t = π/6 + 2nπ/3   (n=0,1,2)
+const CROSSING_TS = [Math.PI/6, Math.PI/6 + TWO_PI/3, Math.PI/6 + 2*TWO_PI/3];
+
+// Quark-colour palette
+const COLOURS = [
+  {hex:0xdd0d0d, rgb:[0.85,0.05,0.05], name:'red'},
+  {hex:0x0ddd0d, rgb:[0.05,0.85,0.05], name:'green'},
+  {hex:0x0d0ddd, rgb:[0.05,0.05,0.85], name:'blue'},
+];
+
+// ── TREFOIL T_{2,3} ANALYTIC FORMULAS ────────────────────────────────────────
+function trefoilPos(t) {
+  const c3=Math.cos(3*t), s3=Math.sin(3*t);
+  const c2=Math.cos(2*t), s2=Math.sin(2*t);
+  const rho = R0 + r0*c3;
+  return [rho*c2, rho*s2, r0*s3];
+}
+function trefoilDeriv(t) {
+  const c3=Math.cos(3*t), s3=Math.sin(3*t);
+  const c2=Math.cos(2*t), s2=Math.sin(2*t);
+  const rho = R0 + r0*c3;
+  return [-3*r0*s3*c2 - 2*rho*s2,
+          -3*r0*s3*s2 + 2*rho*c2,
+           3*r0*c3];
+}
+function trefoilSecondDeriv(t) {
+  const c3=Math.cos(3*t), s3=Math.sin(3*t);
+  const c2=Math.cos(2*t), s2=Math.sin(2*t);
+  const rho = R0 + r0*c3;
+  // d/dt[ -3r0 s3 c2 - 2 rho s2 ] = -9r0 c3 c2 + 6r0 s3 s2 + 6r0 s3 s2 - 4 rho c2
+  return [-9*r0*c3*c2 + 12*r0*s3*s2 - 4*rho*c2,
+          -9*r0*c3*s2 - 12*r0*s3*c2 - 4*rho*s2,
+          -9*r0*s3];
+}
+function frenetAt(t) {
+  const G1 = trefoilDeriv(t);
+  const G2 = trefoilSecondDeriv(t);
+  const G1mag = Math.hypot(...G1);
+  const T = G1.map(v => v/G1mag);
+  const G2dotT = G2[0]*T[0]+G2[1]*T[1]+G2[2]*T[2];
+  const dTdt = G2.map((v,i)=>(v - G2dotT*T[i])/G1mag);
+  const dTmag = Math.hypot(...dTdt) || 1e-10;
+  const N = dTdt.map(v => v/dTmag);
+  const B = [T[1]*N[2]-T[2]*N[1], T[2]*N[0]-T[0]*N[2], T[0]*N[1]-T[1]*N[0]];
+  const cross = [G1[1]*G2[2]-G1[2]*G2[1],
+                 G1[2]*G2[0]-G1[0]*G2[2],
+                 G1[0]*G2[1]-G1[1]*G2[0]];
+  const kappa = Math.hypot(...cross) / Math.pow(G1mag,3);
+  return {pos: trefoilPos(t), T, N, B, kappa, speed: G1mag};
+}
+
+// ── PRECOMPUTED FRAMES ───────────────────────────────────────────────────────
+const NSEG = 480;
+const frames = [];
+let kappa_min = 1e9, kappa_max = 0;
+for (let i=0; i<NSEG; i++) {
+  const t = i/NSEG * TWO_PI;
+  const f = frenetAt(t);
+  f.t = t;
+  frames.push(f);
+  if (f.kappa < kappa_min) kappa_min = f.kappa;
+  if (f.kappa > kappa_max) kappa_max = f.kappa;
+}
+
+// Interpolate frame at arbitrary t (lerp position, normalize directions)
+function frameAt(t) {
+  const tt = ((t % TWO_PI) + TWO_PI) % TWO_PI;
+  const x = tt/TWO_PI * NSEG;
+  const i0 = Math.floor(x) % NSEG;
+  const i1 = (i0+1) % NSEG;
+  const a = x - Math.floor(x);
+  const f0 = frames[i0], f1 = frames[i1];
+  // Use closest frame's N,B (avoids interpolating-then-renormalising twist)
+  const f = a < 0.5 ? f0 : f1;
+  return {
+    pos: [f0.pos[0]*(1-a)+f1.pos[0]*a,
+          f0.pos[1]*(1-a)+f1.pos[1]*a,
+          f0.pos[2]*(1-a)+f1.pos[2]*a],
+    N: f.N, B: f.B, T: f.T,
+    kappa: f0.kappa*(1-a)+f1.kappa*a
+  };
+}
+
+function tubePoint(t, rho, chi) {
+  const f = frameAt(t);
+  const c = Math.cos(chi), s = Math.sin(chi);
+  return [f.pos[0] + rho*(c*f.N[0] + s*f.B[0]),
+          f.pos[1] + rho*(c*f.N[1] + s*f.B[1]),
+          f.pos[2] + rho*(c*f.N[2] + s*f.B[2])];
+}
+
+// ── COLOUR ASSIGNMENT BY t ───────────────────────────────────────────────────
+// Closest crossing -> one of three colours. Brightness peaks at the crossing.
+function colourAt(t) {
+  let best=0, bestD=TWO_PI;
+  for (let i=0; i<3; i++) {
+    let d = Math.abs(t - CROSSING_TS[i]);
+    if (d > Math.PI) d = TWO_PI - d;
+    if (d < bestD) { bestD = d; best = i; }
+  }
+  const c = COLOURS[best].rgb;
+  const proximity = Math.exp(-5.0 * (bestD/Math.PI)**2);
+  const brightness = 0.15 + 1.05*Math.pow(proximity, 0.70);
+  return [c[0]*brightness, c[1]*brightness, c[2]*brightness, best];
+}
+
+// ── HOPF DENSITY PROFILE ─────────────────────────────────────────────────────
+// BS profile: f(ρ̂) = 2 arctan(ρ̂^{-C*}) with ρ̂ = ρ·C* (tube-radius units).
+// Topological density ∝ sin⁴(f), peaking at ρ̂≈1 (the tube wall).
+function densityProfile(rho_norm, C) {
+  if (rho_norm <= 0) return 0;
+  const u = Math.pow(rho_norm, C);  // ρ̂^{C*}
+  const sinf = 2*u/(u*u + 1);
+  return Math.pow(sinf, 4);         // sin⁴(f)
+}
+
+// Shafranov-modulated full density:
+//   d(t, ρ̂, χ) ∝ sin⁴(f(ρ̂)) · (1 + α·κ(t)·ρ̂·cos χ)
+// where the cos χ term concentrates field on the inner-curvature side
+// (Paper XIV Shafranov mechanism, applied locally along the trefoil).
+//function fullDensity(t, rho_norm, chi, C) {
+//  const base = densityProfile(rho_norm, C);
+//  const f = frameAt(t);
+//  const shaf = 1 + 0.55 * f.kappa * rho_norm * Math.cos(chi);
+//  return base * shaf;
+//}
+
+// Precompute a (t, ρ̂) lookup table to speed up rejection sampling.
+const NT_TBL = 240, NR_TBL = 64;
+let DTAB = new Float32Array(NT_TBL*NR_TBL);
+let D_MAX = 0;
+function rebuildDTAB(C) {
+  D_MAX = 0;
+  for (let i=0; i<NT_TBL; i++) {
+    const t = i/NT_TBL * TWO_PI;
+    const f = frameAt(t);
+    for (let j=0; j<NR_TBL; j++) {
+      const rho_n = (j+0.5)/NR_TBL;
+      // max over χ -> use the +cos peak
+      const base = densityProfile(rho_n, C);
+      const dmax = base * (1 + 0.55*f.kappa*rho_n);
+      DTAB[i*NR_TBL+j] = dmax;
+      if (dmax > D_MAX) D_MAX = dmax;
+    }
+  }
+}
+
+// ── PRECOMPUTED S_eff AND COLOUR-MIXING WEIGHTS ──────────────────────────────
+// S_eff(t) = sin⁴(θ_T(t)) / φ⁶   where θ_T = angle(tangent, z-axis)
+// Peaks at the three crossings where θ_T = 90° (tangent is horizontal).
+// w_k(t) = Gaussian proximity to crossing k, normalised to sum=1.
+// sigma chosen so mixing is 50/50 at the midpoint between two crossings (arc-dist π/6).
+const SEFF_N = 480;
+const SEFF_T = new Float32Array(SEFF_N);    // S_eff values
+const SEFF_W = new Float32Array(SEFF_N*3);  // mixing weights [w0,w1,w2] per segment
+let SEFF_MAX = 0, SEFF_MIN = 1e9;
+const SIGMA_MIX = (Math.PI/6) / Math.sqrt(2*Math.log(2));  // ≈0.445 rad
+(function precomputeSeff(){
+  for (let i=0; i<SEFF_N; i++) {
+    const t = i/SEFF_N * TWO_PI;
+    // S_eff via tangent angle
+    const G1 = trefoilDeriv(t);
+    const g1mag = Math.hypot(...G1);
+    const Tz = G1[2]/g1mag;   // z-component of unit tangent
+    const sinTh2 = 1 - Tz*Tz;
+    const s = sinTh2*sinTh2 / PHI**6;
+    SEFF_T[i] = s;
+    if (s > SEFF_MAX) SEFF_MAX = s;
+    if (s < SEFF_MIN) SEFF_MIN = s;
+    // mixing weights
+    let wsum = 0;
+    for (let k=0; k<3; k++) {
+      let dt = Math.abs(t - CROSSING_TS[k]);
+      if (dt > Math.PI) dt = TWO_PI - dt;
+      const w = Math.exp(-dt*dt/(2*SIGMA_MIX*SIGMA_MIX));
+      SEFF_W[i*3+k] = w; wsum += w;
+    }
+    for (let k=0; k<3; k++) SEFF_W[i*3+k] /= wsum || 1;
+  }
+})();
+
+// Coolwarm-style ramp: blue (low S_eff) → white → red (high S_eff)
+// Matches the image's coolwarm colormap.
+function coolwarm(t) {
+  t = Math.max(0, Math.min(1, t));
+  let r, g, b;
+  if (t < 0.5) {
+    const u = t * 2;
+    r = 0.23 + u*0.47; g = 0.30 + u*0.60; b = 0.75 + u*0.20;
+  } else {
+    const u = (t - 0.5) * 2;
+    r = 0.70 + u*0.30; g = 0.90 - u*0.72; b = 0.95 - u*0.90;
+  }
+  return [r, g, b];
+}
+
+// ── NEW LAYER: S_eff curve ────────────────────────────────────────────────────
+// Renders the trefoil centre curve as line segments coloured by S_eff(t).
+// Blue = low S_eff (straight sections), red = high S_eff (crossings).
+function buildSeff() {
+  LAY.seff.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.seff.length = 0;
+  const pos = [], col = [];
+  const sRange = SEFF_MAX - SEFF_MIN;
+  for (let i=0; i<SEFF_N; i++) {
+    const i1 = (i+1) % SEFF_N;
+    const p0 = frames[i].pos, p1 = frames[i1].pos;
+    const s = (SEFF_T[i] - SEFF_MIN) / sRange;
+    const [r,g,b] = coolwarm(s);
+    // Each segment: two verts with same colour
+    pos.push(p0[0],p0[1],p0[2], p1[0],p1[1],p1[2]);
+    col.push(r,g,b, r,g,b);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('color',    new THREE.Float32BufferAttribute(col, 3));
+  const mat = new THREE.LineSegments(geo, new THREE.LineBasicMaterial({
+    vertexColors:true, linewidth:2, transparent:true, opacity:0.95, depthWrite:false
+  }));
+  addL('seff', mat);
+  // Annotate max S_eff at crossings
+  for (let k=0; k<3; k++) {
+    const p = frames[Math.round(CROSSING_TS[k]/TWO_PI * SEFF_N) % SEFF_N].pos;
+    const cv = document.createElement('canvas'); cv.width=200; cv.height=50;
+    const ctx = cv.getContext('2d');
+    ctx.font = '17px Georgia'; ctx.fillStyle = '#ff9999';
+    ctx.shadowColor='#000'; ctx.shadowBlur=6;
+    ctx.fillText(`S = 1/\u03C6\u2076 \u2248 0.056`, 4, 32);
+    const lbl = new THREE.Sprite(new THREE.SpriteMaterial({
+      map:new THREE.CanvasTexture(cv), transparent:true, depthWrite:false
+    }));
+    lbl.scale.set(1.4, 0.35, 1);
+    lbl.position.set(p[0]*1.18, p[1]*1.18, p[2]+0.5);
+    addL('seff', lbl);
+  }
+}
+
+// ── NEW LAYER: Colour-mixing tube surface ─────────────────────────────────────
+// The tube surface is rendered as a vertex-coloured mesh where each ring of
+// vertices at arc-position t carries the colour w0·red + w1·green + w2·blue.
+// This shows the colour-charge mixing along the trefoil (Paper XV §9).
+function buildMix(C) {
+  LAY.mix.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.mix.length = 0;
+  const r = 1/C;
+  // Colour palette: red, green, blue (standard QCD colour convention)
+  const CP = [[0.85,0.05,0.05],[0.05,0.85,0.05],[0.05,0.05,0.85]];
+  const NR = 2;  // radial segments — ribbon geometry
+  const pos = [], col = [], idx = [];
+  const NT = SEFF_N;
+
+  // ── Option C: arc-length-uniform twist ───────────────────────────────────────
+  // The Bishop frame closeLoop() distributes the writhe holonomy (3×2π = 6π) evenly
+  // in PARAMETER t, not arc length. Where the curve is fast (|G'| large at crossings)
+  // each frame covers more arc → the visual twist rate is uneven.
+  // We correct this by computing δφ(i) = [s(i)/L₃ − i/NT] × 3×2π
+  // and adding it to the ribbon's cross-section angle chi.
+  // Over the full loop δφ(0)=δφ(NT)=0 so the ribbon closes exactly.
+  // The total additional twist encodes θ_{3/2}^3 = i (Proposition prop:wrt_phase).
+  const cumArc = new Float32Array(NT + 1);
+  cumArc[0] = 0;
+  for (let i = 1; i <= NT; i++) {
+    const fa = frames[(i-1) % SEFF_N], fb = frames[i % SEFF_N];
+    const dx=fb.pos[0]-fa.pos[0], dy=fb.pos[1]-fa.pos[1], dz=fb.pos[2]-fa.pos[2];
+    cumArc[i] = cumArc[i-1] + Math.sqrt(dx*dx+dy*dy+dz*dz);
+  }
+  const L3arc = cumArc[NT]; // full arc length ≈ 41.26
+
+  for (let i = 0; i <= NT; i++) {
+    const fi = frames[i % SEFF_N];
+    const w0 = SEFF_W[(i%SEFF_N)*3+0];
+    const w1 = SEFF_W[(i%SEFF_N)*3+1];
+    const w2 = SEFF_W[(i%SEFF_N)*3+2];
+    const cr = w0*CP[0][0] + w1*CP[1][0] + w2*CP[2][0];
+    const cg = w0*CP[0][1] + w1*CP[1][1] + w2*CP[2][1];
+    const cb = w0*CP[0][2] + w1*CP[1][2] + w2*CP[2][2];
+    const si = i % SEFF_N;
+    const norm = Math.pow((SEFF_T[si]-SEFF_MIN)/(SEFF_MAX-SEFF_MIN), 0.55);
+    const bright = 0.55 + 0.45*norm;
+
+    // Arc-length correction: redistribute holonomy from t-space to arc-length space
+    const delta_phi = (cumArc[i] / L3arc - i / NT) * 3 * TWO_PI;
+
+    for (let j=0; j<=NR; j++) {
+      const chi = j/NR * TWO_PI + delta_phi;  // twist uniform in arc length
+      const cosC = Math.cos(chi), sinC = Math.sin(chi);
+      const px = fi.pos[0] + r*(cosC*fi.N[0] + sinC*fi.B[0]);
+      const py = fi.pos[1] + r*(cosC*fi.N[1] + sinC*fi.B[1]);
+      const pz = fi.pos[2] + r*(cosC*fi.N[2] + sinC*fi.B[2]);
+      pos.push(px, py, pz);
+      col.push(cr*bright, cg*bright, cb*bright);
+    }
+  }
+
+  // Build triangle index
+  for (let i=0; i<NT; i++) {
+    for (let j=0; j<NR; j++) {
+      const a = i*(NR+1)+j, b = a+1, c = (i+1)*(NR+1)+j, d = c+1;
+      idx.push(a,b,d, a,d,c);
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('color',    new THREE.Float32BufferAttribute(col, 3));
+  geo.setIndex(idx);
+  geo.computeVertexNormals();
+  const mat = new THREE.MeshBasicMaterial({
+    vertexColors:true, transparent:true, opacity:0.42,
+    side:THREE.DoubleSide, depthWrite:false,
+    blending: THREE.NormalBlending
+  });
+  addL('mix', new THREE.Mesh(geo, mat));
+}
+
+// ── NEW LAYER: Flux rays — 3 colour/anti-colour pairs ────────────────────────
+// At each crossing midpoint, two tangent directions (over/under strands)
+// define the colour/anti-colour axis. Six rays total (2 per crossing × 3 crossings).
+// PHYSICS: rays curve toward the condensate (acoustic metric n∝ρ) near the tube,
+// then straighten in the far-field vacuum. Implemented as: at each ray point,
+// compute displacement toward nearest trefoil centre-curve point, apply with
+// exponential decay ~ exp(-s²/σ²) so curvature is near-crossing only.
+function buildFlux() {
+  LAY.flux.forEach(o => { scene.remove(o); o.geometry?.dispose?.(); o.material?.dispose?.(); });
+  LAY.flux.length = 0;
+
+  const RAY_LEN   = 5.5;
+  const RAY_SEGS  = 2000;
+  const RAY_THICK = 0.055;
+  // Curvature params: A = pull strength, SIGMA = scale of inward pull
+  const CURVE_A   = 0.28;
+  const CURVE_SIG = 1.6;
+
+  // Strand-locked nearest curve point.
+  // homeT: the parameter of the strand this ray belongs to (tc for over-strand, tc+π for under).
+  // Scanning only within ±WINDOW frames around homeT prevents the ray from jumping to
+  // the other strand at the crossing, which caused the oscillating weave.
+  // The ray curves toward its OWN tube — the physically correct behaviour.
+  const WINDOW = 60; // frames ≈ π/4 in parameter — safely inside one strand's domain
+  function nearestCurvePoint(x, y, z, homeT) {
+    const homeIdx = Math.round(((homeT % TWO_PI) + TWO_PI) % TWO_PI / TWO_PI * NSEG) % NSEG;
+    let bestD2 = 1e12, best = frames[homeIdx].pos;
+    for (let di = -WINDOW; di <= WINDOW; di++) {
+      const ii = ((homeIdx + di) % NSEG + NSEG) % NSEG;
+      const f = frames[ii];
+      const dx=x-f.pos[0], dy=y-f.pos[1], dz=z-f.pos[2];
+      const d2=dx*dx+dy*dy+dz*dz;
+      if (d2 < bestD2) { bestD2=d2; best=f.pos; }
+    }
+    return best;
+  }
+
+  const crossingData = CROSSING_TS.map(tc => {
+    const pO = trefoilPos(tc);
+    const pU = trefoilPos(tc + Math.PI);
+    const mid = [(pO[0]+pU[0])/2, (pO[1]+pU[1])/2, (pO[2]+pU[2])/2];
+    const G1o = trefoilDeriv(tc);
+    const G1u = trefoilDeriv(tc + Math.PI);
+    const mo = Math.hypot(...G1o), mu = Math.hypot(...G1u);
+    const TO = G1o.map(v=>v/mo);
+    const TU = G1u.map(v=>v/mu);
+    return {mid, TO, TU};
+  });
+
+  const LABELS = [
+    ['colour 1','anti 1'],
+    ['colour 2','anti 2'],
+    ['colour 3','anti 3'],
+  ];
+
+  crossingData.forEach(({mid, TO, TU}, k) => {
+    const col = COLOURS[k];
+    const tcK = CROSSING_TS[k];
+    const dirs = [
+      {dir: TO, homeT: tcK,            label: LABELS[k][0], antiLabel: LABELS[k][1]},
+      {dir: TU, homeT: tcK + Math.PI,  label: `${LABELS[(k+1)%3][0]} (strand 2)`, antiLabel: `${LABELS[(k+1)%3][1]}`},
+    ];
+
+    dirs.forEach(({dir, homeT, label, antiLabel}, di) => {
+      for (const sign of [+1, -1]) {
+        const pos = [], col3 = [];
+        for (let i=0; i<=RAY_SEGS; i++) {
+          const s = (i/RAY_SEGS) * RAY_LEN * sign;
+          // Straight-line base
+          let x = mid[0] + s*dir[0];
+          let y = mid[1] + s*dir[1];
+          let z = mid[2] + s*dir[2];
+          // Acoustic-metric curvature: pull toward nearest curve point
+          // with Gaussian envelope decaying away from crossing
+          const pull = CURVE_A * Math.exp(-(s*s)/(CURVE_SIG*CURVE_SIG));
+          if (pull > 0.000002) {
+            const np = nearestCurvePoint(x, y, z, homeT);
+            x += pull * (np[0] - x);
+            y += pull * (np[1] - y);
+            z += pull * (np[2] - z);
+          }
+          pos.push(x, y, z);
+          const t = Math.max(0, 1 - Math.abs(s)/RAY_LEN);
+          const [r,g,b] = coolwarm(t);
+          col3.push(r, g, b);
+        }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+        geo.setAttribute('color',    new THREE.Float32BufferAttribute(col3, 3));
+        addL('flux', new THREE.Line(geo, new THREE.LineBasicMaterial({
+          vertexColors:true, transparent:true, opacity:0.82, depthWrite:false, linewidth:2
+        })));
+
+        // Thickened tube over the hot (near-crossing) half
+        const hotLen = RAY_LEN * 0.4;
+        const cylPts = [];
+        for (let i=0; i<=RAY_SEGS; i++) {
+          const s = (i/RAY_SEGS) * hotLen * sign;
+          let x = mid[0]+s*dir[0], y = mid[1]+s*dir[1], z = mid[2]+s*dir[2];
+          const pull = CURVE_A * Math.exp(-(s*s)/(CURVE_SIG*CURVE_SIG));
+          if (pull > 0.000002) {
+            const np = nearestCurvePoint(x, y, z, homeT);
+            x += pull*(np[0]-x); y += pull*(np[1]-y); z += pull*(np[2]-z);
+          }
+          cylPts.push(new THREE.Vector3(x, y, z));
+        }
+        const curve = new THREE.CatmullRomCurve3(cylPts);
+        const tubeGeo = new THREE.TubeGeometry(curve, 16, RAY_THICK * (di===0?1.4:0.9), 8, false);
+        const cArr = new Float32Array(tubeGeo.attributes.position.count * 3);
+        const posArr = tubeGeo.attributes.position.array;
+        for (let v=0; v<tubeGeo.attributes.position.count; v++) {
+          const px=posArr[v*3], py=posArr[v*3+1], pz=posArr[v*3+2];
+          const dist = Math.hypot(px-mid[0], py-mid[1], pz-mid[2]);
+          const tt = Math.max(0, 1 - dist/hotLen);
+          const [rr,gg,bb] = coolwarm(tt);
+          cArr[v*3]=rr; cArr[v*3+1]=gg; cArr[v*3+2]=bb;
+        }
+        tubeGeo.setAttribute('color', new THREE.Float32BufferAttribute(cArr, 3));
+        addL('flux', new THREE.Mesh(tubeGeo, new THREE.MeshBasicMaterial({
+          vertexColors:true, transparent:true, opacity:0.72, depthWrite:false,
+          side:THREE.DoubleSide
+        })));
+
+        // Label at the tip
+        const tipSign = sign;
+        // Compute curved tip position
+        const sT = RAY_LEN * 1.05 * tipSign;
+        let tx = mid[0]+sT*dir[0], ty = mid[1]+sT*dir[1], tz = mid[2]+sT*dir[2];
+        const pullT = CURVE_A * Math.exp(-(sT*sT)/(CURVE_SIG*CURVE_SIG));
+        if (pullT > 0.002) {
+          const np = nearestCurvePoint(tx, ty, tz, homeT);
+          tx+=pullT*(np[0]-tx); ty+=pullT*(np[1]-ty); tz+=pullT*(np[2]-tz);
+        }
+        const lText = tipSign > 0 ? label : antiLabel;
+        if (di === 0) {
+          const cv = document.createElement('canvas'); cv.width=220; cv.height=52;
+          const ctx = cv.getContext('2d');
+          ctx.font = 'bold 22px Georgia';
+          ctx.fillStyle = '#'+col.hex.toString(16).padStart(6,'0');
+          ctx.shadowColor='#000'; ctx.shadowBlur=6;
+          ctx.fillText(lText, 6, 34);
+          const lbl = new THREE.Sprite(new THREE.SpriteMaterial({
+            map:new THREE.CanvasTexture(cv), transparent:true, depthWrite:false
+          }));
+          lbl.scale.set(1.5, 0.35, 1);
+          lbl.position.set(tx, ty, tz);
+          addL('flux', lbl);
+        }
+      }
+    });
+  });
+
+  // ── CONFINEMENT FLUX TRIANGLE ──────────────────────────────────────────────
+  // Internal colour-flux string network between the three crossing midpoints.
+  // These are approximately straight (they pass through the vacuum interior
+  // of the trefoil) — the physically accurate inter-quark flux tubes.
+  // Coloured as a blend of the two endpoint colours.
+  const mids = crossingData.map(d => d.mid);
+  for (let a=0; a<3; a++) {
+    const b = (a+1)%3;
+    const cA = COLOURS[a].rgb, cB = COLOURS[b].rgb;
+    const pos = [], col3 = [];
+    const NSEG_CONF = 40;
+    for (let i=0; i<=NSEG_CONF; i++) {
+      const u = i/NSEG_CONF;
+      pos.push(mids[a][0]*(1-u)+mids[b][0]*u,
+               mids[a][1]*(1-u)+mids[b][1]*u,
+               mids[a][2]*(1-u)+mids[b][2]*u);
+      // blend A→B plus white glow near centre (u≈0.5)
+      const glow = 0.35 * Math.exp(-((u-0.5)*(u-0.5))/(0.06));
+      col3.push(cA[0]*(1-u)+cB[0]*u + glow,
+                cA[1]*(1-u)+cB[1]*u + glow,
+                cA[2]*(1-u)+cB[2]*u + glow);
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    geo.setAttribute('color',    new THREE.Float32BufferAttribute(col3, 3));
+    addL('flux', new THREE.Line(geo, new THREE.LineBasicMaterial({
+      vertexColors:true, transparent:true, opacity:0.65, depthWrite:false, linewidth:2
+    })));
+  }
+
+  // ── Y-JUNCTION MARKER ─────────────────────────────────────────────────────
+  // The origin is the Fermat-Steiner point of the equilateral triangle
+  // formed by the three crossing midpoints (all at distance R0=3).
+  // This is the optimal Y-junction: total string length 3×R0 = 9 = N₃².
+  // It is the ENERGY BALANCE POINT of the baryon — the missing term
+  // in the profile-only saddle search.
+  const originGeo = new THREE.SphereGeometry(0.18, 20, 14);
+  const originMat = new THREE.MeshBasicMaterial({
+    color:0xffffff, transparent:true, opacity:0.92, depthWrite:false,
+    blending:THREE.AdditiveBlending
+  });
+  addL('flux', new THREE.Mesh(originGeo, originMat));
+  // Glow halo
+  const glowGeo = new THREE.SphereGeometry(0.40, 16, 10);
+  addL('flux', new THREE.Mesh(glowGeo, new THREE.MeshBasicMaterial({
+    color:0x8888ff, transparent:true, opacity:0.18, depthWrite:false,
+    blending:THREE.AdditiveBlending, side:THREE.BackSide
+  })));
+  const pl = new THREE.PointLight(0xaaaaff, 0.8, 8);
+  pl.position.set(0,0,0);
+  addL('flux', pl);
+
+  // Label the Y-junction
+  {
+    const cv = document.createElement('canvas'); cv.width=320; cv.height=86;
+    const ctx = cv.getContext('2d');
+    ctx.font = 'bold 18px Georgia';
+    ctx.fillStyle = '#aabbff';
+    ctx.shadowColor='#000'; ctx.shadowBlur=7;
+    ctx.fillText('Y-junction', 8, 26);
+    ctx.font = '14px Georgia';
+    ctx.fillStyle = '#8899cc';
+    ctx.fillText('Fermat\u2013Steiner point', 8, 48);
+    ctx.fillText('3 arms \u00D7 R\u2080 = N\u2083\u00B2 = 9', 8, 68);
+    const lbl = new THREE.Sprite(new THREE.SpriteMaterial({
+      map:new THREE.CanvasTexture(cv), transparent:true, depthWrite:false
+    }));
+    lbl.scale.set(2.4, 0.65, 1);
+    lbl.position.set(0.8, 0.7, 0.4);
+    addL('flux', lbl);
+  }
+
+  // Draw the three Y-junction arms (straight lines from origin to crossing midpoints)
+  // These are the colour string network shown explicitly
+  crossingData.forEach(({mid}, k) => {
+    const cRGB = COLOURS[k].rgb;
+    const pos = [], col3 = [];
+    const NARM = 30;
+    for (let i=0; i<=NARM; i++) {
+      const u = i/NARM;
+      pos.push(mid[0]*u, mid[1]*u, mid[2]*u);
+      // white at origin → quark colour at crossing midpoint
+      const glow = (1-u)*0.6;
+      col3.push(cRGB[0]*u + glow, cRGB[1]*u + glow, cRGB[2]*u + glow);
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    geo.setAttribute('color',    new THREE.Float32BufferAttribute(col3, 3));
+    addL('flux', new THREE.Line(geo, new THREE.LineBasicMaterial({
+      vertexColors:true, transparent:true, opacity:0.80, depthWrite:false, linewidth:3
+    })));
+    // Arm length annotation at midpoint of each arm
+    const amx=mid[0]*0.52, amy=mid[1]*0.52, amz=mid[2]*0.52;
+    const acv = document.createElement('canvas'); acv.width=160; acv.height=46;
+    const actx = acv.getContext('2d');
+    actx.font = '15px Georgia';
+    actx.fillStyle = '#'+COLOURS[k].hex.toString(16).padStart(6,'0');
+    actx.shadowColor='#000'; actx.shadowBlur=5;
+    actx.fillText('R\u2080 = 3', 6, 30);
+    const albl = new THREE.Sprite(new THREE.SpriteMaterial({
+      map:new THREE.CanvasTexture(acv), transparent:true, depthWrite:false
+    }));
+    albl.scale.set(1.1, 0.32, 1);
+    albl.position.set(amx, amy, amz+0.3);
+    addL('flux', albl);
+  });
+}
+
+// ── SCENE ────────────────────────────────────────────────────────────────────
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x03030e);
+scene.fog = new THREE.FogExp2(0x03030e, .007);
+
+const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, .01, 500);
+camera.position.set(9, 5.5, 9);
+
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+document.body.appendChild(renderer.domElement);
+
+const orb = new OrbitControls(camera, renderer.domElement);
+orb.enableDamping = true; orb.dampingFactor = .05;
+orb.minDistance = 2; orb.maxDistance = 60; orb.update();
+
+scene.add(new THREE.AmbientLight(0x8899cc, .45));
+const sun = new THREE.DirectionalLight(0xfff5e8, 1.25);
+sun.position.set(8, 14, 6); scene.add(sun);
+scene.add(new THREE.PointLight(0x2233ff, .5, 30).translateOnAxis(new THREE.Vector3(-1,0.5,-1).normalize(), 10));
+scene.add(new THREE.PointLight(0xff6633, .35, 22).translateOnAxis(new THREE.Vector3(1,-0.5,1).normalize(), 8));
+
+// background stars
+(()=>{const a=[]; for (let i=0;i<2500;i++) a.push((Math.random()-.5)*300,(Math.random()-.5)*300,(Math.random()-.5)*300);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(a,3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0xffffff,size:.07,transparent:true,opacity:.28})));})();
+
+// ── LAYER REGISTRY ───────────────────────────────────────────────────────────
+const LAY = {cloud:[], tube:[], mix:[], seff:[], flux:[], centre:[], crossings:[], z3:[], shaf:[], cell24:[]};
+const ON  = {cloud:true, tube:true, mix:true, seff:true, flux:true, centre:true, crossings:true, z3:false, shaf:false, cell24:false};
+function addL(k, o) { LAY[k].push(o); scene.add(o); o.visible = ON[k]; }
+window.tog = (k, el) => { ON[k] = !ON[k]; LAY[k].forEach(o => o.visible = ON[k]); el.classList.toggle('active', ON[k]); };
+
+// ── GLOBAL STATE ─────────────────────────────────────────────────────────────
+const Cstar_proved = 2.5062;  // proved: λ₃=φ⁶ → C*₃=2.5062 (Cor. cor:lambda3_proved)
+const Cstar_crit   = 1/0.874; // geometric threshold: tube radius = injectivity radius r₀
+let   Cstar = Cstar_proved;
+let cloudOpacity = 0.82;
+let rhoMaxFrac = 0.95;
+const DCOUNTS = [8000, 20000, 40000, 65000, 100000];
+let curD = 2;
+
+// ── 1. CENTRE CURVE ──────────────────────────────────────────────────────────
+function buildCentre() {
+  LAY.centre.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.centre.length = 0;
+  // Render as a thin tube for visibility
+  const pts = [];
+  for (let i=0; i<=NSEG; i++) pts.push(new THREE.Vector3(...frames[i%NSEG].pos));
+  const curve = new THREE.CatmullRomCurve3(pts, true);
+  const geo = new THREE.TubeGeometry(curve, NSEG, 0.025, 6, true);
+  const mat = new THREE.MeshBasicMaterial({color:0xffcc88, transparent:true, opacity:0.85, depthWrite:false});
+  addL('centre', new THREE.Mesh(geo, mat));
+}
+
+// ── 2. TUBE SURFACE ──────────────────────────────────────────────────────────
+function buildTube(C) {
+  LAY.tube.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.tube.length = 0;
+  const r = 1/C;
+  const pts = [];
+  for (let i=0; i<=NSEG; i++) pts.push(new THREE.Vector3(...frames[i%NSEG].pos));
+  const curve = new THREE.CatmullRomCurve3(pts, true);
+  const geo = new THREE.TubeGeometry(curve, NSEG, r, 24, true);
+  const mat = new THREE.MeshPhongMaterial({
+    color:0x4477bb, transparent:true, opacity:0.20, side:THREE.DoubleSide,
+    depthWrite:false, shininess:80, specular:0x99bbff
+  });
+  addL('tube', new THREE.Mesh(geo, mat));
+}
+
+// ── 3. ENERGY DENSITY CLOUD ──────────────────────────────────────────────────
+function buildCloud(N, C, rho_max_frac) {
+  LAY.cloud.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.cloud.length = 0;
+  const r_tube = 1/C;
+  const pos = [], col = [];
+  let placed = 0;
+  for (let attempt = 0; attempt < N*18 && placed < N; attempt++) {
+    const t = Math.random() * TWO_PI;
+    // sqrt-weighted ρ̂ samples area-uniformly across cross-section
+    const rho_n = Math.sqrt(Math.random()) * rho_max_frac;
+    const chi = Math.random() * TWO_PI;
+
+    // Density lookup
+    const ti = Math.min(NT_TBL-1, Math.floor(t/TWO_PI * NT_TBL));
+    const rj = Math.min(NR_TBL-1, Math.floor(rho_n * NR_TBL));
+    const d_at = DTAB[ti*NR_TBL + rj];
+    // Apply χ modulation: 1 + α·κ·ρ̂·cos(χ), DTAB stored the χ=0 peak
+    const f = frameAt(t);
+    const chi_factor = 1 + 0.55*f.kappa*rho_n*Math.cos(chi);
+    //const d_eff = (d_at / Math.max(1 + 0.55*f.kappa*rho_n, 1e-6)) * chi_factor;
+    const d_eff_raw = (d_at / Math.max(1 + 0.55*f.kappa*rho_n, 1e-6)) * chi_factor;
+
+    // S_eff t-axis modulation: condensate is physically denser where sin⁴(θ_T) is larger.
+    // At crossings (θ_T=90°, S_eff=SEFF_MAX=1/φ⁶): full density.
+    // At kappa-minima (θ_T<90°, S_eff=SEFF_MIN≈0.52×SEFF_MAX): reduced density.
+    // Use precomputed SEFF_T array (already exists from buildSeff).
+    const si = Math.min(SEFF_N-1, Math.round(t/TWO_PI * SEFF_N) % SEFF_N);
+    const seff_factor = SEFF_T[si] / SEFF_MAX;  // in [0.52, 1.0]
+    const d_eff = d_eff_raw * seff_factor;
+
+    if (Math.random() > d_eff / D_MAX * 1.1) continue;
+
+    const rho_abs = rho_n * r_tube;
+    const p = tubePoint(t, rho_abs, chi);
+    pos.push(p[0], p[1], p[2]);
+
+    // Normalised density at this exact sample point (0 → 1)
+    const dn = Math.min(1, d_eff / D_MAX);
+
+    // Q_H=2 warm-gold colour formula: black → deep gold → white-hot at peak
+    // Identical to hopfion_torus.html: (1.3t, 0.75t, 0.05t) with additive blending
+    const gr = dn*1.3;
+    const gg2 = dn*0.75;
+    const gb = dn*0.05;
+
+    // Quark-colour tint: three-colour identity visible only in the dim halo
+    // (low dn). At wall-density peak (dn≈1) the particle is white-gold.
+    const [rr,,, ci2] = colourAt(t);
+    const cc = COLOURS[ci2].rgb;
+    // Mix: tint weight fades from 0.55 at dn=0 to 0 at dn=1 (square falloff)
+    const tint = 0.55 * (1 - dn) * (1 - dn);
+    col.push(gr + tint*cc[0], gg2 + tint*cc[1], gb + tint*cc[2]);
+    placed++;
+  }
+  if (!pos.length) return;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('color',    new THREE.Float32BufferAttribute(col, 3));
+  addL('cloud', new THREE.Points(g, new THREE.PointsMaterial({
+    vertexColors:true, size:.05, transparent:true, opacity:cloudOpacity,
+    sizeAttenuation:true, depthWrite:false, blending:THREE.AdditiveBlending
+  })));
+}
+
+// ── 4. THREE CROSSING REGIONS ────────────────────────────────────────────────
+function buildCrossings(C) {
+  LAY.crossings.forEach(o => { scene.remove(o); o.geometry?.dispose?.(); o.material?.dispose?.(); });
+  LAY.crossings.length = 0;
+  const r_tube = 1/C;
+  // Glow size scales with κ_max enhancement and tube radius
+  const glowR = 0.55 + 0.9*r_tube;
+  for (let i=0; i<3; i++) {
+    const t = CROSSING_TS[i];
+    // Place at midpoint between over and under strands (same (x,y), z=0)
+    const pOver = trefoilPos(t);
+    const pUnder = trefoilPos(t + Math.PI);
+    const mid = [(pOver[0]+pUnder[0])/2, (pOver[1]+pUnder[1])/2, (pOver[2]+pUnder[2])/2];
+    const col = COLOURS[i];
+
+    // Outer glow (sprite-like via mesh)
+    const m1 = new THREE.Mesh(
+      new THREE.SphereGeometry(glowR, 24, 18),
+      new THREE.MeshBasicMaterial({color:col.hex, transparent:true, opacity:.16,
+        depthWrite:false, blending:THREE.AdditiveBlending})
+    );
+    m1.position.set(...mid);
+    addL('crossings', m1);
+
+    // Inner bright core
+    const m2 = new THREE.Mesh(
+      new THREE.SphereGeometry(glowR*0.35, 20, 16),
+      new THREE.MeshBasicMaterial({color:col.hex, transparent:true, opacity:.55,
+        depthWrite:false, blending:THREE.AdditiveBlending})
+    );
+    m2.position.set(...mid);
+    addL('crossings', m2);
+
+    // Pulsing point light
+    const pl = new THREE.PointLight(col.hex, 1.2, glowR*7);
+    pl.position.set(...mid);
+    pl.userData.basePower = 1.2;
+    addL('crossings', pl);
+
+    // Floating label
+    const cv = document.createElement('canvas'); cv.width=180; cv.height=56;
+    const ctx = cv.getContext('2d');
+    ctx.font = 'bold 26px Georgia';
+    ctx.fillStyle = '#'+col.hex.toString(16).padStart(6,'0');
+    ctx.shadowColor='#000'; ctx.shadowBlur=7;
+    ctx.fillText('colour '+(i+1), 4, 38);
+    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
+      map:new THREE.CanvasTexture(cv), transparent:true, depthWrite:false
+    }));
+    sprite.scale.set(1.3, 0.40, 1);
+    sprite.position.set(mid[0], mid[1], mid[2] + glowR + 0.25);
+    addL('crossings', sprite);
+  }
+}
+
+// ── 5. ℤ_3 SYMMETRY AXIS ─────────────────────────────────────────────────────
+function buildZ3() {
+  LAY.z3.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.z3.length = 0;
+  const axisPts = [new THREE.Vector3(0,0,-4), new THREE.Vector3(0,0,4)];
+  const axis = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints(axisPts),
+    new THREE.LineBasicMaterial({color:0x44ddaa, transparent:true, opacity:.45})
+  );
+  addL('z3', axis);
+  // Three arrows showing 120° rotation
+  for (let i=0; i<3; i++) {
+    const ang = i*TWO_PI/3 + Math.PI/2;
+    const ringPts = [];
+    for (let k=0; k<=24; k++) {
+      const a = ang + (k/24-0.5) * 0.5;
+      ringPts.push(new THREE.Vector3(4.5*Math.cos(a), 4.5*Math.sin(a), 0));
+    }
+    const ring = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints(ringPts),
+      new THREE.LineBasicMaterial({color:0x44ddaa, transparent:true, opacity:.35})
+    );
+    addL('z3', ring);
+  }
+}
+
+// ── 6. SHAFRANOV ENHANCEMENT GLOW (optional layer) ───────────────────────────
+// Coloured anchor lights showing where curvature is highest along the trefoil.
+function buildShaf() {
+  LAY.shaf.forEach(o => { scene.remove(o); o.geometry?.dispose?.(); o.material?.dispose?.(); });
+  LAY.shaf.length = 0;
+  // Sample 18 high-κ points along the trefoil; intensity ∝ κ(t)
+  const pos = [], col = [];
+  for (let i=0; i<160; i++) {
+    const t = i/160 * TWO_PI;
+    const f = frameAt(t);
+    const enh = (f.kappa - KAPPA_MEAN) / (KAPPA_MAX - KAPPA_MEAN);
+    if (enh < 0.15) continue;
+    pos.push(...f.pos);
+    const [rr,gg,bb] = colourAt(t);
+    col.push(rr*enh*2, gg*enh*2, bb*enh*2);
+  }
+  if (!pos.length) return;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos,3));
+  g.setAttribute('color',    new THREE.Float32BufferAttribute(col,3));
+  addL('shaf', new THREE.Points(g, new THREE.PointsMaterial({
+    vertexColors:true, size:.32, transparent:true, opacity:.7,
+    sizeAttenuation:true, depthWrite:false, blending:THREE.AdditiveBlending
+  })));
+}
+
+// ── STATS PANEL ──────────────────────────────────────────────────────────────
+// C*₃ = 2.5062 is analytically proved via λ₃=φ⁶ (Theorem thm:sector_assignment).
+function predictedLambda(C) {
+  const r3 = 3/(4*C*C) + KAPPA_SQ_MEAN/2;
+  return 2*PHI / r3;
+}
+function updateStats() {
+  const C = Cstar;
+  const tubeR = 1/C;
+  const sep   = (2*0.874) / tubeR;          // strand separation / tube radius
+  const atProved = Math.abs(C - 2.5062) < 0.002;
+  const atCrit   = Math.abs(C - Cstar_crit) < 0.015;
+  const belowCrit = C < Cstar_crit - 0.01;
+
+  // header display in controls panel
+  document.getElementById('csv').textContent  = C.toFixed(3);
+  document.getElementById('csv2').textContent = C.toFixed(3);
+  const noteEl = document.getElementById('csnote');
+  if (atProved) {
+    noteEl.style.color = '#44ddbb';
+    noteEl.textContent = 'Proved · Thm. thm:sector_assignment';
+  } else if (atCrit) {
+    noteEl.style.color = '#ffaa44';
+    noteEl.textContent = 'C*\u2092\u1D63\u1D62\u1D57 — tube radius = injectivity radius r₀';
+  } else if (belowCrit) {
+    noteEl.style.color = '#ff6644';
+    noteEl.textContent = 'C* < C*\u2099\u1D9C: crossing regions merge';
+  } else {
+    noteEl.style.color = '#aaaacc';
+    noteEl.textContent = '';
+  }
+
+  // side-panel stats
+  document.getElementById('st-cstar').textContent =
+    'C* = ' + C.toFixed(4) + '\u00a0\u00b7\u00a0tube radius 1/C* = ' + tubeR.toFixed(3);
+  document.getElementById('st-tube').textContent =
+    'Strand sep/tube = ' + sep.toFixed(2) + '\u00d7' +
+    (atCrit ? '\u00a0\u2014\u00a0at injectivity threshold' :
+     belowCrit ? '\u00a0\u2014\u00a0below C*\u1D9C\u02B3\u1D35\u1D57' : '');
+  const noteS = document.getElementById('st-note');
+  if (atProved) {
+    noteS.style.color = '#44ddbb';
+    noteS.textContent = 'Analytically proved \u2014 Theorem\u00a0thm:sector_assignment';
+  } else if (atCrit) {
+    noteS.style.color = '#ffaa44';
+    noteS.textContent = 'C*\u1D9C\u02B3\u1D35\u1D57 = 1/r\u2080 \u2248 1.1442 (Prop.\u00a0prop:cstar_crit, Paper\u00a0XVI)';
+  } else if (belowCrit) {
+    noteS.style.color = '#ff6644';
+    noteS.textContent = 'Crossing regions overlap \u2014 diffuse regime (Rem.\u00a0rem:cstar_energy_signature)';
+  } else {
+    noteS.style.color = '#aaaacc';
+    noteS.textContent = 'Exploring C* parameter space (proved value: 2.5062)';
+  }
+}
+
+// ── 24-CELL OF 2T ────────────────────────────────────────────────────────────
+// The 24 unit quaternions of the binary tetrahedral group 2T are the vertices
+// of the "24-cell" on S³. Stereographic projection from the north pole
+// (-1,0,0,0) maps S³\{north} → ℝ³, placing the identity (1,0,0,0) at origin.
+// The McKay chain 2T ↔ E₆ ↔ SU(3)₁ identifies this as the Q_H=3 sector.
+// Edges connect quaternions q₁,q₂ where q₁·q₂ > 0 (inner product > 0),
+// giving the 24-cell's 8-edge-per-vertex regular structure.
+function build24Cell() {
+  LAY.cell24.forEach(o => { scene.remove(o); o.geometry?.dispose(); o.material?.dispose(); });
+  LAY.cell24.length = 0;
+
+  // ── All 24 unit quaternions of 2T ────────────────────────────────────────
+  // Type A: ±1, ±i, ±j, ±k  (8 elements — the "cross-polytope" on S³)
+  const typeA = [
+    [1,0,0,0], [-1,0,0,0],          // ±1
+    [0,1,0,0], [0,-1,0,0],          // ±i
+    [0,0,1,0], [0,0,-1,0],          // ±j
+    [0,0,0,1], [0,0,0,-1],          // ±k
+  ];
+  // Type B: ½(±1 ± i ± j ± k)  (16 elements — the "hypercube" on S³)
+  const typeB = [];
+  for (const sw of [-1,1]) for (const sx of [-1,1]) for (const sy of [-1,1]) for (const sz of [-1,1])
+    typeB.push([sw/2, sx/2, sy/2, sz/2]);
+  const all24 = [...typeA, ...typeB];
+
+  // ── Stereographic projection from north pole (-1,0,0,0) ──────────────────
+  // (w,x,y,z) → SCALE × (x,y,z) / (1+w)
+  // Identity (1,0,0,0) → origin; north pole (-1,0,0,0) → ∞ (excluded).
+  const SCALE = 2.8;
+  function project([w,x,y,z]) {
+    const d = 1 + w;
+    if (d < 1e-4) return null;  // north pole at infinity — skip
+    return [SCALE*x/d, SCALE*y/d, SCALE*z/d];
+  }
+
+  // ── ℤ₃-axis alignment rotation ────────────────────────────────────────────
+  // Stereographic projection (above) sends ±i,±j,±k to the orthogonal axes
+  // (SCALE,0,0), (0,SCALE,0), (0,0,SCALE) — 90° apart, with the group's ℤ₃
+  // symmetry axis along [1,1,1]/√3.
+  // The trefoil's physical ℤ₃ axis is the z-axis [0,0,1], with three crossing
+  // midpoints 120° apart in the z=0 plane.
+  // This rotation maps [1,1,1]/√3 → [0,0,1] (angle arccos(1/√3) ≈ 54.7°,
+  // about the axis [1,-1,0]/√2), bringing the 24-cell's ℤ₃ symmetry into
+  // visual coincidence with the trefoil's ℤ₃ symmetry.
+  // NOTE: this is a visualisation choice, not a derived alignment — the
+  // 2T↔trefoil connection is through the McKay chain (algebraic), not
+  // through this specific spatial rotation. The rotation only makes that
+  // existing ℤ₃ correspondence visually legible.
+  const ALIGN_ANGLE = Math.acos(1/Math.sqrt(3));      // ≈ 54.7356°
+  const ax = 1/Math.sqrt(2), ay = -1/Math.sqrt(2), az = 0; // axis [1,-1,0]/√2
+  const cA = Math.cos(ALIGN_ANGLE), sA = Math.sin(ALIGN_ANGLE);
+  function rotateAlign([x,y,z]) {
+    // Rodrigues' rotation formula about unit axis (ax,ay,az)
+    const dot = ax*x + ay*y + az*z;
+    const crossX = ay*z - az*y, crossY = az*x - ax*z, crossZ = ax*y - ay*x;
+    return [
+      x*cA + crossX*sA + ax*dot*(1-cA),
+      y*cA + crossY*sA + ay*dot*(1-cA),
+      z*cA + crossZ*sA + az*dot*(1-cA),
+    ];
+  }
+  function projectAligned(q) {
+    const p = project(q);
+    return p ? rotateAlign(p) : null;
+  }
+
+  // ── Vertex colour: dominant imaginary axis maps to quark colour ───────────
+  // The ℤ₃ cyclic permutation i→j→k→i corresponds to the three quark colours.
+  function vColour([w,x,y,z]) {
+    const aw=Math.abs(w), ax=Math.abs(x), ay=Math.abs(y), az=Math.abs(z);
+    const m = Math.max(aw,ax,ay,az);
+    if (aw===m || (aw>=ax&&aw>=ay&&aw>=az)) return [0.82,0.82,0.82]; // neutral ±1
+    if (ax>=Math.max(ay,az))               return [0.85,0.10,0.10]; // i-axis → RED
+    if (ay>=az)                            return [0.10,0.85,0.10]; // j-axis → GREEN
+    return                                        [0.10,0.10,0.85]; // k-axis → BLUE
+  }
+
+  // ── Build geometry ────────────────────────────────────────────────────────
+  const vPos=[], vCol=[];    // vertex points
+  const ePos=[], eCol=[];    // edge line segments
+
+  const pts = all24.map(projectAligned);   // projected + ℤ₃-aligned positions (null for north pole)
+
+  // Vertices (Points)
+  all24.forEach((q,i) => {
+    const p = pts[i]; if (!p) return;
+    vPos.push(...p);
+    vCol.push(...vColour(q));
+  });
+
+  // Edges: connect q₁,q₂ with inner product > 0
+  for (let i=0; i<24; i++) {
+    for (let j=i+1; j<24; j++) {
+      const q1=all24[i], q2=all24[j];
+      const dot = q1[0]*q2[0]+q1[1]*q2[1]+q1[2]*q2[2]+q1[3]*q2[3];
+      if (dot <= 0) continue;           // not adjacent
+      const p1=pts[i], p2=pts[j];
+      if (!p1||!p2) continue;           // one endpoint at infinity
+      const c1=vColour(q1), c2=vColour(q2);
+      ePos.push(...p1,...p2);
+      eCol.push(...c1,...c2);
+    }
+  }
+
+  // Vertex spheres (Points)
+  const vG = new THREE.BufferGeometry();
+  vG.setAttribute('position', new THREE.Float32BufferAttribute(vPos,3));
+  vG.setAttribute('color',    new THREE.Float32BufferAttribute(vCol,3));
+  addL('cell24', new THREE.Points(vG, new THREE.PointsMaterial({
+    size:0.20, vertexColors:true, transparent:true, opacity:0.88,
+    depthWrite:false, blending:THREE.AdditiveBlending, sizeAttenuation:true
+  })));
+
+  // Edges (LineSegments)
+  const eG = new THREE.BufferGeometry();
+  eG.setAttribute('position', new THREE.Float32BufferAttribute(ePos,3));
+  eG.setAttribute('color',    new THREE.Float32BufferAttribute(eCol,3));
+  addL('cell24', new THREE.LineSegments(eG, new THREE.LineBasicMaterial({
+    vertexColors:true, transparent:true, opacity:0.30, depthWrite:false
+  })));
+}
+
+
+function rebuildAll() {
+  rebuildDTAB(Cstar);
+  buildCentre();
+  buildTube(Cstar);
+  buildMix(Cstar);
+  buildSeff();
+  buildFlux();
+  buildCloud(DCOUNTS[curD], Cstar, rhoMaxFrac);
+  buildCrossings(Cstar);
+  buildShaf();
+  updateStats();
+}
+
+function trk(el) {
+  const mn = +el.min, mx = +el.max, v = +el.value;
+  el.style.setProperty('--pct', ((v-mn)/(mx-mn)*100).toFixed(1)+'%');
+}
+
+const DLABELS = ['8k','20k','40k','65k','100k'];
+
+// Visual sliders
+document.getElementById('dc').addEventListener('input', function() {
+  trk(this); curD = +this.value - 1;
+  document.getElementById('dv').textContent = DLABELS[curD];
+  buildCloud(DCOUNTS[curD], Cstar, rhoMaxFrac);
+});
+trk(document.getElementById('dc'));
+
+document.getElementById('op').addEventListener('input', function() {
+  trk(this); cloudOpacity = +this.value/100;
+  document.getElementById('opv').textContent = this.value + '%';
+  LAY.cloud.forEach(o => { if (o.material) o.material.opacity = cloudOpacity; });
+});
+trk(document.getElementById('op'));
+
+document.getElementById('rc').addEventListener('input', function() {
+  trk(this); rhoMaxFrac = +this.value;
+  document.getElementById('rv').textContent = rhoMaxFrac.toFixed(2);
+  buildCloud(DCOUNTS[curD], Cstar, rhoMaxFrac);
+});
+trk(document.getElementById('rc'));
+
+document.getElementById('cs').addEventListener('input', function() {
+  trk(this);
+  Cstar = +this.value;
+  updateStats();
+  rebuildDTAB(Cstar);
+  buildTube(Cstar);
+  buildMix(Cstar);
+  buildCloud(DCOUNTS[curD], Cstar, rhoMaxFrac);
+  buildCrossings(Cstar);
+});
+trk(document.getElementById('cs'));
+
+// ── AUTO-ROTATE (pauses on interaction) ──────────────────────────────────────
+let lastInteract = 0, autoRotate = true;
+renderer.domElement.addEventListener('pointerdown', () => { autoRotate=false; lastInteract=Date.now(); });
+renderer.domElement.addEventListener('wheel',       () => { autoRotate=false; lastInteract=Date.now(); });
+
+const IC = camera.position.clone();
+window.resetCam = () => { camera.position.copy(IC); orb.target.set(0,0,0); orb.update(); };
+
+// ── ANIMATION LOOP ───────────────────────────────────────────────────────────
+function animate() {
+  requestAnimationFrame(animate);
+  orb.update();
+
+  if (!autoRotate && Date.now() - lastInteract > 3000) autoRotate = true;
+  if (autoRotate) scene.rotation.y += 0.0014;
+
+  // Pulse the crossing lights
+  const tm = Date.now() * 0.0015;
+  LAY.crossings.forEach((o, idx) => {
+    if (o.isLight && o.userData.basePower) {
+      const phaseShift = (idx % 12 < 3 ? Math.floor(idx/4)*TWO_PI/3 : 0);
+      o.intensity = o.userData.basePower * (0.7 + 0.5*Math.sin(tm + phaseShift));
+    }
+    // THREE.Sprite objects face camera automatically — no quaternion copy needed
+  });
+
+  renderer.render(scene, camera);
+}
+
+// ── INITIAL BUILD ────────────────────────────────────────────────────────────
+document.getElementById('loading').style.display = 'none';
+buildZ3();
+build24Cell();   // 2T / 24-cell — group-theoretic backbone of Q_H=3 (invariant under C*)
+rebuildAll();
+animate();
+
+// ── RESIZE ───────────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+// ── MOBILE PANEL TOGGLES ─────────────────────────────────────────────────────
+const isMobile = () => innerWidth <= 700 || matchMedia('(pointer:coarse)').matches;
+let panelCollapsed = false, controlsCollapsed = false, collapseTimer = null;
+function setPanelCollapsed(v) {
+  panelCollapsed = v;
+  const p = document.getElementById('panel'), tab = document.getElementById('panel-tab');
+  if (!p || !tab) return;
+  p.classList.toggle('collapsed', v); tab.classList.toggle('shifted', !v);
+  tab.innerHTML = v ? '&#8250;' : '&#8249;';
+}
+function setControlsCollapsed(v) {
+  controlsCollapsed = v;
+  const c = document.getElementById('controls'), tab = document.getElementById('controls-tab');
+  if (!c || !tab) return;
+  c.classList.toggle('collapsed', v); tab.classList.toggle('shifted', !v);
+  tab.innerHTML = v ? '&#8249;' : '&#8250;';
+}
+window.togglePanel    = () => { setPanelCollapsed(!panelCollapsed); resetCollapseTimer(); };
+window.toggleControls = () => { setControlsCollapsed(!controlsCollapsed); resetCollapseTimer(); };
+function resetCollapseTimer() {
+  if (!isMobile()) return;
+  clearTimeout(collapseTimer);
+  collapseTimer = setTimeout(() => { setPanelCollapsed(true); setControlsCollapsed(true); }, 4000);
+}
+window.addEventListener('load', () => {
+  if (isMobile()) setTimeout(() => { setPanelCollapsed(true); setControlsCollapsed(true); }, 2000);
+});
+['panel','controls'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('touchstart', () => resetCollapseTimer(), {passive:true});
+});
+</script>
+</body>
+</html>

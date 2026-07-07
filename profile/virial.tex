@@ -1,0 +1,606 @@
+%% hopfion-framework/profile/virial.tex
+%% Sources: main_paper1.tex, main_paper2.tex, main_paper3.tex
+%% Virial condition, saddle point b*, Newton series for q*, beta* derivation
+%% Auto-generated from project files. Edit source papers to update.
+
+
+%════════════════════════════════════════════════════════════════════
+% Virial Condition and beta* — Paper I
+%════════════════════════════════════════════════════════════════════
+
+\begin{definition}[Saddle snapshot]
+\label{P1:def:snapshot}
+The \emph{saddle snapshot} is the configuration reached by gradient
+descent on $E_{\mathrm{geom}}$ at the step where the Derrick scale factor
+\begin{equation}
+  \sopt \;\equiv\; \sqrt{\frac{\lam\,\Jfour}{\Ja+\ms\,\Jiso}}
+  \label{P1:eq:sopt_def}
+\end{equation}
+is closest to $1$.  At this snapshot the Derrick balance is satisfied
+and the configuration is the saddle of the full energy $E$.
+\end{definition}
+\status{published}
+\source{P1:def:snapshot}
+
+\begin{definition}[Self-consistent coupling]
+\label{P1:def:bstar}
+$\bst$ is the unique value at which the EL minimum of $\Efb$ in the
+$Q=2$ sector satisfies
+\begin{equation}
+  \frac{\Jfb}{\Ja} \;=\; \vp.
+  \label{P1:eq:virial_def}
+\end{equation}
+Numerically, $\bst \approx 0.452$.
+\end{definition}
+\status{published}
+\source{P1:def:bstar}
+
+\begin{proposition}[$P_{\Kfb} = 2\vp\,P_{\Ja}$ is an algebraic identity]
+\label{P1:prop:PKfb}
+Let $P_I = d I[f(r(1+\varepsilon),z)]/d\varepsilon|_0$ denote the
+variation of functional $I$ under the radial dilation
+$r\mapsto r(1+\varepsilon)$, $z$ and $R_0$ fixed.
+At the self-consistent coupling $\bst$ satisfying
+$\Kfb = \Ja + \ms\Jfb = 2\vp\Ja$ and $\ms = 3-\vp$:
+\begin{equation}
+  P_{\Kfb} \;=\; 2\vp\,P_{\Ja}.
+  \label{P1:eq:PKfb_exact}
+\end{equation}
+\end{proposition}
+\status{published}
+\source{P1:prop:PKfb}
+
+\begin{proposition}[Feedback stiffness]
+\label{P1:prop:Kfb}
+At the self-consistent $\bst$,
+$\Kfb = 2\vp\,\Ja$.
+\end{proposition}
+\status{published}
+\source{P1:prop:Kfb}
+
+\begin{lemma}[Virial sum]
+\label{P1:lem:virial}
+$\vp^{-1} + \ms = 2$ exactly.
+\end{lemma}
+\status{published}
+\source{P1:lem:virial}
+
+\begin{conjecture}[Linking Scale Conjecture --- proved in Paper~II]
+\label{P1:conj:linking}
+For the $Q$-Hopfion at WZW level $k$, the EL saddle of $\Efb$
+in the topological sector with virial condition
+$\Jfb/\Ja = \dim_q(\tfrac{1}{2};k)$ satisfies
+\begin{equation}
+  \sopt^{2k} \;=\; N_{\mathrm{fus}}(Q,k),
+  \label{P1:eq:lsc_p1}
+\end{equation}
+where $N_{\mathrm{fus}}(Q,k)$ is the number of fusion channels of
+$\phi_{1/2}$ at level $k$.
+Equivalently, $\leff^* = \lam/N_{\mathrm{fus}}^{1/k}$.
+\end{conjecture}
+\status{proved (Paper~II)}
+\source{P1:conj:linking; proved as \texttt{conj:lsl} in Paper~II}
+
+
+%════════════════════════════════════════════════════════════════════
+% Saddle Point and BPS Bound — Paper II
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[Fixed-point value]
+\label{P2:thm:main}
+Subject to the conditions of Theorems~\ref{P2:thm:existence}
+and~\ref{P2:thm:mono}, the self-consistency equation $H(\leff^*)=\leff^*$,
+where $H(\leff):=\Kfb[f_{\leff}]/\Jfour[f_{\leff}]$, has a unique solution.
+Under the Linking Scale Conjecture~\ref{P2:conj:lsl}, that solution satisfies
+\begin{equation}
+  \leff^* \;=\; \frac{\lam}{2^{1/3}} \;=\; \frac{\vp^6}{2^{1/3}}.
+  \label{P2:eq:leffstar}
+\end{equation}
+Consequently, the EL minimum of $\Efb$ in the $Q=2$ sector satisfies
+\begin{equation}
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}}
+  \;=\; \frac{2^{4/3}}{\vp^5}.
+  \label{P2:eq:J4J2a}
+\end{equation}
+In the thin-torus approximation (restricting to the BS ansatz family),
+equation~\eqref{P2:eq:J4J2a} is proved unconditionally
+(Theorem~\ref{P2:thm:lsl_1d}).
+For the full 2D EL equation, equation~\eqref{P2:eq:J4J2a} is proved
+in Paper~III~\cite{Paper3} (Theorems~4.3 and~4.4 therein) via
+three-fermion Witten bosonization and the Brouwer/Rellich--Kondrachov~\cite{Evans2010}
+fixed-point argument.
+\end{theorem}
+\status{published}
+\source{P2:thm:main}
+
+\begin{theorem}[Existence, subject to Condition~\ref{P2:cond:ps}]
+\label{P2:thm:existence}
+Assume the following concentration-compactness condition holds:
+\begin{condition}[Palais--Smale]
+\label{P2:cond:ps}
+Every sequence $\{f_n\}\subset X_2$ with $\G[f_n;\leff]\leq M$ and
+$\|\delta\G[f_n;\leff]\|_{H^{-1}}\to 0$ has a strongly convergent
+subsequence in $H^1_{\mathrm{loc}}$.
+\end{condition}
+Under Condition~\ref{P2:cond:ps}, for each $\leff>0$,
+$\G[\,\cdot\,;\leff]$ attains a critical point $f_{\leff}\in X_2$.
+\end{theorem}
+\status{proved (subject to concentration-compactness; resolved in Paper~III)}
+\source{P2:thm:existence}
+
+\begin{theorem}[Monotonicity and uniqueness]
+\label{P2:thm:mono}
+The map $H\colon(0,\infty)\to(0,\infty)$ defined by
+$H(\leff) = \Kfb[f_{\leff}]/\Jfour[f_{\leff}]$
+satisfies:
+\begin{enumerate}[label=\textup{(\roman*)}]
+  \item $\dfrac{\mathrm{d}}{\mathrm{d}\leff}\bigl[H(\leff)-\leff\bigr] < 0$
+    for all $\leff>0$, i.e., $H(\leff)-\leff$ is strictly decreasing.
+  \item $H(\leff)-\leff > 0$ for $\leff \ll 1$ and
+    $H(\leff)-\leff < 0$ for $\leff \gg 1$.
+  \item The equation $H(\leff^*)=\leff^*$ has exactly one solution.
+\end{enumerate}
+\end{theorem}
+\status{proved (subject to non-degeneracy of Hessian; existence fully resolved in Paper~III)}
+\source{P2:thm:mono}
+
+\begin{remark}[Non-degeneracy]
+\label{P2:rem:nd}
+The assumption that $\delta^2\G/\delta f^2$ is positive definite at
+$f_{\leff}$ is equivalent to $f_{\leff}$ being a non-degenerate
+local minimum of $\G$.
+Numerically, gradient descent on $\G[\,\cdot\,;\leff]$ converges
+stably for $\leff$ near $\leff^*$, with no zero modes observed.
+Strict convexity of $\Kfb$ (since $x/(1+\bst x)$ is concave in $\kk$)
+ensures $\delta^2\Kfb/\delta f^2 > 0$; together with the
+Vakulenko--Kapitanski lower bound on $\Jfour$ in the $Q=2$ sector,
+this gives $\delta^2\G/\delta f^2 > 0$ at the mountain-pass critical point.
+\end{remark}
+\status{proved (partial: Hessian spectral gap remains open; not required for main results)}
+\source{P2:rem:nd}
+
+\begin{theorem}[Linking Scale Lemma --- thin-torus case]
+\label{P2:thm:lsl_1d}
+In the thin-torus approximation, restrict to profiles of the form
+$f(d) = 2\arctan(C/d)$ where $d = \sqrt{(r-R_0)^2+z^2}$ and $C>0$
+is the tube-width parameter.  Define the 1D functionals
+\begin{align}
+  \Ia   &:= \int_0^\infty \sin^4\!f\cdot\kk\cdot 2\pi d\,\mathrm{d}d,
+  &
+  \Ib   &:= \int_0^\infty F_{13}^2\cdot 2\pi d\,\mathrm{d}d,
+\end{align}
+where $\kk = (f')^2 + \sin^2\!f/d^2$ and $F_{13} = -\sin^2\!f\cdot f'/d$
+in the thin-torus limit $A\approx d^{-2}$.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\Ib/\Ia = 3/(4C^2)$ exactly.
+\item The self-consistent fixed point satisfying $V=\vp$ and
+  $\leff = \Kfb/\Ib$ has
+  \[
+    C^{*2} = \frac{3\vp^5}{8\cdot 2^{1/3}}, \qquad
+    \frac{\Ib}{\Ia}\bigg|_{C=C^*} = \frac{2^{4/3}}{\vp^5}.
+  \]
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P2:thm:lsl_1d}
+
+\begin{proposition}[S-matrix self-duality]
+\label{P2:prop:Sselfdual}
+$S_{\frac{1}{2},\frac{1}{2}}\big|_{k=3} = S_{0,0}\big|_{k=3}$.
+\end{proposition}
+\status{published}
+\source{P2:prop:Sselfdual}
+
+\begin{proposition}[Twist pairing]
+\label{P2:prop:twist}
+$\theta_0\cdot\theta_{\frac{1}{2}} = 1$ at $k=3$,
+where $\theta_j = \exp\bigl(2\pi\mathrm{i}(h_j - c/24)\bigr)$.
+\end{proposition}
+\status{published}
+\source{P2:prop:twist}
+
+\begin{proposition}[Fusion count]
+\label{P2:prop:Nfus}
+$N_{\mathrm{fus}} := |\{\text{summands in }\tfrac{1}{2}{\times}\tfrac{1}{2}
+  \text{ at level }k\}| = 2$ for all $k\geq 2$.
+\end{proposition}
+\status{published}
+\source{P2:prop:Nfus}
+
+\begin{proposition}[Sign identity]
+\label{P2:prop:sign}
+At a non-degenerate critical point $f_{\leff}$:
+\begin{equation}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff}(\leff)
+  \;=\;
+  -\,\frac{\leff\Jfour + \Kfb}{\Jfour^2}
+  \left\langle \frac{\delta\Jfour}{\delta f},
+  \left(\frac{\delta^2\G}{\delta f^2}\right)^{-1}
+  \frac{\delta\Jfour}{\delta f}\right\rangle.
+  \label{P2:eq:sign}
+\end{equation}
+Since the inner product is strictly positive (positive-definiteness
+of $\delta^2\G$), and $\leff\Jfour+\Kfb>0$, the right-hand side
+is strictly negative: $\mathrm{d}H/\mathrm{d}\leff < 0$.
+\end{proposition}
+\status{published}
+\source{P2:prop:sign}
+
+\begin{conjecture}[Linking Scale --- proved in Paper~III~\cite{Paper3}]
+\label{P2:conj:lsl}
+For the density-feedback FN Hopfion at WZW level $k\geq 2$,
+the unique fixed point of $H$ satisfies
+\begin{equation}
+  {\sopt}^{2k} \;=\; N_{\mathrm{fus}},
+  \qquad
+  N_{\mathrm{fus}}
+  \;:=\;
+  \bigl|\{\text{irreducible summands in }
+  \tfrac{1}{2}\times\tfrac{1}{2}\text{ at level }k\}\bigr|,
+  \label{P2:eq:lsl_conj}
+\end{equation}
+equivalently $\leff^* = \lam_k/N_{\mathrm{fus}}^{1/k}$.
+\end{conjecture}
+\status{proved (Paper~III)}
+\source{P2:conj:lsl; proved in Paper~III}
+
+\begin{equation}
+  \frac{\delta\Kfb}{\delta f} = -\leff\,\frac{\delta\Jfour}{\delta f},
+  \label{P2:eq:BPS}
+\end{equation}
+
+\begin{equation}
+  \Jfour\,\frac{\delta\Kfb}{\delta f}
+  + \Kfb\,\frac{\delta\Jfour}{\delta f} = 0.
+  \label{P2:eq:EL}
+\end{equation}
+
+\begin{equation}
+  \Efb[f] \;=\; \Kfb[f]\cdot\Jfour[f],
+  \label{P2:eq:Efb}
+\end{equation}
+
+\begin{equation}
+  \G[f;\leff] \;:=\; \Kfb[f] + \leff\,\Jfour[f].
+  \label{P2:eq:G}
+\end{equation}
+
+\begin{equation}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff} < 0.
+  \label{P2:eq:Hdecreasing}
+\end{equation}
+
+\begin{equation}
+  \frac{\delta^2\G}{\delta f^2}\,\dot{f}
+  = -\frac{\delta\Jfour}{\delta f}.
+  \label{P2:eq:IFT}
+\end{equation}
+
+\begin{equation}
+  \left(\frac{\lam}{\leff^*}\right)^k \;=\; N_{\mathrm{fus}}.
+  \label{P2:eq:LSC_modular}
+\end{equation}
+
+\begin{equation}
+  S_{\frac{1}{2},\frac{1}{2}}\big|_{k=3}
+  \;=\; S_{0,0}\big|_{k=3},
+  \label{P2:eq:Sselfdual}
+\end{equation}
+
+\begin{equation}
+  \frac{\delta\Kfb}{\delta f} + \leff\,\frac{\delta\Jfour}{\delta f} = 0.
+  \label{P2:eq:crit}
+\end{equation}
+
+\begin{equation}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff}
+  = \frac{1}{\Jfour^2}
+    \left[
+      \left\langle \frac{\delta\Kfb}{\delta f}, \dot{f}\right\rangle \Jfour
+      - \Kfb\left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle
+    \right].
+  \label{P2:eq:dHdlam}
+\end{equation}
+
+\begin{align}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff}
+  &= \frac{1}{\Jfour^2}
+    \left[
+      -\leff\left\langle \frac{\delta\Jfour}{\delta f},\dot{f}\right\rangle\Jfour
+      - \Kfb\left\langle \frac{\delta\Jfour}{\delta f},\dot{f}\right\rangle
+    \right] \notag\\
+  &= -\frac{\leff\Jfour + \Kfb}{\Jfour^2}
+    \left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle.
+  \label{P2:eq:dHdlam2}
+\end{align}
+
+\begin{equation}
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}}
+  \;=\; \frac{N_{\mathrm{fus}}^{1+1/k}}{[\dim_q(\tfrac{1}{2};k)]^{2k-1}}.
+  \label{P2:eq:general_J4J2a}
+\end{equation}
+
+\begin{equation}
+  \leff^* \;=\; \frac{\Kfb}{\Jfour} \;=\; \frac{2\vp\Ja}{\Jfour}
+  \;=\; \frac{2\vp}{\Jfour/\Ja}.
+  \label{P2:eq:leff_from_ratio}
+\end{equation}
+
+\begin{align}
+  \leff^* &= \frac{\lam}{2^{1/k}}\bigg|_{k=3} = \frac{\lam}{2^{1/3}},
+  \label{P2:eq:leffstar_v1}\\
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}} &= \frac{2^{4/3}}{\vp^5},
+  \label{P2:eq:leffstar_v2}\\
+  {\sopt}^2 &= 2^{1/3} \qquad\text{(i.e.\ }\sopt = 2^{1/6}\text{)},
+  \label{P2:eq:leffstar_v3}\\
+  {\sopt}^{2k} &= 2 \qquad\text{at }k=3.
+  \label{P2:eq:leffstar_v4}
+\end{align}
+
+\begin{equation}
+  \left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle
+  = -\left\langle \frac{\delta\Jfour}{\delta f},
+    \left(\frac{\delta^2\G}{\delta f^2}\right)^{-1}
+    \frac{\delta\Jfour}{\delta f}\right\rangle.
+  \label{P2:eq:quad}
+\end{equation}
+
+
+%════════════════════════════════════════════════════════════════════
+% Fixed Point and Virial Algebra — Paper III (selected)
+%════════════════════════════════════════════════════════════════════
+\begin{proposition}[Exact thin-torus virial function]
+\label{P3:prop:virial_exact}
+For the BS profile $f = 2\arctan(C/\rho)$ in the thin-torus limit,
+the virial ratio $V(\beta) = \Jfb/\Ja$ has the closed-form expression
+\begin{equation}
+  V(b) \;=\; \frac{15}{8} \cdot \frac{\arctan\!\sqrt{8b}}{\sqrt{8b}},
+  \qquad b = \beta/C^2,
+  \label{P3:eq:V_exact}
+\end{equation}
+for all $C > 0$ and $\beta \geq 0$.
+\end{proposition}
+\status{published}
+\source{P3:prop:virial_exact}
+
+\begin{lemma}[Virial algebra]
+\label{P3:lem:virial_alg}
+$1 + \mu^*\vp = 2\vp$.
+\end{lemma}
+\status{published}
+\source{P3:lem:virial_alg}
+
+\begin{lemma}[Golden identity]
+\label{P1:lem:golden}
+$1 + \ms\vp = 2\vp$ exactly.
+\end{lemma}
+\status{published}
+\source{P1:lem:golden}
+
+\begin{corollary}[Existence of the feedback fixed point]
+\label{P3:cor:fixedpoint_exists}
+For any $R_0$, there exists a unique $b^*(R_0) > 0$ such that
+$V(b^*) = \vp$.  Numerically, $b^* \approx 0.06715$ and the self-consistent
+tube width satisfies $C^{*2}(R_0) = 3/[4(\mathrm{WZW} - 1/(2R_0^2))]$.
+\end{corollary}
+\status{published}
+\source{P3:cor:fixedpoint_exists}
+
+
+%════════════════════════════════════════════════════════════════════
+% LSC Proof Chain — Paper III
+%════════════════════════════════════════════════════════════════════
+
+\begin{conjecture}[Linking Scale Conjecture --- proved in Paper~III]
+\label{P3:conj:lsc}
+The Euler--Lagrange minimum of $\Efb = \Kfb\cdot\Jfour$ in the $Q=2$
+topological sector satisfies
+\begin{equation}
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}}
+  \;=\; \frac{2^{4/3}}{\vp^5}
+  \;\approx\; 0.22721,
+  \label{P3:eq:lsc}
+\end{equation}
+equivalently $\leff^* = \lam/2^{1/3}$ where $\lam = \vp^6$.
+\end{conjecture}
+\status{proved (Paper~III via Theorem~\ref{P3:thm:V_exact_all_R0} + Theorem~\ref{P3:thm:lsc_conditional})}
+\source{P3:conj:lsc}
+
+\begin{lemma}[Bridge identity]
+\label{P3:lem:bridge}
+The Morse parameter $\mu^* = 3-\vp$ of the density-feedback
+functional satisfies
+\begin{equation}
+  \mu^* \;=\; \frac{\sqrt{k+2}}{\vp}
+  \label{P3:eq:bridge}
+\end{equation}
+with $k=3$.
+\end{lemma}
+\status{published}
+\source{P3:lem:bridge}
+\residual{exact}
+
+\begin{theorem}[LSC conditional on virial]
+\label{P3:thm:lsc_conditional}
+Suppose the Euler--Lagrange minimum of $E_{\mathrm{fb}}$ satisfies
+the virial condition
+\begin{equation}
+  V^* \;:=\; \frac{\Jfb}{\Ja}\bigg|_{\mathrm{EL}} \;=\; \vp.
+  \label{P3:eq:virial}
+\end{equation}
+Then $\Jfour/\Ja = 2^{4/3}/\vp^5$, i.e.\ the LSC holds.
+\end{theorem}
+\status{published}
+\source{P3:thm:lsc_conditional}
+\begin{proof}
+$\Kfb = \Ja(1 + \mu^*V^*) = \Ja(1 + \mu^*\vp) = 2\vp\Ja$
+(using Lemma~\ref{P3:lem:virial_alg}).
+Then $\Jfour/\Ja = \Kfb/(\Ja\leff^*) = 2\vp/(\vp^6/2^{1/3}) = 2^{4/3}/\vp^5$.
+\end{proof}
+\status{published}
+\source{P3:thm:lsc_conditional}
+\residual{exact}
+
+\begin{theorem}[Equivalence of LSC, virial, and fixed-point conditions]
+\label{P3:thm:lsc_equivalence}
+At the EL minimum of $\Efb$ in the $Q=2$ sector, the following are
+pairwise equivalent:
+\begin{enumerate}
+  \item[(A)] $V^* = \Jfb/\Ja = \vp$
+  \item[(B)] $\Jfour/\Ja = 2^{4/3}/\vp^5$
+  \item[(C)] $\leff^* = \lam/2^{1/3}$
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P3:thm:lsc_equivalence}
+\residual{exact}
+
+\begin{proposition}[Scale invariance of thin-torus functionals]
+\label{P3:prop:scale_inv}
+In the thin-torus approximation with profile $f = 2\arctan(C/\rho)$,
+\begin{align}
+  J_{2a} &= 2\pi R_0 \cdot \frac{16}{15}, \label{P3:eq:Ja_exact}\\
+  J_4    &= 2\pi R_0 \cdot \frac{64^2}{2}\,B(5,7), \label{P3:eq:J4_exact}
+\end{align}
+where $B(5,7) = \Gamma(5)\Gamma(7)/\Gamma(12)$.  Both are independent of $C$.
+\end{proposition}
+\status{published}
+\source{P3:prop:scale_inv}
+\residual{exact}
+
+\begin{proposition}[Thin-torus virial limit]
+\label{P3:prop:virial_limit}
+$V(0;R_0) \to \vp$ as $R_0\to\infty$, with the leading correction
+\begin{equation}
+  V(0;R_0) \;=\; \vp \;+\; \frac{A}{R_0^2} \;+\; O(R_0^{-4}),
+  \label{P3:eq:V0_limit}
+\end{equation}
+for a computable coefficient $A > 0$.
+\end{proposition}
+\status{published}
+\source{P3:prop:virial_limit}
+
+\begin{proposition}[Hypothesis (i) at large $R_0$]
+\label{P3:prop:V0_gt_phi}
+From Proposition~\ref{P3:prop:virial_limit}:
+$V_0(R_0) = \vp + A/R_0^2 + O(R_0^{-4})$ with $A > 0$.
+Hence $V_0(R_0) > \vp$ for all $R_0 < \infty$.
+\end{proposition}
+\status{published}
+\source{P3:prop:V0_gt_phi}
+
+\begin{theorem}[Universal virial identity --- thin-torus]
+\label{P3:conj:kappa_universal}
+For the $Q=2$ Hopfion in the self-consistent feedback regime, the
+kappa-distribution $P_{R_0}(\kk)$ satisfies
+$\int_0^\infty P_{R_0}(\kk)/(1+\bst(R_0)\kk)\,d\kk = \vp$
+in the thin-torus limit.  The value $\vp = \dim_q(\tfrac{1}{2};k{=}3)$
+is proved via three-fermion bosonization.
+\end{theorem}
+\status{proved (via Theorem~\ref{P3:thm:bos_main})}
+\source{P3:conj:kappa_universal}
+
+\begin{theorem}[Virial fixed-point theorem]
+\label{P3:thm:virial_fixedpt}
+Suppose (i) $V_0(R_0) > \vp$, (ii) $V(f^*(\beta),\beta)$ is strictly
+decreasing and continuous in $\beta\geq 0$, (iii) $V\to 0$ as $\beta\to\infty$.
+Then there exists a unique $\beta^*(R_0)>0$ such that $V(f^*(\beta^*),\beta^*)=\vp$,
+and Theorem~\ref{P3:thm:lsc_conditional} gives $\Jfour/\Ja = 2^{4/3}/\vp^5$.
+\end{theorem}
+\status{proved (hypotheses (i) by Prop.~\ref{P3:prop:V0_gt_phi}; (ii) numerically verified; (iii) trivial)}
+\source{P3:thm:virial_fixedpt}
+
+\begin{remark}[Curvature decomposition and the WZW metric]
+\label{P3:rem:kappa_wzw_preview}
+The isotropic curvature splits as $\kk_{\mathrm{iso}} = \kk_{\mathrm{tube}} + \sin^2\!f/r^2$.
+The BS identity $\sin^2\!f/\rho^2 = (f')^2$ gives $\kk_{\mathrm{tube}} = 2(f')^2 = g_{\mathrm{WZW}}$.
+At $R_0=3$, $\bst=0.452$: $V^* = 1.61824$ ($\vp=1.61803$, gap $0.013\%$) and
+$\Jfour/\Ja = 0.22717$ ($2^{4/3}/\vp^5=0.22721$, gap $0.020\%$), both lattice artefacts.
+\end{remark}
+\status{published}
+\source{P3:rem:kappa_wzw_preview}
+
+\begin{theorem}[Thin-torus LSC --- \cite{Paper2}]
+\label{P3:thm:lsc_1d}
+In the thin-torus approximation with profiles $f = 2\arctan(C/d)$,
+one has $I_4/I_{2a} = 3/(4C^2)$ exactly, from which self-consistency
+gives $I_4/I_{2a}\big|_{C=C^*} = 2^{4/3}/\vp^5$.
+\end{theorem}
+\status{published}
+\source{P3:thm:lsc_1d}
+
+\begin{theorem}[Thin-torus LSC: complete proof]
+\label{P3:thm:lsc_1d_complete}
+For $f = 2\arctan(C/\rho)$: $I_{2a} = 32/15$, $I_{4\text{-tube}} = 8/(5C^2)$,
+$I_{4\text{-wind}} = 16/15$ (all exact, $C$-independent via BS identity).
+The full ratio is $J_4/J_{2a} = 3/(4C^2) + 1/(2R_0^2)$.
+Given $V^*=\vp$, the WZW master relation forces $C^{*2}$ via
+$3/(4C^{*2}) = 2^{4/3}/\vp^5 - 1/(2R_0^2)$,
+after which the winding cancellation gives $J_4/J_{2a} = 2^{4/3}/\vp^5$ exactly.
+\end{theorem}
+\status{published}
+\source{P3:thm:lsc_1d_complete}
+\residual{exact}
+
+\begin{theorem}[LSC in the continuum limit]
+\label{P3:thm:lsc_2d_limit}
+If $V^*(R_0) = \vp + O(R_0^{-2})$ as $R_0\to\infty$, then
+$J_4/J_{2a}\big|_{f^*_{R_0}} = 2^{4/3}/\vp^5 + O(R_0^{-2})$.
+In particular $J_4/J_{2a} \to 2^{4/3}/\vp^5$ as $R_0\to\infty$.
+\end{theorem}
+\status{published}
+\source{P3:thm:lsc_2d_limit}
+
+\begin{theorem}[Exact $V^*=\vp$ for all finite $R_0$]
+\label{P3:thm:V_exact_all_R0}
+For each $R_0>0$, the density-feedback model has a self-consistent state
+$(f^*,\bst)$ satisfying the EL equation of $\Kfb\cdot\Jfour$ with
+$V(f^*,\bst) = \vp$ exactly.
+\end{theorem}
+\status{published}
+\source{P3:thm:V_exact_all_R0}
+\begin{proof}[Proof sketch]
+The map $T: f\mapsto f^*(\beta^*(f))$ (EL minimiser at self-consistent $\beta$)
+acts on bounded closed convex $Q=2$ profiles.
+On finite grids, Brouwer's fixed-point theorem gives a fixed point $f^*_h$.
+The sequence $\{f^*_h\}$ is $H^1$-bounded; Rellich--Kondrachov gives a
+convergent subsequence whose limit is a continuum fixed point with $V^*=\vp$.
+\end{proof}
+\status{published}
+\source{P3:thm:V_exact_all_R0}
+\residual{exact (lattice artefact 0.013\% at $h=0.12$)}
+\depends{profile/virial.tex (P3:thm:lsc_conditional, P3:lem:virial_alg)}
+
+\begin{proposition}[Resolvent-to-primary identification]
+\label{P3:prop:res_primary}
+In the thin-torus limit, $\kk_{\mathrm{tube}} = 2(f')^2 = g_{\mathrm{WZW}}$
+(the WZW metric), and the feedback density $\kk/(1+\beta\kk)$ is the
+Stieltjes resolvent of the WZW spectral measure.  At $\beta=\bst$:
+$V(\bst) = (15/8)\arctan(\sqrt{8\bst})/\sqrt{8\bst} = \vp = S_{0,1/2}/S_{0,0}$.
+\end{proposition}
+\status{published}
+\source{P3:prop:res_primary}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% Universal Virial Identity (all sectors) — Paper XV
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Universal virial identity]
+\label{P15:thm:virial}
+At the density-feedback virial saddle of any sector $n$,
+$V^{*\,(n)}\equiv J_{\mathrm{fb}}^{(n)}/\Ja^{(n)}=\vp$,
+and consequently
+\begin{equation}
+  \Kfb^{(n)} = 2\vp\,\Ja^{(n)},
+  \qquad
+  \Efb^{(n)} = 2N_n^2/\vp^{17}.
+  \label{P15:eq:virial_universal}
+\end{equation}
+The integer $N_n = Q_{\mathrm{group}}^{(n)}$ is the T-matrix closing
+integer of the sector. The formula is proved via the IVT argument
+of Paper~III applied sector-independently to the trefoil geometry.
+\end{theorem}
+\status{published}
+\source{P15:thm:virial}
+\residual{exact}

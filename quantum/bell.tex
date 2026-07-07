@@ -1,0 +1,1373 @@
+%% hopfion-framework/quantum/bell.tex
+%% Sources: main_paper8.tex, main_paper9.tex
+%% Geometry-dependent Bell model (VIII), Born rule, Malus law, three CHSH regimes, Hurwitz algebras (IX)
+%% Auto-generated from project files. Edit source papers to update.
+
+%════════════════════════════════════════════════════════════════════
+% Geometry-Dependent Bell Correlations — Paper VIII
+%════════════════════════════════════════════════════════════════════
+
+% Four axioms of the density-feedback Hopfion framework, recalled from
+% Paper V (derived in Papers I--VI).
+\begin{equation}
+  S_{\mathrm{eff}}(\theta, \rho)
+  \;=\; \frac{\sin^4\!\theta}{\vp^6\,(1 + \bst\,\rho)},
+  \label{P8:eq:seff_axiom}
+\end{equation}
+\status{published}
+\source{P8:eq:seff_axiom}
+
+\begin{equation}
+  M_n = M_0\,\vp^{2n}, \qquad
+  m_f = m_0\,\vp^{-2n_f},
+  \label{P8:eq:hierarchy_axiom}
+\end{equation}
+\status{published}
+\source{P8:eq:hierarchy_axiom}
+
+\begin{equation}
+  S_{\mathrm{parent}}[\rho]
+  \;=\; \int\!\mathrm{d}^4x\,\sqrt{-g}\;
+  \frac{|\nabla\rho|^2}{\vp^6\bigl(1 + \bst\,|\nabla\rho|^2\bigr)},
+  \label{P8:eq:parent_action}
+\end{equation}
+\status{published}
+\source{P8:eq:parent_action}
+
+\begin{remark}[Extension of the density variable]
+\label{P8:rem:rho_extension}
+In Papers~I--IV the feedback denominator $1+\bst\kappa$ uses the local
+field curvature $\kappa$ (the FN gradient density) as the density variable.
+In this paper, the parent action of Paper~I~\cite{Paper1} uses a scalar
+field $\rho$ as an independent dynamical variable, with $1+\beta\rho$ in
+the denominator.  The two descriptions are compatible: in the static
+condensate background, $\rho\propto\kappa$ and $\beta\propto\bst$, so
+Axiom~A2 recovers the Papers~I--IV form.  The $\rho$-based description
+is a $k$-essence extension is used for the analysis in this paper.
+\end{remark}
+\status{published}
+\source{P8:rem:rho_extension}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{The Condensate Orientation as Correlation Variable}
+
+Consider two spatially separated measurement sites A and B (Alice and Bob). The pair creation event fixes the local condensate gradient orientation $\hat{n} = \nabla\rho/|\nabla\rho|$ at the source, which determines the correlation structure through the suppression law. This direction is randomly distributed over the sphere but fixed for each pair.
+
+Alice measures along direction $\hat{a}$ (angle $\alpha$) and Bob along $\hat{b}$ (angle $\beta$). The mismatch angles between the measurement axes and the condensate orientation $\hat{n}$ are
+\begin{equation}
+\theta_A = \arccos(\hat{a} \cdot \hat{n}), \quad \theta_B = \arccos(\hat{b} \cdot \hat{n}).
+\label{P8:eq:mismatch_angles}
+\end{equation}
+
+The orientation $\hat{n}$ is set by the condensate density profile at the source and determines the correlation structure through the suppression law $S(\theta)=\sin^4\!\theta/\vp^6$.
+\status{published}
+\source{P8:eq:mismatch_angles}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Measurement-Induced Perturbations}
+
+Crucially, measurement is not a passive observation. When Alice's detector interacts with the system, it creates a localized density perturbation $\delta\rho_A > 0$ (from energy deposition, condensate back-action, or quantum interaction). This perturbation modifies the effective suppression at A:
+\begin{equation}
+S_{\mathrm{eff}}(\theta_A, \rho + \delta\rho_A) = \frac{1}{\phi^6} \sin^4\theta_A \Big/ (1 + \beta (\rho + \delta\rho_A)).
+\label{P8:eq:seff_perturbed}
+\end{equation}
+
+The denominator $(1 + \beta(\rho + \delta\rho_A))$ becomes larger when $\delta\rho_A > 0$, making $S_{\mathrm{eff}}$ smaller (weaker suppression). This creates a preferential low-suppression channel for condensate orientations aligned with the measurement axis $\hat{a}$. Similarly for Bob at site B.
+
+Importantly, $\delta\rho_A$ and $\delta\rho_B$ are direction-dependent: stronger when $\hat{n}$ aligns with the measurement axis (small $\theta$), weaker for misaligned directions. This selective softening enhances correlations for relevant hidden variables without requiring non-locality---the measurement locally reshapes the condensate density field.
+\status{published}
+\source{P8:eq:seff_perturbed}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Probability Weights from Suppression}
+
+The probability of outcome "+1" at Alice's detector (rebalancing along $\hat{a}$) is determined by the suppression cost. The unnormalized weight is
+\begin{equation}
+\tilde{w}_A(+1 \mid \hat{n}) = \exp\left( -\lambda S_{\mathrm{eff}}(\theta_A, \rho + \delta\rho_A) \right),
+\label{P8:eq:weight_plus}
+\end{equation}
+where $\lambda > 0$ is a coupling strength. For the opposite outcome "-1" (effective angle $\theta' = \pi/2 - \theta_A$, so $\sin\theta' = \cos\theta_A$):
+\begin{equation}
+\tilde{w}_A(-1 \mid \hat{n}) = \exp\left( -\lambda \cdot \frac{1}{\phi^6} \cos^4\theta_A \Big/ (1 + \beta (\rho + \delta\rho_A)) \right).
+\label{P8:eq:weight_minus}
+\end{equation}
+
+Normalizing over outcomes gives the probability
+\begin{equation}
+p_A(+1 \mid \hat{n}) = \frac{\tilde{w}_A(+1)}{\tilde{w}_A(+1) + \tilde{w}_A(-1)}.
+\label{P8:eq:prob_plus}
+\end{equation}
+
+For small angles ($\theta_A \ll 1$), $\sin^4\theta_A \approx \theta_A^4$, and the normalized probability approximates
+\begin{equation}
+p_A(+1 \mid \theta_A) \approx \left[ \cos^4\left(\frac{\theta_A}{2}\right) \right]^{f_A},
+\label{P8:eq:prob_smallangle}
+\end{equation}
+where $f_A = f_{\mathrm{base}} / (1 + \beta \cos\theta_A)$ accounts for direction-dependent density feedback (lower $f_A$ when $\theta_A \approx 0$ due to measurement-induced softening). The exponent 4 (from $\sin^4\theta$) produces the characteristic quantum form for spin-1/2 fermions. Similarly for Bob with $p_B(+1 \mid \hat{n})$ and softening parameter $f_B$.
+\status{published}
+\source{P8:eq:weight_plus,P8:eq:weight_minus,P8:eq:prob_plus,P8:eq:prob_smallangle}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Expectation Values and CHSH}
+
+For singlet-like anti-correlated pairs (condensate orientations $\hat{n}$ and $-\hat{n}$ at each site), the correlation expectation value for measurement angles $\alpha$ and $\beta$ is obtained by averaging over all possible hidden-variable directions $\hat{n}$:
+\begin{equation}
+E(\alpha, \beta) = \frac{1}{4\pi} \int d\Omega \, [p_{\mathrm{same}}(\hat{n}) - p_{\mathrm{diff}}(\hat{n})],
+\label{P8:eq:E_expectation}
+\end{equation}
+where
+\begin{align}
+p_{\mathrm{same}} &= p_A(+1)(1 - p_B(+1)) + (1 - p_A(+1))p_B(+1), \\
+p_{\mathrm{diff}} &= p_A(+1)p_B(+1) + (1 - p_A(+1))(1 - p_B(+1)).
+\label{P8:eq:p_same_diff}
+\end{align}
+
+The CHSH correlator for standard Bell test angles ($a=0^\circ$, $a'=45^\circ$, $b=22.5^\circ$, $b'=67.5^\circ$) is
+\begin{equation}
+\mathrm{CHSH} = |E(a,b) + E(a,b')| + |E(a',b) - E(a',b')|.
+\label{P8:eq:chsh_def}
+\end{equation}
+
+Classical local hidden-variable theories obey $\mathrm{CHSH} \leq 2$. Quantum mechanics predicts $\mathrm{CHSH} = 2\sqrt{2} \approx 2.828$ (Tsirelson's bound~\cite{Tsirelson1980}) for maximally entangled states.
+\status{published}
+\source{P8:eq:E_expectation,P8:eq:p_same_diff,P8:eq:chsh_def}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Dynamic Rescaling Factor}
+
+To account for the geometric dilution effect quantitatively, we introduce a dynamic rescaling factor based on the actual sampled geometry. The raw correlation $E_{\mathrm{raw}}$ computed from Eq. (14) is diluted by the effective solid-angle weight $\langle \sin^4\theta \rangle$ over the sampled $\hat{n}$ distribution. The rescaled correlation is
+\begin{equation}
+E_{\mathrm{rescaled}} = \frac{E_{\mathrm{raw}}}{\langle \sin^4\theta \rangle_{\mathrm{geometry}}},
+\label{P8:eq:E_rescaled}
+\end{equation}
+where
+\begin{equation}
+\langle \sin^4\theta \rangle_{\mathrm{geometry}} = \frac{1}{N} \sum_{i=1}^N \sin^4\theta_i
+\label{P8:eq:sin4_geometry_avg}
+\end{equation}
+is computed from the Monte Carlo sampled hidden-variable directions.
+
+For pure 2D plane-constrained geometry, $\langle \sin^4\theta \rangle = 3/8 = 0.375$ exactly
+(proved analytically in Paper~IX~\cite{Paper9}, Step~1 of the Tsirelson gap theorem:
+$(1/\pi)\int_0^\pi\sin^4\theta\,d\theta = 3/8$), giving a rescale factor of $8/3\approx2.667$.
+For full 3D isotropic sampling,
+$\langle \sin^4\theta \rangle = 8/15 \approx 0.533$ exactly
+(spherical average $(1/2)\int_0^\pi\sin^4\theta\sin\theta\,d\theta = 8/15$),
+giving a rescale factor of $15/8 = 1.875$.
+For biased 3D geometries (Gaussian distribution around mid-plane), intermediate values arise.
+This rescaling is not a fit parameter but a geometric correction determined by the sampled
+distribution---it accounts for the dilution inherent in averaging over misaligned directions.
+\status{published}
+\source{P8:eq:E_rescaled,P8:eq:sin4_geometry_avg}
+\depends{quantum/bell.tex (P9:thm:tsirelson_gap)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Plane-Constrained Configuration}
+
+In the 2D plane-constrained case, the condensate orientation $\hat{n}$ is restricted to the xy-plane (perpendicular to the z-axis). Alice and Bob's measurement axes $\hat{a}$ and $\hat{b}$ also lie in this plane. For standard CHSH angles ($a=0^\circ$, $a'=45^\circ$, $b=22.5^\circ$, $b'=67.5^\circ$), all angles are coplanar.
+
+The solid-angle integration in Eq. (14) reduces to an azimuthal integral over $\phi \in [0, 2\pi]$:
+\begin{equation}
+E(\alpha, \beta) = \frac{1}{2\pi} \int_0^{2\pi} [p_{\mathrm{same}}(\phi) - p_{\mathrm{diff}}(\phi)] \, d\phi,
+\label{P8:eq:E_planar}
+\end{equation}
+where $\hat{n} = (\cos\phi, \sin\phi, 0)$ samples directions uniformly in the plane.
+\status{published}
+\source{P8:eq:E_planar}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Results: Approaching Tsirelson's Bound}
+
+Table 1 shows CHSH values for plane-constrained geometry across different density feedback strengths $\beta$. For mild to moderate feedback ($\beta = 0.1$--$1.0$), the rescaled CHSH ranges from 2.57 to 2.62, exceeding the classical bound of 2 and approaching Tsirelson's quantum bound $2\sqrt{2} \approx 2.828$ within $\sim 7$--$9\%$. The Hopfion condensate framework fixes $\beta^* \approx 0.452$ from first principles (Paper~I~\cite{Paper1}); this row is highlighted in the table.
+
+\begin{table}[h]
+\centering
+\caption{CHSH values in plane-constrained geometry with dynamic rescaling.
+Density feedback coupling $\beta$ ranges from minimal (0.1) to moderate (1.0),
+computed using the same direction-dependent softening method throughout.
+The highlighted row $\beta^* = 0.452$ is the value fixed by the Hopfion
+condensate framework (Paper~I~\cite{Paper1}); its CHSH falls between $\beta=0.3$ and
+$\beta=0.5$ as expected. Monte Carlo, N=100,000 samples, $f_{\mathrm{base}}=2.0$.}
+\label{P8:tab:planar_chsh}
+\begin{tabular}{c|c|c}
+\hline
+$\beta$ & Raw CHSH & Rescaled CHSH \\
+\hline
+0.1 & 0.982 & 2.624 \\
+0.3 & 0.980 & 2.622 \\
+$\boldsymbol{\beta^* \approx 0.452}$ & $\mathbf{0.978}$ & $\mathbf{2.611}$ \\
+0.5 & 0.977 & 2.596 \\
+0.7 & 0.977 & 2.619 \\
+1.0 & 0.969 & 2.573 \\
+\hline
+\end{tabular}
+\end{table}
+
+The results exhibit remarkable stability across the physically relevant range $\beta = 0.1$--$1.0$, varying by only $\sim 2\%$ ($\Delta\mathrm{CHSH} \approx 0.05$). This robustness indicates the violation is not a fine-tuned artifact but emerges naturally from the angular suppression structure combined with measurement-induced softening in planar geometries.
+
+The geometric rescale factor is dynamically computed from the actual sampled geometry and remains approximately constant across $\beta$ values (varying between 2.57 and 2.62 for planar configuration), as expected---it depends only on $\langle \sin^4\theta \rangle$ over the sampled distribution, not on the density feedback strength. This confirms the rescaling is a genuine geometric correction, not a hidden fit parameter.
+\status{published}
+\source{P8:tab:planar_chsh}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{The Framework-Fixed Coupling $\beta^* \approx 0.452$}
+
+The Hopfion condensate framework of Papers~I--VII fixes the density-feedback
+coupling uniquely from the golden-ratio self-consistency condition
+$J_{2\mathrm{iso}}^{\mathrm{fb}}/J_{2a} = \varphi$ at the condensate saddle (Paper~I~\cite{Paper1}):
+\begin{equation}
+  \beta^* \;\approx\; 0.452.
+  \label{P8:eq:beta_star}
+\end{equation}
+This is not a free parameter of the Bell model.
+It is the same value that determines the lepton mass hierarchy, the Bogomolny
+parameter $\lambda = \varphi^6$, and the condensate sound speed $c_s = c/\varphi$
+in Papers~I--VII.
+
+The highlighted row in Table~1 shows that at $\beta^*$, using the same
+direction-dependent softening method as all other rows, the model gives
+CHSH$_\mathrm{raw} = 0.978$, CHSH$_\mathrm{rescaled} = 2.611$ --- correctly
+interpolating between the $\beta=0.3$ and $\beta=0.5$ rows.
+The companion Paper~IX~\cite{Paper9} also analyses a simpler limiting case (pure
+$f=2$, no direction dependence, no density softening) which gives
+CHSH$_\mathrm{rescaled}=2.361$ at $\beta^*$; the gap between that value and
+the full-model $2.611$ is the measurement-strength enhancement from the
+direction-dependent $f$ used here.
+\status{published}
+\source{P8:sec:beta_star}
+\depends{quantum/bell.tex (P8:tab:planar_chsh)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Biased 3D Geometries: Smooth Transition}
+
+To understand the transition from planar to fully isotropic 3D geometry, we also evaluate biased configurations where $\hat{n}$ is sampled from a Gaussian distribution centered on the xy-plane with width $\sigma$. Smaller $\sigma$ corresponds to stronger planar bias; larger $\sigma$ approaches isotropic sampling.
+
+\begin{table}[h]
+\centering
+\caption{CHSH values for biased 3D geometries at the framework-fixed coupling
+$\beta^*\approx0.452$. Bias parameter $\sigma$ controls out-of-plane spread:
+$\sigma=0$ is pure 2D plane, $\sigma \to \infty$ is full 3D isotropic.
+Results at $\beta=0.5$ differ by $<0.002$, confirming the robustness
+of the geometry dependence.}
+\label{P8:tab:biased3d_chsh}
+\begin{tabular}{c|c|c}
+\hline
+Geometry & Raw CHSH & Rescaled CHSH \\
+\hline
+2D plane ($\sigma = 0$) & 0.981 & 2.613 \\
+Biased 3D ($\sigma = \pi/18 \approx 10^\circ$) & 0.975 & 2.535 \\
+Biased 3D ($\sigma = \pi/12 \approx 15^\circ$) & 0.972 & 2.454 \\
+Biased 3D ($\sigma = \pi/6 \approx 30^\circ$) & 0.943 & 2.022 \\
+3D isotropic ($\sigma \to \infty$) & 0.903 & 1.692 \\
+\hline
+\end{tabular}
+\end{table}
+
+The transition is smooth and monotonic: as geometry becomes more isotropic (increasing $\sigma$), CHSH degrades from quantum-like ($\approx 2.6$) toward classical ($\approx 1.7$). Even modest out-of-plane spread ($\sigma = \pi/6 \approx 30^\circ$) reduces CHSH to 2.02, barely exceeding the classical bound. This demonstrates that 3D dilution is not a binary effect but a continuous function of geometric bias, providing multiple intermediate points for experimental validation.
+
+The near-identical results at $\beta^* = 0.452$ and $\beta = 0.5$ (differences $< 0.002$ across all geometries) confirm that the geometry-dependence curve is not a property of any particular $\beta$ value but of the angular suppression structure $\sin^4\theta/\vp^6$ itself. The algebraic reason for this robustness is identified in Paper~IX~\cite{Paper9}: the $\sin^4\theta$ weight is the quaternionic ($\mathbb{H}$-valued) norm on transition amplitudes, and the Fourier harmonic structure of the resulting correlation function is $\beta$-independent at leading order.
+\status{published}
+\source{P8:tab:biased3d_chsh}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Full Sphere Sampling}
+
+In the 3D isotropic case, $\hat{n}$ is sampled uniformly over the sphere using the standard method: $\cos\theta \sim \mathrm{Uniform}(-1, 1)$ and $\phi \sim \mathrm{Uniform}(0, 2\pi)$, giving $\hat{n} = (\sin\theta\cos\phi, \sin\theta\sin\phi, \cos\theta)$. Alice and Bob's measurement axes $\hat{a}$ and $\hat{b}$ remain in the xy-plane for simplicity, but the hidden variable now explores all directions including those perpendicular to the measurement plane.
+
+The solid-angle integration in Eq. (14) becomes a full spherical average:
+\begin{equation}
+E(\alpha, \beta) = \frac{1}{4\pi} \int_0^{2\pi} d\phi \int_0^\pi \sin\theta \, d\theta \, [p_{\mathrm{same}}(\theta, \phi) - p_{\mathrm{diff}}(\theta, \phi)].
+\label{P8:eq:E_isotropic}
+\end{equation}
+
+For $\hat{n}$ oriented out of the measurement plane (large $\theta$ relative to z-axis), the mismatch angles $\theta_A$ and $\theta_B$ to measurement axes $\hat{a}$ and $\hat{b}$ become nearly random, washing out the $\sin^4\theta$ angular structure. This dilution effect is the core prediction distinguishing this model from quantum mechanics.
+\status{published}
+\source{P8:eq:E_isotropic}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Non-Perturbative Form: The Unobservable Baseline}
+
+To understand the pre-measurement state, we evaluate the model without measurement-induced perturbations: $\delta\rho_A = \delta\rho_B = 0$. In this non-perturbative regime, only the background condensate density $\rho$ provides feedback via the denominator $(1 + \beta\rho)$. The probability weights become
+\begin{equation}
+\tilde{w}_A(\pm 1 \mid \hat{n}) = \exp\left( -\lambda \cdot \frac{1}{\phi^6} \frac{\sin^4\theta_A \text{ or } \cos^4\theta_A}{1 + \beta\rho} \right),
+\label{P8:eq:weight_nonperturbative}
+\end{equation}
+with no direction-dependent softening (no $\delta\rho$ to create preferential channels).
+\status{published}
+\source{P8:eq:weight_nonperturbative}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Results: Classical Regime}
+
+Table 3 shows CHSH values for fully isotropic 3D geometry in the non-perturbative regime across $\beta = 0.1$--$2.0$. The rescaled CHSH ranges from 1.03 (minimal baseline softening) down to 0.39 (strong softening), all significantly below the classical bound of 2.0.
+
+\begin{table}[h]
+\centering
+\caption{CHSH values for isotropic 3D geometry in non-perturbative regime ($\delta\rho = 0$). Baseline density feedback $\beta$ ranges from minimal (0.1) to strong (2.0). Monte Carlo evaluation with N=100,000 samples, dynamic rescaling.}
+\label{P8:tab:isotropic_nonpert_chsh}
+\begin{tabular}{c|c|c|c}
+\hline
+$\beta$ & Raw CHSH & Rescaled CHSH & Rescale Factor \\
+\hline
+0.1 & 0.552 & 1.034 & 1.874 \\
+0.3 & 0.507 & 0.949 & 1.873 \\
+0.5 & 0.465 & 0.873 & 1.877 \\
+0.7 & 0.419 & 0.786 & 1.877 \\
+1.0 & 0.354 & 0.662 & 1.871 \\
+2.0 & 0.210 & 0.395 & 1.876 \\
+\hline
+\end{tabular}
+\end{table}
+
+These values represent the fundamental pre-measurement state of the system. The smooth degradation with increasing $\beta$ arises because stronger baseline softening washes out the angular structure---when suppression is uniformly weak everywhere, there's no preferential direction, leading to nearly random correlations.
+
+The rescale factor remains nearly constant ($\sim 1.87$) across all $\beta$ values, as expected for geometry-dependent correction. It differs slightly from the planar value due to the full 3D solid-angle average having $\langle \sin^4\theta \rangle \approx 0.6$--$0.65$ (compared to 0.533 for pure 2D), but the consistency confirms the rescaling is a genuine geometric effect, not a tuning parameter.
+\status{published}
+\source{P8:tab:isotropic_nonpert_chsh}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Comparison: 3D Isotropic with Measurement}
+
+For completeness, Table 4 shows CHSH values in 3D isotropic geometry with measurement-induced perturbations (the code from Section 4 applied to full sphere sampling). Even with $\delta\rho > 0$, the 3D dilution effect remains dominant, yielding CHSH $\approx$ 1.7 (barely classical).
+
+\begin{table}[h]
+\centering
+\caption{CHSH values for isotropic 3D geometry with measurement perturbations ($\delta\rho > 0$, $f_{\mathrm{base}}=2.0$). Compared to Table 3 (non-perturbative), measurement softening boosts CHSH but cannot overcome 3D dilution.}
+\label{P8:tab:isotropic_measured_chsh}
+\begin{tabular}{c|c|c}
+\hline
+$\beta$ & Raw CHSH & Rescaled CHSH \\
+\hline
+0.1 & 0.911 & 1.711 \\
+0.3 & 0.902 & 1.693 \\
+0.5 & 0.900 & 1.687 \\
+0.7 & 0.900 & 1.691 \\
+1.0 & 0.894 & 1.682 \\
+\hline
+\end{tabular}
+\end{table}
+
+Measurement increases CHSH from ~1.0 (non-perturbative, Table 3) to ~1.7 (with perturbation, Table 4), demonstrating that $\delta\rho$ does enhance correlations. However, the boost is insufficient to reach quantum-like violations (~2.6) because out-of-plane $\hat{n}$ directions still contribute near-random outcomes, diluting the angular structure. Only in planar or biased geometries, where $\hat{n}$ is constrained to relevant directions, does measurement-induced softening produce strong violations.
+
+This is the key testable prediction: this model predicts CHSH $\approx$ 1.7 in true 3D isotropic experiments (even with standard detectors creating $\delta\rho > 0$), while quantum mechanics predicts CHSH = 2.828 independent of geometry.
+\status{published}
+\source{P8:tab:isotropic_measured_chsh}
+\residual{P (untested; falsifiable via 3D-isotropic Bell test, Section~5)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Summary: Geometry-Dependent Predictions}
+
+The Density-Feedback Hopfion model makes three clear, testable predictions regarding geometry:
+
+\begin{enumerate}
+\item \textbf{Planar geometry} (all existing experiments): CHSH $\approx$ 2.6, approaching Tsirelson's bound. Consistent with observations.
+
+\item \textbf{Biased 3D geometry} (slight out-of-plane spread): CHSH degrades smoothly from 2.6 (pure planar) to 2.0 ($\sigma \approx 30^\circ$) as shown in Table 2. Testable with controlled geometric bias.
+
+\item \textbf{Isotropic 3D geometry} (full sphere, no bias): CHSH $\approx$ 1.7 with measurement (Table 4), or CHSH $\approx$ 1.0 for weak measurements (approaching Table 3 non-perturbative values). Significantly below classical bound in weak-measurement limit.
+\end{enumerate}
+
+Standard quantum mechanics predicts CHSH = 2.828 for all three cases (up to projection factors). This geometry dependence provides a clear experimental distinction, testable with next-generation satellite networks or 3D entangled-state protocols (Section 6).
+\status{P}
+\source{Paper VIII, sec. Summary: Geometry-Dependent Predictions}
+\depends{quantum/bell.tex (P8:tab:planar_chsh, P8:tab:biased3d_chsh, P8:tab:isotropic_nonpert_chsh, P8:tab:isotropic_measured_chsh)}
+
+%════════════════════════════════════════════════════════════════════
+% Born Rule and Observable Structures — Paper IX
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[Hopf push-forward]
+\label{P9:thm:hopf_pushforward}
+The condensate signed correlation $\xcond$ is the push-forward of the
+standard QM signed correlation $x_\mathrm{QM}$ under the Hopf fibration:
+\begin{equation}
+  \xcond(\theta) \;=\; x_\mathrm{QM}(\eta^{-1}_\mathrm{avg}(\theta)),
+  \label{P9:eq:hopf_pushforward}
+\end{equation}
+or equivalently,
+\begin{equation}
+  \xcond(\theta) \;=\; \frac{2\cos\theta}{1+\cos^2\theta}
+  \;=\; \frac{x_\mathrm{QM}}{1 - \tfrac{1}{2}(1-x_\mathrm{QM}^2)},
+  \label{P9:eq:xcond_from_xQM}
+\end{equation}
+where the denominator $1+\cos^2\theta = 2-\sin^2\theta$ is the
+$S^3$-to-$S^2$ Jacobian factor in the Hopf fibration.
+\end{theorem}
+\status{published}
+\source{P9:thm:hopf_pushforward}
+
+\begin{theorem}[Exact Fourier series of $\xcond$]
+\label{P9:thm:fourier_exact}
+\begin{equation}
+  \xcond(\theta)
+  \;=\; \sum_{k=0}^{\infty} A_{2k+1}\,\cos((2k+1)\theta),
+  \label{P9:eq:xcond_fourier}
+\end{equation}
+with \emph{exact} coefficients
+\begin{equation}
+  \boxed{A_{2k+1}
+  \;=\; (4-2\sqrt{2})\cdot(-(3-2\sqrt{2}))^k
+  \;=\; (4-2\sqrt{2})\cdot(2\sqrt{2}-3)^k},
+  \label{P9:eq:A_exact}
+\end{equation}
+and the Parseval identity
+\begin{equation}
+  \boxed{\sum_{k=0}^{\infty} \frac{A_{2k+1}^2}{2}
+  \;=\; C(0) \;=\; \frac{1}{\sqrt{2}}}.
+  \label{P9:eq:parseval_exact}
+\end{equation}
+In particular $A_1 = 4-2\sqrt{2} = 2(2-\sqrt{2})\approx1.172$.
+\end{theorem}
+\status{published}
+\source{P9:thm:fourier_exact}
+
+\begin{theorem}[Tsirelson gap decomposition]
+\label{P9:thm:tsirelson_gap}
+The CHSH of the condensate model in the 2D planar geometry, after applying the
+geometric rescaling $\CHSH_\mathrm{rescaled}=\CHSH_\mathrm{raw}/\langle\sin^4\theta\rangle_\mathrm{2D}$
+with $\langle\sin^4\theta\rangle_\mathrm{2D} = 3/8$, satisfies
+\begin{equation}
+  \boxed{\CHSH_\mathrm{rescaled}
+  \;=\; \frac{8}{3}\,\CHSH_\mathrm{raw}
+  \;\approx\; 2.36},
+  \label{P9:eq:CHSH_rescaled_value}
+\end{equation}
+and the gap from Tsirelson's bound decomposes as
+\begin{equation}
+  \Tsirelson - \CHSH_\mathrm{rescaled}
+  \;\approx\; 0.47
+  \;=\; \underbrace{\vphantom{X}\Tsirelson(1-A_1)}_{\text{harmonic mismatch}}
+  \;+\; \underbrace{\vphantom{X}\Tsirelson\!\left(A_1 - \frac{3}{8}\cdot\frac{8}{3}\right)}_{\text{projection error}},
+  \label{P9:eq:gap_decomposition}
+\end{equation}
+where $A_1 = 4-2\sqrt{2}\approx1.172$ is the leading Fourier coefficient
+of $\xcond$ (Theorem~\ref{P9:thm:fourier_exact}, equation~\eqref{P9:eq:A_exact}).
+ 
+Under the pointwise $\HH\to\CC$ projection defined by replacing
+$\pcond(\theta)\to\pQM(\theta)$ (i.e., $t^4\to t^2$ in the denominator),
+\begin{equation}
+  \CHSH_\mathrm{projected} \;=\; \Tsirelson.
+  \label{P9:eq:CHSH_projected_exact}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P9:thm:tsirelson_gap}
+
+\begin{theorem}[Born rule from complexification]
+\label{P9:thm:born_rule}
+Define the $\CC$-valued amplitude by complexification via the topological
+winding phase:
+\begin{equation}
+  \psi_\CC(\theta)
+  \;=\; |\psi_\HH(\theta)|_\HH^{1/2} \cdot e^{i\Phi(\theta)},
+  \label{P9:eq:complexification}
+\end{equation}
+where $\Phi(\theta) = Q\cdot\omega(\theta)$, $Q=10$ is the Hopf charge,
+and $\omega(\theta) = 2\pi(1-\cos\theta)/2$ is the solid angle subtended
+at polar angle $\theta$.
+Then the Born rule holds exactly:
+\begin{equation}
+  \boxed{P(\theta) \;=\; |\psi_\CC(\theta)|^2
+  \;=\; |\psi_\HH(\theta)|_\HH
+  \;=\; \frac{e^{-\sin^4\theta/(2\vp^6)}}{Z(\theta)^{1/2}}}.
+  \label{P9:eq:born_from_condensate}
+\end{equation}
+In the strong-measurement limit $(\delta\rho/\rho\to\infty$,
+Section~3 of~\cite{Paper8}$)$, this converges to the
+standard Born rule:
+\begin{equation}
+  P(\theta)
+  \;\xrightarrow{\delta\rho\to\infty}\;
+  \frac{\cos^4(\theta/2)}{\cos^4(\theta/2)+\sin^4(\theta/2)}
+  \;=\; \pcond(\theta)
+  \;\approx\; \pQM(\theta)\bigl[1 + O(\sin^4\theta/\vp^6)\bigr].
+  \label{P9:eq:born_limit}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P9:thm:born_rule}
+
+\begin{remark}[Division algebra assignments]
+\label{P9:rem:hurwitz_roles}
+The three non-real Hurwitz algebras each play a distinct role in the
+derivation of the Born rule from the condensate:
+\begin{enumerate}[label=(\roman*)]
+  \item $\HH$ \emph{(quaternions, second generation lepton $k=2$):}
+    supplies the $|\cdot|^4$ suppression magnitude
+    $\sin^4\theta = |\langle\hat{a}\mid\hat{n}\rangle_\perp|_\HH^4$,
+    driving the Bell correlations of~\cite{Paper8}.
+
+  \item $\CC$ \emph{(complex numbers, first generation lepton $k=1$):}
+    supplies the winding phase $e^{i\Phi}$ in~\eqref{P9:eq:complexification},
+    enabling interference, the inner product structure, and the tensor
+    product structure for composite entangled systems.
+    Standard quantum mechanics is $J_n(\CC)$ because only over $\CC$
+    does $(A\otimes B)_\CC$ remain a valid $\CC$-Hilbert space.
+
+  \item $\OO$ \emph{(octonions, third generation lepton $k=3$):}
+    supplies the exceptional Albert algebra $J_3(\OO)$ whose automorphism
+    group $G_2\subset F_4$ constrains the Hopf charge to
+    $Q\in\ZZ = \pi_3(S^2)$ (not $\pi_3(S^3)=\ZZ$ for generic spheres).
+    The non-associativity of $\OO$ forces the three-generation structure
+    and prevents the Cayley--Dickson tower from continuing beyond $\OO$.
+\end{enumerate}
+The Born rule is the interface between (i) and (ii): $\HH$ provides the
+magnitude; $\CC$ provides the phase; $P=|\psi_\CC|^2$ is the result.
+\end{remark}
+\status{published}
+\source{P9:rem:hurwitz_roles}
+
+\begin{theorem}[$n$-particle GHZ Mermin correlator]
+\label{P9:thm:GHZ}
+Let $\hat{n}\in S^2$ be the shared hidden-variable direction, and let
+$\theta_i = \arccos(\hat{a}_i\cdot\hat{n})$ be the mismatch angle for
+particle $i$, $i=1,\ldots,n$.
+The $n$-particle condensate Mermin correlator in the 2D planar geometry is
+\begin{equation}
+  M_\mathrm{raw}^{(n)}(\hat{a}_1,\ldots,\hat{a}_n)
+  \;=\; \left\langle\prod_{i=1}^n \xcond(\theta_i)\right\rangle_{\!\hat{n}},
+  \label{P9:eq:Mermin_raw}
+\end{equation}
+where $\xcond(\theta) = 2\cos\theta/(1+\cos^2\theta)$.
+Under the pointwise $\HH\to\CC$ projection ($\xcond\to x_\mathrm{QM}=\cos\theta$),
+the $n$-particle Mermin value reaches the quantum Tsirelson--Mermin
+bound exactly:
+\begin{equation}
+  M_\mathrm{projected}^{(n)}
+  \;=\; \left\langle\prod_{i=1}^n \cos\theta_i\right\rangle_{\!\hat{n},\,\mathrm{opt}}
+  \;=\; 2^{n/2},
+  \label{P9:eq:Mermin_QM}
+\end{equation}
+where ``opt'' denotes the optimal GHZ measurement angles.
+The $n$-particle autocorrelation satisfies the \emph{$n$-fold Parseval identity}:
+\begin{equation}
+  \boxed{C^{(n)}(0)
+  \;\equiv\; \left\langle\xcond(\theta)^{2n}\right\rangle_{\!\theta=0}
+  \;=\; \left(\frac{1}{\sqrt{2}}\right)^n}.
+  \label{P9:eq:parseval_n}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P9:thm:GHZ}
+
+\begin{theorem}[CHSH$(f)$ transition]
+\label{P9:thm:chsh_f}
+Let $\CHSH_\mathrm{raw}(f)$ be the raw CHSH value of the $f$-parameterised
+model~\eqref{P9:eq:p_f} in the 2D planar geometry at the standard optimal angles,
+and let $\CHSH_f = \CHSH_\mathrm{raw}(f)/\langle\sin^{2f}\theta\rangle_\mathrm{2D}$
+be the $f$-rescaled CHSH.
+ 
+\begin{enumerate}[label=\emph{(\roman*)}]
+  \item \emph{(Monotonicity.)}
+    $\CHSH_\mathrm{raw}(f)$ is strictly increasing in $f$ for $f\geq1$:
+    \begin{equation}
+      \CHSH_\mathrm{raw}(1) < \CHSH_\mathrm{raw}(2) < \cdots
+      \;\to\; 1 \quad\text{as }f\to\infty.
+      \label{P9:eq:CHSH_monotone}
+    \end{equation}
+ 
+  \item \emph{(Exact values.)}
+    \begin{align}
+      \CHSH_\mathrm{raw}(f)
+      &= \bigl|C_f(\pi/8) + C_f(3\pi/8)\bigr|,
+      \label{P9:eq:CHSH_exact_f}\\
+      C_f(\psi)
+      &= \frac{1}{2\pi}\int_0^{2\pi} x_f(\varphi)\,x_f(\varphi+\psi)\,d\varphi,
+      \nonumber
+    \end{align}
+    with $\CHSH_\mathrm{raw}(1) = \tfrac{1}{2}(\cos(\pi/8)+\cos(3\pi/8))
+    = \tfrac{1}{2}\sqrt{1+\tfrac{1}{\sqrt{2}}}\,$.
+ 
+  \item \emph{(Tsirelson recovery.)}
+    Under the $\HH\to\CC$ projection ($f=2\to f=1$) with $f$-rescaling:
+    \begin{equation}
+      \CHSH_1
+      = \frac{\CHSH_\mathrm{raw}(1)}{1/2}
+      = \sqrt{1+\tfrac{1}{\sqrt{2}}} \;\approx\; 1.307,
+      \label{P9:eq:CHSH_f1_rescaled}
+    \end{equation}
+    and under the normalisation identification that maps
+    $E_\mathrm{raw}(\psi) = -C_1(\psi)$ to the standard QM convention
+    $E_\mathrm{QM}(\psi) = -\cos\psi$ (a factor-$2$ renormalisation of
+    the correlation function):
+    \begin{equation}
+      \CHSH_\mathrm{QM} \;=\; 2\cdot\CHSH_1
+      \;=\; 2\sqrt{1+\tfrac{1}{\sqrt{2}}} \;\approx\; 2.613.
+      \label{P9:eq:norm_id}
+    \end{equation}
+    The Tsirelson bound $\Tsirelson\approx2.828$ is recovered precisely
+    when the $\HH\to\CC$ projection is combined with the standard-angle
+    optimisation over all $(\alpha,\alpha',\beta,\beta')$~\cite{Tsirelson1980}.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P9:thm:chsh_f}
+
+\begin{theorem}[CHSH with density feedback]
+\label{P9:thm:chsh_fb}
+Let $\CHSH_\mathrm{raw}(f_0,\beta)$ be the raw CHSH of the
+$(f_0,\beta)$-model~\eqref{P9:eq:p_fb} in 2D planar geometry at the
+standard optimal angles, and let
+$\CHSH_\mathrm{rescaled}(f_0,\beta) = \CHSH_\mathrm{raw}(f_0,\beta)/(3/8)$.
+ 
+\begin{enumerate}[label=\emph{(\roman*)}]
+\item \emph{(Exact formula.)}
+  \begin{align}
+    \CHSH_\mathrm{raw}(f_0,\beta)
+    &= C_{f_0,\beta}(\pi/8) + C_{f_0,\beta}(3\pi/8),
+    \label{P9:eq:chsh_fb_formula}\\
+    C_{f_0,\beta}(\psi)
+    &= \frac{1}{2\pi}\int_0^{2\pi}
+       x_{f_0,\beta}(\varphi)\,x_{f_0,\beta}(\varphi+\psi)\,d\varphi.
+    \nonumber
+  \end{align}
+ 
+\item \emph{(Effect of $\beta$ at fixed $f_0=2$.)}\label{item:beta_effect}
+  At the condensate's own model ($f_0=2$, i.e.\ $p_{2,0}=\pcond$),
+  turning on $\beta^*=0.452$ gives:
+  \begin{equation}
+    \CHSH_\mathrm{rescaled}(2,\,\bst)
+    \;\approx\; 2.341,
+    \label{P9:eq:chsh_beta_pcond}
+  \end{equation}
+  slightly \emph{below} the $\beta=0$ value of $2.363$.
+  The reduction arises because $\beta>0$ lowers $f_\mathrm{eff}$
+  near $\theta=0$, softening the correlation at small mismatch angles.
+ 
+\item \emph{(Paper~VIII limit.)}
+  Paper~VIII uses $f_\mathrm{base}=2$ in its convention, equivalent to
+  $f_0=4$ here (Remark~\ref{P9:rem:f_convention}).
+  At $(f_0,\beta) = (4,\,\bst)$:
+  \begin{equation}
+    \CHSH_\mathrm{raw}(4,\,\bst) \;\approx\; 0.975,
+    \qquad
+    \CHSH_\mathrm{rescaled}(4,\,\bst) \;\approx\; 2.60,
+    \label{P9:eq:chsh_paper8}
+  \end{equation}
+  in agreement with the Monte Carlo result of
+  Paper~VIII~\cite{Paper8} ($\approx2.611$).
+ 
+\item \emph{(Monotonicity in $f_0$, non-monotonicity in $\beta$.)}\label{item:monotone_fb}
+  For fixed $\beta\in[0,1)$, $\CHSH_\mathrm{raw}(f_0,\beta)$ is
+  strictly increasing in $f_0$.
+  For fixed $f_0$ and increasing $\beta$, the raw CHSH \emph{decreases}
+  at small $\beta$ (feedback softens near-aligned correlations) but the
+  rescaled CHSH tracks the raw behaviour since the rescale factor $8/3$
+  is $\beta$-independent.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P9:thm:chsh_fb}
+
+\begin{theorem}[Condensate--photon interaction Hamiltonian]
+\label{P9:thm:H_int}
+Let $\rho$ be the condensate scalar field with $k$-essence action
+\begin{equation}
+  S_\mathrm{cond}
+  \;=\; \int\!\sqrt{-g}\;P(X)\,d^4x,
+  \qquad
+  P(X) = \frac{X}{\vp^6(1+\bst X)},
+  \qquad
+  X = g^{ab}\nabla_{\!a}\rho\,\nabla_{\!b}\rho.
+  \label{P9:eq:S_cond_H}
+\end{equation}
+Let $A_\mu$ be the electromagnetic gauge field.
+The minimal coupling of $A_\mu$ to the condensate Noether current is:
+\begin{equation}
+  H_\mathrm{int}
+  \;=\; e\int J^\mu A_\mu\,d^3x,
+  \qquad
+  J^\mu \;=\; 2P'(X)\,\nabla^\mu\rho,
+  \label{P9:eq:H_int}
+\end{equation}
+where $P'(X) = dP/dX = [\vp^6(1+\bst X)^2]^{-1}$ is the kinetic
+susceptibility of the condensate.
+
+Evaluated at the saddle-point background $(\rho_0, X_0=|\nabla\rho_0|^2)$
+with the condensate gradient oriented at in-plane angle $\phi_n$, and
+coupled to a linearly polarized photon with polarization vector
+$\varepsilon^\mu(\alpha) = (0,\cos\alpha,\sin\alpha,0)$:
+\begin{equation}
+  \langle\phi_n|H_\mathrm{int}|\alpha\rangle_\mathrm{phot}
+  \;=\; g_\mathrm{eff}\,\cos(\phi_n - \alpha),
+  \label{P9:eq:H_int_matrix}
+\end{equation}
+where the effective coupling constant is
+\begin{equation}
+  g_\mathrm{eff}
+  \;=\; \frac{2\,e\,A_0\,|\nabla\rho_0|}{\vp^6\,(1+\bst X_0)^2}.
+  \label{P9:eq:g_eff}
+\end{equation}
+The coupling is suppressed by the same factor $\vp^6$ that appears in the
+Bell suppression law $S(\theta)=\sin^4\theta/\vp^6$:
+both arise from the single $k$-essence action~\eqref{P9:eq:S_cond_H}.
+\end{theorem}
+\status{published}
+\source{P9:thm:H_int}
+
+\begin{remark}[Shared $\vp^6$ denominator: Bell and Malus from one action]
+\label{P9:rem:phi6_connection}
+The coupling~\eqref{P9:eq:g_eff} is suppressed by $\vp^6\approx17.9$,
+the same factor in the Bell suppression law $S(\theta)=\sin^4\theta/\vp^6$.
+Both arise from the single action~\eqref{P9:eq:S_cond_H}: the Noether current
+$J^\mu=2P'(X)\nabla^\mu\rho$ that controls the photon coupling is the same
+object whose square $X=|\nabla\rho|^2$ drives the suppression.
+This is the microscopic unity of the Bell and Malus phenomena in the condensate.
+\end{remark}
+\status{published}
+\source{P9:rem:phi6_connection}
+
+\begin{theorem}[Malus's law from the condensate interaction]
+\label{P9:thm:malus}
+The normalised transition probability for condensate orientation $|\phi_n\rangle$
+to produce a photon detected at polarizer angle $\alpha$ is:
+\begin{equation}
+  T(\phi_n,\alpha)
+  \;=\; \frac{|\langle\phi_n|H_\mathrm{int}|\alpha\rangle|^2}
+             {|\langle\phi_n|H_\mathrm{int}|\alpha\rangle|^2
+              +|\langle\phi_n|H_\mathrm{int}|\alpha{+}\tfrac{\pi}{2}\rangle|^2}
+  \;=\; \cos^2(\phi_n-\alpha).
+  \label{P9:eq:malus_derived}
+\end{equation}
+The signed Stokes observable eigenvalue is
+$A^\mathrm{Stokes}(\alpha)|\phi_n\rangle = (2T-1)|\phi_n\rangle
+= \cos(2(\phi_n-\alpha))|\phi_n\rangle$,
+the $m=2$ Fourier mode of $S^1$.
+\end{theorem}
+\status{published}
+\source{P9:thm:malus}
+
+\begin{theorem}[Photon Stokes observable recovers Tsirelson exactly]
+\label{P9:thm:stokes}
+For a condensate photon singlet with the Stokes observable~\eqref{P9:eq:stokes_op} and uniform ensemble over $\phi_n$:
+\begin{equation}
+  E^\mathrm{Stokes}(\alpha,\beta)
+  \;=\; -\frac{1}{2\pi}\int_0^{2\pi}
+  \cos\bigl(2(\varphi-\alpha)\bigr)\,\cos\bigl(2(\varphi-\beta)\bigr)\,d\varphi
+  \;=\; -\frac{1}{2}\cos\bigl(2(\alpha-\beta)\bigr).
+  \label{P9:eq:E_stokes}
+\end{equation}
+At the optimal measurement angles $(a,a',b,b')=(0,\pi/4,\pi/8,-\pi/8)$,
+after the standard Stokes normalisation $(\times2)$ (where $E_\mathrm{QM}=-\cos(2\psi)$
+is normalised to amplitude 1, hence $E^\mathrm{Stokes} = \tfrac{1}{2}E_\mathrm{QM}$),
+the physical CHSH value is:
+\begin{equation}
+  \boxed{\CHSH^\mathrm{Stokes}
+  = 2\times\CHSH^\mathrm{Stokes}_\mathrm{raw}
+  = 2\sqrt{2}
+  \equiv \Tsirelson},
+  \label{P9:eq:stokes_tsirelson}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P9:thm:stokes}
+
+\begin{remark}[The Parseval factor is the averaging effect]
+\label{P9:rem:parseval_averaging}
+The factor $\tfrac{1}{2}$ in~\eqref{P9:eq:E_stokes} is the Parseval factor
+for the $m=2$ mode of $L^2(S^1)$.
+A photon polarizer selects only the $m=2$ Fourier component of the condensate
+orientation distribution; the ensemble average over $\phi_n$ produces this
+Parseval factor automatically.
+The QM normalisation $\times2$ undoes it, recovering the full amplitude.
+Photon Bell experiments \emph{do} perform an ensemble average over $\phi_n$,
+and the condensate model provides the geometric explanation of this factor.
+\end{remark}
+\status{published}
+\source{P9:rem:parseval_averaging}
+
+\begin{remark}[The two CHSH ceilings]
+\label{P9:rem:two_ceilings}
+The condensate model has \emph{two distinct CHSH ceilings}, depending
+on the observable:
+\begin{center}
+\begin{tabular}{llccc}
+\toprule
+Particle & Observable & Parseval & Rescaling & Ceiling \\
+\midrule
+Condensate lepton & $\xcond(\theta)$, pcond, $f{\to}\infty$ & $3/8$ & $\times8/3$ & $8/3\approx2.667$ \\
+Photon (Stokes)    & $\cos(2\theta)$, Malus, $m{=}2$ (Thm~\ref{P9:thm:malus})        & $1/2$ & $\times2$   & $2\sqrt{2}\approx2.828$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Both ceilings are $\text{CHSH}_\mathrm{raw}\times(1/\text{Parseval factor})$.
+Photon Bell experiments~\cite{Hensen2015,Giustina2015,Shalm2015,Poh2015} observe
+CHSH $\to2\sqrt{2}$: correct condensate prediction for spin-1/Malus.
+The pcond/$8/3$ ceiling is the condensate lepton sector prediction.
+The structural Tsirelson gap $2\sqrt{2}-8/3\approx0.161$ is the difference
+between the photon and lepton ceilings, a prediction for lepton Bell tests.
+\end{remark}
+\status{published}
+\source{P9:rem:two_ceilings}
+
+\begin{theorem}[Photon winding number from the $\mathbb{RP}^1$ double cover]
+\label{P9:thm:m_phot}
+The photon polarization observable in the condensate is the $m=2$
+Fourier mode of $S^1$, uniquely determined by two constraints:
+\begin{enumerate}[label=(\roman*),noitemsep]
+\item \emph{(Malus's law, Theorem~\ref{P9:thm:malus})} the transmission
+  probability at mismatch angle $\theta=\phi_n-\alpha$ is
+  $T(\theta)=\cos^2\theta$, derived from the condensate Noether current;
+\item \emph{($\pi$-periodicity)} the observable is invariant under
+  $\alpha\mapsto\alpha+\pi$ (rotating the polarizer by $180°$ restores the same measurement).
+\end{enumerate}
+The eigenvalue of the Stokes observable on $|\phi_n\rangle$ is
+$\cos(2(\phi_n-\alpha))$, which is the unique function of $\phi_n-\alpha$
+satisfying (i) and (ii).
+\end{theorem}
+\status{published}
+\source{P9:thm:m_phot}
+
+\begin{remark}[Angle doubling: polarizer angle to condensate angle]
+\label{P9:rem:winding}
+A photon polarizer rotated by $\psi$ corresponds to a condensate
+orientation angle of $2\psi$, because photon polarization lives on
+$\mathbb{RP}^1 = S^1/\mathbb{Z}_2$ (period $\pi$) while the condensate
+lives on $S^1$ (period $2\pi$): the double cover gives winding number
+$m_\mathrm{phot}=2$ (Theorem~\ref{P9:thm:m_phot}).
+So the effective correlation for a photon pair is
+$E_\mathrm{phot}(\psi) = -x_f(2\psi)$ in the projective limit,
+or $E_\mathrm{phot}(\psi) = -C_f^{(m=2)}(\psi)$ in general.
+This is the physical content of Conjecture~\ref{P9:conj:angle_doubling}.
+\end{remark}
+\status{published}
+\source{P9:rem:winding}
+
+\begin{proposition}[Projective-measurement limit: pcond lepton ceiling]
+\label{P9:prop:projective}
+For the pcond observable $x_f$ (the condensate's own spin-$\tfrac{1}{2}$
+$\HH$-valued model), as $f\to\infty$ the correlation function approaches
+a triangular autocorrelation:
+\begin{equation}
+  C_\infty(\psi) \;\equiv\; \lim_{f\to\infty} C_f(\psi)
+  \;=\; \frac{1}{2\pi}\int_0^{2\pi}
+  \mathrm{sgn}(\cos\varphi)\,\mathrm{sgn}(\cos(\varphi+\psi))\,d\varphi
+  \;=\; 1 - \frac{2|\psi|}{\pi},
+  \quad |\psi|\leq\pi.
+\end{equation}
+At the standard optimal angles:
+$C_\infty(\pi/8)=3/4$, $C_\infty(3\pi/8)=1/4$, giving
+\begin{equation}
+  \CHSH_\mathrm{raw}(\infty) = 1,
+  \qquad
+  \CHSH_\mathrm{rescaled}(\infty) = \frac{8}{3} \approx 2.667.
+  \label{P9:eq:chsh_projective}
+\end{equation}
+The residual gap from Tsirelson's bound is
+\begin{equation}
+  \boxed{\Tsirelson - \frac{8}{3}
+  \;=\; 2\sqrt{2} - \frac{8}{3}
+  \;\approx\; 0.161},
+  \label{P9:eq:structural_gap}
+\end{equation}
+This is the \emph{pcond Tsirelson gap}: the residual within the
+$x_f$ observable from the $\sin^4/\vp^6$ suppression geometry.
+It does \emph{not} apply to photon polarization experiments,
+which use the Stokes observable
+(Theorem~\ref{P9:thm:stokes} and Remark~\ref{P9:rem:two_ceilings}).
+\end{proposition}
+\status{published}
+\source{P9:prop:projective}
+
+\begin{remark}[Scope of Proposition~\ref{P9:prop:projective}]
+\label{P9:rem:projective_scope}
+The ceiling $\CHSH_\mathrm{rescaled}\leq8/3$ in Proposition~\ref{P9:prop:projective}
+applies only to the pcond/$x_f$ observable with $\times8/3$ rescaling.
+Photon experiments use the Stokes observable ($\times2$, ceiling $2\sqrt{2}$).
+\end{remark}
+\status{published}
+\source{P9:rem:projective_scope}
+
+\begin{proposition}[Incoherent average and the pcond ceiling]
+\label{P9:prop:incoherence}
+Let $\rho_\mathrm{classic} = (1/2\pi)\int|\phi_n\rangle\langle\phi_n|_A\otimes|\phi_n{+}\pi\rangle\langle\phi_n{+}\pi|_B\,d\phi_n$ be the mixed state arising from incoherent averaging over $\hat{n}$, and with pcond measurement $A(\alpha)|\phi_n\rangle = x_f(\phi_n-\alpha)|\phi_n\rangle$.
+The correlation it predicts is:
+\begin{equation}
+  E_\mathrm{class}(\alpha,\beta)
+  \;=\; -C_f(\alpha-\beta)
+  \;=\; -\frac{1}{2\pi}\int_0^{2\pi}
+  x_f(\varphi-\alpha)\,x_f(\varphi-\beta)\,d\varphi,
+  \label{P9:eq:E_class}
+\end{equation}
+with ceiling $\CHSH_\mathrm{raw}\to1$ and $\CHSH_\mathrm{rescaled}\to8/3\approx2.667$
+as $f\to\infty$ (Proposition~\ref{P9:prop:projective}).
+This is strictly below Tsirelson's bound.
+\end{proposition}
+\status{published}
+\source{P9:prop:incoherence}
+
+\begin{proposition}[Phase invariance: winding phases cannot break the pcond ceiling]
+\label{P9:prop:phase_invariance}
+For any winding number $m_0\in\ZZ$, the state~\eqref{P9:eq:qsinglet}
+gives the \emph{same} correlation~\eqref{P9:eq:E_class} as the classical
+mixed state $\rho_\mathrm{classic}$, provided the measurement operators
+are diagonal in the $|\phi\rangle$ basis:
+$A(\alpha)|\phi\rangle = x_f(\phi-\alpha)|\phi\rangle$.For pcond measurement operators $A(\alpha)|\phi\rangle = x_f(\phi-\alpha)|\phi\rangle$
+and $B(\beta)|\phi+\pi\rangle = x_f((\phi+\pi)-\beta)|\phi+\pi\rangle$,
+the correlation from $|\Psi_\mathrm{cond}\rangle$ is:
+ \begin{equation}
+  E(\alpha,\beta)
+  = \langle\Psi_\mathrm{cond}|A(\alpha)\otimes B(\beta)|\Psi_\mathrm{cond}\rangle
+  = -C_f(\alpha-\beta),
+\end{equation}
+independent of $m_0$.
+\end{proposition}
+\status{published}
+\source{P9:prop:phase_invariance}
+
+\begin{lemma}[Anti-symmetry of $x_f$]
+\label{P9:lem:antisymmetry}
+For all $\theta\in(0,\pi)$ and $f>0$:
+\begin{equation}
+  x_f(\pi-\theta) = -x_f(\theta).
+  \label{P9:eq:antisymmetry}
+\end{equation}
+\end{lemma}
+\status{published}
+\source{P9:lem:antisymmetry}
+
+\begin{definition}[Signed correlation functions]
+For a spin-$\tfrac{1}{2}$ measurement at mismatch angle $\theta$,
+define the \emph{signed} outcome ($\pm1$ valued) correlation functions:
+\begin{align}
+  \xcond(\theta) &= 2\pcond(\theta) - 1
+  = \boxed{\frac{2\cos\theta}{1+\cos^2\theta}}, \label{P9:eq:xcond}\\
+  x_\mathrm{QM}(\theta) &= 2\pQM(\theta) - 1 = \cos\theta. \label{P9:eq:xQM}
+\end{align}
+\end{definition}
+\status{published}
+\source{P9:eq:xcond}
+
+\begin{remark}[Stokes vs pcond observables]
+\label{P9:rem:stokes_vs_pcond}
+Both observables map $|\phi_n\rangle$ to itself (they are diagonal)
+but with different eigenvalue functions:
+\begin{itemize}[noitemsep]
+\item $\xcond(\theta) = 2\cos\theta/(1+\cos^2\theta)$: the condensate
+  pcond observable ($f=2$, $\HH$-valued). Runs from $+1$ (aligned)
+  through 0 (perpendicular) to $-1$ (anti-aligned) in a non-cosine shape.
+\item $\cos(2\theta) = 2\cos^2\theta-1$: the Stokes observable (Malus,
+  spin-1). Runs from $+1$ at $\theta=0$ through 0 at $\theta=\pi/4$
+  to $-1$ at $\theta=\pi/2$, then back to $+1$ at $\theta=\pi$.
+\end{itemize}
+At $\theta=0$ both give $+1$.
+At $\theta=\pi/4$: $\xcond(\pi/4)\approx0.943$ while $\cos(\pi/2)=0$ ---
+the pcond observable is nearly maximal where Stokes vanishes.
+This functional difference is what gives the different CHSH ceilings.
+The Stokes eigenvalue $\cos(2\theta)$ selects exactly the $m=2$ Fourier
+coefficient of the condensate distribution; no other harmonics contribute
+to the Parseval autocorrelation.
+\end{remark}
+\status{published}
+\source{P9:rem:stokes_vs_pcond}
+
+\begin{definition}[$\HH$-valued condensate amplitude]
+\label{P9:def:H_amplitude}
+The quaternionic condensate amplitude at mismatch angle $\theta$ is defined by
+\begin{equation}
+  |\psi_\HH(\theta)|_\HH^2
+  \;\equiv\;
+  \frac{e^{-\sin^4\theta/\vp^6}}{Z(\theta)},
+  \label{P9:eq:psi_H}
+\end{equation}
+where $Z(\theta) = e^{-\sin^4\theta/\vp^6}+e^{-\cos^4\theta/\vp^6}$
+is the two-outcome partition function, so that $|\psi_\HH(+,\theta)|_\HH^2
++ |\psi_\HH(-,\theta)|_\HH^2 = 1$.
+\end{definition}
+\status{published}
+\source{P9:def:H_amplitude}
+
+\begin{definition}[$f$-$\beta$ condensate probability]
+\label{P9:def:p_f_beta}
+For measurement-strength parameter $f_0\geq1$ and density-feedback
+coupling $\beta\geq0$, define the direction-dependent effective exponent
+\begin{equation}
+  f_\mathrm{eff}(\theta;\,f_0,\beta)
+  \;\equiv\; \frac{f_0}{1 + \beta\,\cos\theta},
+  \label{P9:eq:f_eff}
+\end{equation}
+and the corresponding probability and signed correlation:
+\begin{equation}
+  p_{f_0,\beta}(\theta)
+  \;\equiv\; \frac{1}{1+\tan^{2f_\mathrm{eff}(\theta)}(\theta/2)},
+  \qquad
+  x_{f_0,\beta}(\theta) \;=\; 2p_{f_0,\beta}(\theta)-1.
+  \label{P9:eq:p_fb}
+\end{equation}
+At $\beta=0$: $p_{f_0,0} = p_{f_0}$ (eq.~\eqref{P9:eq:p_f}).
+At $f_0=2$: $p_{2,0} = \pcond$ (the condensate's own model).
+\end{definition}
+\status{published}
+\source{P9:def:p_f_beta}
+
+\begin{definition}[Quantum condensate singlet]
+\label{P9:def:quantum_singlet}
+The quantum-coherent pair state for the condensate is the angular singlet:
+\begin{equation}
+  |\Psi_\mathrm{cond}\rangle
+  = \frac{1}{\sqrt{2\pi}}
+  \int_0^{2\pi} e^{im_0\phi}\,|\phi\rangle_A\,|\phi+\pi\rangle_B\,d\phi,
+  \label{P9:eq:qsinglet}
+\end{equation}
+where $m_0\in\ZZ$ is the \emph{winding number} of the pair, set by the Hopf
+charge $Q=10$ and the particle species.
+The state assigns amplitude $e^{im_0\phi}/\sqrt{2\pi}$ to the condensate
+being oriented at angle $\phi$ for particle~A and anti-aligned ($\phi+\pi$) for
+particle~B, summed coherently over all orientations.
+\end{definition}
+\status{published}
+\source{P9:def:quantum_singlet}
+
+\begin{definition}[Winding-coherent measurement operator]
+\label{P9:def:winding_measurement}
+The winding-coherent measurement operator for polarization angle $\alpha$
+at winding number $m$ is:
+\begin{equation}
+  \hat{A}_m(\alpha)
+  \;\equiv\; 2|\alpha\rangle_m{}_m\langle\alpha| - \hat{I},
+  \label{P9:eq:A_winding}
+\end{equation}
+with matrix element
+$\langle\phi|\hat{A}_m(\alpha)|\phi'\rangle
+= (1/\pi)\cos(m(\phi-\phi'))\,\hat{x}_f(\phi-\alpha)$
+where $\hat{x}_f$ is the effective correlation weight.
+\end{definition}
+\status{published}
+\source{P9:def:winding_measurement}
+
+\begin{definition}[Photon Stokes observable]
+\label{P9:def:stokes}
+A photon polarizer at angle $\alpha$ transmits a photon with probability
+$\cos^2(\phi_n-\alpha)$ and reflects it with probability $\sin^2(\phi_n-\alpha)$ coupling to the condensate via Malus's law, where $\phi_n$ is the condensate orientation at the source. The signed observable, \emph{Stokes observable}, (eigenvalue $+1$ for transmitted, $-1$ for reflected) for photon polarization at angle $\alpha$ is:
+
+\begin{equation}
+  A^\mathrm{Stokes}(\alpha) \;:\; |\phi_n\rangle
+  \;\longmapsto\; \bigl(2\cos^2(\phi_n-\alpha)-1\bigr)|\phi_n\rangle
+  \;=\; \cos\bigl(2(\phi_n-\alpha)\bigr)|\phi_n\rangle,
+  \label{P9:eq:stokes_op}
+\end{equation}
+
+i.e.\ eigenvalue $\cos(2(\phi_n-\alpha))\in[-1,+1]$ on each condensate
+orientation $|\phi_n\rangle$.
+The identity $2\cos^2\theta-1=\cos(2\theta)$ shows this is the
+\emph{pure $m=2$ Fourier mode} of the condensate circle.
+That $T(\phi_n,\alpha)=\cos^2(\phi_n-\alpha)$ is the physical transmission
+probability is proved from the condensate Noether current in
+Theorem~\ref{P9:thm:malus}; that $m=2$ is the unique winding number
+satisfying Malus's law and $\pi$-periodicity is proved in
+Theorem~\ref{P9:thm:m_phot}.
+
+\end{definition}
+\status{published}
+\source{P9:def:stokes}
+
+\begin{conjecture}[Quantisation of the Hopfion condensate --- \textcolor{darkgreen}{proved in Paper~X~\cite{Paper10}}]
+\label{P9:conj:quantisation}
+The canonical quantisation of the Hopfion condensate action
+$E_\mathrm{fb}[f;\beta]$~\cite{Paper6,Paper7} produces a
+Hilbert space $\mathcal{H}=L^2(\mathcal{C}_Q^\mathrm{red},d\mu)$ where
+$\mathcal{C}_Q^\mathrm{red}$ is the Derrick-reduced space of topological
+field configurations with Hopf charge $Q=10$, and $d\mu$ is the Liouville
+measure of the condensate symplectic structure.
+The Born rule $P=|\psi|^2$ follows from the Liouville measure being
+the unique $\mathrm{U}(1)$-invariant measure on $\mathcal{C}_Q^\mathrm{red}$,
+with $\mathrm{U}(1)$ the symmetry group of the phase $\Phi = Q\cdot\omega$.
+\end{conjecture}
+\status{open}
+\source{P9:conj:quantisation}
+
+\begin{remark}[Resolution in Paper~X]
+\label{P9:rem:conj_resolved}
+Conjecture~\ref{P9:conj:quantisation} is fully resolved in
+Paper~X~\cite{Paper10} (Theorem~7.1 of that paper)
+The key additional ingredient supplied by Paper~X is the identification
+of the Derrick scale instability as the kernel of the symplectic form
+$\Omega$, whose quotient yields the non-degenerate reduced space
+$\mathcal{C}_Q^\mathrm{red}$.
+Paper~X further proves the golden-ratio energy spectrum
+$E_n = \vp^{2n}E_0$, the Macfarlane--Biedenharn $q$-oscillator algebra
+with $q=\vp^2$ (with $q$-numbers $[n]_{\vp^2}=F_{2n}$, the even Fibonacci
+numbers), and the complete Bekenstein--Hawking thermodynamics
+$S_\mathrm{Wald}=A_H/(4G_N)$ (tree level) and $\delta S_\mathrm{1-loop}=0$
+(one loop).
+\end{remark}
+\status{published}
+\source{P9:rem:conj_resolved}
+
+\begin{conjecture}[Post-quantum regime via pcond coupling]
+\label{P9:conj:angle_doubling}
+If a future experiment couples to the condensate via the \emph{pcond}
+observable (not Malus's law) for a spin-1 particle with $\pi$-periodic
+polarization, the effective mismatch angle doubles. For a photon pair (spin-1) in the condensate, the physical correlation function is:
+\begin{equation}
+  E_\mathrm{phot}(\alpha,\beta)
+  = -\xcond(2(\alpha-\beta))
+  = -\frac{2\cos(2\psi)}{1+\cos^2(2\psi)},
+  \quad \psi = \alpha-\beta.
+  \label{P9:eq:E_phot_conjecture}
+\end{equation}
+
+\begin{remark}
+\label{P9:rem:poh}
+Standard quantum mechanics predicts $E_\mathrm{QM}(\psi) = -\cos(2\psi)$
+for a photon singlet; the conjectured condensate
+formula~\eqref{P9:eq:E_phot_conjecture}
+gives $\xcond(2\psi)\geq\cos(2\psi)$ (proved below), so the condensate
+correlation is \emph{stronger} than QM at every angle.
+This is distinct from the standard photon Bell test, where the Stokes/Malus
+observable is used and the condensate correctly predicts $\CHSH=\Tsirelson$
+(Theorem~\ref{P9:thm:stokes}): the Poh et al.~\cite{Poh2015} result
+$S=2.82759\pm0.00051$ is exactly the Stokes/Malus prediction and is
+\emph{not} in tension with the condensate model.
+The post-quantum regime~\eqref{P9:eq:E_phot_conjecture} requires a
+\emph{different} coupling to the condensate field --- one in which the
+measurement back-action is proportional to the pcond (quaternionic)
+weight rather than the Malus transmission probability proved in
+Theorem~\ref{P9:thm:H_int} and Theorem~\ref{P9:thm:malus}.
+\end{remark}
+
+Since
+\begin{equation}
+  \xcond(2\psi) \;\geq\; \cos(2\psi)
+  \quad\text{for all }\psi\in[0,\pi/2],
+  \label{P9:eq:xcond_geq_cos}
+\end{equation}
+(proved below) and $4\xcond(\pi/4)=8\sqrt{2}/3$,
+the CHSH under the pcond coupling at optimal angles
+$(a,a',b,b')=(0,\pi/4,\pi/8,-\pi/8)$ would be:
+\begin{equation}
+  \boxed{\CHSH_\mathrm{cond,phot}
+  \;=\; 4\,\xcond(\pi/4)
+  \;=\; \frac{8\sqrt{2}}{3}
+  \;\approx\; 3.771},
+  \label{P9:eq:CHSH_postquantum}
+\end{equation}
+which exceeds Tsirelson's bound $2\sqrt{2}\approx2.828$.
+This is a post-quantum prediction contingent on realizing the pcond coupling
+for a spin-1 particle: a physically distinct scenario from the standard
+Stokes/Malus photon Bell test.
+\end{conjecture}
+\status{open}
+\source{P9:conj:angle_doubling}
+
+\begin{remark}[No-signaling and the post-quantum window]
+\label{P9:rem:nosignaling}
+A correlation $E(\alpha,\beta)$ that exceeds the Tsirelson bound is
+called \emph{super-quantum} or \emph{post-quantum} (Popescu--Rohrlich box).
+Such correlations do not violate no-signaling provided
+$\int E(\alpha,\beta)\,d\alpha = 0$ for all $\beta$ (marginal independence).
+The conjectured $E_\mathrm{phot} = -\xcond(2\psi)$ satisfies this:
+$\int_0^{2\pi}\xcond(2(\phi-\beta))\,d\phi = 0$ by the odd symmetry of
+$\xcond$ over a full period. It remains to be seen whether it can be realized without violating local causality.
+\end{remark}
+\status{open}
+\source{P9:rem:nosignaling}
+
+\begin{align}
+      \CHSH_\mathrm{raw}(f)
+      &= \bigl|C_f(\pi/8) + C_f(3\pi/8)\bigr|,
+      \\
+      C_f(\psi)
+      &= \frac{1}{2\pi}\int_0^{2\pi} x_f(\varphi)\,x_f(\varphi+\psi)\,d\varphi,
+      \nonumber
+    \end{align}
+
+\begin{equation}
+  \CHSH_\mathrm{raw}
+  = \bigl|E_{ab}+E_{ab'}\bigr|
+  = C(\pi/8)+C(3\pi/8)
+  \approx 0.886.
+  \label{P9:eq:CHSH_raw_value}
+\end{equation}
+
+\begin{equation}
+  \CHSH = 2\bigl[|E(\pi/8)+E(3\pi/8)| + |E(\pi/8)-E(\pi/8)|\bigr]\big|_\mathrm{opt}
+  = 4|E(\pi/8)|.
+  \label{P9:eq:CHSH_simplified}
+\end{equation}
+
+\begin{equation}
+  C(\psi)
+  \;=\; \sum_{k=0}^{\infty}\frac{A_{2k+1}^2}{2}\cos((2k+1)\psi)
+  \;=\; \frac{(4-2\sqrt{2})^2}{2}\,
+        \mathrm{Re}\!\left[\frac{e^{i\psi}}{1-(3-2\sqrt{2})^2 e^{2i\psi}}\right],
+  \label{P9:eq:C_exact}
+\end{equation}
+
+\begin{remark}[Winding autocorrelation: general $(f,m)$ framework]
+\label{P9:rem:quantum_coherent}
+For a condensate singlet~\eqref{P9:eq:qsinglet} measured at winding number $m$,
+the correlation function generalises to:
+\begin{equation}
+  E_\mathrm{QC}(\alpha,\beta;f,m)
+  \;=\; -C_f^{(m)}(\alpha-\beta),
+  \label{P9:eq:E_QC}
+\end{equation}
+where the \emph{winding autocorrelation} is
+\begin{equation}
+  C_f^{(m)}(\psi)
+  \;\equiv\; \frac{1}{2\pi}\int_0^{2\pi}
+  x_f^{(m)}(\varphi)\,x_f^{(m)}(\varphi+\psi)\,d\varphi,
+  \qquad
+  x_f^{(m)}(\theta) \;\equiv\; x_f(m\theta/2).
+  \label{P9:eq:C_winding}
+\end{equation}
+At $m=1$: $x_f^{(1)}=x_f$ (condensate baseline).
+At $m=2$ (photon): $x_f^{(2)}(\theta)=x_f(\theta)$; the angle-doubling enters
+through the PHYSICAL angle $\psi=\alpha-\beta$ being mapped to condensate angle $2\psi$,
+as derived from the $\mathbb{RP}^1\xrightarrow{2:1}S^1$ double cover
+(Remark~\ref{P9:rem:winding} and Theorem~\ref{P9:thm:m_phot}).
+At $m=2$ (photon, Stokes/Malus coupling): this reduces exactly to
+$E^\mathrm{Stokes}(\psi)=-\tfrac{1}{2}\cos(2\psi)$ of Theorem~\ref{P9:thm:stokes}.
+\end{remark}
+\status{published}
+\source{P9:rem:quantum_coherent}
+
+\begin{equation}
+  E_\mathrm{raw}(\psi)
+  \;=\; -\frac{1}{2\pi}\int_0^{2\pi} \xcond(\varphi)\xcond(\varphi+\psi)\,d\varphi
+  \;=\; -C(\psi),
+  \label{P9:eq:E_raw}
+\end{equation}
+
+\begin{equation}
+  J^\mu
+  = \frac{\partial(\sqrt{-g}\,P)}{\partial(\nabla_\mu\rho)}
+  = 2P'(X)\,\nabla^\mu\rho.
+  \label{P9:eq:J_Noether}
+\end{equation}
+
+\begin{equation}
+  J^\mu\varepsilon_\mu(\alpha)
+  = \frac{2|\nabla\rho_0|}{\vp^6(1+\bst X_0)^2}
+  \cos(\phi_n-\alpha).
+  \label{P9:eq:J_eps}
+\end{equation}
+
+\begin{equation}
+  J^\mu\big|_{\rho_0}
+  = \frac{2|\nabla\rho_0|}{\vp^6(1+\bst X_0)^2}\,
+  (\cos\phi_n,\;\sin\phi_n,\;0,\;0).
+  \label{P9:eq:J_saddle}
+\end{equation}
+
+\begin{equation}
+  P_\HH(\theta)
+  = \frac{|\langle +|v(\theta)\rangle|_\HH^4}
+         {|\langle +|v(\theta)\rangle|_\HH^4 + |\langle -|v(\theta)\rangle|_\HH^4}
+  = \frac{\cos^4(\theta/2)}{\cos^4(\theta/2)+\sin^4(\theta/2)}
+  = \pcond(\theta).
+  \label{P9:eq:PH_is_Pcond}
+\end{equation}
+
+\begin{equation}
+  P'(X)
+  = \frac{1}{\vp^6(1+\bst X)^2}.
+  \label{P9:eq:Pprime}
+\end{equation}
+
+\begin{equation}
+  P(a) = \mathrm{Tr}(\rho\, \Pi_a)
+  \label{P9:eq:born_standard}
+\end{equation}
+
+\begin{align}
+    \CHSH_\mathrm{raw}(f_0,\beta)
+    &= C_{f_0,\beta}(\pi/8) + C_{f_0,\beta}(3\pi/8),
+    \\
+    C_{f_0,\beta}(\psi)
+    &= \frac{1}{2\pi}\int_0^{2\pi}
+       x_{f_0,\beta}(\varphi)\,x_{f_0,\beta}(\varphi+\psi)\,d\varphi.
+    \nonumber
+  \end{align}
+
+\begin{equation}
+  \tan\!\left(\frac{\vartheta}{2}\right)
+  \;=\; \tan^2\!\left(\frac{\theta}{2}\right).
+  \label{P9:eq:hopf_angle}
+\end{equation}
+
+\begin{equation}
+  \eta(q_0+q_1\mathbf{i}+q_2\mathbf{j}+q_3\mathbf{k})
+  \;=\; \frac{q_1+q_2\mathbf{i}}{q_0+q_3\mathbf{i}} \;\in\; \CC\cup\{\infty\}.
+  \label{P9:eq:hopf_map}
+\end{equation}
+
+\begin{equation}
+  \pQM(\theta) \;=\; \cos^2(\theta/2).
+  \label{P9:eq:pQM_def}
+\end{equation}
+
+\begin{equation}
+  p_f(\theta)
+  \;=\; \frac{\cos^{2f}(\theta/2)}{\cos^{2f}(\theta/2)+\sin^{2f}(\theta/2)}
+  \;=\; \frac{1}{1+\tan^{2f}(\theta/2)},
+  \label{P9:eq:p_f}
+\end{equation}
+
+\begin{remark}[Parametrisation conventions]
+\label{P9:rem:f_convention}
+The exponent in~\eqref{P9:eq:p_f} is $2f$, so:
+\begin{align*}
+  f=1:&\quad p_f = \tfrac{1}{1+\tan^2(\theta/2)} = \cos^2(\theta/2)
+         \;\text{(standard QM Born rule, $\CC$-valued);}\\
+  f=2:&\quad p_f = \tfrac{1}{1+\tan^4(\theta/2)} = \pcond
+         \;\text{(quaternionic, $\HH$-valued; the condensate's own model).}
+\end{align*}
+The prior companion paper~\cite{Paper8} writes its weights as
+$w_\pm = [\cos^4(\theta/2)]^{f_\mathrm{base}}$ and $[\sin^4(\theta/2)]^{f_\mathrm{base}}$,
+giving $p = 1/(1+\tan^{4f_\mathrm{base}}(\theta/2))$.
+Its default $f_\mathrm{base}=2$ therefore corresponds to $f=4$ in
+the convention of~\eqref{P9:eq:p_f} (exponent $\tan^8$), \emph{not} $f=2$.
+The condensate's own model ($\pcond$, $f=2$ here) corresponds to
+$f_\mathrm{base}=1$ in Paper~VIII's convention --- a distinction that
+explains the numerical difference between the two papers' CHSH values.
+\end{remark}
+\status{published}
+\source{P9:rem:f_convention}
+
+\begin{align}
+  \frac{1}{2\pi}\int_0^{2\pi}\cos(2(\varphi-\alpha))\cos(2(\varphi-\beta))\,d\varphi
+  &= \frac{1}{2}\bigl(\cos(2\alpha)\cos(2\beta)+\sin(2\alpha)\sin(2\beta)\bigr) \notag\\
+  &= \frac{1}{2}\cos\bigl(2(\alpha-\beta)\bigr).
+  \label{P9:eq:parseval_m2}
+\end{align}
+
+\begin{align}
+  \pcond(\theta) &= \frac{1}{1+t^4}
+  \;=\; \pQM\bigl|_{t\,\to\, t^2}, \label{P9:eq:pcond_as_pQM}\\
+  \pQM(\theta)   &= \frac{1}{1+t^2}. \label{P9:eq:pQM_tan}
+\end{align}
+
+\begin{equation}
+  \pcond(\theta)
+  \;=\; \frac{\cos^4(\theta/2)}{\cos^4(\theta/2)+\sin^4(\theta/2)}.
+  \label{P9:eq:pcond_def}
+\end{equation}
+
+\begin{equation}
+  |\alpha\rangle_\mathrm{phot}
+  \;=\; \frac{1}{\sqrt{2\pi}}
+  \int_0^{2\pi} e^{i\,m_\mathrm{phot}\,(\phi-\alpha)}\,|\phi\rangle\,d\phi,
+  \label{P9:eq:photon_state}
+\end{equation}
+
+\begin{equation}
+  \langle\sin^{2f}\theta\rangle_\mathrm{2D}
+  \;=\; \frac{1}{\pi}\int_0^{\pi}\sin^{2f}\theta\,d\theta
+  \;=\; \frac{\Gamma(f+\tfrac{1}{2})}{\sqrt{\pi}\,\Gamma(f+1)}.
+  \label{P9:eq:sin2f_avg}
+\end{equation}
+
+\begin{equation}
+  \langle\sin^4\theta\rangle_\mathrm{2D}
+  = \frac{1}{\pi}\int_0^{\pi}\sin^4\theta\,d\theta
+  = \frac{3}{8}.
+  \label{P9:eq:sin4_2D_exact}
+\end{equation}
+
+\begin{align}
+  \xcond(\theta) &= 2\pcond(\theta) - 1
+  = \boxed{\frac{2\cos\theta}{1+\cos^2\theta}}, \\
+  x_\mathrm{QM}(\theta) &= 2\pQM(\theta) - 1 = \cos\theta. 
+\end{align}
+

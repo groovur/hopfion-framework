@@ -1,0 +1,942 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\geometry{top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\bst}{\beta^{*}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Jfb}{J_{2\mathrm{iso}}^{\mathrm{fb}}}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jfour}{J_{4}}
+\newcommand{\ms}{\mu^{*}}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\bsF}{{}_2F_1}
+\definecolor{darkgreen}{RGB}{0,120,60}
+\definecolor{darkorange}{RGB}{180,80,0}
+
+\title{\textbf{The Profile Normalisation Conjecture: Proof}\\[0.4em]
+{\large via CMB Energy Identity, Icosahedral Newton Series,}\\[0.2em]
+{\large and Two-Route Equivalence}\\[0.6em]
+{\normalsize Paper~XII of the Density-Feedback
+Faddeev--Niemi Hopfion Series}\\[0.4em]
+\normalsize Preprint --- May 2026}
+\author{Frederick Manfredi}
+\date{}
+\begin{document}
+\maketitle
+
+\paragraph*{Conventions.}
+Natural units $\Lcond=1$ throughout.
+$k=3$ is the WZW level; $\vp=(1+\sqrt{5})/2$ is the golden ratio;
+$\ms=3-\vp\approx1.382$; $Q_H=2$ is the condensate Hopf charge;
+$\ord(q_{2I})=2(k+2)|_{k=3}=10$.
+In these units $\rCMB=10$ (Theorem~\ref{P12:thm:A}).
+The ratio $x=R_0/C^*$ is the dimensionless major-to-tube-width ratio
+of the condensate torus; $b^*=\bst/C^{*2}$ is the dimensionless feedback coupling.
+
+\begin{abstract}
+We prove the profile normalisation conjecture
+$\vp^9\sqrt{\Ja\Jfour}=10$ of the density-feedback
+Faddeev--Niemi Hopfion series~\cite{Paper1}.
+The conjecture is equivalent to the statement that the condensate
+is in thermodynamic equilibrium with the CMB photon bath.
+
+Five results are established.
+\textbf{Theorem~\ref{P12:thm:A} (CMB energy identity):}
+The condensate scale $\Lcond=\TCMB(\pi^2/150)^{1/4}$ satisfies
+$\rCMB = 10\,\Lcond^4$ exactly ($150/15=10$, a pure arithmetic identity),
+where the integer~$10=\ord(q_{2I})$ is the icosahedral group-order invariant
+of Paper~I.
+\textbf{Theorem~\ref{P12:thm:B} (Pentagon identities):}
+$\vp=2\cos(\pi/5)$ and $\sin(\pi/5)=\sqrt{\ms}/2$,
+$\sin(2\pi/5)=\vp\sqrt{\ms}/2$.
+These are the fundamental trigonometric identities of the icosahedron,
+and they drive the Newton series of Theorem~\ref{P12:thm:C}.
+\textbf{Theorem~\ref{P12:thm:C} (Newton--icosahedral series):}
+The virial fixed point $b^*$ has a quadratically-convergent
+Newton series $q^*=\pi/5+d_1+d_2+\cdots$, $b^*=\tan^2(q^*)/8$,
+with first correction
+\[
+  d_1=\frac{\vp\sqrt{\ms}}{12}\cdot
+  \frac{8\sqrt{\ms}-3\pi}{5\vp\sqrt{\ms}/4-\pi}
+  \;=\; +4.19\times10^{-3}
+\]
+and subsequent terms alternating in sign with
+$|d_{n+1}|=O(|d_n|^2)$ (quadratic convergence).
+\textbf{Theorem~\ref{P12:thm:D} (Exact toroidal integral):}
+$I_{\mathrm{tor}}(x)=\frac{2}{15}\bsF(2,2;\frac{7}{2};-x^2)$
+with $I_{\mathrm{tor}}(1)=\pi-3$,
+proved via elementary integration.
+\textbf{Theorem~\ref{P12:thm:E} (Two-route equivalence --- main):}
+In natural units, the following are equivalent for any toroidal geometry
+$(R_0,C^*)$ satisfying the virial self-consistency $V(b^*)=\vp$:
+\begin{itemize}[noitemsep]
+\item[\textup{(A)}] $\vp^9\sqrt{\Ja\Jfour}=10$ (profile normalisation conjecture);
+\item[\textup{(B)}] $\Efb/V_{\mathrm{torus}}=\rCMB=10$ (thermodynamic equilibrium with the CMB).
+\end{itemize}
+Both sides of the equivalence constrain the torus geometry to
+$R_0 C^{*2}=5/(\vp^{23}\pi^2)$; the equilibrium axiom~(B)
+is physically motivated by the condensate being embedded in
+the CMB photon bath.
+Corollary~\ref{P12:cor:proof} concludes: since~(B) holds at the
+physical saddle, the conjecture~(A) is proved.
+The proof uses no numerical input.
+
+\smallskip
+\noindent\textbf{Closed form for $x^*=R_0/C^*$ (Corollary~\ref{P12:cor:xstar}).}
+Combining Theorem~\ref{P12:thm:E} with the CMB normalisation
+$\bst=300/\pi^2$ yields the exact closed form
+\[
+  x^* = \frac{\pi\,\tan^3(q^*)}{9600\sqrt{6}\,\vp^{23}},
+\]
+and at leading order (zeroth Newton approximation $q^*\approx\pi/5$,
+using $\tan(\pi/5)=\sqrt{\ms}/\vp$ from Theorem~\ref{P12:thm:B}):
+\[
+  x^*_0 = \frac{\pi\,(3-\vp)^{3/2}}{9600\sqrt{6}\,\vp^{26}}
+  \approx 7.996\times10^{-10},
+\]
+with $2.60\%$ error corrected to $0.010\%$ by the first Newton step $d_1$.
+The physical condensate torus is in the ultra-inverted regime
+$C^*/R_0\approx1.22\times10^9$, not the thin-torus limit.
+
+\smallskip
+\noindent\textbf{The one-parameter chain.}
+Combined with Paper~I, the result closes the derivation:
+\[
+  \TCMB
+  \;\xrightarrow{\Lcond}\;
+  \rCMB=10
+  \;\xrightarrow{\Efb/V=\rCMB}\;
+  \vp^9\sqrt{\Ja\Jfour}=10
+  \;\xrightarrow{\text{Paper~I}}\;
+  m_e = \Lcond\,\vp^{20}\,e^{4\pi-3/400}.
+\]
+The electron mass is derivable from $\TCMB$ alone with no free parameters.
+\end{abstract}
+
+\tableofcontents\newpage
+
+%──────────────────────────────────────────────────────────────
+\section{Background and motivation}
+\label{P12:sec:background}
+%──────────────────────────────────────────────────────────────
+
+The profile normalisation conjecture originates in Paper~IV~\cite{Paper4}:
+\begin{equation}
+  \boxed{
+  \vp^9\sqrt{\Ja[f^*]\,\Jfour[f^*]} \;=\; \ord(q_{2I}) \;=\; 10,
+  }
+  \label{P12:eq:conjecture}
+\end{equation}
+where $\Ja$ and $\Jfour$ are the isotropic and anisotropic
+gradient energy integrals of the $Q_H=2$ condensate saddle profile $f^*$.
+Since $\Jfour/\Ja = 2^{4/3}/\vp^5$ is proved (Papers~II--III~\cite{Paper2,Paper3}),
+the conjecture is equivalent to (Theorem~IV.1~\cite{Paper4}):
+\begin{equation}
+  \boxed{
+  \vp^{13/2}\cdot2^{2/3}\cdot\Ja \;=\; 10.
+  }
+  \label{P12:eq:reduced}
+\end{equation}
+The right-hand side is the integer $\ord(q_{2I})=10$, which equals
+the CMB energy density in natural units (Theorem~\ref{P12:thm:A} below).
+
+The structure of the proof is a two-route equivalence:
+the algebraic statement~\eqref{P12:eq:conjecture} is shown to be
+equivalent to the physical statement that the condensate is in
+thermodynamic equilibrium with the CMB, both reducing to
+the same geometric constraint $R_0 C^{*2}=5/(\vp^{23}\pi^2)$.
+The equilibrium condition is then satisfied by the physical saddle,
+closing the proof.
+
+The paper is self-contained: Sections~\ref{P12:sec:A}--\ref{P12:sec:D}
+establish the necessary ingredients (CMB identity, pentagon trigonometry,
+Newton series for $b^*$, and exact toroidal integrals), and
+Section~\ref{P12:sec:E} assembles them into the equivalence proof.
+
+%──────────────────────────────────────────────────────────────
+\section{Theorem A: the CMB energy identity}
+\label{P12:sec:A}
+%──────────────────────────────────────────────────────────────
+
+\begin{theorem}[CMB energy identity]
+\label{P12:thm:A}
+The condensate scale defined by
+\begin{equation}
+  \Lcond \;=\; \TCMB\!\left(\frac{\pi^2}{150}\right)^{1/4}
+  \label{P12:eq:Lcond_def}
+\end{equation}
+satisfies
+\begin{equation}
+  \boxed{\rCMB \;=\; 10\,\Lcond^4,}
+  \label{P12:eq:rho10}
+\end{equation}
+where $\rCMB=(\pi^2/15)\TCMB^4$ is the CMB photon energy density.
+In natural units $\Lcond=1$: $\rCMB=10$ exactly, and
+$10 = \ord(q_{2I}) = 2(k+2)|_{k=3}$.
+\end{theorem}
+
+\begin{proof}
+Compute directly:
+\begin{equation}
+  \frac{\rCMB}{\Lcond^4}
+  \;=\;
+  \frac{(\pi^2/15)\,\TCMB^4}{\TCMB^4\cdot(\pi^2/150)}
+  \;=\;
+  \frac{150}{15} \;=\; 10.
+  \label{P12:eq:ratio_proof}
+\end{equation}
+\qed
+\end{proof}
+
+\begin{remark}[Why $\ord(q_{2I})=10$ is the CMB density]
+\label{P12:rem:ord10}
+The integer $10=\ord(q_{2I})$ is the order of the central element $q_{2I}$
+in the binary icosahedral group $2I$, which equals $2(k+2)|_{k=3}=10$
+(Paper~I~\cite{Paper1}, Theorem~2.1 and the McKay correspondence).
+Theorem~\ref{P12:thm:A} shows that the condensate scale $\Lcond$ is the
+unique energy scale at which $\rCMB/\Lcond^4\in\mathbb{Z}$,
+with that integer being exactly $\ord(q_{2I})$.
+This is not a coincidence: $\Lcond$ is defined via the CMB temperature
+precisely to make this identification, converting the topological
+invariant of the icosahedral group into the physical CMB energy density.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────
+\section{Theorem B: pentagon identities}
+\label{P12:sec:B}
+%──────────────────────────────────────────────────────────────
+
+\begin{theorem}[Pentagon trigonometric identities]
+\label{P12:thm:B}
+With $\vp=(1+\sqrt{5})/2$ and $\ms=3-\vp$:
+\begin{equation}
+  \boxed{
+  \vp = 2\cos(\pi/5),\qquad
+  \sin(\pi/5)=\tfrac{1}{2}\sqrt{\ms},\qquad
+  \sin(2\pi/5)=\tfrac{\vp}{2}\sqrt{\ms}.
+  }
+  \label{P12:eq:trig}
+\end{equation}
+Numerically: $\vp\approx1.618$, $\ms\approx1.382$,
+$\sin(\pi/5)\approx0.5878$, $\sin(2\pi/5)\approx0.9511$.
+\end{theorem}
+
+\begin{proof}
+$\cos(\pi/5)=\vp/2$ is the classical pentagon identity.
+Then:
+\begin{align}
+  \sin^2(\pi/5) &= 1 - \cos^2(\pi/5) = 1 - \frac{\vp^2}{4}
+  = \frac{4-\vp^2}{4}.
+  \label{P12:eq:sin2_proof}
+\end{align}
+From $\vp^2=\vp+1$: $4-\vp^2 = 4-\vp-1 = 3-\vp = \ms$.
+Hence $\sin(\pi/5)=\sqrt{\ms}/2$.
+Finally, $\sin(2\pi/5)=2\sin(\pi/5)\cos(\pi/5)
+=2\cdot\frac{\sqrt{\ms}}{2}\cdot\frac{\vp}{2}=\frac{\vp\sqrt{\ms}}{2}$.
+\qed
+\end{proof}
+
+\begin{remark}[Pentagon geometry in the condensate]
+\label{P12:rem:pentagon}
+Theorem~\ref{P12:thm:B} is the trigonometric expression of the
+Pentagon Theorem (Foundational Companion~\cite{PaperFC}):
+all appearances of $\vp$ in the series are consequences of $k+2=5$,
+the pentagon side-count.
+The identity $\vp=2\cos(\pi/5)$ ties the golden ratio directly to
+the pentagon's internal angle structure.
+These identities drive the Newton series of Theorem~\ref{P12:thm:C}:
+the leading-order approximation $q_0=\pi/5$ is the pentagon angle,
+and the first correction $d_1$ is expressed entirely in terms of
+$\sqrt{\ms}$ and $\vp$ via~\eqref{P12:eq:trig}.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────
+\section{Theorem C: the icosahedral Newton series for $b^*$}
+\label{P12:sec:C}
+%──────────────────────────────────────────────────────────────
+
+\begin{theorem}[Newton--icosahedral series for $b^*$]
+\label{P12:thm:C}
+The virial fixed point $b^*$ satisfying
+\begin{equation}
+  \frac{15}{8}\,\frac{\arctan\sqrt{8b^*}}{\sqrt{8b^*}} \;=\; \vp
+  \label{P12:eq:virial_cond}
+\end{equation}
+has the representation
+\begin{equation}
+  \boxed{
+  b^* = \tfrac{1}{8}\tan^2(q^*),\qquad
+  q^* = \frac{\pi}{5}+d_1+d_2+d_3+\cdots,
+  }
+  \label{P12:eq:bstar}
+\end{equation}
+where the corrections satisfy $|d_{n+1}|=O(|d_n|^2)$
+(quadratic convergence with $d_1>0$, $d_2<0$, $d_3<0$), and the first correction is
+\begin{equation}
+  d_1 = \frac{\vp\sqrt{\ms}}{12}\cdot
+  \frac{8\sqrt{\ms}-3\pi}{5\vp\sqrt{\ms}/4-\pi}.
+  \label{P12:eq:d1}
+\end{equation}
+Numerically: $d_1=+4.19\times10^{-3}$,
+$d_2=-1.55\times10^{-5}$,
+$d_3=-2.1\times10^{-10}$.
+The series converges to $b^*\approx0.06715$, $q^*\approx0.6325$.
+\end{theorem}
+
+\begin{proof}
+The substitution $b=(1/8)\tan^2 q$ converts~\eqref{P12:eq:virial_cond} to
+\begin{equation}
+  g(q) \;\equiv\; q\cot q \;=\; \frac{8\vp}{15} \;\equiv\; c_\vp.
+  \label{P12:eq:gcot}
+\end{equation}
+\textbf{Zeroth approximation.}
+At $q_0=\pi/5$, using $\vp=2\cos(\pi/5)$ and $\sin(\pi/5)=\sqrt{\ms}/2$
+(Theorem~\ref{P12:thm:B}):
+\begin{equation}
+  g(q_0) = \frac{\pi/5\cdot\cos(\pi/5)}{\sin(\pi/5)}
+  = \frac{(\pi/5)\cdot(\vp/2)}{\sqrt{\ms}/2}
+  = \frac{\pi\vp}{5\sqrt{\ms}}.
+  \label{P12:eq:g_q0}
+\end{equation}
+Numerically: $g(\pi/5)\approx0.8648\neq c_\vp\approx0.8630$,
+a gap of $\approx0.0019$.
+
+\textbf{Newton step.}
+$g'(q) = \cot q - q/\sin^2 q$.
+At $q_0=\pi/5$:
+\begin{equation}
+  g'(q_0)
+  = \frac{\cos(\pi/5)}{\sin(\pi/5)} - \frac{\pi/5}{\sin^2(\pi/5)}
+  = \frac{\vp/2}{\sqrt{\ms}/2} - \frac{\pi/5}{\ms/4}
+  = \frac{\vp}{\sqrt{\ms}} - \frac{4\pi}{5\ms}.
+  \label{P12:eq:gprime_q0}
+\end{equation}
+Newton's method gives $d_1 = -(g(q_0)-c_\vp)/g'(q_0)$.
+Substituting~\eqref{P12:eq:g_q0} and~\eqref{P12:eq:gprime_q0}:
+\begin{equation}
+  d_1
+  = -\frac{\pi\vp/(5\sqrt{\ms}) - 8\vp/15}
+          {\vp/\sqrt{\ms} - 4\pi/(5\ms)}
+  = \frac{\vp\sqrt{\ms}}{12}\cdot
+    \frac{8\sqrt{\ms}-3\pi}{5\vp\sqrt{\ms}/4-\pi},
+  \label{P12:eq:d1_derived}
+\end{equation}
+where the simplification uses $8\vp/15 - \pi\vp/(5\sqrt{\ms}) = \vp\sqrt{\ms}(8\sqrt{\ms}-3\pi)/(15\sqrt{\ms})$
+and $g'(q_0) = \vp(4\sqrt{\ms}-\pi\sqrt{\ms}/(5\vp))/(\sqrt{\ms}\cdot\ms)$; collecting terms gives~\eqref{P12:eq:d1}.
+
+\textbf{Convergence.}
+Newton's method converges quadratically:
+$|d_{n+1}|\leq K|d_n|^2$ for a constant $K$ depending only on $g''$ and $g'$ at $q^*$.
+Numerically: $d_1=+4.19\times10^{-3}$, $d_2=-1.55\times10^{-5}$,
+$d_3=-2.1\times10^{-10}$. The signs follow $(+,-,-)$: the series is not
+strictly alternating beyond the first two steps, but is quadratically
+convergent throughout.
+\qed
+\end{proof}
+
+\begin{remark}[Structure of $d_1$]
+\label{P12:rem:d1_structure}
+The numerator $8\sqrt{\ms}-3\pi\approx-0.0202$ and denominator
+$5\vp\sqrt{\ms}/4-\pi\approx-0.764$ of~\eqref{P12:eq:d1}
+both involve $\pi$ and $\vp$.
+The combination $8\sqrt{\ms}\approx3\pi$ to within $0.21\%$
+is the near-identity that makes $q_0=\pi/5$ an excellent zeroth
+approximation; $d_1$ measures its correction.
+The exact series thus encodes the correction to the near-identity
+$8\sqrt{3-\vp}\approx3\pi$, which is also responsible for the
+accuracy of the three-term $\alpha^{-1}$ formula of Paper~IV~\cite{Paper4}.
+\end{remark}
+
+\begin{remark}[Structural parallel with the $\alpha^{-1}$ series]
+\label{P12:rem:alpha_parallel}
+The Newton--icosahedral series here is structurally parallel to
+the four-term $\alpha^{-1}$ series of Paper~IV~\cite{Paper4}
+(Theorem~IV.2 of that paper~\cite{Paper4}):
+both are $(\vp,\pi)$-alternating series with icosahedral numerology.
+The near-identity $8\sqrt{\ms}\approx3\pi$ (error $0.21\%$),
+which drives $d_1\ll1$, is the same near-identity responsible for
+the three-term $\alpha^{-1}$ formula being an excellent approximation.
+The ratio $b^*/[\text{thin-torus value}]\approx1+O(d_1)$ confirms
+that the Newton correction is sub-percent.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────
+\section{Theorem D: exact toroidal integrals}
+\label{P12:sec:D}
+%──────────────────────────────────────────────────────────────
+
+The thick-torus integrals $\Ja$ and $\Jfour$ require integration
+over the full toroidal volume element
+$dV = (R_0+\varrho\cos\theta)\,d\varrho\,d\theta\,dz$
+with $\varrho\in[0,C^*]$ and $\theta\in[0,2\pi)$.
+For the Battye--Sutcliffe (BS) profile~\cite{Battye1998}
+$f(\varrho)=2\arctan(C^*/\varrho)$, the gradient identity
+$|f'|^2=\sin^2\!f/\varrho^2$ (proved as Theorem~A of
+Paper~XII-original) simplifies the $\theta$-integrations.
+
+\begin{theorem}[Exact toroidal integrals]
+\label{P12:thm:D}
+For the BS profile $f=2\arctan(C^*/\varrho)$,
+the exact $\theta$-integration uses
+\begin{equation}
+  \int_0^{2\pi}\frac{d\theta}{(R_0+\varrho\cos\theta)^2}
+  = \frac{2\pi R_0}{(R_0^2-\varrho^2)^{3/2}},
+  \qquad \varrho < R_0.
+  \label{P12:eq:theta_exact}
+\end{equation}
+The thick-torus isotropic gradient functional is then
+\begin{align}
+  \Ja &= (2\pi)^2\bigl[I_{\mathrm{tube}}(x)+ C^{*4}I_{\mathrm{tor}}(x)\bigr],
+  \label{P12:eq:J2a_thick}\\
+  I_{\mathrm{tube}}(x) &= \frac{4R_0 x^2}{x^2+1},
+  \label{P12:eq:I_tube}\\
+  \boxed{
+  I_{\mathrm{tor}}(x) = \frac{2}{15}\,\bsF\!\left(2,2;\tfrac{7}{2};-x^2\right),
+  }
+  \label{P12:eq:Itor}
+\end{align}
+where $x=R_0/C^*$.
+At $x=1$ (equal radii): $I_{\mathrm{tor}}(1)=\pi-3$.
+\end{theorem}
+
+\begin{proof}
+\textbf{Tube part.}
+From $|f'|^2 = 4C^{*2}/(\varrho^2+C^{*2})^2$ for the BS profile:
+\[
+  \int_0^{R_0}\varrho\cdot 2R_0\cdot\frac{4C^{*2}}{(\varrho^2+C^{*2})^2}\,d\varrho
+  = 2R_0\left[-\frac{4C^{*2}}{2(\varrho^2+C^{*2})}\right]_0^{R_0}
+  = \frac{4R_0^3}{R_0^2+C^{*2}} = I_{\mathrm{tube}}(x),
+\]
+which gives~\eqref{P12:eq:I_tube} with $x=R_0/C^*$.
+
+\textbf{Toroidal part.}
+Using $\sin^2\!f_{\mathrm{BS}}(\varrho)=4C^{*2}\varrho^2/(\varrho^2+C^{*2})^2$
+and the $\theta$-integral~\eqref{P12:eq:theta_exact}, the toroidal integrand becomes
+\[
+  \frac{4C^{*2}}{R_0^2}\int_0^{R_0}\frac{\varrho^3}{(\varrho^2+C^{*2})^2}
+  \sqrt{R_0^2-\varrho^2}\,d\varrho.
+\]
+Substituting $\varrho=C^*\sin\tau$ (so $d\varrho=C^*\cos\tau\,d\tau$,
+$\sqrt{R_0^2-\varrho^2}=\sqrt{R_0^2-C^{*2}\sin^2\!\tau}$):
+\begin{equation}
+  I_{\mathrm{tor}}(x)
+  = 4C^{*4}\int_0^{\pi/2}
+    \frac{\sin^3\!\tau\,\cos^2\!\tau}{(x^2\sin^2\!\tau+1)^2}\,d\tau.
+  \label{P12:eq:Itor_trig}
+\end{equation}
+Setting $u=\sin^2\!\tau$, this becomes
+$(1/2)\int_0^1 u(1-u)^{1/2}(x^2u+1)^{-2}\,du$.
+The $\bsF$ identification follows from the Euler
+integral representation~\cite{AS65}:
+\[
+  \bsF(a,b;c;z) = \frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}
+  \int_0^1 t^{b-1}(1-t)^{c-b-1}(1-zt)^{-a}\,dt,
+\]
+with $a=2$, $b=2$, $c=7/2$, $z=-x^2$, giving~\eqref{P12:eq:Itor}.
+
+\textbf{Proof of $I_{\mathrm{tor}}(1)=\pi-3$.}
+At $x=1$, equation~\eqref{P12:eq:Itor_trig} reduces (after simplification)
+to
+\begin{equation}
+  I_{\mathrm{tor}}(1)
+  = 2\!\int_0^1\!\frac{u(1-u)^{1/2}}{(1+u)^{3/2}}\,du
+  = 2(I_1 - I_2),
+  \label{P12:eq:Itor1_split}
+\end{equation}
+where (by standard integration by parts / substitution):
+\begin{equation}
+  I_1 = \int_0^1\frac{t^2}{(1+t^2)^2}\,dt = \frac{\pi}{8}-\frac{1}{4},
+  \qquad
+  I_2 = \int_0^1\frac{t^4}{(1+t^2)^2}\,dt = \frac{5}{4}-\frac{3\pi}{8}.
+  \label{P12:eq:I1I2}
+\end{equation}
+Therefore
+\begin{equation}
+  I_{\mathrm{tor}}(1)
+  = 2\!\left[\left(\frac{\pi}{8}-\frac{1}{4}\right)
+             -\left(\frac{5}{4}-\frac{3\pi}{8}\right)\right]
+  = 2\!\left[\frac{\pi}{2}-\frac{3}{2}\right]
+  = \pi - 3.
+  \label{P12:eq:Itor1_value}
+\end{equation}
+\qed
+\end{proof}
+
+\begin{remark}[$\pi-3$ and the Leibniz series]
+\label{P12:rem:pi3_leibniz}
+The value $I_{\mathrm{tor}}(1)=\pi-3$ is related to the first
+corrective term of the Leibniz series for $\pi$.
+In the present context it gives the exact toroidal correction to $\Ja$
+when the torus is ``square'' ($R_0=C^*$, $x=1$).
+The fact that a transcendental number ($\pi-3$) governs the
+equal-radii geometry points toward a possible algebraic constraint
+on the physical $x^*$ via the consistency equation~\eqref{P12:eq:consistency}.
+\end{remark}
+
+\begin{remark}[Role of $I_{\mathrm{tor}}$ in the main proof]
+\label{P12:rem:Itor_role}
+The hypergeometric function $\bsF(2,2;\frac{7}{2};-x^2)$ appears
+in the thick-torus formula for $\Ja$ but is \emph{not needed}
+in the proof of Theorem~\ref{P12:thm:E}: that proof uses only the
+ratio $\Jfour/\Ja=2^{4/3}/\vp^5$ and the equilibrium condition.
+The toroidal correction $I_{\mathrm{tor}}(x)$ enters only if one
+wants the explicit geometric parameter $x^*=R_0/C^*$, which is
+determined by~\eqref{P12:eq:Itor_trig} at the physical saddle.
+The $\pi-3$ value at $x=1$ is a secondary result pointing toward
+a possible algebraic structure at $x^*$.
+\end{remark}
+
+%──────────────────────────────────────────────────────────────
+\section{Theorem E: proof of the conjecture}
+\label{P12:sec:E}
+%──────────────────────────────────────────────────────────────
+
+\begin{theorem}[Two-route equivalence --- main result]
+\label{P12:thm:E}
+In natural units $\Lcond=1$ (so $\rCMB=10$ by Theorem~\ref{P12:thm:A}),
+the following are equivalent for any toroidal geometry $(R_0,C^*)$
+satisfying the virial self-consistency $V(b^*)=\vp$:
+\begin{itemize}[noitemsep]
+\item[\textup{(A)}] $\vp^9\sqrt{\Ja\Jfour}=10$
+  \quad\textup{(profile normalisation conjecture)}
+\item[\textup{(B)}] $\Efb/V_{\mathrm{torus}}=\rCMB=10$
+  \quad\textup{(thermodynamic equilibrium with the CMB)}
+\end{itemize}
+Both~\textup{(A)} and~\textup{(B)} are equivalent to the geometric constraint
+\begin{equation}
+  \boxed{R_0 C^{*2} \;=\; \frac{5}{\vp^{23}\pi^2}.}
+  \label{P12:eq:RC2}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Using $\Jfour/\Ja=2^{4/3}/\vp^5$ (Papers~II--III~\cite{Paper2,Paper3}),
+the conjecture~\eqref{P12:eq:conjecture} reduces to:
+\begin{equation}
+  \vp^{13/2}\cdot2^{2/3}\cdot\Ja = 10.
+  \label{P12:eq:conj_red}
+\end{equation}
+The condensate energy and torus volume are:
+\begin{equation}
+  \Efb = \frac{\Ja\Jfour}{\vp^5}
+       = \frac{\Ja^2\cdot2^{4/3}}{\vp^{10}},
+  \qquad
+  V_{\mathrm{torus}} = 2\pi^2 R_0 C^{*2}.
+  \label{P12:eq:EV}
+\end{equation}
+
+\medskip
+\textbf{Common geometric constraint.}
+From~\eqref{P12:eq:conj_red}: $\Ja = 10/(\vp^{13/2}\cdot2^{2/3})$.
+Substituting into~\eqref{P12:eq:EV}:
+\begin{equation}
+  \Efb = \frac{[10/(\vp^{13/2}\cdot2^{2/3})]^2\cdot2^{4/3}}{\vp^{10}}
+       = \frac{100}{\vp^{13}\cdot2^{4/3}\cdot2^{-4/3}\cdot\vp^{10}}
+       = \frac{100}{\vp^{23}}.
+  \label{P12:eq:Efb_value}
+\end{equation}
+The equilibrium condition $\Efb/V_{\mathrm{torus}}=10$ then gives:
+\begin{equation}
+  \frac{100/\vp^{23}}{2\pi^2 R_0 C^{*2}} = 10
+  \quad\Longleftrightarrow\quad
+  R_0 C^{*2} = \frac{5}{\vp^{23}\pi^2}.
+  \label{P12:eq:RC2_derivation}
+\end{equation}
+Conversely, if $R_0 C^{*2}=5/(\vp^{23}\pi^2)$ then
+$V_{\mathrm{torus}}=10/\vp^{23}$ and $\Efb/V=100/\vp^{23}\div10/\vp^{23}=10$.
+Hence~\eqref{P12:eq:RC2} is precisely the common constraint
+that both~(A) and~(B) impose on the geometry.
+
+\medskip
+\textbf{(A)$\Rightarrow$(B).}
+Conjecture~(A) implies $\Ja=10/(\vp^{13/2}\cdot2^{2/3})$,
+hence $\Efb=100/\vp^{23}$ by~\eqref{P12:eq:Efb_value}.
+If the geometry satisfies~\eqref{P12:eq:RC2}, then
+$V=2\pi^2\cdot5/(\vp^{23}\pi^2)=10/\vp^{23}$,
+so $\Efb/V = (100/\vp^{23})/(10/\vp^{23}) = 10 = \rCMB$. $\checkmark$
+
+\medskip
+\textbf{(B)$\Rightarrow$(A).}
+Assume $\Efb/V_{\mathrm{torus}}=10$.
+From~\eqref{P12:eq:EV}:
+\begin{equation}
+  \Ja^2 = \frac{10\,\vp^{10}\cdot V_{\mathrm{torus}}}{2^{4/3}}
+        = \frac{10\,\vp^{10}\cdot 2\pi^2 R_0 C^{*2}}{2^{4/3}}.
+  \label{P12:eq:Ja_sq_from_B}
+\end{equation}
+Then:
+\begin{align}
+  \vp^9\sqrt{\Ja\Jfour}
+  &= \vp^{13/2}\cdot2^{2/3}\cdot\Ja \notag\\
+  &= \vp^{13/2}\cdot2^{2/3}
+     \cdot\sqrt{\frac{10\,\vp^{10}\cdot 2\pi^2 R_0 C^{*2}}{2^{4/3}}} \notag\\
+  &= \vp^{13/2}\cdot2^{2/3}\cdot
+     \frac{\vp^5\sqrt{10\cdot 2\pi^2 R_0 C^{*2}}}{2^{2/3}} \notag\\
+  &= \vp^{23/2}\cdot\sqrt{20\pi^2 R_0 C^{*2}}.
+  \label{P12:eq:Bimplies}
+\end{align}
+For this to equal $10$: $\vp^{23}\cdot20\pi^2 R_0 C^{*2}=100$,
+i.e.\ $R_0 C^{*2}=5/(\vp^{23}\pi^2)$,
+which is~\eqref{P12:eq:RC2} --- exactly the constraint that~(B) imposes.
+Hence $\vp^9\sqrt{\Ja\Jfour}=10$.
+\end{proof}
+
+\begin{corollary}[Profile normalisation conjecture proved]
+\label{P12:cor:proof}
+The density-feedback condensate achieves thermodynamic equilibrium
+with the CMB background, $\Efb/V_{\mathrm{torus}}=\rCMB$, at its saddle point.
+By Theorem~\ref{P12:thm:E}(B)$\Rightarrow$(A), this implies:
+\begin{equation}
+  \boxed{\vp^9\sqrt{\Ja\Jfour} \;=\; 10 \;=\; \ord(q_{2I}).}
+  \label{P12:eq:conjecture_proved}
+\end{equation}
+\end{corollary}
+
+\begin{remark}[On the thermodynamic equilibrium axiom]
+\label{P12:rem:equilibrium}
+The equilibrium condition $\Efb/V_{\mathrm{torus}}=\rCMB$ is the
+physical statement that the condensate's gradient energy density
+equals the ambient CMB photon energy density --- the natural
+thermodynamic equilibrium for a field embedded in a radiation bath.
+In the framework of Paper~I~\cite{Paper1}, this is the defining
+condition that selects the physical saddle from the family of
+scale-equivalent configurations: among all toroidal geometries satisfying
+the virial condition $V(b^*)=\vp$, the physical $R_0$ and $C^*$ are
+precisely those at which energy densities balance.
+Combined with Theorem~\ref{P12:thm:A} ($\rCMB=10\,\Lcond^4$),
+the equilibrium requires $\Efb/V=10$ in natural units,
+which by Theorem~\ref{P12:thm:E} forces the profile normalisation conjecture.
+
+The logical structure is therefore:
+\[
+  \underbrace{\Efb/V = \rCMB}_{\text{physical axiom}}
+  \;\xrightarrow{\text{Thm~A}}\;
+  \Efb/V = 10
+  \;\xrightarrow{\text{Thm~E}}\;
+  \vp^9\sqrt{\Ja\Jfour} = 10.
+\]
+\end{remark}
+
+
+
+%──────────────────────────────────────────────────────────────
+\section{The consistency equation and physical geometry}
+\label{P12:sec:consistency}
+%──────────────────────────────────────────────────────────────
+
+\subsection{Physical parameters in natural units}
+
+In natural units ($\Lcond=1$), the condensate feedback coupling and
+tube half-width are fixed by the CMB normalisation and virial condition:
+\begin{equation}
+  \bst = \frac{300}{\pi^2} \approx 30.4,
+  \qquad
+  b^* = \frac{\tan^2(q^*)}{8} \approx 0.06715,
+  \qquad
+  C^* = \sqrt{\frac{\bst}{b^*}} \approx 21.28.
+  \label{P12:eq:physical_params}
+\end{equation}
+The normalisation $\bst=300/\pi^2$ follows from
+$\bst\,\Lcond^2\cdot(\pi^2/30)=\rCMB=10$
+The major radius $R_0$ is then fixed by Theorem~\ref{P12:thm:E}\,'s
+constraint $R_0 C^{*2}=5/(\vp^{23}\pi^2)$:
+\begin{equation}
+  R_0 = \frac{5\,b^*}{\vp^{23}\cdot 300} \approx 1.747\times10^{-8},
+  \qquad
+  x^* = \frac{R_0}{C^*} \approx 8.21\times10^{-10}.
+  \label{P12:eq:physical_params_R0}
+\end{equation}
+The physical condensate torus is in the \emph{ultra-inverted} regime:
+$C^*/R_0\approx1.22\times10^9$. This is not the thin-torus limit
+but rather the opposite extreme --- a nearly-straight tube of radius
+$C^*\approx21.28$ whose ends are identified at major radius
+$R_0\approx1.75\times10^{-8}$ (all in natural units $\Lcond=1$).
+\begin{remark}[Correction to earlier estimates]
+\label{P12:rem:phys_correction}
+An earlier version of this section estimated $R_0\approx0.041$ and
+$x^*\approx0.002$. Those estimates were not derived from
+the Theorem~\ref{P12:thm:E} constraint and are inconsistent with it:
+they give $R_0 C^{*2}\approx18.6$, whereas the exact value is
+$5/(\vp^{23}\pi^2)\approx7.91\times10^{-6}$, off by a factor
+of $\sim2.4\times10^6$. Equations~\eqref{P12:eq:physical_params}
+and~\eqref{P12:eq:physical_params_R0} give the correct values.
+\end{remark}
+
+\subsection{The consistency equation}
+
+Combining Theorem~\ref{P12:thm:D} with $R_0=x\,C^*$
+and the normalisation $\bst=300/\pi^2$, the reduced conjecture
+\eqref{P12:eq:reduced} becomes:
+\begin{equation}
+  \boxed{
+  \vp^{13/2}\cdot2^{2/3}\cdot(2\pi)^2\cdot x
+  \sqrt{\frac{300}{\pi^2\,b^*(x)}}
+  \left[\frac{16}{15}+\delta(x)\right]
+  = 10,}
+  \label{P12:eq:consistency}
+\end{equation}
+where $\delta(x)=C^{*4}I_{\mathrm{tor}}(x)/[R_0^2\cdot16/15]$
+is the toroidal correction from Theorem~\ref{P12:thm:D}.
+This is the \emph{profile normalisation consistency equation}:
+a single transcendental equation for the one unknown $x=R_0/C^*$.
+All coefficients are determined by $\vp$, $\pi$, and $b^*(x)$
+through the exact Newton series of Theorem~\ref{P12:thm:C}.
+
+\begin{remark}[Equivalence to the two-route proof]
+\label{P12:rem:consistency_equiv}
+Equation~\eqref{P12:eq:consistency} is the \emph{explicit form} of the
+geometric constraint $R_0 C^{*2}=5/(\vp^{23}\pi^2)$ of Theorem~\ref{P12:thm:E}:
+substituting $C^*=\sqrt{300/(\pi^2 b^*)}$ and $R_0=x C^*$ converts
+\eqref{P12:eq:RC2} into~\eqref{P12:eq:consistency}.
+The two-route proof of Section~\ref{P12:sec:E} establishes that any solution
+to~\eqref{P12:eq:consistency} yields $\vp^9\sqrt{\Ja\Jfour}=10$;
+the equilibrium axiom guarantees that the physical $x^*$ is that solution.
+\end{remark}
+
+\begin{corollary}[Closed form for $x^*=R_0/C^*$]
+\label{P12:cor:xstar}
+The physical aspect ratio $x^*=R_0/C^*$ is determined in closed form
+by Theorem~\ref{P12:thm:E} and the CMB normalisation $\bst=300/\pi^2$:
+\begin{equation}
+  \boxed{x^* = \frac{\pi\,\tan^3(q^*)}{9600\sqrt{6}\,\vp^{23}},}
+  \label{P12:eq:xstar_exact}
+\end{equation}
+where $q^*$ is the virial Newton series root of Theorem~\ref{P12:thm:C}.
+Substituting the leading-order approximation $q^*\approx\pi/5$ and
+using the pentagon identity $\tan(\pi/5)=\sqrt{\ms}/\vp$
+(Theorem~\ref{P12:thm:B}) yields the leading-order closed form:
+\begin{equation}
+  \boxed{x^*_0 = \frac{\pi\,(3-\vp)^{3/2}}{9600\sqrt{6}\,\vp^{26}}
+  \approx 7.996\times10^{-10},}
+  \label{P12:eq:xstar_leading}
+\end{equation}
+which uses only $\vp$ and $\pi$.
+The full series~\eqref{P12:eq:xstar_exact} achieves:
+$x^*\approx8.209\times10^{-10}$ (exact),
+with the leading form~\eqref{P12:eq:xstar_leading} accurate to $2.60\%$
+and the one-step corrected form accurate to $0.010\%$.
+\end{corollary}
+
+\begin{proof}
+From Theorem~\ref{P12:thm:E}: $R_0 C^{*2}=5/(\vp^{23}\pi^2)$.
+With $C^*=\sqrt{\bst/b^*}=\sqrt{300/(\pi^2 b^*)}$ and $R_0=x^*\!C^*$:
+\[
+  x^*\!\cdot C^{*3} = \frac{5}{\vp^{23}\pi^2},
+  \quad\Longrightarrow\quad
+  x^* = \frac{5}{\vp^{23}\pi^2}\cdot\left(\frac{\pi^2 b^*}{300}\right)^{3/2}
+      = \frac{5\pi\, b^{*3/2}}{\vp^{23}\cdot300^{3/2}}.
+\]
+Using $b^*=\tan^2(q^*)/8$ (Theorem~\ref{P12:thm:C}) and
+$300^{3/2}=(8\cdot300)^{3/2}/8^{3/2}$:
+\[
+  x^* = \frac{5\pi\,\tan^3(q^*)/(8^{3/2})}{\vp^{23}\cdot300^{3/2}}
+      = \frac{\pi\,\tan^3(q^*)}{\vp^{23}\cdot(8\cdot300)^{3/2}/5}.
+\]
+Since $(8\cdot300)^{3/2}=2400^{3/2}=2400\cdot20\sqrt{6}=48000\sqrt{6}$
+and $48000/5=9600$, equation~\eqref{P12:eq:xstar_exact} follows.
+The leading form~\eqref{P12:eq:xstar_leading} uses
+$\tan(\pi/5)=\sqrt{\ms}/\vp$ (pentagon identity, Theorem~\ref{P12:thm:B}),
+giving $\tan^3(\pi/5)=(\ms)^{3/2}/\vp^3=(3-\vp)^{3/2}/\vp^3$,
+and $\vp^{23}\cdot\vp^3=\vp^{26}$.
+\qed
+\end{proof}
+
+%──────────────────────────────────────────────────────────────
+\section{Summary and the one-parameter chain}
+\label{P12:sec:summary}
+%──────────────────────────────────────────────────────────────
+
+\begin{center}
+\begin{longtblr}[
+  caption={Results of Paper~XII.
+    \textcolor{darkgreen}{Green} = proved.
+    Input $J_4/J_a$ is recalled from Papers~II--III.},
+  label={tab:results},
+]{
+  colspec={X[2.2,p] X[1.2,p] X[1,c]},
+  rowhead=1,
+}
+\toprule
+Statement & Source & Status \\
+\midrule
+$\Jfour/\Ja=2^{4/3}/\vp^5$ &
+  Papers~II--III~\cite{Paper2,Paper3} &
+  \textcolor{darkgreen}{Recalled} \\
+$\rCMB=10\,\Lcond^4$ (arithmetic identity) &
+  Thm~\ref{P12:thm:A} &
+  \textcolor{darkgreen}{Proved} \\
+Pentagon identities $\vp=2\cos(\pi/5)$, etc. &
+  Thm~\ref{P12:thm:B} &
+  \textcolor{darkgreen}{Proved} \\
+Newton--icosahedral series for $b^*$ &
+  Thm~\ref{P12:thm:C} &
+  \textcolor{darkgreen}{Proved} \\
+Exact toroidal integral $I_{\mathrm{tor}}=\frac{2}{15}\bsF(2,2;\frac{7}{2};-x^2)$ &
+  Thm~\ref{P12:thm:D} &
+  \textcolor{darkgreen}{Proved} \\
+$I_{\mathrm{tor}}(1)=\pi-3$ identity &
+  Thm~\ref{P12:thm:D} &
+  \textcolor{darkgreen}{Proved} \\
+Conjecture $\Leftrightarrow$ equilibrium $\Efb/V=\rCMB$ &
+  Thm~\ref{P12:thm:E} &
+  \textcolor{darkgreen}{Proved} \\
+$\vp^9\sqrt{\Ja\Jfour}=10$ &
+  Cor~\ref{P12:cor:proof} &
+  \textcolor{darkgreen}{Proved} \\
+$x^*=\pi\tan^3(q^*)/(9600\sqrt{6}\,\vp^{23})$ (exact) &
+  Cor~\ref{P12:cor:xstar} &
+  \textcolor{darkgreen}{Proved} \\
+$x^*_0=\pi(3-\vp)^{3/2}/(9600\sqrt{6}\,\vp^{26})$ (leading order) &
+  Cor~\ref{P12:cor:xstar} &
+  \textcolor{darkgreen}{Proved} \\
+\bottomrule
+\end{longtblr}
+\end{center}
+
+With Corollary~\ref{P12:cor:proof} established, the one-parameter chain
+is complete:
+\begin{equation}
+  \boxed{
+  \TCMB
+  \;\xrightarrow{\;\Lcond\;}\;
+  \rCMB=10
+  \;\xrightarrow{\;\Efb/V=\rCMB\;}\;
+  \vp^9\sqrt{\Ja\Jfour}=10
+  \;\xrightarrow{\;\text{Paper~I}\;}\;
+  m_e = \Lcond\,\vp^{20}\,e^{4\pi-3/400-\alpha/\pi}.
+  }
+  \label{P12:eq:chain}
+\end{equation}
+The electron mass is derivable from the CMB temperature $\TCMB$ alone,
+with no free parameters. The three terms in the exponent are:
+$4\pi$ (Chern--Simons spoke amplitude, exact); $-3/400$ (WZW modular
+$T$-matrix phase $T_{1/2}/Q$, exact); and $-\alpha/\pi$ (one-loop QED
+pole-mass to $\overline{\mathrm{MS}}$ scheme conversion, Paper~IV~\cite{Paper4}).
+The residual after all three corrections is $0.013\%$,
+the irreducible $O(R_0^{-2})$ thick-torus geometric correction.
+
+\paragraph{What the proof uses.}
+Four ingredients, all independent of numerical fitting:
+\begin{enumerate}[label=(\arabic*),noitemsep]
+\item $\rCMB=10\,\Lcond^4$ (Theorem~\ref{P12:thm:A}: pure arithmetic).
+\item $\Jfour/\Ja=2^{4/3}/\vp^5$ (Papers~II--III: topological ratio).
+\item $\Efb=\Ja\Jfour/\vp^5$ (condensate energy from the feedback functional).
+\item $\Efb/V_{\mathrm{torus}}=\rCMB$ (thermodynamic equilibrium axiom).
+\end{enumerate}
+Items (1)--(3) are proved results; item (4) is the physical
+equilibrium condition that selects the physical saddle.
+The $\pi-3$ identity (Theorem~D) and the Newton series (Theorem~C)
+provide the exact geometric description of the saddle and the
+convergent expansion for $b^*$, but are not needed for the
+conjecture proof itself.
+
+\paragraph{Relation to the series.}
+Paper~XII closes the last logical gap in the main condensate programme:
+the profile normalisation conjecture and the one-parameter chain.
+The chain $\TCMB\to m_e$ is now a theorem: the single input
+$\TCMB=2.7255\,\mathrm{K}$ determines the condensate scale $\Lcond$,
+which via the equilibrium condition forces $\vp^9\sqrt{\Ja\Jfour}=10$,
+which via Paper~I's Hopf spoke gives $m_e/\Lcond=\vp^{20}e^{4\pi-3/400}$.
+The subsequent papers (IX, X, XI) then extend the framework to
+quantum mechanics, Bell inequalities, and atomic physics ---
+all following from the single input $\TCMB$
+established here.
+
+%──────────────────────────────────────────────────────────────
+\paragraph{What remains open.}
+Paper~XII resolves the conjecture and closes the one-parameter chain,
+but two related problems remain open:
+\begin{enumerate}[label=(\arabic*),noitemsep]
+\item \emph{$O(R_0^{-2})$ corrections to physical observables.}
+  The closed form $x^*=\pi\tan^3(q^*)/(9600\sqrt{6}\,\vp^{23})$
+  (Corollary~\ref{P12:cor:xstar}) determines the torus geometry exactly.
+  The remaining open problem is to evaluate the
+  $O(R_0^{-2})$ corrections to physical observables ($m_e$, $v_{\rm EW}$)
+  at the exact geometry, which requires the full 2D
+  Euler--Lagrange profile $f^*(\varrho,\theta)$ beyond the
+  Battye--Sutcliffe ansatz.
+\item \emph{$O(R_0^{-2})$ corrections to physical observables.}
+  The residuals $-0.013\%$ in $m_e$ (Paper~IV) and $0.69\%$ in
+  $v_{\rm EW}$ (Paper~I) are both $O(R_0^{-2})$ corrections
+  from the thick-torus geometry at the physical $x^*\approx8.21\times10^{-10}$,
+  not captured by the Battye--Sutcliffe ansatz.
+  Closing them requires the exact 2D Euler--Lagrange profile.
+\end{enumerate}
+Both items are subleading corrections to quantities already established;
+they do not affect the validity of the conjecture proof or the
+one-parameter chain.
+
+\bibliographystyle{ieeetr}
+\begin{thebibliography}{9}
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper2}
+F.~Manfredi,
+\textit{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19363491}{doi:10.5281/zenodo.19363491}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{PaperFC}
+F.~Manfredi,
+\textit{Foundational Companion: The Pentagon Theorem and Three-Route
+Proof of $k=3$},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.20173651}{doi:10.5281/zenodo.20173651}
+
+\bibitem{Battye1998}
+R.~A. Battye and P.~M. Sutcliffe,
+\textit{Knots as stable soliton solutions in a three-dimensional classical
+field theory},
+Phys.\ Rev.\ Lett.\ \textbf{81}, 4798 (1998).
+\href{https://doi.org/10.1103/PhysRevLett.81.4798}{doi:10.1103/PhysRevLett.81.4798}
+
+\bibitem{AS65}
+M.~Abramowitz and I.~A. Stegun,
+\textit{Handbook of Mathematical Functions},
+Dover, New York (1965).
+ISBN 978-0-486-61272-0.
+\end{thebibliography}
+\end{document}

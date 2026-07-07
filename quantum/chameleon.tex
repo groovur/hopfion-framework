@@ -1,0 +1,126 @@
+%% hopfion-framework/quantum/chameleon.tex
+%% Sources: main_paper1.tex, main_paper7.tex, main_paper5.tex, main_paper13.tex
+%% Chameleon screening hierarchy: cosmic/atomic/QCD scales
+%% Auto-generated from project files. Edit source papers to update.
+
+
+%════════════════════════════════════════════════════════════════════
+% Chameleon Mechanism — Papers I, VII, V, XIII
+%════════════════════════════════════════════════════════════════════
+% rem:chameleon — in Paper I remarks (unlabeled in source)
+
+\begin{proposition}[Condensate chameleon screening at the QCD scale]
+\label{P5:prop:qcd_chameleon}
+Inside a nucleon, the condensate density is driven to equilibrium
+with the QCD energy density.
+At the confinement scale $\LQCD\approx208\,\mathrm{MeV}$:
+\begin{equation}
+  \bst\rho_{\mathrm{nucleon}}
+  \;\sim\; \frac{\LQCD^4}{\Lcond^4}
+  \;=\; \left(\frac{\LQCD}{\Lcond}\right)^{\!4}
+  \;\approx\; \left(\frac{208\,\mathrm{MeV}}{1.19\times10^{-4}\,\mathrm{eV}}\right)^{\!4}
+  \;\approx\; 9.3\times10^{48}.
+  \label{P13:eq:rho_nucleon}
+\end{equation}
+The condensate correction to quark kinetic energy inside the nucleon is
+\begin{equation}
+  \varepsilon_{\mathrm{nucleon}}
+  \;=\; \frac{1}{\vp^6(1+\bst\rho_{\mathrm{nucleon}})}
+  \;\approx\; 6.0\times10^{-51},
+  \label{P13:eq:eps_nucleon}
+\end{equation}
+completely negligible relative to the QCD coupling $\alpha_s(\LQCD)\approx1$.
+\end{proposition}
+\status{published}
+\source{P5:prop:qcd_chameleon}
+
+\begin{theorem}[Chameleon screening: spherical harmonics from first principles]
+\label{P13:thm:chameleon_screening}
+In the chameleon limit $\bst\rhoa\gg1$, the condensate correction
+$\Hcond = -(\hbar^2/2m_e)(\epsr/r^2)L^2$ vanishes uniformly
+in all directions:
+\begin{equation}
+  \epsr \;\to\; 0
+  \qquad \text{as } \bst\rhoa \to \infty.
+  \label{P13:eq:chameleon_limit}
+\end{equation}
+The effective Hamiltonian reduces to the standard isotropic
+Coulomb Hamiltonian:
+\begin{equation}
+  \Heff \;\to\; -\frac{\hbar^2}{2m_e}\nabla^2 - \frac{e^2}{r}
+  \qquad (\bst\rhoa \gg 1).
+  \label{P13:eq:H_standard}
+\end{equation}
+The eigenfunctions of~\eqref{P13:eq:H_standard} are
+$\psi_{n\ell m}(r,\theta,\varphi) = R_{n\ell}(r)\,Y_\ell^m(\theta,\varphi)$,
+where $Y_\ell^m$ are the standard spherical harmonics.
+Spherical harmonics are therefore the correct orbital shapes
+within the condensate framework, to all measurable precision.
+\end{theorem}
+\status{published}
+\source{P13:thm:chameleon_screening}
+
+
+%════════════════════════════════════════════════════════════════════
+% Chameleon Equations — Three-Scale Hierarchy
+%════════════════════════════════════════════════════════════════════
+
+% Chameleon screening hierarchy (from Papers VII, XIII, V):
+%
+%  Environment      beta*rho          epsilon           Effect
+%  ─────────────────────────────────────────────────────────────────
+%  Cosmic attractor  phi = 1.618 (exact)  1/phi^8 ≈ 0.021  Active: sets all SM parameters
+%  Bohr radius       ~2.6e25              ~2.2e-27          Screened: orbital shapes = Y_l^m
+%  QCD scale         ~9.3e48              ~6e-51            Negligible: standard QCD free
+%
+% Key identity: beta*rho_inf = phi (exact), 1+phi = phi^2 (pentagon), epsilon_inf = 1/phi^8
+
+\begin{equation}
+  \epsr \;\to\; 0
+  \qquad \text{as } \bst\rhoa \to \infty.
+\end{equation}
+
+\begin{equation}
+  \Delta E_{n\ell}
+  \;\approx\; -\frac{\ell(\ell+1)\,\Lcond^4}{\vp^6\,\aem^4\,m_e^3}
+              \cdot\frac{\langle r^2\rangle_{n\ell}}{a_0^4},
+  \label{P13:eq:delta_E_chameleon}
+\end{equation}
+
+\begin{equation}
+  \eps(a_0)
+  \;=\; \frac{1}{\vp^6(1+\bst\rhoa(a_0))}
+  \;\approx\; 2.2\times10^{-27}.
+  \label{P13:eq:eps_a0_value}
+\end{equation}
+
+\begin{equation}
+  \eps(\rhoinf)
+  \;=\; \frac{1}{\vp^6(1+\bst\rhoinf)}
+  \;=\; \frac{1}{\vp^6(1+\vp)}
+  \;=\; \frac{1}{\vp^6\cdot\vp^2}
+  \;=\; \frac{1}{\vp^8},
+  \label{P13:eq:eps_attractor}
+\end{equation}
+
+\begin{equation}
+  \bst\rho_{\rm atom}(a_0)
+  \;\approx\; \frac{\aem^6 m_e^4}{2\Lcond^4}
+  \;\approx\; 2.57\times10^{25},
+  \label{P13:eq:rho_atom_a0}
+\end{equation}
+
+\begin{equation}
+  \varepsilon_{\mathrm{nucleon}}
+  \;=\; \frac{1}{\vp^6(1+\bst\rho_{\mathrm{nucleon}})}
+  \;\approx\; 6.0\times10^{-51},
+\end{equation}
+
+\begin{equation}
+  \bst\rho_{\mathrm{nucleon}}
+  \;\sim\; \frac{\LQCD^4}{\Lcond^4}
+  \;=\; \left(\frac{\LQCD}{\Lcond}\right)^{\!4}
+  \;\approx\; \left(\frac{208\,\mathrm{MeV}}{1.19\times10^{-4}\,\mathrm{eV}}\right)^{\!4}
+  \;\approx\; 9.3\times10^{48}.
+\end{equation}
+

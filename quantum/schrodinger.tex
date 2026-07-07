@@ -1,0 +1,729 @@
+%% hopfion-framework/quantum/schrodinger.tex
+%% Source: main_paper13.tex
+%% Status: published
+%% Last updated: 2026-07-05
+%% Condensate-modified Hamiltonian, chameleon screening, energy corrections,
+%% free-electron mass anisotropy, and the Schrodinger equation from
+%% condensate quantisation (translation fibration, exact BO separation).
+%% Depends: quantum/hilbert_space.tex (thm:quantisation, lem:momentum)
+
+
+%════════════════════════════════════════════════════════════════════
+% The Condensate-Modified Hydrogen Hamiltonian — Paper XIII, Sec. 2-3
+%════════════════════════════════════════════════════════════════════
+
+\begin{remark}[Radial dependence]
+\label{P13:rem:radial_dep}
+Equation~\eqref{P13:eq:rho_atom} gives $\bst\rho_{\rm atom}(r)\propto r^{-4}$:
+the condensate density grows rapidly toward the nucleus.
+At $r = 5a_0$ (outer edge of the $n=2$ shell):
+$\bst\rho_{\rm atom}\approx4.1\times10^{22}$, still $\gg1$.
+The chameleon limit is an excellent approximation throughout the atom.
+\status{published}
+\source{P13:rem:radial_dep}
+\end{remark}
+\status{published}
+\source{P13:rem:radial_dep}
+
+\begin{theorem}[Condensate-modified hydrogen Hamiltonian]
+\label{P13:thm:modified_H}
+The effective Hamiltonian for the electron gradient-knot in the
+condensate background near a proton is
+\begin{equation}
+  \boxed{
+  \Heff
+  \;=\; -\frac{\hbar^2}{2m_e}\nabla^2 - \frac{e^2}{r}
+  \;-\; \frac{\hbar^2}{2m_e}\,\frac{\epsr}{r^2}\,L^2,
+  }
+  \label{P13:eq:H_eff}
+\end{equation}
+where $\epsr = 1/[\vp^6(1+\bst\rho(r))]$ and $\rho(r)$ is the
+condensate density at radius $r$.
+The condensate correction vanishes identically for radial motion
+($\Seff(0,\rho)=0$ by $\sin^4\!0=0$) and acts only on angular
+kinetic energy.
+\status{published}
+\source{P13:thm:modified_H}
+\end{theorem}
+\status{published}
+\source{P13:thm:modified_H}
+
+\begin{remark}[Zero radial correction]
+\label{P13:rem:zero_radial}
+The exact vanishing of the condensate correction for radial motion
+is a structural consequence of the Hopf map Jacobian:
+$\Seff(\theta)\propto\sin^4\!\theta$, and $\sin\!0=0$ exactly.
+The condensate does not resist radial propagation at all.
+This is not an approximation --- it is built into the geometry
+of the Hopf fibration.
+\status{published}
+\source{P13:rem:zero_radial}
+\end{remark}
+\status{published}
+\source{P13:rem:zero_radial}
+
+%════════════════════════════════════════════════════════════════════
+% Chameleon Screening and the Origin of Spherical Harmonics — Sec. 4
+%════════════════════════════════════════════════════════════════════
+% thm:chameleon_screening is filed canonically in quantum/chameleon.tex
+% (see that file for the full statement); referenced here by \ref only.
+
+\begin{remark}[The same mechanism as the cosmological constant]
+\label{P13:rem:same_mechanism}
+The cosmological constant hierarchy is resolved in Paper~VII
+by the chameleon mechanism: the condensate vacuum energy is present in full
+but screened from gravitational coupling at cosmological density by
+the denominator $1/(1+\bst\rho_\infty)$.
+Theorem~\ref{P13:thm:chameleon_screening} (quantum/chameleon.tex) uses the same
+denominator to derive spherical harmonics inside atoms.
+The two results --- the cosmological constant and orbital shapes ---
+share a single algebraic origin.
+\status{published}
+\source{P13:rem:same_mechanism}
+\depends{quantum/chameleon.tex (P13:thm:chameleon_screening)}
+\end{remark}
+\status{published}
+\source{P13:rem:same_mechanism}
+
+\begin{remark}[Quantitative screening ratio]
+\label{P13:rem:screening_ratio}
+The ratio of condensate density inside the atom to the cosmic attractor:
+\[
+  \frac{\bst\rhoa(a_0)}{\bst\rhoinf}
+  \;=\; \frac{\aem^6 m_e^4}{2\Lcond^4\,\vp}
+  \;\approx\; \frac{2.57\times10^{25}}{1.618}
+  \;\approx\; 1.6\times10^{25}.
+\]
+The condensate is $1.6\times10^{25}$ times denser inside the atom
+than in the cosmic vacuum.
+The suppression of the condensate correction inside atoms relative
+to the cosmic background is the same factor:
+$\eps(a_0)/\eps_\infty \approx 10^{-27}/0.021 \approx 10^{-25}$.
+\status{published}
+\source{P13:rem:screening_ratio}
+\end{remark}
+\status{published}
+\source{P13:rem:screening_ratio}
+
+\begin{proposition}[Universal chameleon screening in multi-electron atoms]
+\label{P13:prop:multi_electron_screening}
+For any atom with $Z\ge1$ electrons, the chameleon screening condition
+$\bst\rho_{\rm atom}^{(Z)}(r)\gg1$ holds for all $r$ within the
+electronic density.
+Consequently:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item The orbital shapes are exactly the standard spherical harmonics
+  $Y_\ell^m(\theta,\varphi)$ for every electron in every atom.
+\item The effective Hamiltonian for the $i$-th electron reduces to
+  the standard Hartree--Fock operator:
+  \begin{equation}
+    \Heff^{(i)} \;\to\; -\frac{\hbar^2}{2m_e}\nabla^2
+    - \frac{Z_{\rm eff}(r)\,e^2}{r}
+    + V_{\rm HF}^{(i)},
+    \label{P13:eq:H_HF_limit}
+  \end{equation}
+  where $V_{\rm HF}^{(i)}$ includes the Hartree and exchange potentials.
+\end{enumerate}
+\status{published}
+\source{P13:prop:multi_electron_screening}
+\end{proposition}
+\status{published}
+\source{P13:prop:multi_electron_screening}
+
+\begin{proposition}[Condensate energy corrections in multi-electron atoms]
+\label{P13:prop:multi_electron_energy}
+In the chameleon limit, the condensate
+correction to the energy of orbital $(n,\ell)$ in a $Z$-electron atom is
+\begin{equation}
+  \Delta E_{n\ell}^{(Z)}
+  \;=\; -\frac{\hbar^2\,\ell(\ell+1)}{2m_e}
+        \left\langle\frac{\eps^{(Z)}(r)}{r^2}\right\rangle_{n\ell},
+  \label{P13:eq:delta_E_Z}
+\end{equation}
+where $\eps^{(Z)}(r)=1/[\vp^6(1+\bst\rho_{\rm atom}^{(Z)}(r))]$.
+Two regimes apply:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item \textbf{Inner electrons} ($Z_{\rm eff}\approx Z$, $r\sim a_0/Z$):
+  $\Delta E_{n\ell}^{(Z,\,\rm inner)}\approx Z^{-4}\,\Delta E_{n\ell}^{(Z=1)}$,
+  since $\eps^{(Z)}\approx\eps^{(1)}/Z^2$ and
+  $\langle r^2\rangle_{n\ell}^{(Z)}\approx\langle r^2\rangle_{n\ell}^{(1)}/Z^2$.
+  The correction is \emph{more suppressed} for heavier atoms.
+\item \textbf{Outer (valence) electrons} ($Z_{\rm eff}\approx 1$, $r\sim n^2 a_0$):
+  since $Z_{\rm eff}\to1$ in the outer shells,
+  $\bigl|\Delta E_{n\ell}^{(Z,\,\rm outer)}\bigr|\lesssim\bigl|\Delta E_{n\ell}^{(Z=1)}\bigr|$.
+\end{enumerate}
+In both cases, the universal upper bound is
+\begin{equation}
+  \bigl|\Delta E_{n\ell}^{(Z)}\bigr|
+  \;\lesssim\; \bigl|\Delta E_{n\ell}^{(Z=1)}\bigr|
+  \;\sim\; 10^{-24}\,\mathrm{eV}\times\ell(\ell+1),
+  \label{P13:eq:delta_E_bound}
+\end{equation}
+suppressed $\sim10^{20}$ below the fine structure for all atoms.
+\status{published}
+\source{P13:prop:multi_electron_energy}
+\end{proposition}
+\status{published}
+\source{P13:prop:multi_electron_energy}
+
+\begin{corollary}[The Hartree--Fock equations are exact]
+\label{P13:cor:HF_exact}
+Proposition~\ref{P13:prop:multi_electron_screening} establishes that the
+condensate correction to the Hartree--Fock Hamiltonian is
+$O(\eps^{(Z)})\lesssim O(10^{-27})$, negligible at any measured precision.
+Standard quantum chemistry methods --- Hartree--Fock, DFT, coupled cluster,
+configuration interaction --- are therefore all derivable within the
+condensate framework, with no condensate correction needed.
+In particular, the Aufbau filling order and the structure of the
+periodic table (addressed via the $\vp$-spiral in Paper~XI)
+are unaffected by the condensate.
+\status{published}
+\source{P13:cor:HF_exact}
+\end{corollary}
+\status{published}
+\source{P13:cor:HF_exact}
+
+\begin{theorem}[Atomic physics from the condensate]
+\label{P13:thm:atomic_foundation}
+This paper, taken together, derives from the condensate framework:
+\begin{enumerate}[noitemsep]
+\item The modified Hamiltonian with a single condensate correction
+  (Theorem~\ref{P13:thm:modified_H}).
+\item Spherical harmonics as exact orbital shapes for all atoms and all $Z$
+  (Theorem~\ref{P13:thm:chameleon_screening} and
+  Proposition~\ref{P13:prop:multi_electron_screening}).
+\item Condensate energy corrections bounded by $\sim10^{-24}\,\mathrm{eV}$,
+  undetectable in any atom (Propositions~\ref{P13:prop:energy_correction}
+  and~\ref{P13:prop:multi_electron_energy}).
+\item The Schr\"odinger equation from condensate quantisation,
+  exact to $O(\eps_{\rm cond})\approx10^{-27}$
+  (Theorem~\ref{P13:thm:schrodinger}, Corollary~\ref{P13:cor:improved_BO}).
+\item Pauli exclusion and spin-$\tfrac{1}{2}$ from $Q=2$ topology
+  (Theorems~\ref{P13:thm:spin_half}--\ref{P13:cor:pauli_exclusion},
+  quantum/spin\_statistics.tex).
+\item The spin assignments $J=Q/4$ for all Standard Model particles
+  (Theorem~\ref{P13:thm:spin_tower}, quantum/spin\_statistics.tex).
+\end{enumerate}
+Standard atomic and molecular quantum mechanics --- wavefunctions,
+selection rules, the periodic table, all of quantum chemistry ---
+follows from the condensate framework without additional postulates.
+\status{published}
+\source{P13:thm:atomic_foundation}
+\depends{quantum/spin_statistics.tex}
+\end{theorem}
+\status{published}
+\source{P13:thm:atomic_foundation}
+
+%════════════════════════════════════════════════════════════════════
+% Condensate Corrections to Hydrogen Energy Levels — Sec. 5
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Condensate energy correction to hydrogen levels]
+\label{P13:prop:energy_correction}
+In first-order perturbation theory with $H' = \Hcond$,
+the condensate correction to the hydrogen energy level $|n,\ell\rangle$ is
+\begin{equation}
+  \Delta E_{n\ell}
+  \;=\; \left\langle n,\ell\left|H'\right|n,\ell\right\rangle
+  \;=\; -\frac{\hbar^2\ell(\ell+1)}{2m_e}\,
+        \left\langle\frac{\epsr}{r^2}\right\rangle_{n\ell}.
+  \label{P13:eq:delta_E_general}
+\end{equation}
+In the chameleon limit $\bst\rhoa\gg1$, inserting~\eqref{P13:eq:eps_chameleon}:
+\begin{equation}
+  \Delta E_{n\ell}
+  \;\approx\; -\frac{\ell(\ell+1)\,\Lcond^4}{\vp^6\,\aem^4\,m_e^3}
+              \cdot\frac{\langle r^2\rangle_{n\ell}}{a_0^4},
+\end{equation}
+where $\langle r^2\rangle_{n\ell} = (n^2/2)(5n^2+1-3\ell(\ell+1))\,a_0^2$
+is the exact hydrogen expectation value.
+For the $2p$ state ($n=2$, $\ell=1$):
+\begin{equation}
+  \boxed{\Delta E_{2p}
+  \;\approx\; -\frac{2\,\Lcond^4\cdot30}{\vp^6\,\aem^4\,m_e^3}
+  \;\approx\; -1.77\times10^{-24}\,\mathrm{eV}.}
+  \label{P13:eq:delta_E_2p}
+\end{equation}
+This is $\sim1.95\times10^{-20}$ times the fine-structure
+splitting of the $2p$ level
+($\Delta E_{\rm fs}\sim\aem^2\ERy/n^3\approx9.1\times10^{-5}\,\mathrm{eV}$).
+\status{published}
+\source{P13:prop:energy_correction}
+\end{proposition}
+\status{published}
+\source{P13:prop:energy_correction}
+
+\begin{remark}[Structural form of the correction]
+\label{P13:rem:structure}
+The condensate correction~\eqref{P13:eq:delta_E_general}:
+\begin{enumerate}[noitemsep]
+\item Is zero for $\ell=0$ states (s-orbitals), exactly:
+  $L^2|n,0\rangle = 0$.
+\item Breaks the $\ell$-degeneracy of hydrogen energy levels
+  (the SO(4) accidental degeneracy): states with the same $n$
+  but different $\ell$ receive different corrections.
+  This is a condensate analogue of the Lamb shift, at $\sim10^{-20}$
+  smaller magnitude.
+\item Scales as $\Lcond^4/m_e^3 \propto \TCMB^4/m_e^3$:
+  it would grow as the CMB temperature increases, meaning the
+  condensate correction was larger in the early universe.
+\end{enumerate}
+\status{published}
+\source{P13:rem:structure}
+\end{remark}
+\status{published}
+\source{P13:rem:structure}
+
+%════════════════════════════════════════════════════════════════════
+% Free-Electron Mass Anisotropy in the Cosmic Background — Sec. 6
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Free-electron mass anisotropy]
+\label{P13:prop:mass_anisotropy}
+For a free electron propagating in the cosmic condensate background
+at the attractor density $\rhoinf$, the effective mass depends on
+the direction of propagation relative to the local condensate gradient:
+\begin{align}
+  m_{\rm radial}
+  &= m_e
+  &\text{(exactly, for propagation parallel to } \nabla\rho\text{)},
+  \label{P13:eq:m_radial}
+  \\
+  m_{\rm tangential}
+  &= m_e\left(1 + \frac{1}{\vp^8}\right)
+   = m_e\,\frac{\vp^8+1}{\vp^8}
+  &\text{(perpendicular to } \nabla\rho\text{)}.
+  \label{P13:eq:m_tangential}
+\end{align}
+The fractional mass anisotropy is
+\begin{equation}
+  \boxed{\frac{\Delta m}{m_e}
+  \;=\; \frac{m_{\rm tangential} - m_{\rm radial}}{m_e}
+  \;=\; \frac{1}{\vp^8}
+  \;\approx\; 2.129\%.}
+  \label{P13:eq:mass_anisotropy}
+\end{equation}
+The radial-to-tangential effective mass ratio is
+\begin{equation}
+  \frac{m_{\rm radial}}{m_{\rm tangential}}
+  \;=\; \frac{\vp^8}{\vp^8+1}
+  \;\approx\; 0.97916,
+  \label{P13:eq:mass_ratio}
+\end{equation}
+exact in terms of $\vp$ with no free parameters.
+\status{prediction}
+\source{P13:prop:mass_anisotropy}
+\end{proposition}
+\status{prediction}
+\source{P13:prop:mass_anisotropy}
+
+\begin{remark}[Exact form and approximations]
+\label{P13:rem:exact_vs_approx}
+The result~\eqref{P13:eq:mass_anisotropy} uses two exact golden-ratio
+identities: $\bst\rhoinf=\vp$ (the condensate self-consistency
+condition, Paper~I) and $1+\vp=\vp^2$
+(the pentagon identity).
+The mass ratio $\vp^8/(\vp^8+1)$ involves no free parameters.
+The $2.129\%$ anisotropy follows from these alone.
+\status{published}
+\source{P13:rem:exact_vs_approx}
+\end{remark}
+\status{published}
+\source{P13:rem:exact_vs_approx}
+
+\begin{remark}[Direction of the preferred axis and experimental access]
+\label{P13:rem:experimental_access}
+The condensate gradient $\nabla\rho$ near a gravitational source
+(Earth, Sun, Galaxy) is radially directed.
+In empty space far from any mass, the large-scale condensate
+gradient is determined by the local matter distribution and the
+CMB dipole.
+A free electron (or any lepton) propagating radially versus
+tangentially relative to the galactic centre, or relative to
+the CMB dipole direction, should show a $2.129\%$ difference
+in effective mass.
+The natural experimental probe is a precision Penning trap:
+the cyclotron frequency $\omega_c = eB/m_{\rm eff}$ would depend
+on the orientation of the trap relative to the local condensate
+gradient at the $2.129\%/\vp^8$ level.
+
+Current Penning-trap measurements of the electron $g$-factor
+(Hanneke et al.\ 2008) have fractional precision
+$\sim10^{-13}$, which could in principle detect a $2\%$ effect
+if the anisotropy is correctly modelled.
+A dedicated anisotropy search --- varying trap orientation
+over a year to scan the local condensate gradient direction ---
+would provide a clean test.
+\status{prediction}
+\source{P13:rem:experimental_access}
+\end{remark}
+\status{prediction}
+\source{P13:rem:experimental_access}
+
+\begin{remark}[Relation to the $\alpha$--$m_e$ tracking relation]
+\label{P13:rem:tracking_relation}
+Paper~IV establishes the tracking relation
+$\delta m_e/m_e = -\delta\aem/(\pi\aem) \approx -43.6\,\delta\aem/\aem$:
+as $\aem$ is refined, $m_e$ tracks.
+The mass anisotropy~\eqref{P13:eq:mass_anisotropy} is a distinct
+effect: the anisotropy is in the effective mass during propagation,
+not in the rest mass $m_e$.
+The rest mass is set by the tower level and WZW T-phase (Papers~I, IV)
+and is isotropic.
+The propagation effective mass acquires the $1/\vp^8$ anisotropy
+from the condensate medium.
+\status{published}
+\source{P13:rem:tracking_relation}
+\end{remark}
+\status{published}
+\source{P13:rem:tracking_relation}
+
+%════════════════════════════════════════════════════════════════════
+% Schrodinger Equation from Condensate Quantisation — Sec. 7
+%════════════════════════════════════════════════════════════════════
+
+\begin{definition}[One-particle states]
+\label{P13:def:one_particle}
+A one-particle state is a state of the form
+\begin{equation}
+  |\Psi_e\rangle \;=\; \psi(\mathbf{R})\otimes|0_{\rm internal}\rangle,
+  \label{P13:eq:one_particle_state}
+\end{equation}
+where $\psi\in L^2(\mathbb{R}^3)$ is the centre-of-mass wavefunction
+and $|0_{\rm internal}\rangle\in\mathcal{H}_{\rm internal}$
+is the ground state of the condensate knot's internal structure.
+\status{published}
+\source{P13:def:one_particle}
+\end{definition}
+\status{published}
+\source{P13:def:one_particle}
+
+\begin{lemma}[Momentum operator on the one-particle sector]
+\label{P13:lem:momentum_operator}
+On the one-particle sector~\eqref{P13:eq:one_particle_state},
+the operator corresponding to the Noether momentum~\eqref{P13:eq:total_momentum}
+acts as
+\begin{equation}
+  \hat{P}_i\,\psi(\mathbf{R})\otimes|0_{\rm internal}\rangle
+  \;=\; \bigl(-i\hbar\,\partial/\partial R_i\,\psi(\mathbf{R})\bigr)
+        \otimes|0_{\rm internal}\rangle.
+  \label{P13:eq:momentum_on_sector}
+\end{equation}
+\status{published}
+\source{P13:lem:momentum_operator}
+\depends{quantum/hilbert_space.tex (P10:lem:momentum)}
+\end{lemma}
+\status{published}
+\source{P13:lem:momentum_operator}
+
+\begin{theorem}[Born--Oppenheimer separation for the condensate]
+\label{P13:thm:born_oppenheimer}
+In the adiabatic limit $\eps_{\rm BO}\to0$, the condensate Hamiltonian~\eqref{P13:eq:H_decomp}
+restricted to one-particle states~\eqref{P13:eq:one_particle_state} with
+$|0_{\rm internal}\rangle$ in the ground state of $\hat{H}_{\rm internal}$ becomes
+\begin{equation}
+  \hat{H}_{\rm eff}
+  \;=\; \frac{\hat{\mathbf{P}}^2}{2m_e}
+  \;+\; \hat{V}(\mathbf{R})
+  \;+\; O\!\left(\eps_{\rm BO}^2\right),
+  \label{P13:eq:Heff_BO}
+\end{equation}
+where $m_e = \Lcond\,\vp^{20}\,e^{4\pi-3/400-\aem/\pi}$
+is the condensate-derived electron mass (Papers~I,~IV).
+\status{published}
+\source{P13:thm:born_oppenheimer}
+\end{theorem}
+\status{published}
+\source{P13:thm:born_oppenheimer}
+
+\begin{theorem}[Schr\"odinger equation from condensate quantisation]
+\label{P13:thm:schrodinger}
+In the one-particle sector of the condensate Hilbert space,
+the time evolution of the electron's centre-of-mass wavefunction
+$\psi(\mathbf{R},t)\in L^2(\mathbb{R}^3)$ satisfies
+\begin{equation}
+  i\hbar\,\frac{\partial\psi}{\partial t}
+  \;=\;
+  \left[-\frac{\hbar^2}{2m_e}\nabla^2 + V(\mathbf{R})\right]\psi
+  \;+\; O\!\left(\eps_{\rm cond}\right),
+  \label{P13:eq:schrodinger_derived}
+\end{equation}
+where $m_e$ is the condensate-derived electron mass,
+$V(\mathbf{R})$ is any external potential,
+and $\eps_{\rm cond}\sim(\Lcond/m_e\aem)^4\sim10^{-27}$ is the
+condensate correction from Theorem~\ref{P13:thm:modified_H}.
+The $O(\eps_{\rm BO}^2)$ Born--Oppenheimer remainder vanishes exactly
+by the translation fibration (Theorem~\ref{P13:thm:NA_vanishing}
+and Corollary~\ref{P13:cor:improved_BO}); the error bound
+$O(\eps_{\rm cond})\approx O(10^{-27})$ is a factor of
+$\sim10^{17}$ tighter than the formal BO bound.
+\status{published}
+\source{P13:thm:schrodinger}
+\depends{quantum/hilbert_space.tex (P10:thm:quantisation)}
+\end{theorem}
+\status{published}
+\source{P13:thm:schrodinger}
+
+\begin{remark}[What the derivation establishes]
+\label{P13:rem:what_derived}
+Theorem~\ref{P13:thm:schrodinger} shows that the Schr\"odinger equation
+is not an additional postulate of the condensate framework.
+It is a consequence of four structural results already present:
+\begin{enumerate}[noitemsep]
+  \item The Hilbert space $\mathcal{H}=L^2(\mathcal{C}_Q^{\rm red},d\mu)$
+    and time-evolution equation (Paper~X, Theorem thm:quantisation).
+  \item The translation fibration $\mathcal{C}_Q^{\rm red}=\mathbb{R}^3\times
+    \mathcal{C}_{\rm internal}$ (equation~\eqref{P13:eq:fibration}).
+  \item The Noether momentum $\hat{P}_i=-i\hbar\partial/\partial R_i$
+    on the one-particle sector (Lemma~\ref{P13:lem:momentum_operator}).
+  \item The Born--Oppenheimer adiabatic separation at
+    $\eps_{\rm BO}=\aem^2/(2\vp)\approx1.6\times10^{-5}$
+    (Theorem~\ref{P13:thm:born_oppenheimer}).
+\end{enumerate}
+The electron mass $m_e$ appearing in~\eqref{P13:eq:schrodinger_derived}
+is not an input to this derivation: it is the condensate mass
+from Papers~I and~IV, derived from $\TCMB$ alone.
+\status{published}
+\source{P13:rem:what_derived}
+\end{remark}
+\status{published}
+\source{P13:rem:what_derived}
+
+\begin{remark}[Adiabatic correction estimate --- initial bound]
+\label{P13:rem:BO_correction}
+Theorem~\ref{P13:thm:born_oppenheimer} states the Born--Oppenheimer error as
+$O(\eps_{\rm BO}^2)$ where $\eps_{\rm BO}=\aem^2/(2\vp)\approx1.6\times10^{-5}$,
+giving a formal bound of $\eps_{\rm BO}^2\approx2.7\times10^{-10}$
+on the fractional energy correction.
+This bound is sharp for a generic BO problem (e.g.\ a diatomic molecule),
+where the derivative coupling $d_{0k}=\langle k|\partial/\partial R|0\rangle\neq0$.
+We now show that in the condensate framework this coupling vanishes
+\emph{identically}, improving the bound by a factor of $\sim10^{17}$.
+\status{published}
+\source{P13:rem:BO_correction}
+\end{remark}
+\status{published}
+\source{P13:rem:BO_correction}
+
+\begin{theorem}[Exact vanishing of non-adiabatic coupling]
+\label{P13:thm:NA_vanishing}
+The Born--Oppenheimer derivative coupling between any two internal states
+of the $Q=2$ gradient-knot vanishes identically:
+\begin{equation}
+  \boxed{d_{0k} \;\equiv\; \langle k_{\rm internal}|\,\partial/\partial R_i\,|0_{\rm internal}\rangle
+  \;=\; 0
+  \qquad \text{for all } k \text{ and all } i=1,2,3.}
+  \label{P13:eq:d0k_zero}
+\end{equation}
+Consequently, the diagonal Born--Oppenheimer correction (DBOC) also vanishes:
+\begin{equation}
+  \mathrm{DBOC}
+  \;\equiv\; -\frac{\hbar^2}{2m_e}\sum_{k\neq0}\frac{|d_{0k}|^2}{E_k-E_0}
+  \;=\; 0
+  \label{P13:eq:DBOC_zero}
+\end{equation}
+and the $O(\eps_{\rm BO}^2)$ term in Theorem~\ref{P13:thm:schrodinger}
+is exactly zero.
+\status{published}
+\source{P13:thm:NA_vanishing}
+\end{theorem}
+\status{published}
+\source{P13:thm:NA_vanishing}
+
+\begin{corollary}[Improved error bound for the Schr\"odinger equation]
+\label{P13:cor:improved_BO}
+The Schr\"odinger equation~\eqref{P13:eq:schrodinger_derived} of
+Theorem~\ref{P13:thm:schrodinger} holds with the improved error:
+\begin{equation}
+  \boxed{i\hbar\,\frac{\partial\psi}{\partial t}
+  \;=\;
+  \left[-\frac{\hbar^2}{2m_e}\nabla^2 + V(\mathbf{R})\right]\psi
+  \;+\; O(\eps_{\rm cond}),}
+  \label{P13:eq:schrodinger_improved}
+\end{equation}
+where $\eps_{\rm cond}\sim10^{-27}$ is the condensate anisotropy
+from Theorem~\ref{P13:thm:modified_H}.
+The formal $O(\eps_{\rm BO}^2)$ term vanishes exactly
+(Theorem~\ref{P13:thm:NA_vanishing}), improving the error bound by
+a factor of
+\begin{equation}
+  \boxed{\frac{\eps_{\rm BO}^2}{\eps_{\rm cond}}
+  \;=\; \frac{[\aem^2/(2\vp)]^2}{\eps_{\rm cond}}
+  \;\approx\; \frac{2.7\times10^{-10}}{2.2\times10^{-27}}
+  \;\approx\; 1.2\times10^{17}.}
+  \label{P13:eq:improvement_factor}
+\end{equation}
+The Schr\"odinger equation is therefore exact to one part in $10^{27}$,
+not merely one part in $10^{10}$.
+\status{published}
+\source{P13:cor:improved_BO}
+\end{corollary}
+\status{published}
+\source{P13:cor:improved_BO}
+
+\begin{remark}[Why the condensate BO is exact and molecular BO is not]
+\label{P13:rem:BO_comparison}
+The contrast between the condensate and molecular cases is sharp:
+\begin{enumerate}[noitemsep]
+\item \emph{Molecule} (e.g.\ H$_2$):
+  Electronic wavefunction $\Phi_0(r;R)$ depends on nuclear coordinate $R$.
+  Derivative coupling $d_{0k}\neq0$ ($\sim\sqrt{m_e/M}$ per matrix element).
+  Non-adiabatic correction $\sim\eps_{\rm BO}\sim m_e/M$.
+\item \emph{Condensate gradient-knot} (this paper):
+  Internal states in $\mathcal{H}_{\rm internal}$ are $R$-independent by the
+  translation fibration~\eqref{P13:eq:fibration}.
+  Derivative coupling $d_{0k}=0$ \emph{exactly} for all $k$.
+  Non-adiabatic correction $=0$; residual error $=O(\eps_{\rm cond})$.
+\end{enumerate}
+The condensate BO is \emph{exact} in a sense that ordinary molecular BO is not:
+the internal and external degrees of freedom are structurally decoupled
+by the configuration-space fibration, not merely approximately so by a large mass ratio.
+\status{published}
+\source{P13:rem:BO_comparison}
+\end{remark}
+\status{published}
+\source{P13:rem:BO_comparison}
+
+\begin{remark}[Condensate phonons and the electron]
+\label{P13:rem:phonons}
+The condensate background has phonon excitations at
+$\Delta_{\rm phonon}\sim\vp^2\Lcond\approx3\times10^{-4}\,\mathrm{eV}$,
+which are \emph{below} the electron kinetic energy $\ERy\approx13.6\,\mathrm{eV}$.
+The electron can in principle excite condensate phonons as it orbits.
+However, the coupling of the electron gradient-knot to condensate
+phonons is suppressed by the same chameleon factor
+$\eps_{\rm cond}\sim10^{-27}$:
+the atom's EM field density overwhelms the condensate background density,
+screening all condensate interactions.
+Net phonon emission rate: $\Gamma_{\rm phonon}\sim\eps_{\rm cond}^2\times
+\text{(phase space)}\ll10^{-50}\,\mathrm{s}^{-1}$.
+The electron's quantum mechanics is entirely standard at atomic energies.
+\status{published}
+\source{P13:rem:phonons}
+\end{remark}
+\status{published}
+\source{P13:rem:phonons}
+
+%════════════════════════════════════════════════════════════════════
+% Supporting equations (referenced above but not independently boxed
+% as named results)
+%════════════════════════════════════════════════════════════════════
+
+\begin{equation}
+  E_{\rm cm}
+  \;=\; \int\pi(x)\,\partial_0\rho(x)\,d^3x - \mathcal{L}
+  \;\approx\; \tfrac{1}{2}M_{\rm eff}\,\mathbf{v}^2,
+  \label{P13:eq:E_cm}
+\end{equation}
+
+\begin{equation}
+  \Hcond
+  \;=\; -\frac{\hbar^2}{2m_e}
+        \,\frac{\epsr}{r^2}\,L^2,
+  \label{P13:eq:H_cond}
+\end{equation}
+
+\begin{equation}
+  \hat{H}_{\rm cond}
+  \;=\; \hat{H}_{\rm cm}(\mathbf{R})
+  \;+\; \hat{H}_{\rm internal}
+  \;+\; \hat{V}(\mathbf{R}),
+  \label{P13:eq:H_decomp}
+\end{equation}
+
+\begin{equation}
+  \mathcal{H}
+  \;=\; L^2\!\left(\mathcal{C}_Q^{\rm red},d\mu\right)
+  \;\cong\;
+  L^2\!\left(\mathbb{R}^3,d^3R\right)\otimes\mathcal{H}_{\rm internal},
+  \label{P13:eq:Hilbert_factorisation}
+\end{equation}
+
+\begin{equation}
+  \boxed{\epsr
+  \;\equiv\; \frac{1}{\vp^6(1+\bst\rho(r))}}
+  \label{P13:eq:epsilon_def}
+\end{equation}
+
+\begin{equation}
+  \epsr
+  \;\approx\; \frac{1}{\vp^6\,\bst\rho_{\rm atom}(r)}
+  \;\approx\; \frac{2\Lcond^4}{\vp^6\,\aem^6 m_e^4}
+        \left(\frac{r}{a_0}\right)^4,
+  \label{P13:eq:eps_chameleon}
+\end{equation}
+
+\begin{equation}
+  \mathcal{C}_Q^{\rm red} \;=\; \mathbb{R}^3 \times \mathcal{C}_{\rm internal},
+  \label{P13:eq:fibration}
+\end{equation}
+
+\begin{equation}
+  |\nabla\psi|^2
+  \;=\; \underbrace{\left|\frac{\partial\psi}{\partial r}\right|^2}_{\text{radial}}
+  \;+\; \underbrace{\frac{1}{r^2}|L\psi|^2}_{\text{angular}},
+  \label{P13:eq:gradient_decomp}
+\end{equation}
+
+\begin{equation}
+  \boxed{\Delta_{\rm internal}
+  \;=\; m_e(\vp^{-38}-\vp^{-40})\big/\vp^{-40}
+  \;=\; m_e(\vp^2-1)
+  \;=\; \vp\, m_e
+  \;\approx\; 827\,\mathrm{keV},}
+  \label{P13:eq:internal_gap}
+\end{equation}
+
+\begin{equation}
+  \boxed{\eps_{\rm BO}
+  \;=\; \frac{\ERy}{\vp\, m_e}
+  \;=\; \frac{\aem^2}{2\vp}
+  \;\approx\; 1.6\times10^{-5}.}
+  \label{P13:eq:eps_BO}
+\end{equation}
+
+\begin{equation}
+  \hat{P}_i\,\psi(\mathbf{R})\otimes|0_{\rm internal}\rangle
+  \;=\; \bigl(-i\hbar\,\partial/\partial R_i\,\psi(\mathbf{R})\bigr)
+        \otimes|0_{\rm internal}\rangle.
+  \label{P13:eq:momentum_on_sector_dup}
+\end{equation}
+
+\begin{equation}
+  \mathcal{P}_i(x)
+  \;=\; \pi(x)\,\partial_i\rho(x),
+  \qquad
+  \pi(x) \;=\; \frac{\partial\mathcal{L}}{\partial(\partial_0\rho)},
+  \label{P13:eq:noether_momentum}
+\end{equation}
+
+\begin{equation}
+  \mathcal{L} \;=\; \frac{|\nabla\rho|^2}{\vp^6(1+\bst|\nabla\rho|^2)}
+  \label{P13:eq:parent_L}
+\end{equation}
+
+\begin{equation}
+  \bst\rho_{\rm atom}(r)
+  \;\sim\;
+  \frac{u_{\rm EM}(r)}{\Lcond^4}
+  \;=\; \frac{\aem^6 m_e^4}{2\Lcond^4}
+        \left(\frac{a_0}{r}\right)^4.
+  \label{P13:eq:rho_atom}
+\end{equation}
+
+\begin{equation}
+  P_i \;=\; \int \pi(x)\,\partial_i\rho(x)\,d^3x.
+  \label{P13:eq:total_momentum}
+\end{equation}
+
+\begin{equation}
+  T_{\mathbf{a}}[\rho](x) = \rho(x-\mathbf{a}),
+  \label{P13:eq:translation_action}
+\end{equation}
+
+\begin{equation}
+  u_{\rm EM}(r)
+  \;=\; \frac{\aem^2}{2r^4}
+  \;=\; \frac{\aem^6 m_e^4}{2}\cdot\left(\frac{a_0}{r}\right)^4,
+  \label{P13:eq:uEM}
+\end{equation}

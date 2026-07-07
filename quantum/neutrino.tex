@@ -1,0 +1,1307 @@
+% quantum/neutrino.tex
+% Part of the Hopfion Framework Repository
+% Source: Paper XVII — The Q_H=1 Sector of the Density-Feedback Hopfion:
+%   Topology, Group Structure, Colour Exclusion
+% Status: published
+% Last updated: 2026-07-04
+%
+% Notation note: Paper XVII defines \Ja -> J_{2a} and \Jfour -> J_4.
+% Preamble defines \Ja -> \mathcal{J}_a and \Jfour -> \mathcal{J}_4.
+% These are the same profile integrals; here preamble notation is used.
+%
+\input{../preamble}
+
+\section*{The $Q_H=1$ Sector: Neutrino Topology, Group Structure, and Masses}
+\label{sec:neutrino}
+
+% Results extracted from Paper XVII
+% Scan date: 2026-06-28
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Topology of the $\QH=1$ Hopfion}
+
+\begin{proposition}[Topology of $\QH=1$]
+\label{P17:prop:qh1_unknot}
+For any smooth field $\mathbf{n}:\mathbb{R}^3\to S^2$ with $\QH=1$
+and finite Faddeev--Niemi energy, the preimage
+$\mathbf{n}^{-1}(p)\subset\mathbb{R}^3$ of any regular value $p\in S^2$
+is a single closed curve that is isotopic to the unknot. Any two such
+preimage curves (for distinct regular values) link with linking
+number~$1$.
+\end{proposition}
+\status{published}
+\source{P17:prop:qh1_unknot}
+
+\begin{remark}[Comparison table across sectors]
+\label{P17:rem:comparison_table}
+The following table summarises the topological invariants across the
+three non-vacuum sectors. The trefoil's self-linking and non-trivial
+WRT phase are the geometric source of confinement
+(Theorem~11.10 %\texttt{thm:s3_bounded_energy}
+of Paper~XVI); the $\QH=1$ unknot and $\QH=2$ torus both lack these,
+consistent with being unconfined sectors.
+\end{remark}
+\status{published}
+\source{P17:rem:comparison_table}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Group-Theoretic Structure: $\Ztwo\leftrightarrow\widehat{A}_1$}
+
+\begin{proposition}[$\QH=1$ is organised by $\Ztwo\leftrightarrow\widehat{A}_1$]
+\label{P17:prop:qh1_Z2}
+The McKay group of the $\QH=1$ sector is $\Ztwo=\{\pm1\}$, the centre
+of $\SU(2)$, with McKay graph $\widehat{A}_1$ (two nodes connected by
+a double edge, the minimal affine A-type diagram). The associated
+WZW model is $\SU(2)_1$.
+\end{proposition}
+\status{published}
+\source{P17:prop:qh1_Z2}
+
+\begin{remark}[Completion of the ADE classification]
+\label{P17:rem:ade_structure}
+The sector hierarchy now completes the ADE classification's top tier:
+\[
+  \underbrace{\Ztwo\leftrightarrow\widehat{A}_1}_{\QH=1}
+  \qquad
+  \underbrace{\twoI\leftrightarrow\widehat{E}_8}_{\QH=2}
+  \qquad
+  \underbrace{\twoT\leftrightarrow\widehat{E}_6}_{\QH=3}.
+\]
+The $\QH=1$ sector lives in the A-type series (cyclic, abelian,
+minimal), while $\QH=2$ and $\QH=3$ both live in the E-type series
+(exceptional, non-abelian). The jump from A-type to E-type between
+$\QH=1$ and $\QH=2$ corresponds, in the physical picture, to the
+acquisition of electroweak charge: neutrinos $(\QH=1)$ carry only the
+minimal group structure $\Ztwo$, while charged leptons $(\QH=2)$ carry
+the full icosahedral $\twoI$ structure encoding their mass hierarchy
+and electroweak coupling. No D-type group (binary dihedral) appears
+in the three matter sectors; D-type groups carry their own $\Ztwo$
+outer automorphism, not the $\Zthree$ colour structure, and are
+expected to appear only in hypothetical sectors beyond the Standard
+Model.
+\end{remark}
+\status{published}
+\source{P17:rem:ade_structure}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Colour Exclusion in $\QH=1$}
+
+\begin{corollary}[Colour exclusion in $\QH=1$]
+\label{P17:cor:qh1_colour_free}
+The colour $\Zthree$ automorphism has no non-trivial action on any
+representation of the $\QH=1$ sector's group $\Ztwo$. Every $\QH=1$
+configuration is a colour singlet.
+\end{corollary}
+\status{published}
+\source{P17:cor:qh1_colour_free}
+\depends{quantum/neutrino.tex (P17:prop:qh1_Z2); strong/colour.tex (P16:thm:colour_exclusion)}
+
+\begin{remark}[Why colour exclusion is easier for $\QH=1$]
+\label{P17:rem:colour_stronger}
+Paper~XVI's Theorem~8.1 %thm:colour_exclusion
+requires two steps: first that $\mathrm{Out}(\twoI)\cong\Ztwo$ contains no
+order-$3$ element, then that $N_{\twoI}(\twoT)=\twoT$ rules out inner
+extensions. For $\QH=1$ the argument reduces to a single arithmetic
+observation: $\gcd(|\Ztwo|,|\Zthree|)=\gcd(2,3)=1$. The coprimality of the
+sector group's order with $3$ is the precise condition under which colour
+is completely invisible; it is satisfied for $\Ztwo$ but not for $\twoI$
+(which has order $120=2^3\cdot3\cdot5$, divisible by $3$, requiring
+the more involved argument).
+\end{remark}
+\status{published}
+\source{P17:rem:colour_stronger}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Absence of Confinement}
+
+\begin{proposition}[No confinement in $\QH=1$]
+\label{P17:prop:qh1_noconfinement}
+The $\QH=1$ Hopfion has no self-crossings of its preimage curve, no
+Y-junction, and zero string tension $\sigma=0$. The sector is
+maximally free: no colour-flux structure of any kind is present.
+\end{proposition}
+\status{published}
+\source{P17:prop:qh1_noconfinement}
+\depends{quantum/neutrino.tex (P17:prop:qh1_unknot)}
+
+\begin{remark}[The confinement hierarchy]
+\label{P17:rem:confinement_hierarchy}
+The three sectors arrange in a strict confinement hierarchy:
+\[
+  \underbrace{\QH=1}_{\sigma=0,\ \text{no crossings}}
+  \;\subsetneq\;
+  \underbrace{\QH=2}_{\sigma=0,\ \text{no crossings, torus topology}}
+  \;\subsetneq\;
+  \underbrace{\QH=3}_{\sigma>0,\ \text{3 crossings, Y-junction}}.
+\]
+The $\QH=1$ and $\QH=2$ sectors both have $\sigma=0$, but for
+different structural reasons: $\QH=1$ has $\sigma=0$ because there is
+no curve structure capable of hosting a Y-junction; $\QH=2$ has
+$\sigma=0$ because, although the torus topology could in principle host
+flux structure, the $\twoI$ symmetry of the condensate does not select
+any preferred $\Zthree$-axis (Theorem~8.1 %thm:colour_exclusion
+of Paper~XVI). The $\QH=3$ trefoil's crossings and the resulting
+$\Zthree$ axis (geometrically fixed by the three crossing midpoints)
+are the physically necessary ingredient for $\sigma>0$.
+\end{remark}
+\status{published}
+\source{P17:rem:confinement_hierarchy}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{WZW Model: $\SU(2)_1$ and $Q_{\mathrm{group}}=6$}
+
+\begin{proposition}[$Q_{\mathrm{group}}=6$ for $\SU(2)_1$]
+\label{P17:prop:qh1_Qgroup}
+The T-matrix phases of $\SU(2)_1$ are
+\[
+  T_0 \;=\; h_0 - \tfrac{c}{24} \;=\; -\tfrac{1}{24},
+  \qquad
+  T_{1/2} \;=\; h_{1/2} - \tfrac{c}{24} \;=\; \tfrac{1}{4} - \tfrac{1}{24} \;=\; \tfrac{5}{24}.
+\]
+The smallest positive integer $Q$ such that $Q\cdot T_j\in\{\text{odd}\}/4$
+for all primaries $j\in\{0,\tfrac12\}$ is $Q_{\mathrm{group}}=6$.
+\end{proposition}
+\status{published}
+\source{P17:prop:qh1_Qgroup}
+
+\begin{remark}[Triangular numbers across sectors]
+\label{P17:rem:qgroup_hierarchy}
+The Q-group values for the three sectors are:
+\[
+  Q_{\mathrm{group}}^{(3)} = 3, \quad
+  Q_{\mathrm{group}}^{(1)} = 6, \quad
+  Q_{\mathrm{group}}^{(2)} = 10.
+\]
+Numerically, $\{3,6,10\}$ are the first three \emph{triangular numbers}
+$T_n=n(n+1)/2$ for $n=2,3,4$. Whether this is structural or
+coincidental is not resolved here and is left as an observation.
+\end{remark}
+\status{published}
+\source{P17:rem:qgroup_hierarchy}
+
+\begin{proposition}[Neutrino generation phases]
+\label{P17:prop:nu_Tphases}
+At $j=\tfrac12$ and levels $k_g=1,2,3$, the T-matrix phases for the
+three neutrino generations are
+\begin{align*}
+  T_1^{(\nu)} &= \tfrac{5}{24},\\
+  T_2^{(\nu)} &= \tfrac{1}{8},\\
+  T_3^{(\nu)} &= \tfrac{3}{40},
+\end{align*}
+using $h_{1/2}(k)=3/(4(k+2))$ and $c(k)=3k/(k+2)$ for $\SU(2)_k$.
+The formula $T_g^{(\nu)}=(6-k_g)/(8(k_g+2))$ is identical to the
+charged-lepton generation formula.
+\end{proposition}
+\status{published}
+\source{P17:prop:nu_Tphases}
+
+\begin{remark}[Same generation-index ladder for both sectors]
+\label{P17:rem:same_ladder}
+The formula $T_g = (6-k_g)/(8(k_g+2))$ is identical for the
+charged-lepton and neutrino sectors, since it is a property of the
+$j=\tfrac12$ primary at level $k_g$, shared by $\SU(2)_1$ (neutrino,
+$k_g=1$) and $\SU(2)_3$ (charged lepton, $k_g=3$ is the proved
+physical level, but the $g$-ladder uses $k_g=1,2,3$ in both cases).
+The physical distinction between the two sectors comes from the
+overall $Q_{\mathrm{group}}$ prefactor ($6$ vs $10$) and the
+tower level ($n_\nu$ vs $n_e=20$), not from the generation-index
+formula itself.
+\end{remark}
+\status{published}
+\source{P17:rem:same_ladder}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Quantum Dimension and the Golden Ratio}
+
+\begin{proposition}[Quantum dimension at level $k=3$]
+\label{P17:prop:qh1_dimq}
+In the $\SU(2)_3$ Chern--Simons theory at level $k=3$
+($q=\exp(2\pi i/5)$, a primitive 5th root of unity), the quantum
+dimensions of the four primaries are
+\[
+  \dimq{0} = 1,
+  \quad
+  \dimq{1/2} = \vp,
+  \quad
+  \dimq{1} = \vp,
+  \quad
+  \dimq{3/2} = 1,
+\]
+where $\vp=(1+\sqrt5)/2$ is the golden ratio.
+\end{proposition}
+\status{published}
+\source{P17:prop:qh1_dimq}
+
+\begin{proposition}[$\dimq{}=1$ is the confinement criterion]
+\label{P17:prop:dimq_confinement}
+Within the $\SU(2)_3$ WZW model at level $k=3$, the unique non-vacuum
+primary with quantum dimension~$1$ is $j=\tfrac32$, the simple
+current. Both $\QH=1$ ($j=\tfrac12$, $\dimq{1/2}=\vp\neq1$) and
+$\QH=2$ ($j=1$, $\dimq{1}=\vp\neq1$) fail the simple-current
+condition and are therefore unconfined.
+\end{proposition}
+\status{published}
+\source{P17:prop:dimq_confinement}
+
+\begin{remark}[Shared quantum dimension is a $k=3$ structural fact]
+\label{P17:rem:phi_unconfined}
+The fact that both $j=\tfrac12$ ($\QH=1$) and $j=1$ ($\QH=2$) give
+$\dimq{}=\vp$ at $k=3$ is special to $k=3$ (equivalently, to the
+5th root of unity $q=e^{2\pi i/5}$) and does not hold at other levels.
+At $k=3$, the quantum group $\mathcal{U}_q(\mathfrak{sl}_2)$ at
+$q^5=1$ has only two inequivalent non-trivial non-unit quantum
+dimensions, $\vp$ and $\vp^2-1=\vp$ (degenerate), arising from the
+symmetry of the pentagon ($q^5=1$). The appearance of $\vp$ as the
+shared quantum dimension of the two unconfined lepton sectors is
+therefore a structural consequence of the framework's use of $k=3$,
+not a coincidence.
+\end{remark}
+\status{published}
+\source{P17:rem:phi_unconfined}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Physical Identification: Neutrino Sector}
+
+\begin{conjecture}[Physical identification of $\QH=1$]
+\label{P17:conj:nu_identification}
+The $\QH=1$ sector of the density-feedback Hopfion is the Standard
+Model neutrino sector, comprising the three left-handed neutrinos
+$(\nu_e,\nu_\mu,\nu_\tau)$ and their antiparticles.
+\end{conjecture}
+\status{published}
+\source{P17:conj:nu_identification}
+
+\begin{remark}[Logical status of the identification]
+\label{P17:rem:conj_status}
+The conjecture has the same logical status as Paper~XV's identification
+of $\QH=3$ with the quark sector before the precise McKay chain
+$\twoT\leftrightarrow E_6\leftrightarrow(E_6)_1\supset\SU(3)_1^{\times3}$
+was established: the qualitative properties match, the representation
+theory is consistent, and no competing candidate exists, but a
+quantitative prediction --- here, the tower level $n_\nu$ and a
+derivation of it from the condensate coupling --- is needed to
+promote it to a theorem.
+\end{remark}
+\status{published}
+\source{P17:rem:conj_status}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Neutrino Masses and the Tower Level}
+
+\begin{proposition}[Tower level lower bound for neutrinos]
+\label{P17:prop:nu_tower_bound}
+Under Conjecture~\ref{P17:conj:nu_identification} and the mass formula
+with $Q_{\mathrm{group}}=6$ and $T_1^{(\nu)}=5/24$,
+the experimental bound $m_{\nu_1}\leq0.06$~eV (Planck~2018) implies
+\begin{equation}
+  n_\nu \;\geq\; 42.02 \qquad\text{(exact, no integer rounding)}.
+  \label{P17:eq:nu_tower_bound}
+\end{equation}
+The tower level $n_\nu$ is irrational (Paper~VI irrationality theorem).
+\end{proposition}
+\status{published}
+\source{P17:prop:nu_tower_bound}
+\residual{exact bound; prediction $n_\nu=42.39$ (irrational)}
+
+\begin{remark}[Two distinct meanings of ``tower level'']
+\label{P17:rem:nconv}
+Two distinct objects carry the name ``tower level'' in this series and
+must not be conflated.
+
+\emph{(i) CMB normalisation factor.}  In Papers~I, XII, and the present
+paper the symbol $n_e=20$ denotes the exponent appearing in the condensate
+mass formula: $m_e=\Lcond^{(\ell)}\cdot\vp^{20}\cdot e^{4\pi-3/400}$.  This
+``20'' equals $2Q_{\mathrm{group}}^{(\ell)}=2\times10$, arising from the
+normalisation identity $\vp^9\sqrt{\Ja\Jfour}=Q_{\mathrm{group}}^{(\ell)}=10$
+(Paper~XII, Theorem~E).  It is an integer because $Q_{\mathrm{group}}$
+is a group-theoretic integer.
+
+\emph{(ii) Absolute tower level.}  Paper~VI~\cite{Paper6},
+Proposition~5.4 (Non-integrality of lepton tower levels from
+transcendental incommensurability; Nesterenko~1996) proves that the
+absolute tower levels of the
+lepton mass tower are \emph{irrational}:
+\[
+  n_g^{\mathrm{(VI)}} = 10 + \frac{\pi(Q_{\mathrm{group}}^{(\ell)}\,T_g + 49/12)
+  - 3/800}{\ln\vp}
+  \;\approx\; 50.25,\;44.81,\;41.55
+  \quad (g=e,\mu,\tau),
+\]
+proved irrational via $\pi/\ln\vp\notin\mathbb{Q}$.  In particular
+$n_e^{\mathrm{(VI)}}\approx50.25\neq20$.
+
+The quantity $n_\nu$ in~\eqref{P17:eq:nu_me_ratio} is an object of type~(i):
+it is the descending level \emph{relative to the lepton CMB normalisation
+factor~$20$}, not an absolute tower level.  By the same transcendence
+argument that makes $n_g^{\mathrm{(VI)}}$ irrational, $n_\nu$ as defined
+by~\eqref{P17:eq:nu_me_ratio} is also irrational: it contains the combination
+$\pi/\ln\vp$ through the $5\pi/3$ exponent and the mass ratio
+$m_{\nu_1}/m_e$.  The bound~\eqref{P17:eq:nu_tower_bound} is therefore a
+bound on an \emph{irrational} quantity, and no integer rounding is either
+required or justified.  A previous version of this paper incorrectly
+applied ``next integer'' rounding to obtain $n_\nu\geq43$; this is
+corrected here.
+\end{remark}
+\status{published}
+\source{P17:rem:nconv}
+
+\begin{remark}[Origin of the $e^{5\pi/3}$ exponent]
+\label{P17:rem:Qgroup_vs_Qeff}
+The exponent $e^{5\pi/3}$ follows directly from the mass formula
+\eqref{P17:eq:mass_formula} with $Q_{\mathrm{group}}^{(\nu)}=6$ and
+$Q_{\mathrm{group}}^{(\ell)}=10$.  This is consistent with Paper~I's
+electron Yukawa $y_e=e^{-25\pi/6}$, which uses
+$Q_{\mathrm{eff}}=k_\ell+2=5$ (half the Q-group) at the
+\emph{amplitude} level: the mass enters as $m_e\propto y_e^2
+=e^{-25\pi/3}$, which is what the mass formula
+\eqref{P17:eq:mass_formula} produces with $Q_{\mathrm{group}}=10$.
+Accordingly, $Q_{\mathrm{group}}=2(k+2)$ throughout, and the ratio
+$m_{\nu_1}/m_e$ acquires the factor $e^{+2\pi\times(5/24)\times4}
+=e^{5\pi/3}$ from the $Q_{\mathrm{group}}$ difference $10-6=4$.
+A convention using $Q_{\mathrm{eff}}=k+2$ at the amplitude level
+would give $e^{5\pi/6}$ and a weaker bound $n_\nu\geq40$, but would
+be inconsistent with the $Q_{\mathrm{group}}$ convention used in the
+proposition statement and throughout the series.
+\end{remark}
+\status{published}
+\source{P17:rem:Qgroup_vs_Qeff}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{The $c=1$ Thermodynamic Matching}
+
+\begin{proposition}[$c=1$ CMB energy identity]
+\label{P17:prop:qh1_cmb}
+Define
+\begin{equation}
+  \Lcond^{(\nu)} \;=\;
+  \TCMB\!\left(\frac{\pi^2}{90}\right)^{\!1/4}.
+  \label{P17:eq:Lcond_nu}
+\end{equation}
+Then $\rCMB = 6\,\bigl(\Lcond^{(\nu)}\bigr)^4$ exactly, with
+$6=Q_{\mathrm{group}}^{(\nu)}$. In natural units $\Lcond^{(\nu)}=1$:
+$\rCMB=6$.
+\end{proposition}
+\status{published}
+\source{P17:prop:qh1_cmb}
+\depends{profile/normalisation.tex}
+
+\begin{remark}[Why $n_e=20$ does not apply directly]
+\label{P17:rem:cmb_fails}
+Paper~XII derives $n_e=20$ from the thermodynamic identity
+$\Efb/V=\rCMB$ applied to the $\QH=2$ condensate at level $k=3$.
+The condensate scale is fixed by $\rCMB=10\Lcond^4$, where the integer
+$10=\mathrm{ord}(q_{2I})=2(k+2)|_{k=3}$ is the group-theoretic order invariant of
+Paper~I. For the $\QH=1$ sector the relevant integer is $Q_{\mathrm{group}}^{(\nu)}=6$,
+giving a \emph{different condensate scale} $\Lcond^{(\nu)}=\TCMB(\pi^2/90)^{1/4}$
+and a correspondingly different two-route equivalence.  This
+$c=1$ thermodynamic matching is performed in
+Section~\ref{P17:sec:nu_cmb_matching} below.
+\end{remark}
+\status{published}
+\source{P17:rem:cmb_fails}
+
+\begin{remark}[The two condensate scales compared]
+\label{P17:rem:scale_ratio}
+$\Lcond^{(\nu)}/\Lcond^{(\ell)}=(150/90)^{1/4}=(5/3)^{1/4}$,
+where $\Lcond^{(\ell)}=\TCMB(\pi^2/150)^{1/4}$ is Paper~XII's
+condensate scale.  Numerically:
+$\Lcond^{(\nu)}\approx1.352\times10^{-4}\,\mathrm{eV}$
+versus $\Lcond^{(\ell)}\approx1.190\times10^{-4}\,\mathrm{eV}$.
+\end{remark}
+\status{published}
+\source{P17:rem:scale_ratio}
+
+\begin{theorem}[$c=1$ two-route equivalence]
+\label{P17:thm:qh1_tworoute}
+In natural units $\Lcond^{(\nu)}=1$ (so $\rCMB=6$ by
+Proposition~\ref{P17:prop:qh1_cmb}), the following are equivalent for
+any toroidal geometry $(R_0^{(\nu)},C^{*(\nu)})$ satisfying
+the virial self-consistency $V(b^*)=\vp$:
+\begin{itemize}
+\item[\textup{(A)}]
+  $\vp^9\sqrt{\Ja^{(\nu)}\Jfour^{(\nu)}}=6$
+  \quad\textup{(normalisation identity for the $\QH=1$ condensate)}
+\item[\textup{(B)}]
+  $\Efb^{(\nu)}/V^{(\nu)}=\rCMB=6$
+  \quad\textup{(thermodynamic equilibrium with the CMB)}
+\end{itemize}
+Both~\textup{(A)} and~\textup{(B)} are equivalent to the geometric
+constraint
+\begin{equation}
+  \boxed{R_0^{(\nu)}\,C^{*(\nu)2}
+  \;=\; \frac{3}{\vp^{23}\pi^2}.}
+  \label{P17:eq:RC2_nu}
+\end{equation}
+Equivalently, $R_0^{(\nu)}C^{*(\nu)2}=(3/5)\cdot R_0^{(\ell)}C^{*(\ell)2}$,
+with ratio $3/5=Q_{\mathrm{group}}^{(\nu)}/Q_{\mathrm{group}}^{(\ell)}$.
+\end{theorem}
+\status{published}
+\source{P17:thm:qh1_tworoute}
+\depends{profile/normalisation.tex (P12:thm:E); quantum/neutrino.tex (P17:prop:qh1_cmb, P17:prop:k1_virial)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Condensate WZW Level and Virial at $k=1$}
+
+\begin{theorem}[WZ descent forces $k=1$ for the $\QH=1$ condensate]
+\label{P17:thm:kone_forced}
+The Wess--Zumino level of the effective WZW theory on the $\QH=1$
+condensate is $k=1$, uniquely determined by the McKay relation
+$Q_{\mathrm{group}}^{(\nu)}=2(k+2)=6$, giving $k=\frac{6}{2}-2=1$.
+\end{theorem}
+\status{published}
+\source{P17:thm:kone_forced}
+\depends{quantum/neutrino.tex (P17:prop:qh1_Qgroup)}
+
+\begin{proposition}[Virial, WZ coupling, and profile ratio at $k=1$]
+\label{P17:prop:k1_virial}
+The $\QH=1$ condensate at $k=1$ has:
+\begin{align*}
+  V^* &\;=\; \dimq{1/2;\,k{=}1}
+           \;=\; 2\cos\tfrac{\pi}{3} \;=\; 1, \\
+  \mu^* &\;=\; \frac{\sqrt{k+2}}{\vp}\bigg|_{k=1}
+             \;=\; \frac{\sqrt{3}}{\vp}, \\
+  \frac{\Jfour^{(\nu)}}{\Ja^{(\nu)}}
+  &\;=\; \frac{(1+\sqrt{3}/\vp)\cdot2^{1/3}}{\vp^6}
+   \;\approx\; 0.14537.
+\end{align*}
+The universal BPS saddle $\lambda_{\mathrm{eff}}^*=\vp^6/2^{1/3}$
+holds; $\Jfour/\Ja$ is \emph{not} universal but sector-dependent
+via $V^*$.
+\end{proposition}
+\status{published}
+\source{P17:prop:k1_virial}
+\depends{quantum/neutrino.tex (P17:thm:kone_forced)}
+
+\begin{remark}[Correcting the false universality claim]
+\label{P17:rem:J4Ja_k1_vs_k3}
+At $k=3$: $V^*=\vp$, $\mu^*=\sqrt{5}/\vp$, giving $K_{\mathrm{fb}}^{(\ell)} = (1+\sqrt{5})\Ja = 2\vp\Ja$
+and $\Jfour^{(\ell)}/\Ja^{(\ell)}=2^{4/3}/\vp^5\approx0.22721$ (Paper~II--III).
+At $k=1$: $V^*=1$, $\mu^*=\sqrt{3}/\vp$, giving $K_{\mathrm{fb}}^{(\nu)} = (1+\sqrt{3}/\vp)\Ja$
+and $\Jfour^{(\nu)}/\Ja^{(\nu)}\approx0.14537$.
+The ratio of the two values is
+$0.14537/0.22721 = (\vp+\sqrt{3})/(2\vp^2)\approx0.640$.
+The claim in the original proof of Theorem~\ref{P17:thm:qh1_tworoute} that
+$\Jfour/\Ja=2^{4/3}/\vp^5$ is ``universal'' was incorrect;
+the correct universal statement is that $\lambda_{\mathrm{eff}}^*=\vp^6/2^{1/3}$ is universal
+(BPS saddle), while $\Jfour/\Ja$ depends on the sector-specific virial $V^*$.
+\end{remark}
+\status{published}
+\source{P17:rem:J4Ja_k1_vs_k3}
+
+\begin{proposition}[Thin-torus normalization identity at $k=1$]
+\label{P17:prop:norm_id_k1}
+In the thin-torus (1D, Battye--Sutcliffe) approximation, the
+$\QH=1$ normalization identity satisfies
+\begin{equation}
+  \vp^9\sqrt{\Ja^{(\nu)}\Jfour^{(\nu)}}
+  \;\Big|_{\mathrm{thin\text{-}torus}}
+  \;=\; 5\vp\,\sqrt{\frac{2}{\vp+\sqrt{3}}}
+  \;\approx\; 6.251
+  \;=\; 6\cdot\bigl[1 + O(R_0^{-2})\bigr].
+\end{equation}
+The $4.2\%$ deviation lies within the $O(R_0^{-2})=11\%$ finite-radius
+bound at $R_0=3$, consistent with the exact identity holding in the
+2D continuum limit.
+\end{proposition}
+\status{published}
+\source{P17:prop:norm_id_k1}
+\residual{4.2\% thin-torus; within $O(R_0^{-2})=11\%$ bound}
+
+\begin{corollary}[Two-route equivalence holds at $k=1$]
+\label{P17:cor:two_route_k1}
+Theorem~\ref{P17:thm:qh1_tworoute} and its two-route equivalence
+$(A)\Leftrightarrow(B)$ hold at $k=1$. The mass prediction
+$m_{\nu_1}\approx42\,\mathrm{meV}$ is unchanged.
+\end{corollary}
+\status{published}
+\source{P17:cor:two_route_k1}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Majorana Neutrinos}
+
+\begin{corollary}[Neutrinos are Majorana fermions]
+\label{P17:cor:majorana}
+The $\QH=1$ condensate with $k=1$ WZW dynamics predicts that
+neutrinos are Majorana fermions. The $j=\tfrac12$ primary of
+$\SU(2)_1$ is self-conjugate ($j^* = k-j = \tfrac12 = j$) and
+generates a $\Ztwo$ fusion group ($\tfrac12\times\tfrac12=0$).
+\end{corollary}
+\status{published}
+\source{P17:cor:majorana}
+\depends{quantum/neutrino.tex (P17:thm:kone_forced)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Chern--Simons Spoke Amplitude and Mass Formula}
+
+\begin{proposition}[Chern--Simons spoke amplitude for $\QH=1$: exact zero]
+\label{P17:prop:CS_spoke}
+The Chern--Simons spoke amplitude for the $\QH=1$ neutrino condensate is
+\begin{equation}
+  \mathcal{C}^{(\nu)} \;=\; 0 \quad \text{exactly.}
+\end{equation}
+This follows from $\Delta Q = Q_H^{\mathrm{cond}}-Q_H^{\mathrm{particle}}=1-1=0$
+using the general formula $\mathcal{C}=4\pi\,\Delta Q$ of Paper~IV.
+\end{proposition}
+\status{published}
+\source{P17:prop:CS_spoke}
+\depends{electroweak/yukawa.tex (Paper IV: Chern--Simons spoke formula)}
+
+\begin{corollary}[$c=1$ mass formula and tower level]
+\label{P17:cor:qh1_mass}
+The first-generation neutrino mass is
+\begin{equation}
+  \boxed{m_{\nu_1}
+  \;=\; \Lcond^{(\nu)}\cdot\vp^{12}\cdot e^{-5/144}
+  \;\approx\; 42.0\;\mathrm{meV},}
+  \label{P17:eq:mnu1_final}
+\end{equation}
+where $\vp^{12}=\vp^{2Q_{\mathrm{group}}^{(\nu)}}$ is the topological
+prefactor and $5/144=T_{j=1/2}^{(k=1)}/Q_{\mathrm{group}}^{(\nu)}=(5/24)/6$.
+The tower level is $n_\nu=42.39$ (irrational; satisfies $n_\nu\geq42.02$
+with margin $0.37$).
+\end{corollary}
+\status{published}
+\source{P17:cor:qh1_mass; eq:mnu1_final}
+\residual{prediction; no free parameters; input: $\TCMB=2.7255\,\mathrm{K}$}
+\depends{quantum/neutrino.tex (P17:prop:qh1_cmb, P17:thm:qh1_tworoute, P17:prop:CS_spoke, P17:prop:k1_virial)}
+
+\begin{remark}[The full mass-ratio formula]
+\label{P17:rem:mnu_me_ratio}
+Combining Corollary~\ref{P17:cor:qh1_mass} with Paper~I's electron formula gives
+\begin{equation}
+  \frac{m_{\nu_1}}{m_e}
+  \;=\; \left(\tfrac{5}{3}\right)^{1/4}\cdot\vp^{-8}\cdot
+        \exp\!\Bigl(-4\pi-\tfrac{5}{144}+\tfrac{3}{400}+\tfrac{\alpha}{\pi}\Bigr)
+  \;\approx\; 8.23\times10^{-8},
+  \label{P17:eq:mnu_me_complete}
+\end{equation}
+where $(5/3)^{1/4}=\Lcond^{(\nu)}/\Lcond^{(\ell)}$, $\vp^{-8}=\vp^{12}/\vp^{20}$,
+$-4\pi$ is the Chern--Simons spoke difference ($0-4\pi$), and
+$-5/144+3/400+\alpha/\pi$ collects the WZW T-matrix and QED corrections.
+This gives $m_{\nu_1}\approx42\,\mathrm{meV}$, within the target range
+of the Project~8 experiment.
+\end{remark}
+\status{published}
+\source{P17:rem:mnu_me_ratio}
+
+\begin{remark}[Unified mass formula across unconfined sectors]
+\label{P17:rem:master_formula}
+The one-parameter chains for $\QH=2$ (Paper~XII~\cite{Paper12}, Paper~I~\cite{Paper1}, Paper~IV~\cite{Paper4})
+and $\QH=1$ (Proposition~\ref{P17:prop:qh1_cmb},
+Theorem~\ref{P17:thm:qh1_tworoute}, Proposition~\ref{P17:prop:CS_spoke})
+have a unified structure.  For each unconfined sector with
+$Q_{\mathrm{group}}^{(n)}=N$, the first-generation particle mass takes the form
+\begin{equation}
+  m^{(N)}
+  = \Lcond^{(N)}\cdot\vp^{2N}
+    \cdot\exp\!\Bigl(4\pi\,\Delta Q^{(N)}-\frac{T_{j=1/2}^{(k_N)}}{N}\Bigr),
+  \label{P17:eq:master_mass}
+\end{equation}
+where $\Lcond^{(N)}=\TCMB(\pi^2/(15N))^{1/4}$ is the sector condensate scale,
+$\Delta Q^{(N)}=Q_H^{\mathrm{cond}}-Q_H^{\mathrm{particle}}$ is the inter-sector
+Hopf charge drop, and $T_{j=1/2}^{(k_N)}/N$ is the WZW T-matrix correction.
+The three factors in~\eqref{P17:eq:master_mass} have distinct topological origins:
+\begin{itemize}[noitemsep]
+\item $\Lcond^{(N)}=\TCMB(\pi^2/(15N))^{1/4}$:
+  the sector condensate scale, fixed by $\rCMB=N(\Lcond^{(N)})^4$.
+\item $\vp^{2N}$: the CMB-chain normalisation factor, from the
+  normalisation identity $\vp^9\sqrt{\Ja\Jfour}=N$
+  (not the descending tower level $n$; see Caution below).
+\item $e^{4\pi\Delta Q}$: the Chern--Simons spoke amplitude,
+  from Paper~IV~\cite{Paper4}'s formula $\mathcal{C}=4\pi\Delta Q$.
+\end{itemize}
+The formula is parameter-free, with $\TCMB$ as the unique external
+input.  The two unconfined lepton sectors are:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccccccl}
+\toprule
+Sector & $N$ & $\Delta Q$ & $\vp^{2N}$ & T-correction & Mass & Value & note \\
+\midrule
+$\QH=2$ & $10$ & $1$ & $\vp^{20}$ & $3/400$ & $m_e$ & $0.511\,\mathrm{MeV}$ & $n_e=20=2N$ \\
+$\QH=1$ & $6$  & $0$ & $\vp^{12}$ & $5/144$ & $m_{\nu_1}$ & $42.0\,\mathrm{meV}$ & $n_\nu=42\neq2N$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The mass hierarchy $m_{\nu_1}/m_e\approx8\times10^{-8}$ does
+\emph{not} arise from $\vp^{2N}$ alone.
+From~\eqref{P17:eq:master_mass}, the ratio is
+\begin{equation}
+  \frac{m_{\nu_1}}{m_e}
+  = \underbrace{\left(\frac{N_\nu}{N_\ell}\right)^{\!-1/4}}_{\displaystyle(5/3)^{1/4}}
+    \cdot \underbrace{\vp^{2(N_\nu-N_\ell)}}_{\displaystyle\vp^{-8}}
+    \cdot \underbrace{e^{4\pi(\Delta Q_\nu-\Delta Q_\ell)}}_{\displaystyle e^{-4\pi}}
+    \cdot (\text{T-matrix})
+  \;\approx\; 8\times10^{-8}.
+  \label{P17:eq:mass_ratio_decomposed}
+\end{equation}
+The dominant suppression comes from the Chern--Simons spoke
+difference $e^{-4\pi}\approx3.5\times10^{-6}$; the
+$\vp^{-8}\approx0.021$ factor gives additional suppression, and
+$(5/3)^{1/4}\approx1.14$ is a mild enhancement from the condensate
+scale difference.
+
+\smallskip\noindent\textbf{Caution on $\vp^{2N}$ vs tower level $n$.}
+For the $\QH=2$ sector, $N=Q_{\mathrm{group}}^{(\ell)}=10$ and the
+descending tower level $n_e=20=2N$ (Paper~XVII convention).
+The two representations coincide numerically for the electron, but this
+is specific to $\QH=2$: for the $\QH=1$ sector, $N=6$ but $n_\nu=42\neq2N=12$.
+The factor $\vp^{2N}$ in~\eqref{P17:eq:master_mass} is the CMB normalisation
+artefact from Theorem~\ref{P17:thm:qh1_tworoute} and its $\QH=2$ analogue
+(Paper~XII, Theorem~E), not the descending tower level.
+The full tower-level hierarchy $\vp^{-2(n_\nu-n_e)}=\vp^{-44}$
+appears in the ratio formula~\eqref{P17:eq:nu_me_ratio}, where it is
+equivalent to the three-factor decomposition
+in~\eqref{P17:eq:mass_ratio_decomposed}: both encode the same physics,
+in ascending-chain versus descending-tower bookkeeping.
+
+\medskip
+The $\QH=3$ baryon sector is confined ($\sigma\neq0$), so
+equation~\eqref{P17:eq:master_mass} does not directly apply:
+Paper~XVI identifies the quark tower level as requiring a dynamical
+matching specific to the $\QH=3$ condensate coupling, which accounts
+for the string tension absent from the lepton sectors.
+The value $\Delta Q^{(3)}$ for quarks is an open question whose
+resolution would determine the leading-order quark mass scale.
+\end{remark}
+\status{published}
+\source{P17:rem:master_formula}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Inter-Sector Coset $\SU(2)_3/\SU(2)_1$ and Neutrino Masses}
+
+\begin{proposition}[Coset T-matrix phases]
+\label{P17:prop:coset_T}
+The coset $\SU(2)_3/\SU(2)_1$ has four primary fields $(\Lambda,\lambda)$
+satisfying the parity selection rule $\Lambda-\lambda\in\mathbb{Z}$.
+Their T-matrix phases $T^{\mathrm{coset}}(\Lambda,\lambda)=T^{(3)}_\Lambda - T^{(1)}_\lambda$
+are:
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{ccc}
+\toprule
+$(\Lambda,\lambda)$ & $T^{\mathrm{coset}}$ & decimal \\
+\midrule
+$(0,0)$             & $-1/30$  & $-0.0\overline{3}$ \\
+$(\tfrac{1}{2},\tfrac{1}{2})$ & $-2/15$ & $-0.1\overline{3}$ \\
+$(1,0)$             & $11/30$  & $+0.3\overline{6}$ \\
+$(\tfrac{3}{2},\tfrac{1}{2})$ & $7/15$  & $+0.4\overline{6}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The central charge of the coset is $c=9/5-1=4/5$, identifying it as
+the $M(5,6)$ minimal model (3-state Potts model).
+\end{proposition}
+\status{published}
+\source{P17:prop:coset_T}
+
+\begin{theorem}[Bosonic parity of the coset]
+\label{P17:thm:coset_bosonic}
+The coset $\SU(2)_3/\SU(2)_1$ has $Q_{\mathrm{coset}}=30$, the
+smallest positive integer $Q$ such that $Q\cdot T^{\mathrm{coset}}\in\mathbb{Z}$
+for all four physical fields. Moreover,
+$4\,Q_{\mathrm{coset}}\cdot T^{\mathrm{coset}} \in 2\mathbb{Z}$
+(all even) for all four fields: the coset is \emph{bosonic}
+(modular monodromy $e^{2\pi i QT}=+1$), in contrast to the fermionic
+matter sectors ($e^{2\pi i QT}=-1$).
+\end{theorem}
+\status{published}
+\source{P17:thm:coset_bosonic}
+\depends{quantum/neutrino.tex (P17:prop:coset_T)}
+
+\begin{remark}[Why bosonic parity means a milder hierarchy]
+\label{P17:rem:bosonic_meaning}
+In the mass formula $m_g\propto\exp(-2\pi Q T_g)$, the condition
+$e^{2\pi\mathrm{i}QT}=-1$ (fermionic, matter sectors) generates
+the large hierarchies $m_\tau/m_e\sim10^5$ through the odd
+half-integer monodromy.  For a bosonic sector
+($e^{2\pi\mathrm{i}QT}=+1$), the monodromy returns to the same
+sheet without a sign change, and the effective suppression is
+governed by a \emph{different} mechanism.  This is the structural
+reason the neutrino mass hierarchy
+($m_{\nu_3}/m_{\nu_2}\approx6$) is far milder than the charged-lepton
+hierarchy ($m_\tau/m_e\approx3477$): the coset controlling neutrino
+generation splitting is bosonic, not fermionic.
+\end{remark}
+\status{published}
+\source{P17:rem:bosonic_meaning}
+
+\begin{proposition}[Gap structure of coset T-matrix phases]
+\label{P17:prop:coset_gaps}
+Sorting the four coset T-matrix phases gives $\{-4,-1,11,14\}/30$.
+The three consecutive gaps are
+\begin{equation}
+  \Delta T_{\mathrm{out}} = \tfrac{1}{10}, \qquad
+  \Delta T_{\mathrm{in}} = \tfrac{2}{5}, \qquad
+  \Delta T_{\mathrm{out}} = \tfrac{1}{10},
+\end{equation}
+with $\Delta T_{\mathrm{in}}=4\,\Delta T_{\mathrm{out}}$.
+\end{proposition}
+\status{published}
+\source{P17:prop:coset_gaps}
+
+\begin{remark}[The degenerate doublet]
+\label{P17:rem:degenerate_doublet}
+The fields $(0,0)$ and $(\frac{1}{2},\frac{1}{2})$ are degenerate
+under the \emph{heterotic combination}
+$Q_3\,T^{(3)}_\Lambda - Q_1\,T^{(1)}_\lambda$ with
+$Q_3=10$, $Q_1=6$: both give $-1/2$.  The fields
+$(1,0)$ and $(\frac{3}{2},\frac{1}{2})$ give $7/2$ and $11/2$
+respectively (distinct).  The doublet degeneracy may be interpreted
+as the two members sharing the same tower floor, with a small
+coset-T splitting $\Delta T=1/10$ between them.
+\end{remark}
+\status{published}
+\source{P17:rem:degenerate_doublet}
+
+\begin{proposition}[Atmospheric mass ratio]
+\label{P17:prop:nu_mass_ratio}
+The atmospheric pair $\{(1,0),(\frac{3}{2},\frac{1}{2})\}$,
+separated by the outer coset-T gap $\Delta T=1/10$, gives the mass ratio
+\begin{equation}
+  \frac{m_{\nu_3}}{m_{\nu_2}}
+  = \exp\!\left(\frac{4\pi^2}{10\sqrt{5}}\right)
+  \approx 5.845.
+  \label{P17:eq:m3m2_pred}
+\end{equation}
+The experimental normal-hierarchy value (PDG~2024) is
+$m_{\nu_3}/m_{\nu_2}\approx5.795$; the prediction is $0.9\%$ above
+the central value.
+\end{proposition}
+\status{published}
+\source{P17:prop:nu_mass_ratio}
+\residual{$0.9\%$ vs PDG 2024}
+\depends{quantum/neutrino.tex (P17:prop:coset_gaps)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{The Trefoil as Geometric Source of the Coset}
+
+\begin{proposition}[$(p,q)$ determines the coset]
+\label{P17:prop:pq_coset}
+For the trefoil $T_{2,3}$ with $p=2$, $q=3$:
+\begin{align*}
+  k_{\mathrm{neutrino}} &= q-p = 1, &
+  k_{\mathrm{lepton}} &= q = 3, \\
+  Q_1 &= 2(q-p+2) = 6, &
+  Q_3 &= 2(p+q) = 10, &
+  Q_{\mathrm{coset}} &= \mathrm{lcm}(Q_1,Q_3) = 30, \\
+  Q_{\mathrm{eff}} &= \frac{2\pi}{\sqrt{p+q}} = \frac{2\pi}{\sqrt{5}}, &
+  \Delta T_{\mathrm{out}} &= \frac{2q-p}{8(p+q)} = \frac{1}{10}, &
+  \frac{\Delta T_{\mathrm{in}}}{\Delta T_{\mathrm{out}}} &= 2q-p = 4.
+\end{align*}
+Every parameter of the $\SU(2)_3/\SU(2)_1$ coset is determined by
+the trefoil's winding numbers.
+\end{proposition}
+\status{published}
+\source{P17:prop:pq_coset}
+
+\begin{theorem}[$Q_{\mathrm{coset}}=h(E_8)$: Brieskorn sphere as common source]
+\label{P17:thm:brieskorn}
+$Q_{\mathrm{coset}}=h(E_8)=30$. Both values are determined by the
+Brieskorn sphere $\Sigma(2,3,5)=\{z^2+w^3+v^5=0\}\cap S^5$:
+\begin{enumerate}
+\item[\emph{(i)}] $Q_{\mathrm{coset}}=\bigl(-1+\tfrac12+\tfrac13+\tfrac15\bigr)^{-1}=30$
+  (orbifold Euler characteristic of the Seifert base $S^2(2,3,5)$).
+\item[\emph{(ii)}] $h(E_8)=|\twoI|/4=|\pi_1(\Sigma(2,3,5))|/4=120/4=30$.
+\item[\emph{(iii)}] These are equal because the arithmetic identity $8q=(p+q)^2-1$
+  holds uniquely at $(p,q)=(2,3)$: $T_{2,3}$ is the unique torus knot
+  for which the orbifold formula and $|\twoI|/4$ agree.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P17:thm:brieskorn}
+\depends{quantum/neutrino.tex (P17:prop:pq_coset, P17:prop:qh1_Z2)}
+
+\begin{remark}[The three sectors inside $\Sigma(2,3,5)$]
+\label{P17:rem:brieskorn_sectors}
+The Brieskorn sphere $\Sigma(2,3,5)$ encodes all three physical sectors
+simultaneously: the variety $\{z^2+w^3=0\}$ links to the trefoil
+$T_{2,3}$ ($\QH=3$ baryon sector); $\pi_1(\Sigma(2,3,5))=\twoI$ is the
+McKay group of the $\QH=2$ charged-lepton sector; and the Seifert
+invariants $(2,3,5)=(k_\nu{+}1,k_\ell,k_\ell{+}2)$ encode the WZW
+levels of the $\QH=1$ neutrino sector ($k_\nu=1$) and $\QH=2$ sector
+($k_\ell=3$). The orbifold Euler characteristic
+$\chi=-1+\tfrac12+\tfrac13+\tfrac15=\tfrac1{30}$ simultaneously gives
+$Q_{\mathrm{coset}}=30=h(E_8)=|\twoI|/4$.
+\end{remark}
+\status{published}
+\source{P17:rem:brieskorn_sectors}
+\depends{quantum/neutrino.tex (P17:thm:brieskorn)}
+
+\begin{remark}[$Q_{\mathrm{coset}}=h(E_8)$ and the strange quark]
+\label{P17:rem:strange_quark}
+Theorem~\ref{P17:thm:brieskorn} shows the identity $Q_{\mathrm{coset}}=h(E_8)=30$
+is structural, not coincidental: both values equal $|\pi_1(\Sigma(2,3,5))|/4$.
+Physically, one trefoil crossing resolving corresponds to the transition
+$T_{2,3}\to$(Hopf link), i.e.\ $\QH=3\to\QH=2$. The strange quark ---
+the lightest quark carrying a quantum number absent from the nucleon
+ground state, with independently-derived T-matrix coincidence
+$T^{(m=13)}=1/8=T_\mu$ (Paper~XVI, $0.09\%$ after one-loop RG running,
+$m=13$ the 4th $E_8$ exponent) --- is the natural candidate for the
+quark at this $\QH=3\to\QH=2$ threshold crossing: liberating the
+strange quark is topologically the transition from one crossing
+resolved to two, i.e.\ the isospin-symmetric $(u,d)$ world to the
+flavour-broken $(u,d,s)$ world.
+\end{remark}
+\status{published}
+\source{P17:rem:strange_quark}
+\depends{quantum/neutrino.tex (P17:thm:brieskorn, P17:rem:kauffman); strong/quark_masses.tex (P16:prop:strange_match)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Framing Independence and the Kauffman Bracket Picture}
+
+\begin{remark}[Coset framing independence via the writhe]
+\label{P17:rem:framing}
+The trefoil $T_{2,3}$ has writhe $w=q=3$ (the $\QH=3$ baryon sector's own
+topological charge); the neutrino sector ($\QH=1$, proved unknot with
+writhe $0$, Proposition~\ref{P17:prop:qh1_unknot}) has $w=0$. Because the
+coset T-matrix $T^{\mathrm{coset}}=T^{(3)}-T^{(1)}$ subtracts the two
+sectors' T-matrices, the trefoil's writhe cancels between the two sector
+contributions: the coset is automatically framing-independent. This is
+a structural guarantee, not a tuning.
+\end{remark}
+\status{published}
+\source{P17:rem:framing}
+\depends{quantum/neutrino.tex (P17:prop:pq_coset, P17:prop:qh1_unknot)}
+
+\begin{remark}[Kauffman bracket interpretation of the four coset fields]
+\label{P17:rem:kauffman}
+The trefoil $T_{2,3}$ has three crossings, giving $2^3=8$ Kauffman
+smoothing states. Grouping by the number $n$ of resolved crossings gives
+four sectors with multiplicities $\binom3n$:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ccccc}
+\toprule
+resolved $n$ & $2\Lambda=n$ & $\binom3n$ & $T^{\mathrm{coset}}$ & mass order \\
+\midrule
+$0$ & $0$ & $1$ & $-1/30$ & vacuum (ground state) \\
+$1$ & $1$ & $3$ & $-2/15$ & \textbf{heaviest} ($\nu_3$) \\
+$2$ & $2$ & $3$ & $11/30$ & second lightest ($\nu_2$) \\
+$3$ & $3$ & $1$ & $7/15$ & lightest ($\nu_1$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The mass ordering is inverted relative to naive expectation: the state
+with one crossing resolved ($n=1$) is heaviest, since partially
+liberating one quark from the baryon stretches the remaining two-string
+configuration to maximum tension; the fully-resolved state ($n=3$) is
+lightest. The $\Zthree$ symmetry of the trefoil's three crossings is the
+same $\Zthree$ as the 3-state Potts model symmetry of the coset
+$M(5,6)$.
+\end{remark}
+\status{published}
+\source{P17:rem:kauffman}
+\depends{quantum/neutrino.tex (P17:prop:coset_T, P17:prop:pq_coset)}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{The PMNS Matrix from Coset Branching}
+
+\begin{proposition}[Exact branching table]
+\label{P17:prop:pmns_branching}
+Define $n_0(j_g,\Lambda,\lambda):=T^{(3)}_{j_g}-T^{\mathrm{coset}}_{(\Lambda,\lambda)}-T^{(1)}_\lambda$.
+A $\SU(2)_3$ primary at spin $j_g$ contributes to the coset field
+$(\Lambda,\lambda)$ at any level iff $n_0\in\mathbb{Z}_{\geq0}$; a
+non-integer $n_0$ is permanently non-integer at all descendant levels
+(its fractional part is a topological invariant fixed by the T-matrix
+phases). Identifying the charged-lepton generations with
+$\SU(2)_3$ primaries $j_g=0,\tfrac12,1$ (electron, muon, tau) and the
+neutrino mass eigenstates with the non-vacuum coset primaries
+$\nu_3=(\tfrac12,\tfrac12)$, $\nu_2=(1,0)$, $\nu_1=(\tfrac32,\tfrac12)$,
+computing $n_0$ for all twelve pairs gives exactly one ``yes'' per
+generation:
+\[
+  e\to\text{vacuum}\ (n_0=0), \qquad
+  \mu\to\nu_3\ (n_0=0), \qquad
+  \tau\to\nu_2\ (n_0=0),
+\]
+with all other nine pairs giving permanently non-integer $n_0$
+(values $-\tfrac{3}{20},-\tfrac25,-\tfrac34,\tfrac{3}{20},-\tfrac14,
+-\tfrac35,\tfrac25,\tfrac14,-\tfrac{7}{20}$).
+\end{proposition}
+\status{published}
+\source{P17:prop:pmns_branching}
+\depends{quantum/neutrino.tex (P17:prop:coset_T)}
+
+\begin{theorem}[Leading-order PMNS is a permutation]
+\label{P17:thm:pmns_permutation}
+The primary-level branching coefficients of
+$\SU(2)_3\to\SU(2)_1\otimes M(5,6)$ determine the leading-order PMNS
+matrix
+\begin{equation}
+  \boxed{U^{(0)}=\begin{pmatrix}1&0&0\\0&0&1\\0&1&0\end{pmatrix},}
+  \label{P17:eq:PMNS_LO}
+\end{equation}
+corresponding to $\theta_{23}^{(0)}=45^\circ$, $\theta_{13}^{(0)}=0^\circ$,
+$\theta_{12}^{(0)}=0^\circ$. No input beyond the T-matrix phases of
+Proposition~\ref{P17:prop:coset_T} is used: the muon branches only into
+$\nu_3$ and the tau only into $\nu_2$ (Proposition~\ref{P17:prop:pmns_branching}),
+and unitarity of $U$ forces the electron row to $(1,0,0)$.
+\end{theorem}
+\status{published}
+\source{P17:thm:pmns_permutation}
+\depends{quantum/neutrino.tex (P17:prop:pmns_branching)}
+
+\begin{corollary}[Electron decouples exactly]
+\label{P17:cor:electron_decouple}
+The electron generation decouples from all three neutrino mass
+eigenstates at every descendant level: the fractional parts
+$\{n_0(e,\nu_3)\}=\tfrac{17}{20}$, $\{n_0(e,\nu_2)\}=\tfrac35$,
+$\{n_0(e,\nu_1)\}=\tfrac14$ are all non-zero rationals, hence
+permanently non-integer. The electron is a singlet under the coset
+$M(5,6)$ symmetry.
+\end{corollary}
+\status{published}
+\source{P17:cor:electron_decouple}
+\depends{quantum/neutrino.tex (P17:prop:pmns_branching)}
+
+\begin{corollary}[$\nu_1$ has no primary parent]
+\label{P17:cor:nu1_orphan}
+The lightest neutrino $\nu_1=(\tfrac32,\tfrac12)$ does not appear in the
+primary branching of any lepton generation; its entry in the PMNS matrix
+arises from unitarity on the electron row, not from a direct T-matrix
+coupling. This is structurally consistent with the extreme mass
+suppression $m_{\nu_1}\approx0.007\,\mathrm{meV}$
+(Remark~\ref{P17:rem:m1_suppressed}).
+\end{corollary}
+\status{published}
+\source{P17:cor:nu1_orphan}
+\depends{quantum/neutrino.tex (P17:thm:pmns_permutation, P17:rem:m1_suppressed)}
+
+\begin{proposition}[Level-1 branching coefficients]
+\label{P17:prop:pmns_b1}
+Using $d_1^{(k)}(j)=(2j+1)\cdot3$ and $d_1^{\mathrm{coset}}=0$ for the
+vacuum, $=1$ for any non-vacuum primary:
+\begin{equation}
+  b_1^e = 3-0-3 = 0, \qquad
+  b_1^\mu = 6-1-6 = -1, \qquad
+  b_1^\tau = 9-1-3 = +5.
+\end{equation}
+\end{proposition}
+\status{published}
+\source{P17:prop:pmns_b1}
+\depends{quantum/neutrino.tex (P17:prop:pmns_branching)}
+
+\begin{remark}[Sign of $b_1^\mu$ and the exact PMNS prediction]
+\label{P17:rem:b1_sign}
+The negative value $b_1^\mu=-1$ does not indicate inter-generation
+mixing: the branching function is a net multiplicity after subtracting
+fermionic ghosts from the GKO quotient construction, and negative
+coefficients are generic. Because each generation branches into exactly
+one coset sector at every level (Proposition~\ref{P17:prop:pmns_branching}),
+there is no mechanism within the coset branching to mix different
+sectors, so Theorem~\ref{P17:thm:pmns_permutation} is exact, not merely
+leading-order.
+\end{remark}
+\status{published}
+\source{P17:rem:b1_sign}
+\depends{quantum/neutrino.tex (P17:prop:pmns_b1, P17:thm:pmns_permutation)}
+
+\begin{corollary}[Permutation is the complete coset prediction]
+\label{P17:cor:pmns_exact}
+The PMNS matrix predicted by the primary branching structure of
+$\SU(2)_3\to\SU(2)_1\otimes M(5,6)$ is exactly $U_{\mathrm{PMNS}}=U^{(0)}$,
+with no corrections from higher descendant levels. The experimental
+values ($\theta_{23}\approx48.3^\circ$, $\theta_{13}\approx8.5^\circ$,
+$\theta_{12}\approx33.4^\circ$, PDG~2024) disagree; the deviations
+($\Delta\sin^2\theta_{23}\approx0.07$, $\sin^2\theta_{13}\approx0.022
+\approx1/(k+2)^2$, $\sin^2\theta_{12}\approx0.31\approx O(1/(k+2))$)
+are not corrections to the (exact) coset branching but physics beyond
+it: candidates are RG running from $\Lambda_{\mathrm{cond}}$ to $m_Z$,
+or condensate background mixing from the non-Lorentz-invariant
+$\Zthree$-symmetric Hopfion condensate.
+\end{corollary}
+\status{published}
+\source{P17:cor:pmns_exact}
+\depends{quantum/neutrino.tex (P17:thm:pmns_permutation, P17:rem:b1_sign)}
+
+\begin{remark}[$S$-matrix estimate of $\theta_{12}$]
+\label{P17:rem:Smat_phi}
+Using the row of $S^{(3)}$ for $j=\tfrac12$ (the electron-generation
+primary), the ratio $|S^{(3)}_{1/2,1/2}|/|S^{(3)}_{1/2,0}|
+=\sin(2\pi/5)/\sin(\pi/5)=\vp$ gives a solar angle
+$\theta_{12}\approx31.7^\circ$, compared to experimental
+$33.41^\circ$ ($1.7^\circ$ off). The reactor angle $\theta_{13}$ and
+atmospheric angle $\theta_{23}$ require the full branching-coefficient
+analysis (Corollary~\ref{P17:cor:pmns_exact}) and are not predicted at
+this order.
+\end{remark}
+\status{published}
+\source{P17:rem:Smat_phi}
+\depends{quantum/neutrino.tex (P17:cor:pmns_exact)}
+
+\begin{remark}[The solar angle, the Brieskorn sphere, and the midpoint geometry]
+\label{P17:rem:solar_angle}
+The prediction $\theta_{12}=0^\circ$ at the condensate level
+(Corollary~\ref{P17:cor:pmns_exact}) means the entire observed
+$\theta_{12}\approx33^\circ$ arises from corrections external to the
+coset branching.  Mechanism~(B) --- condensate background mixing ---
+identifies the $\QH=3$ baryon condensate as the medium.  The following
+observation gives this identification a precise geometric form.
+
+\textbf{The Brieskorn sphere as explicit surgery on the trefoil.}
+The low-dimensional topology identity
+\begin{equation}
+  \Sigma(2,3,5) \;=\; (+1)\text{-Dehn surgery on }T_{2,3}
+  \label{P17:eq:surgery_identity}
+\end{equation}
+is a theorem (Seifert, Milnor): the Poincar\'e homology sphere
+$\Sigma(2,3,5)$ is obtained from the baryon trefoil $T_{2,3}$
+by performing $(+1)$ Dehn surgery along the knot, where the surgery
+coefficient $+1$ is the E$_8$ Dynkin diagram intersection number.
+Combined with Theorem~\ref{P17:thm:brieskorn} (which identifies
+$\Sigma(2,3,5)$ as the geometric source of $Q_{\mathrm{coset}}=30$,
+$k_\ell=3$, and $\vp$), equation~\eqref{P17:eq:surgery_identity} gives an
+explicit topological chain:
+\[
+  T_{2,3}
+  \;\xrightarrow{(+1)\text{-surgery}}\;
+  \Sigma(2,3,5)
+  \;\xrightarrow{\pi_1=\twoI}\;
+  \widehat{E}_8
+  \;\xrightarrow{\SU(2)_{k=3}}\;
+  \vp
+  \;\xrightarrow{\arctan(1/\vp)}\;
+  \theta_{12}^{(0)}.
+\]
+The baryon knot geometry thus maps to the inter-sector mixing angle
+through the Brieskorn sphere, without any free parameter.
+
+\textbf{The midpoint tangent angle.}
+The trefoil $T_{2,3}$ with $R_0=3$, $r_0=0.874$
+(Paper~XVI~\cite{Paper16}, Proposition~13.3) has
+tangent vector at each midpoint
+$\dot\Gamma(t_{\mathrm{M}_n}) = (-(R_0{-}r_0)\sqrt{3},\,-(R_0{-}r_0),\,-3r_0)$,
+giving $z$-component
+\begin{equation}
+  |\tang_z^M| = \frac{3r_0}{\sqrt{4(R_0-r_0)^2+9r_0^2}} = 0.5249,
+  \label{P17:eq:tang_z_M}
+\end{equation}
+and out-of-plane emission angle
+\begin{equation}
+  \theta_M = \arcsin(|\tang_z^M|) = 31.66^\circ.
+  \label{P17:eq:theta_M}
+\end{equation}
+The leading-order solar angle from the $\SU(2)_3$ S-matrix is
+$\theta_{12}^{(0)}=\arctan(1/\vp)=31.72^\circ$
+(Remark~\ref{P17:rem:Smat_phi}).  The two framework values (the
+geometric midpoint angle $31.66^\circ$ and the S-matrix prediction
+$31.72^\circ$) agree to $0.06^\circ$, i.e.\ they are
+indistinguishable within the experimental uncertainty
+$\pm0.42^\circ$ on $\theta_{12}$.  The comparison with the
+experimental value $\theta_{12}=33.41^\circ$ itself shows a
+$1.7^\circ$ gap, which the framework attributes to corrections
+beyond the leading-order coset structure
+(Section~\ref{P17:sec:pmns_corrections}).
+
+\textbf{The sharp condition.}
+Setting $\theta_M = \arctan(1/\vp)$ exactly is equivalent to
+$\tan(\theta_M) = |\tang_z^M|/\sqrt{1-|\tang_z^M|^2} = 1/\vp$,
+which reduces to
+\begin{equation}
+  r_0 = \frac{2R_0}{3\vp+2}.
+  \label{P17:eq:r0_phi_condition}
+\end{equation}
+With $R_0=3$: $r_0=6/(3\vp+2)=0.8754$, compared to the numerical
+value $r_0=0.874$ --- a $0.16\%$ discrepancy.  Since the $\QH=3$
+energy landscape is flat-bottomed (no irrational algebraic anchor;
+Paper~XVIII~\cite{Paper18}, Remark~7.6, %\ref{P18:rem:saddle_difficulty},
+$r_0$ is set by the profile construction rather than by a BPS saddle
+condition, and the $0.16\%$ gap may be a profile-approximation
+artifact.  A tighter candidate identification,
+$r_0=R_0/C_2^*=3/3.4318=0.8742$ ($0.02\%$ match, a factor of eight
+closer than the solar-angle condition), is motivated by the satellite
+construction of Paper~XVIII, Section~3.2, %\ref{P18:sec:satellite}
+and the $r_0$ origin of Paper~XV~\cite{Paper15}, Remark~6.1, %\ref{P15:rem:r0_origin}
+where $C_2^*=3.4318$ is the $\QH=2$ modified-BPS profile-sharpness
+constant derived from the cubic of Paper~I, Theorem~3.1.
+The status of equation~\eqref{P17:eq:r0_phi_condition} as a geometric identity versus a
+numerical coincidence, and its relation to the tighter satellite-construction
+candidate $r_0=R_0/C_2^*$ ($0.02\%$ match, eight times closer), are examined
+in Paper~XIX~\cite{Paper19}, Theorem~2.2. %\ref{P19:thm:r0_derivation}
+That theorem derives $r_0=R_0/C_2^*$ analytically from the
+$\QH=2$ profile wall width (the slope $|f'(1)|=C_2^*$ of the
+Bogomolny profile gives wall width $\Delta\rho=1/C_2^*$, and the
+satellite embedding requires the trefoil minor radius to equal this
+wall width).  Paper~XIX, Remark~2.5 %\ref{P19:rem:solar_angle_reconcile}
+then notes that the solar-angle match of $0.16\%$ is a numerical
+coincidence of $C_2^*\approx\vp R_0/\sqrt{2}$ at $R_0=3$
+specifically, not an independent geometric identity.
+
+\textbf{The $\sin^4$ suppression as the mixing scale.}
+The Hopfion energy density $\rho_{J_4}\propto\sin^4(f)|\nabla\mathbf{n}|^2$
+weights each fraying site by $\sin^4(f)$.  At the midpoints, energy
+exits at $\theta_M\approx31.7^\circ$ from the equatorial plane; the
+out-of-plane fraction $\sin^2\theta_M\approx0.28$ is the component
+that propagates into the inter-sector direction.  Midpoints carry a
+small fraction of total $J_4$ (minor fraying sites, Paper~XVI), so the
+net inter-sector coupling is $\sim 3\times\varepsilon_M\times
+\sin^2\theta_M\sim O(1/(k+2)^2)$, consistent with the scale of
+$\sin^2\theta_{13}\approx0.022\approx 1/(k+2)^2$.  The $\sin^4$
+weight is thus the suppression mechanism that keeps inter-sector mixing
+small; the midpoint geometry sets the characteristic angle.
+\end{remark}
+\status{published}
+\source{P17:rem:solar_angle}
+\depends{quantum/neutrino.tex (P17:cor:pmns_exact, P17:rem:Smat_phi, P17:thm:brieskorn)}
+\residual{$r_0$-origin resolved by Paper~XIX, Theorem~\ref{P19:thm:r0_derivation} and Remark~\ref{P19:rem:solar_angle_reconcile} (\status{draft}, strong/confinement\_topology.tex)}
+
+\begin{proposition}[Solar mixing angle from the $\mathrm{SU}(2)_3$ S-matrix]
+\label{P19:prop:solar_angle_jones}
+The leading-order solar neutrino mixing angle satisfies
+$\tan\theta_{12}^{(0)}=S_{00}^{(3)}/S_{01}^{(3)}=1/\vp$, giving
+$\theta_{12}^{(0)}=\arctan(1/\vp)=31.72^\circ$. This is Paper~XVII's
+$\SU(2)_3$ S-matrix result (Remark~\ref{P17:rem:Smat_phi}); it does
+not depend on any Jones-polynomial computation.
+\end{proposition}
+\status{draft}
+\source{P19:prop:solar_angle_jones}
+\depends{strong/confinement_topology.tex}
+
+\begin{remark}[Relation to the Jones polynomial of the Hopf link]
+\label{P19:rem:solar_physical}
+The Hopf link's Jones invariant satisfies
+$|\Jones_{T(2,2)}(q_5)|=1/\vp$ (Theorem~P19:thm:channel\_1,
+strong/confinement\_topology.tex), the same modulus as
+$\tan\theta_{12}^{(0)}$ above --- and the reciprocal of the S-matrix
+ratio $S_{01}^{(3)}/S_{00}^{(3)}=\vp$ that produces it. No identity
+between $|\Jones_{T(2,2)}(q_5)|$ and $\tan\theta_{12}^{(0)}$ is
+asserted here beyond this numerical coincidence of moduli; the solar
+angle is derived entirely from the S-matrix route above, independent
+of the Jones-polynomial computation. The experimental solar angle
+$33.41^\circ$ exceeds $\theta_{12}^{(0)}=31.72^\circ$ by $1.69^\circ$;
+this deviation, together with the atmospheric and reactor-angle
+deviations, is not computable from the present paper's toolkit and is
+deferred to Paper~XX (Open Problem~P19:OP7).
+\end{remark}
+\status{draft}
+\source{P19:rem:solar_physical}
+\depends{strong/confinement_topology.tex}
+
+\begin{remark}[Why $Q_{\mathrm{eff}}$ is irrational]
+\label{P17:rem:Qeff_origin}
+The value $Q_{\mathrm{eff}}=2\pi/\sqrt{5}$ is not an integer, unlike
+the Q-groups of the matter sectors ($Q_{\mathrm{gr}}\in\{3,6,10\}$).
+This is consistent with the bosonic character of the coset
+(Theorem~\ref{P17:thm:coset_bosonic}): the effective suppression factor
+is irrational, determined by the normalization $\sqrt{2/(k+2)}$
+of the $\SU(2)_{k=3}$ modular S-matrix.  Specifically,
+$\SU(2)_3$ S-matrix elements take two values:
+\[
+  S_{j,j'}^{(3)} \;=\; \sqrt{\tfrac{2}{5}}\,\sin\!\left(
+    \tfrac{(2j+1)(2j'+1)\pi}{5}\right)
+  \;\in\;
+  \left\{\sqrt{\tfrac{2}{5}}\,\sin\tfrac{\pi}{5},\;
+         \sqrt{\tfrac{2}{5}}\,\sin\tfrac{2\pi}{5}\right\},
+\]
+and $\sin(2\pi/5)/\sin(\pi/5)=\vp$ exactly.  The irrational
+Q-group $Q_{\mathrm{eff}}=2\pi/\sqrt{5}=2\pi/\sqrt{k+2}$ thus
+connects the neutrino mass ratio to the same $k=3$ level that
+organises the entire framework, through the golden ratio $\vp$
+appearing in the S-matrix.  Proposition~\ref{P17:prop:Qeff_unique} and
+Theorem~\ref{P17:thm:Qeff_derived} below show that this value is
+\emph{uniquely determined} by the bosonic monodromy constraint and
+S-matrix unitarity, without free parameters.
+\end{remark}
+\status{published}
+\source{P17:rem:Qeff_origin}
+
+%──────────────────────────────────────────────────────────────────────────────
+\subsection*{Derivation of $Q_{\mathrm{eff}}$ from S-Matrix Unitarity}
+
+\begin{proposition}[Uniqueness of $Q_{\mathrm{eff}}$ among coset modular data]
+\label{P17:prop:Qeff_unique}
+Within the modular data of $\SU(2)_3/\SU(2)_1$, $Q_{\mathrm{eff}}
+=2\pi/\sqrt{k+2}=2\pi/\sqrt5$ is the unique quantity satisfying: (a)
+irrationality forced by the bosonic monodromy of
+Theorem~\ref{P17:thm:coset_bosonic} (any rational $Q$ would force all mass
+ratios to be roots of unity, but $m_{\nu_3}/m_{\nu_2}\approx5.795$ is
+not); (b) origin in $\SU(2)_{k=3}$ modular data, since the S-matrix
+normalisation $\sqrt{2/(k+2)}=\sqrt{2/5}$ gives $Q_{\mathrm{eff}}
+=2\pi/\sqrt5$ while the alternatives $2\pi/\vp$, $2\pi\vp$ predict mass
+ratios $3.93$, $23.6$ (both excluded); (c) experimental consistency:
+$\ln(5.795)/(2\pi/10)\approx2.796$ matches $2\pi/\sqrt5\approx2.810$ to
+$0.48\%$, excluding all other candidates from (b).
+\end{proposition}
+\status{published}
+\source{P17:prop:Qeff_unique}
+\depends{quantum/neutrino.tex (P17:thm:coset_bosonic, P17:prop:nu_mass_ratio)}
+
+\begin{theorem}[$Q_{\mathrm{eff}}$ from S-matrix unitarity]
+\label{P17:thm:Qeff_derived}
+\begin{equation}
+  \boxed{Q_{\mathrm{eff}} \;=\; 2\pi\,N_3\,S^{(1)}_{0,0}
+  \;=\; \frac{2\pi}{\sqrt{k+2}}\bigg|_{k=3} \;=\; \frac{2\pi}{\sqrt5},}
+\end{equation}
+where $N_3=\sqrt{2/(k+2)}$ and $S^{(1)}_{0,0}=1/\sqrt2$ are both
+uniquely fixed by unitarity: unitarity of $S^{(3)}$ at $j=0$ gives
+$N_3=\sqrt{2/5}$; unitarity of $S^{(1)}$ gives $S^{(1)}_{0,0}
+=N_1\sin(\pi/3)=1/\sqrt2$ with $N_1=\sqrt{2/3}$; the effective coupling
+is the product of the modular period $2\pi$, the numerator
+normalisation $N_3$, and the denominator vacuum amplitude
+$S^{(1)}_{0,0}$ (the coset quotients out the $\SU(2)_1$ contribution),
+giving $2\pi\cdot\sqrt{2/5}\cdot1/\sqrt2=2\pi/\sqrt5$. No free parameter
+enters.
+\end{theorem}
+\status{published}
+\source{P17:thm:Qeff_derived}
+\depends{quantum/neutrino.tex (P17:prop:Qeff_unique)}
+
+\begin{remark}[$m_{\nu_1}$ is strongly suppressed]
+\label{P17:rem:m1_suppressed}
+The inner gap $\Delta T_{\mathrm{in}}=2/5=4\,\Delta T_{\mathrm{out}}$
+gives $m_{\nu_2}/m_{\nu_1}=\exp(2\pi Q_{\mathrm{eff}}\cdot2/5)
+=(m_{\nu_3}/m_{\nu_2})^4\approx1167$. Since
+$m_{\nu_2}\approx\sqrt{\Delta m^2_{21}}\approx8.7\,\mathrm{meV}$,
+\begin{equation}
+  m_{\nu_1}\;\approx\;\frac{8.7\,\mathrm{meV}}{1167}\;\approx\;0.007\,\mathrm{meV},
+\end{equation}
+strongly suppressed relative to $m_{\nu_2}$: the spectrum is strictly
+hierarchical in the normal ordering. This is falsifiable: if absolute
+neutrino mass measurements (KATRIN, Project~8, or future experiments)
+establish $m_{\nu_1}\gtrsim0.1\,\mathrm{meV}$, the coset generation
+assignment in its current form would be disfavoured.
+\end{remark}
+\status{published}
+\source{P17:rem:m1_suppressed}
+\depends{quantum/neutrino.tex (P17:thm:Qeff_derived, P17:prop:coset_gaps)}
+
+%════════════════════════════════════════════════════════════════════
+% Earlier WZW Radiative Mechanism — Paper VII
+%════════════════════════════════════════════════════════════════════
+% Paper VII's independent, earlier estimate of the neutrino mass scale,
+% predating and complementary to Paper XVII's Q_H=1 sector treatment above.
+\begin{proposition}[Neutrino mass from WZW radiative mechanism]
+\label{P7:prop:neutrino}
+The lightest neutrino mass scale predicted by the framework is
+\begin{equation}
+  m_\nu
+  \;=\; \vEW\,e^{-15\pi/2}\cdot\frac{g_W^2}{16\pi^2}
+  \;=\; \vEW\,e^{-15\pi/2}\cdot\frac{2\alpha\vp}{3\pi}
+  \;\approx\; 36\,\mathrm{meV},
+  \label{P7:eq:mnu_prop}
+\end{equation}
+where $g_W^2/(16\pi^2) = \alpha/(4\pi\sinW) = 2\alpha\vp/(3\pi)
+\approx2.51\times10^{-3}$ uses $\sinW = 3/(8\vp)$~\cite{Paper1}.
+The formula contains no free parameters.
+\end{proposition}
+\status{published}
+\source{P7:prop:neutrino}
+
+\begin{remark}[Vertex identification and structural connection]
+\label{P7:rem:neutrino}
+The $\chi_6$ primary (Node~6, $h=3/8$, dimension~4) from the
+$2I$-McKay~\cite{McKay1980}--WZW spectrum of Paper~V provides both the
+$\Delta L=2$ Majorana vertex and the seed mass $m_\mathrm{seed}$.
+The same E$_8$ Coxeter phase quantum $\pi Q/(k\,h(E_8))=\pi/9$
+that determines the quark-lepton mass ratios
+(Theorem~7.11 of~\cite{Paper5}) governs the gap between $\chi_6$
+and the lepton T-phases, linking the Majorana vertex topologically
+to the quark mass hierarchy.
+The loop regularisation is exact within the condensate EFT:
+the Seeley--DeWitt method that fixes $\MPl$ equally fixes the finite
+part of the $W$ loop, with all corrections
+suppressed by $(M_W/\LUV)^2\approx10^{-32}$.
+\end{remark}
+\status{published}
+\source{P7:rem:neutrino}

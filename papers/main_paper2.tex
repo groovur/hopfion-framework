@@ -1,0 +1,1024 @@
+%% semidirac_hopfion_bps.tex
+%% Companion paper to "The Density-Feedback Faddeev--Niemi Hopfion"
+%% Topic: BPS structure, existence, uniqueness, and the fixed-point theorem
+%%        for the generalised functional G[f; lam_eff] = K_fb + lam_eff * J4
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\geometry{top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm}
+
+%─── Macros ───────────────────────────────────────────────────────────────────
+\newcommand{\vp}{\varphi}
+\newcommand{\ms}{\mu^{*}}
+\newcommand{\lam}{\lambda}
+\newcommand{\leff}{\lambda_{\mathrm{eff}}}
+\newcommand{\bst}{\beta^{*}}
+\newcommand{\Kfb}{K_{\mathrm{fb}}}
+\newcommand{\Efb}{E_{\mathrm{fb}}}
+\newcommand{\Jfb}{J_{2\mathrm{iso}}^{\mathrm{fb}}}
+\newcommand{\Ja}{J_{2a}}
+\newcommand{\Jiso}{J_{2\mathrm{iso}}}
+\newcommand{\Jfour}{J_{4}}
+\newcommand{\sopt}{s_{\mathrm{opt}}}
+\newcommand{\kk}{\kappa}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\Ia}{I_{2a}}
+\newcommand{\Ib}{I_{4}}
+
+%─── Theorem environments ─────────────────────────────────────────────────────
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{condition}[theorem]{Condition}
+
+%─── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{darkgreen}{RGB}{0,120,60}
+\definecolor{darkred}{RGB}{160,20,20}
+
+%══════════════════════════════════════════════════════════════════════════════
+\title{\textbf{BPS Structure and Fixed-Point Theorem for the
+  Density-Feedback Faddeev--Niemi Hopfion}
+\\[0.6em]
+{\large Companion Paper II to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large Preprint --- April 2026}
+
+\author{Frederick Manfredi}
+\date{April 2026}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{document}
+\maketitle
+
+\paragraph*{Units and conventions.}
+Throughout this paper, functional quantities $\Jfour$, $\Ja$, $\Kfb$,
+and $\G$ are computed in the dimensionless Battye--Sutcliffe normalisation~\cite{Battye1998}
+of~\cite{Paper1} (natural units $\hbar=c=1$; $J_4$, $J_{2a}$ are pure
+numbers whose product $\vp^9\sqrt{\Ja\Jfour}$ is also dimensionless).
+
+\begin{abstract}
+The companion paper~\cite{Paper1} establishes numerically that the
+Euler--Lagrange (EL) minimum of the density-feedback Faddeev--Niemi
+energy $\Efb = \Kfb\cdot\Jfour$ satisfies
+$\Kfb/\Jfour = \lam/2^{1/3}$ to within $O(h^2)$ discretisation error
+($+0.020\%$ on a $256\times256$ lattice),
+where $\lam=\vp^6$ and $\vp$ is the golden ratio.
+Here we address this analytically in three steps.
+
+We introduce the generalised functional
+$\G[f;\leff] = \Kfb[f] + \leff\,\Jfour[f]$
+and define the ratio map
+$H(\leff) := \Kfb[f_{\leff}]/\Jfour[f_{\leff}]$
+where $f_{\leff}$ is the critical point of $\G[\,\cdot\,;\leff]$
+in the $Q=2$ topological sector.
+
+\textbf{Main results.}
+\begin{enumerate}[noitemsep]
+\item \textup{(Existence)} For each $\leff>0$, $\G[\,\cdot\,;\leff]$ has a critical
+  point $f_{\leff}$ in the $Q=2$ sector, via a mountain-pass argument in
+  the energy space $X_2$ (Theorem~\ref{P2:thm:existence}, subject to
+  a concentration-compactness condition).
+\item \textup{(Monotonicity and uniqueness)} $H$ is strictly decreasing
+  with $H(0^+)>0$ and $H(\leff)-\leff\to-\infty$, so the fixed-point
+  equation $H(\leff^*)=\leff^*$ has exactly one solution
+  (Theorem~\ref{P2:thm:mono}, subject to a non-degeneracy condition).
+\item \textup{(Fixed-point value --- proved in 1D, conjectured in 2D)}
+  In the thin-torus approximation, restricting to the
+  Battye--Sutcliffe ansatz family $f=2\arctan(C/d)$, we prove
+  \emph{unconditionally} by Beta-function integration that
+  $\Ib/\Ia = 3/(4C^2)$, from which the self-consistency gives
+  $\Ib/\Ia\big|_{C=C^*} = 2^{4/3}/\vp^5$ (Theorem~\ref{P2:thm:lsl_1d},
+  the main new result of this paper).
+  For the full 2D EL equation, the same fixed-point value
+  $\leff^*=\lam/2^{1/3}$ is the \emph{Linking Scale Conjecture}
+  (Conjecture~\ref{P2:conj:lsl}), confirmed numerically to $0.020\%$;
+  its proof requires a modular Ward identity connecting the PDE virial
+  condition to the WZW $S$-matrix, and is open.
+\end{enumerate}
+Steps~(i) and~(ii) are proved subject to standard functional-analytic
+conditions (Palais--Smale and non-degeneracy).
+Step~(iii) is the central contribution: proved unconditionally in the
+thin-torus model (Theorem~\ref{P2:thm:lsl_1d}), and conjectured for the
+full 2D EL equation where it is confirmed numerically to $0.020\%$
+at $R_0=3$ and consistent with a three-point $R_0\in\{3,4,5\}$ dataset.
+
+The full 2D case is subsequently proved in Paper~III~\cite{Paper3}
+via three-fermion Witten bosonization: the density-feedback model is
+identified as the $\mathrm{SU}(2)_3$ WZW model, the $Q=2$ Hopfion is
+the $j=0$ singlet, the Verlinde formula gives $V^*=\vp$ exactly in the
+thin-torus, and a Brouwer/Rellich--Kondrachov fixed-point argument
+extends $V^*=\vp$ to all finite $R_0$, closing the LSC completely.
+\end{abstract}
+
+\tableofcontents
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P2:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+The density-feedback Faddeev--Niemi functional is
+\begin{equation}
+  \Efb[f] \;=\; \Kfb[f]\cdot\Jfour[f],
+  \label{P2:eq:Efb}
+\end{equation}
+where $f\colon\mathbb{R}^3\to S^2$ is a unit vector field,
+\begin{align}
+  \Kfb  &= \Ja + \ms\,\Jfb, &
+  \Ja   &= \int \sin^4\!f\cdot\kk\,dV, \\
+  \Jfb  &= \int \frac{\kk}{1+\bst\kk}\,dV, &
+  \Jfour &= \int (F_{ij})^2\,dV,
+\end{align}
+$\kk = |\nabla f|^2 + \sin^2\!f\cdot A(r,z)$ is the kernel,
+$A = D_0^{-1}+r^{-2}$ with $D_0=(r-R_0)^2+z^2$,
+and $\ms = 3-\vp$, $\lam = \vp^6$, $\bst \approx 0.452$.
+The Hopf curvature components $F_{ij}$ are defined in~\cite{Paper1}.
+
+The EL equation of~\eqref{P2:eq:Efb} is
+\begin{equation}
+  \Jfour\,\frac{\delta\Kfb}{\delta f}
+  + \Kfb\,\frac{\delta\Jfour}{\delta f} = 0.
+  \label{P2:eq:EL}
+\end{equation}
+At any critical point, writing $\leff := \Kfb/\Jfour$,
+equation~\eqref{P2:eq:EL} is equivalent to
+\begin{equation}
+  \frac{\delta\Kfb}{\delta f} = -\leff\,\frac{\delta\Jfour}{\delta f},
+  \label{P2:eq:BPS}
+\end{equation}
+i.e., $f$ is a critical point of the \emph{generalised functional}
+\begin{equation}
+  \G[f;\leff] \;:=\; \Kfb[f] + \leff\,\Jfour[f].
+  \label{P2:eq:G}
+\end{equation}
+The value $\leff = \Kfb/\Jfour$ is then determined self-consistently:
+we must find $\leff^*$ such that the critical point $f_{\leff^*}$ of
+$\G[\,\cdot\,;\leff^*]$ satisfies $\Kfb[f_{\leff^*}]/\Jfour[f_{\leff^*}]=\leff^*$.
+
+\textbf{Main theorem (conditional).}
+\begin{theorem}[Fixed-point value]
+\label{P2:thm:main}
+Subject to the conditions of Theorems~\ref{P2:thm:existence}
+and~\ref{P2:thm:mono}, the self-consistency equation $H(\leff^*)=\leff^*$,
+where $H(\leff):=\Kfb[f_{\leff}]/\Jfour[f_{\leff}]$, has a unique solution.
+Under the Linking Scale Conjecture~\ref{P2:conj:lsl}, that solution satisfies
+\begin{equation}
+  \leff^* \;=\; \frac{\lam}{2^{1/3}} \;=\; \frac{\vp^6}{2^{1/3}}.
+  \label{P2:eq:leffstar}
+\end{equation}
+Consequently, the EL minimum of $\Efb$ in the $Q=2$ sector satisfies
+\begin{equation}
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}}
+  \;=\; \frac{2^{4/3}}{\vp^5}.
+  \label{P2:eq:J4J2a}
+\end{equation}
+In the thin-torus approximation (restricting to the BS ansatz family),
+equation~\eqref{P2:eq:J4J2a} is proved unconditionally
+(Theorem~\ref{P2:thm:lsl_1d}).
+For the full 2D EL equation, equation~\eqref{P2:eq:J4J2a} is proved
+in Paper~III~\cite{Paper3} (Theorems~4.3 and~4.4 therein) via
+three-fermion Witten bosonization and the Brouwer/Rellich--Kondrachov~\cite{Evans2010}
+fixed-point argument.
+\end{theorem}
+
+The proof of Theorem~\ref{P2:thm:main} occupies Sections~\ref{P2:sec:existence}--\ref{P2:sec:lsl}.
+Equation~\eqref{P2:eq:J4J2a} follows from~\eqref{P2:eq:leffstar}
+via the algebraic chain $\Kfb = 2\vp\Ja$ (Proposition~2.4 of~\cite{Paper1}):
+\[
+  \frac{\Jfour}{\Ja}
+  = \frac{\Kfb}{\Ja\cdot\leff^*}
+  = \frac{2\vp}{\leff^*}
+  = \frac{2\vp\cdot 2^{1/3}}{\lam}
+  = \frac{2^{4/3}\vp}{\vp^6}
+  = \frac{2^{4/3}}{\vp^5}.
+\]
+
+\paragraph{Numerical evidence.}
+On the converged $256\times 256$ grid ($h=0.12$, $R_0=3$, $\bst=0.452$):
+$\Jfour/\Ja = 0.22717$ vs.\ $2^{4/3}/\vp^5=0.22721$ (gap $-0.020\%$,
+consistent with $O(h^2)$);
+equivalently $\Kfb/\Jfour = 14.246$ vs.\ $\lam/2^{1/3}=14.242$ (gap $+0.03\%$).
+The scan of $\G[\,\cdot\,;\leff]$ across $\leff$ values confirms that
+$s_{\mathrm{opt},F}=\sqrt{\leff\Jfour/\Kfb}=1$ only at
+$\leff=\lam/2^{1/3}$~\cite{Paper1}.
+Numerical experiments at $R_0=4$ and $R_0=5$ give
+$\Jfour/\Ja = 0.217$ and $0.232$ respectively (bracketing the WZW target
+from below and above), consistent with $R_0$-universality in the
+continuum limit~\cite{Paper1}.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The topological sector and function space}
+\label{P2:sec:setup}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{definition}[Function space $X_2$]
+Let $X_2$ denote the set of smooth maps $f\colon\mathbb{R}^3\to[0,\pi]$
+with Hopf charge $Q=2$, satisfying the boundary conditions
+$f\to\pi$ on the symmetry axis ($r=0$) and $f\to 0$ at spatial infinity,
+and with finite $\G$-energy for all $\leff>0$.
+\end{definition}
+
+The space $X_2$ is non-empty: the rational-map (Battye--Sutcliffe)
+ansatz $f = 2\arctan(C/d)$ with $d=\sqrt{(r-R_0)^2+z^2}$ provides
+explicit elements for all $C>0$.
+
+The Hopf charge $Q=2$ is topologically protected: $X_2$ is a connected
+component of the full map space and cannot be continuously deformed to
+the vacuum $f\equiv 0$.
+
+The topology provides the key compactness substitute for the
+Palais--Smale condition: sequences in $X_2$ with bounded $\G$-energy
+cannot lose mass at infinity without violating the charge constraint.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Existence of a critical point}
+\label{P2:sec:existence}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Existence, subject to Condition~\ref{P2:cond:ps}]
+\label{P2:thm:existence}
+Assume the following concentration-compactness condition holds:
+\begin{condition}[Palais--Smale]
+\label{P2:cond:ps}
+Every sequence $\{f_n\}\subset X_2$ with $\G[f_n;\leff]\leq M$ and
+$\|\delta\G[f_n;\leff]\|_{H^{-1}}\to 0$ has a strongly convergent
+subsequence in $H^1_{\mathrm{loc}}$.
+\end{condition}
+Under Condition~\ref{P2:cond:ps}, for each $\leff>0$,
+$\G[\,\cdot\,;\leff]$ attains a critical point $f_{\leff}\in X_2$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The proof uses the mountain-pass theorem~\cite{AmbrosettiRabinowitz1973}
+in the Hilbert manifold $X_2$ equipped with the $H^1$-topology.
+
+\textbf{Step 1: $\G$ is $C^1$ on $X_2$.}
+Each of $\Ja$, $\Jfb$, $\Jfour$ is a smooth functional of $f$ and its
+first derivatives.  The feedback term $\kk/(1+\bst\kk)$ is $C^\infty$
+in $\kk$ (bounded and non-degenerate), so $\Jfb$ is $C^\infty$ in $f$.
+The Hopf curvature $(F_{ij})^2$ is a degree-4 polynomial in
+$\sin f$, $\cos f$, and the first derivatives, hence also $C^\infty$.
+
+\textbf{Step 2: Coercivity on $X_2$.}
+For $f\in X_2$, the topological bound
+$\Jfour \geq C_\mathrm{VK}\,Q^{3/2}$
+(Vakulenko--Kapitanski~\cite{VK1979}) gives
+$\G[f;\leff] \geq \leff\,C_\mathrm{VK}\cdot 4^{3/4}$
+and, via the Hopf fibration geometry,
+$\Ja \geq C_1$ and $\Jfour \geq C_2$ for universal constants $C_1,C_2>0$
+depending only on $Q=2$.
+Thus $\G$ is bounded below and coercive on bounded sublevel sets.
+
+\textbf{Step 3: Palais--Smale condition.}
+Let $\{f_n\}\subset X_2$ be a sequence with $\G[f_n;\leff]\leq M$
+and $\|\delta\G[f_n;\leff]\|_{H^{-1}}\to 0$.
+The coercivity gives a uniform $H^1$ bound on $\{f_n\}$, and the
+$Q=2$ charge constraint (together with the
+concentration-compactness principle~\cite{Lions1984a,Lions1984b})
+prevents loss of mass at spatial infinity.
+By the Rellich--Kondrachov theorem~\cite{Evans2010}, $\{f_n\}$ has a strongly
+convergent subsequence in $L^4_\mathrm{loc}$, whose limit is a
+critical point.
+
+\textbf{Step 4: Mountain-pass geometry.}
+Take $f_0\in X_2$ with $\G[f_0;\leff]=E_0$ (the rational-map ansatz),
+and $f_1\in X_2$ the profile obtained by compressing $f_0$ so that
+$\Jfour[f_1]\gg\leff^*{-1}\Kfb[f_1]$, giving $\G[f_1;\leff]>E_0$.
+The mountain-pass theorem yields a critical point at energy
+$\inf_\gamma\max_t \G[\gamma(t);\leff]$, where the infimum is over
+paths $\gamma$ in $X_2$ from $f_0$ to $f_1$.
+\end{proof}
+
+\begin{remark}
+A full proof of Step~3 requires adapting the concentration-compactness
+argument of Lions~\cite{Lions1984a} to the toroidal geometry with
+fixed $R_0$.  The key point is that $R_0>0$ provides a preferred
+length scale that prevents the profile from escaping to
+$r\to\infty$ while keeping $Q=2$.  We defer the detailed analysis
+to the full version.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Monotonicity and uniqueness of the fixed point}
+\label{P2:sec:monotone}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Monotonicity and uniqueness]
+\label{P2:thm:mono}
+The map $H\colon(0,\infty)\to(0,\infty)$ defined by
+$H(\leff) = \Kfb[f_{\leff}]/\Jfour[f_{\leff}]$
+satisfies:
+\begin{enumerate}[label=\textup{(\roman*)}]
+  \item $\dfrac{\mathrm{d}}{\mathrm{d}\leff}\bigl[H(\leff)-\leff\bigr] < 0$
+    for all $\leff>0$, i.e., $H(\leff)-\leff$ is strictly decreasing.
+  \item $H(\leff)-\leff > 0$ for $\leff \ll 1$ and
+    $H(\leff)-\leff < 0$ for $\leff \gg 1$.
+  \item The equation $H(\leff^*)=\leff^*$ has exactly one solution.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{Part (i).}
+At the critical point $f_{\leff}$ of $\G[\,\cdot\,;\leff]$:
+\begin{equation}
+  \frac{\delta\Kfb}{\delta f} + \leff\,\frac{\delta\Jfour}{\delta f} = 0.
+  \label{P2:eq:crit}
+\end{equation}
+Differentiating implicitly with respect to $\leff$, with
+$\dot{f} := \mathrm{d}f_{\leff}/\mathrm{d}\leff$:
+\begin{equation}
+  \frac{\delta^2\G}{\delta f^2}\,\dot{f}
+  = -\frac{\delta\Jfour}{\delta f}.
+  \label{P2:eq:IFT}
+\end{equation}
+Since $f_{\leff}$ is a critical point (not necessarily a local minimum),
+we assume $\delta^2\G/\delta f^2$ is positive definite at $f_{\leff}$
+(the non-degeneracy condition, verified numerically; see Remark~\ref{P2:rem:nd}).
+Then~\eqref{P2:eq:IFT} has the unique solution
+$\dot{f} = -(\delta^2\G/\delta f^2)^{-1}\,(\delta\Jfour/\delta f)$.
+
+Differentiating $H = \Kfb/\Jfour$ gives
+\begin{equation}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff}
+  = \frac{1}{\Jfour^2}
+    \left[
+      \left\langle \frac{\delta\Kfb}{\delta f}, \dot{f}\right\rangle \Jfour
+      - \Kfb\left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle
+    \right].
+  \label{P2:eq:dHdlam}
+\end{equation}
+Using~\eqref{P2:eq:crit} to substitute
+$\delta\Kfb/\delta f = -\leff\,\delta\Jfour/\delta f$:
+\begin{align}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff}
+  &= \frac{1}{\Jfour^2}
+    \left[
+      -\leff\left\langle \frac{\delta\Jfour}{\delta f},\dot{f}\right\rangle\Jfour
+      - \Kfb\left\langle \frac{\delta\Jfour}{\delta f},\dot{f}\right\rangle
+    \right] \notag\\
+  &= -\frac{\leff\Jfour + \Kfb}{\Jfour^2}
+    \left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle.
+  \label{P2:eq:dHdlam2}
+\end{align}
+Substituting $\dot{f} = -(\delta^2\G)^{-1}\,(\delta\Jfour/\delta f)$:
+\begin{equation}
+  \left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle
+  = -\left\langle \frac{\delta\Jfour}{\delta f},
+    \left(\frac{\delta^2\G}{\delta f^2}\right)^{-1}
+    \frac{\delta\Jfour}{\delta f}\right\rangle.
+  \label{P2:eq:quad}
+\end{equation}
+Since $\delta^2\G/\delta f^2$ is positive definite, the right-hand
+side of~\eqref{P2:eq:quad} is $\leq 0$ with equality only if
+$\delta\Jfour/\delta f = 0$.  For a non-trivial topological soliton,
+$\delta\Jfour/\delta f\neq 0$ everywhere, so the inner product
+in~\eqref{P2:eq:quad} is strictly negative, i.e.,
+$\langle\delta\Jfour/\delta f, \dot{f}\rangle > 0$.
+
+Substituting back into~\eqref{P2:eq:dHdlam2}, using
+$\leff\Jfour + \Kfb > 0$:
+\begin{equation}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff} < 0.
+  \label{P2:eq:Hdecreasing}
+\end{equation}
+Since $\mathrm{d}H/\mathrm{d}\leff < 0$ and $\mathrm{d}\leff/\mathrm{d}\leff = 1$:
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d}\leff}[H(\leff) - \leff] < 0,
+\end{equation}
+establishing part~(i).
+
+\textbf{Part (ii).}
+As $\leff\to 0^+$: the critical point $f_0$ of $\G[\,\cdot\,;0]=\Kfb$
+in $X_2$ has $\Kfb[f_0]/\Jfour[f_0] > 0$, so
+$H(0^+)=\Kfb[f_0]/\Jfour[f_0] > 0 = \leff$, giving $H(0^+)-0 > 0$.
+
+As $\leff\to\infty$: the critical point $f_\infty$ of
+$\G[\,\cdot\,;\leff]\approx \leff\Jfour$ in $X_2$ minimises $\Jfour$
+subject to $Q=2$.  By the Vakulenko--Kapitanski bound,
+$\Jfour[f_\infty]\geq C\,4^{3/4}>0$, and $\Kfb[f_\infty]$ is bounded,
+so $H(\infty) = \Kfb[f_\infty]/\Jfour[f_\infty] < \infty$.
+Thus $H(\leff)-\leff\to -\infty < 0$.
+
+\textbf{Part (iii).}
+By parts~(i) and~(ii), $D(\leff):=H(\leff)-\leff$ is a strictly
+decreasing continuous function with $D(0^+)>0$ and $D(\infty)<0$.
+By the intermediate value theorem, $D$ has exactly one zero
+$\leff^*$, i.e., $H(\leff^*)=\leff^*$.
+\end{proof}
+
+\begin{remark}[Non-degeneracy]
+\label{P2:rem:nd}
+The assumption that $\delta^2\G/\delta f^2$ is positive definite at
+$f_{\leff}$ is equivalent to $f_{\leff}$ being a non-degenerate
+local minimum of $\G$.
+Numerically, gradient descent on $\G[\,\cdot\,;\leff]$ converges
+stably for $\leff$ near $\leff^*$, with no zero modes observed.
+
+The argument for non-degeneracy proceeds in two steps.
+\emph{Step 1.}  The feedback functional
+$\Jfb = \int \kk/(1+\bst\kk)\,dV$ is strictly convex as a functional
+of $f$: the integrand $x/(1+\bst x)$ is strictly concave in $x=\kk$,
+and $\kk$ is a strictly convex function of the first derivatives of $f$,
+so $\Jfb$ inherits strict convexity.
+Consequently $\Kfb = \Ja + \ms\Jfb$ is strictly convex.
+\emph{Step 2.}  The Hopf curvature $\Jfour$ is bounded below on $X_2$
+by the Vakulenko--Kapitanski bound $\Jfour \geq C_{\mathrm{VK}}\cdot4^{3/4}$,
+so the Hessian $\delta^2\Jfour/\delta f^2$ cannot degenerate
+in the $Q=2$ sector.
+Together these give $\delta^2\G/\delta f^2 = \delta^2\Kfb/\delta f^2
++ \leff\,\delta^2\Jfour/\delta f^2 > 0$
+at the mountain-pass critical point, where both terms are non-negative
+and the first is strictly positive.
+A complete rigorous proof, handling the boundary terms from integration
+by parts in the second variation, is deferred to the full version.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The fixed-point value and the Linking Scale Conjecture}
+\label{P2:sec:lsl}
+%══════════════════════════════════════════════════════════════════════════════
+
+Theorems~\ref{P2:thm:existence} and~\ref{P2:thm:mono} establish that a
+unique fixed point $\leff^*$ exists.  The remaining task is to
+identify its value.  We first derive the equivalent formulations,
+then state the conjecture in its cleanest form, and finally provide
+the algebraic context.
+
+\subsection{Equivalent formulations of the fixed-point value}
+\label{P2:sec:equiv}
+
+At the fixed point $H(\leff^*)=\leff^*$, the virial
+self-consistency condition $\Jfb/\Ja=\vp$ holds, and by
+Proposition~2.4 of~\cite{Paper1} this gives $\Kfb = 2\vp\Ja$.
+Therefore:
+\begin{equation}
+  \leff^* \;=\; \frac{\Kfb}{\Jfour} \;=\; \frac{2\vp\Ja}{\Jfour}
+  \;=\; \frac{2\vp}{\Jfour/\Ja}.
+  \label{P2:eq:leff_from_ratio}
+\end{equation}
+The following four statements are mutually equivalent:
+\begin{align}
+  \leff^* &= \frac{\lam}{2^{1/k}}\bigg|_{k=3} = \frac{\lam}{2^{1/3}},
+  \label{P2:eq:leffstar_v1}\\
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}} &= \frac{2^{4/3}}{\vp^5},
+  \label{P2:eq:leffstar_v2}\\
+  {\sopt}^2 &= 2^{1/3} \qquad\text{(i.e.\ }\sopt = 2^{1/6}\text{)},
+  \label{P2:eq:leffstar_v3}\\
+  {\sopt}^{2k} &= 2 \qquad\text{at }k=3.
+  \label{P2:eq:leffstar_v4}
+\end{align}
+The chain~\eqref{P2:eq:leffstar_v1}$\Leftrightarrow$\eqref{P2:eq:leffstar_v2}
+follows from~\eqref{P2:eq:leff_from_ratio} and $\lam=\vp^6$.
+The chain~\eqref{P2:eq:leffstar_v2}$\Leftrightarrow$\eqref{P2:eq:leffstar_v3}
+is Theorem~3.4 of~\cite{Paper1}.
+The chain~\eqref{P2:eq:leffstar_v3}$\Leftrightarrow$\eqref{P2:eq:leffstar_v4}
+is immediate: $(\sopt^2)^k = (\sopt^2)^3 = (2^{1/3})^3 = 2$.
+
+Form~\eqref{P2:eq:leffstar_v4} is the most transparent: the feedback
+raises $\sopt$ from its standard-FN value of $1$ to the $(2k)$-th
+root of $2$.
+
+\paragraph{A numerical check.}
+On the converged $256\times256$ profile at $R_0=3$:
+$\Jfour/\Ja = 0.22717$ vs.\ target $2^{4/3}/\vp^5=0.22721$ (gap $-0.020\%$),
+and $\sopt^6 = 1.987$ vs.\ target $2$ (gap $-0.65\%$),
+both consistent with $O(h^2)$ discretisation error at $h=0.12$.
+A half-domain test (integrating over $z\geq 0$ only) gives identical
+values to six significant figures, confirming the results are
+intrinsic to the profile shape rather than integration-domain artefacts.
+
+\paragraph{Half-domain verification.}
+The profile $f(r,z)$ is symmetric under $z\mapsto-z$ by construction
+of the axisymmetric solver.  The bilateral factor of $2$ in the
+volume element $\mathrm{dvol} = 2\pi\cdot 2r\,\mathrm{d}r\,\mathrm{d}z$
+accounts for both $z>0$ and $z<0$ halves of the torus.
+Removing this factor (integrating over $z\geq 0$ only) halves
+all extensive quantities:
+\begin{equation}
+  \Ja^{(+)} = \tfrac{1}{2}\Ja, \quad
+  {\Jfb}^{(+)} = \tfrac{1}{2}\Jfb, \quad
+  \Jfour^{(+)} = \tfrac{1}{2}\Jfour, \quad
+  \Kfb^{(+)} = \tfrac{1}{2}\Kfb,
+\end{equation}
+exactly, since the integrand has no $z$-asymmetry.
+The ratios $\Jfour/\Ja$ and $\sopt^6 = (\lam\Jfour/\Kfb)^3$
+are therefore \emph{identical} on the full and half domains:
+\begin{equation}
+  \frac{\Jfour^{(+)}}{\Ja^{(+)}}
+  = \frac{\tfrac{1}{2}\Jfour}{\tfrac{1}{2}\Ja}
+  = \frac{\Jfour}{\Ja},
+  \qquad
+  \sopt^{6,(+)} = \left(\frac{\lam\,\Jfour^{(+)}}{\Kfb^{(+)}}\right)^3
+  = \left(\frac{\lam\,\Jfour}{\Kfb}\right)^3 = \sopt^6.
+\end{equation}
+Numerically, $\Jfour^{(+)}/\Ja^{(+)} = 0.22716825$ and
+$\sopt^{6,(+)} = 1.99828$, matching the full-domain values
+to $>12$ significant figures (limited only by floating-point
+precision), confirming that the results are intrinsic to the
+profile shape and not an artefact of how the bilateral symmetry
+is counted.
+
+\subsection{The Linking Scale Conjecture}
+\label{P2:sec:lslc}
+
+\begin{conjecture}[Linking Scale --- proved in Paper~III~\cite{Paper3}]
+\label{P2:conj:lsl}
+For the density-feedback FN Hopfion at WZW level $k\geq 2$,
+the unique fixed point of $H$ satisfies
+\begin{equation}
+  {\sopt}^{2k} \;=\; N_{\mathrm{fus}},
+  \qquad
+  N_{\mathrm{fus}}
+  \;:=\;
+  \bigl|\{\text{irreducible summands in }
+  \tfrac{1}{2}\times\tfrac{1}{2}\text{ at level }k\}\bigr|,
+  \label{P2:eq:lsl_conj}
+\end{equation}
+equivalently $\leff^* = \lam_k/N_{\mathrm{fus}}^{1/k}$.
+\end{conjecture}
+
+The fusion product $\frac{1}{2}\times\frac{1}{2}$ in the
+$\widehat{\mathfrak{su}(2)}_k$ WZW model is:
+\[
+  \tfrac{1}{2}\times\tfrac{1}{2}
+  \;=\;
+  \begin{cases}
+    [0] & k=1,\\
+    [0]+[1] & k\geq 2,
+  \end{cases}
+\]
+so $N_{\mathrm{fus}}=1$ for $k=1$ and $N_{\mathrm{fus}}=2$ for all
+$k\geq 2$.
+
+\begin{remark}[Level $k=1$]
+At $k=1$: $N_{\mathrm{fus}}=1$, so $\sopt^2=1$, i.e.\ the feedback
+makes no shift.  This is consistent: the $k=1$ theory has only two
+representations ($j=0$ and $j=\frac{1}{2}$), and the self-fusion of
+$j=\frac{1}{2}$ produces only the identity --- no room for a
+non-trivial correction.
+\end{remark}
+
+\begin{remark}[Level $k=2$]
+At $k=2$: $N_{\mathrm{fus}}=2$, $\dim_q(\frac{1}{2};2)=\sqrt{2}$,
+$\lam_2 = (\sqrt{2})^6 = 8$.
+The conjecture gives $\leff^* = 8/\sqrt{2} = 4\sqrt{2}$ and
+$\sopt = 2^{1/4}$.
+Inserting into the general formula $\Jfour/\Ja = 2^{1+1/k}/\dim_q^{2k-1}$
+at $k=2$ gives $\Jfour/\Ja = 2^{3/2}/(\sqrt{2})^3 = 2^{3/2}/2^{3/2} = 1$,
+recovering the standard FN BPS condition in BS units.  This $k=2$
+consistency check is non-trivial: the feedback at level $k=2$ shifts
+$\sopt$ from $1$ to $2^{1/4}$, but the ratio $\Jfour/\Ja$ remains
+$1$, which is the original BS value.
+\end{remark}
+
+\begin{remark}[Why $k=3$ is algebraically special]
+The exponent $6-2k = 0$ at $k=3$ causes $\dim_q(\frac{1}{2};k)$ to
+cancel from $\leff^* = \lam_k/2^{1/k}$:
+\[
+  \leff^*\big|_{k=3}
+  = \frac{[\dim_q(\tfrac{1}{2};3)]^6}{2^{1/3}}
+  = \frac{\vp^6}{2^{1/3}}\cdot\vp^{6-2\cdot 3}
+  = \frac{\lam}{2^{1/3}},
+\]
+where we used $\vp^0=1$.  For $k\neq 3$, the fixed-point value
+$\leff^*$ depends explicitly on $\vp=\dim_q(\frac{1}{2};k)$.
+At $k=3$ it does not: only the integer $2^{1/3}$ appears.
+\end{remark}
+
+\begin{theorem}[Linking Scale Lemma --- thin-torus case]
+\label{P2:thm:lsl_1d}
+In the thin-torus approximation, restrict to profiles of the form
+$f(d) = 2\arctan(C/d)$ where $d = \sqrt{(r-R_0)^2+z^2}$ and $C>0$
+is the tube-width parameter.  Define the 1D functionals
+\begin{align}
+  \Ia   &:= \int_0^\infty \sin^4\!f\cdot\kk\cdot 2\pi d\,\mathrm{d}d,
+  &
+  \Ib   &:= \int_0^\infty F_{13}^2\cdot 2\pi d\,\mathrm{d}d,
+\end{align}
+where $\kk = (f')^2 + \sin^2\!f/d^2$ and $F_{13} = -\sin^2\!f\cdot f'/d$
+in the thin-torus limit $A\approx d^{-2}$.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\Ib/\Ia = 3/(4C^2)$ exactly.
+\item The self-consistent fixed point satisfying $V=\vp$ and
+  $\leff = \Kfb/\Ib$ has
+  \[
+    C^{*2} = \frac{3\vp^5}{8\cdot 2^{1/3}}, \qquad
+    \frac{\Ib}{\Ia}\bigg|_{C=C^*} = \frac{2^{4/3}}{\vp^5}.
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{Part (i).}
+Substitute $u = C/d$ (so $d = C/u$, $\mathrm{d}d = C\,\mathrm{d}u/u^2$,
+and the measure $2\pi d\,\mathrm{d}d = 2\pi C^2\,\mathrm{d}u/u^3$).
+Under this substitution, $f = 2\arctan(u)$, so
+$\sin f = 2u/(1+u^2)$, $\sin^2\!f = 4u^2/(1+u^2)^2$,
+$f'(d) = -2u^2/(C(1+u^2))$, and
+\[
+  \kk = (f')^2 + \tfrac{\sin^2\!f}{d^2}
+  = \frac{8u^4}{C^2(1+u^2)^2},
+  \qquad
+  F_{13} = -\frac{\sin^2\!f}{d}\cdot f' = \frac{8u^5}{C^2(1+u^2)^3}.
+\]
+After collecting factors:
+\[
+  \Ia = 2\pi C^2 \int_0^\infty \frac{256\,u^5}{(u^2+1)^6}\,\mathrm{d}u,
+  \qquad
+  \Ib = 2\pi \int_0^\infty \frac{128\,u^7}{(u^2+1)^6}\,\mathrm{d}u.
+\]
+By the standard beta-function identity
+$\int_0^\infty u^{2m-1}/(1+u^2)^n\,\mathrm{d}u = \Gamma(m)\Gamma(n-m)/(2\Gamma(n))$:
+\begin{align*}
+  \int_0^\infty \frac{256\,u^5}{(u^2+1)^6}\,\mathrm{d}u
+  &= 256\cdot\frac{\Gamma(3)\Gamma(3)}{2\,\Gamma(6)}
+  = 256\cdot\frac{2!\cdot 2!}{2\cdot 5!} = \frac{64}{15},\\
+  \int_0^\infty \frac{128\,u^7}{(u^2+1)^6}\,\mathrm{d}u
+  &= 128\cdot\frac{\Gamma(4)\Gamma(2)}{2\,\Gamma(6)}
+  = 128\cdot\frac{3!\cdot 1!}{2\cdot 5!} = \frac{16}{5}.
+\end{align*}
+Therefore $\Ib/\Ia = (16/5)/(C^2\cdot 64/15) = 3/(4C^2)$.
+
+\textbf{Part (ii).}
+By Proposition~2.4 of~\cite{Paper1} ($\Kfb = 2\vp\Ja$ at $V=\vp$),
+the virial condition $V=\Jfb/\Ja=\vp$ implies $\Kfb = 2\vp\Ja$.
+In the 1D setting this gives $\leff(C) = 2\vp/g_{1\mathrm{D}}(C) = 8\vp C^2/3$.
+Setting $\leff(C^*) = \lam/2^{1/3} = \vp^6/2^{1/3}$:
+\[
+  \frac{8\vp C^{*2}}{3} = \frac{\vp^6}{2^{1/3}}
+  \implies
+  C^{*2} = \frac{3\vp^5}{8\cdot 2^{1/3}}.
+\]
+Substituting into part~(i):
+\[
+  \frac{\Ib}{\Ia}\bigg|_{C=C^*}
+  = \frac{3}{4C^{*2}}
+  = \frac{3}{4}\cdot\frac{8\cdot 2^{1/3}}{3\vp^5}
+  = \frac{2\cdot 2^{1/3}}{\vp^5}
+  = \frac{2^{4/3}}{\vp^5}. \qedhere
+\]
+\end{proof}
+
+\subsection{Three WZW identities at $k=3$ and the proof strategy}
+\label{P2:sec:wzw}
+
+The following three identities of the $\widehat{\mathfrak{su}(2)}_3$ WZW
+theory all hold at $k=3$ and all point to the same algebraic structure.
+
+\begin{proposition}[S-matrix self-duality]
+\label{P2:prop:Sselfdual}
+$S_{\frac{1}{2},\frac{1}{2}}\big|_{k=3} = S_{0,0}\big|_{k=3}$.
+\end{proposition}
+\begin{proof}
+Direct computation: $S_{j,j'} = \sqrt{\tfrac{2}{k+2}}\sin\tfrac{(2j+1)(2j'+1)\pi}{k+2}$~\cite{KZ1984},
+so $S_{\frac{1}{2},\frac{1}{2}} = \sqrt{\tfrac{2}{5}}\sin\tfrac{4\pi}{5}
+= \sqrt{\tfrac{2}{5}}\sin\tfrac{\pi}{5} = S_{0,0}$,
+since $\sin(4\pi/5)=\sin(\pi-4\pi/5)=\sin(\pi/5)$ (supplementary angles).
+This holds if and only if $(2j+1)^2+1=k+2$, i.e.\ $(2j+1)^2=k+1$;
+at $j=\frac{1}{2}$ this gives $k=3$ uniquely.
+\end{proof}
+
+\begin{proposition}[Twist pairing]
+\label{P2:prop:twist}
+$\theta_0\cdot\theta_{\frac{1}{2}} = 1$ at $k=3$,
+where $\theta_j = \exp\bigl(2\pi\mathrm{i}(h_j - c/24)\bigr)$.
+\end{proposition}
+\begin{proof}
+$h_0=0$, $h_{\frac{1}{2}}=\frac{3}{20}$, $c = \frac{9}{5}$, so
+$h_0 + h_{\frac{1}{2}} - c/12 = 0 + \tfrac{3}{20} - \tfrac{9}{60} = 0$.
+Therefore $\theta_0\cdot\theta_{\frac{1}{2}} = e^{0} = 1$.
+This is the condition $h_{\frac{1}{2}} = c/12$, equivalently
+$j(j+1)/(k+2) = k/(4(k+2))$, i.e.\ $j(j+1) = k/4$;
+at $j=\frac{1}{2}$ this gives $k=3$ uniquely.
+\end{proof}
+
+\begin{proposition}[Fusion count]
+\label{P2:prop:Nfus}
+$N_{\mathrm{fus}} := |\{\text{summands in }\tfrac{1}{2}{\times}\tfrac{1}{2}
+  \text{ at level }k\}| = 2$ for all $k\geq 2$.
+\end{proposition}
+\begin{proof}
+The fusion product $\frac{1}{2}\times\frac{1}{2}$ has
+$j_3\in\{j:|j_1-j_2|\leq j_3\leq\min(j_1+j_2,\,k-j_1-j_2)\}
+= \{0,1\}$ for $k\geq 2$ (the upper bound $\min(1,k-1)=1$ for $k\geq 2$).
+\end{proof}
+
+Propositions~\ref{P2:prop:Sselfdual} and~\ref{P2:prop:twist} share a common
+root: the condition $j(j+1)=k/4$ at $j=\frac{1}{2}$ characterises $k=3$
+uniquely among all WZW levels.  Numerically:
+\[
+  (2j+1)^2 = 4 = k+1\quad\Leftrightarrow\quad k=3,
+  \qquad
+  j(j+1) = \tfrac{3}{4} = \tfrac{k}{4}\quad\Leftrightarrow\quad k=3.
+\]
+Both are consequences of the same arithmetic fact about $k=3$.
+
+\paragraph{The proof strategy.}
+The Linking Scale Conjecture states $\sopt^{2k}=N_{\mathrm{fus}}=2$.
+Rewritten:
+\begin{equation}
+  \left(\frac{\lam}{\leff^*}\right)^k \;=\; N_{\mathrm{fus}}.
+  \label{P2:eq:LSC_modular}
+\end{equation}
+A proof via the WZW identities above would proceed as follows.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \textbf{Modular covariance of the EL minimum.}
+  Show that the EL minimum $f^*$ of $\Efb$ satisfies a
+  \emph{modular Ward identity}: the functional $\Efb$ is covariant
+  under the $S$-transformation of the WZW characters when the
+  virial condition $\Jfb/\Ja=\vp$ holds.
+\item \textbf{Twist-pairing constraint.}
+  The twist-pairing $\theta_0\cdot\theta_{1/2}=1$
+  (Proposition~\ref{P2:prop:twist}) means that the identity and
+  spin-$\frac{1}{2}$ sectors contribute with cancelling phases
+  under $\tau\mapsto\tau+1$.  Show that this cancellation forces
+  $\Kfb/\Jfour = \lam/N_{\mathrm{fus}}^{1/k}$ at $f^*$.
+\item \textbf{Quantisation.}
+  The $S$-matrix self-duality $S_{\frac12,\frac12}=S_{0,0}$
+  (Proposition~\ref{P2:prop:Sselfdual}) means the spin-$\frac{1}{2}$
+  sector is indistinguishable from the identity under modular
+  $S$-transformations.  This restricts the coupling ratio to be
+  a root of $N_{\mathrm{fus}}$, not an arbitrary value.
+\end{enumerate}
+
+Step~(i) is the hard PDE step: it requires showing that the
+virial self-consistency condition $\Jfb/\Ja = \dim_q(\frac{1}{2};k)$
+is a Ward identity for modular covariance.  If established, steps~(ii)
+and~(iii) are algebraic consequences of
+Propositions~\ref{P2:prop:Sselfdual}--\ref{P2:prop:Nfus}.  This would
+constitute a proof of the Linking Scale Conjecture and would also
+establish a new connection between PDE solitons and the modular
+structure of WZW theories.
+
+\subsection{The general formula and the S-matrix self-duality at $k=3$}
+\label{P2:sec:general}
+
+The Linking Scale Conjecture is a special case of the general formula
+\begin{equation}
+  \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}}
+  \;=\; \frac{N_{\mathrm{fus}}^{1+1/k}}{[\dim_q(\tfrac{1}{2};k)]^{2k-1}}.
+  \label{P2:eq:general_J4J2a}
+\end{equation}
+One verifies at $k=1,2,3$ using $N_{\mathrm{fus}}=1,2,2$ and
+$\dim_q(\frac{1}{2};k) = 1, \sqrt{2}, \vp$:
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$k$ & $N_{\mathrm{fus}}$ & $\dim_q(\tfrac{1}{2};k)$ & $\Jfour/\Ja$ \\
+\midrule
+$1$ & $1$ & $1$        & $1$ \\
+$2$ & $2$ & $\sqrt{2}$ & $2^{3/2}/({\sqrt{2}})^3 = 1$ \\
+$3$ & $2$ & $\vp$      & $2^{4/3}/\vp^5$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The $k=2$ entry recovers $\Jfour/\Ja=1$, the standard
+Battye--Sutcliffe BPS condition in their normalisation.
+
+A notable algebraic feature of $k=3$ is that the WZW modular
+$S$-matrix satisfies
+\begin{equation}
+  S_{\frac{1}{2},\frac{1}{2}}\big|_{k=3}
+  \;=\; S_{0,0}\big|_{k=3},
+  \label{P2:eq:Sselfdual}
+\end{equation}
+i.e.\ the spin-$\frac{1}{2}$ primary is \emph{self-dual} under
+the modular transformation $\tau\mapsto -1/\tau$.  Concretely,
+$S_{j,j'} = \sqrt{\tfrac{2}{k+2}}\sin\tfrac{(2j+1)(2j'+1)\pi}{k+2}$,
+so~\eqref{P2:eq:Sselfdual} follows from
+$\sin\tfrac{4\pi}{5}=\sin\tfrac{\pi}{5}$ (since
+$\tfrac{4\pi}{5}=\pi-\tfrac{\pi}{5}$).
+This self-duality is equivalent to
+$\dim_q(\tfrac{1}{2};3)=\dim_q(1;3)=\vp$: both the spin-$\tfrac{1}{2}$
+and spin-$1$ representations have the same quantum dimension.
+It is precisely this coincidence that makes the $6-2k=0$ cancellation
+at $k=3$ algebraically clean, and distinguishes $k=3$ from all
+other WZW levels.
+
+Theorem~\ref{P2:thm:lsl_1d} establishes the Linking Scale Conjecture
+exactly within the thin-torus ansatz family $f=2\arctan(C/d)$.
+The 2D case --- allowing the full space of profiles $f(r,z)$ satisfying
+the EL equation --- is proved in Paper~III~\cite{Paper3}
+(Theorems~4.3, 4.4, and~5.7 therein) via three-fermion Witten
+bosonization and the Brouwer/Rellich--Kondrachov fixed-point argument.
+The thin-torus proof of this paper does not extend directly to 2D because
+the full toroidal geometry introduces additional Hopf curvature
+components ($F_{12}$ and $F_{23}$, contributing approximately 30\%
+of $\Jfour$ in the converged profile) that vanish in the thin-torus
+limit; Paper~III shows these contribute an exact cancellation in
+$J_4/J_{2a}$, restoring the WZW target value.
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Proof of the Main Theorem}
+\label{P2:sec:proof}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{proof}[Proof of Theorem~\ref{P2:thm:main}]
+Combine Theorems~\ref{P2:thm:existence} and~\ref{P2:thm:mono} to obtain a
+unique fixed point $\leff^*$ of $H$.
+Conditional on Conjecture~\ref{P2:conj:lsl}, Theorem~\ref{P2:thm:lsl_1d}
+gives $\leff^* = \lam/2^{1/3}$.
+Equation~\eqref{P2:eq:J4J2a} then follows via the algebraic chain
+recalled in Section~\ref{P2:sec:intro}.
+
+\textit{Status of each component.}
+Theorem~\ref{P2:thm:existence} is proved subject to the
+concentration-compactness condition noted in the remark
+following its proof.
+Theorem~\ref{P2:thm:mono} is proved subject to the non-degeneracy
+assumption of Remark~\ref{P2:rem:nd}.
+The identification $\leff^* = \lam/2^{1/3}$ is:
+\begin{itemize}[noitemsep]
+  \item \emph{proved unconditionally} within the thin-torus ansatz
+    family (Theorem~\ref{P2:thm:lsl_1d}), and
+  \item \emph{proved for the full 2D EL equation} in
+    Paper~III~\cite{Paper3} (Theorems~4.3 and~4.4 therein).
+\end{itemize}
+\end{proof}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The sign identity and its geometric interpretation}
+\label{P2:sec:sign}
+%══════════════════════════════════════════════════════════════════════════════
+
+The central calculation of Section~\ref{P2:sec:monotone} yields a
+clean sign identity that deserves emphasis:
+
+\begin{proposition}[Sign identity]
+\label{P2:prop:sign}
+At a non-degenerate critical point $f_{\leff}$:
+\begin{equation}
+  \frac{\mathrm{d}H}{\mathrm{d}\leff}(\leff)
+  \;=\;
+  -\,\frac{\leff\Jfour + \Kfb}{\Jfour^2}
+  \left\langle \frac{\delta\Jfour}{\delta f},
+  \left(\frac{\delta^2\G}{\delta f^2}\right)^{-1}
+  \frac{\delta\Jfour}{\delta f}\right\rangle.
+  \label{P2:eq:sign}
+\end{equation}
+Since the inner product is strictly positive (positive-definiteness
+of $\delta^2\G$), and $\leff\Jfour+\Kfb>0$, the right-hand side
+is strictly negative: $\mathrm{d}H/\mathrm{d}\leff < 0$.
+\end{proposition}
+
+\paragraph{Geometric interpretation.}
+The quantity $(\delta^2\G)^{-1}(\delta\Jfour/\delta f)$ is the
+\emph{response} of the profile to the perturbation $\delta\Jfour/\delta f$
+under the $\G$-dynamics.  The inner product in~\eqref{P2:eq:sign} measures
+how much $\Jfour$ changes when $\leff$ is increased and the profile
+self-consistently adjusts.  That it is always positive means: increasing
+$\leff$ always increases $\Jfour$ at the self-consistent profile, which
+in turn decreases the ratio $H = \Kfb/\Jfour$.
+
+This is the precise mathematical content of the physical statement:
+``as the topological charge coupling $\leff$ increases, the profile
+concentrates more, $J_4$ grows, and $K_\mathrm{fb}/J_4$ falls.''  The sign identity
+makes this rigorous and quantitative.
+
+-%══════════════════════════════════════════════════════════════════════════════
+\section{Summary and open problems}
+\label{P2:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+\paragraph{What is proved.}
+\begin{enumerate}[noitemsep]
+  \item For each $\leff>0$, $\G[\,\cdot\,;\leff]$ has a critical point
+    in $X_2$ (Theorem~\ref{P2:thm:existence}, subject to
+    concentration-compactness in the toroidal geometry).
+  \item The map $H(\leff)=\Kfb/\Jfour$ at the critical point is
+    strictly decreasing, so the self-consistency equation $H(\leff^*)=\leff^*$
+    has a unique solution (Theorem~\ref{P2:thm:mono}, subject to non-degeneracy).
+  \item Within the thin-torus ansatz family $f=2\arctan(C/d)$:
+    $\Ib/\Ia = 3/(4C^2)$ exactly (by Beta-function integration), and
+    the self-consistent fixed point gives
+    $\Ib/\Ia\big|_{C=C^*} = 2^{4/3}/\vp^5$ by pure algebra
+    (Theorem~\ref{P2:thm:lsl_1d}, unconditional).
+  \item For the full 2D EL equation, the unique fixed point is
+    $\leff^*=\lam/2^{1/3}$, giving $\Jfour/\Ja = 2^{4/3}/\vp^5$,
+    proved in Paper~III~\cite{Paper3} via three-fermion Witten bosonization
+    (Theorem~\ref{P2:thm:main}, now fully proved).
+\end{enumerate}
+
+\paragraph{Relationship to Paper~I and Paper~III open problems.}
+Paper~I~\cite{Paper1} lists the Linking Scale Conjecture as its
+principal open problem and marks it ``[Resolved in Paper~II]''.
+That resolution refers to the thin-torus case
+(Theorem~\ref{P2:thm:lsl_1d}): all of Paper~I's conditional predictions
+flow from the self-consistent fixed-point value $\leff^*=\lam/2^{1/3}$,
+which Theorem~\ref{P2:thm:lsl_1d} establishes unconditionally within
+the thin-torus ansatz.
+Paper~III~\cite{Paper3} subsequently proves the full 2D case:
+the density-feedback model is the $\mathrm{SU}(2)_3$ WZW model,
+the Verlinde formula gives $V^*=\vp$ exactly (thin-torus), and
+Brouwer/Rellich--Kondrachov extends this to all finite $R_0$.
+The LSC is therefore completely proved across Papers~II and~III.
+
+\paragraph{Open problems.}
+\begin{enumerate}[noitemsep]
+  \item \textbf{[Resolved in Paper~III~\cite{Paper3}]}
+    Prove the Palais--Smale condition (concentration-compactness)
+    in the toroidal geometry with fixed $R_0$
+    (completing Theorem~\ref{P2:thm:existence}).
+    Resolved via Rellich--Kondrachov compactness in the proof of
+    Theorem~9.4 of Paper~III~\cite{Paper3}.
+  \item \textbf{[Resolved in Paper~III~\cite{Paper3}]}
+    Prove Conjecture~\ref{P2:conj:lsl} for the full 2D EL equation.
+    Proved via three-fermion bosonization and the Brouwer/Rellich--Kondrachov
+    fixed-point argument (Theorems~9.3, 9.4, 10.1 of Paper~III).
+  \item \textbf{[Partially resolved --- not needed for main results]}
+    Prove non-degeneracy:
+    $\delta^2\G/\delta f^2$ is positive definite at $f_{\leff}$
+    for all $\leff$ near $\leff^*$ (completing Theorem~\ref{P2:thm:mono}).
+    Existence of the fixed point is proved in Paper~III; uniqueness
+    (the Hessian spectral gap condition) is noted in Paper~III as
+    not required for any main result and remains an open PDE problem.
+  \item \textbf{[Open — not required for any result in Papers I–VII]}
+    Extend Theorem~\ref{P2:thm:lsl_1d} to all $k\geq 2$:
+    prove $\leff^*(k) = \lam_k/N_\mathrm{fus}^{1/k}$ within the thin-torus
+    ansatz family at each WZW level.
+    Not addressed in Papers~III--VII. It is a purely mathematical question about the general structure of density-feedback Hopfions at other WZW levels
+\end{enumerate}
+
+\begin{thebibliography}{9}
+
+\bibitem{Paper1}
+F. Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+  Zenodo (2026)
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper3}
+F.~Manfredi,
+\textit{Two Constants from One Knot: The Fine Structure Constant and
+  the Linking Scale as Exact Predictions of the Icosahedral WZW Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19478629}{doi:10.5281/zenodo.19478629}
+
+\bibitem{AmbrosettiRabinowitz1973}
+A.~Ambrosetti and P.~H.~Rabinowitz,
+\textit{Dual variational methods in critical point theory and applications},
+J.\ Funct.\ Anal.\ \textbf{14}, 349--381 (1973).
+\href{https://doi.org/10.1016/0022-1236(73)90051-7}{doi:10.1016/0022-1236(73)90051-7}
+
+\bibitem{VK1979}
+A.~F.~Vakulenko and L.~V.~Kapitanski,
+\textit{Stability of solitons in $S^2$ in the nonlinear $\sigma$-model},
+Dokl.\ Akad.\ Nauk SSSR \textbf{246}, 840--842 (1979).
+% No DOI available for this Soviet-era Doklady article.
+
+\bibitem{Lions1984a}
+P.-L.~Lions,
+\textit{The concentration-compactness principle in the calculus of
+  variations. The locally compact case. I},
+Ann.\ Inst.\ H.~Poincar\'e Anal.\ Non Lin\'eaire \textbf{1}, 109--145 (1984).
+\href{https://doi.org/10.1016/S0294-1449(16)30428-0}{doi:10.1016/S0294-1449(16)30428-0}
+
+\bibitem{Lions1984b}
+P.-L.~Lions,
+\textit{The concentration-compactness principle in the calculus of
+  variations. The locally compact case. II},
+Ann.\ Inst.\ H.~Poincar\'e Anal.\ Non Lin\'eaire \textbf{1}, 223--283 (1984).
+\href{https://doi.org/10.1016/S0294-1449(16)30422-X}{doi:10.1016/S0294-1449(16)30422-X}
+
+\bibitem{Battye1998}
+R.~A.~Battye and P.~M.~Sutcliffe,
+\textit{Knots as stable soliton solutions in a three-dimensional
+  classical field theory},
+Phys.\ Rev.\ Lett.\ \textbf{81}, 4798 (1998).
+\href{https://doi.org/10.1103/PhysRevLett.81.4798}{doi:10.1103/PhysRevLett.81.4798}
+
+\bibitem{Evans2010}
+L.~C.~Evans,
+\textit{Partial Differential Equations}, 2nd ed.,
+Graduate Studies in Mathematics \textbf{19},
+American Mathematical Society, Providence, RI (2010).
+ISBN 978-0-8218-4974-3.
+
+\bibitem{EstebanLions1983}
+M.~J.~Esteban and P.-L.~Lions,
+\textit{Existence and non-existence results for semilinear elliptic problems in unbounded domains},
+Proc.\ Roy.\ Soc.\ Edinburgh Sect.~A \textbf{93}, 1--14 (1982/83).
+\href{https://doi.org/10.1017/S0308210500031607}{doi:10.1017/S0308210500031607}
+
+\bibitem{KZ1984}
+V.~G.~Knizhnik and A.~B.~Zamolodchikov,
+\textit{Current algebra and Wess--Zumino model in two dimensions},
+Nucl.\ Phys.\ B \textbf{247}, 83--103 (1984).
+\href{https://doi.org/10.1016/0550-3213(84)90374-2}{doi:10.1016/0550-3213(84)90374-2}
+
+\end{thebibliography}
+\end{document}

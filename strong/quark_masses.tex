@@ -1,0 +1,1007 @@
+%% hopfion-framework/strong/quark_masses.tex
+%% Sources: main_paper5.tex
+%% Quark Koide relation, CKM mixing angles, CP phase, quark mass hierarchy
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Quark Koide Relation — Paper V
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[Quark Koide relation~\cite{Koide1983}]
+\label{P5:thm:quark_koide}
+At the condensate scale $\LUV$, the Koide ratio satisfies
+\begin{equation}
+  K_{\mathrm{up}} \;\equiv\; K(m_u,m_c,m_t)
+  \;=\; K_{\mathrm{down}} \;\equiv\; K(m_d,m_s,m_b)
+  \;=\; \frac{2}{3},
+  \label{P5:eq:quark_koide}
+\end{equation}
+\emph{exactly}.
+\end{theorem}
+\status{published}
+\source{P5:thm:quark_koide}
+\begin{proof}
+From equations~\eqref{P5:eq:quark_mass_formula}--\eqref{P5:eq:down_quark_mass},
+the up-type and down-type quark masses at the condensate scale are
+related to the predicted lepton masses by a \emph{generation-universal} factor:
+\begin{equation}
+  m_{u,c,t}^{(g)} = \vp^{-1}\,m_{e,\mu,\tau}^{(g)}, \qquad
+  m_{d,s,b}^{(g)} = \vp^{-3}\,m_{e,\mu,\tau}^{(g)},
+  \label{P5:eq:quark_lepton_factor}
+\end{equation}
+for $g=1,2,3$ (all three generations).  The colour shift $\delta n^{(C)}=1/2$
+(Proposition~\ref{P5:prop:colour_shift}) and the isospin shift for down-type quarks
+are both \emph{universal} across generations, so the multiplicative factors
+$\vp^{-1}$ and $\vp^{-3}$ are the same for all $g$.
+
+By Lemma~\ref{P5:lem:koide_scale} with $c=\vp^{-1}$:
+\[
+  K_{\mathrm{up}}
+  = K\!\bigl(\vp^{-1}m_e^{\mathrm{pred}},\,\vp^{-1}m_\mu^{\mathrm{pred}},\,
+    \vp^{-1}m_\tau^{\mathrm{pred}}\bigr)
+  = K\!\bigl(m_e^{\mathrm{pred}},\,m_\mu^{\mathrm{pred}},\,m_\tau^{\mathrm{pred}}\bigr)
+  = K_{\mathrm{lep}} = \tfrac{2}{3},
+\]
+where the last equality is the lepton Koide theorem~\cite{Paper1}
+(Theorem~5.12 of Paper~I, proved via the $\mathbb{Z}_3$ symmetry of
+the WZW T-matrix phases $\{T_1,T_2,T_3\}$).
+The down-type case follows identically with $c=\vp^{-3}$.\qed
+\end{proof}
+\status{published}
+\source{P5:thm:quark_koide}
+
+\begin{lemma}[Scale invariance of the Koide ratio~\cite{Koide1983}]
+\label{P5:lem:koide_scale}
+For any $c>0$ and masses $m_1,m_2,m_3>0$,
+\begin{equation}
+  K(cm_1,cm_2,cm_3) \;=\; K(m_1,m_2,m_3),
+  \label{P5:eq:koide_scale}
+\end{equation}
+where $K(m_1,m_2,m_3) = (m_1+m_2+m_3)/(\sqrt{m_1}+\sqrt{m_2}+\sqrt{m_3})^2$.
+\end{lemma}
+\status{published}
+\source{P5:lem:koide_scale}
+
+\begin{proposition}[RGE invariance of the quark Koide ratio~\cite{Koide1983}]
+\label{P5:prop:koide_rge}
+The quark Koide ratio $K_{\mathrm{up}}=K_{\mathrm{down}}=2/3$
+(Theorem~\ref{P5:thm:quark_koide}) is preserved under leading-order
+QCD mass renormalization: at every renormalization scale $\mu$ at
+which all three quarks of a triplet are simultaneously active,
+\begin{equation}
+  K_{\mathrm{up}}(\mu) \;=\; K_{\mathrm{down}}(\mu) \;=\; \frac{2}{3}.
+  \label{P5:eq:koide_rge_inv}
+\end{equation}
+The deviation from $2/3$ in measured laboratory-scale masses arises
+exclusively from next-to-leading-order threshold corrections
+and non-perturbative effects below $\Lambda_{\mathrm{QCD}}$.
+\end{proposition}
+\status{published}
+\source{P5:prop:koide_rge}
+
+\begin{remark}[Prediction vs.\ observation]
+\label{P5:rem:quark_koide_obs}
+The prediction $K_{\mathrm{up}}(\LUV)=K_{\mathrm{down}}(\LUV)=2/3$~\cite{Koide1983}
+resolves the quark-sector Koide conjecture of Paper~I. At laboratory
+scales, $K_{\mathrm{up}}\approx0.85$ and $K_{\mathrm{down}}\approx0.73$
+(using PDG masses at their natural scales), consistent with the NLO
+deviation mechanism of Proposition~\ref{P5:prop:koide_rge}(iii). The
+$K_{\mathrm{down}}$ value is closer to $2/3$ because the $s,b$ masses
+are better determined perturbatively than $u,d$.
+\end{remark}
+\status{published}
+\source{P5:rem:quark_koide_obs}
+
+
+%════════════════════════════════════════════════════════════════════
+% CKM Mixing and CP Phase — Paper V
+%════════════════════════════════════════════════════════════════════
+\begin{lemma}[Minimal Hermitian WZW texture]
+\label{P5:lem:ckm_texture}
+In the $2I\text{-WZW}\otimes\mathrm{SU}(3)_3$ condensate, the off-diagonal
+elements of the physical quark mass matrix satisfy
+\begin{equation}
+  |M_{ij}| = \sqrt{M_{ii}\,M_{jj}}, \qquad i\neq j,
+  \label{P5:eq:texture}
+\end{equation}
+where $M_{ii}$ are the diagonal leading-order WZW quark masses.
+\end{lemma}
+\status{published}
+\source{P5:lem:ckm_texture}
+
+\begin{remark}
+\label{P5:rem:fgj_ansatz}
+Lemma~\ref{P5:lem:ckm_texture} derives from first principles the
+Fritzsch--Georgi--Jarlskog ansatz~\cite{Fritzsch1978,GJ1979} for the quark
+mass matrix texture.  In the WZW framework it is not a postulate but a
+consequence of the condensate wavefunction structure.
+\end{remark}
+\status{published}
+\source{P5:rem:fgj_ansatz}
+
+\begin{lemma}[$2\times2$ mixing angle from Hermitian texture]
+\label{P5:lem:ckm_2x2}
+Let $M = \bigl(\begin{smallmatrix} a & \sqrt{ab} \\ \sqrt{ab} & b \end{smallmatrix}\bigr)$
+with $0 < a \ll b$.
+The eigenvalues are $\lambda_- \approx a(1-a/b)$ and $\lambda_+ \approx b(1+a/b)$,
+and the mixing angle $\theta$ satisfies
+\begin{equation}
+  \sin\theta \;=\; \sqrt{\frac{a}{b}} \;+\; O\!\left(\frac{a}{b}\right).
+  \label{P5:eq:2x2_mixing}
+\end{equation}
+\end{lemma}
+\status{published}
+\source{P5:lem:ckm_2x2}
+
+\begin{theorem}[CKM mixing angles from the WZW condensate]
+\label{P5:thm:ckm_full}
+In the density-feedback Hopfion framework, given the quark mass hierarchy
+of Section~\ref{sec:quarks} and the Hermitian WZW texture of
+Lemma~\ref{P5:lem:ckm_texture}, the three CKM matrix elements at leading order are:
+\begin{align}
+  |V_{us}| &= \sqrt{\frac{m_d(\mu)}{m_s(\mu)}} + O\!\left(\frac{m_d}{m_s}\right),
+  \label{P5:eq:Vus} \\[4pt]
+  |V_{cb}| &= e^{-\pi} = e^{-2\pi Q\,\Delta T_{23}} + O\!\left(e^{-4\pi}\right),
+  \label{P5:eq:Vcb} \\[4pt]
+  |V_{ub}| &= \sqrt{\frac{m_u(\mu)}{m_t(\mu)}} + O\!\left(\frac{m_u}{m_t}\right),
+  \label{P5:eq:Vub}
+\end{align}
+where $Q=10$ is the condensate topological charge,
+$\Delta T_{23} = T_2 - T_3 = \tfrac{1}{8} - \tfrac{3}{40} = \tfrac{1}{20}$
+is the exact WZW T-matrix phase gap (Table~\ref{tab:wzw_data}),
+and the masses in~\eqref{P5:eq:Vus} and~\eqref{P5:eq:Vub} are evaluated at any
+common renormalisation scale $\mu$.
+\end{theorem}
+\status{published}
+\source{P5:thm:ckm_full}
+
+\begin{theorem}[$|V_{cb}|$ as an exact WZW condensate amplitude]
+\label{P5:thm:vcb_wzw}
+The CKM element $|V_{cb}| = e^{-\pi}$ satisfies the following exact
+identifications within the WZW framework:
+\begin{align}
+  |V_{cb}|
+  &= e^{-2\pi Q(T_2-T_3)} \label{P5:eq:Vcb_overlap} \\
+  &= \frac{m_\mu^{\mathrm{pred}}(\LUV)}{m_\tau^{\mathrm{pred}}(\LUV)} \label{P5:eq:Vcb_lepton} \\
+  &= \frac{m_s(\LUV)}{m_b(\LUV)}, \label{P5:eq:Vcb_quark}
+\end{align}
+where~\eqref{P5:eq:Vcb_lepton} and~\eqref{P5:eq:Vcb_quark} both equal
+$e^{-\pi}$ because $m_s/m_b = m_\mu/m_\tau$ at $\LUV$
+(the universal colour shift $\vp^{-3}$ cancels in the ratio).
+\end{theorem}
+\status{published}
+\source{P5:thm:vcb_wzw}
+
+\begin{theorem}[CP-violating phase: two competing WZW mechanisms]
+\label{P5:thm:delta_cp}
+The CP-violating phase $\delta_{\rm CP}$ receives contributions from two
+competing mechanisms, analogous to the two-mechanism structure of the fine
+structure constant in Paper~IV~\cite{Paper4}:
+
+\noindent\textbf{Mechanism~1 (dominant, non-Abelian WZW).}
+The leading-order topological spin of the three-generation condensate:
+\begin{equation}
+  \delta_{\rm CP}^{\rm(LO)}
+  \;=\; 2\pi(h_1 - h_2 + h_3)
+  \;=\; \frac{17\pi}{40}
+  \;=\; 76.5^\circ,
+  \label{P5:eq:delta_cp_lo}
+\end{equation}
+where $h_g = 3/\bigl(4(k_g+2)\bigr)$ is the conformal weight of the
+$j=\tfrac{1}{2}$ primary at WZW level $k_g = g$.
+This \emph{overshoots} the observed value by $11.5^\circ$.
+
+\noindent\textbf{Mechanism~2 (subleading, E$_8$ McKay~\cite{McKay1980} twisted sectors).}
+The eight E$_8$ twisted sectors of the $2I$-orbifold correct downward,
+weighted by $Q/(k\,h(E_8)) = 1/9$, the condensate phase quantum:
+\begin{equation}
+  \boxed{\Omega_{\rm phys}
+  \;=\; e^{i\cdot17\pi/40}
+  \;+\; \frac{Q}{k\,h(E_8)}
+        \sum_{m\in\mathcal{E}_8}
+        d_m\,e^{2\pi i\,m/90},}
+  \label{P5:eq:Omega_NLO}
+\end{equation}
+where $\mathcal{E}_8 = \{1,7,11,13,17,19,23,29\}$, $d_m$ are the McKay
+marks $(2,3,4,5,6,4,2,3)$, and $Q/(k\,h(E_8)) = 10/90 = 1/9$.
+The physical CP angle is
+\begin{equation}
+  \boxed{\delta_{\rm CP}
+  \;=\; \arg(\Omega_{\rm phys})
+  \;=\; 65.0^\circ
+  \;\approx\;\frac{13\pi}{36},}
+  \label{P5:eq:delta_cp_NLO}
+\end{equation}
+within $0.12\sigma$ of the PDG value
+$\delta_{\rm CP} = 65.4^\circ\pm3.3^\circ$~\cite{PDG2024}.
+The two mechanisms overshoot and correct in proportion $\phi$ (the golden
+ratio), bracketing the exact answer.
+\end{theorem}
+\status{published}
+\source{P5:thm:delta_cp}
+\residual{0.12\sigma}
+
+\begin{remark}[Structure of the exact weight and relation to Paper~IV]
+\label{P5:rem:cp_phase}
+The weight $w=Q/(k\,h(E_8))=1/9$ parallels Paper~IV's fine structure
+constant: there, a dominant non-Abelian WZW anti-screening term and a
+subleading Abelian QED screening term bracket the exact value with
+ratio $\approx k^4/\pi^2$; here the dominant Mechanism~1 overshoots and
+the subleading $E_8$ McKay correction (Mechanism~2) corrects back with
+ratio $\phi$ (the golden ratio from $2I$). The weight $1/9$ is fixed by
+the same phase quantum $\pi Q/(k\,h(E_8))=\pi/9$ entering the
+quark-lepton mass ratios (Theorem~\ref{P5:thm:quark_lepton_ratios}), and
+the $E_8$ Coxeter exponents in $\Omega_{\rm phys}$ are precisely the
+quark-sector labels of Proposition~\ref{P5:prop:quark_e8_assignment}.
+\end{remark}
+\status{published}
+\source{P5:rem:cp_phase}
+
+\begin{remark}[Relation to the Paper~I Coxeter conjecture]
+\label{P5:rem:coxeter_connection}
+Paper~I conjectured that CKM mixing angles arise from Coxeter exponents
+of $E_6$, $E_7$, $E_8$. The T-matrix phase gaps entering the CKM
+formulas realise this:
+\begin{equation}
+  \Delta T_{12} = \frac{1}{12} = \frac{1}{h(E_6)},
+  \qquad
+  \Delta T_{23} = \frac{1}{20} = \frac{1}{h(D_6)},
+  \label{P5:eq:coxeter_connection}
+\end{equation}
+with $h(E_6)=12$ and $h(D_6)=10$ (equivalently $2h(A_4)=10$). The exact
+identification of all CKM angles and the CP phase with Coxeter
+exponents of $E_6,E_7,E_8$ requires the full $2I$-McKay--WZW quiver
+spectrum; Theorem~\ref{P5:thm:ckm_full} is the leading-order realisation
+of the Paper~I conjecture. The same gap $\Delta T_{23}=1/20$ that gives
+$|V_{cb}|=e^{-\pi}$ gives the muon-to-tau ratio when $Q-1$ sectors are
+counted instead of $Q$ (Theorem~\ref{P5:thm:mmu_mtau}); the exact identity
+$T_1-T_2-T_3=(T_1-T_2)/Q=1/120$ links the Casimir self-duality
+$T_3=c/24$, $h(E_6)=12$, and $Q=10$ in a single arithmetic relation.
+\end{remark}
+\status{published}
+\source{P5:rem:coxeter_connection}
+\depends{electroweak/weinberg.tex}
+
+\begin{theorem}[Muon-to-tau ratio from Verlinde sector-exclusion]
+\label{P5:thm:mmu_mtau}
+The muon-to-tau mass ratio satisfies
+\begin{equation}
+  \frac{m_\mu}{m_\tau}
+  \;=\; \exp\!\Bigl(-\tfrac{9\pi}{10}\Bigr)
+  \;=\; 0.05917
+  \quad(\text{measured: }0.05946,\;\;0.50\%),
+  \label{P5:eq:mmu_mtau_proved}
+\end{equation}
+where the sector count $Q-1=9$ follows from the Verlinde S-matrix of $\mathrm{SU}(2)_3$.
+\end{theorem}
+\status{published}
+\source{P5:thm:mmu_mtau}
+\residual{0.50\%}
+
+\begin{remark}[Verlinde count $N_{\tau\to\mu}=\vp$ and icosahedral geometry]
+\label{P5:rem:verlinde_phi}
+The Verlinde fusion channel count for $\tau\to\mu$,
+$N_{\tau\to\mu}=S_{j_\tau,j_\mu}/S_{j_\tau,j_0}=2\cos(\pi/5)=\vp$
+\emph{exactly}, connects the lepton mass ratio to the icosahedral
+geometry of the condensate through the same $\cos(\pi/5)=\vp/2$
+identity underlying the fine-structure constant
+($\alpha^{-1}=360/\vp^2-\ldots$) and the Koide ratio.
+\end{remark}
+\status{published}
+\source{P5:rem:verlinde_phi}
+
+\begin{corollary}[Wolfenstein hierarchy from WZW T-phase structure]
+\label{P5:cor:ckm_wolfenstein}
+The CKM Wolfenstein hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$
+has a natural WZW origin:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item $|V_{us}| \approx 0.224$ reflects the lab-scale ratio $\sqrt{m_d/m_s}$
+  (Mechanism~A, down-type angular mixing).
+\item $|V_{cb}| \approx e^{-\pi} \approx 0.043$ is the direct WZW amplitude
+  $e^{-2\pi Q\,\Delta T_{23}}$ (Mechanism~B, condensate tunnelling).
+\item $|V_{ub}| \approx 0.00354$ reflects the up-sector ratio $\sqrt{m_u/m_t}$
+  (Mechanism~A, up-type angular mixing across three levels).
+\end{enumerate}
+The Wolfenstein parameter $A = |V_{cb}|/|V_{us}|^2 = e^{-\pi}/(m_d/m_s)^{1/2}$
+is thus a ratio of two WZW amplitudes: a direct condensate tunnelling
+amplitude divided by the square of a Fritzsch angular mixing angle.
+Numerically $A_{\rm pred} = 0.865$ vs observed $A = 0.826$ (a $4.7\%$ discrepancy).
+\end{corollary}
+\status{published}
+\source{P5:cor:ckm_wolfenstein}
+\residual{4.7\% (Wolfenstein $A$ parameter)}
+
+
+%════════════════════════════════════════════════════════════════════
+% Strange Quark and Spectral Structure — Paper V
+%════════════════════════════════════════════════════════════════════
+\begin{proposition}[Strange-quark T-matrix coincidence]
+\label{P5:prop:squark}
+In the $2I$-WZW\,$\otimes\,\mathrm{SU}(3)_3$ tensor product, if the
+strange quark's icosahedral sector carries conformal weight
+$h_{2I}^{(s)} = 13/90$, then the combined T-matrix phase satisfies
+\begin{equation}
+  T_{\mathrm{total}}(s)
+  \;=\; \frac{13}{90} + \frac{2}{9} - \frac{3}{40} - \frac{1}{6}
+  \;=\; \frac{11}{30} - \frac{29}{120}
+  \;=\; \frac{1}{8}
+  \;=\; T_\mu,
+  \label{P5:eq:Ts_Tmu}
+\end{equation}
+\emph{exactly}.  The framework therefore predicts $m_s = m_\mu^{\mathrm{pred}}$
+at the condensate scale, where $m_\mu^{\mathrm{pred}}=v_{\mathrm{EW}}e^{-2\pi Q/8}\approx95.6\,\mathrm{MeV}$.
+The measured $m_s^{\overline{\mathrm{MS}}}(2\,\mathrm{GeV})\approx93.5\,\mathrm{MeV}$
+agrees with this prediction to $\mathbf{2.2\%}$.
+\end{proposition}
+\status{published}
+\source{P5:prop:squark}
+\residual{2.2\%}
+
+\begin{remark}[Status of $h_{2I}^{(s)}=13/90$ --- now resolved]
+\label{P5:rem:h2I_s}
+The conformal weight $h_{2I}^{(s)}=13/90$ is proved in
+Theorem~\ref{P5:thm:h2I_coxeter}: it equals $m_{13}/(k\,h(E_8))=13/90$,
+the fourth Coxeter exponent of $E_8$ divided by $k\,h(E_8)=90$, arising
+from the modular T-matrix of the ADE-extended chiral algebra. The
+result of Proposition~\ref{P5:prop:squark} is therefore an unconditional
+exact identity: $T_{\rm total}(s)=1/8=T_\mu$, giving $m_s=m_\mu^{\rm pred}$
+with 2.2\% agreement with the measured
+$m_s^{\overline{\mathrm{MS}}}(2\,\mathrm{GeV})=93.5\,\mathrm{MeV}$.
+\end{remark}
+\status{published}
+\source{P5:rem:h2I_s}
+
+\begin{theorem}[Character table of $2I$]
+\label{P5:thm:2I_characters}
+The binary icosahedral group $2I$ has exactly nine irreducible complex
+representations of dimensions $1,2,2,3,3,4,4,5,6$.
+With $\vp=(1+\sqrt{5})/2$ and $\bar\vp=(1-\sqrt{5})/2 = -1/\vp$,
+their characters at the nine conjugacy classes are:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\scalebox{0.90}{
+\begin{tabular}{lc|ccccccccc}
+\toprule
+Irrep & dim & $1A$ & $2A$ & $3A$ & $4A$ & $5A$ & $5B$ & $6A$ & $10A$ & $10B$ \\
+\midrule
+$\chi_1$ & 1 & $1$  & $1$  & $1$  & $1$  & $1$      & $1$      & $1$  & $1$      & $1$      \\
+$\chi_2$ & 2 & $2$  & $-2$ & $-1$ & $0$  & $-\vp$   & $-\bar\vp$ & $1$ & $\vp$    & $\bar\vp$  \\
+$\chi_3$ & 2 & $2$  & $-2$ & $-1$ & $0$  & $-\bar\vp$ & $-\vp$ & $1$ & $\bar\vp$& $\vp$    \\
+$\chi_4$ & 3 & $3$  & $3$  & $0$  & $-1$ & $\bar\vp$& $\vp$    & $0$  & $\bar\vp$& $\vp$    \\
+$\chi_5$ & 3 & $3$  & $3$  & $0$  & $-1$ & $\vp$    & $\bar\vp$& $0$  & $\vp$    & $\bar\vp$\\
+$\chi_6$ & 4 & $4$  & $4$  & $1$  & $0$  & $-1$     & $-1$     & $1$  & $-1$     & $-1$     \\
+$\chi_7$ & 4 & $4$  & $-4$ & $1$  & $0$  & $-1$     & $-1$     & $-1$ & $1$      & $1$      \\
+$\chi_8$ & 5 & $5$  & $5$  & $-1$ & $1$  & $0$      & $0$      & $-1$ & $0$      & $0$      \\
+$\chi_9$ & 6 & $6$  & $-6$ & $0$  & $0$  & $1$      & $1$      & $0$  & $-1$     & $-1$     \\
+\bottomrule
+\end{tabular}
+}
+\end{center}
+\noindent
+Here $\bar\vp = -1/\vp$ and $1/\vp = \vp - 1 \approx 0.618$.
+The table is verified:
+all nine norms $\sum_g |\chi_i(g)|^2 = 120 = |2I|$,
+and all 36 off-diagonal inner products $\langle\chi_i,\chi_j\rangle = 0$.
+\end{theorem}
+\status{published}
+\source{P5:thm:2I_characters}
+\residual{exact}
+
+\begin{proposition}[SU(2) restriction to $2I$]
+\label{P5:prop:su2_branching}
+The four SU(2) primary representations at level $k=3$ restrict to $2I$ as:
+\begin{equation}
+  V_0\big|_{2I} = \chi_1, \qquad
+  V_{1/2}\big|_{2I} = \chi_2, \qquad
+  V_1\big|_{2I} = \chi_5, \qquad
+  V_{3/2}\big|_{2I} = \chi_7.
+  \label{P5:eq:su2_branching}
+\end{equation}
+Each restriction is multiplicity-free and the dimensions match
+($1,2,3,4$ respectively). The five remaining $2I$-irreps
+$\chi_3,\chi_4,\chi_6,\chi_8,\chi_9$ first appear in SU(2) reps at spin
+$j=7/2,3,3,2,5/2$ respectively, all strictly outside the
+$\mathrm{SU}(2)_3$ unitary range $j\le k/2=3/2$.
+\end{proposition}
+\status{published}
+\source{P5:prop:su2_branching}
+\residual{exact}
+
+\begin{corollary}[Untwisted and twisted sectors]
+\label{P5:cor:sectors}
+In the $\mathrm{SU}(2)_3/2I$ orbifold CFT, the untwisted sector
+contains four primary fields corresponding to $\chi_1,\chi_2,\chi_5,\chi_7$
+with conformal weights
+\begin{equation}
+  h(\chi_1)=0, \quad
+  h(\chi_2)=\tfrac{3}{20}, \quad
+  h(\chi_5)=\tfrac{2}{5}, \quad
+  h(\chi_7)=\tfrac{3}{4}.
+  \label{P5:eq:untwisted_weights}
+\end{equation}
+The remaining five $2I$-irreps $\chi_3,\chi_4,\chi_6,\chi_8,\chi_9$ lie
+in the twisted sector; their conformal weights are computed via the
+spectral-flow formula in Theorem~\ref{P5:thm:twisted_weights}.
+\end{corollary}
+\status{published}
+\source{P5:cor:sectors}
+\residual{exact}
+
+\begin{proposition}[Twisted-sector assignment for the strange quark]
+\label{P5:prop:2i_strange_sector}
+The conformal weight $h_{2I}^{(s)}=13/90$ required by
+Proposition~\ref{P5:prop:squark} lies in the twisted sector of the
+$\mathrm{SU}(2)_3/2I$ orbifold: it does not equal $j(j{+}1)/5$ for any
+untwisted $j\in\{0,\tfrac12,1,\tfrac32\}$ (equation~\eqref{P5:eq:untwisted_weights}),
+and satisfies the algebraic identity
+\begin{equation}
+  \frac{13}{90} = h_{1/2} - \frac{1}{180} = \frac{3}{20} - \frac{1}{180},
+  \label{P5:eq:h2I_anomaly}
+\end{equation}
+expressing $h_{2I}^{(s)}$ as the spin-$\tfrac12$ primary weight shifted
+by the fractional modular anomaly $1/180=(2/3)/|2I|$. The associated
+twisted-sector T-matrix phase is
+\begin{equation}
+  T_{2I}^{(\mathrm{twist})} = h_{2I}^{(s)} - \frac{c_{2I}}{24}
+  = \frac{13}{90} - \frac{3}{40} = \frac{5}{72}.
+  \label{P5:eq:T_twist_s}
+\end{equation}
+The most likely $2I$-irrep to carry this weight is $\chi_3$ (the Galois
+conjugate of the spin-$\tfrac12$ rep $\chi_2$), the natural
+twisted-sector partner of the untwisted $\chi_2$.
+\end{proposition}
+\status{published}
+\source{P5:prop:2i_strange_sector}
+\residual{exact}
+
+\begin{theorem}[Twisted-sector conformal weights]
+\label{P5:thm:twisted_weights}
+In the $\mathrm{SU}(2)_3/2I$ orbifold CFT, the five twisted-sector primary
+fields have conformal weights
+\begin{equation}
+  h(\chi_i) = \frac{k\,\nu_i^2}{2},
+  \label{P5:eq:twisted_weights}
+\end{equation}
+where $k=3$ and $\nu_i = \min\!\bigl(\theta_i/(2\pi),\,1-\theta_i/(2\pi)\bigr)$
+is the minimal fractional SU(2) angle of the associated conjugacy class.
+The explicit values are:
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{llccc}
+\toprule
+Irrep & Conjugacy class & $\nu$ & $h = 3\nu^2/2$ & $T = h - c/24$ \\
+\midrule
+$\chi_8$ (dim 5) & $5A$/$10A$ (order 5/10) & $1/5$ & $3/50$  & $-3/200$ \\
+$\chi_9$ (dim 6) & $5B$/$10B$ (order 5/10) & $2/5$ & $6/25$  & $33/200$ \\
+$\chi_6$ (dim 4) & $4A$ (order 4)           & $1/2$ & $3/8$   & $3/10$   \\
+$\chi_3$ (dim 2) & $3A$ (order 3/6)         & $1/3$ & $1/6$   & $11/120$ \\
+$\chi_4$ (dim 3) & $6A$ (order 3/6)         & $1/3$ & $1/6$   & $11/120$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+\status{published}
+\source{P5:thm:twisted_weights}
+\residual{exact}
+
+\begin{remark}[The McKay quiver structure]
+\label{P5:subsec:mckay_graph}
+The McKay graph of $2I$ is the affine $\hat{E}_8$ Dynkin diagram:
+\begin{equation}
+  \chi_1 - \chi_2 - \chi_5 - \chi_7 - \chi_8 - \chi_9 - \chi_4
+  \qquad \text{with branch } \chi_9 - \chi_6 - \chi_3,
+  \label{P5:eq:e8_quiver}
+\end{equation}
+verified by computing $\chi_2\otimes\chi_i=\sum_{\text{neighbors}}\chi_j$
+for all nine irreps. The marks (= dimensions) are $[1,2,3,4,5,6,3,4,2]$,
+summing to $30=h(E_8)$. The four untwisted primaries occupy the
+``left'' chain (nodes 0--3); the five twisted primaries occupy nodes
+4--8 of the affine $\hat{E}_8$.
+\end{remark}
+\status{published}
+\source{P5:subsec:mckay_graph}
+
+\begin{theorem}[Complete $\mathrm{SU}(2)_3/2I$ orbifold spectrum]
+\label{P5:thm:full_spectrum}
+The $\mathrm{SU}(2)_3/2I$ orbifold CFT has exactly nine primary fields,
+one per node of the affine $\hat{E}_8$ Dynkin diagram. Their conformal
+weights and T-matrix phases $T_i=h_i-c/24$ (with $c=9/5$, $c/24=3/40$) are:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lllll}
+\toprule
+Node & Irrep & Dim & $h_i$ & $T_i$ \\
+\midrule
+0 & $\chi_1$ & 1 & 0 & $-3/40$ \\
+1 & $\chi_2$ & 2 & $3/20$ & $3/40$ \\
+2 & $\chi_5$ & 3 & $2/5$ & $13/40$ \\
+3 & $\chi_7$ & 4 & $3/4$ & $27/40$ \\
+4 & $\chi_8$ & 5 & $3/50$ & $-3/200$ \\
+5 & $\chi_9$ & 6 & $6/25$ & $33/200$ \\
+6 & $\chi_6$ & 4 & $3/8$ & $3/10$ \\
+7 & $\chi_3$ & 2 & $1/6$ & $11/120$ \\
+8 & $\chi_4$ & 3 & $1/6$ & $11/120$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Nodes $0$--$3$ are the untwisted sector; nodes $4$--$8$ the twisted sector.
+\end{theorem}
+\status{published}
+\source{P5:thm:full_spectrum}
+\residual{exact}
+
+\begin{theorem}[$h_{2I}^{(s)}=13/90$ from the McKay--E$_8$~\cite{McKay1980} Coxeter spectrum]
+\label{P5:thm:h2I_coxeter}
+In the $2I$ McKay--WZW theory at level $k=3$, the twisted-sector primary fields
+of the extended chiral algebra are labeled by the Coxeter exponents
+$m \in \{1,7,11,13,17,19,23,29\}$ of $E_8$ and have conformal weights
+\begin{equation}
+  h_m \;=\; \frac{m}{k\,h(E_8)} \;=\; \frac{m}{3 \times 30} \;=\; \frac{m}{90},
+  \label{P5:eq:h_coxeter}
+\end{equation}
+where $h(E_8)=30$ is the Coxeter number of $E_8$.
+For $m=13$ (the fourth Coxeter exponent of $E_8$):
+\begin{equation}
+  h_{2I}^{(s)} \;=\; h_{m=13} \;=\; \frac{13}{90},
+  \label{P5:eq:h2I_proved}
+\end{equation}
+which is precisely the weight required by Proposition~\ref{P5:prop:squark}
+for the strange-quark T-matrix coincidence.
+\end{theorem}
+\status{published}
+\source{P5:thm:h2I_coxeter}
+\residual{exact}
+
+\begin{remark}[Geometric interpretation and topological quantisation]
+\label{P5:rem:h2I_geometric}
+In the condensate framework, the $E_8$ Coxeter exponents label distinct
+topological winding sectors of the Hopf knot. Each exponent
+$m\in\{1,7,11,13,17,19,23,29\}$ corresponds to a self-consistent
+knotted configuration; the conformal weight $h_m=m/90$ measures the
+topological stress stored in that winding. For the strange quark,
+$m=13$ is the fourth exponent, forming the pair $(13,17)$ symmetric
+about the midpoint $h(E_8)/2=15$ of the $E_8$ exponent sequence.
+\end{remark}
+\status{published}
+\source{P5:rem:h2I_geometric}
+
+\begin{remark}[Relationship between Proposition~\ref{P5:prop:2i_strange_sector} and Theorem~\ref{P5:thm:h2I_coxeter}]
+\label{P5:rem:h2I_status}
+Theorem~\ref{P5:thm:h2I_coxeter} resolves the weight $h_{2I}^{(s)}=13/90$
+directly from the McKay--$E_8$ Coxeter spectrum, superseding the
+spectral-flow route of Proposition~\ref{P5:prop:2i_strange_sector}, whose
+untwisted/twisted enumeration ($h\in\{3/50,6/25,3/8,1/6,1/6\}$) did not
+by itself single out $13/90$. The Coxeter-exponent labelling of the
+full twisted-sector spectrum is the more fundamental structure: it
+simultaneously fixes $h_{2I}^{(s)}$ and the $E_8$ assignment of all six
+SM quarks (Proposition~\ref{P5:prop:quark_e8_assignment}).
+\end{remark}
+\status{published}
+\source{P5:rem:h2I_status}
+
+\begin{proposition}[$E_8$ Coxeter assignment for SM quarks --- uniqueness]
+\label{P5:prop:quark_e8_assignment}
+The assignment
+\begin{equation}
+  t \leftrightarrow 1, \quad
+  b \leftrightarrow 7, \quad
+  c \leftrightarrow 11, \quad
+  s \leftrightarrow 13, \quad
+  d \leftrightarrow 17, \quad
+  u \leftrightarrow 19
+  \label{P5:eq:quark_e8}
+\end{equation}
+is the unique monotone assignment of the six SM quarks to six of the
+eight $E_8$ Coxeter exponents compatible with the exact strange-quark
+identification $s\leftrightarrow13$ (Theorem~\ref{P5:thm:h2I_coxeter}).
+The two $E_8$ exponents $\{23,29\}$ are unoccupied, consistent with the
+SM having exactly three quark generations. Under
+$T_{\rm total}^{(m)}=(4m-7)/360$, the six predicted masses
+$m_q^{E_8}=v_{\rm EW}e^{-2\pi QT^{(m)}}$ agree with observation to
+$51\%$ ($b$), $-70\%$ ($c$), $\mathbf{2.2\%}$ ($s$, exact by
+construction), $25\%$ ($d$), $-33\%$ ($u$), with $t$ requiring the
+level correction of Papers~I--II. Uniqueness follows because the
+physical mass ordering $m_t>m_b>m_c>m_s>m_d>m_u$ forces the three
+quarks heavier than $s$ onto $\{1,7,11\}$ and the two lighter than $s$
+onto $\{17,19\}$, each monotonically.
+\end{proposition}
+\status{published}
+\source{P5:prop:quark_e8_assignment}
+\residual{2.2\% (strange, derived); 25--70\% (remaining five, fitted)}
+
+\begin{remark}[Topological interpretation and generation structure]
+\label{P5:rem:other_quarks}
+The $E_8$ Coxeter exponent $m$ measures the topological winding stress
+of the quark's $2I$-sector. The assignment~\eqref{P5:eq:quark_e8} shows
+three quark pairs $(t,b,c)$ and $(s,d,u)$ at exponents $\{1,7,11\}$ and
+$\{13,17,19\}$ respectively, with $m=13$ the natural boundary. The
+unoccupied exponents $\{23,29\}$ would give masses far lighter than any
+SM quark, predicting the absence of a fourth generation: these
+exponents correspond to a $j=2$ primary of $\mathrm{SU}(2)_3$, which
+does not exist because $j=2>k/2=3/2$ (the Pentagon Theorem $k+2=5$).
+The same WZW truncation forbidding a fourth lepton generation therefore
+simultaneously forbids a fourth quark generation via the $E_8$ Coxeter
+assignment.
+\end{remark}
+\status{published}
+\source{P5:rem:other_quarks}
+
+The mass formula for quarks uses the same WZW T-matrix phases as leptons,
+with an additional level shift $\delta n^{(C)}=1/2$:
+\begin{equation}
+  m_q^{(g)} \;=\; v_{\mathrm{EW}}\,e^{-2\pi Q T_g}\cdot\vp^{-2\delta n^{(C)}}
+              \;=\; m_\ell^{(g)}\cdot\vp^{-1},
+  \label{P5:eq:quark_mass_formula}
+\end{equation}
+and an additional isospin shift for the lower doublet component
+(down-type quarks):
+\begin{equation}
+  m_{q,\mathrm{down}}^{(g)}
+  = m_\ell^{(g)}\cdot\vp^{-1}\cdot\vp^{-2}
+  = m_\ell^{(g)}\cdot\vp^{-3},
+  \label{P5:eq:down_quark_mass}
+\end{equation}
+where the extra $\vp^{-2}$ corresponds to the isospin-$\tfrac{1}{2}$
+lower-doublet level shift (one integer level lower in the tower).
+
+These predict the \emph{within-generation} quark-to-lepton mass ratio:
+\begin{equation}
+  \frac{m_{u,c,t}^{(g)}}{m_{e,\mu,\tau}^{(g)}}
+  \;=\; \frac{1}{\vp}
+  \;\approx\; 0.618,
+  \qquad
+  \frac{m_{d,s,b}^{(g)}}{m_{e,\mu,\tau}^{(g)}}
+  \;=\; \frac{1}{\vp^3}
+  \;\approx\; 0.236.
+  \label{P5:eq:quark_lepton_ratio}
+\end{equation}
+\status{published}
+\source{P5:eq:quark_mass_formula; eq:down_quark_mass; eq:quark_lepton_ratio}
+
+\begin{theorem}[Exact condensate-scale quark-to-lepton mass ratios]
+\label{P5:thm:quark_lepton_ratios}
+At the condensate UV scale $\LUV$, the six SM quark masses satisfy
+\begin{equation}
+  \frac{m_q}{\,m_{\ell(g)}} \;=\; \exp\!\left(\frac{n_q\,\pi}{9}\right),
+  \qquad n_q \in \mathbb{Z},
+  \label{P5:eq:quark_lepton_exact}
+\end{equation}
+where $m_{\ell(g)}$ is the predicted lepton mass of the same generation
+$g$ and the six integers are
+\begin{equation}
+  n_t = 15,\quad n_b = 3,\quad n_c = 4,\quad n_s = 0,\quad n_d = 7,\quad n_u = 3.
+  \label{P5:eq:nq_values}
+\end{equation}
+The common unit $\pi/9=\pi Q/(k\,h(E_8))$ is the basic $E_8$-Coxeter
+phase quantum at WZW level $k=3$, combining the Paper~I generation
+T-phases $T_g=(6-k_g)/(8(k_g+2))$ with the $E_8$ Coxeter T-phase
+$T^{(m)}_{E_8}=(4m-7)/360$ (Theorem~\ref{P5:thm:h2I_coxeter}) via
+$m_q/m_{\ell(g)}=\exp(2\pi Q(T_g-T^{(m)}_{E_8}))$. All six values are
+integers, confirming the formula; $n_s=0$ recovers the strange-quark
+coincidence $m_s=m_\mu$ exactly.
+\end{theorem}
+\status{published}
+\source{P5:thm:quark_lepton_ratios}
+\residual{exact (condensate scale, prior to QCD running)}
+
+\begin{remark}[Structure of the integers $n_q$ and isospin]
+\label{P5:rem:nq_structure}
+The integers $n_q$ carry a natural structure.
+The case $n_s = 0$ is the already-proved strange-quark coincidence $m_s = m_\mu$.
+The equalities $n_b = n_u = 3$ predict $m_b/m_\tau = m_u/m_e = e^{\pi/3}$
+at the condensate scale: both the bottom and up quarks sit at the same distance
+(in units of $\pi/9$) from their respective generation leptons.
+The relation $n_d - n_b = 7-3 = 4 = n_c$ encodes the identity
+$(m_d/m_e)/(m_b/m_\tau) = m_c/m_\mu$ between quark-lepton ratios.
+The T-phase unit $\pi/9 = \pi Q/(k\,h(E_8))$ connects the generation
+lepton scale to the quark scale through the E$_8$ Coxeter geometry.
+Equation~\eqref{P5:eq:quark_lepton_exact} gives the predicted condensate-scale
+masses; the physical (laboratory-scale) quark masses differ by QCD running,
+with the strange quark giving exact agreement since $m_s/m_\mu \approx 1$
+is approximately scale-independent.
+\end{remark}
+\status{published}
+\source{P5:rem:nq_structure}
+
+\begin{remark}[CKM mixing from the quark mass hierarchy]
+\label{P5:rem:ckm_preview}
+The diagonal quark mass matrices established in this section,
+together with the Hermitian WZW texture and the T-matrix phase structure,
+allow the three CKM mixing angles to be derived with no free parameters.
+This is carried out in Section~\ref{P5:sec:ckm}.
+\end{remark}
+\status{published}
+\source{P5:rem:ckm_preview}
+
+%════════════════════════════════════════════════════════════════════
+% Ruled-Out Quark Mass Mechanisms — Paper XVI
+%════════════════════════════════════════════════════════════════════
+
+\begin{conjecture}[The broken-vertex hypothesis]
+\label{P16:conj:vertices}
+The quark tower level $n_q$ is determined by some combinatorial invariant
+of the 96 vertices broken under $\twoI\to\twoT$, read either as a
+coset-counting argument on $\twoI/\twoT$, or by extracting the
+$\vp$-exponent appearing in the broken vertices' coordinates.
+\end{conjecture}
+\status{open}
+\source{P16:conj:vertices}
+
+\begin{proposition}[Falsification of the broken-vertex hypothesis]
+\label{P16:prop:vertices_fail}
+Conjecture~\ref{P16:conj:vertices} fails under three independent readings:
+(a)~no integer combination of $\{96,24,5,10,3\}$ reproduces any
+lepton/quark mass ratio; (b)~the 96 broken vertices contain only
+$\vp^{\pm1}$ in their coordinates, not the dynamical level $n_e=20$;
+(c)~$\twoT$ is not a normal subgroup of $\twoI$, so $\twoI/\twoT$
+carries no group structure and no algebraic invariant beyond bare
+cardinalities.
+\end{proposition}
+\status{published}
+\source{P16:prop:vertices_fail}
+
+\begin{proposition}[Structure of the five conjugate copies of $\twoT$ in $\twoI$]
+\label{P16:prop:five_copies}
+$\twoI$ contains exactly five conjugate copies of $\twoT$.
+Of these: (i)~all five share $\{\pm1\}$; (ii)~exactly one is
+$\vp$-free (the standard 24-cell); (iii)~every pair intersects in
+exactly six elements; (iv)~the intersection of all five is exactly
+$\{\pm1\}$.
+\end{proposition}
+\status{published}
+\source{P16:prop:five_copies}
+\depends{strong/colour.tex}
+
+\begin{conjecture}[The bosonic-triple hypothesis]
+\label{P16:conj:bosonic}
+The three 1-dimensional irreducible representations
+$\{\Gamma_1,\Gamma_\omega,\Gamma_{\omega^2}\}$ of $\twoT$, being
+permuted by an order-3 symmetry in the same way as the colour triple,
+supply an independent generation label.
+\end{conjecture}
+\status{open}
+\source{P16:conj:bosonic}
+
+\begin{proposition}[Falsification of the bosonic-triple hypothesis]
+\label{P16:prop:bosonic_fail}
+Conjecture~\ref{P16:conj:bosonic} fails: the symmetry permuting
+$\{\Gamma_1,\Gamma_\omega,\Gamma_{\omega^2}\}$ is the \emph{same}
+single outer automorphism that permutes the colour triple, not an
+independent one. $\twoT$ has a unique order-3 outer automorphism,
+acting simultaneously on both three-element orbits; at most one free
+$\mathbb{Z}_3$ label is available, and it is the colour label already
+in use.
+\end{proposition}
+\status{published}
+\source{P16:prop:bosonic_fail}
+
+\begin{conjecture}[The level-variation hypothesis]
+\label{P16:conj:level}
+The quark generation index corresponds to varying the level $k$ of
+$\SU(3)_k$, by analogy with the lepton sector's level-varying ladder.
+\end{conjecture}
+\status{open}
+\source{P16:conj:level}
+
+\begin{proposition}[Falsification of the level-variation hypothesis]
+\label{P16:prop:level_fail}
+Conjecture~\ref{P16:conj:level} fails: the conformal embedding
+$\twoT\leftrightarrow E_6\leftrightarrow(E_6)_1\supset\SU(3)_1^{\times3}$
+relies on the exact central-charge match $c_{(E_6)_1}=6=3c_{\SU(3)_1}$,
+which holds only at $k=1$. At $k\geq2$ the match fails; there is no
+$k$-ladder to vary.
+\end{proposition}
+\status{published}
+\source{P16:prop:level_fail}
+
+\begin{remark}[A second, independent reason]
+\label{P16:rem:no_target}
+Even granting a hypothetical $\SU(3)_k$ ladder, the lepton-sector ladder
+it would generalise is not itself a McKay-correspondence object: the levels
+$k_g=1,2,3$ in the lepton T-phases are a free WZW scan with no
+finite-subgroup interpretation, and only $k=3$ is tied to $\twoI$ via the
+pentagon mechanism. Proposition~\ref{P16:prop:level_fail} rules out an analogy
+to a mechanism that was not grounded in McKay theory to begin with.
+\end{remark}
+\status{published}
+\source{P16:rem:no_target}
+
+\begin{conjecture}[The $Q_8$-coset hypothesis]
+\label{P16:conj:q8}
+The three generations correspond to the three cosets of $Q_8$ in
+$\twoT$, which form a $\mathbb{Z}_3$ structure independent of the colour
+automorphism (since $Q_8$-coset multiplication is an inner operation,
+whereas the colour $\mathbb{Z}_3$ is an outer automorphism).
+\end{conjecture}
+\status{open}
+\source{P16:conj:q8}
+
+\begin{proposition}[Independence of the $Q_8$-coset $\mathbb{Z}_3$]
+\label{P16:prop:q8_independent}
+The $\mathbb{Z}_3$ structure on the cosets of $Q_8$ in $\twoT$ is
+independent of the colour automorphism: inner automorphisms act trivially
+on $\mathrm{Irr}(\twoT)$, while the colour automorphism is outer.
+\end{proposition}
+\status{published}
+\source{P16:prop:q8_independent}
+
+\begin{proposition}[Falsification of the $Q_8$-coset hypothesis]
+\label{P16:prop:q8_fail}
+The three cosets of $Q_8$ in $\twoT$ split asymmetrically: one
+distinguished coset ($Q_8$ itself, with order multiset $\{1,2,4^6\}$)
+and two indistinguishable cosets (order multiset $\{3^4,6^4\}$ each),
+related by a residual conjugation symmetry $\omega\leftrightarrow\omega^2$.
+This ``one special $+$ one conjugate pair'' structure cannot support an
+ordered, pairwise-inequivalent three-generation ladder.
+\end{proposition}
+\status{published}
+\source{P16:prop:q8_fail}
+
+\begin{conjecture}[Generation-dependent correction to colour shift]
+\label{P16:conj:colourshift}
+The discrepancy between the universal colour-shift formula and measured
+quark masses is a smooth, generation-dependent correction $\delta n^{(C)}(g)$
+layered on top of the universal shift $\tfrac{1}{2}$.
+\end{conjecture}
+\status{open}
+\source{P16:conj:colourshift}
+
+\begin{proposition}[Falsification of the generation-dependent correction hypothesis]
+\label{P16:prop:colourshift_fail}
+Conjecture~\ref{P16:conj:colourshift} fails: the required corrections
+$n_g$ (via $m_q^{(g)}/m_\ell^{(g)}=\vp^{-n_g}$) are not smooth
+functions of $g$. Down-type values are non-monotonic
+($n_1=-4.60,\,n_2=+0.26,\,n_3=-1.78$), ruling out any
+generation-smooth correction.
+\end{proposition}
+\status{published}
+\source{P16:prop:colourshift_fail}
+
+\begin{remark}[Scale ambiguity in Paper V]
+\label{P16:rem:scale_ambiguity}
+The quark mass formula of Paper~V is scoped to $\LUV\approx6.8\times10^{17}$\,GeV,
+whereas Paper~V's CKM formulas use PDG/$\overline{\mathrm{MS}}$ masses
+directly with no running step. One-loop running from $\LUV$ to 2\,GeV
+widens the gap to measured values, but one-loop perturbative running is
+not reliable in the infrared for light quarks. Resolving this scale
+ambiguity is a prerequisite for any quantitative test.
+\end{remark}
+\status{open}
+\source{P16:rem:scale_ambiguity}
+
+\begin{remark}[Algebraic structure of the $n_q$ integers]
+\label{P16:rem:nq_structure}
+The $n_q$ integers of Paper~V's $E_8$ assignment factor as
+$n_q = \mathrm{Base}_g - 2m$, where
+$\mathrm{Base}_g=180T_g+\tfrac{7}{2}\in\{41,26,17\}$ for $g=1,2,3$.
+A cross-sector identity: $\mathrm{Base}_1 - \mathrm{Base}_3
+= 180(T_1-T_3) = 24 = |\twoT|$, linking the lepton T-phase span to the
+order of the binary tetrahedral group exactly.
+\end{remark}
+\status{published}
+\source{P16:rem:nq_structure}
+
+\begin{proposition}[Uniqueness of the monotone $E_8$ assignment]
+\label{P16:prop:e8_unique}
+Given $m_s=13$ and the physical mass ordering
+$m_t>m_b>m_c>m_s>m_d>m_u$, the monotone assignment of the remaining
+five quarks to five of the seven remaining $E_8$ Coxeter exponents,
+leaving the two largest ($23,29$) unused, is unique:
+$t\to1,\,b\to7,\,c\to11,\,d\to17,\,u\to19$.
+\end{proposition}
+\status{published}
+\source{P16:prop:e8_unique}
+
+\begin{proposition}[The strange-quark exponent is derived; the remaining five are not]
+\label{P16:prop:e8_mixed}
+Of the six $E_8$-exponent assignments, exactly one ($s\leftrightarrow m=13$)
+follows from an identity independent of the observed mass ordering (the
+T-matrix coincidence $T_{\mathrm{total}}(s)=T_\mu$ forces $m=13$). The
+remaining five follow from Proposition~\ref{P16:prop:e8_unique}'s monotonicity
+argument, using the observed mass ordering as input. They are not
+independently derived.
+\end{proposition}
+\status{published}
+\source{P16:prop:e8_mixed}
+
+\begin{proposition}[Accuracy of the five fitted assignments]
+\label{P16:prop:e8_accuracy}
+The five fitted assignments of Proposition~\ref{P16:prop:e8_mixed}
+reproduce measured quark masses with errors of $51\%$ ($b$), $-70\%$ ($c$),
+$26\%$ ($d$), $-32\%$ ($u$), and undefined/large ($t$), against the
+$2.2\%$ accuracy of the independently-derived strange-quark case.
+\end{proposition}
+\status{published}
+\source{P16:prop:e8_accuracy}
+
+%════════════════════════════════════════════════════════════════════
+% RG Running and Strange-Quark Match — Paper XVI
+%════════════════════════════════════════════════════════════════════
+
+\begin{proposition}[Strange-quark prediction matches PDG at sub-percent level]
+\label{P16:prop:strange_match}
+Running the colour-shift prediction $m_s(\LUV)=22.56$\,MeV to
+$\mu=2$\,GeV via one-loop QCD with flavour-threshold matching gives
+$m_s(2\,\mathrm{GeV})=93.32$\,MeV, a $0.09\%$ deviation from the PDG
+value $93.40$\,MeV.
+\end{proposition}
+\status{published}
+\source{P16:prop:strange_match}
+\residual{0.09\%}
+
+\begin{remark}[Two independent strange-quark coincidences]
+\label{P16:rem:two_strange_results}
+Proposition~\ref{P16:prop:strange_match} is not a restatement of the $E_8$
+strange-quark coincidence of Proposition~\ref{P16:prop:e8_mixed}: the $E_8$
+route gives $m_s=m_\mu=105.66$\,MeV at the condensate scale, while the
+colour-shift route gives $m_s(\LUV)=22.56$\,MeV, a different number
+requiring a $4.14\times$ RG running enhancement to reach agreement.
+Two structurally independent calculations single out the strange quark
+for unusually good agreement; whether this reflects a single underlying
+mechanism is left open.
+\end{remark}
+\status{published}
+\source{P16:rem:two_strange_results}
+
+\begin{remark}[External inputs to the running]
+\label{P16:rem:external_inputs}
+The running of Section~7 of Paper~XVI anchors $\alpha_s$ to the
+measured $\alpha_s(M_Z)=0.1180$ and uses PDG threshold locations.
+A fully self-consistent test would re-derive $\alpha_s$ from
+framework-internal parameters; Proposition~\ref{P16:prop:as_selfcons} shows
+this does not materially change the result.
+\end{remark}
+\status{published}
+\source{P16:rem:external_inputs}
+
+\begin{proposition}[Self-derived $\alpha_s(\LUV)$ does not change the running result]
+\label{P16:prop:as_selfcons}
+Repeating the running with the framework-derived
+$\alpha_s(\LUV)=0.02039$ (from Paper~V's exact $d_{\mathrm{eff}}=43/14$
+and WZW threshold factor $\sin(\pi/5)$) in place of the PDG-anchored
+value $0.02030$ changes every entry of the running table by at most a
+few percent, leaving the qualitative pattern unchanged: one near-exact
+match (strange), five large undershoots, generation-growing deviation.
+\end{proposition}
+\status{published}
+\source{P16:prop:as_selfcons}
+
+\begin{remark}[Pole-mass caveat for top quark]
+\label{P16:rem:pole_mass_caveat}
+The top-quark comparison in Paper~XVI's running table uses the pole mass
+$172.57$\,GeV, which carries an intrinsic renormalon ambiguity of order
+$\Lambda_{\mathrm{QCD}}\sim300$--$400$\,MeV. A threshold-mass comparison
+would be more appropriate; the $49\times$ top-quark discrepancy should
+be read with this additional uncertainty in mind.
+\end{remark}
+\status{published}
+\source{P16:rem:pole_mass_caveat}
+
+\begin{remark}[Structural parallel to the renormalon ambiguity]
+\label{P16:rem:saddle_renormalon_parallel}
+The three-lobe self-interaction obstruction in Paper~XV's $\QH=3$
+saddle-finder is a non-speculative, framework-native analogue of the
+renormalon ambiguity: both reflect the impossibility of cleanly separating
+``the soliton's own energy'' from an inseparable surrounding structure.
+This is a structural parallel, not a derivation; the two obstructions
+arise in different mathematical settings.
+\end{remark}
+\status{published}
+\source{P16:rem:saddle_renormalon_parallel}
+
+\begin{remark}[Transient saddle complication]
+\label{P16:rem:transient_complication}
+If the $\QH=3$ configuration is populated only transiently, the relevant
+object may be a family of configurations parametrised by the perturbation
+energy rather than one static saddle. This is a second, independent reason
+the saddle-finder problem, even once solved, may not by itself suffice to
+pose the oscillation/stability-zone question precisely.
+\end{remark}
+\status{open}
+\source{P16:rem:transient_complication}
+

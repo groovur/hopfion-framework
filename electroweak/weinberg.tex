@@ -1,0 +1,175 @@
+%% hopfion-framework/electroweak/weinberg.tex
+%% Sources: main_paper1.tex
+%% Weinberg angle, W/Z mass ratio, electroweak scale
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Weinberg Angle — Paper I
+%════════════════════════════════════════════════════════════════════
+
+\begin{theorem}[Weinberg angle]
+\label{P1:thm:weinberg}
+\begin{equation}
+  \boxed{\sinW \;=\; \frac{3}{8\vp} \;\approx\; 0.23176.}
+  \label{P1:eq:weinberg}
+\end{equation}
+The prediction factorises as $\sinW = (3/8)\times(1/\vp)$ into two
+independent and irreducible factors:
+\begin{enumerate}[noitemsep]
+  \item \textbf{The factor $3/8$} is the $\mathrm{SU}(5)$ GUT kinematic
+    trace ratio
+    $\mathrm{Tr}_{\bar{\mathbf{5}}}(T_3^2)/\mathrm{Tr}_{\bar{\mathbf{5}}}(Q^2) = 3/8$,
+    evaluated on the fundamental $\bar{\mathbf{5}}$.
+    It is determined by particle content alone.
+  \item \textbf{The factor $1/\vp$} is the $\mathrm{SU}(2)_3$ WZW
+    $S$-matrix ratio $S_{0,0}/S_{0,1/2}=1/\vp$
+    (Theorem~\ref{P1:thm:dimq}), confirmed by the eta identity and the
+    Cardy boundary ratio.  It is determined by the Hopfion topology
+    alone.
+\end{enumerate}
+\end{theorem}
+\status{proved (Corollary~\ref{P1:cor:weinberg_unconditional})}
+\source{P1:thm:weinberg}
+\residual{0.23\%}
+
+\begin{theorem}[Irreducibility of the Weinberg factorisation]
+\label{P1:thm:irreducible}
+For any weighting $w$ of the $\mathrm{SU}(5)$ $\bar{\mathbf{5}}$
+multiplet of the form $w_i=\vp^a$ on singlet states and $w_i=\vp^b$
+on doublet states, with $a,b\in\mathbb{Q}$, the weighted kinematic ratio
+satisfies
+\begin{equation}
+  \frac{\mathrm{Tr}_w(T_3^2)}{\mathrm{Tr}_w(Q^2)}
+  \;=\;
+  \frac{3}{2\vp^{a-b}+6}.
+  \label{P1:eq:irreducible_formula}
+\end{equation}
+This equals $3/(8\vp)$ if and only if $\vp^{a-b} = 4\vp-3 = 2\sqrt{5}-1$,
+which is not a $\vp$-power ($\log_\vp(4\vp-3) \approx 2.587$ is irrational).
+Hence $3/(8\vp)$ is not achievable by any such weighting, and the
+factorisation $\sinW=(3/8)\times(1/\vp)$ is irreducible.
+\end{theorem}
+\status{published}
+\source{P1:thm:irreducible}
+\begin{proof}
+The $\bar{\mathbf{5}}$ contains three singlet states ($T_3=0$, weight
+$\vp^a$) and two doublet states (weight $\vp^b$).  Therefore
+$\mathrm{Tr}_w(T_3^2) = \tfrac{\vp^b}{2}$ and
+$\mathrm{Tr}_w(Q^2) = \tfrac{\vp^a}{3}+\vp^b$,
+giving ratio~\eqref{P1:eq:irreducible_formula}.
+Setting $3/(2\vp^{a-b}+6)=3/(8\vp)$ yields $\vp^{a-b}=4\vp-3$.
+Now $\log_\vp(4\vp-3) = \log(2\sqrt{5}-1)/\log\vp \approx 2.5867$,
+verified irrational to $50$ significant figures.
+Therefore no rational $a-b$ satisfies the equation.
+\end{proof}
+\status{published}
+\source{P1:thm:irreducible}
+\residual{exact}
+
+\begin{theorem}[Forward amplitude ratio]
+\label{P1:thm:amplitude_ratio}
+In the $Q=2$ Hopfion condensate, the forward-scattering amplitudes
+of the $W^3$ ($\mathrm{SU}(2)_L$) and $B$ ($U(1)_Y$) gauge bosons satisfy
+\begin{equation}
+  \frac{\mathcal{A}_{Y}}{\mathcal{A}_{T_3}}
+  \;=\; \frac{1}{\vp}
+  \;=\; \frac{S_{0,0}}{S_{0,1/2}}.
+  \label{P1:eq:amp_ratio}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P1:thm:amplitude_ratio}
+\begin{proof}
+The condensate suppression $S(\theta)=\sin^4\!\theta/\vp^6$ is the
+square of the Hopf map Jacobian $J(\theta)=\sin^2\!\theta$.
+Propagation at angle $\theta$ carries field amplitude
+$\mathrm{amp}(\theta)=\sin^2\!\theta/\vp^3$.
+
+\emph{(i) $\mathrm{SU}(2)_L$ (base coupling).}
+The $W^3$ boson couples to the base $S^2$ of the Hopf bundle via the
+left $\mathrm{SU}(2)$ action.  The horizontal projection introduces a
+Jacobian $J_H(\theta)=\sin\theta$.
+With coupling weight $\chi_L=\vp$:
+$\mathcal{A}_{T_3}(\theta) = \vp\cdot\sin\theta\cdot\sin^2\!\theta/\vp^3 = \sin^3\!\theta/\vp^2$.
+
+\emph{(ii) $U(1)_Y$ (fibre coupling).}
+The $B$ boson couples to the fibre $S^1$ via right scalar multiplication;
+no Hopf projection is required.  With $\chi_Y=1$:
+$\mathcal{A}_{Y}(\theta) = \sin^2\!\theta/\vp^3$.
+
+\emph{(iii) Ratio at the vacuum angle.}
+At $\theta=\pi/2$ (the equatorial torus of the $Q=2$ Hopfion):
+$\mathcal{A}_{Y}/\mathcal{A}_{T_3}|_{\theta=\pi/2} = 1/\vp = S_{0,0}/S_{0,1/2}$.
+\end{proof}
+\status{published}
+\source{P1:thm:amplitude_ratio}
+\residual{exact}
+\depends{foundations/wzw_group.tex (P1:thm:dimq)}
+
+\begin{corollary}[Weinberg angle — unconditional]
+\label{P1:cor:weinberg_unconditional}
+\begin{equation}
+  \sinW
+  \;=\; \frac{\mathrm{Tr}_{\bar{\mathbf{5}}}(T_3^2)}
+             {\mathrm{Tr}_{\bar{\mathbf{5}}}(Q^2)}
+        \cdot
+        \frac{\mathcal{A}_Y}{\mathcal{A}_{T_3}}
+  \;=\; \frac{3}{8}\cdot\frac{1}{\vp}
+  \;=\; \frac{3}{8\vp}
+  \;\approx\; 0.23176.
+  \label{P1:eq:weinberg_final}
+\end{equation}
+\end{corollary}
+\status{published}
+\source{P1:cor:weinberg_unconditional}
+
+\begin{corollary}[Two-route consistency and uniqueness of $\lam=\vp^6$]
+\label{P1:cor:lambda}
+The topological charge $Q=10$ is established by two entirely independent
+routes that agree to $0.12\%$, and third two-route equivalance route:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+  \item \emph{Group-theoretic route (exact):} $\mathbb{Z}_{10}\subset 2I$
+    forces $k=3$ (Theorem~\ref{P1:thm:k3}), giving $q=e^{i\pi/5}$ and
+    $\ord(q)=10$.  No profile integrals and no $\lam$.
+  \item \emph{Numerical route:} $\bz\rCMB =
+    \vp^9\sqrt{\Ja\cdot\Jfour} = 10.012$ on the converged profile.
+    This route depends on $\lam$ through the Derrick scale $\sopt$.
+  \item \emph{Geometric route (exact):} $\vp^9\sqrt{\Ja\cdot\Jfour} = 10$
+    exactly at the physical saddle.
+    This route is proved in Paper~XII~\cite{Paper12} via the two-route
+    equivalence: the identity is equivalent to the thermodynamic
+    equilibrium condition $E_{\rm fb}/V_{\rm torus}=\rho_{\rm CMB}=10$,
+    both reducing to the geometric constraint
+    $R_0 C^{*2}=5/(\vp^{23}\pi^2)$.
+\end{enumerate}
+Agreement between (i) and (ii) \emph{uniquely fixes} $\lam=\vp^6$: any
+other value of $\lam$ shifts $Q$ away from the integer $10=\ord(q_{2I})$.
+Numerically, $\lam=\vp^5$ gives $Q\approx8.7$ and $\lam=\vp^7$ gives
+$Q\approx11.3$. Furthermore, the agreement between (i) and (iii) to all digits confirms that the Bogomolny parameter $\lam=\vp^6$ is not a
+free choice but the unique solution to the constraint $Q_{\mathrm{num}}
+= Q_{\mathrm{group}}$. The previously reported $0.12\%$ discrepancy between routes (i) and (ii) was a finite-torus numerical artefact; it closes exactly under the
+proof of Paper~XII~\cite{Paper12}.
+\end{corollary}
+\status{published}
+\source{P1:cor:lambda}
+
+\begin{equation}
+  \boxed{\sinW \;=\; \frac{3}{8\vp} \;\approx\; 0.23176.}
+\end{equation}
+
+\begin{equation}
+  \sinW
+  \;=\; \frac{\mathrm{Tr}_{\bar{\mathbf{5}}}(T_3^2)}
+             {\mathrm{Tr}_{\bar{\mathbf{5}}}(Q^2)}
+        \cdot
+        \frac{\mathcal{A}_Y}{\mathcal{A}_{T_3}}
+  \;=\; \frac{3}{8}\cdot\frac{1}{\vp}
+  \;=\; \frac{3}{8\vp}
+  \;\approx\; 0.23176.
+\end{equation}
+

@@ -1,0 +1,270 @@
+%% hopfion-framework/gravity/dark_sector.tex
+%% Sources: main_paper7.tex
+%% Cosmological constant, dark energy w_a, dark matter c_s, BAO, Vainshtein
+%% Auto-generated from project files. Edit source papers to update.
+
+
+%════════════════════════════════════════════════════════════════════
+% Cosmological Constant and Dark Energy — Paper VII
+%════════════════════════════════════════════════════════════════════
+When $\rho$ is frozen at $\rinfty$ ($\dot\rho=0$), the equation of
+state is $w=-1$ exactly, reproducing $\Lambda$CDM.
+The dark energy scalar mass at the potential minimum is
+\begin{equation}
+  m_\xi^2 = \vp^{20}\,\Lobs\,\MPl^4,
+  \label{P7:eq:mxi}
+\end{equation}
+giving $m_\xi\approx H_0\approx10^{-33}\,\mathrm{eV}$, the Hubble scale.
+
+\begin{proposition}[EFT self-consistency and UV naturalness]
+\label{P7:prop:eft_naturalness}
+The effective field theory defined by the parent action~\eqref{P7:eq:parent_action}
+is self-consistent for all energies $E < \LUV$: every loop correction
+from matter running in the condensate background is suppressed by
+$(E/\LUV)^2$ relative to the leading term, so no prediction of this
+paper requires input from a UV completion above $\LUV$.
+Specifically:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+\item \textbf{Inflationary sector.} The inflationary potential is
+  evaluated at $\varphi_c\lesssim\MPl$ (Section~\ref{sec:inflation}),
+  well below $\LUV\approx0.0557\,\MPl$ in energy per degree of freedom;
+  corrections are $O(H_{\mathrm{inf}}^2/\LUV^2)\sim10^{-7}$.
+\item \textbf{Dark energy sector.} The dark energy mass
+  $m_\xi\approx H_0\sim10^{-33}\,\mathrm{eV}$ satisfies
+  $m_\xi\ll\LUV$ by 52 orders of magnitude; the attractor
+  solution $\rinfty=\vp/\beta$ and the thawing relation
+  $w_a=-3(1+w_0)$ are independent of the UV completion.
+\item \textbf{Gravitational sector.} The induced Planck mass
+  $\MPl^2=\LUV^2/[6(4\pi)^2\vp^6]$ is set at the scale $\LUV$
+  itself; no physics above $\LUV$ is needed to determine $\MPl$.
+  The Planck length $\ell_{\mathrm{Pl}}=1/\MPl$ is emergent, not
+  a fundamental input.
+\item \textbf{Cassini and WEP sectors.} Both the Vainshtein~\cite{Vainshtein1972} screening
+  radius $r_V\approx9.3\times10^6\,\mathrm{AU}$ (Theorem~\ref{P7:thm:cassini})
+  and the WEP instanton suppression $\eta_A=e^{-AS_1}$
+  (Section~\ref{sec:wep}) depend on $\LUV$ and $\MPl$ only through
+  the combination $m_\xi^2=\vp^{20}\Lobs\MPl^4$, which is
+  fixed entirely within the EFT below $\LUV$.
+\end{enumerate}
+\end{proposition}
+\status{published}
+\source{P7:prop:eft_naturalness}
+
+\begin{corollary}[Topological origin of the Vainshtein radius]
+\label{P7:cor:vainshtein_topology}
+The Vainshtein radius $r_V\approx9.3\times10^6\,\mathrm{AU}$ is
+determined by the Hopf charge $Q=2$ of the condensate vacuum through
+the following chain, with no free parameters:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+\item The $Q=2$ Hopfion vacuum, established in~\cite{Paper1}, has
+  topological charge $Q_{\mathrm{condensate}}=10$ fixed by the
+  WZW quantum-group order $\mathrm{ord}(q_{2I})=2(k+2)|_{k=3}=10$
+  (Theorem~5.9 of~\cite{Paper1}).
+\item The dark-energy scalar mass is determined by $Q_{\mathrm{condensate}}$:
+  $m_\xi^2 = \vp^{2Q_{\mathrm{condensate}}}\,\Lobs\,\MPl^4
+  = \vp^{20}\,\Lobs\,\MPl^4$ (equation~\eqref{P7:eq:mxi}).
+\item The Brans--Dicke parameter is $\oBD=\vp^{12}/(3\beta)
+  = \vp^{2(Q_{\mathrm{condensate}}-Q_{\mathrm{Hopfion}}\cdot(k+2))}/(3\beta)$,
+  where $\vp^{12}=(\lam)^2$ is the square of the Bogomolny parameter.
+\item Substituting both into the Vainshtein formula (Theorem~\ref{P7:thm:cassini})
+  yields $r_V\propto r_S^{1/3}\,\vp^{(12-20)/3}=r_S^{1/3}\,\vp^{-8/3}$,
+  so $r_V$ scales as $\vp^{-8/3}$ relative to the Schwarzschild radius,
+  entirely determined by the golden ratio and the condensate topological charge.
+\end{enumerate}
+The Vainshtein radius is therefore a topological invariant of the $Q=2$
+Hopfion condensate: it is fixed by the Hopf charge $Q_{\mathrm{Hopfion}}=2$
+through the quantum-group order $Q_{\mathrm{condensate}}=10$ and the
+Bogomolny parameter $\lam=\vp^6$, with no additional input.
+This resolves the open problem stated in Paper~I~\cite{Paper1}.
+\end{corollary}
+\status{published}
+\source{P7:cor:vainshtein_topology}
+
+\begin{remark}[Lorentz violation and its recovery]
+\label{P7:rem:lorentz}
+Axiom~A1 introduces a preferred direction $\hat{e}_r = \nabla\rho/|\nabla\rho|$
+that breaks global Lorentz invariance fundamentally.  The graviton mass
+$m_g^2\propto1/\vp^6(1+\beta\rho_\infty)$ is Lorentz-breaking in the same
+sense.  However, at high local density $\epsilon=\beta\rho\gg1$, the
+suppression factor $S_{\mathrm{eff}}=S(\theta)/(1+\beta\rho)\to0$:
+the preferred direction decouples from local physics and local Lorentz
+invariance is restored to precision $O((\bst\rho)^{-1})$.
+At Solar System densities $(\bst\rho_\odot)^{-1}\sim10^{-6}$, so all
+PPN tests recover standard GR values at that level~\cite{Paper1}.
+Conversely, in cosmic voids where $\rho\ll1/\bst$, the preferred
+direction is unsuppressed and Lorentz-violating signals of order
+$\sim10^{-3}$ are predicted, potentially accessible to VLBI
+astrometry~\cite{Paper1}.  This density-dependent recovery is the
+field-theoretic analogue of the Vainshtein mechanism and is consistent
+with the Cassini resolution (Theorem~\ref{P7:thm:cassini}).
+\end{remark}
+\status{published}
+\source{P7:rem:lorentz}
+
+\begin{remark}[Chameleon field interpretation]
+\label{P7:rem:chameleon}
+The density-dependent suppression of Axiom~A2,
+$S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\beta\rho)]$,
+is precisely the chameleon mechanism~\cite{KhouryWeltman2004}: the scalar $\rho$
+acquires a density-dependent effective coupling
+$\beta_{\mathrm{eff}}(\rho) = \beta/(1+\beta\rho)$
+that runs from the UV value $\beta$ at vacuum density down to
+$\beta_{\mathrm{eff}}\approx1/\rho$ in dense environments ($\beta\rho\gg1$).
+
+This single mechanism simultaneously explains three features of the framework:
+\begin{enumerate}[noitemsep,label=\emph{(\roman*)}]
+  \item \textbf{Cassini resolution.}  The screened Brans-Dicke parameter
+    in a dense region becomes $\oBD^{\mathrm{eff}} = \oBD(1+\beta\rho_\odot)$,
+    enhanced over the vacuum value.  For $\beta\rho_\odot\gg1$ this is
+    arbitrarily large, satisfying the Cassini constraint without requiring
+    $\beta$ to be small; the Vainshtein~\cite{Vainshtein1972} resolution of
+    Theorem~\ref{P7:thm:cassini} is complementary and operates at
+    cosmological scales.
+  \item \textbf{Local Lorentz recovery.}  At high density
+    $S_{\mathrm{eff}}\to0$, so the preferred direction $\hat{e}_r$
+    decouples from local physics; this is precisely the high-$\rho$
+    recovery described in Remark~\ref{P7:rem:lorentz}.
+  \item \textbf{Self-consistency.}  In~\cite{Paper1} the feedback
+    functional $\Jfb = \int\mathrm{kern}/(1+\bst\,\mathrm{kern})\,\mathrm{dvol}$
+    is noted to be a Born--Infeld saturation and chameleon screening
+    simultaneously (Remark~4.3 of~\cite{Paper1}).
+    Here the same structure operates at the cosmological level:
+    the chameleon effective coupling $\beta_{\mathrm{eff}}(\rho)$
+    connects the condensate-scale feedback ($\bst\approx0.452$) to
+    the gravitational screening at Solar System and cosmological scales.
+\end{enumerate}
+The chameleon and Vainshtein mechanisms are therefore not competing
+explanations of the Cassini resolution: the chameleon accounts for the
+density-dependent coupling suppression in the nonlinear regime at
+$r\ll r_V$, while the Vainshtein~\cite{Vainshtein1972} radius
+(equation~\eqref{P7:eq:rV_exact}) sets the
+scale at which nonlinear terms begin to dominate.
+\end{remark}
+\status{published}
+\source{P7:rem:chameleon}
+
+\begin{equation}
+  ds_{\mathrm{ac}}^2 = \rho_0(r)\cdot ds_{\mathrm{Schwarzschild}}^2,
+  \label{P7:eq:acoustic_schwarz}
+\end{equation}
+
+\begin{equation}
+  c_s^2
+  = 1 + \frac{\rinfty K'(\rinfty)}{K(\rinfty)}
+  = 1 - \frac{\beta\rinfty}{1+\beta\rinfty}
+  = 1 - \frac{\vp}{\vp^2}
+  = \frac{1}{\vp^2}.
+  \label{P7:eq:cs_exact}
+\end{equation}
+
+\begin{equation}
+  c_s^2 = \frac{\partial P}{\partial\rho}\bigg|_{\rho_0}
+        = 1 + O(\beta^3)
+  \label{P7:eq:cs_schwarz}
+\end{equation}
+
+\begin{theorem}[Exact golden sound speed]
+\label{P7:thm:cs}
+The sound speed of scalar perturbations of the density-feedback condensate
+at the attractor $\rinfty = \vp/\beta$ is
+\begin{equation}
+  \boxed{c_s \;=\; \frac{1}{\vp},}
+  \label{P7:eq:cs_value}
+\end{equation}
+an exact result with no free parameters.
+\end{theorem}
+\status{published}
+\source{P7:thm:cs}
+
+\begin{equation}
+  \delta c_s^2 = -\frac{\beta^3}{4(1+\vp)} \approx -4.2\times10^{-5}
+  \quad\text{at }r\sim r_s.
+  \label{P7:eq:delta_cs}
+\end{equation}
+
+\begin{equation}
+  \frac{dw}{da}\bigg|_{a=1}
+  \;=\; \frac{d(1+w)}{da}\bigg|_{a=1}
+  \;=\; 6(1+w_0).
+  \label{P7:eq:dwa_slope}
+\end{equation}
+
+\begin{proposition}[Condensate is pressureless on galactic scales]
+\label{P7:prop:CDM_limit}
+The condensate sound speed $c_s = 1/\vp$ (Theorem~\ref{P7:thm:cs}) implies
+a Jeans length
+\begin{equation}
+  \lambda_J
+  \;=\; \frac{2\pi\,c_s}{\sqrt{4\pi G_N\rho_{\rm cond}}}
+  \;\approx\; \frac{2\pi\,c/\vp}{\sqrt{4\pi G_N \times 0.26\,\rho_{\rm crit}}}
+  \;\approx\; 2.8\times10^4\,\mathrm{Mpc},
+  \label{P7:eq:lambda_J}
+\end{equation}
+where $\rho_{\rm cond}\approx0.26\,\rho_{\rm crit}$ is the observed
+dark-matter density (Planck~2018~\cite{Planck2018}), an observational
+input to this sector alongside $\TCMB$ and $m_e$.
+On all galactic and cluster scales ($r \ll \lambda_J$), the condensate
+is effectively pressureless and behaves as cold dark matter.
+Rotation curves are flat by the same mechanism as CDM.
+\end{proposition}
+\status{published}
+\source{P7:prop:CDM_limit}
+
+\begin{proposition}[$G_{\rm eff}(r)$ in the screened halo]
+\label{P7:prop:Geff}
+The BD scalar coupling to matter is characterised by
+\begin{equation}
+  \alpha_{\rm BD}
+  \;=\; \frac{2\beta^2}{2\omega_{\rm BD}+3}
+  \;\approx\; \frac{6\beta^3}{2\vp^{12}}
+  \;\approx\; 8.5\times10^{-4}.
+  \label{P7:eq:alpha_BD}
+\end{equation}
+The Vainshtein radius of a Milky-Way-mass galaxy
+($M\sim6\times10^{10}\,M_\odot$) is
+\begin{equation}
+  r_V^{\rm MW}
+  \;=\; r_V^\odot\times\!\left(\frac{M_{\rm MW}}{M_\odot}\right)^{\!1/3}
+  \;\approx\; 0.045\,\mathrm{kpc}\times3915
+  \;\approx\; 176\,\mathrm{kpc},
+  \label{P7:eq:rV_MW}
+\end{equation}
+placing the entire stellar disk ($r\lesssim15\,\mathrm{kpc}\ll r_V^{\rm MW}$)
+deep inside the Vainshtein sphere.
+The effective Newton constant at flat-rotation-curve radii $r\lesssim30\,\mathrm{kpc}$
+is
+\begin{equation}
+  \frac{G_{\rm eff}(r)}{G_N}
+  \;=\; 1 + \alpha_{\rm BD}\!\left(\frac{r}{r_V^{\rm MW}}\right)^{\!3/2}
+  \;\leq\; 1 + 6\times10^{-5}
+  \qquad(r\leq30\,\mathrm{kpc}),
+  \label{P7:eq:Geff_screened}
+\end{equation}
+indistinguishable from $G_N$ at the level of rotation-curve measurements.
+\end{proposition}
+\status{published}
+\source{P7:prop:Geff}
+
+\begin{equation}
+  \boxed{w_a \;=\; -3(1+w_0),}
+  \label{P7:eq:wa_derived}
+\end{equation}
+
+\begin{theorem}[Thawing quintessence relation]
+\label{P7:thm:thawing}
+If $\rho$ has not fully frozen at the attractor ($\dot\rho_0\neq0$),
+the CPL equation-of-state parameters satisfy
+\begin{equation}
+  \boxed{w_a \;=\; -3(1+w_0),}
+  \label{P7:eq:thawing}
+\end{equation}
+where $w_a\equiv-dw/da\big|_{a=1}$ and $w_0=w(a=1)$.
+This is an exact result at leading order in the slow-roll expansion
+$\dot\rho^2\ll\vp^8\Lobs$ (i.e.\ $|1+w_0|\ll1$).
+For the DESI~DR1 value $w_0=-0.727\pm0.067$, the prediction is
+$w_a=-0.819$, within $0.80\sigma$ of the measured
+$w_a=-1.05^{+0.31}_{-0.27}$~\cite{DESI2024}.
+\end{theorem}
+\status{published}
+\source{P7:thm:thawing}
+

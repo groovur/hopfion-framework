@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Hopfion Field Viewer — n_final.npy</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#03030e;font-family:'Georgia',serif;overflow:hidden;color:#e0e0f0}
+canvas{display:block}
+
+#ui{position:absolute;top:16px;left:16px;z-index:10;pointer-events:all;
+     display:flex;flex-direction:column;gap:8px;max-width:280px}
+
+#dropzone{border:2px dashed #ffffff44;border-radius:10px;padding:22px 18px;
+  text-align:center;cursor:pointer;transition:border-color .2s,background .2s;
+  background:rgba(4,4,18,0.88)}
+#dropzone:hover,#dropzone.dragover{border-color:#F5E642;background:rgba(20,20,60,0.92)}
+#dropzone .title{font-size:14px;color:#F5E642;margin-bottom:6px}
+#dropzone .sub{font-size:11px;color:#7777aa;line-height:1.5}
+#fileinput{display:none}
+
+.panel{background:rgba(4,4,18,0.88);border:1px solid #ffffff1a;border-radius:9px;
+  padding:12px 15px;font-size:11.5px;line-height:1.8}
+.panel h2{font-size:12px;color:#F5E642;margin-bottom:6px;font-weight:normal}
+.stat{display:flex;justify-content:space-between;color:#aaaacc}
+.stat span{color:#F5E642}
+.divider{border-top:1px solid #ffffff18;margin:6px 0}
+
+.row{display:flex;align-items:center;gap:8px;margin:2px 0}
+.lb{color:#aaaacc;font-size:11px;flex:1}
+.vl{color:#F5E642;font-size:11px;min-width:36px;text-align:right}
+.sl{width:100%;height:3px;cursor:pointer;accent-color:#F5E642;
+  background:linear-gradient(to right,#F5E642 var(--pct,50%),#333355 var(--pct,50%));
+  border-radius:2px;outline:none;appearance:none;-webkit-appearance:none;
+  margin-top:3px}
+.sl::-webkit-slider-thumb{appearance:none;width:13px;height:13px;border-radius:50%;
+  background:#F5E642;cursor:pointer}
+
+/* Toggle switch */
+.toggle-row{display:flex;align-items:center;gap:8px;margin:4px 0}
+.toggle-label{color:#aaaacc;font-size:11px;flex:1}
+.toggle{position:relative;display:inline-block;width:34px;height:18px}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;
+  background:#333355;border-radius:18px;transition:.25s}
+.toggle-slider:before{position:absolute;content:"";height:12px;width:12px;
+  left:3px;bottom:3px;background:#888;border-radius:50%;transition:.25s}
+.toggle input:checked + .toggle-slider{background:#F5E642}
+.toggle input:checked + .toggle-slider:before{transform:translateX(16px);background:#fff}
+
+#status{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:15px;color:#F5E642;letter-spacing:.05em;pointer-events:none;
+  background:rgba(3,3,14,0.85);padding:14px 22px;border-radius:8px;
+  border:1px solid #ffffff18}
+
+#cb{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:9px;background:rgba(4,4,18,0.85);
+  border:1px solid #ffffff14;border-radius:7px;padding:5px 14px;
+  font-size:10px;white-space:nowrap;color:#777}
+.gr{width:100px;height:7px;border-radius:3px;
+  background:linear-gradient(to right,#08082e,#4422bb,#F5E642,#ff5500,#440000)}
+</style>
+</head>
+<body>
+<div id="status">Drop an n_final.npy file to begin</div>
+
+<div id="ui">
+  <div id="dropzone" onclick="document.getElementById('fileinput').click()"
+       ondragover="event.preventDefault();this.classList.add('dragover')"
+       ondragleave="this.classList.remove('dragover')"
+       ondrop="handleDrop(event)">
+    <div class="title">Load n_final.npy</div>
+    <div class="sub">Drop here or click to browse<br>
+      Output of gradient_flow_constrained.py</div>
+  </div>
+  <input type="file" id="fileinput" accept=".npy" onchange="loadFile(this.files[0])"/>
+
+  <div class="panel" id="infopanel" style="display:none">
+    <h2>Field info</h2>
+    <div class="stat">Grid N <span id="st-N">—</span></div>
+    <div class="stat">h <span id="st-h">—</span></div>
+    <div class="stat">E_geom <span id="st-E">—</span></div>
+    <div class="stat">K <span id="st-K">—</span></div>
+    <div class="stat">J4 <span id="st-J4">—</span></div>
+    <div class="stat">r̄ <span id="st-rbar">—</span></div>
+    <div class="divider"></div>
+    <div class="row"><span class="lb">Particle count</span><span class="vl" id="dv">100k</span></div>
+    <input class="sl" id="dc" type="range" min="1" max="7" step="1" value="5"/>
+    <div class="row"><span class="lb">Opacity</span><span class="vl" id="opv">80%</span></div>
+    <input class="sl" id="op" type="range" min="10" max="100" step="5" value="80"/>
+    <div class="row"><span class="lb">Density threshold</span><span class="vl" id="thv">0%</span></div>
+    <input class="sl" id="th" type="range" min="0" max="99" step="1" value="0"/>
+    <div class="divider"></div>
+    <!-- Arrow length slider — only shown in arrow mode -->
+    <div class="row" id="alen-row" style="display:none">
+      <span class="lb">Arrow length</span><span class="vl" id="alenv">0.20</span>
+    </div>
+    <input class="sl" id="alen" type="range" min="1" max="10" step="1" value="4"
+      style="display:none"/>
+    <div class="toggle-row">
+      <span class="toggle-label">Directional arrows</span>
+      <label class="toggle">
+        <input type="checkbox" id="arrowToggle"/>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="divider"></div>
+    <div style="font-size:9.5px;color:#8888aa">Drag to rotate · scroll to zoom</div>
+  </div>
+</div>
+
+<div id="cb" style="display:none">
+  <span>low ρ</span><div class="gr"></div><span>high ρ</span>
+  &nbsp;·&nbsp;<span>colour = n direction</span>
+</div>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.168.0/build/three.module.js",
+             "three/addons/":"https://unpkg.com/three@0.168.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ── Three.js scene ────────────────────────────────────────────────────
+const scene   = new THREE.Scene();
+scene.background = new THREE.Color(0x03030e);
+scene.fog        = new THREE.FogExp2(0x03030e, 0.006);
+
+const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.01, 500);
+camera.position.set(9,5,9);
+
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(innerWidth,innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+document.body.appendChild(renderer.domElement);
+
+const orb = new OrbitControls(camera,renderer.domElement);
+orb.enableDamping=true; orb.dampingFactor=0.05;
+orb.minDistance=2; orb.maxDistance=80;
+
+scene.add(new THREE.AmbientLight(0x8899cc,.4));
+const sun = new THREE.DirectionalLight(0xfff5e8,1.2);
+sun.position.set(8,14,6); scene.add(sun);
+
+// Background stars
+(()=>{const a=[];for(let i=0;i<2000;i++)a.push((Math.random()-.5)*300,(Math.random()-.5)*300,(Math.random()-.5)*300);
+const g=new THREE.BufferGeometry();
+g.setAttribute('position',new THREE.Float32BufferAttribute(a,3));
+scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xffffff,size:.06,transparent:true,opacity:.25})));})();
+
+// ── NPY parser ───────────────────────────────────────────────────────
+function parseNpy(buffer) {
+  const bytes = new Uint8Array(buffer);
+  // magic: \x93NUMPY
+  if (bytes[0] !== 0x93 || String.fromCharCode(...bytes.slice(1,6)) !== 'NUMPY')
+    throw new Error('Not a valid .npy file');
+  const major = bytes[6], minor = bytes[7];
+  let headerLen;
+  if (major === 1) {
+    headerLen = bytes[8] | (bytes[9] << 8);
+  } else {
+    headerLen = bytes[8]|(bytes[9]<<8)|(bytes[10]<<16)|(bytes[11]<<24);
+  }
+  const headerOffset = (major === 1) ? 10 : 12;
+  const dataOffset   = headerOffset + headerLen;
+  const headerStr = Array.from(bytes.slice(headerOffset, dataOffset)).map(b=>String.fromCharCode(b)).join('');
+
+  // Parse shape from header string e.g. 'shape': (144, 144, 144, 3)
+  const shapeMatch = headerStr.match(/'shape'\s*:\s*\(([^)]+)\)/);
+  if (!shapeMatch) throw new Error('Cannot parse shape from npy header');
+  const shape = shapeMatch[1].split(',').map(s=>parseInt(s.trim())).filter(x=>!isNaN(x));
+
+  // dtype: must be float32 ('<f4')
+  const dtypeMatch = headerStr.match(/'descr'\s*:\s*'([^']+)'/);
+  const dtype = dtypeMatch ? dtypeMatch[1] : '';
+  if (!dtype.includes('f4')) throw new Error(`Expected float32, got ${dtype}`);
+
+  const data = new Float32Array(buffer, dataOffset);
+  return {shape, data};
+}
+
+// ── Energy density computation ────────────────────────────────────────
+// Compute rho_J4 = Fxy^2+Fxz^2+Fyz^2 using flat typed-array indexing.
+// All 9 derivative arrays are built first with simple flat loops (no
+// function call per cell), then combined in one final pass.
+// This avoids the call-stack overflow that the nested at()/cdi() approach
+// caused at N=144 (~27M nested function calls).
+function computeRhoJ4(nArr, N, h) {
+  const NN=N*N, NNN=N*N*N, h2=2*h;
+  // Separate nx/ny/nz from interleaved (N,N,N,3) layout
+  const nx=new Float32Array(NNN), ny=new Float32Array(NNN), nz=new Float32Array(NNN);
+  for(let i=0;i<NNN;i++){nx[i]=nArr[i*3]; ny[i]=nArr[i*3+1]; nz[i]=nArr[i*3+2];}
+
+  // Build all 9 central-difference derivative arrays as flat arrays.
+  // roll(arr, axis, +1) at flat index k:
+  //   axis 0: k_fwd = ((ix+1)%N)*NN + iy*N + iz   where ix=k/NN, iy=(k/N)%N, iz=k%N
+  //   axis 1: k_fwd = ix*NN + ((iy+1)%N)*N + iz
+  //   axis 2: k_fwd = ix*NN + iy*N + (iz+1)%N
+  function deriv(arr, axis) {
+    const d = new Float32Array(NNN);
+    if (axis === 0) {
+      for(let ix=0;ix<N;ix++){
+        const ixp=((ix+1)%N)*NN, ixm=((ix-1+N)%N)*NN, ixNN=ix*NN;
+        for(let iy=0;iy<N;iy++){
+          const iyN=iy*N, iyNN=ixNN+iy*N;
+          for(let iz=0;iz<N;iz++)
+            d[iyNN+iz]=(arr[ixp+iyN+iz]-arr[ixm+iyN+iz])/h2;
+        }
+      }
+    } else if (axis === 1) {
+      for(let ix=0;ix<N;ix++){
+        const ixNN=ix*NN;
+        for(let iy=0;iy<N;iy++){
+          const iyp=(iy+1)%N, iym=(iy-1+N)%N;
+          const base=ixNN+iy*N, fp=ixNN+iyp*N, fm=ixNN+iym*N;
+          for(let iz=0;iz<N;iz++)
+            d[base+iz]=(arr[fp+iz]-arr[fm+iz])/h2;
+        }
+      }
+    } else {
+      for(let ix=0;ix<N;ix++){
+        const ixNN=ix*NN;
+        for(let iy=0;iy<N;iy++){
+          const base=ixNN+iy*N;
+          for(let iz=0;iz<N;iz++){
+            const izp=(iz+1)%N, izm=(iz-1+N)%N;
+            d[base+iz]=(arr[base+izp]-arr[base+izm])/h2;
+          }
+        }
+      }
+    }
+    return d;
+  }
+
+  const nxx=deriv(nx,0),nxy=deriv(nx,1),nxz=deriv(nx,2);
+  const nyx=deriv(ny,0),nyy=deriv(ny,1),nyz=deriv(ny,2);
+  const nzx=deriv(nz,0),nzy=deriv(nz,1),nzz=deriv(nz,2);
+
+  // One final flat pass to compute rho_J4
+  const rho=new Float32Array(NNN);
+  for(let k=0;k<NNN;k++){
+    const nxv=nx[k],nyv=ny[k],nzv=nz[k];
+    const Fxy=nxv*(nyx[k]*nzy[k]-nzx[k]*nyy[k])+nyv*(nzx[k]*nxy[k]-nxx[k]*nzy[k])+nzv*(nxx[k]*nyy[k]-nyx[k]*nxy[k]);
+    const Fxz=nxv*(nyx[k]*nzz[k]-nzx[k]*nyz[k])+nyv*(nzx[k]*nxz[k]-nxx[k]*nzz[k])+nzv*(nxx[k]*nyz[k]-nyx[k]*nxz[k]);
+    const Fyz=nxv*(nyy[k]*nzz[k]-nzy[k]*nyz[k])+nyv*(nzy[k]*nxz[k]-nxy[k]*nzz[k])+nzv*(nxy[k]*nyz[k]-nyy[k]*nxz[k]);
+    rho[k]=Fxy*Fxy+Fxz*Fxz+Fyz*Fyz;
+  }
+  return rho;
+}
+
+// ── Global field state ────────────────────────────────────────────────
+let FIELD = null;
+let cloudObj = null;
+let autoRotate = true;
+const DCOUNTS = [8000,20000,40000,65000,100000,150000, 300000];
+const DLABELS  = ['8k','20k','40k','65k','100k','150k', '300k'];
+let curD = 4;          // default: 100k
+let opacity = 0.80;
+let threshold = 0.0;
+let useArrows = false;
+let arrowLen  = 0.20;  // world-space half-length of each arrow
+
+function setStatus(msg){document.getElementById('status').textContent=msg;}
+
+function trk(el){
+  const mn=+el.min,mx=+el.max,v=+el.value;
+  el.style.setProperty('--pct',((v-mn)/(mx-mn)*100).toFixed(1)+'%');
+}
+
+// Helper: compute per-particle colour triple given (n-vector, density)
+function particleColor(nx_, ny_, nz_, dn) {
+  const phi = Math.atan2(ny_, nx_);
+  const hue = (phi + Math.PI) / (2 * Math.PI);
+  const r = dn*1.3 + 0.15*(1-dn)*Math.cos(hue*Math.PI*2+0.0);
+  const g = dn*0.75 + 0.10*(1-dn)*Math.cos(hue*Math.PI*2+2.1);
+  const b = dn*0.05 + 0.25*(1-dn)*Math.cos(hue*Math.PI*2+4.2);
+  return [Math.max(0,r), Math.max(0,g), Math.max(0,b)];
+}
+
+// ── Load and process npy ─────────────────────────────────────────────
+function processBuffer(buffer, filename) {
+  setStatus('Parsing field…');
+  try {
+    const {shape, data} = parseNpy(buffer);
+    if(shape.length!==4||shape[3]!==3)
+      throw new Error(`Expected (N,N,N,3), got (${shape.join(',')})`);
+    const N = shape[0];
+    if(shape[1]!==N||shape[2]!==N)
+      throw new Error('Non-cubic grid not supported');
+
+    setStatus(`Computing energy density on ${N}³ grid…`);
+    // Defer so the status message renders before the heavy synchronous work
+    setTimeout(() => {
+      try {
+        const h_guess = 2*5.4/N;
+        const rho = computeRhoJ4(data, N, h_guess);
+        const h3 = h_guess**3;
+        let J4=0, rbar_num=0, rbar_den=0;
+        const cx=N/2, cy=N/2, cz=N/2;
+        // Math.max(...rho) also stack-overflows on large arrays — iterate instead
+        let D_MAX=0;
+        for(let i=0;i<rho.length;i++){
+          if(rho[i]>D_MAX) D_MAX=rho[i];
+          J4+=rho[i]*h3;
+          const ix=Math.floor(i/(N*N)), iy=Math.floor((i/N)%N), iz=i%N;
+          const r=Math.sqrt((ix-cx)**2+(iy-cy)**2+(iz-cz)**2)*h_guess;
+          rbar_num+=rho[i]*r; rbar_den+=rho[i];
+        }
+        const rbar = rbar_den>0?rbar_num/rbar_den:0;
+
+        FIELD = {N, h:h_guess, data, rho, D_MAX, J4, rbar, filename};
+
+        document.getElementById('st-N').textContent = `${N}³`;
+        document.getElementById('st-h').textContent = h_guess.toFixed(3);
+        document.getElementById('st-J4').textContent = J4.toFixed(0);
+        document.getElementById('st-rbar').textContent = rbar.toFixed(3);
+        document.getElementById('st-E').textContent = '—';
+        document.getElementById('st-K').textContent = '—';
+        document.getElementById('infopanel').style.display='';
+        document.getElementById('cb').style.display='';
+        document.getElementById('dropzone').querySelector('.title').textContent=filename;
+
+        setStatus('');
+        document.getElementById('status').style.display='none';
+        buildCloud();
+      } catch(e) {
+        setStatus('Error: '+e.message);
+        document.getElementById('status').style.display='';
+      }
+    }, 0);
+
+  } catch(e) {
+    setStatus('Error: '+e.message);
+    document.getElementById('status').style.display='';
+  }
+}
+
+// ── Build particle cloud ──────────────────────────────────────────────
+function buildCloud() {
+  if(!FIELD) return;
+  if(cloudObj){
+    scene.remove(cloudObj);
+    cloudObj.geometry?.dispose();
+    cloudObj.material?.dispose();
+    cloudObj=null;
+  }
+
+  const {N,h,data,rho,D_MAX} = FIELD;
+  const N_particles = DCOUNTS[curD];
+  const thresh_val = threshold/100 * D_MAX;
+  const cv_offset = -(N/2 - 0.5)*h;
+
+  if (!useArrows) {
+    // ── Points mode (original) ────────────────────────────────────────
+    const pos=[], col=[];
+    let placed=0;
+
+    for(let attempt=0; attempt<N_particles*20 && placed<N_particles; attempt++){
+      const ix=Math.floor(Math.random()*N);
+      const iy=Math.floor(Math.random()*N);
+      const iz=Math.floor(Math.random()*N);
+      const idx=ix*N*N+iy*N+iz;
+      const d=rho[idx];
+      if(d < thresh_val) continue;
+      if(Math.random() > d/D_MAX*1.05) continue;
+
+      const x=cv_offset+ix*h, y=cv_offset+iy*h, z=cv_offset+iz*h;
+      pos.push(x,y,z);
+
+      const dn = Math.min(1, d/D_MAX);
+      const nx_=data[idx*3], ny_=data[idx*3+1], nz_=data[idx*3+2];
+      const [r,g,b] = particleColor(nx_, ny_, nz_, dn);
+      col.push(r,g,b);
+      placed++;
+    }
+
+    if(!pos.length){setStatus('No particles placed — try lowering threshold'); return;}
+
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+    cloudObj=new THREE.Points(g,new THREE.PointsMaterial({
+      vertexColors:true,size:.09,transparent:true,opacity,
+      sizeAttenuation:true,depthWrite:false,blending:THREE.AdditiveBlending
+    }));
+
+  } else {
+    // ── Arrow mode (directional, 2 vertices per arrow) ────────────────
+    // Each arrow: tail at (p - n*half), head at (p + n*half)
+    // Tail colour: 20% of full colour (dim trailing edge)
+    // Head colour: 100% of full colour (bright leading edge)
+    const half = arrowLen;
+    const pos=[], col=[];
+    let placed=0;
+
+    for(let attempt=0; attempt<N_particles*20 && placed<N_particles; attempt++){
+      const ix=Math.floor(Math.random()*N);
+      const iy=Math.floor(Math.random()*N);
+      const iz=Math.floor(Math.random()*N);
+      const idx=ix*N*N+iy*N+iz;
+      const d=rho[idx];
+      if(d < thresh_val) continue;
+      if(Math.random() > d/D_MAX*1.05) continue;
+
+      const cx=cv_offset+ix*h, cy_=cv_offset+iy*h, cz=cv_offset+iz*h;
+      const nx_=data[idx*3], ny_=data[idx*3+1], nz_=data[idx*3+2];
+
+      // Normalise n (should already be unit but guard against zeros)
+      const nlen = Math.sqrt(nx_*nx_+ny_*ny_+nz_*nz_) || 1;
+      const nnx=nx_/nlen, nny=ny_/nlen, nnz=nz_/nlen;
+
+      // Tail vertex
+      pos.push(cx-nnx*half, cy_-nny*half, cz-nnz*half);
+      // Head vertex
+      pos.push(cx+nnx*half, cy_+nny*half, cz+nnz*half);
+
+      const dn = Math.min(1, d/D_MAX);
+      const [r,g,b] = particleColor(nx_, ny_, nz_, dn);
+
+      // Tail: dim (20% brightness)
+      col.push(r*0.20, g*0.20, b*0.20);
+      // Head: full brightness
+      col.push(r, g, b);
+
+      placed++;
+    }
+
+    if(!pos.length){setStatus('No particles placed — try lowering threshold'); return;}
+
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));
+    g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+    cloudObj=new THREE.LineSegments(g,new THREE.LineBasicMaterial({
+      vertexColors:true,transparent:true,opacity,
+      depthWrite:false,blending:THREE.AdditiveBlending
+    }));
+  }
+
+  scene.add(cloudObj);
+}
+
+// ── File loading ──────────────────────────────────────────────────────
+window.handleDrop = function(e){
+  e.preventDefault();
+  document.getElementById('dropzone').classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if(file) loadFile(file);
+};
+
+window.loadFile = function(file){
+  if(!file) return;
+  setStatus('Loading '+file.name+'…');
+  document.getElementById('status').style.display='';
+  const reader=new FileReader();
+  reader.onload=ev=>processBuffer(ev.target.result, file.name);
+  reader.readAsArrayBuffer(file);
+};
+
+// ── Controls ──────────────────────────────────────────────────────────
+
+// Particle count
+const dcEl = document.getElementById('dc');
+dcEl.addEventListener('input',function(){
+  trk(this); curD=+this.value-1;
+  document.getElementById('dv').textContent=DLABELS[curD];
+  buildCloud();
+});
+// Initialise slider to 100k (value=5, index=4)
+dcEl.value = 5;
+trk(dcEl);
+document.getElementById('dv').textContent = DLABELS[curD];
+
+// Opacity
+document.getElementById('op').addEventListener('input',function(){
+  trk(this); opacity=+this.value/100;
+  document.getElementById('opv').textContent=this.value+'%';
+  if(cloudObj) cloudObj.material.opacity=opacity;
+}); trk(document.getElementById('op'));
+
+// Density threshold
+let thTimer=null;
+document.getElementById('th').addEventListener('input',function(){
+  trk(this); threshold=+this.value;
+  document.getElementById('thv').textContent=this.value+'%';
+  clearTimeout(thTimer); thTimer=setTimeout(buildCloud,300);
+}); trk(document.getElementById('th'));
+
+// Arrow length
+const alenEl = document.getElementById('alen');
+alenEl.addEventListener('input',function(){
+  trk(this);
+  // map slider 1..10 to world length 0.05..0.50
+  arrowLen = +this.value * 0.05;
+  document.getElementById('alenv').textContent = arrowLen.toFixed(2);
+  if(useArrows) buildCloud();
+}); trk(alenEl);
+
+// Directional arrow toggle
+document.getElementById('arrowToggle').addEventListener('change',function(){
+  useArrows = this.checked;
+  const alenRow = document.getElementById('alen-row');
+  const alenSlider = document.getElementById('alen');
+  alenRow.style.display   = useArrows ? '' : 'none';
+  alenSlider.style.display = useArrows ? '' : 'none';
+  buildCloud();
+});
+
+// ── Auto-rotate ───────────────────────────────────────────────────────
+renderer.domElement.addEventListener('pointerdown',()=>{autoRotate=false;});
+renderer.domElement.addEventListener('wheel',()=>{autoRotate=false;});
+setTimeout(()=>{autoRotate=true;},3000);
+
+// ── Render loop ───────────────────────────────────────────────────────
+(function animate(){
+  requestAnimationFrame(animate);
+  orb.update();
+  if(autoRotate) scene.rotation.y+=0.0012;
+  renderer.render(scene,camera);
+})();
+
+window.addEventListener('resize',()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
+</script>
+</body>
+</html>

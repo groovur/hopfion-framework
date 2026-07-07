@@ -1,0 +1,530 @@
+%% hopfion-framework/strong/qcd_coupling.tex
+%% Sources: main_paper5.tex
+%% Effective dimension d_eff=43/14, alpha_s, Lambda_QCD bracket
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Effective Dimension and Coupling — Paper V
+%════════════════════════════════════════════════════════════════════
+
+The parent action's dispersion relation is linear along $\hat e_r$ and
+quadratic in the two transverse directions. The effective spatial
+dimension governing the coupling running is the arithmetic mean of the
+linear ($d=1$) and quadratic ($d=2$ each) contributions:
+\begin{equation}
+  \deff = \frac{1 + 2\times 2}{2} = \frac{5}{2} = 2.5
+  \quad\text{(naive count)}
+\end{equation}
+but the $\sin^4\!\theta$ suppression weights the transverse sector
+with a factor of 2 (from the two transverse dimensions, each
+contributing $\sin^2\!\theta$ once), giving
+\begin{equation}
+  \deff = \frac{1 + 2\cdot 2}{2} = 3.5.
+  \label{P5:eq:deff}
+\end{equation}
+This is the semi-Dirac value~\cite{SemiDirac}: a system with one
+linear and two quadratic dispersion directions has $\deff = 3.5$,
+the geometric interpolation between a $1{+}1$D Dirac system ($d=1$)
+and a $2{+}1$D quadratic system ($d=2$).
+
+\begin{remark}[Exact value from Section~\ref{P5:sec:deff}, which follows]
+\label{P5:rem:deff_exact_value}
+The value $\deff=3.5$ used here is the naive estimate for illustration.
+Proposition~\ref{P5:prop:deff_exact} (Section~\ref{P5:sec:deff}) derives the
+exact value $\deff^{\mathrm{exact}}=43/14\approx3.071$ from the angular
+weight $W_r=1/7$ of the radial direction.
+The difference between $3.5$ and $43/14$ changes $\alpha_s(\LUV)$ by
+$\approx11\%$; after the WZW threshold correction $K_{\mathrm{th}}$
+(Theorem~\ref{P5:thm:Kth}) the matched coupling agrees with one-loop QCD
+running to $0.3\%$ and with two-loop QCD running to $2.4\%$.
+\end{remark}
+\status{published}
+\source{P5:rem:deff_exact_value}
+
+With $\deff=3.5$, the colour coupling is
+\begin{equation}
+  g_s^2(\LUV) = \frac{2\pi C_F}{\vp^{2\deff}}
+              = \frac{2\pi\cdot(4/3)}{\vp^7}
+              \approx \frac{8.378}{29.03} \approx 0.289,
+  \label{P5:eq:gs_UV}
+\end{equation}
+giving
+\begin{equation}
+  \alpha_s(\LUV) = \frac{g_s^2}{4\pi} \approx 0.0230.
+  \label{P5:eq:as_UV}
+\end{equation}
+
+Running from $\LUV\approx6.8\times10^{17}\,\mathrm{GeV}$ to
+$M_Z=91.2\,\mathrm{GeV}$ via the one-loop QCD $\beta$-function
+with $n_f=6$ active flavours ($b_0 = 11 - 2n_f/3 = 7$):
+\begin{align}
+  \frac{1}{\alpha_s(M_Z)}
+  &= \frac{1}{\alpha_s(\LUV)} + \frac{b_0}{2\pi}\ln\frac{\LUV}{M_Z}
+  \notag \\
+  &\approx 43.5 + \frac{7}{2\pi}\times 36.5
+  \approx 84.2,
+  \label{P5:eq:as_running}
+\end{align}
+giving
+\begin{equation}
+  \boxed{\alpha_s(M_Z) \approx 0.0119.}
+  \label{P5:eq:as_mZ}
+\end{equation}
+The measured value is $\alpha_s(M_Z) = 0.1179\pm0.0010$~\cite{PDG2024},
+a factor of $\approx10$ discrepancy.
+
+The exact value $\deff=43/14$ derived in Section~\ref{P5:sec:deff}
+gives $\alpha_s(\LUV)\approx0.0256$, which is $28\%$ above the
+two-loop QCD running value $\approx0.0199$.
+After the $K_{\mathrm{th}}$ threshold correction of Section~\ref{P5:sec:deff},
+the matched coupling $0.02039$ reduces this to $2.4\%$.
+The residual mismatch brackets $\LQCD$ between the one-loop
+($51\,\mathrm{MeV}$) and two-loop ($\approx544\,\mathrm{MeV}$) predictions
+(Proposition~\ref{P5:prop:lqcd_bracket}).
+\status{published}
+\source{P5:eq:deff; eq:gs_UV; eq:as_UV; eq:as_running; eq:as_mZ}
+
+\noindent The colour coupling formula
+\begin{equation}
+  g_s^2(\LUV)
+  = \frac{2\pi C_F}{\vp^{2\deff}}
+  \label{P5:eq:gs_deff}
+\end{equation}
+uses $\vp^{2\deff} = \vp^6\cdot\vp^{2(\deff-3)}$, where $\vp^6=\lam$
+is the Bogomolny parameter (the base coupling, fixed by Paper~I~\cite{Paper1}), and
+$\vp^{2(\deff-3)}$ is the additional suppression from the anisotropic
+dispersion.
+For the naive isotropic estimate $\deff=3$: no extra suppression.
+For the semi-Dirac estimate $\deff=3.5$: one extra $\vp^1$ from the
+single linear dispersion direction.
+
+The exact correction $\deff-3$ is an angular integral over the Hopfion
+profile, weighted by the condensate energy density $S_{\mathrm{eff}}(\theta)$:
+\begin{equation}
+  \deff - 3
+  = \frac{\displaystyle\int_0^\pi
+    \nu(\theta)\,\sin^4\!\theta\,\sin\theta\,d\theta}
+         {\displaystyle\int_0^\pi \sin^4\!\theta\,\sin\theta\,d\theta},
+  \label{P5:eq:deff_integral}
+\end{equation}
+where $\nu(\theta)$ is the \emph{dispersion correction} at angle $\theta$:
+\begin{equation}
+  \nu(\theta) \;=\; \tfrac{1}{2}\cos^2\!\theta,
+  \label{P5:eq:nu_theta}
+\end{equation}
+with $\cos^2\!\theta$ the weight of the linear (radial) direction
+at angle $\theta$, and the factor $\tfrac{1}{2}$ the single power
+of $\vp$ contributed by the linear dispersion
+($\vp^{2\cdot\frac{1}{2}} = \vp^1$).
+\status{published}
+\source{P5:eq:gs_deff; eq:deff_integral; eq:nu_theta}
+
+\begin{proposition}[Exact coupling exponent]
+\label{P5:prop:deff_exact}
+With $\nu(\theta) = \tfrac{1}{2}\cos^2\!\theta$ and
+$S_{\mathrm{eff}}(\theta) = \sin^4\!\theta$:
+\begin{equation}
+  \deff - 3
+  = \frac{\displaystyle\int_0^\pi
+    \tfrac{1}{2}\cos^2\!\theta\,\sin^5\!\theta\,d\theta}
+         {\displaystyle\int_0^\pi \sin^5\!\theta\,d\theta}
+  = \frac{\tfrac{1}{2}\bigl(\tfrac{8}{15}-\tfrac{16}{35}\bigr)}{\tfrac{8}{15}}
+  = \frac{1}{2}\cdot\frac{1}{7}
+  = \frac{1}{14},
+  \label{P5:eq:deff_minus3}
+\end{equation}
+giving the exact result
+\begin{equation}
+  \boxed{\deff^{\mathrm{exact}} = 3 + \frac{1}{14} = \frac{43}{14}.}
+  \label{P5:eq:deff_exact_result}
+\end{equation}
+\end{proposition}
+\status{published}
+\source{P5:prop:deff_exact}
+
+\noindent With $\deff=43/14$ the UV coupling becomes
+\begin{equation}
+  \alpha_s(\LUV)
+  = \frac{g_s^2}{4\pi}
+  = \frac{C_F}{2\vp^{2\times43/14}}
+  = \frac{C_F}{2\vp^{43/7}}
+  \approx 0.0256,
+  \label{P5:eq:as_UV_exact}
+\end{equation}
+Compared to the naive $\deff=3.5$ result $\alpha_s(\LUV)\approx0.0230$,
+the exact value is $\approx11\%$ larger; both are close to the value
+$\alpha_s(\LUV)\approx0.0203$ obtained by running the measured
+$\alpha_s(M_Z)=0.1179$ up to $\LUV$ via standard QCD.
+
+\begin{remark}[Exponential sensitivity of $\Lambda_{\mathrm{QCD}}$]
+\label{P5:rem:exp_sensitivity}
+Before the $K_{\mathrm{th}}$ correction, the condensate predicts
+$\alpha_s(\LUV)\approx0.0256$ while QCD running gives $\approx0.020$,
+a $\approx28\%$ mismatch. The confinement scale is exponentially
+sensitive to this: the ratio
+\begin{equation}
+  \frac{\LQCD^{\mathrm{cond}}}{\LQCD^{\mathrm{QCD}}}
+  = \exp\!\biggl(\frac{2\pi}{b_0}
+    \Bigl[\frac{1}{\alpha_s^{\mathrm{QCD}}}-\frac{1}{\alpha_s^{\mathrm{cond}}}\Bigr]
+    \biggr)
+  \label{P5:eq:LQCD_amplification}
+\end{equation}
+amplifies the UV mismatch into the factor-32 gap in $\LQCD$.
+After the $K_{\mathrm{th}}$ correction (Theorem~\ref{P5:thm:Kth}), the
+residual 2.4\% mismatch still brackets the measured $\LQCD$ between
+the one-loop ($51\,\mathrm{MeV}$) and two-loop ($544\,\mathrm{MeV}$)
+Landau poles (Proposition~\ref{P5:prop:lqcd_bracket}).
+\end{remark}
+\status{published}
+\source{P5:rem:exp_sensitivity}
+
+\begin{theorem}[WZW threshold correction]
+\label{P5:thm:Kth}
+The non-perturbative threshold factor at $\LUV$ is the de-volumed
+WZW vacuum modular amplitude:
+\begin{equation}
+  \boxed{K_{\mathrm{th}}
+  \;=\; \sin\frac{\pi}{5}
+  \;=\; \frac{\sqrt{3-\vp}}{2},}
+  \label{P5:eq:Kth_exact}
+\end{equation}
+where $S_{0,0} = \sqrt{2/(k+2)}\,\sin(\pi/(k+2))$ is the vacuum
+modular S-matrix element of the $\mathrm{SU}(2)_k$ WZW model
+(equation~(5.2) of~\cite{Paper1,Verlinde1988}), and the second equality uses the
+golden-ratio identity $\cos(\pi/5) = \vp/2$.
+The matched colour coupling is
+\begin{equation}
+  \alpha_s^{\mathrm{matched}}(\LUV)
+  \;=\; K_{\mathrm{th}}\cdot\frac{C_F}{2\vp^{43/7}}
+  \;=\; \frac{C_F\,\sin(\pi/5)}{2\vp^{43/7}}
+  \;\approx\; 0.02039.
+  \label{P5:eq:as_matched}
+\end{equation}
+\end{theorem}
+\status{published}
+\source{P5:thm:Kth}
+\residual{0.3\% (one-loop QCD matching)}
+
+\begin{proof}
+At the phase transition scale $\LUV$, the condensate's WZW boundary
+state $|B\rangle$ contributes to the gluon self-energy. The matching
+condition between the condensate and 4D QCD gauge coupling normalises
+the vacuum-sector amplitude $\langle 0|B\rangle=S_{0,0}$ by the WZW
+volume factor $\sqrt{2/(k+2)}$:
+\begin{equation}
+  K_{\mathrm{th}}
+  = \frac{\langle 0|B\rangle}{\text{vol}}
+  = \frac{S_{0,0}}{\sqrt{2/(k+2)}}
+  = \sqrt{2/(k+2)}\,\sin\!\frac{\pi}{k+2}\Big/\sqrt{2/(k+2)}
+  = \sin\!\frac{\pi}{k+2}.
+  \label{P5:eq:Kth_proof}
+\end{equation}
+For $k=3$: $\sin(\pi/5)$. Evaluating via $\cos(\pi/5)=\vp/2$ and
+$\sin^2(\pi/5)=1-\cos^2(\pi/5)=1-\vp^2/4=(3-\vp)/4$:
+\begin{equation}
+  K_{\mathrm{th}}
+  = \sqrt{\frac{3-\vp}{4}}
+  = \frac{\sqrt{3-\vp}}{2}.
+  \label{P5:eq:Kth_golden}
+\end{equation}
+Substituting $\vp=(1+\sqrt{5})/2$ gives $K_{\mathrm{th}}\approx0.5878$.
+\end{proof}
+
+\begin{remark}[Consistency with the Weinberg angle derivation]
+\label{P5:rem:consistency}
+The same WZW structure controls both the Weinberg angle and the
+colour threshold correction:
+\begin{align}
+  \sin^2\!\theta_W &= \tfrac{3}{8}\cdot\frac{S_{0,0}}{S_{0,1/2}}
+                    = \tfrac{3}{8}\cdot\frac{1}{\vp},
+  \label{P5:eq:weinberg_recall}\\
+  K_{\mathrm{th}}  &= \frac{S_{0,0}}{\sqrt{2/(k+2)}}
+                    = \sin\frac{\pi}{5}
+                    = \frac{\sqrt{3-\vp}}{2}.
+  \label{P5:eq:Kth_recall}
+\end{align}
+The Weinberg angle uses the \emph{ratio} $S_{0,0}/S_{0,1/2}$ (the
+submersion deficit between $j=0$ and $j=\tfrac{1}{2}$ sectors), while
+the threshold factor uses the \emph{absolute} vacuum amplitude
+$S_{0,0}$ (normalised to remove the WZW volume). Both are exact
+consequences of $k=3$ and $\vp$; neither contains any free parameters.
+\end{remark}
+\status{published}
+\source{P5:rem:consistency}
+
+\begin{proposition}[$\Lambda_{\mathrm{QCD}}$ exact bracket]
+\label{P5:prop:lqcd_bracket}
+Let $\alpha_s^{\mathrm{matched}}(\LUV)=C_F\sin(\pi/5)/(2\vp^{43/7})$
+be the Hopf-matched coupling, and let $b_0=7$, $b_1=26$ be the
+two-loop QCD $\beta$-function coefficients for $n_f=6$ active flavours.
+Define the one-loop confinement exponent
+\begin{equation}
+  A \;=\; \frac{2\pi}{b_0\,\alpha_s^{\mathrm{matched}}(\LUV)}
+  \;=\; \frac{3\pi\,\vp^{43/7}}{7\sin(\pi/5)}
+  \;\approx\; 44.03,
+  \label{P5:eq:A_exponent}
+\end{equation}
+exact given $d_{\mathrm{eff}}^{\mathrm{exact}}=43/14$
+(Proposition~\ref{P5:prop:deff_exact}) and $K_{\mathrm{th}}=\sin(\pi/5)$
+(Theorem~\ref{P5:thm:Kth}).
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Exact one-loop formula:}
+\begin{equation}
+  \LQCD^{(1\ell)}
+  \;=\; \LUV\,e^{-A}
+  \;=\; \LUV\,\exp\!\left(-\frac{3\pi\vp^{43/7}}{7\sin(\pi/5)}\right)
+  \;\approx\; 51\,\mathrm{MeV}.
+  \label{P5:eq:lqcd_1l_exact}
+\end{equation}
+\item \textbf{Exponential sensitivity:}
+A fractional shift $\delta$ in the UV coupling changes the Landau pole
+as $\LQCD \mapsto \LQCD\,e^{A\delta}$.  The 2.4\% mismatch
+$\delta = 1 - \alpha_s^{\mathrm{QCD},(2\ell)}(\LUV)/\alpha_s^{\mathrm{matched}}(\LUV)$
+between the Hopf prediction and two-loop QCD running
+is amplified by factor $A\approx44$ to give:
+\begin{equation}
+  \frac{\LQCD^{(2\ell)}}{\LQCD^{(1\ell)}}
+  \;\approx\; e^{A\delta}\,(b_0\alpha_s^{\mathrm{matched}})^{-13/49}
+  \;\approx\; 10.5,
+  \label{P5:eq:loop_ratio}
+\end{equation}
+placing $\LQCD^{(2\ell)}\approx544\,\mathrm{MeV}$.
+\item \textbf{Bracketing (exact):}
+\begin{equation}
+  \underbrace{51\,\mathrm{MeV}}_{(1\ell)}
+  \;<\; \LQCD^{\overline{\mathrm{MS}}}\big|_{\mathrm{meas}} = 208\,\mathrm{MeV}
+  \;<\; \underbrace{544\,\mathrm{MeV}}_{(2\ell)},
+  \label{P5:eq:LQCD_bracket}
+\end{equation}
+with geometric mean $\sqrt{51\times544}\approx167\,\mathrm{MeV}$,
+within $20\%$ of the measured value.
+\end{enumerate}
+\end{proposition}
+\status{published}
+\source{P5:prop:lqcd_bracket}
+
+\begin{theorem}[$\Lambda_{\mathrm{QCD}} = m_e\vp^{5Q/4}$ from condensate tower counting]
+\label{P5:thm:lqcd_proved}
+In the standard one-loop QCD approximation, the confinement scale satisfies
+\begin{equation}
+  \boxed{\LQCD \;=\; m_e\,\vp^{5Q/4} \;\times\; \bigl(1 + O(\alpha_s^2)\bigr),}
+  \label{P5:eq:lqcd_proved}
+\end{equation}
+where the fractional correction is $0.13\%$ at one loop, from the chain:
+\begin{enumerate}[label=(\roman*),noitemsep]
+\item \textbf{Electron mass} (Paper~I~\cite{Paper1}, Section~(5.2) therein):
+  $m_e = \vEW\,e^{-25\pi/6}$.
+\item \textbf{Colour Hopf-tower level}: the $\mathbb{CP}^2$ colour fibration
+  contributes $N_c(N_c{+}1) = 12$ $\vp$-steps between $\vEW$ and $\LUV$:
+  \begin{equation}
+    \LUV \;=\; \vEW\,/\,\vp^{\,N_c(N_c+1)} \;=\; \vEW\,/\,\vp^{12}
+    \;\approx\; 765\,\mathrm{MeV}.
+    \label{P5:eq:LUV_tower}
+  \end{equation}
+\item \textbf{Standard one-loop QCD coupling at the tower scale.}
+  At the tower scale $\LUV = \vEW/\vp^{12} \approx 765\,\mathrm{MeV}$,
+  the standard one-loop QCD running~\cite{GrossWilczek1973,Politzer1973} (distinct from the semi-Dirac matched
+  coupling of Theorem~\ref{P5:thm:Kth}, which applies at the cosmological
+  condensate scale) uses the Landau-pole exponent
+  \begin{equation}
+    E \;=\; \frac{\pi}{b_0\,K_{\mathrm{th}}^2}
+       \;=\; \frac{\pi}{7\sin^2(\pi/5)}
+       \;\approx\; 1.30,
+    \label{P5:eq:lqcd_exponent}
+  \end{equation}
+  where $K_{\mathrm{th}}^2 = \sin^2(\pi/5)$ (Theorem~\ref{P5:thm:Kth}) enters as
+  the coupling parameter at this scale.
+\item \textbf{One-loop QCD Landau pole}:
+  $\LQCD = \LUV\,\exp(-E) = \LUV\,\exp\!\bigl(-\pi/[b_0 K_{\mathrm{th}}^2]\bigr)$,
+  $b_0=7$.
+\end{enumerate}
+\end{theorem}
+\status{published}
+\source{P5:thm:lqcd_proved}
+\residual{0.6\% (single input via $m_e$), 0.3\% (conditional on measured $\vEW$)}
+
+\begin{remark}[Three accuracy levels and the $O(R_0^{-2})$ path to exactness]
+\label{P5:rem:lqcd_accuracy_levels}
+Three distinct accuracy levels reflect the current state of the framework:
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item \textbf{Single input, $m_e$ route (0.6\%):}
+  $\LQCD = m_e\,\vp^{25/2}\approx209\,\mathrm{MeV}$, using $m_e$ from
+  the condensate (0.013\% accurate). No $\vEW$ residual enters.
+\item \textbf{Single input, $\vEW$ route (0.97\%):}
+  $\LQCD = (\vEW^{\rm pred}/\vp^{12})\,e^{-E}\approx210\,\mathrm{MeV}$,
+  using the condensate's own prediction $\vEW^{\rm pred}=247.9\,\mathrm{GeV}$.
+  The 0.69\% residual in $\vEW^{\rm pred}$ propagates linearly; it is
+  identified in Paper~IV as an $O(R_0^{-2})$ correction to the Yukawa
+  coupling $y_e=e^{-25\pi/6}$ at the physical torus radius $R_0=3$.
+\item \textbf{Conditional on measured $\vEW$ (0.3\%):}
+  $\LQCD = (246.2\,\mathrm{GeV}/\vp^{12})\,e^{-E}\approx208.6\,\mathrm{MeV}$,
+  testing the tower-level relationship between $\vEW$ and $\LQCD$
+  independently of the framework's $\vEW$ prediction.
+\end{enumerate}
+The thin-torus theoretical residual is $0.04\%$. Solving the
+thick-torus $O(R_0^{-2})$ profile correction (fully resolved for
+$m_e$/$\vEW$ in Paper~XIV, \status{published} there) would reduce the
+single-input prediction from (ii) to the thin-torus limit of $0.04\%$,
+consistent with (iii).
+\end{remark}
+\status{published}
+\source{P5:rem:lqcd_accuracy_levels}
+\depends{profile/normalisation.tex}
+
+\begin{remark}[Exact exponent from golden ratio and icosahedral WZW]
+\label{P5:rem:exact_exponent}
+The confinement exponent
+\begin{equation}
+  A = \frac{3\pi\vp^{43/7}}{7\sin(\pi/5)}
+\end{equation}
+(Proposition~\ref{P5:prop:lqcd_bracket}) is irrational but exact within
+the framework: $\vp=(1+\sqrt5)/2$ (golden ratio from the WZW level
+$k=3$), $\sin(\pi/5)=K_{\mathrm{th}}$ (Theorem~\ref{P5:thm:Kth}), and
+$43/7=2\deff^{\mathrm{exact}}$ (Proposition~\ref{P5:prop:deff_exact}).
+All three exact results, together with $b_0=7$ for $n_f=6$, combine
+into a single transcendental number controlling the QCD scale.
+\end{remark}
+\status{published}
+\source{P5:rem:exact_exponent}
+
+\begin{remark}[$\Lambda_{\mathrm{QCD}}\approx m_e\,\vp^{5Q/4}$ from a single input]
+\label{P5:rem:lqcd_me_phi}
+The confinement scale can be expressed directly in terms of the
+electron mass and the golden ratio:
+\begin{equation}
+  \LQCD \;\approx\; m_e\,\vp^{5Q/4} \;=\; m_e\,\vp^{25/2} \;\approx\; 209\,\mathrm{MeV},
+  \label{P5:eq:lqcd_me_phi}
+\end{equation}
+agreeing with the PDG value $\LQCD^{\overline{\mathrm{MS}}}\approx210\pm14\,\mathrm{MeV}$
+to $0.6\%$. The exponent has the exact identification
+\begin{equation}
+  \frac{5Q}{4} \;=\; \frac{Q\cdot h(A_4)}{N_c+1} \;=\; \frac{10\times5}{3+1} \;=\; \frac{25}{2},
+  \label{P5:eq:5Q4_identity}
+\end{equation}
+where $h(A_4)=5$ is the Coxeter number of $A_4\cong\mathrm{SU}(5)$
+(the icosahedral 5-fold symmetry order), $Q=10$ is the condensate
+topological charge, and $N_c+1=4$ counts the $N_c=3$ colour charges
+plus the colour singlet; this level-counting is proved in
+Theorem~\ref{P5:thm:lqcd_proved}.
+Since $m_e$ is derivable from $\TCMB$ alone via the spoke formula of
+Paper~IV ($m_e=\Lcond\vp^{20}e^{4\pi-3/400}\cdot(1+O(R_0^{-2}))$),
+\begin{equation}
+  \LQCD
+  \;=\; \Lcond\cdot\vp^{20+25/2}\cdot e^{4\pi-3/400}
+  \;=\; \TCMB\!\left(\frac{\pi^2}{150}\right)^{\!1/4}
+        \cdot\vp^{65/2}\cdot e^{4\pi-3/400}
+  \;\times\;\bigl(1+O(\alpha_s^2)\bigr),
+  \label{P5:eq:lqcd_single_input}
+\end{equation}
+using only $\vp$, $Q$, and $\TCMB$, with no dependence on $\LUV$, LHC
+measurements, or loop order.
+\end{remark}
+\status{published}
+\source{P5:rem:lqcd_me_phi}
+\residual{0.6\%}
+\depends{foundations/alpha.tex}
+
+
+%════════════════════════════════════════════════════════════════════
+% Chameleon Decoupling at QCD Scale — Paper V
+%════════════════════════════════════════════════════════════════════
+\noindent\textbf{Condensate chameleon screening at the QCD scale.}
+Proposition~\ref{P5:prop:qcd_chameleon} (filed canonically in
+\texttt{quantum/chameleon.tex}, which collects the full cosmic/atomic/QCD
+chameleon-screening hierarchy) shows that inside a nucleon, at the
+confinement scale $\LQCD\approx208\,\mathrm{MeV}$, the condensate density
+$\bst\rho_{\mathrm{nucleon}}\approx9.3\times10^{48}$ and the resulting
+correction to quark kinetic energy $\varepsilon_{\mathrm{nucleon}}\approx6.0\times10^{-51}$
+is completely negligible relative to $\alpha_s(\LQCD)\approx1$.
+\source{P5:prop:qcd_chameleon}
+\depends{quantum/chameleon.tex}
+
+\begin{remark}[Self-consistency of the approach]
+\label{P5:rem:selfconsistency}
+The condensate contributes to QCD dynamics in exactly one place: it
+sets the initial coupling $\alpha_s^{\mathrm{matched}}(\LUV)$ via
+$\deff=43/14$ (Proposition~\ref{P5:prop:deff_exact}) and $K_{\mathrm{th}}=\sin(\pi/5)$
+(Theorem~\ref{P5:thm:Kth}), evaluated at $\LUV$ where $\bst\rho\approx\vp$
+(the cosmic attractor, condensate fully active, suppression law
+unscreened). Below $\LUV$, condensate density in the surrounding
+environment grows rapidly and the chameleon mechanism screens all
+condensate corrections: by $\mu=\LQCD$ the screening is $\sim10^{48}$,
+by $\mu=m_p$ it is $\sim10^{42}$. The condensate plays no role in the
+RGE running of $\alpha_s$ between $\LUV$ and $\LQCD$ (standard QCD
+running applies exactly), and inside nucleons condensate effects are
+$\sim10^{-51}$, entirely negligible (Proposition~\ref{P5:prop:qcd_chameleon}).
+This is the same $(1+\bst\rho)$ denominator that resolves the
+cosmological constant at cosmic scales (Paper~VII) and forces orbital
+shapes to be spherical harmonics at atomic scales (Paper~XIII).
+\end{remark}
+\status{published}
+\source{P5:rem:selfconsistency}
+\depends{gravity/dark_sector.tex; quantum/schrodinger.tex}
+
+\begin{remark}[$E_6$ Coxeter number and the 12 tower steps]
+\label{P5:rem:e6_coxeter}
+The maximal subgroup decomposition
+$E_8\supset E_6\times\mathrm{SU}(3)_{\mathrm{colour}}$ pairs the
+78-dimensional $E_6$ algebra with QCD's $\mathrm{SU}(3)$. The Coxeter
+number of $E_6$ is $h(E_6)=12=N_c(N_c+1)=3\times4$. The $12$ tower
+steps from $\vEW$ to the hadronic scale $\LUV^{\rm tower}=\vEW/\vp^{12}$
+(Theorem~\ref{P5:thm:lqcd_proved}) are therefore the Coxeter number of
+the $E_6$ factor. The primary formula $\LQCD=m_e\vp^{5Q/4}$ encodes
+three Coxeter numbers:
+\begin{equation}
+  \frac{5Q}{4}
+  \;=\; \frac{h(A_4)\cdot h(E_8)}{h(E_6)}
+  \;=\; \frac{(k+2)\cdot h(E_8)}{N_c(N_c+1)}
+  \;=\; \frac{5\times30}{12}
+  \;=\; \frac{25}{2},
+  \label{P5:eq:lqcd_three_coxeters}
+\end{equation}
+where $h(A_4)=k+2=5$ (Pentagon Theorem), $h(E_8)=30$ (McKay, in the
+$\alpha^{-1}$ formula of Paper~IV), and $h(E_6)=12$ (this remark).
+\end{remark}
+\status{published}
+\source{P5:rem:e6_coxeter}
+\residual{exact}
+
+\begin{remark}[Independent $E_8$ derivation of the topological charge $Q$]
+\label{P5:rem:Q_double_derivation}
+The condensate topological charge $Q=10$ was established in Paper~I
+from the order of the central element of $2I$: $Q=\mathrm{ord}(q_{2I})=10$.
+The $E_8\supset E_6\times\mathrm{SU}(3)_{\mathrm{colour}}$ subgroup
+structure gives an independent algebraic derivation:
+\begin{equation}
+  Q \;=\; (N_c+1)\cdot\frac{h(E_8)}{h(E_6)} \;=\; 4\cdot\frac{30}{12} \;=\; 10.
+  \label{P5:eq:Q_e8_derivation}
+\end{equation}
+Two routes to $Q=10$ agree exactly: one topological (group order of
+$2I$), one algebraic (ratio of Coxeter numbers in the $E_8$ subgroup);
+a non-trivial self-consistency check.
+\end{remark}
+\status{published}
+\source{P5:rem:Q_double_derivation}
+\residual{exact}
+
+\begin{remark}[QCD $\beta$-function coefficients as $E_8$ Coxeter exponents]
+\label{P5:rem:beta_coxeter}
+The one- and two-loop QCD $\beta$-function coefficients for $N_f=6$
+active flavours are
+\begin{equation}
+  b_0 = 7 = m_2(E_8), \qquad
+  b_1 = 26 = 2\times m_4(E_8) = 2\times13,
+\end{equation}
+where $\{m_i(E_8)\}=\{1,7,11,13,17,19,23,29\}$ are the $E_8$ Coxeter
+exponents (the same sequence labelling the six SM quarks in
+Proposition~\ref{P5:prop:quark_e8_assignment}). The three-loop coefficient
+$b_2\approx-32.5$ for $N_f=6$ does not match $c\times m_j(E_8)$ for any
+natural constant $c$: the pattern is structural at 1--2 loops only and
+does not extend as a predictive sequence.
+\end{remark}
+\status{observation}
+\source{P5:rem:beta_coxeter}
+\depends{strong/quark_masses.tex}

@@ -1,0 +1,135 @@
+%% hopfion-framework/electroweak/yukawa.tex
+%% Sources: main_paper4.tex, main_paper1.tex
+%% Yukawa couplings, MSbar-to-pole scheme conversion, tracking relation
+%% Auto-generated from project files. Edit source papers to update.
+%%
+%% Status tags: \status{published}, \status{open}, \status{conjectured}
+%% \source{PaperN, label} — where the proof lives
+%% \residual{X\%} or \residual{exact} — numerical accuracy
+
+
+%════════════════════════════════════════════════════════════════════
+% Verlinde Cancellation — Paper IV
+%════════════════════════════════════════════════════════════════════
+\begin{theorem}[Verlinde cancellation~\cite{Verlinde1988,Paper3}]
+\label{P4:thm:verlinde_cancel}
+For all $R_0 > 0$, the IR virial fixed point satisfies
+\begin{equation}
+  V^*(R_0) = \vp \quad \text{exactly.}
+  \label{P4:eq:Vstar_exact}
+\end{equation}
+The $R_0$-dependent correction factors in $V(0;\,R_0)$
+and in $V^*/V(0;\,R_0)$ cancel identically.
+\end{theorem}
+\status{published}
+\source{P4:thm:verlinde_cancel}
+\residual{exact}
+
+\begin{corollary}[Verlinde spoke amplitude is exact for all $R_0$]
+\label{P4:cor:verlinde_exact}
+The factor $\vp^{2Q} = \vp^{20}$ in the electron mass formula
+requires no finite-$R_0$ correction.
+The deviation $V^*(R_0{=}3) = 1.61824 \neq \vp = 1.61803\ldots$
+observed in the numerical solver at grid spacing $h = 0.12$
+is a discretisation artefact of order $O(h^2)$, not a physical
+finite-torus effect.
+At $h=0.12$: the per-sector numerical noise is $0.013\%$,
+accumulating to $0.26\%$ over $2Q=20$ Verlinde sectors ---
+consistent with $O(h^2) = 0.0144$ scaling.
+\end{corollary}
+\status{published}
+\source{P4:cor:verlinde_exact}
+\residual{exact}
+
+%════════════════════════════════════════════════════════════════════
+% WZW Amplitude, Koide, and Yukawa — Paper I
+%════════════════════════════════════════════════════════════════════
+\begin{proposition}[Eta identity]
+    \label{P1:prop:eta}
+    \begin{equation}
+      \left[\frac{\eta(\vp\,i)}{\eta(i/\vp)}\right]^{\!2}
+      \;=\; \frac{1}{\vp}
+      \;=\; \frac{S_{0,0}}{S_{0,1/2}}\bigg|_{k=3}.
+      \label{P1:eq:eta_identity}
+    \end{equation}
+    \end{proposition}
+\status{published}
+\source{P1:prop:eta}
+
+\begin{proposition}[Cardy boundary ratio~\cite{Cardy1989}]
+    \label{P1:prop:cardy}
+    In the $\mathrm{SU}(2)_3$ WZW model, the cylinder partition
+    functions with Cardy boundary representations $j_A$, $j_B$ are
+    $Z_{j_A,j_B}(\tau)=\sum_l(S_{j_A,l}S_{j_B,l}/S_{0,l})\chi_l(\tau)$.
+    As $\mathrm{Im}(\tau)\to\infty$:
+    \begin{equation}
+      \frac{Z_{0,0}(\tau)}{Z_{0,1/2}(\tau)}
+      \;\longrightarrow\;
+      \frac{S_{0,0}}{S_{0,1/2}}
+      \;=\; \frac{1}{\vp}.
+      \label{P1:eq:cardy_ratio}
+    \end{equation}
+    \end{proposition}
+\status{published}
+\source{P1:prop:cardy}
+
+\begin{theorem}[Koide $K=2/3$ automatic]
+\label{P1:thm:koide}
+For any three masses parametrised by the $\mathbb{Z}_3$-symmetric ansatz
+\begin{equation}
+  \sqrt{m_g} = M\!\left(1 + \sqrt{2}\cos\!\left(\theta+\frac{2\pi(g-1)}{3}\right)\right),
+  \label{P1:eq:koide_ansatz}
+\end{equation}
+the Koide ratio $K = \sum m_g/(\sum\sqrt{m_g})^2 = 2/3$ exactly,
+for all $\theta$ and $M$.
+\end{theorem}
+\status{published}
+\source{P1:thm:koide}
+\begin{proof}
+$\mathbb{Z}_3$ orthogonality gives $\sum m_g = M^2(3 + 2\sum\cos(\ldots)) = 6M^2$
+and $(\sum\sqrt{m_g})^2 = 9M^2$, so $K=6/9=2/3$.
+\end{proof}
+\status{published}
+\source{P1:thm:koide}
+\residual{exact}
+
+\begin{result}[Electron Yukawa]
+\label{P1:res:yukawa}
+The electron Yukawa coupling is the WZW amplitude on the Hopfion torus
+with charge $Q=10$:
+\begin{equation}
+  \boxed{y_e \;=\; \exp\!\bigl(-2\pi Q\,T_1\bigr)
+  = \exp\!\left(-\frac{25\pi}{6}\right) \;\approx\; 2.066\times10^{-6}.}
+  \label{P1:eq:yukawa}
+\end{equation}
+This gives $v_{\mathrm{EW}} = m_e/y_e \approx 247.4\;\text{GeV}$
+(deviation $0.46\%$ from $246.2\;\text{GeV}$).
+The internal consistency check $25\pi/6\times 12/(5\pi) = 10 = Q$ holds exactly.
+\end{result}
+\status{proved (Paper~II)}
+\source{P1:res:yukawa}
+\residual{0.46\%}
+\depends{foundations/wzw_group.tex (P1:thm:charge_q10, P1:thm:k3)}
+
+\begin{result}[Koide angle from WZW holonomies]
+\label{P1:res:koide_angle}
+The Chern--Simons phases for generation $g$ are
+$\phi_g^{\mathrm{CS}} = 2\pi k_g\cdot\tfrac{3}{4}/(k_g+2)$,
+giving $\phi_1^{\mathrm{CS}} = \pi/2$, $\phi_2^{\mathrm{CS}} = 3\pi/4$,
+$\phi_3^{\mathrm{CS}} = 9\pi/10$.
+The predicted Koide angle is
+\begin{equation}
+  \theta_K \;=\;
+  \arg\!\left(
+    1\cdot e^{i\pi/2}
+    + 2^{1/4}\cdot e^{i3\pi/4}
+    + \vp^{1/2}\cdot e^{i9\pi/10}
+  \right) = 132.550^{\circ}
+  \label{P1:eq:thetaK}
+\end{equation}
+vs.\ observed $\theta_K^{\mathrm{exp}} = 132.732^{\circ}$ (deviation $0.14\%$).
+\end{result}
+\status{proved (Paper~II)}
+\source{P1:res:koide_angle}
+\residual{0.14\%}
+

@@ -1,0 +1,349 @@
+%% hopfion-framework/open_problems.tex
+%% Updated after Papers XIII and XIV. Format: \item \textbf{[label]} Description.
+
+\section*{Open Problems --- Density-Feedback Hopfion Framework}
+
+\begin{enumerate}[label=,leftmargin=*]
+
+\item \textbf{[P6:OP1] O($R_0^{-2}$) thick-torus Yukawa correction — \emph{fully resolved (Paper~XIV)}.}
+Raised in Paper~VI (Remark~P6:rem:single\_input\_remark) as the sole remaining
+residual separating the two-input and one-input frameworks, equivalent to
+proving the normalisation conjecture $\vp^9\sqrt{\Ja\Jfour}=10$ of Paper~II.
+All four stages complete (Paper~XIV).
+Closed-form toroidal correction (Theorem~P14:thm:toroidal\_formula, $Q_t^2=\varphi^8+1$):
+$J_4^{3D}/J_{2a}^{3D}=0.22717$ at $R_0=3$ (WZW residual $0.018\%$).
+Yukawa correction via WZW formula $d\ln y_e/dC^*=1/(2k)=1/6$ (Corollary~P14:cor:yukawa\_3D):
+$\delta y_e/y_e = \exp[\delta C^*/(2k)]-1=+0.68\%$
+with $C^*_\mathrm{3D}=3.432$ (from $r_{3D}=0.22717$) and
+$C^*_\mathrm{thin}=3.392$ (from $r_\mathrm{thin}=0.2301$, Paper~I).
+Residuals closed: $\delta v_\mathrm{EW}/v_\mathrm{EW}$ from $+0.69\%$ to a shared
+thin-torus intrinsic residual of $0.015\%$, then further to $0.012\%$ via the
+$O(R_0^{-4})$ profile correction;
+$\delta\Lambda_\mathrm{QCD}/\Lambda_\mathrm{QCD}$ from $+0.97\%$ to $0.015\%$.
+\source{P6:rem:single\_input\_remark; P14:thm:toroidal\_formula, P14:cor:yukawa\_3D, P14:prop:exact\_avg, sec:analytic}
+
+\item \textbf{[P9:OP1] Canonical quantisation of the Hopfion condensate — \emph{fully resolved (Paper~X)}.}
+Raised in Paper~IX (Conjecture~P9:conj:quantisation): that the canonical
+quantisation of the Hopfion condensate action $E_\mathrm{fb}[f;\beta]$
+produces a Hilbert space $\mathcal{H}=L^2(\mathcal{C}_Q^\mathrm{red},d\mu)$
+with $\mathcal{C}_Q^\mathrm{red}$ the Derrick-reduced space of Hopf-charge-10
+configurations, $d\mu$ the Liouville measure, and the Born rule following
+from $\mathrm{U}(1)$-invariance of that measure.
+Resolved in Paper~X (Theorem~7.1 therein) by identifying the Derrick scale
+instability as the kernel of the symplectic form $\Omega$, whose quotient
+yields the non-degenerate $\mathcal{C}_Q^\mathrm{red}$.
+Paper~X further proves the golden-ratio energy spectrum $E_n=\vp^{2n}E_0$,
+the Macfarlane--Biedenharn $q$-oscillator algebra with $q=\vp^2$
+($q$-numbers $[n]_{\vp^2}=F_{2n}$, the even Fibonacci numbers), and the
+complete Bekenstein--Hawking thermodynamics $S_\mathrm{Wald}=A_H/(4G_N)$
+(tree level) with $\delta S_\mathrm{1\text{-}loop}=0$ (one loop).
+\source{P9:conj:quantisation, P9:rem:conj\_resolved; P10:thm:main, P10:thm:quantisation, P10:thm:spectrum, P10:thm:q\_algebra, P10:thm:entropy\_correction, P10:thm:wald}
+
+\item \textbf{[P4:OP1] Residual in $\alpha^{-1}$: possible fifth term.}
+Four-term formula gives $\alpha^{-1}=137.035\,998\,486$;
+measured $137.035\,999\,177$; gap $+6.91\times10^{-7}$.
+Algebraic candidate $1/(\sqrt{2}\pi^2\vp^{24})\approx6.91\times10^{-7}$ (0.001\%).
+Physical origin unknown; O($R_0^{-2}$) thick-torus most motivated candidate.
+\source{P4:thm:four\_term\_alpha; P13: units/conventions}
+
+\item \textbf{[P13:OP1] Penning-trap free-electron mass anisotropy.}
+Prediction: $\Delta m/m_e=1/\vp^8\approx2.13\%$ (Paper~XIII,
+Proposition~P13:prop:mass\_anisotropy). Dedicated experimental programme needed:
+scan cyclotron frequency $\omega_c=eB/m_\mathrm{eff}$ vs.\ trap orientation
+relative to CMB dipole over one year.
+\source{P13:prop:mass\_anisotropy, P13:rem:experimental\_access}
+
+\item \textbf{[P13:OP2] Complete spin assignment from $Q$-tower.}
+$J=Q/4$ proved for $Q=0,2,4,6,8$ (Paper~XIII, Theorem~P13:thm:spin\_tower).
+Open: neutrino masses from tower at $n\approx36$; gravitino sector ($Q=6$,
+$J=3/2$, no SM particle); helicity/chirality from the two distinct 2-dim
+irreps of $2I$.
+\source{P13:thm:spin\_tower, Table~tab:spin\_assignments}
+
+\item \textbf{[P13:OP3] Non-adiabatic BO correction (higher order).}
+Paper~XIII proves $d_{0k}=0$ exactly and the Schr\"odinger equation is
+exact to $O(\eps_\mathrm{cond})\approx10^{-27}$. Open: evaluate the
+$O(\eps_\mathrm{cond}^2)$ phonon-sector correction explicitly.
+\source{P13:thm:NA\_vanishing, P13:cor:improved\_BO}
+
+\item \textbf{[P7:OP1] Neutrino masses from the $\vp$-tower. \emph{Substantially resolved (Paper~XVII).}}
+Paper~XVII identifies $\QH=1$ as the neutrino sector and derives
+$m_{\nu_1}\approx42\,\mathrm{meV}$ (Corollary~P17:cor:qh1\_mass) via the
+$c=1$ thermodynamic matching with $Q_{\mathrm{group}}^{(\nu)}=6$.
+Tower level $n_\nu=42.39$ (irrational, satisfying exact bound $n_\nu\geq42.02$
+with margin $0.37$). The atmospheric ratio $m_{\nu_3}/m_{\nu_2}\approx5.845$
+follows from the coset $\SU(2)_3/\SU(2)_1$ gap structure ($0.9\%$ accuracy),
+and $Q_{\mathrm{eff}}=2\pi/\sqrt{k+2}$ is now derived exactly from
+S-matrix unitarity (Theorem~P17:thm:Qeff\_derived; see P17:OP1, now closed).
+The leading-order PMNS matrix is proved to be the permutation
+$U^{(0)}$ (Theorem~P17:thm:pmns\_permutation, Corollary~P17:cor:pmns\_exact;
+see P17:OP2, now substantially resolved).
+\source{P7:rem:neutrino; P11: sec:tower;
+P17:cor:qh1\_mass, P17:prop:nu\_mass\_ratio, P17:thm:Qeff\_derived, P17:thm:pmns\_permutation, P17:cor:pmns\_exact}
+
+\item \textbf{[P11:OP1] WZW cooperativity bound: experimental test.}
+Prediction: $n_H\le k=3$ (tighter than MWC). Haemoglobin $n_H\approx2.8$;
+approaches 3.0 under alkalosis. Systematic survey needed.
+\source{P11: WZW cooperativity}
+
+\item \textbf{[P11:OP2] Higher ionisation energies on the spiral.}
+Paper~XI uses only the first ionisation energy (IE) of each element.
+Second and higher IEs (which control oxidation states and bonding
+beyond $+1$) could be placed on the $\vp$-spiral independently,
+giving a multi-layer spiral structure.
+Whether the tower-level differences between successive IEs of
+the same element have algebraic structure in terms of
+$\vp$, $\aem$, and $Z$ is an open question.
+\source{P11: sec. Future Directions, "Higher ionisation energies on the spiral"}
+
+\item \textbf{[P11:OP3] Derive atomic energy levels from the condensate.}
+The ultimate goal is to show that the tower spacing $\vp^{-2}$,
+combined with the framework-fixed values of $\aem$, $m_e$,
+and $\alpha_s$, reproduces the empirical distribution of
+ionisation energies across the full periodic table without
+any free parameters beyond those already fixed in Papers~I--VII.
+This would close the logical chain from the condensate to chemistry.
+\source{P11: sec. Future Directions, "Derive atomic energy levels from the condensate"}
+
+\item \textbf{[P17:OP1] Derivation of $Q_{\mathrm{eff}}=2\pi/\sqrt{k+2}$ from S-matrix unitarity. \emph{Closed (Paper~XVII).}}
+Proposition~P17:prop:nu\_mass\_ratio (Paper~XVII) uses $Q_{\mathrm{eff}}=2\pi/\sqrt{5}$
+to predict $m_{\nu_3}/m_{\nu_2}\approx5.845$ ($0.9\%$ accuracy). The
+bosonic character of the coset (Theorem~P17:thm:coset\_bosonic) prevented the
+standard fermionic T-matrix closure argument from applying directly, so a
+coset-specific derivation was sought via the Brieskorn-sphere CS partition
+function. Paper~XVII instead derives $Q_{\mathrm{eff}}$ exactly and with no
+free parameter as $Q_{\mathrm{eff}}=2\pi N_3 S^{(1)}_{0,0}=2\pi/\sqrt{k+2}$
+from unitarity of the $\SU(2)_3$ and $\SU(2)_1$ modular S-matrices
+(Theorem~P17:thm:Qeff\_derived), with uniqueness among coset modular data
+proved independently (Proposition~P17:prop:Qeff\_unique). This is a complete
+derivation via S-matrix unitarity rather than the originally-anticipated
+Brieskorn-monodromy route; P17:OP1 is closed.
+\source{P17:prop:nu\_mass\_ratio, P17:thm:brieskorn, P17:prop:Qeff\_unique, P17:thm:Qeff\_derived}
+
+\item \textbf{[P17:OP2] PMNS mixing matrix from coset branching coefficients. \emph{Substantially resolved (Paper~XVII).}}
+The CKM matrix follows from $E_6$ Coxeter exponents (Paper~V). The PMNS
+matrix cannot arise from the intra-sector $\SU(2)_1$ mechanism (only one
+Coxeter exponent). A leading estimate gives $\theta_{12}\approx31.7^\circ$
+(exp: $33.41^\circ$, $1.7^\circ$ off) from the $\SU(2)_3$ S-matrix ratio
+$|S_{1/2,1/2}^{(3)}|/|S_{1/2,0}^{(3)}|=\vp$.
+Paper~XVII computes the full branching coefficients of
+$\SU(2)_3\to\SU(2)_1\otimes M(5,6)$ (Proposition~P17:prop:pmns\_branching)
+and proves the leading-order PMNS matrix is exactly the permutation
+$U^{(0)}$ (Theorem~P17:thm:pmns\_permutation), with no corrections from
+higher descendant levels (Corollary~P17:cor:pmns\_exact): the electron
+decouples exactly (Corollary~P17:cor:electron\_decouple) and $\nu_1$ has no
+primary parent (Corollary~P17:cor:nu1\_orphan). The observed deviations from
+$U^{(0)}$ ($\theta_{23}\approx48.3^\circ$, $\theta_{13}\approx8.5^\circ$,
+$\theta_{12}\approx33.4^\circ$) are therefore physics beyond the coset
+branching, not corrections to it; candidates are RG running and
+condensate background mixing (Remark~P17:rem:solar\_angle). \emph{Remaining
+open:} a quantitative derivation of these correction angles.
+\source{P17:rem:Smat\_phi, P17:prop:pmns\_branching, P17:thm:pmns\_permutation,
+P17:cor:electron\_decouple, P17:cor:nu1\_orphan, P17:cor:pmns\_exact, P17:rem:solar\_angle}
+
+
+\item \textbf{[P16:OP1] Quark generation mass hierarchy: dynamical matching condition for $n_q^{(g)}$.}
+Paper~XVI rules out six candidate mechanisms (vertices, bosonic triple, level variation,
+$Q_8$-coset, generation-dependent colour shift, $E_8$ Coxeter fitting) and establishes
+three structural constraints on any future derivation: (I)~$n_q^{(g)}$ must arise from a
+dynamical, not combinatorial, matching condition specific to the $\QH=3$ condensate;
+(II)~the correct formula must start from lepton masses $m_\ell^{(g)}$ and add
+$\QH=3$-specific corrections (since colour is absent at $\QH=2$ by Theorem~P16:thm:colour\_exclusion);
+(III)~the generation-dependent contribution is not smooth in the $\vp$-exponent. The cross-sector
+identity $2k\,h(E_8)(T_1-T_3)=|\twoT|=24$ (Remark~P16:rem:nq\_structure) and the distribution of
+$E_8$ Coxeter exponents between isospin sectors are algebraic constraints any derivation must
+reproduce. A systematic one-sided undershoot growing with generation
+(Table~\ref{tab:rg_running} of Paper~XVI) is qualitative evidence that the
+string-tension energy $\sigma\cdot3R_0$ is a structurally correct candidate, but this requires
+the $\QH=3$ saddle-finder (P15:OP1) before it can be evaluated quantitatively.
+\source{P16:prop:vertices\_fail, P16:prop:bosonic\_fail, P16:prop:level\_fail, P16:prop:q8\_fail, P16:prop:colourshift\_fail,
+P16:prop:e8\_mixed, P16:thm:colour\_exclusion, P16:rem:nq\_structure}
+
+\item \textbf{[P15:OP1] $\QH=3$ saddle-finder: per-strand construction and non-uniform mesh. \emph{Analytical target closed (Paper~XV).}}
+Paper~XV proves $\lam_3=\vp^6$ and $C_3^*=2.5062$ analytically
+(Theorem~P15:thm:sector\_assignment, Corollary~P15:cor:lambda3\_proved, Proposition~P15:prop:kappa4),
+so P15:OP1 is now a purely numerical verification rather than a precondition for the main results.
+The original open problem: no gradient-flow method tried converges to a $\QH=3$ saddle.
+Paper~XVI identifies two independent candidate causes: (a)~inter-tube field overlap at tested
+initialisation ($C^*=1.5$); (b)~a forced, exact $\pi$ phase discontinuity at every crossing
+region of the single-nearest-point ansatz, carrying divergent gradient energy under mesh refinement
+(Propositions~P16:prop:phase\_jump, P16:prop:divergent\_energy).
+The per-strand construction (Construction~P16:constr:perstrand with Construction~P16:constr:compensated\_frame)
+is the first ansatz simultaneously smooth at all crossings, with bounded gradient energy, and
+carrying the confirmed $\QH=3$ charge (Theorem~P16:thm:perstrand\_charge\_three). However, an
+adequately resolved uniform grid requires $N^3\sim5\times10^8$ points; a non-uniform or
+adaptively refined mesh concentrated within 1--2 tube radii of $T_{2,3}$ is the necessary next
+computational step (Remark~P16:rem:solver\_practical\_recommendation). Solving P15:OP1 is a
+prerequisite for: evaluating $E_{\mathrm{profile}}^*$ in physical units; posing the
+renormalon/pole-mass question precisely (Remark~P16:rem:saddle\_renormalon\_parallel); and computing
+the string-tension contribution to P16:OP1.
+\emph{Structural explanation (Paper~XVIII).} The trefoil's own satellite Jones invariant is
+irrational ($|\Jones_{\mathrm{sat}}(q_5)|=1/\vp$, Theorem~P18:thm:trefoil\_satellite\_jones), so
+this alone does not explain why no unique numerical saddle is found. One conjectural (not
+established) candidate explanation is that the formation path passes through the unfused, rational
+$n=4$ intermediate ($\Jones_{\mathrm{sat}}^{(4)}(q_5)=1$,
+Proposition~P18:prop:satellite\_twist\_family) before fusing to the irrational trefoil, removing the
+irrational quantum-dimension anchor of the kind that pins the $\QH=2$ saddle during formation. What
+\emph{is} established is that the energy landscape has a flat \emph{plateau}, not a unique
+irrational minimum (Remark~P18:rem:saddle\_difficulty) --- an observed numerical fact independent of
+the conjecture; gradient flow converges to this family (reproducing the arc-segment partition and
+$\rho_{J_4}$--$S_{\mathrm{eff}}$ anti-correlation stably) without converging to a specific point
+within it. This reframes P15:OP1 as expected behaviour of a flat-bottomed landscape rather than a
+numerical failure, but does not itself supply the adaptive-mesh saddle-finder; P15:OP1 remains open
+at the computational level.
+\source{P15:thm:sector\_assignment, P15:cor:lambda3\_proved, P15:prop:kappa4, P15:rem:no\_lambda3;
+P16:thm:perstrand\_charge\_three, P16:rem:solver\_practical\_recommendation,
+P16:rem:saddle\_renormalon\_parallel, P16:prop:gf\_phase1, P16:prop:gf\_topology\_loss;
+P18:thm:trefoil\_satellite\_jones, P18:prop:satellite\_twist\_family, P18:rem:saddle\_difficulty}
+
+\item \textbf{[P18:OP1] Multi-component Jones polynomial framework. \emph{Resolved (Paper~XIX).}}
+The topological selection rules of Theorem~P18:thm:jones\_rule require a systematic
+treatment of Jones polynomials for multi-component initial and final states,
+including the disjoint-union formula and the Skein-algebra action on reaction
+channels.
+Paper~XIX supplies both: the disjoint-union formula at $q_5$
+(Lemma~P19:lem:disjoint\_factor) and the unit-equivalence reaction rule in
+$\mathbb{Z}[\zeta_5]$ (Theorem~P19:thm:unit\_reaction\_rule), verified
+algebraically for both $\QH=3$ production channels
+(Theorems~P19:thm:channel\_1, P19:thm:channel\_2).
+\source{P18:thm:jones\_rule; P19:lem:disjoint\_factor, P19:thm:unit\_reaction\_rule,
+P19:thm:channel\_1, P19:thm:channel\_2}
+
+\item \textbf{[P18:OP2] Computation of $\beta_3$ from first principles.}
+Proposition~P18:prop:botner\_analog estimates $\beta_3\approx0.58$ from the A/B
+arc-segment energy ratio. A derivation from the density-feedback action would
+require computing the decay-plane orientation distribution given the
+condensate energy profile.
+\source{P18:prop:botner\_analog}
+
+\item \textbf{[P18:OP3] Quark mass from midpoint-breaking energetics. \emph{Reformulated (Paper~XIX).}}
+Conjecture~P18:conj:six\_quarks requires deriving the energy cost $\delta J_4$ of
+each midpoint-site breaking.
+Paper~XIX reframes this static per-site-breaking picture as a dynamical
+partition of the incoming perturbation energy $E_{\mathrm{pert}}$ across
+the twelve trefoil sites during the formation-and-decay transit
+(Conjecture~P19:conj:six\_quarks\_reformulated), and shows analytically
+that the simplest static/cascade version of the calculation is
+insufficient (Proposition~P19:prop:cascade\_falsified). The reformulated
+computation is P19:OP1.
+\source{P18:conj:six\_quarks; P19:conj:six\_quarks\_reformulated,
+P19:prop:cascade\_falsified}
+
+\item \textbf{[P18:OP4] Confirmation of the Jeremie anomaly and $\Delta\theta$ measurement.}
+A dedicated analysis of the BZ angle distribution in four-jet events from
+baryon-initiated production, isolating the $m_3+m_4>10\,{\rm GeV}$ region and
+comparing to the $16$--$19°$ out-of-plane prediction of
+Proposition~P18:prop:fourjet\_oop, would constitute a direct test of the energy
+cascade of Proposition~P18:prop:cascade\_p18.
+\source{P18:rem:jeremie, P18:prop:fourjet\_oop, P18:prop:cascade\_p18}
+
+\item \textbf{[P18:OP5] Isospin from first principles.}
+Conjecture~P18:conj:isospin connects isospin to the $\Ztwo$ writhe asymmetry; a
+derivation from WZW boundary conditions is required.
+Paper~XIX's two-triplet scale-ratio prediction
+(Proposition~P19:prop:triplet\_ratio, $20\%$ residual) is a
+parameter-free consequence of this writhe-$\Ztwo$ tangent geometry, but
+remains a leading-order estimate, not a first-principles WZW derivation;
+P18:OP5 remains open.
+\source{P18:conj:isospin; P19:prop:triplet\_ratio}
+
+\item \textbf{[P18:OP6] Quantitative production thresholds for $\QH=3$.}
+Remark~P18:rem:production\_conditions identifies a two-threshold structure
+(kinetic energy and collision/number-density rate) governing where $\QH=3$
+objects can form, but only qualitatively. A quantitative treatment requires:
+(a)~computing $\Delta E_{2+2}=E(\QH{=}3)+E(\QH{=}1)-2E(\QH{=}2)$ and
+$\Delta E_{2+1}=E(\QH{=}3)-E(\QH{=}2)-E(\QH{=}1)$ on a common physical scale
+from the mass formulas of Paper~XVII; (b)~an estimate of the cross-section
+$\langle\sigma v\rangle$ for each channel from the condensate action, to
+convert the rate threshold into a number-density requirement; and (c)~a check
+that the resulting threshold conditions correctly reproduce the QCD
+deconfinement temperature $T_c\sim150$--$160\,{\rm MeV}$ as the condition
+under which both thresholds are simultaneously satisfied in the early
+universe.
+\source{P18:rem:production\_conditions}
+
+\item \textbf{[P19:OP1] Dynamical partition of $E_{\mathrm{pert}}$ across the twelve sites.}
+The intra-triplet quark mass hierarchy corresponds, under
+Conjecture~P19:conj:six\_quarks\_reformulated, to the six characteristic
+scales of how the incoming perturbation energy partitions across the
+trefoil geometry during the $\QH=2+\QH=1\to\QH=3$ formation event. The
+calculation requires the dynamic integrator infrastructure of
+Papers~XVII and~XVIII extended to simulate the formation event with the
+velocity field $\mathbf v(\mathbf x,t)$ recorded at each site; the
+partition must reproduce the observed $(m_u,m_c,m_t)$ and
+$(m_d,m_s,m_b)$ patterns given the site tangent values of
+equation~P19:eq:tangent\_z\_values. This is P18:OP3 reformulated in the
+dynamical setting; the static version is shown insufficient by
+Proposition~P19:prop:cascade\_falsified.
+\source{P19:conj:six\_quarks\_reformulated, P19:prop:cascade\_falsified}
+
+\item \textbf{[P19:OP2] The $\sqrt\vp$ quark mass-ratio ladder. \emph{Substantially resolved (Paper~XIX).}}
+Theorem~P19:thm:sqrt\_phi\_ladder shows the four intra-triplet
+generation gaps form a geometric sequence with ratio $\sqrt\vp$,
+anchored at $m_s/m_d$ (Remark~P19:rem:strange\_anchor), predicting
+$m_b$, $m_t/m_c$, $m_c/m_u$ (Corollary~P19:cor:absolute\_masses). Both
+the inversion ratio $\sqrt\vp$ and the ladder base are empirical fits
+to PDG mass data, not independent derivations; the previously-proposed
+Jones-modulus origin of $\sqrt\vp$ does not hold
+(Remark~P19:rem:sqrt\_phi\_meaning, since
+$|\Jones_{T(2,2)}(q_5)|=1/\vp\neq d_{1/2}=\vp$). The structural origin
+of $\sqrt\vp$ requires the dynamic integrator to compute the
+position-dependent attenuation function $\alpha(s)$ along the trefoil
+and verify convergence to $\sqrt\vp$ independently.
+\source{P19:thm:sqrt\_phi\_ladder, P19:rem:strange\_anchor, P19:rem:sqrt\_phi\_meaning}
+
+\item \textbf{[P19:OP3] The subleading $z$-tangent from perturbation memory.}
+Proposition~P19:prop:triplet\_ratio's leading-order prediction gives
+$\langle|\tang_z|^2\rangle_{\mathrm{up}}=0$ at the crossings (horizontal
+tangent). A physical $\QH=3$ trefoil formed from an actual perturbation
+event carries azimuthal asymmetry from the formation direction, which
+contributes a subleading $z$-tangent at the crossings not computed
+here; this is required for the up-type triplet to have any mass scale
+at all, and is tied to P19:OP1.
+\source{P19:prop:triplet\_ratio}
+
+\item \textbf{[P19:OP4] Verification of the multi-component reaction rule. \emph{Resolved (Paper~XIX).}}
+Both $\QH=3$ production channels of Paper~XVIII are verified
+algebraically: Channel~1 ($T(2,2)\sqcup T(2,2)\to T(2,3)\sqcup U$) has
+unit factor $u=\zeta_5+\zeta_5^4=1/\vp$ (Theorem~P19:thm:channel\_1); Channel~2
+($T(2,2)\sqcup U\to T(2,3)$) has unit factor $u=-\vp\cdot\zeta_5$
+(Theorem~P19:thm:channel\_2). The reaction rule is unit-equivalence in
+$\mathbb{Z}[\zeta_5]$ (Theorem~P19:thm:unit\_reaction\_rule), strictly
+stronger than P18's rationality-class rule (Theorem~P18:thm:jones\_rule).
+This is the same result recorded as the resolution of P18:OP1.
+\source{P19:thm:channel\_1, P19:thm:channel\_2, P19:thm:unit\_reaction\_rule}
+
+\item \textbf{[P19:OP5] Sharpened production thresholds via multi-component Jones.}
+P18:OP6 asks for quantitative $\QH=3$ production thresholds.
+Theorem~P19:thm:unit\_reaction\_rule supplies the multi-component
+algebra needed to compute relative rates of the various $\QH=3$
+production channels; combined with the energy scales
+$\Delta E_{2+2}$, $\Delta E_{2+1}$ from Paper~XVII, the rates and
+thresholds become computable, sharpening P18:OP6 into a well-scoped
+calculation.
+\source{P19:thm:unit\_reaction\_rule; P18:rem:production\_conditions}
+
+\item \textbf{[P19:OP6] Derivation of $m_s/m_d=\sqrt{2C_2(1/2)}\cdot e^{8\pi/9}=n_e=20$.}
+Remark~P19:rem:ms\_md\_integer shows the observed ratio $m_s/m_d=20$
+equals, to $0.047\%$, the E$_8$ Coxeter prediction multiplied by the
+spin-Casimir factor $\sqrt{2C_2(j=\tfrac12)}=\sqrt{k/2}$, using the
+structural identity $k=4C_2(\tfrac12)$ exact at $k=3$. A first-principles
+proof that the fermionic character of quarks inserts a factor
+$\sqrt{2C_2(j)}$ into the E$_8$ T-phase mass ratio would derive
+$m_s/m_d=n_e=20$ without PDG input, closing the chain
+$\TCMB+\text{geometry}\to$ all six quark mass ratios.
+\source{P19:rem:ms\_md\_integer}
+
+\item \textbf{[P19:OP7] PMNS $q$-series resummation and mixing angle corrections (deferred to Paper~XX).}
+Proposition~P19:prop:solar\_angle\_jones reaffirms Paper~XVII's S-matrix
+result $\tan\theta_{12}^{(0)}=1/\vp$; the same modulus $1/\vp$ also
+equals $|\Jones_{T(2,2)}(q_5)|$, a noted numerical coincidence, not a
+derivation (Remark~P19:rem:solar\_physical). What remains open is the
+full set of corrections: $\Delta\theta_{12}\approx1.69^\circ$, the atmospheric
+deviation $\Delta\sin^2\theta_{23}\approx0.057$, and the reactor angle
+$\sin^2\theta_{13}\approx0.022\approx1/(k+2)^2$, all requiring either RG
+running from $\Lcond$ to $m_Z$ or condensate background mixing from the
+$\QH=3$ baryon sector --- neither computable from Paper~XIX's toolkit.
+\source{P19:prop:solar\_angle\_jones, P19:rem:solar\_physical; P17:rem:solar\_angle}
+
+\end{enumerate}

@@ -29,6 +29,23 @@ between the tube and the Fermat--Steiner point.
 \status{published}
 \source{P16:prop:arms_off_curve}
 
+\begin{remark}[Consequence: no double-counting, but no shortcut
+  either]
+\label{P16:rem:no_doublecounting}
+Proposition~\ref{P16:prop:arms_off_curve} resolves a question worth
+stating explicitly, since it could in principle have gone the other
+way: if the arms were sub-segments of the tube, the string-tension
+energy would risk double-counting energy already present in
+$\Kfb\times J_4$. They are not, so no such double-counting occurs ---
+but for the same reason, $\sigma$ cannot be read off from $J_4$ or
+$J_{2a}$ by restricting an existing integral to a sub-region. A
+genuine computation of $\sigma$ requires the condensate field's
+behaviour in the bulk region between the tube and the Fermat--Steiner
+point, a region the existing tube integrals do not cover.
+\end{remark}
+\status{published}
+\source{P16:rem:no_doublecounting}
+
 \begin{proposition}[Junction energy is negligible]
 \label{P16:prop:ejunc_zero}
 The Y-junction energy $E_\cup(C^*)$, computed by gradient-flow
@@ -141,6 +158,18 @@ mass $m_p=938.272$\,MeV with no free parameters.
 \end{remark}
 \status{published}
 \source{P16:rem:cs_spoke_quark}
+
+\begin{remark}
+\label{P16:rem:consistency_bound}
+What $\sigma_{\mathrm{tot}}=5392.1$ does supply unconditionally is a
+\emph{consistency bound}: at the physical saddle,
+$E_{\mathrm{baryon}}/(3R_0)\leq\sigma_{\mathrm{tot}}$, since the
+trefoil's curvature and the Junction contribution cannot add energy
+beyond the straight-tube total.  This bound is independent of the
+screening regime.
+\end{remark}
+\status{published}
+\source{P16:rem:consistency_bound}
 
 \begin{remark}[Junction flow: numerical results and generation-dependence conclusion]
 \label{P16:rem:junction_results}
@@ -750,6 +779,44 @@ into the adjacent B-segment departure zone, the primary jet-ejection site.
 \status{published}
 \source{P16:rem:arcseg_physics}
 
+\begin{remark}[Physical origin of $r_0$: the satellite construction]
+\label{P15:rem:r0_origin}
+Unlike $R_0$, which is fixed by the Y-junction string-length
+condition $3R_0=N_3^2=9$ (Proposition~\ref{P15:prop:yjunction}), the
+minor radius $r_0$ is \emph{not} an independent geometric input to
+the $\QH=3$ construction.  Paper~XVIII~\cite{Paper18}
+(Proposition~3.5,
+Remark~3.6) identifies $T_{2,3}$ as the satellite knot obtained by threading a
+$\QH=1$ unknot through the solid-torus neighbourhood $N(\gamma_1)$ of
+one component of the $\QH=2$ Hopf link, with the $(2,3)$-cable
+framing.  The trefoil's tube is therefore built \emph{around} the
+already-existing $\QH=2$ tube, not as an independent $\QH=3$ energy
+minimum: $r_0$ should inherit its scale from $N(\gamma_1)$, i.e.\
+from the $\QH=2$ sector's own profile geometry, rather than from a
+$\QH=3$-internal saddle condition.  This is consistent with the
+near-coincidence
+\begin{equation}
+  r_0 \;\approx\; \frac{R_0}{C_2^*} \;=\; \frac{3}{3.4318} \;=\; 0.874172,
+  \label{P15:eq:r0_satellite}
+\end{equation}
+matching the construction value to $0.020\%$, where $C_2^*=3.4318$
+is the $\QH=2$ sector's own modified-BPS profile-sharpness constant
+(Paper~I~\cite{Paper1}, Theorem~3.1): the unique real root of
+$C(2C+1)/[(C^2+1)(3C-1)]=2^{4/3}/\vp^5$.  If $1/C_2^*$ is identified
+with the dimensionless tube radius of $N(\gamma_1)$ in units of
+$R_0$, equation~\eqref{P15:eq:r0_satellite} converts the otherwise
+unexplained input $r_0=0.874$ into a quantity inherited from an
+already-derived $\QH=2$ constant.  This identification is
+\emph{motivated} by the satellite construction but not yet
+\emph{derived} from it: Paper~XVIII~\cite{Paper18} states that the cable framing is
+``dictated by'' the $\QH=2$ BPS condition without giving the explicit
+map from $N(\gamma_1)$'s radius to $r_0$.  Supplying that map is an
+open problem; until it is closed, $r_0=0.874$ should be read as
+consistent with, but not proved by, equation~\eqref{P15:eq:r0_satellite}.
+\end{remark}
+\status{published}
+\source{P15:rem:r0_origin}
+
 %════════════════════════════════════════════════════════════════════
 % Trefoil Geometry: Frenet-Serret and Torsion — Paper XV
 %════════════════════════════════════════════════════════════════════
@@ -807,6 +874,18 @@ corrected to $C_3^*=2.5062$ at $O(\langle\kappa^4\rangle)$
 \source{P15:cor:lambda3}
 \residual{exact}
 
+\begin{remark}[Tube separation]
+\label{P15:rem:tube_separation}
+Numerical computation of the trefoil $T_{2,3}$ gives minimum
+inter-tube distance $d_{\min}=1.748$, while the tube
+cross-section radius is $1/C^*_2\approx0.291$.
+The ratio $d_{\min}\cdot C^*_2\approx 6.0$ confirms that the
+tubes are well-separated and the thin-tube approximation is valid
+at leading order.
+\end{remark}
+\status{published}
+\source{P15:rem:tube_separation}
+
 %════════════════════════════════════════════════════════════════════
 % Crossing Regions and Confinement — Paper XV
 %════════════════════════════════════════════════════════════════════
@@ -827,6 +906,20 @@ $\QH=3$ analogue of the torus inner wall:
 \end{proposition}
 \status{published}
 \source{P15:prop:crossings}
+
+\begin{remark}[Geometric centre is vacuum]
+\label{P15:rem:geometric_centre_vacuum}
+The geometric centre of the trefoil at $R_0=3$ is the origin,
+at minimum distance $2.13$ from the nearest tube point --- more
+than $7\times$ the tube radius $1/C^*\approx 0.29$.
+The origin lies in the field vacuum.
+The interior of the trefoil (the Seifert solid) has a condensate
+\emph{minimum} at its geometric centre and maxima at the three
+crossing regions --- the inverse of an incorrect intuition that
+the ``centre'' would be filled.
+\end{remark}
+\status{published}
+\source{P15:rem:geometric_centre_vacuum}
 
 \begin{remark}[Three concentrations: exact count]
 \label{P15:rem:3or6}
@@ -860,6 +953,24 @@ trefoil tubes to link into the closed knot $T_{2,3}$.
 \end{proposition}
 \status{published}
 \source{P15:prop:confinement}
+
+\begin{remark}[Q$_H$=2 vs Q$_H$=3 confinement]
+\label{P15:rem:qh2_vs_qh3_confinement}
+The confinement mechanism is the same in both sectors:
+the profile boundary conditions force closed tubes.
+For $\QH=2$ (one tube, closed torus): the tube closes on itself;
+this is the topologically protected soliton of Paper~I.
+For $\QH=3$ (three tubes, trefoil): the three tubes must link to
+close; an isolated colour charge cannot form a finite-energy
+closed configuration alone.
+Only colour-neutral combinations --- three tubes linked in
+$T_{2,3}$ (baryons) or one tube plus its anti-tube (mesons in
+$\QH=3\oplus\QH=-3$) --- are energetically allowed.
+The quantitative statement (linear potential coefficient) requires
+knowledge of $C^*_3$ from the $\QH=3$ saddle.
+\end{remark}
+\status{published}
+\source{P15:rem:qh2_vs_qh3_confinement}
 
 \begin{remark}[Absence of a unique Bogomolny parameter and confinement]
 \label{P15:rem:no_lambda3}
@@ -946,6 +1057,18 @@ assumption.
 \source{P15:cor:V3}
 \residual{exact}
 
+\begin{remark}[Why $N_3=3$ is forced]
+\label{P15:rem:why_N3_forced}
+The CMB factor $\rCMB=10\Lcond^4$ is sector-independent.
+The integer $N_n=Q_{\mathrm{group}}^{(n)}$ is determined independently
+by the T-matrix closure (Theorem~\ref{P15:thm:Qgroup3}).
+The normalisation identity and volume formula are therefore
+consequences of the condensate physics once $\lam_3=\vp^6$ is proved;
+they do not need to be assumed.
+\end{remark}
+\status{published}
+\source{P15:rem:why_N3_forced}
+
 \begin{theorem}[Logical equivalence of the two closure conditions]
 \label{P15:thm:equivalence}
 The following two statements are logically equivalent, given the
@@ -997,6 +1120,24 @@ $\lam_3=\vp^6$.
 \source{P15:prop:lambda3}
 \residual{exact}
 
+\begin{remark}[Why the same self-duality applies]
+\label{P15:rem:why_same_self_duality}
+The condensate background is $\SU(2)_3$ for all sectors.
+The self-duality $S_{\frac12,\frac12}=S_{0,0}$
+(Paper~II Proposition~7.1) is a property of the condensate WZW model,
+not of the individual soliton sector.
+For $\QH=2$ it controlled the $F_{12},F_{23}$ components of the
+torus; for $\QH=3$ it should control the analogous crossing-region
+integrals of the trefoil.
+The Rellich--Kondrachov compactness argument that extends
+$V^*=\vp$ to finite $R_0$ (Paper~III Theorem~9.4) applies unchanged
+to the trefoil tube geometry: the tube is a compact
+manifold-with-boundary, and the $\QH=3$ charge constraint prevents
+mass escape at infinity exactly as for $\QH=2$.
+\end{remark}
+\status{published}
+\source{P15:rem:why_same_self_duality}
+
 \begin{proposition}[Exact structure of $r_3$ corrections]
 \label{P15:prop:r3_exact}
 For any axially-symmetric profile $f_0(\rho)$:
@@ -1017,6 +1158,23 @@ For any axially-symmetric profile $f_0(\rho)$:
 \status{published}
 \source{P15:prop:r3_exact}
 
+\begin{remark}[Relation to the thin-tube prediction]
+\label{P15:rem:thin_tube_relation}
+The leading-order formula~\eqref{P15:eq:r3formula} gives
+$r_3 = 3/(4C_3^{*2})+\langle\kappa^2\rangle/2$.
+Setting $r_3=2/\vp^5$ yields $C_3^*=2.497$
+(Corollary~\ref{P15:cor:lambda3} with $\lam_3=\vp^6$).
+By Theorem~\ref{P15:thm:torsion_cancels}, torsion makes zero
+contribution at this order (Remark~\ref{P15:rem:torsion_scope}).
+The $O(\langle\kappa^4\rangle)$ correction shifts $C_3^*$ to
+$2.5062$ ($0.392\%$ shift; Proposition~\ref{P15:prop:kappa4}) and
+leaves $\lam_3$ self-consistent.
+The statement~\eqref{P15:eq:r3_conjecture} is consistent with all
+analytical results established so far.
+\end{remark}
+\status{published}
+\source{P15:rem:thin_tube_relation}
+
 \begin{lemma}[Fusion-count ratio of sector targets]
 \label{P15:lem:fusion_ratio}
 The target ratios for the two sectors satisfy
@@ -1032,6 +1190,22 @@ where $N_{\mathrm{fus}}=2$ (fusion count) and $k=3$ (WZW level).
 \status{published}
 \source{P15:lem:fusion_ratio}
 \residual{exact}
+
+\begin{remark}[Physical interpretation]
+\label{P15:rem:fusion_ratio_interp}
+Lemma~\ref{P15:lem:fusion_ratio} says that $r_3^*/r_2^* = N_\mathrm{fus}^{-1/k}$ is the
+\emph{inverse} of the Linking Scale Conjecture ratio in Paper~II
+(equation~7.2 therein: $\lambda_{\mathrm{eff}}^*/\lambda = N_{\mathrm{fus}}^{-1/k}$).
+For $\QH=2$, the self-consistency \emph{lowers} $\lambda_{\mathrm{eff}}^*$ below $\lambda$
+by a factor $N_{\mathrm{fus}}^{-1/k}$.
+For $\QH=3$, the trefoil geometry \emph{lowers} $r_3^*$ below $r_2^*$
+by the same factor --- the two effects are related by the same
+fusion-count identity $N_{\mathrm{fus}}=2$, $k=3$.
+The condensate background (same $\mathrm{SU}(2)_3$ WZW for both sectors)
+enforces this via the $S$-matrix self-duality $S_{\frac12,\frac12}=S_{0,0}$.
+\end{remark}
+\status{published}
+\source{P15:rem:fusion_ratio_interp}
 
 \begin{theorem}[Simple-current sector assignment]
 % Note: label retains historical 'conj:' prefix; type promoted to theorem.
@@ -1095,6 +1269,19 @@ among all sectors at writhe $w=3$.
 \source{P15:prop:wrt_phase}
 \residual{exact}
 
+\begin{remark}
+\label{P15:rem:fourth_root_phase}
+The primitive $4$th-root phase $i$ reflects the $90^\circ$ twist per
+crossing of $T_{2,3}$: the trefoil's three crossings contribute
+$3\times 90^\circ = 270^\circ$ total twist in the $j=3/2$ sector.
+Combined with one full $360^\circ$ winding (from the knot's framing),
+the net phase is $e^{2\pi i\cdot(3/4+1)} = e^{2\pi i/4} = i$.
+This geometric identity is specific to the pairing of
+writhe~$3$ (trefoil) with $h_{3/2}=3/4$ ($\mathrm{SU}(2)_3$ simple current).
+\end{remark}
+\status{published}
+\source{P15:rem:fourth_root_phase}
+
 \begin{proposition}[String tension minimisation by the simple current]
 \label{P15:prop:wrt_dim}
 For a closed knot, the WZW string tension per unit length is proportional
@@ -1111,6 +1298,20 @@ the minimum is achieved uniquely by $j=3/2$:
 \source{P15:prop:wrt_dim}
 \residual{exact}
 
+\begin{remark}
+\label{P15:rem:inverts_energy_ordering}
+This inverts the energy ordering for free states.
+For \emph{free} (unconfined) states, lower $h_j$ means lower bulk energy,
+favouring $j=1/2$ ($h=3/20$) over $j=3/2$ ($h=3/4$).
+For \emph{confined} states (closed knot, no boundary),
+the relevant cost is the string tension $\sim\dim_q(j)\cdot L$,
+which is minimised at $j=3/2$.
+The trefoil $T_{2,3}$ is confined by its topology, so the string-tension
+ordering applies, uniquely selecting $j=3/2$ among non-vacuum sectors.
+\end{remark}
+\status{published}
+\source{P15:rem:inverts_energy_ordering}
+
 \begin{proposition}[Pure-phase WRT contribution of $j=3/2$]
 \label{P15:prop:wrt_pure}
 The $j=3/2$ sector's contribution to $\tau_3(T_{2,3})$ is
@@ -1125,6 +1326,20 @@ with modulus $\vp>1$.
 \status{published}
 \source{P15:prop:wrt_pure}
 \residual{exact}
+
+\begin{remark}[Physical interpretation]
+\label{P15:rem:wrt_physical_interp}
+A unit-modulus WRT contribution means the $j=3/2$ sector
+undergoes no quantum-dimensional renormalisation under the trefoil's
+surgery: the sector is \emph{transparent} to the knot operation.
+This is the WRT analogue of the simple current having trivial
+monodromy with itself ($N_{\mathrm{fus}}(3/2\otimes3/2)=1$),
+and provides an independent
+topological-field-theory confirmation of the simple-current
+sector assignment.
+\end{remark}
+\status{published}
+\source{P15:rem:wrt_physical_interp}
 
 %════════════════════════════════════════════════════════════════════
 % Proof of the Sector Assignment — Paper XV
@@ -1170,6 +1385,42 @@ and $r_3=2/\vp^5$ at the EL saddle.
 \source{P15:cor:lambda3_proved}
 \residual{exact}
 
+\begin{remark}
+\label{P15:rem:three_conditions_summary}
+By Theorem~\ref{P15:thm:equivalence}, all three equivalent
+conditions (I)--(III) now follow simultaneously:
+\begin{enumerate}[noitemsep,label=\textup{(\Roman*)}]
+\item $\lam_3=\vp^6$ (Corollary~\ref{P15:cor:lambda3_proved}).
+\item $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ (Theorem~\ref{P15:thm:norm3}).
+\item $r_3=J_4^{(3)}/J_{2a}^{(3)}=2/\vp^5$ at the EL saddle
+  (Proposition~\ref{P15:prop:lambda3}).
+\end{enumerate}
+The derived consequences $V_3=9/(5\vp^{17})$ and $C_3^*=2.5062$
+follow from Corollaries~\ref{P15:cor:V3} and~\ref{P15:cor:lambda3}
+(Proposition~\ref{P15:prop:kappa4} for the $O(\langle\kappa^4\rangle)$ value).
+
+The open problem of item~(iii) is a topology-preserving numerical saddle
+finder that would confirm $C_3^*=2.5062$ directly
+from the $\QH=3$ Euler--Lagrange profile.
+\end{remark}
+\status{published}
+\source{P15:rem:three_conditions_summary}
+
+\begin{remark}[The $\QH=2$ parallel]
+\label{P15:rem:qh2_parallel}
+The same argument for $\QH=2$ gives:
+$j_{1/2}\otimes j_{1/2} = j_0^{(\times 1)}\oplus j_1^{(\times 1)}$.
+Both output channels have multiplicity~$1$, so the multiplicity
+argument alone does not select between them.
+The lower-energy selection ($h_0=0 < h_1=2/5$) gives $j=0$,
+consistent with Paper~III.
+For $\QH=3$, both energy and multiplicity arguments agree: the
+lower-energy candidate $j=1/2$ is ruled out by multiplicity~$2$,
+leaving $j=3/2$ as the unique consistent choice.
+\end{remark}
+\status{published}
+\source{P15:rem:qh2_parallel}
+
 \begin{remark}[Logical status of Step 1]
 \label{P15:rem:step1_status}
 The identification ``each $\QH=1$ quantum carries $j=\frac12$'' is the
@@ -1197,6 +1448,19 @@ $|V^*|=\vp$, the $\QH=3$ sector must be $j=\frac32$.
 \status{published}
 \source{P15:prop:verlinde_unique}
 \residual{exact}
+
+\begin{remark}[Sign convention]
+\label{P15:rem:sign_convention}
+The Verlinde ratio for $j=\frac32$ is $-\vp$ (negative),
+while the IVT gives $V^*=+\vp$ (positive).
+The sign difference is accounted for by the simple-current
+identity $S_{3/2,\,l}=(-1)^{2l}S_{0,\,l}$: the $j=\frac32$
+sector's $\mathbb{Z}_2$ centre charge introduces a sign flip in the Cardy formula relative to $j=0$.
+The physical condition is $|V^*|=\vp$, which both
+$j=0$ ($V^*=+\vp$) and $j=\frac32$ ($V^*=-\vp$) satisfy.
+\end{remark}
+\status{published}
+\source{P15:rem:sign_convention}
 
 \begin{remark}[Three independent arguments]
 \label{P15:rem:three_arguments}

@@ -562,6 +562,18 @@ $\int_0^{2\pi}d\chi/(a+b\cos\chi)^n$ with $a=\Rzero$, $b=\rho$.
 \status{published}
 \source{P14:prop:exact_avg}
 
+\begin{remark}[Geometric meaning]
+\label{P14:rem:avg_rinv_meaning}
+Equation~\eqref{P14:eq:avg_rinv} replaces the thin-torus approximation
+$1/r\approx1/\Rzero$ by the exact weight $1/\sqrt{\Rzero^2-\rho^2}$:
+the two differ by $(\Rzero^{-1}-\sqrt{\Rzero^2-\rho^2}^{-1})/\Rzero^{-1}
+= 1-\Rzero/\sqrt{\Rzero^2-\rho^2}\approx-\rho^2/(2\Rzero^2)$,
+recovering Stage~2's volume correction at leading order.
+The exact formula captures all orders in $\rho/\Rzero$.
+\end{remark}
+\status{published}
+\source{P14:rem:avg_rinv_meaning}
+
 \begin{theorem}[Closed-form 3D toroidal correction formula]
 \label{P14:thm:toroidal_formula}
 At torus radius $\Rzero$ with the thin-torus saddle profile
@@ -810,6 +822,20 @@ the factor $\langle\cos(2\chi)\rangle_\chi = 0$.
 \end{lemma}
 \status{published}
 \source{P14:lem:first_order_vanish}
+
+\begin{remark}[Physical interpretation]
+\label{P14:rem:curvature_flattening}
+The toroidal curvature flattens the Hopfion core ($\ftwo < 0$ for
+$\rho\lesssim 2.8$) and extends the wings ($\ftwo > 0$ for
+$\rho\gtrsim 2.8$).  These distortions are antisymmetric in
+$\cos(2\chi)$---the inner torus wall ($\chi=\pi$) sees the opposite
+correction from the outer wall ($\chi=0$)---and average to zero at
+first order.  This is why the Battye--Sutcliffe profile is such an
+accurate approximation to the 3D saddle: the leading correction is
+invisible to the azimuthal average.
+\end{remark}
+\status{published}
+\source{P14:rem:curvature_flattening}
 
 \begin{theorem}[$O(\Rzero^{-4})$ profile correction]
 \label{P14:thm:second_order}

@@ -152,11 +152,12 @@ Steps:
    g. If the target .tex file exists: append the result in the correct section
    h. If the target .tex file does not exist: create it with the standard
       preamble (see TEMPLATE below), then add the result
-   i. \ref DOENSN'T NEED to be in the same file. The tex sector files are collections of VERBATIM paper theorm/lemmas/etc.
+   i. \ref DOENSN'T NEED to be in the same file. The tex sector files are collections of VERBATIM paper theorm/lemmas/etc
+   j. Different papers may have the same equation. As long as the label is different, even if the content is verbatim, the label needs to be added to the registry
 4. Add the label to paper_registry.yaml under the correct paper entry
 5. If the paper is numbered, ensure it's paper_registry.yaml entry is positioned correctly in the ascending sequentially order.
 6. If the doi for the paper is missing in paper_registry.yaml, try to find the DOI of the paper being scanned with grep {PaperN} from the bibliography section of the existing main_paperN.tex papers in the /papers folder, whether or not they are in paper_registry.yaml
-7. Verify the name for the paper in paper_registry.yaml, use the name of the paper in the current paper. Remove any new lines in the title and space it appropriately.
+7. Verify the name for the paper in paper_registry.yaml, use the name of the paper in the current paper. Remove any new lines in the title and space it appropriately
 8. If the result is a new numbered output: 
    a. Add a row to master_table.tex
    b. Ensure that the extracted content of the label to be put in the repository is verbatim to the paper
@@ -167,7 +168,7 @@ Steps:
 13. If there are any discrepancies:
     a. Attempt to follow the existing conventions of the repository
     b. If unsuccessful, interactively resolve any discrepancies
-14. Once discrepancies are resolved (with or without interation) prompt for confirmation and on confirmation, continue.
+14. Once discrepancies are resolved (with or without interation) prompt for confirmation and on confirmation, continue
 15. git add all modified files
 16. prompt for confirmation to run "git commit -m "scan: extract [N results] from paperN ([status])"
 
@@ -190,11 +191,11 @@ Steps:
 1. Read paper_registry.yaml to find all files referencing [label]
 2. Read each file
 3. Compare the statement of the result across all occurrences
-4. If the result exists, but has the same label after ':' ensure that if the type was promoted, it is updated correctly, eg conjecture to proposition to theorem, etc.
+4. If the result exists, but has the same label after ':' ensure that if the type was promoted, it is updated correctly, eg conjecture to proposition to theorem, etc
 5. If the result exists, and it is the same label, ensure it's content is correct against the main_paperN.tex
-6. If the result exists, and it is the a different label than in the paper, update the label.
-7. If the result is better and superseded by a later paper, identify it as such. Keep each paper's results unique and reference the paper where it is superseded. You may need to check against existing results.
-8. Make sure that if the staement contains an equation reference, the equation and it's label is also defined somewhere.
+6. If the result exists, and it is the a different label than in the paper, update the label
+7. If the result is better and superseded by a later paper, identify it as such. Keep each paper's results unique and reference the paper where it is superseded. You may need to check against existing results
+8. Make sure that if the staement contains an equation reference, the equation and it's label is also defined somewhere
 9. Report: identical / discrepant (show diff)
 10. If discrepant: ask which version is canonical before making any change
 
@@ -244,58 +245,6 @@ Steps:
 2. If checking a repo file: list all labels in the file, check each
    exists in paper_registry.yaml, report orphans
 
-### QUERY FRAMEWORK
-Trigger: any question about what the framework says, predicts, derives,
-or relates to (e.g. "how does the hopfion relate to X", "what does the
-framework say about Y", "what's the status of Z") — i.e. read-only
-questions, not a request to extract, add, or modify results.
-
-This is a read query, not a SCAN PAPER run: never edit repo files or
-papers/ while answering one. If the answer reveals a genuine gap
-(missing label, stale residual, orphaned reference), report it and ask
-before fixing — do not fold a fix into a query response.
-
-Steps:
-1. **Repo first.** Identify the sector(s) the question falls under
-   (see the Sector → subfolder mapping) and read the corresponding
-   subfolder file(s). The repo files are pre-digested and
-   cross-checked — prefer them over the papers whenever they cover
-   the question.
-2. **Use the ground truth files as the index**, not just grep:
-   - `paper_registry.yaml` — which paper(s) and labels are relevant;
-     also the fastest way to check a paper's status (published/draft)
-     before trusting a result at face value.
-   - `master_table.tex` — the quantitative headline: value, residual,
-     status glyph (\checkmark/$\circ$/P), and source label, in one
-     row. Good for "what's the accuracy of X" questions.
-   - `open_problems.tex` — whether a result is settled or still open;
-     check this before presenting a conjecture as if it were closed.
-   - `preamble.tex` — resolve unfamiliar macros encountered while
-     reading a sector file.
-3. **Respect `\status{}`.** Present `\status{draft}` results as
-   provisional (flag that they come from an unpublished paper) and
-   `\status{open}`/`\circ` conjectures as unproved, even if the repo
-   text reads confidently. Never launder a draft or conjectural result
-   into a stated fact.
-4. **Fall back to `papers/main_paperN.tex` (or main_paper_foundational.tex
-   / main_reader_guide.tex) only when the repo is insufficient**:
-   the result isn't filed yet (check paper_registry.yaml — it may
-   predate the last SCAN PAPER run), the repo file's terse extracted
-   form lacks context the question needs (e.g. the proof itself, or
-   surrounding discussion), or the question is about a paper's
-   narrative/framing rather than an extracted formal result. When
-   falling back, say so explicitly ("not yet filed in the repo, so
-   drawn directly from Paper N") rather than presenting it as if it
-   came from the indexed repo.
-5. **Cite what you used.** Reference results by their `PN:label` (and
-   file path), the way the repo cross-references itself. If multiple
-   papers/labels bear on the answer (e.g. a residual progression across
-   several `#`-numbered sub-rows), mention the progression rather than
-   only the latest number.
-6. If the question spans a topic with no subfolder yet, or the
-   answer genuinely isn't in the repo or papers at all, say so plainly
-   instead of speculating past the framework's stated results.
-
 ---
 
 ## Standard repo file template
@@ -324,7 +273,7 @@ When creating a new .tex file in a subfolder:
 
 | Macro | Meaning |
 |-------|---------|
-| \status{proved} | Formally proved in a published paper |
+| \status{published} | Formally proved in a published paper |
 | \status{draft}  | From a draft paper — may change |
 | \status{open}   | Open problem or conjecture |
 | \status{prediction} | Untested experimental prediction |
@@ -338,5 +287,19 @@ When creating a new .tex file in a subfolder:
 - Do not edit files in papers/ (treat them as read-only)
 - Do not re-derive results — \input or \ref only
 - Do not add a result to the repo without updating paper_registry.yaml
-- Do not change \status{proved} to anything else without explicit instruction
+- Do not change \status{published} to anything else without explicit instruction
 - Do not resolve a consistency discrepancy without asking which is canonical
+
+## Exceptions ###
+If the user insists you edit a paper:
+
+**References** 
+- No backslashed underscores.
+- No bare paper references. Format everywhere, including master_table.tex, as 'Paper~RN~\cite{PaperN}' where RN is the capitalized roman numeral of the paper and N is the arabic numeral.
+- No bare reference labes to another paper. 
+  1. Find the actual reference Theorem/Corollory/Remark/etc. arabic number by:
+     a. first checking prior papers for another commented \ref with the same label with an actual number of the Theorem/Remark/Construction/etc. This the primary correct number.
+     b. if a. doesn't yield a numbered result, checking to see if another commented \ref in the current paper for the same label with an actual of number for the Theorem/Remark/Construction/etc.
+     c. if a. or b. don't yield result, next check the compiled tex of the paper being referenced to infer the number. This is usually needs to be fixed manually, so as a last resort.
+     d. check with the user for discrepancies if found between a. b. and c.
+  2. After the arabic numbered Thorem/Proposition/Conecture/etc. put a comment with the \ref to the other paper to the end of the line. eg %\ref{P3:thm_example}

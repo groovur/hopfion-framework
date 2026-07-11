@@ -50,6 +50,23 @@ Specifically:
 \status{published}
 \source{P7:prop:eft_naturalness}
 
+\begin{remark}[Status of the UV completion]
+\label{P7:rem:uv_completion_status}
+Proposition~\ref{P7:prop:eft_naturalness} establishes that the framework
+is UV-safe in the sense relevant for its predictions: no measurement
+described in this paper probes scales above $\LUV\approx0.0557\,\MPl$.
+An explicit UV completion above $\LUV$ --- whether string embedding,
+asymptotic safety, or another mechanism --- would be needed to address
+questions about Planck-scale scattering or the trans-Planckian problem
+for inflation, but such a completion does not affect the results here.
+The characteristic condensate length scale $\ell_\mathrm{cond}=1/\LUV
+\approx\vp^6\,\ell_{\mathrm{Pl}}\approx17.9\,\ell_{\mathrm{Pl}}$
+is super-Planckian, consistent with the EFT being valid for
+$\ell>\ell_\mathrm{cond}$.
+\end{remark}
+\status{published}
+\source{P7:rem:uv_completion_status}
+
 \begin{corollary}[Topological origin of the Vainshtein radius]
 \label{P7:cor:vainshtein_topology}
 The Vainshtein radius $r_V\approx9.3\times10^6\,\mathrm{AU}$ is
@@ -245,6 +262,34 @@ indistinguishable from $G_N$ at the level of rotation-curve measurements.
 \status{published}
 \source{P7:prop:Geff}
 
+\begin{remark}[Rotation curves from condensate halo profile]
+\label{P7:rem:rotation_curves_halo}
+The condensate acts as cold dark matter on galactic scales
+(Proposition~\ref{P7:prop:CDM_limit}) and $G_{\rm eff}(r) = G_N$
+to $6\times10^{-5}$ at rotation-curve radii
+(Proposition~\ref{P7:prop:Geff}).
+Rotation curves are therefore flat by exactly the same mechanism as
+CDM: the condensate forms an NFW-like gravitational halo
+through the standard gravitational instability, with the baryonic
+disk sitting inside a dark halo of condensate.
+No additional mechanism (modified gravity, $G_{\rm eff}$ variation,
+or Vainshtein transition effects) is required at galactic scales.
+
+The leading condensate correction to the Newtonian rotation curve is
+a pressure-gradient term of order $(r/\lambda_J)^2\lesssim5\times10^{-11}$
+at $r\leq r_{\rm halo}$, completely negligible.
+The gravitational coupling correction is $\alpha_{\rm BD}(r/r_V)^{3/2}
+\lesssim6\times10^{-5}$ at $r\leq30\,\mathrm{kpc}$, also negligible.
+
+The primary \emph{new} prediction distinguishing the condensate from
+standard CDM is not in the rotation curves but in the large-scale
+matter power spectrum: the BAO peak shifts by factor $\vp$
+to $k_{\rm BAO}^{\rm cond}\approx0.0346\,\mathrm{Mpc}^{-1}$
+(equation~\eqref{P7:eq:kBAO_shift}), falsifiable with DESI~DR2 and Euclid.
+\end{remark}
+\status{published}
+\source{P7:rem:rotation_curves_halo}
+
 \begin{equation}
   \boxed{w_a \;=\; -3(1+w_0),}
   \label{P7:eq:wa_derived}
@@ -267,4 +312,20 @@ $w_a=-1.05^{+0.31}_{-0.27}$~\cite{DESI2024}.
 \end{theorem}
 \status{published}
 \source{P7:thm:thawing}
+
+\begin{remark}[DESI consistency and the frozen-field tension]
+\label{P7:rem:desi_consistency}
+The DESI~DR1 central values $w_0=-0.727\pm0.067$, $w_a=-1.05^{+0.31}_{-0.27}$
+give $-3(1+w_0)=-0.819$ versus $w_a^\mathrm{DESI}=-1.05$: a $0.80\sigma$
+agreement.  The frozen-field limit $w_0=-1$, $w_a=0$ is $\approx4\sigma$ from
+the DESI central values.
+If DESI~DR2 confirms $w_0\neq-1$ at $>3\sigma$, the framework
+accommodates this via a nonzero initial displacement
+$\delta\rho_0=\rinfty-\rho_\mathrm{today}\sim\sqrt{\Lobs}/\MPl^2$,
+a natural scale with no fine-tuning.
+The one-parameter prediction $w_a=-3(1+w_0)$ is falsifiable:
+any measurement of $w_0$ uniquely pins $w_a$.
+\end{remark}
+\status{published}
+\source{P7:rem:desi_consistency}
 

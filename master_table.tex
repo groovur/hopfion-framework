@@ -15,134 +15,136 @@ Status: \checkmark = proved; $\circ$ = conjectured; P = prediction (untested).}
 \# & Quantity & Value & Residual & Status & Source \\
 \midrule
 \multicolumn{6}{l}{\textit{Electroweak sector}} \\
-1  & $\aem^{-1}$ & 137.035\,998\,486 & $5\times10^{-7}\%$ & \checkmark & P4: thm:four\_term\_alpha \\
-2  & $\sinW$ & 0.2312 & 0.26\% & \checkmark & P6: thm:tphase\_unique \\
-3  & $m_e$ & 0.5110\,MeV & 0.013\% & \checkmark & P4: thm:mass\_renorm, P12: thm:A \\
-4  & $m_\mu/m_e$ & 206.77 & 0.04\% & \checkmark & P6: thm:wzw\_connection \\
-5  & $m_\tau/m_e$ & 3476.2 & 0.03\% & \checkmark & P6: thm:wzw\_connection \\
-6  & $m_\mu/m_\tau$ & 0.05917 & 0.50\% & \checkmark & P5: thm:mmu\_mtau \\
-7  & $M_W/M_Z$ & $\sqrt{1-3/(8\vp)}$ & 0.56\% & \checkmark & P1: cor:weinberg\_unconditional \\
-8a & $v_{\mathrm{EW}}$ (leading order) & $\Lcond\vp^{20}e^{49\pi/6}$ & 1.45\% & \checkmark & P4: cor:vew \\
-8b & $v_{\mathrm{EW}}$ (tower construction) & 246.2\,GeV & 1.14\% & \checkmark & P6: thm:vew\_tower \\
-8c & $v_{\mathrm{EW}}$ (T-matrix corrected) & 247.9\,GeV & 0.69\% & \checkmark & P4: cor:vew\_corrected \\
-8d & $v_{\mathrm{EW}}$ (thick-torus corrected) & thin-torus intrinsic residual & 0.015\% & \checkmark & P14: cor:yukawa\_3D \\
-8e & $v_{\mathrm{EW}}$ (thick-torus corrected, final) & $O(R_0^{-4})$ profile correction & 0.012\% & \checkmark & P14: cor:yukawa\_second \\
-9  & $y_e$ & $e^{-25\pi/6}$ & 0.46\% & \checkmark & P4: thm:compton \\
+1  & $\aem^{-1}$ & 137.035\,998\,486 & $5\times10^{-7}\%$ & \checkmark & P4:thm:four_term_alpha \\
+2  & $\sinW$ & 0.2312 & 0.26\% & \checkmark & P6:thm:tphase_unique \\
+3a & $m_e$ (leading order) & $\Lcond\vp^{20}e^{4\pi}$ & 0.97\% & \checkmark & P4:thm:second_spoke, P12:thm:A \\
+3b & $m_e$ (T-matrix corrected) & 0.5121\,MeV & 0.22\% & \checkmark & P4:thm:t_matrix_spoke, P12:thm:A \\
+3c & $m_e$ (scheme corrected) & 0.5110\,MeV & 0.013\% & \checkmark & P4:thm:msbar_pole, P12:thm:A \\
+4  & $m_\mu/m_e$ & 206.77 & 0.04\% & \checkmark & P6:thm:wzw_connection \\
+5  & $m_\tau/m_e$ & 3476.2 & 0.03\% & \checkmark & P6:thm:wzw_connection \\
+6  & $m_\mu/m_\tau$ & 0.05917 & 0.50\% & \checkmark & P5:thm:mmu_mtau \\
+7  & $M_W/M_Z$ & $\sqrt{1-3/(8\vp)}$ & 0.56\% & \checkmark & P1:cor:weinberg_unconditional \\
+8a & $v_{\mathrm{EW}}$ (leading order) & $\Lcond\vp^{20}e^{49\pi/6}$ & 1.45\% & \checkmark & P4:cor:vew \\
+8b & $v_{\mathrm{EW}}$ (tower construction) & 246.2\,GeV & 1.14\% & \checkmark & P6:thm:vew_tower \\
+8c & $v_{\mathrm{EW}}$ (T-matrix corrected) & 247.9\,GeV & 0.69\% & \checkmark & P4:cor:vew_corrected \\
+8d & $v_{\mathrm{EW}}$ (thick-torus corrected) & thin-torus intrinsic residual & 0.015\% & \checkmark & P14:cor:yukawa_3D \\
+8e & $v_{\mathrm{EW}}$ (thick-torus corrected, final) & $O(R_0^{-4})$ profile correction & 0.012\% & \checkmark & P14:cor:yukawa_second \\
+9  & $y_e$ & $e^{-25\pi/6}$ & 0.46\% & \checkmark & P1:res:yukawa \\
 \midrule
 \multicolumn{6}{l}{\textit{Strong sector}} \\
-10 & $\alpha_s(M_Z)$ & 0.1185 & 0.97\% (tower route), 2.4\% (coupling route) & \checkmark & P5: thm:lqcd\_proved \\
-10b & h(E6)=12=N_c(N_c+1) & exact & exact & proved & P5: rem:e6_coxeter \\
-10c & Q=(N_c+1)h(E8)/h(E6)=10 & exact & exact & proved & P5: rem:Q_double_derivation \\
-11 & $m_u/m_d$ & ratio & $<1\%$ & \checkmark & P5: thm:quark\_lepton\_ratios \\
-12 & $\delta_{\mathrm{CP}}$ & $65.0^\circ$ & 0.003$^\circ$ & \checkmark & P5: thm:delta\_cp \\
-13 & $|V_{cb}|$ & 0.04068 & 0.4\% & \checkmark & P5: thm:ckm\_full \\
-14 & $|V_{us}|$ & 0.2253 & 0.2\% & \checkmark & P5: thm:ckm\_full \\
-15 & $|V_{ub}|$ & from $\sqrt{m_u/m_t}$ & 4.2\% & \checkmark & P5: thm:ckm\_full \\
-16 & $\theta_{\mathrm{QCD}}=0$ & exact & exact & \checkmark & P5: prop:strongCP \\
+10 & $\alpha_s(M_Z)$ & 0.1185 & 0.97\% (tower route), 2.4\% (coupling route) & \checkmark & P5:thm:lqcd_proved \\
+10b & h(E6)=12=N_c(N_c+1) & exact & exact & proved & P5:rem:e6_coxeter \\
+10c & Q=(N_c+1)h(E8)/h(E6)=10 & exact & exact & proved & P5:rem:Q_double_derivation \\
+11 & $m_u/m_d$ & ratio & $<1\%$ & \checkmark & P5:thm:quark_lepton_ratios \\
+12 & $\delta_{\mathrm{CP}}$ & $65.0^\circ$ & 0.003$^\circ$ & \checkmark & P5:thm:delta_cp \\
+13 & $|V_{cb}|$ & 0.04068 & 0.4\% & \checkmark & P5:thm:ckm_full \\
+14 & $|V_{us}|$ & 0.2253 & 0.2\% & \checkmark & P5:thm:ckm_full \\
+15 & $|V_{ub}|$ & from $\sqrt{m_u/m_t}$ & 4.2\% & \checkmark & P5:thm:ckm_full \\
+16 & $\theta_{\mathrm{QCD}}=0$ & exact & exact & \checkmark & P5:prop:strongCP \\
 \midrule
 \multicolumn{6}{l}{\textit{Exact / structural}} \\
-17 & 3 lepton generations & exact & exact & \checkmark & F: prop:route3 \\
-18 & 3 quark generations & exact & exact & \checkmark & F: prop:mckay \\
-19 & Koide $K=2/3$ & exact & exact & \checkmark & P1: thm:koide \\
-20 & Koide angle $\theta_K$ & $132.55^\circ$ & 0.14\% & \checkmark & P1: res:koide\_angle \\
-21 & Born rule $P=|\psi|^2$ & derived & exact & \checkmark & P9: thm:born\_rule, P10: thm:quantisation \\
-22 & Malus law $\cos^2(\phi-\alpha)$ & derived & exact & \checkmark & P9: thm:malus \\
-23 & $E_n = \vp^{2n}E_0$ spectrum & derived & exact & \checkmark & P10: thm:spectrum \\
-24 & Schr\"{o}dinger equation & derived & $O(\varepsilon_{\mathrm{cond}})\sim10^{-27}$ & \checkmark & P13: thm:schrodinger, thm:NA\_vanishing, cor:improved\_BO \\
+17 & 3 lepton generations & exact & exact & \checkmark & F:prop:route3 \\
+18 & 3 quark generations & exact & exact & \checkmark & F:prop:mckay \\
+19 & Koide $K=2/3$ & exact & exact & \checkmark & P1:thm:koide \\
+20 & Koide angle $\theta_K$ & $132.55^\circ$ & 0.14\% & \checkmark & P1:res:koide_angle \\
+21 & Born rule $P=|\psi|^2$ & derived & exact & \checkmark & P9:thm:born_rule, P10:thm:quantisation \\
+22 & Malus law $\cos^2(\phi-\alpha)$ & derived & exact & \checkmark & P9:thm:malus \\
+23 & $E_n = \vp^{2n}E_0$ spectrum & derived & exact & \checkmark & P10:thm:spectrum \\
+24 & Schr\"{o}dinger equation & derived & $O(\varepsilon_{\mathrm{cond}})\sim10^{-27}$ & \checkmark & P13:thm:schrodinger, P13:thm:NA_vanishing, P13:cor:improved_BO \\
 \midrule
 \multicolumn{6}{l}{\textit{Gravity and cosmology}} \\
-25 & $G_N = G_{\mathrm{src}}^2/(4\pi\vp^6)$ & structural & structural & \checkmark & P7: thm:einstein \\
-26 & $n_s$ & 0.9654 & $0.12\sigma$ & \checkmark & P7: thm:Ps\_seesaw \\
+25 & $G_N = G_{\mathrm{src}}^2/(4\pi\vp^6)$ & structural & structural & \checkmark & P7:thm:einstein \\
+26 & $n_s$ & 0.9654 & $0.12\sigma$ & \checkmark & P7:thm:Ps_seesaw \\
 27 & $r$ & 0.0036 & P & P & P7 \\
-28 & $P_s$ & $2.10\times10^{-9}$ & exact & \checkmark & P7: thm:Ps\_seesaw \\
-29 & $N_e$ & 57.7 & derived & \checkmark & P7: prop:Treh \\
-30 & $\Lambda_{\mathrm{obs}}\sim10^{-122}M_{\mathrm{Pl}}^4$ & structural & structural & \checkmark & P7: prop:eft\_naturalness \\
-31 & $w_a = -3(1+w_0)$ & $0.80\sigma$ & \checkmark & \checkmark & P7: thm:thawing \\
-32 & $M_{\mathrm{Pl}}^2 = \LUV^2/(32\pi^2)$ & structural & structural & \checkmark & P7: cor:luv\_tower \\
-33 & $r_V = 9.3\times10^6\,\mathrm{AU}$ & derived & derived & \checkmark & P7: cor:vainshtein\_topology \\
-34 & $c_s = 1/\vp$ & exact & exact & \checkmark & P7: thm:cs \\
+28 & $P_s$ & $2.10\times10^{-9}$ & exact & \checkmark & P7:thm:Ps_seesaw \\
+29 & $N_e$ & 57.7 & derived & \checkmark & P7:prop:Treh \\
+30 & $\Lambda_{\mathrm{obs}}\sim10^{-122}M_{\mathrm{Pl}}^4$ & structural & structural & \checkmark & P7:prop:eft_naturalness \\
+31 & $w_a = -3(1+w_0)$ & $0.80\sigma$ & \checkmark & \checkmark & P7:thm:thawing \\
+32 & $M_{\mathrm{Pl}}^2 = \LUV^2/(32\pi^2)$ & structural & structural & \checkmark & P7:cor:luv_tower \\
+33 & $r_V = 9.3\times10^6\,\mathrm{AU}$ & derived & derived & \checkmark & P7:cor:vainshtein_topology \\
+34 & $c_s = 1/\vp$ & exact & exact & \checkmark & P7:thm:cs \\
 \midrule
 \multicolumn{6}{l}{\textit{Bell / quantum}} \\
-35 & $\mathrm{CHSH}_{\mathrm{lepton}} = 8/3$ & $\approx2.667$ & P & P & P9: prop:projective \\
-36 & $\mathrm{CHSH}_\gamma = 2\sqrt{2}$ & Tsirelson exact & exact & \checkmark & P9: thm:stokes \\
-37 & $\mathrm{CHSH}_{\mathrm{pq}} = 8\sqrt{2}/3$ & $\approx3.771$ & $\circ$ & $\circ$ & P9: conj:angle\_doubling \\
-38 & $\mathrm{CHSH}_{\mathrm{rescaled}}(\beta^*,\text{planar})\approx2.611$ & $\approx2.611$ & P & P & P8: tab:planar\_chsh \\
-39 & $\mathrm{CHSH}_{\mathrm{rescaled}}(\text{isotropic 3D, measured})\approx1.7$ & $\approx1.7$ & P & P & P8: tab:isotropic\_measured\_chsh \\
+35 & $\mathrm{CHSH}_{\mathrm{lepton}} = 8/3$ & $\approx2.667$ & P & P & P9:prop:projective \\
+36 & $\mathrm{CHSH}_\gamma = 2\sqrt{2}$ & Tsirelson exact & exact & \checkmark & P9:thm:stokes \\
+37 & $\mathrm{CHSH}_{\mathrm{pq}} = 8\sqrt{2}/3$ & $\approx3.771$ & $\circ$ & $\circ$ & P9:conj:angle_doubling \\
+38 & $\mathrm{CHSH}_{\mathrm{rescaled}}(\beta^*,\text{planar})\approx2.611$ & $\approx2.611$ & P & P & P8:tab:planar_chsh \\
+39 & $\mathrm{CHSH}_{\mathrm{rescaled}}(\text{isotropic 3D, measured})\approx1.7$ & $\approx1.7$ & P & P & P8:tab:isotropic_measured_chsh \\
 \midrule
 \multicolumn{6}{l}{\textit{Chemistry}} \\
-40 & $Z_{\mathrm{eff}}(\mathrm{O}) = 2.00087$ & 0.003\% & \checkmark & \checkmark & P11: prop:Zeff\_closed \\
-41 & $n(E_{\mathrm{Ry}}) = -12.102$ & exact & exact & \checkmark & P11: cor:rydberg \\
+40 & $Z_{\mathrm{eff}}(\mathrm{O}) = 2.00087$ & 0.003\% & \checkmark & \checkmark & P11:prop:Zeff_closed \\
+41 & $n(E_{\mathrm{Ry}}) = -12.102$ & exact & exact & \checkmark & P11:cor:rydberg \\
 42 & H--O near-degeneracy $\Delta n=0.0015$ & derived & derived & \checkmark & P11 \\
-43 & Al/Cu icosahedrite $=\vp^2$ & 0.27\% & \checkmark & \checkmark & P11: prop:icosahedrite \\
+43 & Al/Cu icosahedrite $=\vp^2$ & 0.27\% & \checkmark & \checkmark & P11:prop:icosahedrite \\
 44 & Hill coefficient $n_H\le k=3$ & structural & structural & \checkmark & P11 + P9 \\
 \midrule
 \multicolumn{6}{l}{\textit{Profile / geometry}} \\
-45 & $\vp^9\sqrt{\Ja\Jfour}=10$ & proved & exact & \checkmark & P12: thm:E \\
-46 & $x^*=R_0/C^*=8.21\times10^{-10}$ & closed form & closed & \checkmark & P12: cor:xstar \\
-47 & $\Delta m/m = 1/\vp^8 \approx 2.13\%$ & prediction & P & P & P13: prop:mass\_anisotropy \\
+45 & $\vp^9\sqrt{\Ja\Jfour}=10$ & proved & exact & \checkmark & P12:thm:E \\
+46 & $x^*=R_0/C^*=8.21\times10^{-10}$ & closed form & closed & \checkmark & P12:cor:xstar \\
+47 & $\Delta m/m = 1/\vp^8 \approx 2.13\%$ & prediction & P & P & P13:prop:mass_anisotropy \\
 \midrule
 \multicolumn{6}{l}{\textit{Thick-torus corrections and scalar sector (Paper XIV)}} \\
-48a & $\delta v_{\mathrm{EW}}/v_{\mathrm{EW}}$ closed to $0.012\%$ & $0.012\%$ & $0.012\%$ & \checkmark & P14: cor:yukawa\_3D, cor:yukawa\_second \\
-48b & $\delta\Lambda_{\mathrm{QCD}}/\Lambda_{\mathrm{QCD}}$ closed to $0.015\%$ & $0.015\%$ & $0.015\%$ & \checkmark & P14: cor:yukawa\_3D \\
-48c & $\lambda_{\mathrm{quartic}} = 5\cdot2^{5/3}/\vp^{10}$ & $0.12907$ & $-0.02\%$ & \checkmark & P14: thm:higgs \\
-48d & $m_H = \sqrt{5}\,r_{\mathrm{WZW}}\,v_{\mathrm{EW}}$ ($v_{\mathrm{EW}}$ measured) & $125.10\,\mathrm{GeV}$ & $0.13\sigma$ & \checkmark & P14: thm:higgs \\
-48e & $m_H = \sqrt{5}\,r_{\mathrm{WZW}}\,v_{\mathrm{EW}}$ ($v_{\mathrm{EW}}$ one-input, thick-torus corrected) & $125.11\,\mathrm{GeV}$ & $0.08\sigma$ & \checkmark & P14: rem:higgs\_numerics \\
+48a & $\delta v_{\mathrm{EW}}/v_{\mathrm{EW}}$ closed to $0.012\%$ & $0.012\%$ & $0.012\%$ & \checkmark & P14:cor:yukawa_3D, P14:cor:yukawa_second \\
+48b & $\delta\Lambda_{\mathrm{QCD}}/\Lambda_{\mathrm{QCD}}$ closed to $0.015\%$ & $0.015\%$ & $0.015\%$ & \checkmark & P14:cor:yukawa_3D \\
+48c & $\lambda_{\mathrm{quartic}} = 5\cdot2^{5/3}/\vp^{10}$ & $0.12907$ & $-0.02\%$ & \checkmark & P14:thm:higgs \\
+48d & $m_H = \sqrt{5}\,r_{\mathrm{WZW}}\,v_{\mathrm{EW}}$ ($v_{\mathrm{EW}}$ measured) & $125.10\,\mathrm{GeV}$ & $0.13\sigma$ & \checkmark & P14:thm:higgs \\
+48e & $m_H = \sqrt{5}\,r_{\mathrm{WZW}}\,v_{\mathrm{EW}}$ ($v_{\mathrm{EW}}$ one-input, thick-torus corrected) & $125.11\,\mathrm{GeV}$ & $0.08\sigma$ & \checkmark & P14:rem:higgs_numerics \\
 \midrule
 \multicolumn{6}{l}{\textit{$\QH=3$ sector: WZW structure, charges, geometry (Paper XV)}} \\
-49 & $Q_{\mathrm{group}}^{(3)}=3$ (T-matrix closure) & exact & exact & \checkmark & P15: thm:QgroupE6, thm:Qgroup3 \\
-50 & $|Q_d|=h_{(1,0)}=\tfrac13$ (down-quark charge) & exact & exact & \checkmark & P15: thm:charge, cor:charge\_eq\_weight \\
-51 & $|Q_u|=h_{\mathbf{27}}=\tfrac23$ (up-quark charge) & exact & exact & \checkmark & P15: thm:charge, cor:charge\_eq\_weight \\
-52 & $\lam_3=\vp^6$ (Bogomolny parameter) & proved & exact & \checkmark & P15: thm:sector\_assignment, cor:lambda3\_proved \\
-53 & $C_3^*=2.5062$ (trefoil saddle, $O(\langle\kappa^4\rangle)$) & derived & exact & \checkmark & P15: prop:kappa4, cor:lambda3 \\
-54 & $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ (normalisation identity) & exact & exact & \checkmark & P15: thm:norm3, thm:equivalence \\
-55 & $V_3=9/(5\vp^{17})$ (trefoil condensate volume) & derived & exact & \checkmark & P15: cor:V3 \\
-56 & Colour confinement from profile BCs & structural & --- & \checkmark & P15: prop:confinement \\
-57 & 3 quark colours $\leftrightarrow$ 3 fermionic irreps of $\twoT$ & structural & --- & \checkmark & P15: prop:colours, prop:branching \\
-58 & $m_u=m_d$ at leading order (T-matrix degeneracy) & prediction & $m_u/m_d\approx0.46$ & P & P15: thm:massdegen \\
+49 & $Q_{\mathrm{group}}^{(3)}=3$ (T-matrix closure) & exact & exact & \checkmark & P15:thm:QgroupE6, P15:thm:Qgroup3 \\
+50 & $|Q_d|=h_{(1,0)}=\tfrac13$ (down-quark charge) & exact & exact & \checkmark & P15:thm:charge, P15:cor:charge_eq_weight \\
+51 & $|Q_u|=h_{\mathbf{27}}=\tfrac23$ (up-quark charge) & exact & exact & \checkmark & P15:thm:charge, P15:cor:charge_eq_weight \\
+52 & $\lam_3=\vp^6$ (Bogomolny parameter) & proved & exact & \checkmark & P15:thm:sector_assignment, P15:cor:lambda3_proved \\
+53 & $C_3^*=2.5062$ (trefoil saddle, $O(\langle\kappa^4\rangle)$) & derived & exact & \checkmark & P15:prop:kappa4, P15:cor:lambda3 \\
+54 & $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$ (normalisation identity) & exact & exact & \checkmark & P15:thm:norm3, P15:thm:equivalence \\
+55 & $V_3=9/(5\vp^{17})$ (trefoil condensate volume) & derived & exact & \checkmark & P15:cor:V3 \\
+56 & Colour confinement from profile BCs & structural & --- & \checkmark & P15:prop:confinement \\
+57 & 3 quark colours $\leftrightarrow$ 3 fermionic irreps of $\twoT$ & structural & --- & \checkmark & P15:prop:colours, P15:prop:branching \\
+58 & $m_u=m_d$ at leading order (T-matrix degeneracy) & prediction & $m_u/m_d\approx0.46$ & P & P15:thm:massdegen \\
 \midrule
 \multicolumn{6}{l}{\textit{$\QH=3$ baryon sector (Paper XVI)}} \\
-59 & Colour exclusion: $\QH=2$ = colour singlet & structural & exact & \checkmark & P16: thm:colour\_exclusion \\
-60 & $\sigma_{\mathrm{ext}}\cdot3R_0 = 0.04405\,E_{\mathrm{profile}}^*$ & exact & exact & \checkmark & P16: prop:sigma\_ext\_formula \\
-61 & $E_\cup/E_{\mathrm{baryon}} = 6.9\times10^{-8}$ & numerical & $<10^{-7}$ & \checkmark & P16: prop:ejunc\_zero \\
-62 & $E_{\mathrm{baryon}} = 1.04405\,E_{\mathrm{profile}}^*$ & exact & exact & \checkmark & P16: rem:ejunc\_consequence \\
-63 & $m_s(2\,\mathrm{GeV}) = 93.32\,\mathrm{MeV}$ (colour-shift + RG) & 93.32\,MeV & 0.09\% & \checkmark & P16: prop:strange\_match \\
-64 & Per-strand construction carries $\QH=3$ & confirmed & exact & \checkmark & P16: thm:perstrand\_charge\_three \\
-65 & Gradient-flow $K_{\min}\approx2294$ ($N=192$, $h=0.05$) & 2294 & numerical & \checkmark & P16: prop:gf\_phase1, rem:gf\_twophase \\
+59 & Colour exclusion: $\QH=2$ = colour singlet & structural & exact & \checkmark & P16:thm:colour_exclusion \\
+60 & $\sigma_{\mathrm{ext}}\cdot3R_0 = 0.04405\,E_{\mathrm{profile}}^*$ & exact & exact & \checkmark & P16:prop:sigma_ext_formula \\
+61 & $E_\cup/E_{\mathrm{baryon}} = 6.9\times10^{-8}$ & numerical & $<10^{-7}$ & \checkmark & P16:prop:ejunc_zero \\
+62 & $E_{\mathrm{baryon}} = 1.04405\,E_{\mathrm{profile}}^*$ & exact & exact & \checkmark & P16:rem:ejunc_consequence \\
+63 & $m_s(2\,\mathrm{GeV}) = 93.32\,\mathrm{MeV}$ (colour-shift + RG) & 93.32\,MeV & 0.09\% & \checkmark & P16:prop:strange_match \\
+64 & Per-strand construction carries $\QH=3$ & confirmed & exact & \checkmark & P16:thm:perstrand_charge_three \\
+65 & Gradient-flow $K_{\min}\approx2294$ ($N=192$, $h=0.05$) & 2294 & numerical & \checkmark & P16:prop:gf_phase1, P16:rem:gf_twophase \\
 \midrule
 \multicolumn{6}{l}{\textit{Neutrino sector (Paper XVII)}} \\
-66 & $Q_{\mathrm{group}}(\nu)=6$ & exact & exact & $\circ$ & P17: prop:qh1\_Qgroup \\
-67 & $m_{\nu_1}\approx42\,\mathrm{meV}$ & $\TCMB(\pi^2/90)^{1/4}\vp^{12}e^{-5/144}$ & P & P & P17: cor:qh1\_mass \\
-68 & $m_{\nu_3}/m_{\nu_2}\approx5.845$ & prediction & $0.9\%$ & $\circ$ & P17: prop:nu\_mass\_ratio \\
-69 & $m_{\nu_1}\approx0.007\,\mathrm{meV}$ & strictly hierarchical & P & P & P17: rem:m1\_suppressed \\
-70 & Neutrinos are Majorana & structural (WZW $k=1$) & --- & $\circ$ & P17: cor:majorana \\
-71 & $Q_{\mathrm{coset}}=h(E_8)=30$ & exact (Brieskorn) & exact & $\circ$ & P17: thm:brieskorn \\
-72a & $U_{\mathrm{PMNS}}^{(0)}=\left(\begin{smallmatrix}1&0&0\\0&0&1\\0&1&0\end{smallmatrix}\right)$ (leading order) & permutation & $1.7^\circ$--$8.5^\circ$ (open angles) & \checkmark & P17: thm:pmns\_permutation, cor:pmns\_exact \\
-72b & $Q_{\mathrm{eff}}=2\pi/\sqrt{k+2}=2\pi/\sqrt5$ & exact (S-matrix unitarity) & exact & \checkmark & P17: thm:Qeff\_derived \\
+66 & $Q_{\mathrm{group}}(\nu)=6$ & exact & exact & $\circ$ & P17:prop:qh1_Qgroup \\
+67 & $m_{\nu_1}\approx42\,\mathrm{meV}$ & $\TCMB(\pi^2/90)^{1/4}\vp^{12}e^{-5/144}$ & P & P & P17:cor:qh1_mass \\
+68 & $m_{\nu_3}/m_{\nu_2}\approx5.845$ & prediction & $0.9\%$ & $\circ$ & P17:prop:nu_mass_ratio \\
+69 & $m_{\nu_1}\approx0.007\,\mathrm{meV}$ & strictly hierarchical & P & P & P17:rem:m1_suppressed \\
+70 & Neutrinos are Majorana & structural (WZW $k=1$) & --- & $\circ$ & P17:cor:majorana \\
+71 & $Q_{\mathrm{coset}}=h(E_8)=30$ & exact (Brieskorn) & exact & $\circ$ & P17:thm:brieskorn \\
+72a & $U_{\mathrm{PMNS}}^{(0)}=\left(\begin{smallmatrix}1&0&0\\0&0&1\\0&1&0\end{smallmatrix}\right)$ (leading order) & permutation & $1.7^\circ$--$8.5^\circ$ (open angles) & \checkmark & P17:thm:pmns_permutation, P17:cor:pmns_exact \\
+72b & $Q_{\mathrm{eff}}=2\pi/\sqrt{k+2}=2\pi/\sqrt5$ & exact (S-matrix unitarity) & exact & \checkmark & P17:thm:Qeff_derived \\
 \midrule
 \multicolumn{6}{l}{\textit{Preimage topology, confinement, jets (Paper XVIII)}} \\
-73 & Trefoil satellite Jones invariant: $|\Jones_{\mathrm{sat}}(q_5)|=1/\vp$ (irrational) & $1/\vp$ & exact & \checkmark & P18: thm:trefoil\_satellite\_jones \\
-74 & Pion emission forced: $\QH{=}2+\QH{=}2\to\QH{=}3+\QH{=}1$ & structural & --- & $\circ$ & P18: thm:pion\_forced \\
-75 & $\phistar$ acoplanarity: $\beta_3\approx0.58$, peak at $2\pi/3$ & prediction & P & P & P18: prop:botner\_analog \\
-76 & 4th-jet out-of-plane deflection $\approx16$--$19^\circ$ & prediction & P & P & P18: prop:fourjet\_oop \\
-77 & Jet-multiplicity upper bound: 12 jets/baryon & prediction & P & P & P18: prop:jet\_bound \\
-78 & Isospin mass ratio $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ & $21\%$ & $21\%$ & $\circ$ & P18: prop:isospin\_mass\_ratio \\
-78b & $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ (network $z$-momentum re-derivation) & $20\%$ & $20\%$ & $\circ$ & P19: prop:triplet\_ratio, cor:triplet\_agreement \\
+73 & Trefoil satellite Jones invariant: $|\Jones_{\mathrm{sat}}(q_5)|=1/\vp$ (irrational) & $1/\vp$ & exact & \checkmark & P18:thm:trefoil_satellite_jones \\
+74 & Pion emission forced: $\QH{=}2+\QH{=}2\to\QH{=}3+\QH{=}1$ & structural & --- & $\circ$ & P18:thm:pion_forced \\
+75 & $\phistar$ acoplanarity: $\beta_3\approx0.58$, peak at $2\pi/3$ & prediction & P & P & P18:prop:botner_analog \\
+76 & 4th-jet out-of-plane deflection $\approx16$--$19^\circ$ & prediction & P & P & P18:prop:fourjet_oop \\
+77 & Jet-multiplicity upper bound: 12 jets/baryon & prediction & P & P & P18:prop:jet_bound \\
+78 & Isospin mass ratio $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ & $21\%$ & $21\%$ & $\circ$ & P18:prop:isospin_mass_ratio \\
+78b & $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ (network $z$-momentum re-derivation) & $20\%$ & $20\%$ & $\circ$ & P19:prop:triplet_ratio, P19:cor:triplet_agreement \\
 \midrule
 \multicolumn{6}{l}{\textit{Spin and statistics from $Q$-topology (Paper XIII)}} \\
-79 & Electron spin $J=1/2$ from $Q=2$ topology & structural & exact & \checkmark & P13: thm:spin\_half \\
-80 & Spin tower $J=Q_H/4$ (all SM spins) & structural & exact & \checkmark & P13: thm:spin\_tower \\
-81 & Pauli exclusion from $Q=2$ antisymmetry & structural & exact & \checkmark & P13: cor:pauli\_exclusion \\
+79 & Electron spin $J=1/2$ from $Q=2$ topology & structural & exact & \checkmark & P13:thm:spin_half \\
+80 & Spin tower $J=Q_H/4$ (all SM spins) & structural & exact & \checkmark & P13:thm:spin_tower \\
+81 & Pauli exclusion from $Q=2$ antisymmetry & structural & exact & \checkmark & P13:cor:pauli_exclusion \\
 \midrule
 \multicolumn{6}{l}{\textit{Dynamical origin of quark masses (Paper XIX, draft)}} \\
-82 & $r_0=R_0/C_2^*=0.874172$ (trefoil minor radius) & 0.874172 & 0.02\% & $\circ$ & P19: thm:r0\_derivation \\
-83 & $m_s/m_d=\sqrt{k/2}\cdot e^{8\pi/9}=19.991$ & 19.991 & 0.047\% (vs.\ integer 20) & $\circ$ & P19: rem:ms\_md\_integer \\
-84a & $m_d=m_s/(m_s/m_d)=4.668\,\mathrm{MeV}$ & 4.668\,MeV & 0.04\% & $\circ$ & P19: cor:absolute\_masses \\
-84b & $m_b=m_s\cdot(m_s/m_d)^{\sqrt\vp}=4214\,\mathrm{MeV}$ & 4214\,MeV & 0.7\% & $\circ$ & P19: cor:absolute\_masses \\
-84c & $m_t/m_c=(m_s/m_d)^{\vp}=127$ & 127 & 6\% & $\circ$ & P19: cor:absolute\_masses \\
-84d & $m_c/m_u=(m_s/m_d)^{\vp^{3/2}}=476$ & 476 & 19\% & $\circ$ & P19: cor:absolute\_masses \\
-85 & Generation-spacing ratio: does $|\Jones_{T(2,2)}|/\dimq{3/2}$ account for it? & $1/\vp\approx0.618$ & factor $\sim2.7$ off observed $1.661$ (open) & $\circ$ & P19: prop:jones\_modulus\_ratio \\
-86 & Multi-component reaction rule: unit-equivalence in $\mathbb{Z}[\zeta_5]$ (both $\QH=3$ channels verified) & exact & exact & $\circ$ & P19: thm:unit\_reaction\_rule, thm:channel\_1, thm:channel\_2 \\
-87 & Solar angle $\tan\theta_{12}^{(0)}=S_{00}^{(3)}/S_{01}^{(3)}=1/\vp$ (S-matrix; $=|\Jones_{T(2,2)}(q_5)|$, a noted coincidence) & $31.72^\circ$ & $1.69^\circ$ (vs.\ observed $33.41^\circ$) & $\circ$ & P17: rem:Smat\_phi; P19: prop:solar\_angle\_jones \\
+82 & $r_0=R_0/C_2^*=0.874172$ (trefoil minor radius) & 0.874172 & 0.02\% & $\circ$ & P19:thm:r0_derivation \\
+83 & $m_s/m_d=\sqrt{k/2}\cdot e^{8\pi/9}=19.991$ & 19.991 & 0.047\% (vs.\ integer 20) & $\circ$ & P19:rem:ms_md_integer \\
+84a & $m_d=m_s/(m_s/m_d)=4.668\,\mathrm{MeV}$ & 4.668\,MeV & 0.04\% & $\circ$ & P19:cor:absolute_masses \\
+84b & $m_b=m_s\cdot(m_s/m_d)^{\sqrt\vp}=4214\,\mathrm{MeV}$ & 4214\,MeV & 0.7\% & $\circ$ & P19:cor:absolute_masses \\
+84c & $m_t/m_c=(m_s/m_d)^{\vp}=127$ & 127 & 6\% & $\circ$ & P19:cor:absolute_masses \\
+84d & $m_c/m_u=(m_s/m_d)^{\vp^{3/2}}=476$ & 476 & 19\% & $\circ$ & P19:cor:absolute_masses \\
+85 & Generation-spacing ratio: does $|\Jones_{T(2,2)}|/\dimq{3/2}$ account for it? & $1/\vp\approx0.618$ & factor $\sim2.7$ off observed $1.661$ (open) & $\circ$ & P19:prop:jones_modulus_ratio \\
+86 & Multi-component reaction rule: unit-equivalence in $\mathbb{Z}[\zeta_5]$ (both $\QH=3$ channels verified) & exact & exact & $\circ$ & P19:thm:unit_reaction_rule, P19:thm:channel_1, P19:thm:channel_2 \\
+87 & Solar angle $\tan\theta_{12}^{(0)}=S_{00}^{(3)}/S_{01}^{(3)}=1/\vp$ (S-matrix; $=|\Jones_{T(2,2)}(q_5)|$, a noted coincidence) & $31.72^\circ$ & $1.69^\circ$ (vs.\ observed $33.41^\circ$) & $\circ$ & P17:rem:Smat_phi; P19:prop:solar_angle_jones \\
 \bottomrule
 \end{tabular}
 \end{table}

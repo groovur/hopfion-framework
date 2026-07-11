@@ -215,12 +215,14 @@ post-quantum angle-doubling conjecture
 \subsection{Hurwitz division algebras}
  
 \begin{definition}[Normed division algebra]
+\label{P9:def:normed_division_algebra}
 A \emph{normed division algebra} over $\RR$ is an algebra $\mathcal{A}$
 equipped with a norm $|\cdot|:\mathcal{A}\to\RR_{\geq0}$ satisfying
 $|ab|=|a||b|$ for all $a,b\in\mathcal{A}$.
 \end{definition}
  
 \begin{theorem}[Hurwitz 1898~\cite{Hurwitz1898}]
+\label{P9:thm:hurwitz}
 The only normed division algebras over $\RR$ are
 $\RR$ (dim 1), $\CC$ (dim 2), $\HH$ (dim 4), $\OO$ (dim 8).
 \end{theorem}
@@ -235,6 +237,7 @@ a division algebra; the sequence terminates.
 \subsection{Jordan algebras and quantum theories}
  
 \begin{theorem}[Jordan--von Neumann--Wigner 1934~\cite{JordanNeumannWigner1934}]
+\label{P9:thm:jnw}
 The finite-dimensional formally real Jordan algebras are
 $J_n(\RR)$, $J_n(\CC)$, $J_n(\HH)$, $J_3(\OO)$ (Albert algebra),
 and $J_1^{(\mathrm{spin})}$.
@@ -523,6 +526,7 @@ the average rescaling.
 \end{proof}
  
 \begin{remark}[Geometric interpretation]
+\label{P9:rem:geometric_interp_hh_cc}
 Equation~\eqref{P9:eq:CHSH_projected_exact} says: closing the gap to Tsirelson
 requires replacing the $\HH$-norm ($t^4$) with the $\CC$-norm ($t^2$)
 in the denominator of $\pcond$.
@@ -618,6 +622,7 @@ recovering the Born rule to leading order in $1/\vp^6$.
 \end{proof}
  
 \begin{remark}[Role of the topological charge $Q$]
+\label{P9:rem:role_of_Q}
 The phase $\Phi = Q\cdot\omega(\theta)$ is quantised because $Q\in\ZZ$
 and $\omega(\theta)\in[0,2\pi]$ is a solid angle.
 Without quantisation, the phase would be a continuous free parameter and
@@ -751,6 +756,7 @@ $C^{(n)}(0) = C(0)^n = (1/\sqrt{2})^n$.
 \end{proof}
  
 \begin{remark}[$n$-particle experimental prediction]
+\label{P9:rem:n_particle_prediction}
 The gap between raw and projected values grows as $(1/\sqrt{2})^n$, so
 the $\HH\to\CC$ correction becomes \emph{more important} at larger $n$,
 not less.
@@ -894,6 +900,7 @@ is exactly $\Tsirelson$.
 \end{proof}
  
 \begin{remark}[Measurement-strength as a physical observable]
+\label{P9:rem:measurement_strength_observable}
 Theorem~\ref{P9:thm:chsh_f} predicts that CHSH increases monotonically with
 measurement strength $f$, from $\CHSH_\mathrm{raw}(1)\approx0.653$ (weak,
 near-reversible measurement) to $\CHSH_\mathrm{raw}(\infty)\to1.0$
@@ -942,6 +949,7 @@ At $f_0=2$: $p_{2,0} = \pcond$ (the condensate's own model).
 \end{definition}
  
 \begin{remark}[Physical origin of $f_\mathrm{eff}$]
+\label{P9:rem:feff_physical_origin}
 The denominator $1+\beta\cos\theta$ softens the suppression for
 condensate orientations aligned with the measurement axis
 ($\theta\approx0$, $\cos\theta>0$), reducing $f_\mathrm{eff}<f_0$
@@ -1137,6 +1145,7 @@ The gap~\eqref{P9:eq:structural_gap} is $2\sqrt{2}-8/3$, computed directly.
 \end{proof}
  
 \begin{remark}[The structural gap and the $\HH\to\CC$ projection]
+\label{P9:rem:structural_gap_projection}
 The structural gap $2\sqrt{2}-8/3\approx0.161$ is precisely the
 residual after the $\HH\to\CC$ geometric projection is applied to
 the projective-measurement limit.
@@ -1387,6 +1396,7 @@ $E^\mathrm{Stokes}(\psi)=-\tfrac{1}{2}\cos(2\psi)$ of Theorem~\ref{P9:thm:stokes
 \end{remark}
  
 \begin{remark}[Angle doubling: forward pointer]
+\label{P9:rem:angle_doubling_pointer}
 The physical content of the $m=2$ winding number --- that a photon
 polarizer at angle $\psi$ corresponds to condensate angle $2\psi$
 because $\mathbb{RP}^1\xrightarrow{2:1}S^1$ --- is derived from first
@@ -1829,6 +1839,7 @@ Hence $m_\mathrm{phot}=2$ is uniquely determined. \qed
 \end{proof}
 
 \begin{remark}[Connection to the Stokes theorem]
+\label{P9:rem:stokes_connection}
 Theorem~\ref{P9:thm:m_phot} provides the missing topological foundation for
 Theorem~\ref{P9:thm:stokes}:
 the Parseval factor $\tfrac{1}{2}$ in $E^\mathrm{Stokes}=-\tfrac{1}{2}\cos(2\psi)$

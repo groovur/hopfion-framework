@@ -39,12 +39,74 @@ complete Bekenstein--Hawking thermodynamics $S_\mathrm{Wald}=A_H/(4G_N)$
 (tree level) with $\delta S_\mathrm{1\text{-}loop}=0$ (one loop).
 \source{P9:conj:quantisation, P9:rem:conj\_resolved; P10:thm:main, P10:thm:quantisation, P10:thm:spectrum, P10:thm:q\_algebra, P10:thm:entropy\_correction, P10:thm:wald}
 
+\item \textbf{[P3:OP1] Uniqueness of the self-consistent virial fixed point (Hessian spectral gap) --- not needed for main results.}
+Theorem~P3:thm:V\_exact\_all\_R0 proves existence of a self-consistent state
+with $V^*=\vp$ at every $R_0$ (Brouwer's fixed-point theorem on finite grids
+plus Rellich--Kondrachov compactness). Uniqueness would follow from showing
+the feedback map $T$ is a contraction: $\mu^*\cdot\|\partial^2 J_{\mathrm{fb}}/\partial f^2\|
+< \lambda_{\min}(H_f)\cdot J_{\mathrm{fb},2}$, where $H_f$ is the Hessian of
+$K_{\mathrm{fb}}\cdot J_4$ at $f^*(\beta^*)$. Holds numerically (outer
+iteration rate ${\approx}0.2$) but is not required for the LSC or $\alpha$ formula.
+\source{P3:thm:V\_exact\_all\_R0, P3:sec:open}
+
+\item \textbf{[P3:OP2] Residual in the two-term $\alpha^{-1}$ formula --- \emph{resolved (Paper~IV)}.}
+The $0.004\%$ ($0.006$ absolute) gap between $\aInv=360/\vp^2-k/(2\pi)=137.030$
+and the measured $137.036$ is closed by Paper~IV's three-term formula
+($137.036\,49$, $0.0004\%$, via the $T$-matrix correction $T_{1/2}/Q=3/400$)
+and four-term formula ($137.036\,00$, $5\times10^{-7}\%$, via the
+Chern--Simons correction to the QED loop). Distinct from $\Delta_1$
+(P3:OP3) and does not touch it.
+\source{P3:rem:residual\_status, P3:rem:two\_gaps\_independent; P4:thm:three\_term\_alpha, P4:thm:four\_term\_alpha}
+
+\item \textbf{[P3:OP3] Deeper origin of $\Delta_1$ (the paper's own ``Open Problem 4'').}
+$\Delta_1=12.824=(2136\vp-3392)/5$ is the exact, computed difference between
+two independently-exact quantities, $\vp^6/\sin^4(\pi/5)=16\vp^6/(3-\vp)^2$
+and $360/\vp^2$ (Result~P3:prop:cascade) --- not an RG-running effect and not
+a UV/IR scale ratio awaiting derivation. What remains open: is there a deeper
+algebraic reason these two independently-exact $\vp,k{=}3$ quantities should be
+numerically close (a $9.7\%$ proximity), or is it coincidence?
+A candidate decomposition (Remark~P3:rem:delta1\_candidate),
+$\Delta_1\approx4\pi+(15/8-\vp)=12.823\,337$ ($0.0061\%$ match, using only
+already-established quantities: the $\Delta Q=1$ Chern--Simons unit and the
+thin-torus-to-self-consistent virial relaxation distance), is a numerically
+verified sum, not a derivation, and is provably not an exact identity
+($\Delta_1$ is algebraic of degree 2 over $\mathbb{Q}$; $4\pi+(15/8-\vp)$ is
+transcendental). Still open.
+\source{P3:prop:cascade, P3:rem:delta1\_candidate, P3:sec:open}
+
+\item \textbf{[P3:OP4] Thermal correction to the $\alpha$ formula --- \emph{resolved (Paper~IV)}.}
+Paper~IV's three- and four-term formulas are unconditional; the QED running
+between $m_{\mathrm{WZW}}$ and $m_e$ and the thermal correction
+$(1/\vp)\log(m_e/T_{\mathrm{CMB}})$ are subsumed into the spoke formula for
+$m_e/\Lambda_{\mathrm{cond}}$.
+\source{P3:sec:open; P4:thm:t\_matrix\_spoke, P4:thm:msbar\_pole}
+
 \item \textbf{[P4:OP1] Residual in $\alpha^{-1}$: possible fifth term.}
 Four-term formula gives $\alpha^{-1}=137.035\,998\,486$;
 measured $137.035\,999\,177$; gap $+6.91\times10^{-7}$.
 Algebraic candidate $1/(\sqrt{2}\pi^2\vp^{24})\approx6.91\times10^{-7}$ (0.001\%).
 Physical origin unknown; O($R_0^{-2}$) thick-torus most motivated candidate.
 \source{P4:thm:four\_term\_alpha; P13: units/conventions}
+
+\item \textbf{[P4:OP2] Closed-form transcendental correction to $b^*$ --- \emph{Medium, not needed for main results}.}
+The transcendental correction to $b^*=3\vp^6/800$ is established to all
+orders by the Newton formula~\eqref{P4:eq:bstar\_newton}, which is exact.
+The remaining task is to obtain a compact closed-form correction rather
+than the implicit transcendental expression. The error of $0.21\%$ in
+$b^*$ propagates to only $0.11\%$ in $m_{\mathrm{WZW}}$, so this is not
+blocking any main result.
+\source{P4:prop:bstar}
+
+\item \textbf{[P4:OP3] Material realization of the $Q=1$ Hopfion --- \emph{Experimental}.}
+The framework's $Q=1$ topological soliton (the electron in the cosmic
+context) requires a material analog with Hopf linking number 1 in its
+nodal-line structure. $\mathrm{Li_2NaN}$ has been identified theoretically
+as a Hopf-link nodal-line semimetal~\cite{Li2NaN2017,Li2NaN2018}: its two
+nodal loops in the Brillouin zone are mutually interlocked with linking
+number $\pm1$, realizing $Q=1$ Hopf charge. This is topologically distinct
+from ZrSiS (unlinked loops, $Q=0$), which provides the framework's symmetry
+structure ($k=3$, $2I$, $Q=10$) but not the Hopf linking.
+\source{P4:sec:open}
 
 \item \textbf{[P13:OP1] Penning-trap free-electron mass anisotropy.}
 Prediction: $\Delta m/m_e=1/\vp^8\approx2.13\%$ (Paper~XIII,
@@ -345,5 +407,28 @@ $\sin^2\theta_{13}\approx0.022\approx1/(k+2)^2$, all requiring either RG
 running from $\Lcond$ to $m_Z$ or condensate background mixing from the
 $\QH=3$ baryon sector --- neither computable from Paper~XIX's toolkit.
 \source{P19:prop:solar\_angle\_jones, P19:rem:solar\_physical; P17:rem:solar\_angle}
+
+\item \textbf{[P19:OP8] Strand structure, QCD angular ordering, and the jet hierarchy.}
+The 12-site fraying geometry of the trefoil has a site sequence
+$\cdots\to C\to A\to B\to A\to\cdots$ with tangent rotations
+$\angle(A,B)=46.75^\circ$ (collinear direction) and
+$\angle(A,C)=83.94^\circ$ (hard direction) (Remark~P19:rem:angular\_ordering).
+The total tangent rotation across one strand is $177.44^\circ\approx180^\circ$.
+The B-midpoints ($\kappa_B\approx0$) provide the collinear propagation
+channel; the C-lobes ($\kappa_C\approx0.349$) provide the wide-angle
+channel, corresponding to the collinear and hard gluon emission channels
+of perturbative QCD, with the non-zero $\kappa_B=0.026$ acting as a
+topological infrared cutoff (O8a). Applying QCD angular ordering, the
+first-jet site is the A-crossing at $t=11\pi/6$ ($167.21^\circ$); among
+A-crossings the ordering gives heaviest (t-quark, $167^\circ$),
+middle-degenerate (c-quark pair, $120^\circ$ exactly by $\Zthree$),
+lightest (u-quark, $\leq73^\circ$), the $120^\circ$ degeneracy being a
+direct prediction of the $\Zthree$-symmetric trefoil (O8b). Making this
+quantitative --- (a) deriving $P_{q\to qg}(z)$ from $\kappa(t)$ and
+connecting $\kappa_B$ to $\Lambda_{\mathrm{QCD}}$ (O8a), and (b) computing
+the energy fractions deposited at each A-crossing site and confirming
+they reproduce the $m_t:m_c:m_u$ ratio (O8b) --- is a programme for
+Paper~XX.
+\source{P19:rem:angular\_ordering, P19:rem:angular\_ordering\_impact}
 
 \end{enumerate}

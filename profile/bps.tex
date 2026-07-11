@@ -28,6 +28,15 @@ $I_4/I_{2a}$ is scale-invariant (independent of $a$) and equals
 \source{P1:prop:bps}
 \residual{exact}
 
+\begin{definition}[Modified BPS]
+\label{P1:def:modified_bps}
+For $C>1/3$, the modified BPS profile
+$f = 2\arctan\!\bigl((a/\rho)^C\bigr)$
+satisfies $f' = -C\sin f/\rho$ exactly.
+\end{definition}
+\status{published}
+\source{P1:def:modified_bps}
+
 \begin{theorem}[Modified BPS ratio]
 \label{P1:thm:modBPS}
 For the modified BPS profile $f = 2\arctan\!\bigl((a/\rho)^C\bigr)$
@@ -85,6 +94,18 @@ where $J_{2a}^{cf} = \int\cos f\cdot\sin^4\!f\cdot\kk\,dV$, etc.
 \status{published}
 \source{P3:prop:pohozaev_a}
 
+\begin{remark}
+\label{P3:rem:factor6_vs_2}
+The factor 6 in~\eqref{P3:eq:poh_J2a} and~\eqref{P3:eq:poh_J4} vs.\ factor 2
+in~\eqref{P3:eq:poh_Jfb} reflects the different feedback structure:
+$J_{2a}$ and $J_4$ have $\sin^4\!f$ or $\sin^2\!f$ prefactors (both
+giving IBP contributions of $+2$), while $J_{\mathrm{fb}}$ has the
+nonlinear feedback weight $f_\beta^2$ which does not contribute an
+additional factor.
+\end{remark}
+\status{published}
+\source{P3:rem:factor6_vs_2}
+
 \begin{proposition}[Main Pohozaev identity]
 \label{P3:prop:star_identity}
 $V^*=\vp$ if and only if at the EL saddle:
@@ -95,6 +116,17 @@ $V^*=\vp$ if and only if at the EL saddle:
 \end{proposition}
 \status{proved (identity exact; $\vp$ selection requires WZW input from Theorem~\ref{P3:thm:bos_main})}
 \source{P3:prop:star_identity}
+
+\begin{remark}[Physical interpretation]
+\label{P3:rem:star_identity_interp}
+Identity~\eqref{P3:eq:star_identity} relates the \emph{cos-weighted} averages of
+the three curvature functionals.  The cos-weight $\cos f$ is the angular factor
+in the spin-connection of the Hopfion field $n: \mathbb{R}^3\to S^2$, and the
+identity is a constraint on how the profile distributes curvature between
+tube, winding, and feedback channels at the WZW-selected $\mu^*$.
+\end{remark}
+\status{published}
+\source{P3:rem:star_identity_interp}
 
 \begin{proposition}[Equivalence of Pohozaev-A form]
 \label{P3:prop:poh_a_equiv}

@@ -386,6 +386,21 @@ tube width satisfies $C^{*2}(R_0) = 3/[4(\mathrm{WZW} - 1/(2R_0^2))]$.
 \status{published}
 \source{P3:cor:fixedpoint_exists}
 
+\begin{remark}[Structure of the fixed-point equation]
+\label{P3:rem:fixedpoint_structure}
+The condition $V(b^*) = \vp$ is the WZW self-consistency equation
+for the density-feedback model.  In renormalization-group language:
+the coupling ratio $V$ runs from the ultraviolet value $V(0) = 15/8$
+to the infrared fixed point $V(b^*) = \vp = \dim_q(\tfrac{1}{2};k{=}3)$
+under the arctan flow~\eqref{P3:eq:V_exact}.  The UV starting value
+$15/8 = I_{2\mathrm{iso}}/I_{2a} = 4/(32/15)$ is determined by the ratio
+of two C-independent integrals of the BS profile; both C-independence
+facts follow from the key identity $\sin^2\!f/\rho^2 = (f')^2$
+(Proposition~\ref{P3:prop:scale_inv}).
+\end{remark}
+\status{published}
+\source{P3:rem:fixedpoint_structure}
+
 
 %════════════════════════════════════════════════════════════════════
 % LSC Proof Chain — Paper III
@@ -420,6 +435,17 @@ with $k=3$.
 \source{P3:lem:bridge}
 \residual{exact}
 
+\begin{remark}
+\label{P3:rem:bridge_interpretation}
+Lemma~\ref{P3:lem:bridge} is the algebraic bridge connecting the
+condensate parameter $\mu^*$ to the WZW level $k=3$.
+The coefficient $(k+2)=5$ appears in the Knizhnik--Zamolodchikov
+equation~\cite{KZ1984} for $\mathrm{SU}(2)_k$ and here emerges
+from the icosahedral geometry of $\mu^*$.
+\end{remark}
+\status{published}
+\source{P3:rem:bridge_interpretation}
+
 \begin{theorem}[LSC conditional on virial]
 \label{P3:thm:lsc_conditional}
 Suppose the Euler--Lagrange minimum of $E_{\mathrm{fb}}$ satisfies
@@ -441,6 +467,16 @@ Then $\Jfour/\Ja = \Kfb/(\Ja\leff^*) = 2\vp/(\vp^6/2^{1/3}) = 2^{4/3}/\vp^5$.
 \source{P3:thm:lsc_conditional}
 \residual{exact}
 
+\begin{remark}
+\label{P3:rem:lsc_conditional_status}
+Theorem~\ref{P3:thm:lsc_conditional} reduces the LSC to the virial
+condition $V^*=\vp$.  Section~\ref{P3:sec:bosonization} proves $V^*=\vp$
+exactly (thin-torus via Verlinde; all $R_0$ via Theorem~\ref{P3:thm:V_exact_all_R0}),
+so the LSC is a theorem.
+\end{remark}
+\status{published}
+\source{P3:rem:lsc_conditional_status}
+
 \begin{theorem}[Equivalence of LSC, virial, and fixed-point conditions]
 \label{P3:thm:lsc_equivalence}
 At the EL minimum of $\Efb$ in the $Q=2$ sector, the following are
@@ -455,6 +491,17 @@ pairwise equivalent:
 \source{P3:thm:lsc_equivalence}
 \residual{exact}
 
+\begin{remark}[All three conditions are proved]
+\label{P3:rem:all_three_proved}
+Theorem~\ref{P3:thm:lsc_equivalence} shows that conditions (A), (B), (C) are
+the same statement.  All three are proved: $V^*=\vp$ by the
+three-fermion bosonization (Section~\ref{P3:sec:bosonization},
+Theorem~\ref{P3:thm:V_exact_all_R0}), from which (B) and (C) follow
+immediately by the equivalences established above.
+\end{remark}
+\status{published}
+\source{P3:rem:all_three_proved}
+
 \begin{proposition}[Scale invariance of thin-torus functionals]
 \label{P3:prop:scale_inv}
 In the thin-torus approximation with profile $f = 2\arctan(C/\rho)$,
@@ -468,6 +515,15 @@ where $B(5,7) = \Gamma(5)\Gamma(7)/\Gamma(12)$.  Both are independent of $C$.
 \source{P3:prop:scale_inv}
 \residual{exact}
 
+\begin{remark}
+\label{P3:rem:scale_invariance_explains}
+Scale invariance explains why $J_4/J_{2a} = 2^{4/3}/\vp^5$ is a pure
+number independent of $C$.  The self-consistent $C^*$ is fixed by the
+EL equation, not by the ratio $J_4/J_{2a}$.
+\end{remark}
+\status{published}
+\source{P3:rem:scale_invariance_explains}
+
 \begin{proposition}[Thin-torus virial limit]
 \label{P3:prop:virial_limit}
 $V(0;R_0) \to \vp$ as $R_0\to\infty$, with the leading correction
@@ -479,6 +535,19 @@ for a computable coefficient $A > 0$.
 \end{proposition}
 \status{published}
 \source{P3:prop:virial_limit}
+
+\begin{remark}[Exact for all $R_0$]
+\label{P3:rem:exact_for_all_R0}
+Proposition~\ref{P3:prop:virial_limit} shows that $\vp$ is the exact
+continuum-limit attractor for $V(0;R_0)$, approached as $1/R_0^2$.
+The thin-torus self-consistent profile satisfies $V^*=\vp$ exactly
+(Theorems~\ref{P3:thm:lsc_1d} and~\ref{P3:thm:lsc_conditional}).
+Theorem~\ref{P3:thm:V_exact_all_R0} extends this to all finite $R_0$
+via a fixed-point existence argument: $V^*=\vp$ holds exactly
+throughout, not merely asymptotically.
+\end{remark}
+\status{published}
+\source{P3:rem:exact_for_all_R0}
 
 \begin{proposition}[Hypothesis (i) at large $R_0$]
 \label{P3:prop:V0_gt_phi}
@@ -509,6 +578,33 @@ and Theorem~\ref{P3:thm:lsc_conditional} gives $\Jfour/\Ja = 2^{4/3}/\vp^5$.
 \end{theorem}
 \status{proved (hypotheses (i) by Prop.~\ref{P3:prop:V0_gt_phi}; (ii) numerically verified; (iii) trivial)}
 \source{P3:thm:virial_fixedpt}
+
+\begin{remark}[Status of the hypotheses]
+\label{P3:rem:hypotheses_status}
+Hypothesis~(iii) holds trivially: for large $\beta$, the feedback suppresses all
+curvature and $V\to 0$.
+Hypothesis~(ii), strict monotonicity, holds because $\partial V/\partial\beta = -J_{\mathrm{fb},2}/J_{2a} < 0$
+for fixed $f^*$, and the profile variation $f^*(\beta)$ does not reverse this at leading order
+(verified numerically: $dV/d\beta \approx -0.82/J_{2a}$ at the fixed point).
+Hypothesis~(i) is equivalent to: $J_{2\mathrm{iso}}(f^*_0) > \vp \cdot J_{2a}(f^*_0)$.
+\end{remark}
+\status{published}
+\source{P3:rem:hypotheses_status}
+
+\begin{remark}[Relation to Theorem~\ref{P3:thm:V_exact_all_R0}]
+\label{P3:rem:relation_to_V_exact}
+Theorem~\ref{P3:thm:virial_fixedpt} above gives $V^*=\vp$ from three
+hypotheses; hypothesis~(ii) (strict monotonicity) is verified numerically
+but not proved analytically by this route.
+The stronger result --- $V^*=\vp$ exactly for all finite $R_0$ without
+requiring hypothesis~(ii) --- is proved directly in
+Theorem~\ref{P3:thm:V_exact_all_R0} via Brouwer's fixed-point theorem and
+Rellich--Kondrachov compactness~\cite{Evans2010}.
+Theorem~\ref{P3:thm:virial_fixedpt} is retained here because its three-hypothesis
+structure gives a transparent account of the feedback mechanism.
+\end{remark}
+\status{published}
+\source{P3:rem:relation_to_V_exact}
 
 \begin{remark}[Curvature decomposition and the WZW metric]
 \label{P3:rem:kappa_wzw_preview}
@@ -542,6 +638,20 @@ after which the winding cancellation gives $J_4/J_{2a} = 2^{4/3}/\vp^5$ exactly.
 \source{P3:thm:lsc_1d_complete}
 \residual{exact}
 
+\begin{remark}[Structural content of the cancellation]
+\label{P3:rem:cancellation_structure}
+The exact cancellation~\eqref{P3:eq:cancellation} rests on two
+independent C-invariances: $I_{2a} = 32/15$ and $I_{4\text{-wind}} = 16/15$.
+Both follow from the BS identity $\sin^2\!f/\rho^2 = (f')^2$,
+which in turn follows from the specific profile form $f=2\arctan(C/\rho)$.
+The ratio $I_{4\text{-wind}}/I_{2a}=1/2$ is thus a consequence of
+the self-similar structure of the BS profile, not of $\vp$ or the WZW level.
+The WZW level enters through the master relation~\eqref{P3:eq:master_relation},
+which fixes $3/(4C^{*2}) = \text{WZW} - 1/(2R_0^2)$ via $V^*=\vp$.
+\end{remark}
+\status{published}
+\source{P3:rem:cancellation_structure}
+
 \begin{theorem}[LSC in the continuum limit]
 \label{P3:thm:lsc_2d_limit}
 If $V^*(R_0) = \vp + O(R_0^{-2})$ as $R_0\to\infty$, then
@@ -571,6 +681,40 @@ convergent subsequence whose limit is a continuum fixed point with $V^*=\vp$.
 \residual{exact (lattice artefact 0.013\% at $h=0.12$)}
 \depends{profile/virial.tex (P3:thm:lsc_conditional, P3:lem:virial_alg)}
 
+\begin{remark}[The 2D/thin-torus distinction, resolved]
+\label{P3:rem:2d_thintorus_resolved}
+Theorem~\ref{P3:thm:V_exact_all_R0} shows $V^* = \vp$ holds exactly at finite $R_0$,
+not merely asymptotically.  The $O(R_0^{-2})$ statement in
+Proposition~\ref{P3:prop:virial_limit} describes how $V(f,0)$ approaches $\vp$
+as $R_0\to\infty$ with \emph{no feedback} ($\beta=0$); the self-consistent
+$\bst(R_0) > 0$ then adjusts to drive $V$ exactly to $\vp$ for every $R_0$.
+The numerical residual of $0.013\%$ at $R_0=3$ is a finite-grid artefact
+($h=0.12$), not a theoretical gap.  The residual open problem is the
+Hessian spectral gap condition ensuring the fixed point is unique
+(Section~\ref{P3:sec:open}), which is not required for the LSC or $\alpha$ results.
+\end{remark}
+\status{published}
+\source{P3:rem:2d_thintorus_resolved}
+
+\begin{remark}[Role of $\mu^* = \sqrt{k+2}/\vp$]
+\label{P3:rem:mustar_role}
+Lemma~\ref{P3:lem:bridge} now acquires a new interpretation.
+$\mu^*=\sqrt{k+2}/\vp$, evaluated at $k=3$ --- the Wess--Zumino coupling
+constant (level) of the $\mathrm{SU}(2)_3$ theory in the standard sense
+of~\cite{Witten1984} --- gives the value $3-\vp$ that appears in the
+density-feedback self-consistency condition.
+$\mu^*$ itself is \emph{not} a coupling constant in the WZW sense (that
+role is played by $k$, which is quantised to an integer by the standard
+topological argument); $\mu^*$ is the feedback-model parameter whose
+value happens to be pinned down once $k$ is fixed.
+The density-feedback model with $\mu = \mu^*$ is the \emph{unique} value
+at which $K_{\mathrm{fb}}$ is the WZW action; any other $\mu$ gives a
+deformation away from the fixed point.  At $\mu = \mu^*$ the WZW Verlinde
+formula applies and delivers $V^* = \vp$ exactly.
+\end{remark}
+\status{published}
+\source{P3:rem:mustar_role}
+
 \begin{proposition}[Resolvent-to-primary identification]
 \label{P3:prop:res_primary}
 In the thin-torus limit, $\kk_{\mathrm{tube}} = 2(f')^2 = g_{\mathrm{WZW}}$
@@ -581,6 +725,19 @@ $V(\bst) = (15/8)\arctan(\sqrt{8\bst})/\sqrt{8\bst} = \vp = S_{0,1/2}/S_{0,0}$.
 \status{published}
 \source{P3:prop:res_primary}
 \residual{exact}
+
+\begin{remark}[2D corrections]
+\label{P3:rem:2d_corrections}
+For finite $R_0$, the full curvature $\kappa_{\mathrm{iso}} = \kappa_{\mathrm{tube}}
++ \sin^2\!f/r^2$ includes a winding term $\sin^2\!f/r^2$ absent from the WZW metric.
+This deforms $V$ by $O(R_0^{-2})$, shifting $\bst(R_0)$ accordingly.
+The self-consistent virial satisfies $V^*(R_0) = \vp + O(R_0^{-2})$
+(Proposition~\ref{P3:prop:virial_limit}).  The exact cancellation in $J_4/J_{2a}$
+(Theorem~\ref{P3:thm:lsc_1d_complete}) shows the winding correction fills the tube
+deficit precisely, giving $J_4/J_{2a} = 2^{4/3}/\vp^5$ exactly for all $R_0$.
+\end{remark}
+\status{published}
+\source{P3:rem:2d_corrections}
 
 %════════════════════════════════════════════════════════════════════
 % Universal Virial Identity (all sectors) — Paper XV
@@ -604,3 +761,13 @@ of Paper~III applied sector-independently to the trefoil geometry.
 \status{published}
 \source{P15:thm:virial}
 \residual{exact}
+
+\begin{remark}[Sector independence of the energy formula]
+\label{P15:rem:sector_independence_energy}
+Equation~\eqref{P15:eq:virial} shows that $\Efb^{(n)}=2N_n^2/\vp^{17}$
+depends only on the integer $N_n$, not on the virial ratio $r_n$.
+The sector geometry changes $r_n$ but not the overall energy scale
+(at fixed $N_n$).
+\end{remark}
+\status{published}
+\source{P15:rem:sector_independence_energy}

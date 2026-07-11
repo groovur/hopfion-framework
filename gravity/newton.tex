@@ -21,6 +21,22 @@ where $S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\bst\rho)]$
 is the suppression formula of~\cite{Paper1}, a $k$-essence type
 scalar-tensor theory in disguise.
 
+\begin{remark}[Extension of the density variable]
+\label{P7:rem:rho_extension}
+In Papers~I--IV the feedback denominator $1+\bst\kappa$ uses the local
+field curvature $\kappa$ (the FN gradient density) as the density variable.
+In this paper, the parent action~\eqref{P7:eq:parent_action} uses a scalar
+field $\rho$ as an independent dynamical variable, with $1+\beta\rho$ in
+the denominator.  The two descriptions are compatible: in the static
+condensate background, $\rho\propto\kappa$ and $\beta\propto\bst$, so
+Axiom~A2 recovers the Papers~I--IV form.  The $\rho$-based description
+is a $k$-essence extension that enables the cosmological and gravitational
+analysis of this paper.  All recalled results R1--R5 hold under both
+descriptions.
+\end{remark}
+\status{published}
+\source{P7:rem:rho_extension}
+
 \begin{remark}[RG fixed point and the fermion mass tower]
 \label{P7:rem:rg_tower}
 The $k$-essence scalar-tensor functional~\cite{Paper1} governing the
@@ -56,6 +72,27 @@ derived result; see Paper~VI for all proofs.
 \end{remark}
 \status{published}
 \source{P7:rem:rg_tower}
+
+\begin{remark}[Role in this paper]
+\label{P7:rem:role_in_paper}
+The mass spectrum~\eqref{P7:eq:mass_spectrum} and the parent
+action~\eqref{P7:eq:parent_action} enter the gravitational sector of the
+present paper in the following ways:
+(i)~The energy-momentum tensor $T_{\mu\nu}[\rho]$ derived from
+\eqref{P7:eq:parent_action} sources the modified Friedmann equations of
+Section~\ref{P7:sec:de}.
+(ii)~The discrete levels~\eqref{P7:eq:mass_spectrum} set the mass scales
+of the condensate contributions to the gravitational effective action
+of Section~\ref{P7:sec:einstein_eqs}.
+(iii)~The tower ground state $m_0 = \Lcond$ fixes the cosmological
+constant via the condensate vacuum energy density
+(Section~\ref{P7:sec:de}).
+The fermion mass predictions themselves (lepton masses, Koide relation,
+quark hierarchy) are not re-derived here; they are summarised
+in~\cite{Paper1,Paper4,Paper6,Koide1983}.
+\end{remark}
+\status{published}
+\source{P7:rem:role_in_paper}
 
 The one-loop action generates a non-minimal coupling
 $\xNMC=\LUV^2\beta/[4(4\pi)^2]$~\eqref{P7:eq:xNMC}, and the full
@@ -187,6 +224,20 @@ imply the third.
 \status{published}
 \source{P7:thm:conservation}
 
+\begin{remark}[Physical content of Theorem~\ref{P7:thm:conservation}]
+\label{P7:rem:conservation_physical_content}
+Theorem~\ref{P7:thm:conservation} closes the gravitational sector:
+Theorem~\ref{P7:thm:einstein} derives the Einstein equations from $S_{\mathrm{eff}}$,
+and Theorem~\ref{P7:thm:conservation} shows that the soup scalar $\rho$ satisfies
+an equation of motion whose consistency with gravity is guaranteed by the
+diffeomorphism invariance of $S_{\mathrm{eff}}$.
+In particular, the stress-energy $T_{\mu\nu}^{(\rho)}$ is automatically
+conserved on solutions --- no additional assumption about matter coupling is needed.
+The framework is therefore a complete, self-consistent scalar-tensor gravity theory.
+\end{remark}
+\status{published}
+\source{P7:rem:conservation_physical_content}
+
 \begin{theorem}[Cassini resolution via Vainshtein screening~\cite{Vainshtein1972}]
 \label{P7:thm:cassini}
 All inputs to the Vainshtein radius are fixed by the framework without
@@ -238,6 +289,21 @@ for $\beta\leq0.13$, consistent with the range of Axiom~A2.
   G_N = \frac{G_{\mathrm{src}}^2}{4\pi\vp^6}.
   \label{P7:eq:GN}
 \end{equation}
+
+\begin{remark}
+\label{P7:rem:4pi_factor}
+The $4\pi$ factor in~\eqref{P7:eq:GN} comes from the Green's function
+normalisation $\nabla^2(1/r)=-4\pi\delta^{(3)}$.
+Earlier informal estimates used $G_N=G_{\mathrm{src}}^2/\vp^6$; the
+correct formula is~\eqref{P7:eq:GN}.
+The UV cutoff from the Seeley--DeWitt one-loop computation (Section~5)
+gives $\LUV = \MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl$;
+the compact estimate $\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$
+follows from the Bogomolny coincidence $4\pi\sqrt{2}\approx\vp^6$
+(see~\eqref{P7:eq:MPl} and~\eqref{P7:eq:LUV_approx}).
+\end{remark}
+\status{published}
+\source{P7:rem:4pi_factor}
 
 \begin{equation}
   G_N^{\rm phys}

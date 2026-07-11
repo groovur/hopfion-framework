@@ -375,6 +375,34 @@ Standard quantum mechanics predicts CHSH = 2.828 for all three cases (up to proj
 %════════════════════════════════════════════════════════════════════
 % Born Rule and Observable Structures — Paper IX
 %════════════════════════════════════════════════════════════════════
+
+\begin{definition}[Normed division algebra]
+\label{P9:def:normed_division_algebra}
+A \emph{normed division algebra} over $\RR$ is an algebra $\mathcal{A}$
+equipped with a norm $|\cdot|:\mathcal{A}\to\RR_{\geq0}$ satisfying
+$|ab|=|a||b|$ for all $a,b\in\mathcal{A}$.
+\end{definition}
+\status{published}
+\source{P9:def:normed_division_algebra}
+
+\begin{theorem}[Hurwitz 1898~\cite{Hurwitz1898}]
+\label{P9:thm:hurwitz}
+The only normed division algebras over $\RR$ are
+$\RR$ (dim 1), $\CC$ (dim 2), $\HH$ (dim 4), $\OO$ (dim 8).
+\end{theorem}
+\status{published}
+\source{P9:thm:hurwitz}
+
+\begin{theorem}[Jordan--von Neumann--Wigner 1934~\cite{JordanNeumannWigner1934}]
+\label{P9:thm:jnw}
+The finite-dimensional formally real Jordan algebras are
+$J_n(\RR)$, $J_n(\CC)$, $J_n(\HH)$, $J_3(\OO)$ (Albert algebra),
+and $J_1^{(\mathrm{spin})}$.
+Each supports a distinct quantum theory.
+\end{theorem}
+\status{published}
+\source{P9:thm:jnw}
+
 \begin{theorem}[Hopf push-forward]
 \label{P9:thm:hopf_pushforward}
 The condensate signed correlation $\xcond$ is the push-forward of the
@@ -549,6 +577,20 @@ The $n$-particle autocorrelation satisfies the \emph{$n$-fold Parseval identity}
 \status{published}
 \source{P9:thm:GHZ}
 
+\begin{remark}[$n$-particle experimental prediction]
+\label{P9:rem:n_particle_prediction}
+The gap between raw and projected values grows as $(1/\sqrt{2})^n$, so
+the $\HH\to\CC$ correction becomes \emph{more important} at larger $n$,
+not less.
+In the 3D isotropic geometry (relevant for satellite-based multi-party
+experiments~\cite{Paper8}), the Mermin value degrades further:
+$M^{(n)}_\mathrm{3D}\approx 2^{n/2}\cdot(8/15)^n/R_n$,
+falling below the classical bound for $n\geq3$, a prediction sharply
+distinguishing the condensate model from standard quantum mechanics.
+\end{remark}
+\status{published}
+\source{P9:rem:n_particle_prediction}
+
 \begin{theorem}[CHSH$(f)$ transition]
 \label{P9:thm:chsh_f}
 Let $\CHSH_\mathrm{raw}(f)$ be the raw CHSH value of the $f$-parameterised
@@ -601,6 +643,22 @@ be the $f$-rescaled CHSH.
 \end{theorem}
 \status{published}
 \source{P9:thm:chsh_f}
+
+\begin{remark}[Measurement-strength as a physical observable]
+\label{P9:rem:measurement_strength_observable}
+Theorem~\ref{P9:thm:chsh_f} predicts that CHSH increases monotonically with
+measurement strength $f$, from $\CHSH_\mathrm{raw}(1)\approx0.653$ (weak,
+near-reversible measurement) to $\CHSH_\mathrm{raw}(\infty)\to1.0$
+(projective measurement).
+After $f$-rescaling, all values fall below Tsirelson.
+This is a falsifiable prediction of the condensate model: a tunable
+weak-value experiment~\cite{Paper8} that varies $f$ should observe
+a monotonically increasing CHSH$(f)$ curve, converging to a value below
+$\Tsirelson$ rather than remaining fixed at $\Tsirelson$ as in standard
+quantum mechanics.
+\end{remark}
+\status{published}
+\source{P9:rem:measurement_strength_observable}
 
 \begin{theorem}[CHSH with density feedback]
 \label{P9:thm:chsh_fb}
@@ -817,6 +875,29 @@ satisfying (i) and (ii).
 \status{published}
 \source{P9:thm:m_phot}
 
+\begin{remark}[Connection to the Stokes theorem]
+\label{P9:rem:stokes_connection}
+Theorem~\ref{P9:thm:m_phot} provides the missing topological foundation for
+Theorem~\ref{P9:thm:stokes}:
+the Parseval factor $\tfrac{1}{2}$ in $E^\mathrm{Stokes}=-\tfrac{1}{2}\cos(2\psi)$
+is the inner product of the $m=2$ mode with itself on $L^2(S^1)$,
+which arises directly from the double-cover winding number $m=2$.
+The chain of logic is now complete:
+\begin{equation}
+  \underbrace{\mathbb{RP}^1 \xrightarrow{2:1} S^1}_{\text{double cover}}
+  \;\Rightarrow\;
+  \underbrace{m_\mathrm{phot}=2}_{\text{winding}}
+  \;\Rightarrow\;
+  \underbrace{A^\mathrm{Stokes}(\alpha)=\cos(2(\phi_n-\alpha))}_{\text{observable}}
+  \;\Rightarrow\;
+  \underbrace{E^\mathrm{Stokes}=-\tfrac{1}{2}\cos(2\psi)}_{\text{Parseval}}
+  \;\Rightarrow\;
+  \underbrace{\CHSH=2\sqrt{2}}_{\text{Tsirelson}}.
+\end{equation}
+\end{remark}
+\status{published}
+\source{P9:rem:stokes_connection}
+
 \begin{remark}[Angle doubling: polarizer angle to condensate angle]
 \label{P9:rem:winding}
 A photon polarizer rotated by $\psi$ corresponds to a condensate
@@ -867,6 +948,21 @@ which use the Stokes observable
 \end{proposition}
 \status{published}
 \source{P9:prop:projective}
+
+\begin{remark}[The structural gap and the $\HH\to\CC$ projection]
+\label{P9:rem:structural_gap_projection}
+The structural gap $2\sqrt{2}-8/3\approx0.161$ is precisely the
+residual after the $\HH\to\CC$ geometric projection is applied to
+the projective-measurement limit.
+Tsirelson's bound $2\sqrt{2}$ requires optimising over all measurement
+angles; at the standard angles the $\CC$-projection gives
+$2\sqrt{1+1/\sqrt{2}}\approx2.613$, and the condensate's
+projective limit gives $8/3\approx2.667$, with
+$8/3 < 2\sqrt{1+1/\sqrt{2}} < 2\sqrt{2}$ (the condensate sits
+between the angle-optimised QM value and Tsirelson's global bound).
+\end{remark}
+\status{published}
+\source{P9:rem:structural_gap_projection}
 
 \begin{remark}[Scope of Proposition~\ref{P9:prop:projective}]
 \label{P9:rem:projective_scope}
@@ -960,6 +1056,24 @@ to the Parseval autocorrelation.
 \status{published}
 \source{P9:rem:stokes_vs_pcond}
 
+\begin{remark}[Geometric interpretation]
+\label{P9:rem:geometric_interp_hh_cc}
+Equation~\eqref{P9:eq:CHSH_projected_exact} says: closing the gap to Tsirelson
+requires replacing the $\HH$-norm ($t^4$) with the $\CC$-norm ($t^2$)
+in the denominator of $\pcond$.
+This is not a small correction — it changes the functional form of the
+probability rule — but it is forced by the algebraic requirement that
+composite entangled systems admit a tensor product structure, which is
+available for $J_n(\CC)$ but not for $J_n(\HH)$ in general (the
+tensor product of two quaternionic Hilbert spaces is not a quaternionic
+Hilbert space, while $\CC\otimes\CC\cong\CC^2$).
+Standard quantum mechanics therefore occupies precisely the $\CC$ slot
+in the Hurwitz sequence, not because $\CC$ is postulated but because it
+is the unique division algebra supporting composite entanglement.
+\end{remark}
+\status{published}
+\source{P9:rem:geometric_interp_hh_cc}
+
 \begin{definition}[$\HH$-valued condensate amplitude]
 \label{P9:def:H_amplitude}
 The quaternionic condensate amplitude at mismatch angle $\theta$ is defined by
@@ -998,6 +1112,24 @@ At $f_0=2$: $p_{2,0} = \pcond$ (the condensate's own model).
 \end{definition}
 \status{published}
 \source{P9:def:p_f_beta}
+
+\begin{remark}[Physical origin of $f_\mathrm{eff}$]
+\label{P9:rem:feff_physical_origin}
+The denominator $1+\beta\cos\theta$ softens the suppression for
+condensate orientations aligned with the measurement axis
+($\theta\approx0$, $\cos\theta>0$), reducing $f_\mathrm{eff}<f_0$
+and making the probability \emph{less} peaked near alignment
+(the mechanism of Paper~VIII~\cite{Paper8}).
+For anti-aligned orientations ($\theta\approx\pi$, $\cos\theta<0$)
+the denominator $1+\beta\cos\theta = 1-\beta|\cos\theta| < 1$
+increases $f_\mathrm{eff}>f_0$,
+correctly sharpening the probability where feedback is absent.
+The geometric rescaling denominator
+$\langle\sin^4\theta\rangle_{2\mathrm{D}}=3/8$
+(Theorem~\ref{P9:thm:tsirelson_gap}) is independent of back-action and unchanged.
+\end{remark}
+\status{published}
+\source{P9:rem:feff_physical_origin}
 
 \begin{definition}[Quantum condensate singlet]
 \label{P9:def:quantum_singlet}
@@ -1059,6 +1191,21 @@ Theorem~\ref{P9:thm:m_phot}.
 \end{definition}
 \status{published}
 \source{P9:def:stokes}
+
+\begin{remark}[Role of the topological charge $Q$]
+\label{P9:rem:role_of_Q}
+The phase $\Phi = Q\cdot\omega(\theta)$ is quantised because $Q\in\ZZ$
+and $\omega(\theta)\in[0,2\pi]$ is a solid angle.
+Without quantisation, the phase would be a continuous free parameter and
+the Born rule would not be uniquely determined.
+The fact that $Q=10$ for the Hopfion~\cite{Paper1} means
+the phase cycles $Q=10$ times over the sphere: this multi-valuedness
+is precisely the structure that forces $\psi_\CC$ to be a well-defined
+section of a $\CC$-line bundle over $S^2$, which is the quantum-mechanical
+Hilbert space.
+\end{remark}
+\status{published}
+\source{P9:rem:role_of_Q}
 
 \begin{conjecture}[Quantisation of the Hopfion condensate --- \textcolor{darkgreen}{proved in Paper~X~\cite{Paper10}}]
 \label{P9:conj:quantisation}
@@ -1221,6 +1368,17 @@ $E^\mathrm{Stokes}(\psi)=-\tfrac{1}{2}\cos(2\psi)$ of Theorem~\ref{P9:thm:stokes
 \end{remark}
 \status{published}
 \source{P9:rem:quantum_coherent}
+
+\begin{remark}[Angle doubling: forward pointer]
+\label{P9:rem:angle_doubling_pointer}
+The physical content of the $m=2$ winding number --- that a photon
+polarizer at angle $\psi$ corresponds to condensate angle $2\psi$
+because $\mathbb{RP}^1\xrightarrow{2:1}S^1$ --- is derived from first
+principles and stated precisely in Remark~\ref{P9:rem:winding}
+and Theorem~\ref{P9:thm:m_phot}.
+\end{remark}
+\status{published}
+\source{P9:rem:angle_doubling_pointer}
 
 \begin{equation}
   E_\mathrm{raw}(\psi)

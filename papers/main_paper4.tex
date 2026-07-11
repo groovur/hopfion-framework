@@ -125,17 +125,25 @@ the Abelian Chern-Simons result $4\pi$ by the modular $T$-matrix phase
 $T_{1/2}/Q = 3/400$ of the $j=1/2$ spoke carrier (Theorem~\ref{P4:thm:t_matrix_spoke}).
 The formula is accurate to $0.69\%$ (improved from $1.45\%$).
 
-\textbf{(v) Anti-screening and the running of $\alpha$.}
+\textbf{(v) The golden-angle cascade and the running of $\alpha$.}
 The four-term formula (Theorem~\ref{P4:thm:four_term_alpha}) predicts
-$\aInv = 137.036\,00$ at the electron mass scale to $5\times10^{-7}\%$.  The $\mathrm{SU}(2)_3$ WZW
-condensate is non-Abelian and exhibits anti-screening: virtual flux-knot
-pairs in the condensate enhance the coupling at lower energies, reducing
-$\aInv$ from $150.3$ toward $137.036$.  This is the analogue of asymptotic
-freedom in QCD, applied to the electromagnetic coupling in the icosahedral
-condensate background.  Above $m_e$, standard QED vacuum polarization
-from $e^+e^-$, $\mu^+\mu^-$, and hadronic loops takes over, running
-$\aInv$ to $\approx 128.9$ at the $Z$-boson scale, in agreement with
-measurement (Section~\ref{P4:sec:alpha_running}).
+$\aInv = 137.036\,00$ at the electron mass scale to $5\times10^{-7}\%$.
+Two of its four terms have distinct origins that should not be
+conflated. The leading term, the golden angle $360/\vp^2=137.508$, is
+reached from the geometric UV value $\aInv_{\mathrm{geo}}=150.3$ not by
+a running effect but as the exact, computable difference $\Delta_1$
+between two independently-exact quantities (Result~3.1 of Paper~III~\cite{Paper3}%\ref{P3:prop:cascade}
+); its deeper origin is an open
+problem (Open Problem~4 of Paper~III~\cite{Paper3}%\ref{P3:sec:open}
+). The
+subleading term $-k/(2\pi)$ \emph{is} a genuine one-loop WZW
+anti-screening effect: the $\mathrm{SU}(2)_3$ condensate is
+non-Abelian and, in analogy with asymptotic freedom in QCD, virtual
+flux-knot pairs enhance the coupling at lower energies, moving $\aInv$
+from $137.508$ down toward $137.036$. Above $m_e$, standard QED vacuum
+polarization from $e^+e^-$, $\mu^+\mu^-$, and hadronic loops takes
+over, running $\aInv$ to $\approx 128.9$ at the $Z$-boson scale, in
+agreement with measurement (Section~\ref{P4:sec:alpha_running}).
 
 \textbf{(vi) Verlinde cancellation and path to single-input.}
 The two $R_0$-dependent corrections in the spoke formula cancel
@@ -685,8 +693,11 @@ The QED running between these scales contributes:
 \end{equation}
 The positive sign reflects standard QED screening: running to lower energies
 from $\mWZW$ increases $\aInv$ (weakens the coupling).  This is opposite
-to the WZW anti-screening that generated $\Delta_1$ and $\Delta_2$ in
-the cascade of~\cite{Paper3} (see also Section~\ref{P4:sec:alpha_running}).
+in sign to the WZW anti-screening that produces $\Delta_2$ in
+the cascade of Paper~III~\cite{Paper3}%\ref{P3:prop:cascade}
+; $\Delta_1$, the larger step of that cascade, is not a running
+effect at all, but the exact difference between two independently-exact
+quantities (see also Section~\ref{P4:sec:alpha_running}).
 
 \subsection{Derivation of the correction coefficient}
 
@@ -762,18 +773,26 @@ Measured & $137.036$ & & \\
 \bottomrule
 \end{tabular}
 \end{center}
-The alternating signs reflect the competition between two running mechanisms
-operating simultaneously in opposite directions.
+The $-k/(2\pi)$ and $+1/(9\vp^6)$ terms are a genuine competition between
+two running mechanisms operating simultaneously in opposite directions.
+The leading term, $360/\vp^2=137.508$, is not itself a running effect:
+it is reached from the geometric UV value $\aInv_{\mathrm{geo}}=150.3$
+as the exact, computable difference $\Delta_1$ between two
+independently-exact quantities (Result~3.1 of Paper~III~\cite{Paper3}%\ref{P3:prop:cascade}
+), whose deeper origin is a separate open
+problem (Open Problem~4 of Paper~III~\cite{Paper3}%\ref{P3:sec:open}
+).
 
-The dominant mechanism is \emph{WZW anti-screening}: the $\mathrm{SU}(2)_3$
-condensate is non-Abelian and consequently asymptotically free, in exact
-analogy with QCD.  Virtual flux-knot pairs in the condensate vacuum enhance
-the coupling at lower energies, reducing $\aInv$ from the UV geometric value
-$150.3$ toward the golden-angle attractor $360/\vp^2 = 137.508$.  This is the
-same mechanism as asymptotic freedom in QCD, applied to the electromagnetic
-coupling in the icosahedral condensate background.  The condensate breaks the
-ordinary Abelian QED screening and replaces it with non-Abelian anti-screening;
-the $-k/(2\pi)$ term is its exact one-loop coefficient~\cite{KZ1984}.
+The dominant \emph{running} mechanism is \emph{WZW anti-screening}: the
+$\mathrm{SU}(2)_3$ condensate is non-Abelian and consequently
+asymptotically free, in exact analogy with QCD.  Virtual flux-knot
+pairs in the condensate vacuum enhance the coupling at lower energies,
+reducing $\aInv$ from the golden-angle attractor $360/\vp^2=137.508$
+toward $137.036$.  This is the same mechanism as asymptotic freedom in
+QCD, applied to the electromagnetic coupling in the icosahedral
+condensate background.  The condensate breaks the ordinary Abelian QED
+screening and replaces it with non-Abelian anti-screening; the
+$-k/(2\pi)$ term is its exact one-loop coefficient~\cite{KZ1984}.
 
 The subleading mechanism is ordinary \emph{QED screening}: virtual $e^+e^-$
 pairs in the perturbative vacuum screen the bare charge, giving a standard
@@ -2158,7 +2177,17 @@ $\aInv(M_Z) \approx 128.9$ at the $Z$-boson scale.
 \subsection{Two running mechanisms with opposite signs}
 
 The framework contains two distinct running mechanisms that operate
-simultaneously and in opposite directions.
+simultaneously and in opposite directions, both acting between
+$\mWZW$ and $m_e$. Neither runs from the geometric UV value
+$\aInv_{\rm geo}=\vp^6/\sin^4(\pi/5)=150.3$: the step from $150.3$ to
+the golden angle $360/\vp^2=137.508$ is $\Delta_1$, the exact,
+computable difference between two independently-exact quantities
+established in Result~3.1 of Paper~III~\cite{Paper3}%\ref{P3:prop:cascade}
+, not a running effect (its deeper origin is Open Problem~4
+of Paper~III~\cite{Paper3}%\ref{P3:sec:open}
+). The two running mechanisms below act only on the
+smaller, genuinely dynamical step from $137.508$ down to the measured
+$137.036$.
 
 \paragraph{WZW anti-screening (non-Abelian, dominant, $\mu > m_e$ regime).}
 The $\mathrm{SU}(2)_3$ WZW condensate is non-Abelian.
@@ -2170,12 +2199,12 @@ The exact WZW beta function~\cite{KZ1984} gives:
   \label{P4:eq:wzw_beta_running}
 \end{equation}
 with negative sign (anti-screening: $\aInv$ \emph{decreases} at lower $\mu$).
-This runs the geometric UV value $\aInv_{\rm geo} = \vp^6/\sin^4(\pi/5)
-= 150.3$ down to the golden-angle attractor $360/\vp^2 = 137.508$.
+This runs $\aInv$ from the golden-angle attractor $360/\vp^2=137.508$
+down toward the measured value $137.036$, a shift of $-k/(2\pi)=-0.477$.
 The WZW condensate acts on the electromagnetic coupling in the same way
 that the gluon condensate acts on the strong coupling in QCD:
 \emph{virtual flux-knot pairs in the condensate background enhance the
-coupling at lower energies, reducing $\aInv$ from $150.3$ toward $137.036$.}
+coupling at lower energies, reducing $\aInv$ from $137.508$ toward $137.036$.}
 This is non-Abelian anti-screening, not the ordinary Abelian QED screening
 from $e^+e^-$ pairs.
 
@@ -2221,14 +2250,18 @@ the coupling up to higher energies.
 \toprule
 Energy range & Running type & $\aInv$ direction & Carrier \\
 \midrule
-$\Lambda_{\rm cond} \to m_e$ & WZW anti-screening & $150.3 \to 137.036$ (decreases) & Virtual flux-knot pairs \\
+$\Lambda_{\rm cond} \to \mWZW$ & not running ($\Delta_1$, exact) & $150.3 \to 137.508$ (decreases) & --- \\
+$\mWZW \to m_e$ & WZW anti-screening & $137.508 \to 137.036$ (decreases) & Virtual flux-knot pairs \\
 $m_e \to M_Z$ & QED screening & $137.036 \to 128.9$ (decreases) & Virtual $e^+e^-$, $\mu^+\mu^-$, hadrons \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \noindent
-Both columns show $\aInv$ decreasing, but for opposite physical reasons:
+The first row is not a running effect (Result~3.1 of Paper~III~\cite{Paper3}%\ref{P3:prop:cascade}
+); it is included only to show where the geometric UV value sits
+relative to the two genuine running steps below it.  Those two rows
+show $\aInv$ decreasing, but for opposite physical reasons:
 in the WZW regime, the coupling \emph{strengthens} at lower energies
 (non-Abelian anti-screening increases $\alpha = 1/\aInv$); in the QED
 regime, the coupling \emph{weakens} at higher energies (Abelian screening

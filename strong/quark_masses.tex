@@ -745,6 +745,20 @@ cardinalities.
 \status{published}
 \source{P16:prop:vertices_fail}
 
+\begin{remark}[What survives]
+\label{P16:rem:what_survives}
+The geometric decomposition~\eqref{P16:eq:vertex_decomp} itself, and the
+related fact that $\twoT$ is the unique $\vp$-free conjugate among the
+five copies of $\twoT$ inside $\twoI$ (Section~\ref{P16:sec:5copies}),
+remain valid and are not affected by Proposition~\ref{P16:prop:vertices_fail}.
+What fails is specifically the inference from this geometry to a
+quark mass formula; the geometry itself is sound and may yet prove
+useful as corroborating intuition for the $\vp$-free character of QCD
+(Paper~XV, Remark~9.4, after Paper~XV).
+\end{remark}
+\status{published}
+\source{P16:rem:what_survives}
+
 \begin{proposition}[Structure of the five conjugate copies of $\twoT$ in $\twoI$]
 \label{P16:prop:five_copies}
 $\twoI$ contains exactly five conjugate copies of $\twoT$.
@@ -756,6 +770,31 @@ $\{\pm1\}$.
 \status{published}
 \source{P16:prop:five_copies}
 \depends{strong/colour.tex}
+
+\begin{remark}[Double role of this proposition]
+\label{P16:rem:double_role_proposition}
+Proposition~\ref{P16:prop:five_copies} serves two purposes.  Its primary
+purpose here is to record the five-copy structure that recurs across
+Sections~\ref{P16:sec:vertices}--\ref{P16:sec:q8}.  Its secondary purpose,
+used in Section~\ref{P16:sec:colour_exclusion}, is to establish that
+$N_{\twoI}(\twoT)=\twoT$ --- this is Fact~3 in the proof of
+Theorem~\ref{P16:thm:colour_exclusion}, which closes off the inner-automorphism
+branch of that proof's case analysis.
+\end{remark}
+\status{published}
+\source{P16:rem:double_role_proposition}
+
+\begin{remark}[Double role of this section's result]
+\label{P16:rem:double_role_section}
+Proposition~\ref{P16:prop:bosonic_fail} below serves two purposes.
+Its primary purpose here is to falsify the bosonic-triple generation
+hypothesis.  Its secondary purpose, used in
+Section~\ref{P16:sec:colour_exclusion}, is to establish that $\sigma$ is a
+\emph{strictly outer} automorphism of $\twoT$ --- this is Fact~1 in
+the proof of Theorem~\ref{P16:thm:colour_exclusion}.
+\end{remark}
+\status{published}
+\source{P16:rem:double_role_section}
 
 \begin{conjecture}[The bosonic-triple hypothesis]
 \label{P16:conj:bosonic}
@@ -842,6 +881,27 @@ ordered, pairwise-inequivalent three-generation ladder.
 \status{published}
 \source{P16:prop:q8_fail}
 
+\begin{remark}[Architecture justified by Theorem~\ref{P16:thm:colour_exclusion}]
+\label{P16:rem:architecture_justified}
+The formula derived in this section takes the form
+$m_q^{(g)} = m_\ell^{(g)} \cdot [\text{colour correction}]$, starting
+from the lepton mass $m_\ell^{(g)}$ and applying a multiplicative
+$\QH=3$-sector factor.  Theorem~\ref{P16:thm:colour_exclusion}
+(Section~\ref{P16:sec:colour_exclusion}) provides the group-theoretic
+justification for why this is the only logically consistent
+architecture: colour charge does not exist at the $\QH=2$ level, so
+the lepton mass $m_\ell^{(g)}$ --- a pure $\QH=2$ quantity --- must
+appear as the starting point, with the colour correction being the
+first place any $\QH=3$-specific structure enters.  In retrospect,
+the six mechanisms of Sections~\ref{P16:sec:vertices}--\ref{P16:sec:e8coxeter}
+all assumed colour as a given and searched for an additional structure
+within it; Theorem~\ref{P16:thm:colour_exclusion} shows they were
+necessarily looking in the wrong place.
+\end{remark}
+\status{published}
+\source{P16:rem:architecture_justified}
+\depends{strong/colour.tex (P16:thm:colour_exclusion)}
+
 \begin{conjecture}[Generation-dependent correction to colour shift]
 \label{P16:conj:colourshift}
 The discrepancy between the universal colour-shift formula and measured
@@ -861,6 +921,20 @@ generation-smooth correction.
 \end{proposition}
 \status{published}
 \source{P16:prop:colourshift_fail}
+
+\begin{remark}[What this does and does not rule out]
+\label{P16:rem:colourshift_scope}
+Proposition~\ref{P16:prop:colourshift_fail} does not impugn the derivation
+of $\delta n^{(C)}=\tfrac12$ itself (equation~\eqref{P16:eq:dn_shift}),
+which rests on a clean, parameter-independent fact about free-fermion
+conformal weight. It rules out the narrower hypothesis that this
+universal shift is the \emph{only} correction needed: some further,
+generation-dependent piece of physics, not yet identified, must be
+layered on top of it, and that piece is evidently not a simple
+function of the generation index alone.
+\end{remark}
+\status{published}
+\source{P16:rem:colourshift_scope}
 
 \begin{remark}[Scale ambiguity in Paper V]
 \label{P16:rem:scale_ambiguity}
@@ -919,6 +993,27 @@ $2.2\%$ accuracy of the independently-derived strange-quark case.
 \status{published}
 \source{P16:prop:e8_accuracy}
 
+\begin{remark}[Why this still counts as a negative result for $n_q$]
+\label{P16:rem:e8_negative_result}
+Propositions~\ref{P16:prop:e8_mixed}--\ref{P16:prop:e8_accuracy} together show
+that equation~\eqref{P16:eq:e8_ratio_recap}, despite resting on a real and
+well-motivated incommensurability argument (Paper~VI,
+Proposition~5.5), does not supply a predictive mechanism for the
+quark tower level once the one genuine input (the strange-quark
+coincidence) is used up: the other five quarks' errors are comparable
+to, or worse than, those of equation~\eqref{P16:eq:quark_mass_recap}
+(Section~\ref{P16:sec:colourshift}), and the apparent precision of
+equation~\eqref{P16:eq:e8_ratio_recap}'s integer structure is partly an
+artifact of fitting the assignment to the already-known mass hierarchy
+rather than predicting it. We record this as a sixth ruled-out
+mechanism, distinct from but related to Section~\ref{P16:sec:colourshift}:
+the incommensurability principle itself survives intact, but the
+specific $E_8$ Coxeter labelling built on top of it does not yet
+constitute a derivation of $n_q^{(g)}$.
+\end{remark}
+\status{published}
+\source{P16:rem:e8_negative_result}
+
 %════════════════════════════════════════════════════════════════════
 % RG Running and Strange-Quark Match — Paper XVI
 %════════════════════════════════════════════════════════════════════
@@ -971,6 +1066,28 @@ match (strange), five large undershoots, generation-growing deviation.
 \status{published}
 \source{P16:prop:as_selfcons}
 
+\begin{remark}[Why this result is still informative despite the null
+  outcome]
+\label{P16:rem:as_selfcons_informative}
+The two anchoring choices for $\alpha_s(\LUV)$ agree to $0.3\%$ by
+construction (this is the content of Paper~V's own consistency check),
+so Proposition~\ref{P16:prop:as_selfcons}'s null result was expected once
+that agreement is taken into account: there was no room for the
+self-consistent value to differ enough from the PDG-anchored one to
+close gaps of a factor of $2$ or more. What this rules out, concretely,
+is the hypothesis that the residual mismatches in
+Table~\ref{P16:tab:rg_running} are an artifact of importing $\alpha_s(M_Z)$
+from PDG rather than deriving it. They are not: even with every input
+to the running traceable to a framework-internal derivation except the
+threshold \emph{locations} $m_t,m_b,m_c$ themselves (still taken from
+PDG, since predicting those is the object of the present
+investigation, not a usable input to it), the same systematic pattern
+persists. The source of the residual pattern, whatever it is, lies
+elsewhere than in the choice of $\alpha_s$ anchor.
+\end{remark}
+\status{published}
+\source{P16:rem:as_selfcons_informative}
+
 \begin{remark}[Pole-mass caveat for top quark]
 \label{P16:rem:pole_mass_caveat}
 The top-quark comparison in Paper~XVI's running table uses the pole mass
@@ -981,6 +1098,26 @@ be read with this additional uncertainty in mind.
 \end{remark}
 \status{published}
 \source{P16:rem:pole_mass_caveat}
+
+\begin{remark}[What this does and does not settle]
+\label{P16:rem:onset_energy_scope}
+The absence of an onset-energy definition in the literature does not
+mean the framework's own $Q_H=3$ sector is wrong to think of quark
+generation as a transient, energy-gated excitation
+(Section~\ref{P16:sec:confinement_motivation}'s motivation for this whole
+line of investigation remains intact as a statement about the
+\emph{framework's internal physical picture}). It means only that
+\emph{PDG-extractable quark mass} is not, and is not intended to be,
+a direct readout of such an onset energy: it is one of several
+scheme-dependent Lagrangian parameters, chosen for calculational
+convenience in different kinematic regimes. Any comparison between the
+framework's predictions and measurement must therefore go through one
+of the existing schemes (running mass, pole mass, or a threshold
+scheme), as in Sections~\ref{P16:sec:rgrunning}--\ref{P16:sec:selfconsistent_as},
+rather than through a new, as-yet-undefined onset-energy quantity.
+\end{remark}
+\status{published}
+\source{P16:rem:onset_energy_scope}
 
 \begin{remark}[Structural parallel to the renormalon ambiguity]
 \label{P16:rem:saddle_renormalon_parallel}

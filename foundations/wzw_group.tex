@@ -229,6 +229,21 @@ $|2I|$ among binary polyhedral groups.
 \source{P1:thm:vacuum}
 \depends{foundations/wzw_group.tex (P1:thm:charge_q10, P1:thm:k3)}
 
+\begin{remark}
+\label{P1:rem:symmetry_breaking_noncircular}
+The symmetry breaking in part~(i) is not circular.
+$S_{\mathrm{eff}}(\theta,\rho)$ is introduced as the suppression
+function of the parent Lagrangian~\eqref{P1:eq:Lkin}, defined
+\emph{before} any reference to a specific vacuum.  It breaks the
+$O(3)$ symmetry of the free FN functional to $U(1)$ by its $\theta$-dependence,
+and the proof shows this $U(1)$ remnant favours the toroidal Hopfion
+over all $O(3)$-symmetric competitors.  The conclusion is that it is, within the
+density-feedback framework, a consequence of $S_{\mathrm{eff}}$
+and the condensate temperature.
+\end{remark}
+\status{published}
+\source{P1:rem:symmetry_breaking_noncircular}
+
 %════════════════════════════════════════════════════════════════════
 % Witten Bosonization and Verlinde Formula — Paper III
 %════════════════════════════════════════════════════════════════════
@@ -253,6 +268,19 @@ WZ coupling $\mu^* = \sqrt{k+2}/\vp$ & WZ coupling of $k=3$ system \\
 \status{published}
 \source{P3:thm:bosonization}
 \depends{foundations/wzw_group.tex (P1:thm:k3, P1:thm:dimq); foundations/suppression.tex (P3:lem:bridge)}
+
+\begin{remark}[The 3D/2D reduction]
+\label{P3:rem:3d2d_reduction}
+Witten's theorem applies to the 2D cross-section of the Hopfion torus.
+In the thin-torus limit ($R_0\to\infty$), the 3D Hopfion problem reduces
+exactly to a 2D problem on the tube cross-section, and the bosonization
+is exact.  For finite $R_0$, corrections are $O(R_0^{-2})$, matching
+the rate established in Proposition~\ref{P3:prop:virial_limit}.
+This remark is promoted to a theorem with explicit error bounds below
+(Theorem~\ref{P3:thm:bos_3d}).
+\end{remark}
+\status{published}
+\source{P3:rem:3d2d_reduction}
 
 \begin{theorem}[3+1D Witten bosonization with error bound]
 \label{P3:thm:bos_3d}

@@ -130,3 +130,14 @@ sweeps), launch in the background and continue the conversation. Never
 fabricate, predict, or narrate a plausible-sounding result before the
 job actually reports back — status updates should say "still running,"
 not a guessed number dressed up as a preliminary finding.
+
+## 11. References
+- No backslashed underscores.
+- No bare paper references. Format as 'Paper~RN~\cite{PaperN}' where RN is the capitalized roman numeral of the paper and N is the arabic numeral.
+- No bare reference labes to another paper.
+  1. Find the actual reference Theorem/Corollory/Remark/etc. arabic number by:
+     a. first checking prior papers for another commented \ref with the same label with an actual number of the Theorem/Remark/Construction/etc. This the primary correct number.
+     b. if a. doesn't yield a numbered result, checking to see if another commented \ref in the current paper for the same label with an actual of number for the Theorem/Remark/Construction/etc.
+     c. if a. or b. don't yield result, next check the compiled tex of the paper being referenced to infer the number. This is usually needs to be fixed manually, so as a last resort.
+     d. check with the user for discrepancies if found between a. b. and c.
+  2. After the arabic numbered Thorem/Proposition/Conecture/etc. put a comment with the \ref to the other paper to the end of the line. eg %\ref{P3:thm_example}

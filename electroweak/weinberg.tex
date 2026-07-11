@@ -71,6 +71,18 @@ Therefore no rational $a-b$ satisfies the equation.
 \source{P1:thm:irreducible}
 \residual{exact}
 
+\begin{remark}
+\label{P1:rem:irreducibility_positive}
+The irreducibility theorem has a positive interpretation: it
+\emph{proves} that the two factors in $\sinW=3/(8\vp)$ have
+genuinely independent physical origins, rather than being
+different parametrisations of the same quantity.
+The $3/8$ encodes particle content (SU(5) GUT~\cite{GeorgiGlashow1974}); the $1/\vp$ encodes
+icosahedral geometry (WZW $S$-matrix).  Neither can absorb the other.
+\end{remark}
+\status{published}
+\source{P1:rem:irreducibility_positive}
+
 \begin{theorem}[Forward amplitude ratio]
 \label{P1:thm:amplitude_ratio}
 In the $Q=2$ Hopfion condensate, the forward-scattering amplitudes
@@ -127,6 +139,28 @@ $\mathcal{A}_{Y}/\mathcal{A}_{T_3}|_{\theta=\pi/2} = 1/\vp = S_{0,0}/S_{0,1/2}$.
 \end{corollary}
 \status{published}
 \source{P1:cor:weinberg_unconditional}
+
+\begin{remark}[Physical origin of the multiplicative structure]
+\label{P1:rem:phys_origin}
+The two factors in $\sinW=(3/8)\cdot(1/\vp)$ come from independent
+geometry.  The $3/8$ is the 2D isotropic average
+$\langle\sin^4\!\theta\rangle_{2D}$ of the suppression function:
+it is the prediction that a rotationally symmetric condensate would
+give, and equals the SU(5) trace ratio exactly
+($\frac{1}{2\pi}\int_0^{2\pi}\sin^4\!\theta\,d\theta = 3/8$).
+The $1/\vp$ arises because the $\mathrm{SU}(2)_L$ coupling must pass
+through the Hopf submersion while U$(1)_Y$ does not: it is the
+\emph{submersion deficit} of the Riemannian geometry of $S^3\to S^2$
+at the vacuum angle $\theta=\pi/2$, and equals $S_{0,0}/S_{0,1/2}=1/\vp$
+by Theorem~\ref{P1:thm:dimq}.
+The multiplicative combination is forced because the two corrections
+are geometrically orthogonal: the first affects all angular modes
+equally ($l=0$ average), while the second is a pure angular-mode
+correction ($l>0$ from the horizontal projection).
+\end{remark}
+\status{published}
+\source{P1:rem:phys_origin}
+\depends{foundations/wzw_group.tex (P1:thm:dimq)}
 
 \begin{corollary}[Two-route consistency and uniqueness of $\lam=\vp^6$]
 \label{P1:cor:lambda}

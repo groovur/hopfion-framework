@@ -438,12 +438,12 @@ where:
     degree $2$ over $\mathbb{Q}$. It is not a physical process connecting
     two energy scales (the retracted running framing, see
     Section~\ref{P3:sec:coeff}). Whether its specific value has a deeper
-    physical origin --- e.g.\ in the condensate's own vacuum topology and
-    relaxation dynamics, Remark~\ref{P3:rem:delta1_candidate} --- is a
-    separate, open question (Open Problem~4): $\Delta_1$ being algebraic
-    while candidate physical mechanisms of this kind are generically
-    transcendental means any such connection can be numerically close
-    but not exact.
+    physical origin is a separate, open question (Open Problem~4): the
+    WZW action along the vacuum's own relaxation path is exactly
+    computable and differs from $\Delta_1$ by $0.76\%$
+    (Remark~\ref{P3:rem:delta1_candidate}), and $\Delta_1$ being
+    algebraic while such action expressions are transcendental means
+    any such connection can be numerically close but not exact.
   \item The second step ($\Delta_2 = k/(2\pi) = 0.477$, $3.5\%$) is the
     one-loop WZW correction at the icosahedral scale, and remains an
     exact one-loop running effect (Knizhnik--Zamolodchikov
@@ -455,83 +455,118 @@ proximity between two exact but independent $\vp$-quantities sharing the
 same icosahedral origin, is Open Problem~4 of Section~\ref{P3:sec:open}.
 \end{result}
 
-\begin{remark}[Candidate physical origin of $\Delta_1$: vacuum topology plus relaxation --- unverified]
+\begin{remark}[The WZW action along the relaxation path, and $\Delta_1$]
 \label{P3:rem:delta1_candidate}
-A numerically precise (but not yet derived) candidate decomposition of
-$\Delta_1$ has been found:
+The relaxation of the condensate from the bare state ($\beta=0$,
+$V=15/8$) to the self-consistent fixed point ($\beta=\bst$, $V=\vp$;
+Theorem~\ref{P3:thm:V_exact_all_R0}) has an exactly computable WZW
+action. From the definition $\Kfb = \Ja + \mu^*\Jfb$ and $V = \Jfb/\Ja$,
+the identity $\Kfb/\Ja = 1 + \mu^*V(\beta)$ holds at every $\beta$, and
+at $\mu = \mu^*$ the functional $\Kfb$ is the WZW action
+(Remark~\ref{P3:rem:mustar_role}). The kinetic action released along
+the relaxation path $\beta: 0 \to \bst$, per unit topological charge
+($\Ja \leftrightarrow Q_F$, Theorem~\ref{P3:thm:bosonization}), is
+therefore exact and algebraic:
 \begin{equation}
-  \Delta_1 \;\approx\; 4\pi \;+\; \left(\frac{15}{8}-\vp\right)
-  \;=\; 12.823\,337\ldots,
+  \Delta\!\left(\frac{\Kfb}{\Ja}\right)
+  \;=\; \mu^*\!\left(\frac{15}{8}-\vp\right)
+  \;=\; (3-\vp)\!\left(\frac{15}{8}-\vp\right)
+  \;=\; \frac{53-31\vp}{8}
+  \;=\; 0.355\,118\ldots
   \label{P3:eq:delta1_candidate}
 \end{equation}
-compared to $\Delta_1 = 12.824\,120\ldots$, a $0.0061\%$ match. Both terms
-are already-established quantities, not fitted: $4\pi$ is the same
-Chern--Simons action unit that generates $m_e/\Lcond$ via a $\Delta Q=1$
-topological transition (Theorem 6.11 of Paper~IV~\cite{Paper4})%\ref{P4:thm:second_spoke}
-; $15/8-\vp$ is
-the exact distance the condensate's own virial function travels during
-its physical relaxation, from the bare thin-torus value $V(0)=15/8$ to
-the self-consistent fixed point $V(\bst)=\vp$ (Lemma 4.3 of Paper~IV~\cite{Paper4}%\ref{P4:lem:virial_factor}
-;
-Theorem~\ref{P3:thm:V_exact_all_R0} here). Using the $R_0=3$-corrected
-virial $V(0;R_0)=\tfrac{15}{8}(1+\tfrac{1}{2R_0^2})$ in place of the
-thin-torus value \emph{worsens} the match to $0.81\%$; since $\Delta_1$
-itself has no $R_0$-dependence (both $\vp^6/\sin^4(\pi/5)$ and $360/\vp^2$
-are $R_0$-independent), this is consistent with --- not evidence against
---- the candidate, rather than a discriminating failure.
+If the relaxation is accompanied by a $\Delta Q=1$ topological
+transition --- the fusion reading: the bare and self-consistent states
+as the unbound and bound configurations of the $Q_H{=}1\to Q_H{=}2$
+fusion that generates the electron mass (Theorem 6.11 of
+Paper~IV~\cite{Paper4}%\ref{P4:thm:second_spoke}
+) --- the Abelian Chern--Simons unit adds $4\pi$, giving the total
+per-charge path action
+\[
+  S_{\mathrm{path}} \;=\; 4\pi + \frac{53-31\vp}{8} \;=\; 12.921\,489\ldots
+\]
 
-\textbf{Proposed physical picture (unverified).} Both terms are
-properties of the condensate (vacuum) itself, not of any specific
-soliton state within it. A specific hypothesis for what they represent:
-the "bare" ($\beta=0$, $V=15/8$) and "self-consistent" ($\beta=\bst$,
-$V=\vp$) states are the \emph{unbound} and \emph{bound} configurations
-of the \emph{same} $Q_H{=}1\to Q_H{=}2$ fusion already responsible for
-the electron mass (Theorem 6.11 of Paper~IV~\cite{Paper4}%\ref{P4:thm:second_spoke}
-,
-Theorem 6.3 of Paper~IV~\cite{Paper4}%\ref{P4:thm:spoke_ground}
-: two $Q_H{=}1$ quanta fusing to the
-$Q_H{=}2$ singlet). Under this reading, $4\pi$ is not a second,
-independent topological transition requiring its own justification ---
-it is the \emph{same} fusion event observed through a different
-quantity (the vacuum's virial ratio, rather than the electron's mass):
-one microphysical event with two observable footprints. This also gives
-a structural reason for the terms to add rather than combine some other
-way: the standard $\mathrm{SU}(2)_k$ WZW action itself splits as
-$S_{WZW}=S_{\mathrm{kinetic}}+\frac{k}{12\pi}\int_B\mathrm{Tr}(g^{-1}dg)^3$
-(smooth sigma-model term plus topological Wess--Zumino term, added, not
-multiplied), and this framework already identifies the density-feedback
-model exactly with this WZW theory (Theorem~\ref{P3:thm:bosonization}).
-If the $\beta:0\to\bst$ relaxation is a path in this WZW configuration
-space, its action would naturally split the same way: a kinetic
-contribution ($15/8-\vp$, the virial ratio's classical relaxation
-distance) plus a topological one ($4\pi\cdot\Delta Q$, $\Delta Q=1$).
-This is a coherent picture, not a derivation: it has not been shown that
-the WZW action, evaluated on this specific trajectory, actually produces
-this decomposition rather than merely resembling its shape, and it has
-not been checked whether the papers' own treatment of the $\beta=0$
-state supports identifying it with the unbound $Q_H=1$ configuration.
+\textbf{Comparison with $\Delta_1$.} $S_{\mathrm{path}}$ exceeds
+$\Delta_1 = 12.824\,120\ldots$ by $0.097\,369$, i.e.\ $0.76\%$. The
+identification $\Delta_1 = S_{\mathrm{path}}$ therefore fails at the
+percent level: the vacuum's action change along its own relaxation
+path, computed with no free choices from the model's own definitions,
+does not reproduce $\Delta_1$.
+Equation~\eqref{P3:eq:delta1_candidate} is established; its
+identification with $\Delta_1$ is not.
 
-\textbf{Status: unverified, and provably not exact.} $\Delta_1=(2136\vp-3392)/5$
-is algebraic of degree $2$ over $\mathbb{Q}$ (Result~\ref{P3:prop:cascade}).
-$4\pi+(15/8-\vp)$ is transcendental: $15/8-\vp\in\mathbb{Q}(\vp)$ is
-algebraic, $4\pi$ is transcendental ($\pi$ transcendental,
-Lindemann), and algebraic numbers are closed under addition, so their
-sum is transcendental. An algebraic and a transcendental number are
-never equal. Equation~\eqref{P3:eq:delta1_candidate} is therefore
-provably not an exact identity, at any precision --- it is, at best, a
-close numerical approximation. This is a numerically confirmed sum of
-two independently-established quantities, not a derivation. No
-calculation has yet been shown to produce $4\pi+(15/8-\vp)$ as a
-single, unified expression relevant to $\Delta_1$ (e.g.\ from a
-combined vacuum free energy or effective action encompassing both the
-topological Chern--Simons sector structure and the classical relaxation
-dynamics); given the algebraic/transcendental mismatch, such a
-derivation --- if one exists --- would need to relate $\Delta_1$ to
-$4\pi+(15/8-\vp)$ approximately, or identify a different,
-transcendental quantity adjacent to $\Delta_1$ as the true target. This
-remains a candidate, not a result, and should not be conflated with the
-proved parts of this paper.
+\textbf{The bare-travel variant.} The numerically closer expression
+$4\pi + (15/8-\vp) = 12.823\,337$ matches $\Delta_1$ to $0.0061\%$, but
+it is not the action change of the model: it uses the bare virial
+travel $V(0)-V(\bst)$ where the WZW action requires
+$\mu^*\,[V(0)-V(\bst)]$, omitting the coupling $\mu^* = 3-\vp$. No
+derivation is known that selects the bare travel over the action; it is
+recorded as a numerical observation only.
+
+\textbf{Non-exactness.} $\Delta_1 = (2136\vp-3392)/5$ is algebraic of
+degree $2$ over $\mathbb{Q}$ (Result~\ref{P3:prop:cascade}), while
+$S_{\mathrm{path}}$ and $4\pi+(15/8-\vp)$ are transcendental ($4\pi$ is
+transcendental by Lindemann, and algebraic numbers are closed under
+addition). An algebraic and a transcendental number are never equal, so
+neither expression can equal $\Delta_1$ exactly, at any precision. A
+relaxation-action origin for $\Delta_1$, if one exists, must therefore
+be an approximate relation, and the missing ingredient is the bridge:
+a derivation of why $\aInv_{\mathrm{geo}}$ should be displaced from the
+golden-angle attractor by a vacuum action at all, and with what
+normalization. This remark establishes the value of the relaxation
+action, Eq.~\eqref{P3:eq:delta1_candidate}; it does not provide a
+physical origin for $\Delta_1$.
 \end{remark}
+
+%──────────────────────────────────────────────────────────────────────
+% TWO-CHANNEL (POLARIZATION × VERTEX-SUPPRESSION) CANDIDATE FOR Delta_1
+% Status: exploratory hypothesis; bracketing evidence only — not established.
+% Supporting scripts: paper3_support/ (two_channel_bracket.py reproduces the
+% table below; 2D pair solver and checkpoints under paper3_support/pair_cell/).
+%
+% Hypothesis: the geo->golden step is carried jointly by two actions of the
+% same condensate tubes on the photon,
+%     aInv_obs = aInv_geo · eps_eff · <1/(1+beta X)>^{-1},
+% where eps_eff is the 2D Maxwell-Garnett response of the T(2,2) tube pairs
+% (polarization channel) and <1/(1+beta X)> is the mean coupling suppression
+% (vertex channel, S_eff ~ 1/(1+beta rho) as in Papers IV/VII). With hopfions
+% at CONTACT packing (spacing 2(R0+1)=8 condensate units) there is no free
+% density: both factors are fixed by the same geometry.
+%   pair separation s = 2R0/(C2* C*) = 0.96231 solver units;
+%   <alpha_pair> from the validated 2D anisotropic solver (h=0.1, eta=1e-2):
+%     Model A (incoherent X1+X2):      -1.850
+%     Model B (coherent gradient sum): -2.953
+%   vertex deficit per tube D = 2·pi·b*·4·arctan(x*)/x* = 1.45640
+%     (closed form; the same integral as J_fb).
+% Result against the target golden/geo = 112.5/phi^10 = 0.914695:
+%   square lattice:     A: 0.97178 (+6.2%)   B: 0.86571 (-5.4%)
+%   triangular lattice: A: 0.96974 (+6.0%)   B: 0.84797 (-7.3%)
+%**The two-channel picture.** The dielectric bridge as originally posed made the polarization channel carry the entire geo→golden shift; that's what forced the dilute n_req and the unexplained 1.5×-beyond-contact spacing. But the framework already contains a second action of the same tube on the coupling: the vertex suppression S_eff ∝ 1/(1+βρ) (the chameleon/Vainshtein structure of Papers IV/VII). The photon between two charges then sees *both*: the medium's polarization (ε_eff, overshooting at contact density) and the coupling suppression from the tubes' own density (pushing α⁻¹ the other way). Written as α⁻¹_obs = α⁻¹_geo · ε_eff · ⟨1/(1+βX)⟩⁻¹, **contact packing stops being excluded and the whole construction becomes parameter-free**: the same geometry fixes both factors, and the suppression average even has a closed form (it's Paper III's own J_fb integral — deficit 4·arctan(x*)/x* per tube).
+%
+%At contact packing of the T(2,2) pairs, with the phase-1 ⟨α_pair⟩ values:
+%
+%| lattice    | model | ε_eff  | vertex | product | vs 112.5/φ¹⁰ |
+%| ---------- | ----- | ------ | ------ | ------- | ------------ |
+%| square     | A     | 0.8258 | 1.1768 | 0.9718  | **+6.2%**    |
+%| square     | B     | 0.7357 | 1.1768 | 0.8657  | **−5.4%**    |
+%| triangular | A     | 0.8015 | 1.2099 | 0.9697  | +6.0%        |
+%| triangular | B     | 0.7009 | 1.2099 | 0.8480  | −7.3%        |
+%
+%The two superposition models **bracket the golden-angle target from both sides at ±6%**, and the lattice choice is nearly irrelevant. That's not a match — flags: the vertex normalization (exponent 1 on the suppression average) is my assumption pending a check against Paper IV's actual vertex structure, and A/B are toy backgrounds. But it's the first construction in this program with *zero free densities* that lands within single-digit percent of the target, and the sign structure is exactly your "both actions on the tube."
+%
+%In Model B the outward gradients cancel exactly at the midpoint (X_B = 0, ε = 1 there — a positive-ε lens), with the negative-ε region a single band *surrounding* the pair; Model A instead has one merged negative core containing both centers and the midpoint. The real T(2,2) field will pick one behavior — which is now the decisive computation: build the **actual coherent two-tube background** (correct relative winding from the papers' construction, not the ± toy superpositions), get the single ⟨α_pair⟩ and the same-field ⟨1/(1+βX)⟩, and the two-channel product at contact is then fully determined. If it lands on 112.5/φ¹⁰ at sub-percent, OP4's Δ1 has a mechanism.
+% The two background models bracket the target from both sides; the lattice
+% choice is subdominant. Known gaps: (i) the vertex normalization (exponent
+% of the suppression average) is assumed, not derived from the Paper IV
+% vertex; (ii) A/B are toy superpositions — the physical coherent T(2,2)
+% background selects a single value between them; (iii) Re(alpha) is grid-
+% converged at the ~1% level only, Im(alpha) not converged (resonant annulus
+% under-resolved; see paper3_support/pair_cell/results.md).
+% Decisive computation: <alpha_pair> and <1/(1+beta X)> on the true coherent
+% T(2,2) background at contact packing — fully parameter-free; a sub-percent
+% landing on 112.5/phi^10 would identify the Delta_1 mechanism of Open
+% Problem 4.
+%──────────────────────────────────────────────────────────────────────
 
 \begin{remark}
 \label{P3:rem:packing_layers}
@@ -869,13 +904,14 @@ is transcendental and has no expression as a pure power of $\vp$ (the
 closest integer power is $\vp^7\approx29.0$, versus the actual
 $\Delta_1/\Delta_2=27.18$); this is expected given the different
 algebraic character of $\Delta_1$ and $\Delta_2$, not evidence against a
-relationship between them. A candidate physical origin for $\Delta_1$
-itself, tying it to the condensate's own vacuum topology and relaxation
-dynamics, is given in Remark~\ref{P3:rem:delta1_candidate}: since that
-candidate ($4\pi+(15/8-\vp)$) is transcendental while $\Delta_1$ is
-algebraic, it can only ever be an approximate relation
-($0.0061\%$), not an exact one, consistent with, but not proving,
-a genuine physical connection.
+relationship between them. The WZW action along the
+condensate's relaxation path is computed exactly in
+Remark~\ref{P3:rem:delta1_candidate}: $4\pi + \mu^*(15/8-\vp) =
+12.921$, which differs from $\Delta_1$ by $0.76\%$; the numerically
+closer bare-travel variant $4\pi+(15/8-\vp)$ ($0.0061\%$) omits the
+coupling $\mu^*$ and is not the model's action change. Both are
+transcendental while $\Delta_1$ is algebraic, so any such relation can
+only be approximate, never exact.
 
 \subsection{The residual, and its resolution in Paper~IV}
 
@@ -1795,13 +1831,16 @@ deficit precisely, giving $J_4/J_{2a} = 2^{4/3}/\vp^5$ exactly for all $R_0$.
     $16\vp^6/(3-\vp)^2$ and $360/\vp^2$ should be close (both being
     built from $\vp$ and $k=3$), or is the $9.7\%$ proximity a numerical
     coincidence between two unrelated exact results?
-    A candidate decomposition has been found (Remark~\ref{P3:rem:delta1_candidate}):
-    $\Delta_1 \approx 4\pi + (15/8-\vp) = 12.823\,337$, a $0.0061\%$
-    match, using only already-established quantities (the $\Delta Q=1$
-    Chern--Simons unit and the thin-torus-to-self-consistent virial
-    relaxation distance). This is a numerically verified sum, not a
-    derivation; no unified calculation yet produces it as a single
-    expression.
+    The WZW action along the vacuum relaxation path is exactly
+    computable (Remark~\ref{P3:rem:delta1_candidate}): per unit
+    topological charge, $4\pi + \mu^*(15/8-\vp) = 4\pi + (53-31\vp)/8
+    = 12.921\,489$, which differs from $\Delta_1$ by $0.76\%$. The
+    numerically closer variant $4\pi+(15/8-\vp) = 12.823\,337$
+    ($0.0061\%$) omits the coupling $\mu^*$ and is not the model's
+    action change; it remains a numerical observation. What is missing
+    is a derivation of why $\aInv_{\mathrm{geo}}$ should be displaced
+    from the golden-angle attractor by a vacuum action at all, and
+    with what normalization.
 
 \end{enumerate}
 

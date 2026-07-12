@@ -77,8 +77,11 @@ Validation gates (run first, ~1 min):
     python3.11 coherent_pair.py --validate --h 0.2
 
 Expected: V1 uniform |alpha| < 1e-9; V3 single-tube limit within ~1% of
-the 1D reference at eta=1e-2; V3b coherent X matches the single-tube X
-to ~1e-3 at s=30.
+the 1D reference at eta=1e-2 (and identical to the pair_cell suite's
+single-tube value at the same h, eta); V3b coherent X matches the
+single-tube X to ~3e-2 at s=30 within rho < 3 (the finite-s residue
+correction of the product map is O(rho/s), so this deviation falls off
+as 1/s and does not affect the s -> inf reduction).
 
 Coarse physics pass (~2 min):
 

@@ -29,3 +29,6 @@ pair_quad h=0.025 B eta=0.01 par: alpha=-2.987788+0.502204j (20404s)
 pair_quad h=0.025 B eta=0.01 perp: alpha=-3.006630+0.204134j (580s)
 pair_quad h=0.025 B eta=0.003 par: alpha=-2.981938+0.483957j (461s)
 pair_quad h=0.025 B eta=0.003 perp: alpha=-3.057761+0.146101j (567s)
+single_quad h=0.025 eta=0.01: alpha=-0.972099+0.024915j (4147s)
+single_quad h=0.025 eta=0.003: alpha=-0.975348+0.015421j (1763s)
+phase2 total wall: 32655s

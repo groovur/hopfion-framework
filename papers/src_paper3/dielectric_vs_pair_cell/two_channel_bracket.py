@@ -9,9 +9,10 @@ All inputs are fixed by the framework; there is no free density:
   C*^2 = (3/4) phi^5 / 2^(4/3)  (thin-torus tube-width unit)   [Paper II]
   contact spacing 2(R0+1) = 8 condensate units, R0 = 3
   <alpha_pair> : 2D anisotropic-dielectric solver, pair separation
-  s = 2 R0/(C2* C*) = 0.96231 solver units (pair_cell/, h=0.1, eta=1e-2;
-  real parts grid-converged at the ~1% level, imaginary parts not
-  converged there and excluded).
+  s = 2 R0/(C2* C*) = 0.96231 solver units (pair_cell/results.md,
+  Richardson h->0 then eta->0 of the real part; grid error bars
+  +-0.016 for A, +-0.069 for B; imaginary parts criterion-limited
+  and excluded).
 
 Vertex channel: <1/(1+bX)> = 1 - n_tube * D with per-tube deficit
 D = 2 pi b * Integral_0^inf X/(1+bX) t dt = 2 pi b * 4 arctan(x*)/x*,
@@ -34,8 +35,9 @@ C2star = brentq(lambda C: C*(2*C+1)/((C*C+1)*(3*C-1)) - 2**(4/3)/PHI**5,
 s_pair = 2*R0/(C2star*np.sqrt(Cstar2))
 target = 112.5/PHI**10
 
-# <alpha_pair> (real part) from pair_cell/results.md, h=0.1, eta=1e-2
-alpha_pair = {"A": -1.850339, "B": -2.952718}
+# <alpha_pair> (real part) from pair_cell/results.md, Richardson h->0,
+# eta->0 (grid error bars +-0.016 for A, +-0.069 for B)
+alpha_pair = {"A": -1.8155, "B": -2.9911}
 
 # contact packing of pairs, converted to solver units (1 solver unit = C*)
 n_pair = {"square": (1/(2*(R0+1))**2) * Cstar2,

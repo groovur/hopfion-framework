@@ -1,4 +1,0 @@
-dps=40 vec=[D1,1,pi,phi]  tol_override=None  relation=[-5, -3392, 0, 2136]  height=3392
-dps=40 vec=[D1,1,pi,phi,pi*phi,pi^2,phi^2]  tol_override=None  relation=[0, 1, 0, 1, 0, 0, -1]  height=1
-dps=80 vec=[D1,1,pi,phi]  tol_override=1.0000000000000000000000000000000000000000023222861009515463552361700221814128714e-30  relation=[-5, -3392, 0, 2136]  height=3392
-dps=80 vec=[D1,1,pi,phi,pi*phi,pi^2,phi^2]  tol_override=1.0000000000000000000000000000000000000000023222861009515463552361700221814128714e-30  relation=[0, 1, 0, 1, 0, 0, -1]  height=1

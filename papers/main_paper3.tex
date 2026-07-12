@@ -518,55 +518,107 @@ action, Eq.~\eqref{P3:eq:delta1_candidate}; it does not provide a
 physical origin for $\Delta_1$.
 \end{remark}
 
-%──────────────────────────────────────────────────────────────────────
-% TWO-CHANNEL (POLARIZATION × VERTEX-SUPPRESSION) CANDIDATE FOR Delta_1
-% Status: exploratory hypothesis; bracketing evidence only — not established.
-% Supporting scripts: paper3_support/ (two_channel_bracket.py reproduces the
-% table below; 2D pair solver and checkpoints under paper3_support/pair_cell/).
-%
-% Hypothesis: the geo->golden step is carried jointly by two actions of the
-% same condensate tubes on the photon,
-%     aInv_obs = aInv_geo · eps_eff · <1/(1+beta X)>^{-1},
-% where eps_eff is the 2D Maxwell-Garnett response of the T(2,2) tube pairs
-% (polarization channel) and <1/(1+beta X)> is the mean coupling suppression
-% (vertex channel, S_eff ~ 1/(1+beta rho) as in Papers IV/VII). With hopfions
-% at CONTACT packing (spacing 2(R0+1)=8 condensate units) there is no free
-% density: both factors are fixed by the same geometry.
-%   pair separation s = 2R0/(C2* C*) = 0.96231 solver units;
-%   <alpha_pair> from the validated 2D anisotropic solver (h=0.1, eta=1e-2):
-%     Model A (incoherent X1+X2):      -1.850
-%     Model B (coherent gradient sum): -2.953
-%   vertex deficit per tube D = 2·pi·b*·4·arctan(x*)/x* = 1.45640
-%     (closed form; the same integral as J_fb).
-% Result against the target golden/geo = 112.5/phi^10 = 0.914695:
-%   square lattice:     A: 0.97178 (+6.2%)   B: 0.86571 (-5.4%)
-%   triangular lattice: A: 0.96974 (+6.0%)   B: 0.84797 (-7.3%)
-%**The two-channel picture.** The dielectric bridge as originally posed made the polarization channel carry the entire geo→golden shift; that's what forced the dilute n_req and the unexplained 1.5×-beyond-contact spacing. But the framework already contains a second action of the same tube on the coupling: the vertex suppression S_eff ∝ 1/(1+βρ) (the chameleon/Vainshtein structure of Papers IV/VII). The photon between two charges then sees *both*: the medium's polarization (ε_eff, overshooting at contact density) and the coupling suppression from the tubes' own density (pushing α⁻¹ the other way). Written as α⁻¹_obs = α⁻¹_geo · ε_eff · ⟨1/(1+βX)⟩⁻¹, **contact packing stops being excluded and the whole construction becomes parameter-free**: the same geometry fixes both factors, and the suppression average even has a closed form (it's Paper III's own J_fb integral — deficit 4·arctan(x*)/x* per tube).
-%
-%At contact packing of the T(2,2) pairs, with the phase-1 ⟨α_pair⟩ values:
-%
-%| lattice    | model | ε_eff  | vertex | product | vs 112.5/φ¹⁰ |
-%| ---------- | ----- | ------ | ------ | ------- | ------------ |
-%| square     | A     | 0.8258 | 1.1768 | 0.9718  | **+6.2%**    |
-%| square     | B     | 0.7357 | 1.1768 | 0.8657  | **−5.4%**    |
-%| triangular | A     | 0.8015 | 1.2099 | 0.9697  | +6.0%        |
-%| triangular | B     | 0.7009 | 1.2099 | 0.8480  | −7.3%        |
-%
-%The two superposition models **bracket the golden-angle target from both sides at ±6%**, and the lattice choice is nearly irrelevant. That's not a match — flags: the vertex normalization (exponent 1 on the suppression average) is my assumption pending a check against Paper IV's actual vertex structure, and A/B are toy backgrounds. But it's the first construction in this program with *zero free densities* that lands within single-digit percent of the target, and the sign structure is exactly your "both actions on the tube."
-%
-%In Model B the outward gradients cancel exactly at the midpoint (X_B = 0, ε = 1 there — a positive-ε lens), with the negative-ε region a single band *surrounding* the pair; Model A instead has one merged negative core containing both centers and the midpoint. The real T(2,2) field will pick one behavior — which is now the decisive computation: build the **actual coherent two-tube background** (correct relative winding from the papers' construction, not the ± toy superpositions), get the single ⟨α_pair⟩ and the same-field ⟨1/(1+βX)⟩, and the two-channel product at contact is then fully determined. If it lands on 112.5/φ¹⁰ at sub-percent, OP4's Δ1 has a mechanism.
-% The two background models bracket the target from both sides; the lattice
-% choice is subdominant. Known gaps: (i) the vertex normalization (exponent
-% of the suppression average) is assumed, not derived from the Paper IV
-% vertex; (ii) A/B are toy superpositions — the physical coherent T(2,2)
-% background selects a single value between them; (iii) Re(alpha) is grid-
-% converged at the ~1% level only, Im(alpha) not converged (resonant annulus
-% under-resolved; see paper3_support/pair_cell/results.md).
-% Decisive computation: <alpha_pair> and <1/(1+beta X)> on the true coherent
-% T(2,2) background at contact packing — fully parameter-free; a sub-percent
-% landing on 112.5/phi^10 would identify the Delta_1 mechanism of Open
-% Problem 4.
-%──────────────────────────────────────────────────────────────────────
+\paragraph{The dielectric route to $\Delta_1$.}
+A structural alternative to an action-valued $\Delta_1$ is a medium
+interpretation: the two ends of the first cascade step are coupling
+values of the same charge pair measured through different states of the
+feedback vacuum,
+\[
+  \aInv(\bst) \;=\; \aInv(0)\cdot\epsilon_{\mathrm{eff}},
+  \qquad
+  \epsilon_{\mathrm{eff}}
+  \;=\; \frac{360/\vp^2}{\vp^6/\sin^4(\pi/5)}
+  \;=\; \frac{112.5}{\vp^{10}}
+  \;=\; 0.914\,695 ,
+\]
+an exact algebraic target --- so, unlike any $4\pi$-containing
+expression, an exact closure is not excluded by transcendence. The
+fluctuation medium of the feedback Lagrangian $L(X) = X/(1+bX)$ (the
+integrand of $\Jfb$, with $b = \beta/C^2$ as in
+Proposition~\ref{P3:prop:virial_exact}) around a tube background of
+kinetic density $X$ is the anisotropic dielectric
+\[
+  \epsilon_{\tan} = \frac{1}{(1+bX)^2},
+  \qquad
+  \epsilon_{\mathrm{rad}} = \frac{1-3bX}{(1+bX)^3},
+\]
+with the anisotropy axis along the background gradient. At $b=0$ the
+medium is exactly uniform ($\epsilon_{ij}=\delta_{ij}/\vp^6$), so the
+ultraviolet endpoint of the cascade needs no medium correction; the
+entire step must be carried by the relaxed vacuum at $b=b^*$
+(Corollary~\ref{P3:cor:fixedpoint_exists}).
+
+\paragraph{Zero-frequency vacuum resonance for $b>1/24$.}
+$\epsilon_{\mathrm{rad}}$ changes sign where $3bX=1$. For the unit tube
+($X = 8/(1+\rho^2)^2$, so $X(0)=8$) a negative-$\epsilon_{\mathrm{rad}}$
+core $\rho<\rho_c$ with $(1+\rho_c^2)^2 = 24b$ exists precisely for
+$b > 1/24$; at the fixed point $\rho_c(b^*) = 0.519$. A validated
+shooting computation of the static cell polarizability under limit
+absorption ($\epsilon\to\epsilon+i\eta$, $\eta\to0^+$) gives
+\[
+  \alpha_{\mathrm{pol}}(b^*) \;=\; -0.971\,07 \,+\, 0.013\,53\, i .
+\]
+The negative real part is anti-screening --- the correct direction for
+$\aInv_{\mathrm{geo}} \to 360/\vp^2$. The nonzero imaginary part at
+zero frequency appears only above the threshold (the same computation
+at $b^*/2$ gives $\mathrm{Im}\,\alpha_{\mathrm{pol}} \to 0$ exactly as
+$\eta\to0$): the relaxed vacuum is anomalously dissipative to static
+perturbations, a zero-frequency resonance of its
+negative-$\epsilon_{\mathrm{rad}}$ core. This is a parameter-free
+qualitative consequence of the feedback model; the vacuum sits above
+the threshold but not far above it ($b^* = 0.0672$ against
+$1/24 = 0.0417$).
+
+\paragraph{The tube-density requirement and its status.}
+In a dilute (Maxwell--Garnett) medium of such cells,
+$\epsilon_{\mathrm{eff}} =
+1 + 2n\alpha_{\mathrm{pol}}/(1-n\alpha_{\mathrm{pol}})$, the target
+value is met at areal cell density $n = 0.0459$ per $C^{*2}$
+($C^{*2} = \tfrac{3}{4}\vp^5/2^{4/3}$), equivalently $0.0139$ tubes per
+condensate unit area, i.e.\ a mean spacing of about $12$ condensate
+units between $Q=2$ hopfions. The documented $T(2,2)$ two-tube geometry
+(cross-section radius $1/C_2^*$, separation $d = 2R_0/C_2^* = 1.748$,
+ratio $2R_0$ exactly) with hopfions at contact (spacing $2(R_0+1)=8$)
+gives a density $2.2$--$3.9\times$ larger, and no inter-hopfion spacing
+is specified anywhere in this series: within the single-channel
+dielectric route the density is an underived parameter, not a
+prediction. A two-dimensional anisotropic solve of the two-tube cell at
+the documented separation shows the pair does not merge into a weaker
+inclusion --- the orientation-averaged pair polarizability is
+$-1.842$ for the incoherent superposition ($0.95$ of twice the single
+tube) and $-2.997$ for the coherent gradient superposition ($1.54$ of
+twice the single tube) --- so contact packing cannot be reconciled
+within the polarization channel alone.
+
+\paragraph{Two-channel candidate (exploratory).}
+The framework contains a second coupling response to the same tubes:
+the vertex suppression $S_{\mathrm{eff}} \propto 1/(1+\beta\rho)$
+(chameleon/Vainshtein structure; Paper~IV~\cite{Paper4} and
+Paper~VII~\cite{Paper7}). If both channels act,
+\[
+  \aInv_{\mathrm{obs}} \;=\; \aInv_{\mathrm{geo}}\cdot
+  \epsilon_{\mathrm{eff}}\cdot
+  \bigl\langle 1/(1+bX)\bigr\rangle^{-1},
+\]
+then at contact packing there is no free density: both factors are
+fixed by the same geometry, and the suppression average is given in
+closed form by the $\Jfb$ integral (deficit
+$2\pi b^*\cdot 4\arctan(x^*)/x^* = 1.456$ per tube, $x^*=\sqrt{8b^*}$).
+With the computed pair polarizabilities the product brackets the target
+from both sides: $0.973$ ($+6.3\%$) for the incoherent and $0.862$
+($-5.8\%$) for the coherent superposition on a square lattice, with
+triangular-lattice values $+6.1\%$ and $-7.8\%$. Epistemic status:
+exploratory. The vertex normalization (first power of the suppression
+average) is assumed rather than derived; the two superpositions are toy
+backgrounds bracketing the physical coherent $T(2,2)$ field; and the
+computed imaginary parts are not grid-converged (the
+$\epsilon_{\mathrm{rad}}=0$ annulus must be resolved on a scale that
+shrinks with $\eta$). The deciding computation --- both factors
+evaluated on the exact coherent two-tube background, the degree-two
+rational map at the documented separation --- is parameter-free: a
+sub-percent landing on $112.5/\vp^{10}$ would identify the $\Delta_1$
+mechanism sought by Open Problem~4, and a clear miss would refute the
+two-channel route.
 
 \begin{remark}
 \label{P3:rem:packing_layers}
@@ -1940,8 +1992,8 @@ F.~Manfredi,
 Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
 
-:\bibitem{Paper7}
--F.~Manfredi,
+\bibitem{Paper7}
+F.~Manfredi,
 \textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
   Equivalence Principle from the Density-Feedback Hopfion Condensate},
 Zenodo (2026).

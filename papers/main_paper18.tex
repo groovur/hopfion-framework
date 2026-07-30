@@ -681,6 +681,92 @@ absorption of a pion by a lepton-sector object to produce a baryon,
 i.e.\ the topological analogue of $e^-+\pi^+\to p$.
 \end{remark}
 
+\begin{remark}[The trefoil as a wound state; confinement as threading irreversibility]
+\label{P18:rem:wound_state}
+The satellite picture of Proposition~\ref{P18:prop:satellite} and
+Remark~\ref{P18:rem:qh2_qh1} has a physical consequence for
+confinement that is not made explicit by the preceding results.
+
+\textbf{The Hopf link is a ground state; the trefoil is a wound state.}
+The $\QH=2$ Hopf link $T(2,2)$ consists of two independently
+closed circles, each a topological soliton in its own right.
+Neither $\gamma_1$ nor $\gamma_2$ requires the other to exist:
+the configuration is the minimum-energy state in its topological
+sector, stabilised by the irrational Jones invariant and its
+$\vp$-anchored BPS saddle.
+The $\QH=3$ trefoil $T(2,3)$ was manufactured by threading:
+$\gamma_2$ was drawn through the solid-torus neighbourhood
+$N(\gamma_1)$ with the $(2,3)$-cable framing
+(Remark~\ref{P18:rem:qh2_qh1}).  The result is a single-component
+knot, but it was assembled by a winding process, not found as a
+minimum.  In this sense the trefoil is a \emph{wound state}: its
+topology encodes the history of its formation.  The minor radius
+$r_0=R_0/C_2^*$ (Paper~XIX~\cite{Paper19}, Theorem~2.1) is directly inherited from the $\QH=2$
+profile tube radius, confirming that the trefoil's geometry is
+determined by the $\QH=2$ material from which it was assembled.
+
+\textbf{The inverse reaction is always available.}
+Remark~\ref{P18:rem:qh2_qh1} describes the satellite construction
+as $\QH=2+\QH=1\to\QH=3$.  The time-reverse,
+\begin{equation}
+  \QH=3 \;+\; \QH=1 \;\longrightarrow\; \QH=2 \;+\; \QH=2,
+  \label{P18:eq:reaction_inverse}
+\end{equation}
+is the satellite construction run backwards: the $\QH=1$ unknot
+unthreads $\gamma_2$ from $N(\gamma_1)$, reversing the
+$(2,3)$-cable winding and recovering two separate Hopf-link
+components.  This is not a new claim: charge conservation permits
+it ($3+1=2+2$), and the satellite construction is reversible.
+The $n=4$ unfused state of Proposition~\ref{P18:prop:satellite_twist_family}
+(three components, rational invariant $\Jones_{\rm sat}^{(4)}=1$)
+is the transition state between the $n=3$ trefoil and the fully
+unthreaded $n=2$ Hopf link; the flat rational plateau at $n=4$
+is a property of the barrier between sectors, not of either
+endpoint.
+
+\textbf{Confinement as a topological-deficit statement.}
+The crucial observation is that the inverse
+reaction~\eqref{P18:eq:reaction_inverse} requires a $\QH=1$
+reactant: you cannot unthread $\gamma_2$ from $N(\gamma_1)$
+without the threading guide circle.  To unthread, you need the
+same species that threaded.  Equivalently: to pull one colour
+out of a baryon, you must simultaneously provide the pion that
+threaded the baryon together.  What emerges is not a free quark
+but a new $\QH=2$ object --- a lepton-sector state, not a colour
+charge in isolation.
+
+This gives confinement a topological-deficit characterisation,
+complementing the energy-based and Jones-polynomial-based
+characterisations already in this paper:
+\begin{itemize}[noitemsep]
+\item \emph{Energy characterisation}: the $\QH=3$ sector has no
+  unique irrational BPS saddle, giving a flat energy landscape
+  (Remark~\ref{P18:rem:saddle_difficulty}).
+\item \emph{Jones-polynomial characterisation}: $\dimq{3/2}=1$
+  (Paper~XVII, Proposition~7.2); the satellite invariant is
+  irrational at $n=3$ (Theorem~\ref{P18:thm:trefoil_satellite_jones}).
+\item \emph{Threading characterisation (this remark)}: the trefoil
+  was assembled by threading; unthreading requires the same
+  $\QH=1$ species that threaded it; no procedure removes a
+  colour charge from a baryon without simultaneously producing
+  a $\QH=2$ lepton-sector remnant, because the unthreading
+  reaction always converts $\QH=3+\QH=1\to\QH=2+\QH=2$.
+\end{itemize}
+
+\textbf{Scope.}
+The characterisation above is kinematic (which reactions are
+topologically permitted) rather than dynamic (which reactions
+actually occur at a given energy density).  The $n=4$ transition
+state is a conjectural intermediate (Remark~\ref{P18:rem:saddle_difficulty}),
+not an established result; and the inverse
+reaction~\eqref{P18:eq:reaction_inverse}, though topologically
+permitted, faces the same two-threshold structure
+(Remark~\ref{P18:rem:two_thresholds}) as the forward reaction.
+What is established is the structural fact: the inverse reaction
+requires a $\QH=1$ reactant, so no procedure extracts a free
+$\QH=3$ sub-object from the trefoil by charge conservation alone.
+\end{remark}
+
 \begin{remark}[Higher-charge incoming objects and minimality of the listed channels]
 \label{P18:rem:higher_charge_incoming}
 Theorem~\ref{P18:thm:pion_forced} and Remark~\ref{P18:rem:qh2_qh1} list the
@@ -2635,6 +2721,12 @@ Density-Feedback Hopfion: Topology, Group Structure, Colour Exclusion},
 Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.21013412}{doi:10.5281/zenodo.21013412}
 
+\bibitem{Paper19}
+F.~Manfredi,
+\textit{Dynamical Origin of Quark Masses in the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21225452}{doi:10.5281/zenodo.212254252}
+
 \bibitem{Jones1985}
 V.~F.~R.~Jones,
 \textit{A polynomial invariant for knots via von Neumann algebras},
@@ -2705,7 +2797,6 @@ K.~Abe et al.\ (SLD Collaboration),
 bosons into light flavors},
 Phys.\ Rev.\ Lett.\ \textbf{78}, 3442--3446 (1997).
 \href{https://doi.org/10.1103/PhysRevLett.78.3442}{10.1103/PhysRevLett.78.3442}
-
 
 \bibitem{Acton1993}
 P.~D.~Acton et al.\ (OPAL Collaboration),

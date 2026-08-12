@@ -232,6 +232,7 @@ need not land on integers, and in general they do not (the
 WZW spoke corrections shift them off pure integer levels).
 
 \begin{remark}[Quantum origin of the tower spacing]
+\label{P11:rem:quantum_tower_origin}
 The spacing $\vp^2$ between successive tower levels is not merely a
 display choice: Paper~X~\cite{Paper10} (Theorem~6.3 therein) proves that
 the quantised condensate Hamiltonian has spectrum $E_n = \vp^{2n}E_0$
@@ -263,6 +264,7 @@ the physics.
 \end{definition}
 
 \begin{remark}[Choice of $N_{\rm arms}$]
+\label{P11:rem:Narms_choice}
 The value $N_{\rm arms} = 6$ is a display choice, not a physical one.
 Any value gives the same physics; the angular groupings of elements
 and particles change as $N_{\rm arms}$ varies, making the spiral an
@@ -368,6 +370,7 @@ is an experimental input, the Rydberg is predicted to $0.06\%$.
 \end{proof}
 
 \begin{remark}[Physical interpretation]
+\label{P11:rem:rydberg_physical}
 The Rydberg is the natural unit of atomic energy — the binding energy
 of the hydrogen 1s electron in the Bohr model,
 $\ERy = m_e \aem^2/2 = 1\,\mathrm{Ry}$.
@@ -430,6 +433,7 @@ Deviation: $|(1.799-1.770)/1.770| = 1.6\%$.
 \end{proof}
 
 \begin{remark}[Two uses of level 20]
+\label{P11:rem:level20_dual_use}
 The same level index $n=20$ appears in two different formulas:
 \begin{align}
   \text{Red-light threshold:} &\quad \Lcond\,\vp^{20} = 1.799\,\mathrm{eV}, \\
@@ -500,6 +504,7 @@ Since $\aem$ and $m_e$ are framework outputs
 determined by $Z_\mathrm{eff}$ alone.
 
 \begin{remark}[What the spiral measures]
+\label{P11:rem:spiral_measures}
 Two elements at the same tower level have outermost electrons
 bound with the same energy.  This is a statement about their
 effective nuclear charge, independent of their position in
@@ -705,6 +710,7 @@ first ionisation energy:
 \begin{equation}
   Z_\mathrm{eff}(\mathrm{O}) \;\equiv\; n_\mathrm{qn}\sqrt{\IE(\mathrm{O})/\ERy}
   \;=\; 2\sqrt{13.618/13.606} \;=\; 2.001.
+  \label{P11:eq:Zeff_def}
 \end{equation}
 The condition $Z_\mathrm{eff}=n_\mathrm{qn}=2$ is precisely $\IE(\mathrm{O})=\ERy$,
 i.e.\ oxygen's first ionisation energy equals the hydrogen ionisation energy.
@@ -755,6 +761,7 @@ are fixed, and since the condensate (Papers~III and~IV) determines both:
     Z_\mathrm{eff}(\mathrm{O}) = 2
     \;\text{ is a consequence of the condensate}
   },
+  \label{P11:eq:Zeff_condensate_origin}
 \end{equation}
 via the chain:
 \[
@@ -922,6 +929,7 @@ establishing~\eqref{P11:eq:R_equals_1} at the level claimed.
 \end{proof}
 
 \begin{remark}[$\sigma_\mathrm{xc} = 1.55$: physical origin and HF confirmation]
+\label{P11:rem:sigma_xc_origin}
 The value $\sigma_\mathrm{xc} = 6.00 - 4.45 = 1.55$ in
 equation~\eqref{P11:eq:sigma_total} has a clear physical origin.
 The dominant contribution is the exchange penalty of the $2p^4$ configuration:
@@ -1028,6 +1036,7 @@ is now fully closed-form:
 \end{remark}
 
 \begin{remark}[Framework origin of the coefficient $k/(8\pi)$]
+\label{P11:rem:k8pi_origin}
 The coefficient $k/(8\pi) = k/(4\cdot2\pi)$ has a direct WZW interpretation:
 \begin{itemize}[noitemsep]
 \item The denominator $4\cdot2\pi$ is the Chern--Simons phase
@@ -1068,6 +1077,7 @@ full QED one-loop correction.
 \end{remark}
 
 \begin{remark}[Hund's rule and the H--O coincidence]
+\label{P11:rem:hund_HO_coincidence}
 The anomalous depression of oxygen's IE relative to nitrogen
 ($\IE(\mathrm{N}) = 14.534 > \IE(\mathrm{O}) = 13.618\,\mathrm{eV}$)
 is a direct consequence of Hund's first rule: the half-filled $2p^3$
@@ -1083,6 +1093,7 @@ $\aem$ and $m_e$ are set by the condensate.
 
 
 \begin{remark}[Why water forms]
+\label{P11:rem:why_water_forms}
 The near-degeneracy $\IE_\mathrm{H} \approx \IE_\mathrm{O}$ means the
 outermost electrons of H and O experience almost identical
 binding energies.  This is a necessary (though not sufficient)
@@ -1218,6 +1229,7 @@ $\Delta n < 0.004$.\qed
 \end{proof}
 
 \begin{remark}[Predictive power — confirmed]
+\label{P11:rem:predictive_power_confirmed}
 Proposition~\ref{P11:prop:goldschmidt} raises the falsifiable hypothesis that
 spiral proximity ($\Delta n < \Delta_\mathrm{thr}$) should predict
 Goldschmidt substitution compatibility better than chance.
@@ -1375,6 +1387,7 @@ The code and full pair-by-pair output are available at~\cite{Zenodo_P11}.
 \end{proof}
 
 \begin{remark}[Threshold analysis and ionic-radius comparison]
+\label{P11:rem:threshold_analysis}
 Table~\ref{P11:tab:auc_thresholds} shows precision, recall, and $F_1$ at
 key $\Delta n$ thresholds.
 The AUC of $0.857$ substantially exceeds the $\mathrm{AUC}\approx0.72$

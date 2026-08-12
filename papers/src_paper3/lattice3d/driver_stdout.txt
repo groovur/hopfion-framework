@@ -1,0 +1,63 @@
+
+===== driver start 2026-07-18T15:00:50 =====
+--- geometry validation: primary 3-coloring motif ---
+[geometry a_c=6.0] inter-curve min-distance distribution over 324 nearest-neighbor tube-pairs (perpendicular by construction):
+  min=0.00000  mean=2.19457  max=3.96668  (2*r0=1.74834 = tangency threshold for the core-circle picture)
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(1, 0, 0) axis=0: Lk=-0.0002
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(0, 1, 0) axis=1: Lk=-1.0000
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(0, 0, 1) axis=2: Lk=0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(1, 0, 1) axis=0: Lk=0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(0, 1, 1) axis=1: Lk=-0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(0, 0, 2) axis=2: Lk=-1.0000
+  |Lk|=1 for all 6 sampled perpendicular neighbor pairs: False
+[geometry a_c=5.9] inter-curve min-distance distribution over 324 nearest-neighbor tube-pairs (perpendicular by construction):
+  min=0.10000  mean=2.14314  max=3.88130  (2*r0=1.74834 = tangency threshold for the core-circle picture)
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(1, 0, 0) axis=0: Lk=-0.0002
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(0, 1, 0) axis=1: Lk=-1.0000
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(0, 0, 1) axis=2: Lk=0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(1, 0, 1) axis=0: Lk=0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(0, 1, 1) axis=1: Lk=-0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(0, 0, 2) axis=2: Lk=-1.0000
+  |Lk|=1 for all 6 sampled perpendicular neighbor pairs: False
+[geometry a_c=5.8] inter-curve min-distance distribution over 324 nearest-neighbor tube-pairs (perpendicular by construction):
+  min=0.20000  mean=2.09191  max=3.79611  (2*r0=1.74834 = tangency threshold for the core-circle picture)
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(1, 0, 0) axis=0: Lk=-0.0002
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(0, 1, 0) axis=1: Lk=-1.0000
+  [linking a_c=5.8] pair a=(0, 0, 0) b=(0, 0, 1) axis=2: Lk=0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(1, 0, 1) axis=0: Lk=0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(0, 1, 1) axis=1: Lk=-0.0002
+  [linking a_c=5.8] pair a=(0, 0, 1) b=(0, 0, 2) axis=2: Lk=-1.0000
+  |Lk|=1 for all 6 sampled perpendicular neighbor pairs: False
+--- geometry validation: fallback chain motif ---
+  [fallback linking a_c=6.0] chain pair (0, 0, 0)<->(1, 0, 0): Lk=-4079277995303.9092
+  [fallback linking a_c=6.0] chain pair (1, 0, 0)<->(0, 0, 0): Lk=4079277995181.5420
+  [fallback] |Lk|=1 for all chain neighbor pairs: False
+  [fallback a_c=6.0] chain-neighbor min-distance: min=0.00000 mean=0.87417 (2*r0=1.74834)
+  [fallback linking a_c=5.9] chain pair (0, 0, 0)<->(1, 0, 0): Lk=1.0000
+  [fallback linking a_c=5.9] chain pair (1, 0, 0)<->(0, 0, 0): Lk=-1.0000
+  [fallback] |Lk|=1 for all chain neighbor pairs: True
+  [fallback a_c=5.9] chain-neighbor min-distance: min=0.10000 mean=0.92417 (2*r0=1.74834)
+  [fallback linking a_c=5.8] chain pair (0, 0, 0)<->(1, 0, 0): Lk=1.0000
+  [fallback linking a_c=5.8] chain pair (1, 0, 0)<->(0, 0, 0): Lk=-1.0000
+  [fallback] |Lk|=1 for all chain neighbor pairs: True
+  [fallback a_c=5.8] chain-neighbor min-distance: min=0.20000 mean=0.97389 (2*r0=1.74834)
+V1 uniform medium: eps=(2.5+0.3j), max|eps_eff-eps*I|=5.551e-17  PASS=True
+V2 dilute spheres: f=0.01939  eps_eff_iso=1.024041  CM=1.023453  dev=0.0575%  PASS=True
+V3 parallel tube: n=0.010188  alpha=(-0.97107+0.0135j)  MG=0.980408+0.000270j  solver eps_eff_xx=0.942535+0.010530j  dev=-3.863%  PASS(<=10%)=True
+[skip, checkpointed] a_c=6.0 eta=0.01 grid=(96, 48, 48)
+[skip, checkpointed] a_c=6.0 eta=0.003 grid=(96, 48, 48)
+[skip, checkpointed] a_c=5.9 eta=0.01 grid=(96, 48, 48)
+[skip, checkpointed] a_c=5.9 eta=0.003 grid=(96, 48, 48)
+[skip, checkpointed] a_c=5.8 eta=0.01 grid=(96, 48, 48)
+--- case a_c=5.8 eta=0.003 M=48 grid=(96, 48, 48) restart=40 ---
+    solve E=(1, 0, 0): gmres info=0 n_iter=2065 final_resid=9.949275090518263e-08 eps_ref=0.001699+0.428518j
+    solve E=(0, 1, 0): gmres info=0 n_iter=2020 final_resid=9.935557137342097e-08 eps_ref=0.001699+0.428518j
+    solve E=(0, 0, 1): gmres info=0 n_iter=2020 final_resid=9.937517331906265e-08 eps_ref=0.001699+0.428518j
+  -> P_pathavg=0.255282 (-72.09%)  P_meanfield=0.261748 (-71.38%)  iters=[2065, 2020, 2020]  t=1175s
+--- case a_c=6.0 eta=0.01 M=64 grid=(128, 64, 64) restart=40 ---
+    solve E=(1, 0, 0): gmres info=0 n_iter=654 final_resid=9.798304206429292e-08 eps_ref=0.005917+0.438594j
+    solve E=(0, 1, 0): gmres info=0 n_iter=644 final_resid=9.86848126834205e-08 eps_ref=0.005917+0.438594j
+    solve E=(0, 0, 1): gmres info=0 n_iter=644 final_resid=9.868357169532253e-08 eps_ref=0.005917+0.438594j
+  -> P_pathavg=0.273036 (-70.15%)  P_meanfield=0.280585 (-69.32%)  iters=[654, 644, 644]  t=855s
+--- case a_c=6.0 eta=0.003 M=64 grid=(128, 64, 64) restart=40 ---
+    solve E=(1, 0, 0): gmres info=0 n_iter=2110 final_resid=9.942977539675117e-08 eps_ref=0.001776+0.438454j

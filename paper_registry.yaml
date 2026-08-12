@@ -913,6 +913,7 @@ papers:
       - P18:thm:pion_forced
       - P18:cor:pion_spectator
       - P18:rem:qh2_qh1
+      - P18:rem:wound_state
       - P18:rem:higher_charge_incoming
       - P18:rem:crossing_path
       - P18:rem:two_thresholds
@@ -1720,6 +1721,7 @@ labels:
   P18:thm:pion_forced:           {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:cor:pion_spectator:        {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:qh2_qh1:               {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:wound_state:           {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:higher_charge_incoming: {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:crossing_path:         {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:two_thresholds:        {paper: paper18, repo_file: strong/confinement_topology.tex}

@@ -1,0 +1,38 @@
+=== ladder start Sun Jul 12 10:27:11 AM EDT 2026 ===
+b* = 0.06715131  x* = 0.73294642  C*^2 = 3.300853  C2* = 3.43182008
+s = 0.96230706  beta = 0.06715131  prescription = gradf  form = product
+h=0.1 eta=0.01: par=-1.051221+1.174929j perp=-1.978539+0.417416j <alpha>=-1.514880+0.796173j [13s]
+    <alpha>/(2 alpha_single_1D) = 0.78557-0.39900j
+h=0.1 eta=0.003: par=-0.362225+2.292449j perp=-2.084118+0.470219j <alpha>=-1.223171+1.381334j [16s]
+    <alpha>/(2 alpha_single_1D) = 0.63960-0.70233j
+h=0.1 eta=0.001: par=2.431621+3.902297j perp=-2.162559+0.911126j <alpha>=0.134531+2.406711j [15s]
+    <alpha>/(2 alpha_single_1D) = -0.05199-1.23994j
+h=0.05 eta=0.01: par=-1.385475+0.986359j perp=-1.914526+0.409538j <alpha>=-1.650001+0.697949j [88s]
+    <alpha>/(2 alpha_single_1D) = 0.85442-0.34747j
+h=0.05 eta=0.003: par=-1.577301+1.011384j perp=-1.829146+0.388723j <alpha>=-1.703223+0.700054j [88s]
+    <alpha>/(2 alpha_single_1D) = 0.88184-0.34817j
+h=0.05 eta=0.001: par=-1.781574+1.018572j perp=-1.755481+0.275399j <alpha>=-1.768528+0.646986j [88s]
+    <alpha>/(2 alpha_single_1D) = 0.91508-0.32038j
+h=0.025 eta=0.01: par=-1.385040+1.060185j perp=-1.921963+0.352629j <alpha>=-1.653502+0.706407j [737s]
+    <alpha>/(2 alpha_single_1D) = 0.85629-0.35179j
+h=0.025 eta=0.003: par=-1.570892+1.228823j perp=-1.890679+0.285796j <alpha>=-1.730785+0.757310j [736s]
+    <alpha>/(2 alpha_single_1D) = 0.89644-0.37744j
+h=0.025 eta=0.001: par=-1.992429+1.384768j perp=-1.880825+0.219012j <alpha>=-1.936627+0.801890j [737s]
+    <alpha>/(2 alpha_single_1D) = 1.00272-0.39892j
+
+vertex deficit of this background D_pair = 2.39331 (2 x single closed form = 2.91280)
+two-channel products at contact packing (using Re<alpha> at h=0.025, eta=0.001; target = 0.914695):
+  square    : eps_eff=0.81838 vertex=1.14082 product=0.93362 dev=+2.07%
+  triangular: eps_eff=0.79318 vertex=1.16623 product=0.92503 dev=+1.13%
+=== gradf ladder done Sun Jul 12 11:09:12 AM EDT 2026 ===
+b* = 0.06715131  x* = 0.73294642  C*^2 = 3.300853  C2* = 3.43182008
+s = 0.96230706  beta = 0.06715131  prescription = pullback  form = product
+h=0.1 eta=0.01: par=-1.781745+0.054197j perp=-1.826500+0.041095j <alpha>=-1.804123+0.047646j [15s]
+    <alpha>/(2 alpha_single_1D) = 0.92910-0.01159j
+h=0.1 eta=0.003: par=-1.795359+0.026661j perp=-1.829112+0.013421j <alpha>=-1.812235+0.020041j [15s]
+    <alpha>/(2 alpha_single_1D) = 0.93308+0.00268j
+h=0.05 eta=0.01: par=-1.780156+0.053145j perp=-1.823367+0.040417j <alpha>=-1.801762+0.046781j [87s]
+    <alpha>/(2 alpha_single_1D) = 0.92788-0.01116j
+h=0.05 eta=0.003: par=-1.789629+0.023233j perp=-1.825611+0.012898j <alpha>=-1.807620+0.018065j [88s]
+    <alpha>/(2 alpha_single_1D) = 0.93069+0.00367j
+=== pullback reference done Sun Jul 12 11:12:37 AM EDT 2026 ===

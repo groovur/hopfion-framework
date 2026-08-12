@@ -1,0 +1,109 @@
+{
+  "R1": {
+    "eps_tan_pp_closed_form": "6*b**2/(1+b*X)**4",
+    "eps_rad_pp_closed_form": "6*b**2*(5-3*b*X)/(1+b*X)**5",
+    "u_max_at_rho0": 0.537210450135166,
+    "u_at_rho_c": 0.33333333333333337,
+    "u_sign_change_eps_rad_pp": 1.6666666666666667,
+    "eps_tan_pp_sign": "positive everywhere on the physical domain (u > -1 always)",
+    "eps_rad_pp_sign_at_rho0": "positive",
+    "eps_rad_pp_min_over_grid": 0.010680365755773292,
+    "eps_rad_pp_max_over_grid": 0.13467844581317867,
+    "eps_rad_pp_at_rho_c": 0.02568186088603487,
+    "note": "u never exceeds u_max<5/3 on this background, so eps_rad'' stays positive (same sign as eps_tan'') over the ENTIRE physical domain; the eps_rad=0 shell at u=1/3 is not a sign-change locus for eps_rad''."
+  },
+  "R2": {
+    "eta": 0.0001,
+    "alpha0_re": -0.9710408714230293,
+    "alpha0_im": 0.013664375392786346,
+    "rows": [
+      {
+        "A2": 0.01,
+        "alpha_re": -0.9710197474237611,
+        "alpha_im": 0.013658012346830646,
+        "r_re": -2.1841860742425485e-05,
+        "r_im": 6.245453461038088e-06,
+        "C_rect_re": -0.0021841860742425486,
+        "C_rect_im": 0.0006245453461038088
+      },
+      {
+        "A2": 0.001,
+        "alpha_re": -0.9710387590357816,
+        "alpha_im": 0.013663739024967302,
+        "r_re": -2.184173935578309e-06,
+        "r_im": 6.246106258912029e-07,
+        "C_rect_re": -0.002184173935578309,
+        "C_rect_im": 0.0006246106258912029
+      },
+      {
+        "A2": 0.0001,
+        "alpha_re": -0.9710406601849846,
+        "alpha_im": 0.01366431175712821,
+        "r_re": -2.1841667708884376e-07,
+        "r_im": 6.245991538993417e-08,
+        "C_rect_re": -0.0021841667708884377,
+        "C_rect_im": 0.0006245991538993417
+      }
+    ],
+    "loglog_slope_r_vs_A2": 1.0000003599714704,
+    "C_rect_profile_mean_re": -0.002184175593569765,
+    "C_rect_profile_mean_im": 0.0006245850419647845
+  },
+  "R3": {
+    "rho_c": 0.5191343115235857,
+    "sigma_shell": 0.1,
+    "rows": [
+      {
+        "A2": 0.01,
+        "alpha_re": -0.9710076536421793,
+        "alpha_im": 0.013652453230004306,
+        "r_re": -3.437439093050015e-05,
+        "r_im": 1.1794002227408456e-05,
+        "C_rect_re": -0.003437439093050015,
+        "C_rect_im": 0.0011794002227408457
+      },
+      {
+        "A2": 0.001,
+        "alpha_re": -0.9710375492275034,
+        "alpha_im": 0.013663180703749488,
+        "r_re": -3.4379047250941602e-06,
+        "r_im": 1.181940173587199e-06,
+        "C_rect_re": -0.0034379047250941604,
+        "C_rect_im": 0.0011819401735871991
+      },
+      {
+        "A2": 0.0001,
+        "alpha_re": -0.9710405391952118,
+        "alpha_im": 0.013664255899563563,
+        "r_re": -3.437993345465847e-07,
+        "r_im": 1.1821893701378977e-07,
+        "C_rect_re": -0.003437993345465847,
+        "C_rect_im": 0.0011821893701378977
+      }
+    ],
+    "loglog_slope_r_vs_A2": 0.9999145561080611,
+    "C_rect_shell_mean_re": -0.0034377790545366744,
+    "C_rect_shell_mean_im": 0.001181176588821981,
+    "enhancement_factor": 1.6001232485657348,
+    "tacoma_supported_qualitatively": false
+  },
+  "R4": {
+    "n": 0.0459,
+    "alpha_inv_formula": 137.035998,
+    "alpha_inv_measured": 137.035999177,
+    "residual_formula_minus_measured": -1.1770000014621473e-06,
+    "delta_alpha_inv_needed": 1.1770000014621473e-06,
+    "frac_needed": 8.588984052658538e-09,
+    "alpha_re0": -0.9710408714230293,
+    "eps_eff0": 0.9146620276529949,
+    "d_eps_eff_d_alpha": 0.0841331091091276,
+    "C_rect_profile_re_used": -0.002184175593569765,
+    "required_C_rect_sign_for_correct_direction": "negative",
+    "actual_C_rect_profile_sign": "negative",
+    "signs_consistent": true,
+    "coefficient_frac_alpha_inv_per_A2": 0.00019508835581182922,
+    "A2_implied": 4.402612353216492e-05,
+    "A_implied": 0.006635218423847471,
+    "A_physically_tiny": true
+  }
+}

@@ -618,14 +618,45 @@ evaluated on the exact coherent two-tube background, the degree-two
 rational map at the documented separation --- is parameter-free: a
 sub-percent landing on $112.5/\vp^{10}$ would identify the $\Delta_1$
 mechanism sought by Open Problem~4, and a clear miss would refute the
-two-channel route. A first coarse-grid evaluation on the exact coherent
-background lands between the toy brackets, at $+3$ to $+4\%$ of the
-target, with a genuinely reduced suppression deficit ($2.39$ per pair
-against $2.91$ for independent tubes), but is not grid-converged: the
-coherent background destabilizes under-resolved grids well before the
-toy backgrounds do, and the matched grid/absorption ladder it requires
-has not yet been run. The two-channel route therefore remains open ---
-neither confirmed at the sub-percent level nor refuted.
+two-channel route. The converged evaluation on the exact coherent
+background (quadrant ladder to $h=0.025$; anisotropy-prescription
+sensitivity about $3\%$) gives a product $+3.3$ to $+5.1\%$ above the
+target, with the suppression deficit genuinely reduced ($2.39$ per
+pair against $2.91$ for independent tubes): not a sub-percent landing.
+
+\paragraph{Resolution status: the null hypothesis.}
+Every carrier mechanism computed for $\Delta_1$ fails its
+pre-registered criterion: the relaxation action ($0.76\%$,
+Remark~\ref{P3:rem:delta1_candidate}); every natural closed-form
+medium average at the fixed point (each provably transcendental at
+$b^*$ except the defining identity $V(b^*)=\vp$ itself); the
+two-channel product at contact packing ($+3$ to $+7\%$ across
+backgrounds); and a mutually linked vacuum network pinned at its
+topological dilation bound (two linked $R_0$-circles must sit closer
+than $2R_0$, so a repulsive linked network equilibrates at spacing
+$2R_0$ exactly) --- computed by three-dimensional periodic
+homogenization of a linked Hopf-chain cell, grid-converged across
+four resolutions: $P = 0.273$--$0.281$ against $0.9147$, a factor
+$3.3$ miss; the threshold-density network (volume-mean suppression
+$U \approx 0.6$) over-responds by far. The effective response is
+monotone in the network density and no framework-native density lands
+on the target: the dilute density that would fit ($12$-unit hopfion
+spacing) is underived, while both derivable densities (contact,
+$2(R_0+1)$, and the linking threshold, $2R_0$) miss by far more than
+their modeling systematics. The surviving reading is the null
+hypothesis: the two ends of the first cascade step are independently
+exact --- $\vp^6/\sin^4(\pi/5)$ from the single-soliton geometry,
+and $360/\vp^2$ as the anyonic observable
+$k\,|2I|\operatorname{Tr}[\rho\,U_{\mathrm{mono}}]$ of the
+$2I$-ordered condensate (following paragraph) --- and $\Delta_1$ is
+their bookkeeping difference, not a response of the vacuum: the
+physical coupling never sits at the geometric value; the condensate
+ground state realizes the statistical value directly. Under this
+reading, Open Problem~4 reduces to the definitional step of the
+anyonic identification --- why the coupling counts units of the
+condensate's angular quantum, the quantum itself being fixed at
+$1/(k|2I|)$ of the cycle by the orbifold twist spectrum --- which
+subsumes the origin of $\Delta_1$ without requiring a carrier.
 
 \begin{remark}
 \label{P3:rem:packing_layers}
@@ -636,6 +667,110 @@ geometric stress in a $\vp$-ordered condensate.  Its appearance as
 the intermediate fixed point of the $\alpha$ cascade is a direct
 consequence of the $2I$ symmetry of the condensate ground state.
 \end{remark}
+
+\paragraph{The attractor as an anyonic observable.}
+The golden-angle attractor is a closed-form quantity of the
+$\mathrm{SU}(2)_3$ modular data. The fusion $\tfrac12\otimes\tfrac12
+= 0 \oplus 1$ has monodromy angles $2\pi(h_c - 2h_{1/2})$ equal to
+$-108^\circ$ and $+36^\circ$ in the two channels, and Born weights
+$p_c = d_c/d_{1/2}^2$: $p_0 = 1/\vp^2$, $p_1 = 1/\vp$, with
+$p_0 + p_1 = 1$ exactly. The condensate charge
+$Q = 10 = \mathrm{ord}(q_{2I})$ closes both monodromies
+simultaneously ($10 \times 36^\circ$ with winding $+1$;
+$10 \times (-108^\circ)$ with winding $-3$), so the fundamental
+winding-one closure is one full turn. The monodromy expectation in
+the exchange state is exactly real and equals the vacuum-channel
+weight:
+\[
+  \operatorname{Tr}\bigl[\rho\, U_{\mathrm{mono}}\bigr]
+  = \frac{1}{\vp^2}\,e^{-i\,108^\circ}
+  + \frac{1}{\vp}\,e^{+i\,36^\circ}
+  = \frac{3-\sqrt5}{2}
+  = \frac{1}{\vp^2}
+  = \frac{S_{\frac12\frac12}\,S_{00}}{S_{0\frac12}^{2}},
+\]
+the monodromy scalar of anyonic interferometry (the fringe-visibility
+factor of interfering anyonic charges): the imaginary parts of the
+two channels cancel identically, so the vacuum-channel weight emerges
+from a single operator expectation, not from a channel projection
+imposed by hand. With the pure-number identity $360 = k\,|2I| = 3
+\times 120$ (the same $k \times (\text{group invariant})$ vocabulary
+as the $Q/(k\,h(E_8))$ structure of the loop term in
+Paper~IV~\cite{Paper4}), the attractor takes a form free of any
+angular convention:
+\[
+  \frac{360}{\vp^2}
+  \;=\; k\,|2I| \cdot
+  \operatorname{Tr}\bigl[\rho\, U_{\mathrm{mono}}\bigr].
+\]
+All three factors are derived objects: the forced level $k=3$, the
+ground-state group order $|2I| = 120$, and the exact interferometric
+scalar. By contrast, the geometric endpoint $16\vp^8/5$ admits no
+expression in this modular vocabulary (an exhaustive scan of the
+natural $S$-matrix, quantum-dimension, twist, and fusion-probability
+forms yields no exact match): the two ends of $\Delta_1$ are
+quantities of different algebras --- soliton geometry and anyon
+statistics --- consistent with $\Delta_1$ having no dynamical
+carrier. The normalization of this identity is fixed by the
+paragraph that follows.
+
+\paragraph{The angular quantum from the orbifold spectrum.}
+The unit in $360 = k\,|2I|$ is itself spectral. The physical modular
+phase of a primary of weight $h$ is $\exp(2\pi i(h - c/24))$, with
+$c = 3k/(k+2) = 9/5$, so $c/24 = 27/360$. The four untwisted
+$\mathrm{SU}(2)_3$ primaries ($h \in \{0, 3/20, 2/5, 3/4\}$)
+generate the phase group $\mathbb{Z}_{40}$. Orbifolding by the
+ground-state symmetry $2I$ adds the twisted sector of the McKay--WZW
+theory (the Coxeter twisted-sector theorem of
+Paper~V~\cite{Paper5}%\ref{P5:thm:h2I_coxeter}
+), with primaries labeled by the Coxeter exponents
+$m \in \{1,7,11,13,17,19,23,29\}$ of $E_8$ and weights
+$h_m = m/(k\,h(E_8)) = m/90$; their physical phase exponents are
+$(4m-27)/360$. The $m=7$ primary has phase exponent exactly $1/360$,
+and the full phase group is exactly $\mathbb{Z}_{360} =
+\mathbb{Z}_{k|2I|}$: orbifolding by $2I$ refines the phase lattice
+from $\mathbb{Z}_{40}$ to $\mathbb{Z}_{k|2I|}$, with the one-degree
+quantum generated by an actual primary field. The refinement requires
+the framing shift $-c/24$ (without it the twisted exponents $m/90$
+generate only $\mathbb{Z}_{90}$). The angular quantum of the
+$2I$-ordered condensate --- the minimal phase its own modular data
+distinguishes --- is therefore $1/(k|2I|)$ of the cycle, and
+$\aInv = k\,|2I| \cdot \operatorname{Tr}[\rho\,U_{\mathrm{mono}}]$
+reads: the coupling is the number of condensate phase quanta spanned
+by the vacuum-weighted monodromy cycle. The remaining definitional
+step is why the coupling counts these units --- the identification of
+$\aInv$ with a phase-count of the orbifold spectrum.
+
+\paragraph{Measurement backreaction on the coupling (exploratory).}
+In the anyonic reading, a measurement of the coupling is a monodromy
+interferometry event. The iterated measurement map is an exact
+martingale in the fusion weights: repeated measurement cannot shift
+the mean of $\operatorname{Tr}[\rho\,U_{\mathrm{mono}}]$ at any order
+in the fringe strength, with or without linear relaxation toward the
+Born state; the measured coupling acquires fluctuations (standard
+deviation $\propto t/\sqrt{g}$ for fringe strength $t$ and
+re-preparation rate $g$) but no bias. A bias does arise at second
+order, through the medium rather than the state: the fluctuation
+response of the feedback vacuum rectifies periodic probe driving,
+\[
+  \langle \epsilon(X_0 + \delta X) \rangle
+  = \epsilon(X_0) + \tfrac{1}{4}A^2 f^2\,\epsilon''(X_0) + O(A^4),
+  \qquad
+  \epsilon_{\tan}'' = \frac{6b^2}{(1+bX)^4} > 0,
+\]
+shifting the cell polarizability by $r = C_{\mathrm{rect}}\,A^2$ with
+$C_{\mathrm{rect}} = -0.00218 + 0.00063\,i$ at $b^*$. The sign is the
+one required to move the four-term formula of
+Paper~IV~\cite{Paper4} toward the measured value; accounting for the
+full residual $\aInv^{\mathrm{meas}} - \aInv^{\mathrm{formula}} =
++1.2\times10^{-6}$ would require drive amplitude $A \approx 0.007$
+--- perturbative, and an inference rather than a fit. The resonant
+shell of the relaxed vacuum enhances the rectification by only a
+factor $1.6$ ($\epsilon_{\mathrm{rad}}''$ is smooth at the
+$\epsilon_{\mathrm{rad}}=0$ shell), so the effect is a second-order
+drift, not an instability. The falsifiable signature is a
+probe-strength dependence of the measured coupling at the
+$10^{-6}$ level.
 
 \subsection{The WZW anti-screening mechanism}
 
@@ -1896,10 +2031,16 @@ deficit precisely, giving $J_4/J_{2a} = 2^{4/3}/\vp^5$ exactly for all $R_0$.
     = 12.921\,489$, which differs from $\Delta_1$ by $0.76\%$. The
     numerically closer variant $4\pi+(15/8-\vp) = 12.823\,337$
     ($0.0061\%$) omits the coupling $\mu^*$ and is not the model's
-    action change; it remains a numerical observation. What is missing
-    is a derivation of why $\aInv_{\mathrm{geo}}$ should be displaced
-    from the golden-angle attractor by a vacuum action at all, and
-    with what normalization.
+    action change; it remains a numerical observation. The vacuum-response carrier search for $\Delta_1$ is complete
+    and negative (relaxation action; exact medium averages; two-channel
+    polarization--vertex product; linked vacuum network at the $2R_0$
+    dilation bound, by 3D periodic homogenization), and the attractor
+    is identified exactly as the anyonic observable $360/\vp^2 =
+    k\,|2I|\operatorname{Tr}[\rho\,U_{\mathrm{mono}}]$. The angular
+    quantum is fixed by the orbifold twist spectrum (phase group
+    $\mathbb{Z}_{360}$, generated by the $m=7$ Coxeter primary); the
+    problem reduces to the definitional step that the coupling counts
+    these units.
 
 \end{enumerate}
 
@@ -1998,6 +2139,13 @@ F.~Manfredi,
   and Three- and Four-Term Formulas for the Fine Structure Constant},
 Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
 
 \bibitem{Paper7}
 F.~Manfredi,

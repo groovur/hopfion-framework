@@ -289,6 +289,7 @@ When creating a new .tex file in a subfolder:
 - Do not add a result to the repo without updating paper_registry.yaml
 - Do not change \status{published} to anything else without explicit instruction
 - Do not resolve a consistency discrepancy without asking which is canonical
+- Do not delegate the task to another agent
 
 ## Exceptions ###
 If the user insists you edit a paper:
@@ -296,7 +297,7 @@ If the user insists you edit a paper:
 **References** 
 - No backslashed underscores.
 - No bare paper references. Format everywhere, including master_table.tex, as 'Paper~RN~\cite{PaperN}' where RN is the capitalized roman numeral of the paper and N is the arabic numeral.
-- No bare reference labes to another paper. 
+- No bare reference labes to another paper.
   1. Find the actual reference Theorem/Corollory/Remark/etc. arabic number by:
      a. first checking prior papers for another commented \ref with the same label with an actual number of the Theorem/Remark/Construction/etc. This the primary correct number.
      b. if a. doesn't yield a numbered result, checking to see if another commented \ref in the current paper for the same label with an actual of number for the Theorem/Remark/Construction/etc.

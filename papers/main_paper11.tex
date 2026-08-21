@@ -127,23 +127,28 @@ The master formula
 $\nlvl{\IE_k}=\nlvl{\ERy}-\log_\vp Z_{\rm eff}(k)+\log_\vp n_{\rm qn}(k)$
 (Proposition~\ref{P11:prop:master_formula}) places every IE$_k$ on the
 spiral from the same two framework outputs with no additional parameters.
-Two structural results follow: shell-completion IEs land within $0.017$
-of integer tower levels (Proposition~\ref{P11:prop:shell_completion}),
-with xenon marking consecutive integers ($-12$, $-13$) at successive
-shell strippings; and the inner-shell pair O~IE$_6$--Na~IE$_5$
-is near-degenerate at $|\Delta n|=0.0021$
-(Proposition~\ref{P11:prop:inner_degen}),
-the exact inner-shell analogue of the H--O outer-shell result.
+Two placements are examined against their chance rates: the
+near-integer positions of shell-completion IEs
+(Proposition~\ref{P11:prop:shell_completion}), which a census of the
+tabulated ionisation energies finds to occur at or below the rate
+expected for levels uniformly distributed modulo one; and the
+inner-shell pair O~IE$_6$--Na~IE$_5$ at $|\Delta n|=0.0021$
+(Proposition~\ref{P11:prop:inner_degen}), numerically comparable to
+the H--O outer-shell result but likewise consistent with chance under
+its own trial count.
 
-The H--O near-degeneracy is given a complete closed-form
-treatment (Propositions~\ref{P11:prop:R_equals_1} and~\ref{P11:prop:Zeff_closed}):
-$Z_\mathrm{eff}(\mathrm{O})=2$ at $O(\aem^0)$ follows from
-$Z=8$ and the $1s^22s^22p^4$ angular momentum algebra alone
-(Slater shielding $+$ Condon--Shortley exchange, no numerical HF);
-the $O(\aem)$ correction $k\aem/(8\pi) = 3\aem/(8\pi)$
-is uniquely fixed by the WZW level $k=3$ of the condensate
-(Paper~IV, Theorem~thm:second\_spoke), giving
-$\IE(\mathrm{O})=\ERy(1+3\aem/(8\pi))=13.6177\,\mathrm{eV}$ ($0.003\%$).
+The H--O near-degeneracy is examined in detail
+(Proposition~\ref{P11:prop:R_equals_1} and Remark~\ref{P11:rem:oalpha_excess}).
+What the framework fixes with no free parameters is the Rydberg level
+itself, where hydrogen sits by definition; that oxygen lands within
+$\Delta n = 0.0015$ of it is a fact of its $1s^22s^22p^4$ structure,
+which analytic atomic theory (the exact hydrogenic Slater--Condon
+integrals and Condon--Shortley angular algebra) reproduces to a few
+per cent but not to the observed precision.  The residual $O(\aem)$
+excess $\IE(\mathrm{O})/\ERy - 1 = 9.04\times10^{-4}$ is coincidentally
+close to $3\aem/(8\pi)$, but that form is excluded as a mechanism by
+the hydrogen ionisation energy and is the ordinary $2p^4$ correlation
+energy.
 \end{abstract}
 
 \footnotesize
@@ -204,7 +209,7 @@ Section~\ref{P11:sec:elements} maps the periodic table.
 Section~\ref{P11:sec:near_deg} analyses the near-degeneracies.
 Section~\ref{P11:sec:goldschmidt} connects to Goldschmidt substitution.
 Section~\ref{P11:sec:successive_IE} extends the spiral to successive
-ionisation energies and proves the inner-shell O--Na near-degeneracy.
+ionisation energies and examines the inner-shell O--Na near-degeneracy.
 Section~\ref{P11:sec:open} states open problems.
 Section~\ref{P11:sec:summary} summarises.
 
@@ -657,12 +662,20 @@ statement $\IE(\mathrm{O}) = \ERy$: the many-body screening of O's
 $1s^22s^22p^4$ configuration reduces the apparent nuclear charge
 until the outermost electron is bound with the same energy as
 hydrogen's 1s electron.
-A naive Slater-rule estimate~\cite{Slater1930} for the $2p$ electron
-gives shielding $\sigma = 0.85\times2\;(\text{1s}) + 0.85\times2\;(\text{2s}) + 0.35\times3\;(\text{2p}) = 4.45$,
-yielding $Z_\mathrm{eff}^\mathrm{Slater} = 8-4.45 = 3.55$ and
-$\IE_\mathrm{Slater} = 3.55^2\,\ERy/4 = 42.9\,\mathrm{eV}$ ---
-three times too large.
-The correct $Z_\mathrm{eff} = 2.001$ comes only from a full ab initio treatment
+A Slater-rule estimate~\cite{Slater1930} for the $2p$ electron gives
+shielding $\sigma = 0.85\times2\;(\text{1s}) + 0.35\times5\;(\text{other }n{=}2) = 3.45$
+(the $2s$ and $2p$ electrons form a single Slater group, screening one
+another at $0.35$), yielding
+$Z_\mathrm{eff}^\mathrm{Slater} = 8-3.45 = 4.55$.
+Inserted into the one-electron orbital formula this gives
+$\IE = 4.55^2\,\ERy/4 = 70.4\,\mathrm{eV}$, five times too large ---
+but that formula is not Slater's prescription.  Used as intended, as a
+difference of total energies
+$E=-\ERy\sum_i (Z_{\mathrm{eff},i}/n^*_i)^2$ between O and O$^+$, the
+same rules give $\IE = 14.17\,\mathrm{eV}$, within $4\%$ of
+experiment ($|\Delta n| = 0.041$).
+The value $Z_\mathrm{eff} = 2.001$ at the precision required here
+still comes only from a full ab initio treatment
 (Section~\ref{P11:sec:zeff_derivation}).
 The small discrepancy from 2.000 reflects beyond-Slater correlation
 effects.
@@ -679,12 +692,14 @@ What the framework contributes is that the Rydberg level is
 \emph{fixed on the tower} --- chemistry cannot shift it
 without changing $\aem$ or $m_e$.
 
-\subsection{Derivation of $Z_\mathrm{eff}(\mathrm{O}) = 2$ from the condensate}
+\subsection{The oxygen ionisation energy and the condensate}
 \label{P11:sec:zeff_derivation}
 
-We show that the oxygen effective nuclear charge $Z_\mathrm{eff}(\mathrm{O}) = 2.001$
-is a consequence of the condensate's output values $\aem$ and $m_e$,
-via a sequence of steps from the Hopfion framework to the 8-electron atom.
+We trace how the oxygen ionisation energy, and hence its placement
+at the Rydberg level, follows from the condensate's output values
+$\aem$ and $m_e$ through the parameter-free eight-electron atom ---
+to the few-per-cent accuracy of an analytic treatment, the residual
+precision being ordinary many-body structure.
 
 \paragraph{Step 1: Condensate fixes all atomic input parameters.}
 The condensate delivers two quantities relevant to atomic physics
@@ -728,10 +743,12 @@ $\IE(\mathrm{O}) \approx -\varepsilon_{2p}$.
 
 The orbital energy $\varepsilon_{2p}$ depends on $\aem$, $m_e$, and
 the self-consistent screening by the remaining 7 electrons.
-A full Hartree--Fock calculation~\cite{Clementi1963} with the
-condensate's $\aem = 1/137.036$ and $m_e = 0.51100\,\mathrm{MeV}$
-gives $\varepsilon_{2p} \approx -13.62\,\mathrm{eV}$,
-so $\IE(\mathrm{O}) \approx 13.62\,\mathrm{eV} \approx \ERy$ to $0.1\%$.
+Analytic orbital treatments bracket the measurement rather than
+reaching it: Koopmans' theorem (the frozen-orbital HF eigenvalue)
+overestimates $\IE(\mathrm{O})$ by about $26\%$, the Hartree--Fock
+total-energy difference underestimates it by about $13\%$, and the gap
+between them is correlation energy.  The result lands near $\ERy$ to a
+few per cent, not to $0.1\%$.
 
 The physical mechanism is a cancellation between competing many-body effects:
 \begin{enumerate}[noitemsep]
@@ -739,52 +756,51 @@ The physical mechanism is a cancellation between competing many-body effects:
   inward more than hydrogen's $Z=1$.
 \item \textbf{Inner-shell screening:} the $1s^2 2s^2$ core shields $\approx 3.5$
   units of charge, leaving effective $Z_\mathrm{eff}^\mathrm{core} \approx 4.5$.
-\item \textbf{Intra-$2p$ exchange repulsion:} the $2p^4$ half-plus-one configuration
-  (beyond the half-filled $2p^3$ of nitrogen) has one unpaired electron subject
-  to anomalously high exchange repulsion with the other three 2p electrons.
-  This exchange energy depresses the binding by $\approx 2.0\,\ERy$
-  relative to the naive $Z_\mathrm{eff}^2\ERy/4$ estimate.
+\item \textbf{Intra-$2p$ pairing penalty:} in $2p^4$ (beyond the
+  half-filled $2p^3$ of nitrogen) the fourth electron must doubly
+  occupy an orbital, at the cost of the pair repulsion that lowers
+  $\IE(\mathrm{O})$ below $\IE(\mathrm{N})$ despite the larger nuclear
+  charge.  This penalty is $\approx 0.86\,\mathrm{eV}$
+  (Remark~\ref{P11:rem:pairing_penalty}), reproducing the measured
+  nitrogen--oxygen anomaly to $6\%$.
 \end{enumerate}
-The net result of (1)--(3) is that the exchange penalty exactly compensates
-the excess nuclear attraction at $Z=8$, bringing $\IE(\mathrm{O})$ down
-from the screened-Coulomb estimate of $\approx 3.55^2\,\ERy/4 \approx 42.9\,\mathrm{eV}$
-to the observed $13.618\,\mathrm{eV} \approx \ERy$.
-This cancellation has no free parameters once $\aem$ is fixed:
-the ratio of exchange energy to Rydberg is a pure number determined by
-$\aem$ and the geometry of the oxygen orbitals.
+The net effect of (1)--(3) places $\IE(\mathrm{O})$ within a few per
+cent of $\ERy$: inner-shell screening brings the bare $Z=8$ attraction
+down to an orbital effective charge $\approx4.5$, and the pairing
+penalty of (3) supplies the further drop onto the Rydberg scale.  The
+agreement is a genuine feature of the $1s^22s^22p^4$ configuration, not
+an exact cancellation; the residual precision of the H--O coincidence
+($0.15\%$) is beyond what this analytic accounting reaches.
 
 \paragraph{Step 4: The condensate origin.}
-Since $H_8$ in~\eqref{P11:eq:HZ} has no free parameters once $\aem$ and $m_e$
-are fixed, and since the condensate (Papers~III and~IV) determines both:
-\begin{equation}
-  \boxed{
-    Z_\mathrm{eff}(\mathrm{O}) = 2
-    \;\text{ is a consequence of the condensate}
-  },
-  \label{P11:eq:Zeff_condensate_origin}
-\end{equation}
-via the chain:
+Since $H_8$ in~\eqref{P11:eq:HZ} has no free parameters once $\aem$ and
+$m_e$ are fixed, and since the condensate (Papers~III and~IV)
+determines both, the approximate equality $\IE(\mathrm{O})\approx\ERy$
+--- and hence oxygen's placement at the Rydberg level --- follows from
+the framework outputs through the parameter-free eight-electron
+problem:
 \[
   \TCMB, m_e
   \;\xrightarrow{\text{Papers I--X}}\;
   \aem,\, m_e
   \;\xrightarrow{\text{Eq.~\eqref{P11:eq:HZ}}}\;
   H_8
-  \;\xrightarrow{\text{Hartree--Fock}}\;
-  \IE(\mathrm{O}) \approx \ERy
-  \;\xrightarrow{\text{Eq.~\eqref{P11:eq:Zeff_O}}}\;
-  Z_\mathrm{eff}(\mathrm{O}) = 2.
+  \;\xrightarrow{\text{atomic structure}}\;
+  \IE(\mathrm{O}) \approx \ERy .
 \]
-The step marked ``Hartree--Fock'' is in principle a solved problem in quantum
-chemistry; the relevant HF calculation has been performed and agrees with
-experiment to $<0.1\%$~\cite{Clementi1963}.
+The final step is a solved problem in quantum chemistry; full
+numerical Hartree--Fock with correlation reproduces
+$\IE(\mathrm{O})$~\cite{Clementi1963}, while the analytic content
+below fixes it to a few per cent.  The statement $Z_\mathrm{eff}=2$ is
+this approximate equality re-expressed
+(Eq.~\eqref{P11:eq:Zeff_O}), not a sharper independent result.
 
-We now show that this step can in fact be \emph{bypassed entirely}: a
-closed-form derivation of $Z_\mathrm{eff}(\mathrm{O})=2$ from the condensate
-proceeds in two levels, requiring no numerical HF.
+The parameter-free content that does not require numerical HF is the
+angular algebra of the configuration, which fixes the structure of
+$\IE(\mathrm{O})$ to the accuracy stated below.
 
-\paragraph{Step 5: Level-1 proof --- $Z_\mathrm{eff}(\mathrm{O}) = 2$ at zeroth
-order in $\aem$.}
+\paragraph{Step 5: Level-1 --- $\IE(\mathrm{O})\approx\ERy$ from the
+$\aem$-independent eight-electron problem.}
 
 The dimensionless ratio $\IE(\mathrm{O})/\ERy$ is a pure number determined
 entirely by $Z=8$ and the electron configuration $1s^22s^22p^4$,
@@ -813,24 +829,27 @@ In particular,
 where $R(\mathrm{O})$ is a pure number determined by $Z=8$ and the
 $1s^22s^22p^4$ configuration.
 
-\begin{proposition}[Level-1: $R(\mathrm{O})=1$ from the eight-electron problem]
+\begin{proposition}[Level-1: $R(\mathrm{O})\approx1$ from the eight-electron problem]
 \label{P11:prop:R_equals_1}
-The non-relativistic Hartree--Fock eigenvalue for the 2p orbital of
-oxygen in the $1s^22s^22p^4\,{}^3P$ ground state satisfies
+The dimensionless ratio for the 2p ionisation of oxygen in the
+$1s^22s^22p^4\,{}^3P$ ground state,
 \begin{equation}
-  \boxed{R(\mathrm{O})
-  \;\equiv\; \frac{\IE(\mathrm{O})}{\ERy}
-  \;=\; 1 \;+\; O(\aem),}
+  R(\mathrm{O}) \;\equiv\; \frac{\IE(\mathrm{O})}{\ERy},
   \label{P11:eq:R_equals_1}
 \end{equation}
-where the $O(\aem)$ correction is the QED radiative correction of
-Proposition~\ref{P11:prop:Zeff_closed} below.
+is fixed by $Z=8$ and the configuration alone, and equals unity to the
+few-per-cent accuracy of an analytic orbital treatment:
+$\boxed{R(\mathrm{O}) = 1 + O(\text{few}\,\%)}$.  The measured value is
+$R(\mathrm{O}) = 1.000\,90$; the residual $9.04\times10^{-4}$ excess is
+$2p^4$ correlation energy --- itself condensate-downstream through the
+framework-fixed Hamiltonian, but not a coupling shift beyond it
+(Remark~\ref{P11:rem:oalpha_excess}).
 \end{proposition}
 
 \begin{proof}
 We work in atomic units~\eqref{P11:eq:HZ_au}; ``Ry'' below means $2\ERy$.
-By Koopmans' theorem, $\IE(\mathrm{O}) = -\varepsilon_{2p}$,
-and the HF orbital energy can be written exactly as
+By Koopmans' theorem, $\IE(\mathrm{O}) = -\varepsilon_{2p}$, and writing
+the orbital energy in hydrogenic form defines an effective charge,
 \begin{equation}
   -\varepsilon_{2p}
   \;=\; \frac{Z_\mathrm{eff}^2}{n_\mathrm{qn}^2}\,\ERy,
@@ -838,216 +857,282 @@ and the HF orbital energy can be written exactly as
   Z_\mathrm{eff} \;\equiv\; Z - \sigma_\mathrm{tot},
   \label{P11:eq:eps_Zeff}
 \end{equation}
-where $\sigma_\mathrm{tot}$ is the total many-body screening constant.
-The condition $R(\mathrm{O})=1$ is therefore exactly $Z_\mathrm{eff} = n_\mathrm{qn} = 2$.
+so that $R(\mathrm{O})=1$ is exactly $Z_\mathrm{eff}=n_\mathrm{qn}=2$.
+Equation~\eqref{P11:eq:eps_Zeff} is a change of variables rather than a
+derivation: it \emph{defines} $Z_\mathrm{eff}$ from the energy, so
+``$Z_\mathrm{eff}(\mathrm{O})=2$'' and ``$\IE(\mathrm{O})=\ERy$'' are
+the same statement.  Establishing~\eqref{P11:eq:R_equals_1} requires
+$\sigma_\mathrm{tot}$ from a prescription independent of the measured
+energy.
 
-We compute $\sigma_\mathrm{tot}$ for the $1s^22s^22p^4\,{}^3P$ configuration
-by decomposing the Fock operator $F_{2p}$ into its constituents.
-At leading order (setting $Z_\mathrm{eff}$ self-consistently equal to
-the result of the computation):
-
-\textbf{(a) Nuclear attraction minus kinetic energy:}
-$\langle 2p|h|2p\rangle = -(Z-\sigma_\mathrm{core})^2/(2n_\mathrm{qn}^2)\cdot 2\ERy$,
-where $\sigma_\mathrm{core}$ is the Slater core shielding.
-
-\textbf{(b) Coulomb repulsion from the four shells:}
-From the Slater rules~\cite{Slater1930}, the shielding constants for the
-$2p$ electron of a $[1s^2,2s^2,2p^3]$ core are:
-\begin{align}
+\textbf{(a) Independent screening prescriptions.}
+Two are standard.  Slater's rules~\cite{Slater1930} place the $2s$ and
+$2p$ electrons in a single screening group, each screening the others
+at $0.35$, with the $1s$ pair at $0.85$:
+\begin{equation}
   \sigma_\mathrm{Slater}
-  &= 2\times 0.85\;(\text{from 1s}^2)
-   + 2\times 0.85\;(\text{from 2s}^2)
-   + 3\times 0.35\;(\text{from 2p}^3)
-   \;=\; 4.45.
-  \label{P11:eq:sigma_slater}
-\end{align}
-
-\textbf{(c) Exchange correction from the $2p^4$ configuration:}
-The extra electron in $2p^4$ (beyond the half-filled $2p^3$ of nitrogen)
-must spin-pair with one of the three $2p$ electrons.
-The Condon--Shortley $F^k$ integrals for the $^3P$ ground term~\cite{Condon1935}
-identify the dominant contribution as the exchange integral
-\begin{equation}
-  K_{2p,2p} = \frac{3}{25}\,F^2(2p),
+  = 2\times0.85\;(1s^2) + 5\times0.35\;(\text{other } n{=}2)
+  = 3.45,
   \qquad
-  F^2(2p)\big|_{Z_\mathrm{eff}=2} = \frac{17}{81}\,Z_\mathrm{eff}\,\ERy,
-  \label{P11:eq:K2p2p_angular}
+  Z_\mathrm{eff}^\mathrm{Slater} = 4.55 .
+  \label{P11:eq:sigma_slater}
 \end{equation}
-where the angular coefficient $3/25$ and radial coefficient $17/81$
-are combinatorial integers from angular-momentum algebra
-(Condon--Shortley~\cite{Condon1935}, Table~6.6), independent of $\aem$.
-The net exchange-correlation shielding $\sigma_\mathrm{xc}$ beyond Slater's rules
-arises from this $2p^4$ exchange energy together with orbital relaxation and
-higher-order $J$ and $K$ integrals; its value is
-\begin{equation}
-  \sigma_\mathrm{xc} \;=\; \sigma_\mathrm{tot} - \sigma_\mathrm{Slater}
-  \;=\; 6.00 - 4.45 \;=\; 1.55,
-  \label{P11:eq:sigma_xc}
-\end{equation}
-where $\sigma_\mathrm{tot} = 6.00$ is established by the Clementi--Raimondi
-self-consistent HF calculation~\cite{Clementi1963}
-(see the remark below for the physical identification of this value).
+The self-consistent Hartree--Fock screening constants of Clementi
+\emph{et al.}~\cite{Clementi1963} give, for oxygen,
+$Z_\mathrm{eff}(2s)=4.4916$ and $Z_\mathrm{eff}(2p)=4.4532$.  The two
+orbitals differ by $0.038$, confirming Slater's grouping directly: $2s$
+and $2p$ see essentially the same effective charge, and $2s$ does not
+act as an inner shell towards $2p$.  Taking the $1s$ pair at $0.85$
+each, the Clementi value implies $0.369$ of screening per $n=2$
+electron against Slater's $0.35$, a five per cent refinement.  The two
+prescriptions agree on $Z_\mathrm{eff}(2p)$ to two per cent.
 
-\textbf{(d) Total shielding and self-consistency:}
-\begin{equation}
-  \sigma_\mathrm{tot}
-  = \sigma_\mathrm{Slater} + \sigma_\mathrm{xc}
-  = 4.45 + 1.55
-  = 6.00
-  = Z - n_\mathrm{qn}
-  = 8 - 2.
-  \label{P11:eq:sigma_total}
-\end{equation}
-Hence $Z_\mathrm{eff} = Z - \sigma_\mathrm{tot} = 8 - 6 = 2 = n_\mathrm{qn}$,
-and~\eqref{P11:eq:R_equals_1} holds at $O(\aem^0)$.
+\textbf{(b) Neither prescription gives $Z_\mathrm{eff}=2$, and none can.}
+Both place $Z_\mathrm{eff}(\mathrm{O},2p)$ near $4.5$.  The value
+$\sigma_\mathrm{tot}=6.00$ required by~\eqref{P11:eq:eps_Zeff} lies
+outside the range any screening decomposition can reach: with the $1s$
+pair at $0.85$ and $2p$--$2p$ at $0.35$, each $2s$ electron would have
+to screen $1.625$ units of nuclear charge, and a single electron cannot
+screen more than one; granting the $1s$ pair the maximum $1.0$ each
+still requires $1.475$.  Consequently $Z_\mathrm{eff}=2$ is not an
+orbital screening constant but the measured ionisation energy
+re-expressed through~\eqref{P11:eq:eps_Zeff}.
 
-The self-consistency of setting $Z_\mathrm{eff}=2$
-in~\eqref{P11:eq:sigma_xc} is verified as follows.
-The Slater shielding constant $\sigma_\mathrm{Slater} = 4.45$ is an analytic
-result of Slater's rules for the $1s^22s^22p^4$ configuration and requires
-no self-consistency.
-The additional exchange-correlation contribution $\sigma_\mathrm{xc} = 1.55$
-arises from the correlation and exchange effects beyond the Slater approximation
-in the self-consistent Hartree--Fock ground state of oxygen.
-Its quantitative value is established by the Clementi--Raimondi
-calculation~\cite{Clementi1963}, which gives the self-consistent HF orbital
-energy $-\varepsilon_{2p} = 13.618\,\mathrm{eV}$,
-yielding $Z_\mathrm{eff} = n_\mathrm{qn}\sqrt{\IE/\ERy}
-= 2\sqrt{13.618/13.606} = 2.00088$
-and hence $\sigma_\mathrm{tot} = Z - Z_\mathrm{eff} = 8 - 2.00088 = 5.999
-\approx 6.00$, consistent with equation~\eqref{P11:eq:sigma_total}.
-The dominant physical origin of $\sigma_\mathrm{xc} = 1.55$ is the
-$2p^4$ exchange energy
-$(3/2)K_{2p,2p}$ (the Hund's-rule spin-pairing penalty), evaluated at
-the self-consistent $Z_\mathrm{eff} = 2$.
-Its derivation from the Condon--Shortley angular integrals
-($F^2(2p) = (17/81)Z_\mathrm{eff}\ERy$ at $Z_\mathrm{eff}=2$) is discussed
-in the remark below; the numerical closure $4.45 + 1.55 = 6.00$ confirms
-$Z_\mathrm{eff}(\mathrm{O}) = 2$ at $O(\aem^0)$,
-establishing~\eqref{P11:eq:R_equals_1} at the level claimed.
+\textbf{(c) The parameter-free content is angular, not empirical.}
+Both prescriptions above are fitted: Slater's constants $0.35$, $0.85$
+and his effective quantum numbers $n^*$ are tuned to spectroscopic
+data, and the Clementi values are numerical Hartree--Fock output.  The
+combinatorial content of the configuration lies instead in the angular
+algebra, which involves no fitted quantity and no dependence on
+$\aem$.  For hydrogenic radial functions the Slater--Condon integrals
+are exact rationals times $Z\ERy$; those governing the $2p$ shell are
+\begin{equation}
+  F^0(2p,2p) = \tfrac{93}{256}\,Z\,\ERy,
+  \qquad
+  F^2(2p,2p) = \tfrac{45}{256}\,Z\,\ERy,
+  \label{P11:eq:slater_condon}
+\end{equation}
+and the angular coefficients of the $^3P$ term are fixed by Wigner
+algebra, giving $K_{2p,2p} = \tfrac{3}{25}F^2(2p,2p)$.  Together with
+the one-body term $-Z_\mathrm{eff}^2/(2n_\mathrm{qn}^2)$, whose
+$1/n_\mathrm{qn}^2$ scaling is what makes the condition
+$Z_\mathrm{eff}=n_\mathrm{qn}$ meaningful at all, these fix the
+structure of $\IE(\mathrm{O})$ from $Z=8$ and the occupation
+$1s^22s^22p^4$ alone.
+
+\textbf{(d) Accuracy attainable at this order.}
+What such a calculation cannot supply is precision.  For oxygen the
+orbital-based analytic routes bracket the measurement rather than
+reproducing it: Koopmans' theorem gives $-\varepsilon_{2p} =
+17.2\,\mathrm{eV}$ ($+26\%$), the Hartree--Fock total-energy
+difference gives $11.9\,\mathrm{eV}$ ($-13\%$), and the gap between
+them is correlation energy, which no orbital scheme captures.  For
+comparison, the fitted screening constants used as total-energy
+differences,
+\begin{equation}
+  E = -\ERy \sum_i \Bigl(\frac{Z_{\mathrm{eff},i}}{n^*_i}\Bigr)^{\!2},
+  \qquad
+  \IE_\mathrm{Slater}(\mathrm{O}) = E(\mathrm{O}^+) - E(\mathrm{O})
+  = 14.17\,\mathrm{eV},
+  \label{P11:eq:IE_slater_total}
+\end{equation}
+land within four per cent, but on fitted input and so serve as a
+consistency check rather than a derivation.
+Equation~\eqref{P11:eq:R_equals_1} is therefore established at the
+order the configuration's angular structure fixes --- some tens of per
+cent --- and is verified empirically at
+$\IE(\mathrm{O})/\ERy = 1.000\,90$.  Its precision is not derived
+here.
 \qed
 \end{proof}
 
-\begin{remark}[$\sigma_\mathrm{xc} = 1.55$: physical origin and HF confirmation]
-\label{P11:rem:sigma_xc_origin}
-The value $\sigma_\mathrm{xc} = 6.00 - 4.45 = 1.55$ in
-equation~\eqref{P11:eq:sigma_total} has a clear physical origin.
-The dominant contribution is the exchange penalty of the $2p^4$ configuration:
-the Hund's-rule coupling gives an exchange stabilisation
-$(3/2)K_{2p,2p}$ where the angular coefficient $3/25$ of $K_{2p,2p}$
-(Condon--Shortley~\cite{Condon1935}, Table~6.6)
-and the radial integral $F^2(2p) = (17/81)Z_\mathrm{eff}\,\ERy$
-at $Z_\mathrm{eff}=2$ (hydrogenic limit~\cite{Condon1935}) are both
-combinatorial integers from angular-momentum algebra, independent of $\aem$.
-Converting the exchange energy to a shielding constant requires the
-self-consistent Hartree--Fock orbital energies, which is exactly what
-Clementi--Raimondi~\cite{Clementi1963} computed numerically:
-their result $-\varepsilon_{2p} = 13.618\,\mathrm{eV}$ implies
-$\sigma_\mathrm{tot} = 6.00$ and hence $\sigma_\mathrm{xc} = 1.55$.
-The integers $3, 25, 17, 81$ give the physical mechanism;
-the HF calculation confirms the numerical closure.
+\begin{remark}[The $2p^4$ pairing penalty and the nitrogen--oxygen anomaly]
+\label{P11:rem:pairing_penalty}
+Slater's rules carry no exchange or spin dependence, so
+equation~\eqref{P11:eq:IE_slater_total} cannot see the effect that
+brings oxygen's first ionisation energy below nitrogen's despite the
+larger nuclear charge: in $2p^4$ the fourth electron must doubly
+occupy an orbital already singly occupied, at the cost of the pair
+repulsion absent in the half-filled $2p^3$ shell.  That anomaly is
+measured directly,
+\begin{equation}
+  \IE(\mathrm{N}) - \IE(\mathrm{O})
+  = 14.534 - 13.618 = 0.916\,\mathrm{eV},
+  \label{P11:eq:NO_anomaly}
+\end{equation}
+and the Condon--Shortley angular algebra~\cite{Condon1935} reproduces
+it: with the angular coefficient $3/25$ of $K_{2p,2p}$ and the hydrogenic
+radial integral $F^2(2p,2p) = (45/256)Z_\mathrm{eff}\ERy$
+of~\eqref{P11:eq:slater_condon} evaluated at $Z_\mathrm{eff}=2$,
+\begin{equation}
+  \tfrac{3}{2}K_{2p,2p} = \tfrac{81}{2560}\,Z_\mathrm{eff}\,\ERy
+  = 0.861\,\mathrm{eV},
+  \label{P11:eq:pairing_K}
+\end{equation}
+within $6\%$ of~\eqref{P11:eq:NO_anomaly}.  The pairing penalty is
+therefore the physical effect that lowers $\IE(\mathrm{O})$ onto the
+Rydberg scale, and it is of the right size.
+
+It does not combine additively with~\eqref{P11:eq:IE_slater_total} to
+give a sharper prediction.  The fitted-screening estimate lies $0.55\,$eV above the measured
+value and the pairing term is $0.86\,$eV, so subtracting one from the
+other returns $13.31\,\mathrm{eV}$, now $2.3\%$ \emph{below}
+experiment: the two parametrisations are not
+disjoint contributions, since Slater's electrostatic constants are
+fitted to configurations in which pairing is already present on
+average.  What the two establish jointly is that ordinary atomic
+structure brackets $\IE(\mathrm{O})$ around $\ERy$ from both sides at
+the few-per-cent level --- the coincidence is a real feature of the
+$1s^22s^22p^4$ configuration, not an accident of arithmetic --- while
+neither route approaches the precision of the observed agreement.
 \end{remark}
 
-\paragraph{Step 6: Level-2 proof --- the WZW correction fixes
-$Z_\mathrm{eff}(\mathrm{O})=2.00087$.}
+\begin{remark}[Precision of the H--O coincidence]
+\label{P11:rem:sigma_xc_origin}
+Equation~\eqref{P11:eq:IE_slater_total} accounts for
+$R(\mathrm{O})=1$ to four per cent, $|\Delta n| = 0.041$.  The measured
+coincidence is far tighter: $\IE(\mathrm{H})=13.598\,\mathrm{eV}$ and
+$\IE(\mathrm{O})=13.618\,\mathrm{eV}$ differ by $0.15\%$,
+$|\Delta n| = 0.0015$, some twenty-seven times closer than the
+screening calculation predicts.  That excess precision is not derived
+here, and is the substance of the near-degeneracy.
 
-Proposition~\ref{P11:prop:R_equals_1} establishes $Z_\mathrm{eff}(\mathrm{O}) = 2$
-at zeroth order in $\aem$.
-The condensate framework makes the additional prediction that the
-$O(\aem)$ correction is \emph{not} a free parameter but is fixed by
-the WZW level $k=3$ of the $\mathrm{SU}(2)_3$ condensate.
+Two accounts of it are unavailable.  A decomposition
+$\sigma_\mathrm{tot} = \sigma_\mathrm{Slater} + \sigma_\mathrm{xc}$
+cannot supply it, because $\sigma_\mathrm{xc}$ would be defined as the
+residual $\sigma_\mathrm{tot}-\sigma_\mathrm{Slater}$, making its
+closure an identity rather than a check --- and, by the ceiling
+argument above, no admissible $\sigma_\mathrm{xc}$ reaches
+$\sigma_\mathrm{tot}=6.00$ in any case.  Nor does the $2p^4$ exchange
+penalty account for the gap quantitatively: with the Condon--Shortley
+angular coefficient $3/25$ and the hydrogenic
+$F^2(2p,2p)=(45/256)Z_\mathrm{eff}\ERy$ at $Z_\mathrm{eff}=2$, the
+exchange term is $(3/2)K_{2p,2p} = 0.86\,\mathrm{eV}$, which at
+$\mathrm{d}\IE/\mathrm{d}\sigma = 2Z_\mathrm{eff}\ERy/n_\mathrm{qn}^2
+= 13.6\,\mathrm{eV}$ per unit of screening corresponds to
+$\Delta\sigma \approx 0.08$.
 
-\begin{proposition}[Level-2: exact $Z_\mathrm{eff}(\mathrm{O})$ with WZW correction]
-\label{P11:prop:Zeff_closed}
-At the condensate value $\aem^{-1} = 360/\vp^2 - k/(2\pi) + 1/(9\vp^6) - 1/(36\pi\phi^6)$
-with WZW level $k=3$
-(Paper~IV~\cite{Paper4}, four-term formula, $5\times10^{-7}\%$), the first ionisation energy
-of atomic oxygen satisfies
+What the framework contributes is unaffected: the Rydberg energy sits
+at tower level $-12.102$ with no free parameters once $\aem$ and $m_e$
+are fixed (Corollary~\ref{P11:cor:rydberg}), and hydrogen sits there by
+definition.  That oxygen sits within $0.0015$ of the same level is an
+atomic-structure fact, approximately explained by ordinary screening
+and exactly explained by neither.
+\end{remark}
+
+\paragraph{Step 6: the $O(\aem)$ excess and a candidate closed form.}
+
+Proposition~\ref{P11:prop:R_equals_1} places $\IE(\mathrm{O})$ at the
+Rydberg energy to the few-per-cent accuracy of the angular algebra.
+The measured value exceeds $\ERy$ by $9.04\times10^{-4}$, an $O(\aem)$
+quantity.  It is natural to ask whether the condensate fixes this
+excess; the following records the candidate form and why it is not
+adopted.
+
+\begin{remark}[Why the $O(\aem)$ excess is not a condensate correction]
+\label{P11:rem:oalpha_excess}
+The measured first ionisation energy of oxygen exceeds the Rydberg
+energy by
 \begin{equation}
-  \boxed{
-    \IE(\mathrm{O}) \;=\; \ERy\,\Bigl(1 + \frac{k\,\aem}{8\pi} + O(\aem^2)\Bigr)
-    \;=\; \ERy\,\Bigl(1 + \frac{3\aem}{8\pi} + O(\aem^2)\Bigr),
-  }
+  \frac{\IE(\mathrm{O})}{\ERy} - 1 = 9.04\times10^{-4},
+  \label{P11:eq:IE_O_excess}
+\end{equation}
+an $O(\aem)$ quantity, and the condensate value $\aem = 1/137.036$
+makes
+\begin{equation}
+  \frac{k\,\aem}{8\pi}\bigg|_{k=3} = \frac{3\aem}{8\pi} = 8.71\times10^{-4}
   \label{P11:eq:IE_O_closed}
 \end{equation}
-giving $\IE(\mathrm{O}) = 13.6177\,\mathrm{eV}$ (experiment: $13.618\,\mathrm{eV}$,
-deviation $0.003\%$), and hence
-\begin{equation}
-  Z_\mathrm{eff}(\mathrm{O})
-  = 2\sqrt{\IE(\mathrm{O})/\ERy}
-  = 2\Bigl(1 + \frac{k\,\aem}{8\pi} + O(\aem^2)\Bigr)
-  = 2.00087,
-  \label{P11:eq:Zeff_closed}
-\end{equation}
-accurate to $0.003\%$.
-\end{proposition}
+a candidate closed form for it, reproducing the
+excess~\eqref{P11:eq:IE_O_excess} to $3.7\%$ (a residual of $0.003\%$
+of the total ionisation energy).  The coefficient has a motivating
+reading: $k/(8\pi) = k/(4\pi\,\Delta Q)$ with $\Delta Q = 2$, the
+Chern--Simons barrier of a two-unit topological transition being
+$4\pi\,\Delta Q$ (Paper~XVI~\cite{Paper16}, where $\Delta Q = 3-1 = 2$
+gives the $8\pi$ spoke of the constituent quark mass), and removing one
+electron from the lepton-sector $\QH=2$ ground state
+(Paper~I~\cite{Paper1}) is a $\Delta Q = 2$ event --- mirroring the
+Chern--Simons factor $1/(4\pi)$ of the electron-mass formula of
+Paper~IV~\cite{Paper4}.
 
-\begin{proof}
-By Proposition~\ref{P11:prop:R_equals_1}, $R(\mathrm{O}) = 1 + O(\aem)$.
-The $O(\aem)$ term is the one-loop QED orbital energy shift from the
-WZW Chern--Simons amplitude $e^{4\pi k/\cdots}$ of Paper~IV~\cite{Paper4}
-(Theorem~thm:second\_spoke therein).
-At first order in $\aem$, this shifts the 2p binding energy by
-$k\,\aem/(8\pi)\cdot\ERy$, where the coefficient $k/(8\pi) = k/(4\cdot2\pi)$
-is the Chern--Simons phase $4\pi$ (Paper~IV) divided by the single-winding
-normalisation $2\pi$.
-Inserting $k=3$:
-\begin{equation}
-  \IE(\mathrm{O})
-  = \ERy + \frac{k\,\aem}{8\pi}\,\ERy + O(\aem^2\,\ERy)
-  = \ERy\!\left(1 + \frac{3\aem}{8\pi}\right),
-\end{equation}
-and numerically with $\aem = 1/137.036$:
-\[
-  \frac{3\aem}{8\pi}
-  = \frac{3}{8\pi\times137.036}
-  = 8.71\times10^{-4},
-  \qquad
-  \IE(\mathrm{O}) = 13.606\times1.000871 = 13.618\,\mathrm{eV}.
-\]
-\qed
-\end{proof}
+The reading is nonetheless excluded as a physical mechanism by its own
+universality.  Every single-electron ionisation is a $\Delta Q = 2$
+event, so the correction would apply to hydrogen identically; but
+$\IE(\mathrm{H})$ is accounted for by the reduced-mass factor alone,
+$\ERy\,(1+m_e/m_p)^{-1} = 13.5983\,\mathrm{eV}$ against the measured
+$13.5984\,\mathrm{eV}$ (residual $11\,\mathrm{ppm}$), and adding
+$3\aem/(8\pi)\,\ERy = 11.9\,\mathrm{meV}$ would spoil this by
+$860\,\mathrm{ppm}$, eighty times the residual.  A genuine QED
+radiative shift at $Z=8$ is of order the Lamb scale
+($\sim10^{-6}\,\mathrm{eV}$), three orders below the $11\,\mathrm{meV}$
+here.  The excess~\eqref{P11:eq:IE_O_excess} is therefore many-body
+structure --- the $2p^4$ correlation energy that separates Koopmans
+from $\Delta$SCF (Proposition~\ref{P11:prop:R_equals_1}).  It is
+condensate physics in the same parametric sense as the entire Coulomb
+Hamiltonian, which is fixed once $\aem$ and $m_e$ are
+(Step~1); what the hydrogen test excludes is the stronger claim that
+the condensate adds a coupling shift \emph{beyond} that Hamiltonian,
+universal across elements.  The agreement with $3\aem/(8\pi)$, closer
+than the alternative $2\aem/(5\pi)$ ($2.8\%$) only by chance, is a
+coincidence of the right order, not such a shift.  Whether the
+condensate's structure instead surfaces \emph{through} the many-body
+correlation dynamics --- which vanish for hydrogen and so evade this
+test --- is a separate and open question, of the same kind as the
+cooperative-binding bound of Section~\ref{P11:sec:open}.
+\end{remark}
 
-\begin{remark}[The two-level structure summarised]
+\begin{remark}[What is fixed and what is not]
 \label{P11:rem:two_level}
-The closed-form derivation of $Z_\mathrm{eff}(\mathrm{O})=2$ has a
-transparent two-level structure:
+The oxygen placement separates into two statements of very different
+standing:
 \begin{enumerate}[noitemsep]
-\item \emph{Level~1 (pure quantum mechanics, $O(\aem^0)$):}
-  $Z_\mathrm{eff}=2$ follows from $Z=8$, the $1s^22s^22p^4$ configuration,
-  and the Slater--Condon exchange algebra.
-  No HF numerics are needed beyond the Condon--Shortley angular integrals.
-\item \emph{Level~2 (condensate-specific, $O(\aem^1)$):}
-  The $0.087\%$ correction to $Z_\mathrm{eff}=2$ is fixed by the WZW level
-  $k=3$, via the Paper~IV Chern--Simons phase.
-  This is the only step that uses the specific condensate value of $\aem$.
+\item \emph{Level~1 (atomic structure, $O(\aem^0)$):}
+  the ratio $\IE(\mathrm{O})/\ERy$ is fixed by $Z=8$ and the
+  $1s^22s^22p^4$ configuration through the exact Slater--Condon
+  angular algebra, but only to the tens-of-per-cent accuracy of an
+  orbital treatment (Koopmans $+26\%$, $\Delta$SCF $-13\%$; the gap is
+  correlation energy).  It gives $\IE(\mathrm{O}) \approx \ERy$, not
+  $Z_\mathrm{eff}=2$ exactly.
+\item \emph{Level~2 ($O(\aem^1)$):}
+  the residual excess $9.04\times10^{-4}$ is coincidentally near
+  $3\aem/(8\pi)$ but is not a condensate correction: the same form
+  applied to hydrogen fails by eighty times its own residual
+  (Remark~\ref{P11:rem:oalpha_excess}), so the excess is
+  correlation energy, not a WZW radiative shift.
 \end{enumerate}
-The chain from $(\TCMB, m_e)$ to $Z_\mathrm{eff}(\mathrm{O})=2.00087$
-is now fully closed-form:
+What the framework contributes is Level~0: the Rydberg energy itself
+sits at tower level $-12.102$ with no free parameters
+(Corollary~\ref{P11:cor:rydberg}), and hydrogen sits there by
+definition.  Oxygen's proximity to that level is atomic structure,
+approximately explained and precisely unexplained:
 \[
   \TCMB,\, m_e
   \;\xrightarrow{\text{Papers I--X}}\;
   \aem,\, m_e
-  \;\xrightarrow{\text{Prop.~\ref{P11:prop:R_equals_1}}}\;
-  Z_\mathrm{eff} = 2
-  \;\xrightarrow{\text{Prop.~\ref{P11:prop:Zeff_closed}}}\;
-  Z_\mathrm{eff} = 2.00087.
+  \;\xrightarrow{\text{Cor.~\ref{P11:cor:rydberg}}}\;
+  n(\ERy) = -12.102
+  \;\xrightarrow{\text{atomic structure}}\;
+  \IE(\mathrm{O}) \approx \ERy .
 \]
 \end{remark}
 
 \begin{remark}[Framework origin of the coefficient $k/(8\pi)$]
 \label{P11:rem:k8pi_origin}
-The coefficient $k/(8\pi) = k/(4\cdot2\pi)$ has a direct WZW interpretation:
+The candidate coefficient $k/(8\pi)$ reads as
+$k/(4\pi\,\Delta Q)$ with $\Delta Q = 2$:
 \begin{itemize}[noitemsep]
-\item The denominator $4\cdot2\pi$ is the Chern--Simons phase
-  $4\pi$ (Paper~IV~\cite{Paper4}, Theorem~6.11) %\ref{P4:thm:second_spoke}
-  divided by $2\pi$ (the single-winding normalisation).
+\item The denominator $4\pi\,\Delta Q = 8\pi$ is the Chern--Simons
+  barrier of a two-unit topological transition
+  (Paper~XVI~\cite{Paper16}, where $\Delta Q = 3-1 = 2$ gives the
+  $8\pi$ spoke of the constituent quark mass), and single-electron
+  ionisation of the $\QH=2$ lepton ground state is a $\Delta Q = 2$
+  event.
 \item The numerator $k=3$ is the WZW level of the $\mathrm{SU}(2)_3$
   condensate (Paper~I).
 \end{itemize}
-This connects the $0.003\%$ residual of the H--O near-degeneracy
-to the same WZW Chern--Simons structure that governs the electron
-mass formula of Paper~IV~\cite{Paper4}.
+This is the same Chern--Simons vocabulary that governs the electron
+mass formula of Paper~IV~\cite{Paper4}; as a mechanism for the oxygen
+excess it is nonetheless excluded (Remark~\ref{P11:rem:oalpha_excess}).
 
 The electron mass formula (Paper~IV, Theorem~8.4) %\ref{P4:thm:t_matrix_spoke}
 is $m_e = \Lcond\cdot\vp^{20}\cdot e^{4\pi - T_{1/2}/Q}$
@@ -1070,10 +1155,10 @@ scheme conversion $\aem/\pi$ are related by
 both are first-order in $\aem$ and both descend from the
 WZW Chern--Simons phase $4\pi$ of Paper~IV via the
 single-winding normalisation $2\pi$.
-The O IE residual ($0.003\%$) is smaller than $\aem/\pi$ ($0.23\%$)
-by the factor $3/(8\pi)\approx 0.12$ relating the
-atomic orbital shift coefficient $k/(8\pi)$ to the
-full QED one-loop correction.
+The candidate oxygen coefficient $3\aem/(8\pi)$ is smaller than the
+electron-mass scheme term $\aem/\pi$ by the factor $3/8$; both are
+$O(\aem)$ and share the Chern--Simons phase $4\pi$, though only the
+electron-mass term is an established correction.
 \end{remark}
 
 \begin{remark}[Hund's rule and the H--O coincidence]
@@ -1138,10 +1223,14 @@ Within the group, the gap increases monotonically
 Li $\to$ Na $\to$ K $\to$ Rb $\to$ Cs ($|\text{gap}|$ from
 $0.962$ to $1.300$), and this ordering matches the observed reactivity
 series exactly.
-The framework prediction here is the same type as
-Proposition~\ref{P11:prop:goldschmidt} for Goldschmidt pairs:
-the spiral ordering of IEs predicts the chemical ordering of
-thermodynamic driving forces, with no additional parameters.
+Since $\nlvl{\cdot}$ is a monotone function of energy, this
+intra-group ordering is the ordering of the first ionisation
+energies themselves: the spiral reproduces the reactivity series
+rather than predicting it independently.  The framework content is
+the \emph{placement} of the common gap at approximately one tower
+level ($\IE_M\approx\ERy/\vp^2$), which ties the group-1 donation
+energetics to the Rydberg level fixed by
+Corollary~\ref{P11:cor:rydberg}.
 
 The transition from vigorous (Na) to explosive (K, Rb, Cs) violence
 is not explained by the spiral alone.
@@ -1549,6 +1638,24 @@ $\aem$.
 \qed
 \end{proof}
 
+\begin{remark}[What the master formula does and does not supply]
+\label{P11:rem:master_scope}
+Equation~\eqref{P11:eq:master_formula} is an algebraic identity: it
+is the definition of the tower level with the hydrogenic energy
+substituted and the logarithm expanded.  In particular, if
+$Z_{\rm eff}(k)$ is obtained by inverting
+$\IE_k=Z_{\rm eff}^2\ERy/n_{\rm qn}^2$ --- as it must be when only
+the measured $\IE_k$ is available --- then the formula returns the
+input $\IE_k$ and predicts nothing.  Its predictive content appears
+only when $Z_{\rm eff}(k)$ is supplied independently of the
+measurement, for instance by Slater's rules or a Hartree--Fock
+calculation, in which case the difference
+$\nlvl{\IE_k^{\rm exp}}-\nlvl{\IE_k^{\rm pred}}$ is the quantity
+to be quoted.  The placements below are stated as observations about
+where measured ionisation energies fall on the spiral, with their
+chance rates given, and not as derivations of those energies.
+\end{remark}
+
 \begin{remark}[The first-IE layer as the $k=1$ case]
 \label{P11:rem:first_IE_special}
 Setting $k=1$ recovers the placement of elements in
@@ -1567,10 +1674,10 @@ shell completion, the master formula places $\nlvl{\IE_k}$ near a
 rational multiple of $\nlvl{\ERy}$ and $\log_\vp(\text{integers})$.
 Since $\nlvl{\ERy}=-12.102$, these cluster near integers.
 
-\begin{proposition}[Shell-completion near-integer positions]
+\begin{proposition}[Shell-completion positions and their chance rate]
 \label{P11:prop:shell_completion}
-The following shell-completion ionisation energies land within
-$|\Delta n|\leq 0.017$ of an integer tower level:
+The following shell-completion ionisation energies lie close to
+integer tower levels, at the stated distances:
 \begin{center}
 \begin{tabular}{lrrrl}
 \toprule
@@ -1582,14 +1689,24 @@ Xe  IE$_1$   & $12.130$ & $-11.983$ & $0.017$ & noble-gas 5$p$ \\
 \bottomrule
 \end{tabular}
 \end{center}
-Ionisation energies are from NIST~\cite{NIST_ASD}.
+Ionisation energies are from NIST~\cite{NIST_ASD}
+(Xe~IE$_1$ is $0.0173$, marginally outside the $0.017$ band).
+These placements are not more common than chance: over the tabulated
+set of $146$ ionisation energies, $2$ lie within $|\Delta n|\leq0.017$
+of an integer against an expectation of $4.96$ under a uniform
+distribution modulo one (binomial $p=0.25$), and the strict
+shell-completion subset ($N=8$) contains no such landing against an
+expectation of $0.27$.  The three cases above are therefore individual
+placements, not instances of a demonstrated rule.
 \end{proposition}
 
 \begin{proof}
-Apply equation~\eqref{P11:eq:master_formula} with
-$Z_{\rm eff}(k)=n_{\rm qn}(k)\sqrt{\IE_k/\ERy}$
-(inverted from the hydrogenic formula) and principal quantum numbers
-determined by the sub-shell being stripped.
+The tower levels follow from Definition~\ref{P11:def:tower_level}
+applied to the measured energies.  Equivalently one may route the
+computation through equation~\eqref{P11:eq:master_formula} with
+$Z_{\rm eff}(k)=n_{\rm qn}(k)\sqrt{\IE_k/\ERy}$ inverted from the
+hydrogenic formula, which returns the same values identically
+(Remark~\ref{P11:rem:master_scope}) and adds no independent content:
 For Pb IE$_3$ ($6p$ electron, $n_{\rm qn}=6$):
 $Z_{\rm eff}=6\sqrt{31.938/13.606}=9.19$, giving
 $\nlvl{\IE_3}=-12.102-\log_\vp(9.19)+\log_\vp(6)
@@ -1603,26 +1720,35 @@ $Z_{\rm eff}=5\sqrt{12.130/13.606}=4.72$, giving
 $\nlvl{\IE_1}=-12.102-\log_\vp(4.72)+\log_\vp(5)
 =-12.102-3.225+3.345=-11.983$.
 All values verified against NIST~\cite{NIST_ASD}.
+The chance-rate statement is a direct census of the tabulated
+ionisation energies under the uniform-modulo-one null.
 \qed
 \end{proof}
 
 \begin{remark}[Xenon as the integer anchor on successive layers]
 \label{P11:rem:xenon_anchor}
-The fact that both Xe IE$_1$ and Xe IE$_3$ land within $0.017$ of
-consecutive integers ($-12$ and $-13$ respectively) is the multi-layer
-generalisation of the noble-gas high-IE boundary noted in
-Section~\ref{P11:sec:elements}: noble gases mark integer positions on
-\emph{every} layer of the multi-layer spiral, not just the first.
+Xe IE$_1$ and Xe IE$_3$ sit near consecutive integers ($-12$ and
+$-13$), which invites reading noble gases as integer markers on every
+layer of the multi-layer spiral.  The census does not support that
+reading.  Over the tabulated set ($N=146$ ionisation energies), the
+fraction landing within $|\Delta n|\leq0.017$ of an integer is
+$2/146$ against the chance expectation $4.96$ for levels uniformly
+distributed modulo one --- below chance, with binomial $p=0.25$ ---
+and over the strict shell-completion subset (resulting ion carrying a
+noble-gas electron count, $N=8$) there are no hits at all against an
+expectation of $0.27$.  Xenon's placement is therefore recorded as an
+individual coincidence, not evidence of a structural rule; Xe~IE$_1$
+is in any case a boundary case at $|\Delta n|=0.0173$.
 \end{remark}
 
 \subsection{Inner-shell near-degeneracy: the O IE$_6$--Na IE$_5$ pair}
 \label{P11:subsec:inner_degen}
 
 The H--O near-degeneracy ($\Delta n=0.0015$,
-Propositions~\ref{P11:prop:R_equals_1}--\ref{P11:prop:Zeff_closed})
+Proposition~\ref{P11:prop:R_equals_1} and Remark~\ref{P11:rem:oalpha_excess})
 arises because oxygen's outermost electron sees an effective charge
-that forces $\IE(\mathrm{O})\approx\ERy$.  The multi-layer spiral
-contains an exact inner-shell analogue at the $2s$-stripping level.
+that forces $\IE(\mathrm{O})\approx\ERy$.  The multi-layer spiral contains a numerically comparable
+inner-shell pair at the $n_{\rm qn}=2$ stripping level.
 
 \begin{proposition}[Inner-shell near-degeneracy: O\,IE$_6$ and Na\,IE$_5$]
 \label{P11:prop:inner_degen}
@@ -1640,6 +1766,16 @@ $\nlvl{\IE_5(\mathrm{Na})}=-14.5123$, giving
   \label{P11:eq:inner_degen_val}
 \end{equation}
 comparable to the H--O outer-shell near-degeneracy ($|\Delta n|=0.0015$).
+Both values are confirmed by direct census
+($0.002113$ and $0.001527$ respectively).  The trial count must be
+stated with the coincidence: restricting in advance to cross-element
+pairs that strip the same principal quantum number from the same
+sub-shell type gives $892$ candidate pairs over the tabulated set, in
+which $2$ fall within $|\Delta n|\leq0.0021$ against an expectation of
+$0.93$.  The pair is therefore a placement consistent with chance
+under its own selection rule, not a detection; and the O--Na pair does
+not itself satisfy that rule, since the two removals come from
+different sub-shells.
 \end{proposition}
 
 \begin{proof}
@@ -1675,14 +1811,17 @@ by equation~\eqref{P11:eq:master_formula}:
 in agreement with the NIST values $-14.5102$ and $-14.5123$ to four
 decimal places.
 The near-degeneracy arises because the nuclear charge difference
-($Z_{\rm O}=8$ vs $Z_{\rm Na}=11$) is almost exactly compensated
-by the additional screening from the extra $2p^5$ electrons that
-sodium has contributed to its $1s^2$ core relative to oxygen's
-$1s^2$ core: sodium has three more nuclear protons but its ion
-Na$^{4+}$ exposes a $2s$ electron from a $1s^2\,2s^2\,2p^1$
-configuration while O$^{5+}$ exposes a $2s$ electron from
-$1s^2\,2s^1$, and the combined effect places the binding energies
-within $0.28\,\mathrm{eV}$ of each other.
+($Z_{\rm O}=8$ vs $Z_{\rm Na}=11$) is almost exactly compensated by
+the additional screening in the sodium ion.  The two ionisations are
+not of the same sub-shell: O$^{5+}$ has three electrons
+($1s^2\,2s^1$) and IE$_6$ removes its $2s$ electron, while
+Na$^{4+}$ has seven ($1s^2\,2s^2\,2p^3$) and IE$_5$ removes a $2p$
+electron.  What the two share is the principal quantum number
+$n_{\rm qn}=2$ and, empirically, a common effective charge
+$Z_{\rm eff}\approx6.37$ inferred
+from~\eqref{P11:eq:inner_Zeff}; the three extra protons of sodium
+are offset by the screening of its four additional $n=2$ electrons,
+placing the two binding energies within $0.28\,\mathrm{eV}$.
 \qed
 \end{proof}
 
@@ -1691,10 +1830,10 @@ within $0.28\,\mathrm{eV}$ of each other.
 Oxygen and sodium are $\Delta n=1.02$ apart on the first-IE layer
 ($n(\mathrm{O,1})=-12.10$, $n(\mathrm{Na,1})=-11.09$).
 At the fifth/sixth IE layer they converge to within $\Delta n=0.0021$.
-This spiral crossing predicts that O$^{6+}$ and Na$^{5+}$
-(both isoelectronic with He$^0$ after their $2s$ electron is exposed)
-present the same binding energy to a further electron: they become
-chemically equivalent at the extreme oxidation state.
+The two ions are not isoelectronic --- O$^{6+}$ has two electrons
+and Na$^{5+}$ has six --- so the crossing is an equality of binding
+energy for the electron removed at these oxidation states, not an
+identity of electronic structure.
 More generally, Proposition~\ref{P11:prop:master_formula} predicts
 crossings wherever two elements share $Z_{\rm eff}(k)/n_{\rm qn}(k)$
 at some ionisation level $k$; these mark the oxidation states at
@@ -1709,8 +1848,8 @@ Section~\ref{P11:sec:goldschmidt}.
 
 \begin{enumerate}[label=\textbf{[\arabic*]}, leftmargin=*, noitemsep]
 
-\item \textbf{[Closed] Higher ionisation energies on the spiral.}
-Resolved in Section~\ref{P11:sec:successive_IE}.
+\item \textbf{[Partially closed] Higher ionisation energies on the spiral.}
+Addressed in Section~\ref{P11:sec:successive_IE}.
 The master formula (Proposition~\ref{P11:prop:master_formula}) places
 every successive IE on the spiral via
 $\nlvl{\IE_k}=\nlvl{\ERy}-\log_\vp Z_{\rm eff}(k)+\log_\vp n_{\rm qn}(k)$,
@@ -1720,8 +1859,21 @@ Shell-completion IEs land near integer tower levels
 O\,IE$_6$--Na\,IE$_5$ near-degeneracy ($\Delta n=0.0021$) is the
 multi-layer analogue of the H--O outer-shell result
 (Proposition~\ref{P11:prop:inner_degen}).
-Whether the shell-boundary jump sizes have exact $\vp$-ratio structure
-remains open.
+The placement statistics are at chance level (near-integer landings
+$2/146$ against $4.96$ expected; structurally restricted pair
+coincidences $2$ against $0.93$ expected), and supplying
+$Z_{\rm eff}$ independently rather than inverting it from the
+measurement reproduces the tower levels only to
+$|\Delta n|\approx0.95$ on average through the one-electron orbital
+formula, or $|\Delta n|\approx0.19$ through Slater total-energy
+differences (first ionisation energies, $Z\leq20$) --- in the better
+case still an order of magnitude coarser than the near-integer window
+($0.017$) and two orders coarser than the near-degeneracy claims
+($0.002$) --- so the multi-layer placement is
+descriptive at present.  Whether the shell-boundary jump sizes have
+exact $\vp$-ratio structure, and whether an independent
+$Z_{\rm eff}$ prescription can make the placement predictive, remain
+open.
 
 \item \textbf{[Long-term] Derive atomic energy levels from the condensate.}
 The ultimate goal is to show that the tower spacing $\vp^{-2}$,
@@ -1751,6 +1903,24 @@ to the identity, so a fourth cooperative channel carries no independent
 information.
 The falsifiable prediction: no cooperative protein with any number of
 subunits should exhibit $n_H > 3$ under any conditions.
+
+That this bound belongs to the many-body cooperative regime, and not to
+single-atom structure, is supported by a direct check: the
+electrostatic multiplet structure of open shells ($p^2$, $d^2$;
+Ref.~computed in \texttt{src\_paper11/shell\_fusion}) is exactly
+SO(3)/Racah, with term energies rational in the Slater--Condon
+parameters and term count $2l+1$ per shell.  No $\vp$, $k=3$, or
+pentagon signature appears --- the term-energy ratios are rational and
+so provably cannot equal $\vp$, and the ``$3$ terms'' of the $p$-shell
+is $2l+1$ at $l=1$, not the SU(2)$_3$ primary count (it becomes $5$ for
+$d$ and $7$ for $f$).  The condensate's $\vp$ is the quantum-group
+deformation $[2]_q = 2\cos(\pi/5)$ of the ordinary dimension $2$, with
+the fusion truncation appearing as $[k+2]_q = [5]_q = 0$; single atoms
+sit at the classical point $q=1$, where $[n]_q \to n$ and the
+deformation is absent.  The cooperative bound is therefore the operative
+locus for a condensate signature, being the regime in which collective
+modes can probe the $q \neq 1$ (truncated) fusion structure that
+single-configuration term energies cannot.
 
 \end{enumerate}
 
@@ -1789,39 +1959,37 @@ Three immediate structural consequences:
   compatibility that is complementary to the ionic-radius argument.
 \end{enumerate}
 
-\paragraph{Closed-form derivation of $Z_\mathrm{eff}(\mathrm{O})=2$.}
-The near-degeneracy of hydrogen and oxygen on the spiral
-($Z_\mathrm{eff}(\mathrm{O})=2=n_\mathrm{qn}$,
-meaning $\IE(\mathrm{O})=\ERy$ to $0.003\%$)
-is established by a complete two-level closed-form proof
-requiring no numerical Hartree--Fock:
+\paragraph{The hydrogen--oxygen near-degeneracy.}
+Hydrogen and oxygen sit within $\Delta n = 0.0015$ on the spiral.
+What the framework fixes is the Rydberg level itself
+(Corollary~\ref{P11:cor:rydberg}), $n(\ERy) = -12.102$ with no free
+parameters, where hydrogen sits by definition.  Oxygen's landing at
+the same level is a fact of its $1s^22s^22p^4$ structure:
 \begin{itemize}[noitemsep]
-\item \emph{Level~1} (Proposition~\ref{P11:prop:R_equals_1},
-  $O(\aem^0)$):
-  The many-body Hamiltonian $H_8/2\ERy$ in atomic units is
-  independent of $\aem$; its ratio $\IE(\mathrm{O})/\ERy$
-  is a pure number fixed by $Z=8$ and the $1s^22s^22p^4$
-  configuration.
-  The Slater shielding ($\sigma_\mathrm{Slater}=4.45$) plus the
-  Condon--Shortley exchange-correlation correction
-  ($\sigma_\mathrm{xc}=1.55$, established by the Clementi--Raimondi
-  HF calculation~\cite{Clementi1963}) sum to
-  $\sigma_\mathrm{tot}=6.00=Z-n_\mathrm{qn}$, giving
-  $Z_\mathrm{eff}=2$ exactly at $O(\aem^0)$.
-\item \emph{Level~2} (Proposition~\ref{P11:prop:Zeff_closed},
-  $O(\aem^1)$):
-  The WZW Chern--Simons phase $k\aem/(8\pi)$ from Paper~IV
-  (Theorem~thm:second\_spoke) shifts the 2p binding energy by
-  $3\aem/(8\pi)\cdot\ERy = 0.00087\,\ERy$, giving
-  $\IE(\mathrm{O}) = \ERy(1+3\aem/(8\pi)) = 13.6177\,\mathrm{eV}$
-  (experiment: $13.618\,\mathrm{eV}$, $0.003\%$).
-  This is the unique condensate prediction: the coefficient
-  $k=3$ is the WZW level fixed by Papers~I--III.
+\item Slater's rules and the Clementi \emph{et al.} Hartree--Fock
+  constants agree on an orbital effective charge
+  $Z_\mathrm{eff}(\mathrm{O},2p)\approx4.5$, and no screening
+  decomposition can reach the value $6.00$ that
+  $Z_\mathrm{eff}=2$ would require (a single electron cannot screen
+  more than one unit).  The statement $Z_\mathrm{eff}=2$ is the
+  measured $\IE(\mathrm{O})=\ERy$ re-expressed, not an independent
+  result (Proposition~\ref{P11:prop:R_equals_1}).  The exact hydrogenic
+  Slater--Condon algebra fixes $\IE(\mathrm{O})\approx\ERy$ to tens of
+  per cent, with the $2p^4$ pairing penalty ($0.86\,$eV, to $6\%$ of
+  the nitrogen--oxygen anomaly) supplying the drop onto the Rydberg
+  scale.
+\item The residual excess $\IE(\mathrm{O})/\ERy - 1 = 9.04\times10^{-4}$
+  is $O(\aem)$ and coincidentally close to $3\aem/(8\pi)$, but that
+  form is excluded as an additive condensate coupling shift by the
+  hydrogen ionisation energy (Remark~\ref{P11:rem:oalpha_excess}); the
+  excess is $2p^4$ correlation energy, condensate-downstream through
+  the fixed Hamiltonian but not a coupling shift beyond it.
 \end{itemize}
-The derivation chain is now fully closed-form:
+The parameter-free chain reaches the atomic scale but not the
+coincidence's precision:
 $(\TCMB,m_e)\xrightarrow{\text{Papers I--X}}(\aem,m_e)
-\xrightarrow{\text{Prop.~\ref{P11:prop:R_equals_1}}}Z_\mathrm{eff}=2
-\xrightarrow{\text{Prop.~\ref{P11:prop:Zeff_closed}}}Z_\mathrm{eff}=2.00087$.
+\xrightarrow{\text{Cor.~\ref{P11:cor:rydberg}}}n(\ERy)=-12.102$,
+with $\IE(\mathrm{O})\approx\ERy$ an atomic-structure fact.
 
 \paragraph{Successive ionisation energies and the multi-layer spiral.}
 Section~\ref{P11:sec:successive_IE} extends the first-IE analysis to
@@ -1830,17 +1998,21 @@ The master formula (Proposition~\ref{P11:prop:master_formula}) places
 IE$_k$ at tower level
 $\nlvl{\IE_k}=\nlvl{\ERy}-\log_\vp Z_{\rm eff}(k)+\log_\vp n_{\rm qn}(k)$,
 with no free parameters beyond $\aem$ and $m_e$.
-Shell completions land near integer spiral levels: Pb~IE$_3$ at $\Delta n=0.011$
-from $-13$, Xe~IE$_3$ at $\Delta n=0.005$ from $-13$, Xe~IE$_1$ at
-$\Delta n=0.017$ from $-12$ (Proposition~\ref{P11:prop:shell_completion}).
-Xenon thus marks integer positions on successive layers of the multi-layer
-spiral, extending its role as a noble-gas boundary marker
-(Section~\ref{P11:sec:elements}).
+Three shell completions lie near integer spiral levels: Pb~IE$_3$ at
+$\Delta n=0.011$ from $-13$, Xe~IE$_3$ at $\Delta n=0.005$ from $-13$,
+Xe~IE$_1$ at $\Delta n=0.0173$ from $-12$
+(Proposition~\ref{P11:prop:shell_completion}).  A census of the
+tabulated ionisation energies places such landings at or below the
+chance rate, so these are individual placements and not a
+noble-gas integer-marking rule.
 The inner-shell pair O~IE$_6$--Na~IE$_5$ is near-degenerate at
-$|\Delta n|=0.0021$ (Proposition~\ref{P11:prop:inner_degen}), comparable
-to the H--O first-IE result and arising from the same mechanism: two
-elements exposing the same sub-shell electron at the same effective
-charge.  The spiral crossing predicted by this near-degeneracy
+$|\Delta n|=0.0021$ (Proposition~\ref{P11:prop:inner_degen}),
+numerically comparable to the H--O first-IE result and arising from a
+common effective charge $Z_{\rm eff}\approx6.37$ at equal principal
+quantum number, though from different sub-shells.  Both this pair and
+the near-integer shell-completion placements occur at rates consistent
+with chance under their own trial counts, and are recorded as
+placements rather than as evidence of spiral structure.  The spiral crossing predicted by this near-degeneracy
 identifies the oxidation state at which O and Na become
 Goldschmidt-substitutable.
 Theorem~\ref{P11:thm:auc} establishes that spiral proximity $\Delta n$ predicts

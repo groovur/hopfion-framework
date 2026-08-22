@@ -129,11 +129,13 @@ For genuinely long computation (gradient flow relaxation, multi-hour
 sweeps), launch in the background and continue the conversation. Never
 fabricate, predict, or narrate a plausible-sounding result before the
 job actually reports back — status updates should say "still running,"
-not a guessed number dressed up as a preliminary finding.
+not a guessed number dressed up as a preliminary finding. Have the
+background agent run silently, and report when finished.  
 
 ## 11. References
 - No backslashed underscores.
 - No bare paper references. Format as 'Paper~RN~\cite{PaperN}' where RN is the capitalized roman numeral of the paper and N is the arabic numeral.
+- References in the same paper are never numbered, always referred to by the label.
 - No bare reference labes to another paper.
   1. Find the actual reference Theorem/Corollory/Remark/etc. arabic number by:
      a. first checking prior papers for another commented \ref with the same label with an actual number of the Theorem/Remark/Construction/etc. This the primary correct number.

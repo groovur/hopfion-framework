@@ -7,6 +7,84 @@
 %════════════════════════════════════════════════════════════════════
 % Cosmological Constant and Dark Energy — Paper VII
 %════════════════════════════════════════════════════════════════════
+The field equation of~\eqref{P7:eq:parent_action} at homogeneous large
+$\rho$ has the self-consistent attractor solution $\rho=\rinfty$ with
+\begin{equation}
+  \rinfty = \frac{\vp}{\beta},
+  \label{P7:eq:rho_inf}
+\end{equation}
+giving $\rinfty\approx16.18\,\MPl^3$ for $\beta=0.1$. The cosmological
+constant today is
+\begin{equation}
+  \boxed{\Lobs = \Lambda_0\,e^{-\vp^6\rinfty}
+               = \Lambda_0\,e^{-\vp^7/\beta}
+               \approx \MPl^4\times10^{-122}.}
+  \label{P7:eq:Lambda_obs}
+\end{equation}
+The exponent's normalisation constant $c=\rho/\kappa$ between the
+$k$-essence field and the Faddeev--Niemi gradient density is
+\begin{equation}
+  c \;=\; \vp^3 + p_0^2 \;=\; \vp^3\Bigl(1+\frac{1}{\vp^7}\Bigr),
+  \label{P7:eq:cc_c}
+\end{equation}
+where $p_0=1/(1+\bst\rinfty)=1/\vp^2$ is the vacuum Born weight, giving
+$\approx10^{-122}\,\MPl^4$ in agreement with observation.
+
+\begin{proposition}[Cosmological-constant normalisation]
+\label{P7:prop:cc_norm}
+On the density-feedback Euler--Lagrange manifold, the normalisation
+between the $k$-essence field $\rho$ and the Faddeev--Niemi gradient
+density $\kappa$ is
+\begin{equation}
+  c \;\equiv\; \frac{\rho}{\kappa} \;=\; \vp^3 + p_0^{\,Q_H},
+  \label{P7:eq:cc_norm}
+\end{equation}
+with $p_0 = 1/V^{*2}$ the WZW vacuum weight, $V^* = S_{0,1/2}/S_{0,0}$ the
+virial value, and $Q_H$ the Hopf charge. For the $Q_H=2$ icosahedral
+condensate $c = \vp^3 + \vp^{-4}$, giving
+$\Lobs = \Lambda_0 e^{-\vp^7 c/\bst}\approx10^{-122}\,\MPl^4$.
+\end{proposition}
+\status{published}
+\source{P7:prop:cc_norm}
+\begin{proof}
+\emph{Tree normalisation.} The parent kinetic density
+$|\nabla\rho|^2/[\vp^6(1+\bst\kappa)]$, $\kappa=|\nabla\rho|^2$,
+canonically normalises via $d\chi/d\rho=[\vp^6(1+\bst\kappa)]^{-1/2}$;
+in the ultraviolet limit $\bst\kappa\to0$ this is $\vp^{-3}$, so
+$c_{\mathrm{tree}}=\vp^3=\sqrt\lam$.
+
+\emph{Vacuum weight.} The $k=3$ modular $S$-matrix satisfies
+$S_{1/2,1/2}=S_{0,0}$, so the vacuum monodromy scalar is
+$p_0=S_{1/2,1/2}S_{0,0}/S_{0,1/2}^2=(S_{0,0}/S_{0,1/2})^2=1/V^{*2}$,
+with $V^*=S_{0,1/2}/S_{0,0}=\vp$ proved for all $R_0$ by three-fermion
+Witten bosonization (Paper~III). Hence $p_0=1/\vp^2$.
+
+\emph{Linking count.} The vacuum-dressing correction to $c$ is the
+field self-energy: the Hopf charge is the linking number of the
+field's fibre preimages, so the self-energy loop links the condensate
+flux $Q_H$ times and $c_{\mathrm{vac}}=p_0^{\,Q_H}$.
+
+\emph{Assembly.} $c=c_{\mathrm{tree}}+c_{\mathrm{vac}}=\vp^3+p_0^{\,Q_H}$.
+At $Q_H=2$, $c=\vp^3+\vp^{-4}=4.382$, whence $\beta=\bst/c=0.1032$,
+$\rinfty=\vp/\beta=15.68$, and $\Lobs=\Lambda_0e^{-\vp^6\rinfty}=10^{-122.2}\,\MPl^4$.
+\end{proof}
+\status{published}
+\source{P7:prop:cc_norm}
+
+\begin{remark}[Status of the linking step]
+\label{P7:rem:cc_norm_status}
+The tree normalisation, the vacuum weight $p_0=1/V^{*2}$ (with
+$V^*=\vp$ proved by bosonization), and the self-energy Chern--Simons
+Wilson-loop evaluation are all computed. The one topological input is
+that the self-energy loop's linking with the condensate flux equals
+the Hopf charge --- the definition of the Hopf invariant. This is the
+\emph{geometric} Hopf charge $Q_H=2$, distinct from the
+\emph{algebraic} charge $Q=10$ that organises the geometric
+quantisation (Paper~X).
+\end{remark}
+\status{published}
+\source{P7:rem:cc_norm_status}
+
 When $\rho$ is frozen at $\rinfty$ ($\dot\rho=0$), the equation of
 state is $w=-1$ exactly, reproducing $\Lambda$CDM.
 The dark energy scalar mass at the potential minimum is
@@ -15,6 +93,33 @@ The dark energy scalar mass at the potential minimum is
   \label{P7:eq:mxi}
 \end{equation}
 giving $m_\xi\approx H_0\approx10^{-33}\,\mathrm{eV}$, the Hubble scale.
+This is the mass entering the Vainshtein radius~\eqref{P7:eq:rV_exact}.
+
+\begin{remark}[Dark-energy sound speed]
+\label{P7:rem:cs_de}
+The sound speed of the dark-energy scalar's perturbations at the
+attractor is fixed with no free parameters. With
+$K(\rho)=1/[\vp^6(1+\beta\rho)]$ (equation~\eqref{P7:eq:K_attractor}),
+$\beta\rinfty=\vp$ and the golden-ratio identity $1+\vp=\vp^2$, the
+$k$-essence sound speed is
+\begin{equation}
+  c_s^2 \;=\; 1 + \frac{\rinfty K'(\rinfty)}{K(\rinfty)}
+        \;=\; 1 - \frac{\beta\rinfty}{1+\beta\rinfty}
+        \;=\; 1 - \frac{\vp}{\vp^2}
+        \;=\; \frac{1}{\vp^2},
+        \qquad \boxed{c_s=\frac{1}{\vp}}.
+  \label{P7:eq:cs_de}
+\end{equation}
+This is an order-unity (relativistic) speed: dark-energy perturbations
+are smooth on sub-horizon scales and do not cluster, as required of a
+$\Lambda$-like component. It is distinct from the $O(\beta^0)$
+acoustic-metric speed $c_s^2=1$ of the acoustic-Schwarzschild section,
+which sets the propagation cone of $\xi$-fluctuations on the
+black-hole background: the two are the same $k$-essence sound speed
+evaluated at low density and at the attractor respectively.
+\end{remark}
+\status{published}
+\source{P7:rem:cs_de}
 
 \begin{proposition}[EFT self-consistency and UV naturalness]
 \label{P7:prop:eft_naturalness}
@@ -166,32 +271,10 @@ scale at which nonlinear terms begin to dominate.
 \end{equation}
 
 \begin{equation}
-  c_s^2
-  = 1 + \frac{\rinfty K'(\rinfty)}{K(\rinfty)}
-  = 1 - \frac{\beta\rinfty}{1+\beta\rinfty}
-  = 1 - \frac{\vp}{\vp^2}
-  = \frac{1}{\vp^2}.
-  \label{P7:eq:cs_exact}
-\end{equation}
-
-\begin{equation}
   c_s^2 = \frac{\partial P}{\partial\rho}\bigg|_{\rho_0}
         = 1 + O(\beta^3)
   \label{P7:eq:cs_schwarz}
 \end{equation}
-
-\begin{theorem}[Exact golden sound speed]
-\label{P7:thm:cs}
-The sound speed of scalar perturbations of the density-feedback condensate
-at the attractor $\rinfty = \vp/\beta$ is
-\begin{equation}
-  \boxed{c_s \;=\; \frac{1}{\vp},}
-  \label{P7:eq:cs_value}
-\end{equation}
-an exact result with no free parameters.
-\end{theorem}
-\status{published}
-\source{P7:thm:cs}
 
 \begin{equation}
   \delta c_s^2 = -\frac{\beta^3}{4(1+\vp)} \approx -4.2\times10^{-5}
@@ -206,26 +289,95 @@ an exact result with no free parameters.
   \label{P7:eq:dwa_slope}
 \end{equation}
 
-\begin{proposition}[Condensate is pressureless on galactic scales]
-\label{P7:prop:CDM_limit}
-The condensate sound speed $c_s = 1/\vp$ (Theorem~\ref{P7:thm:cs}) implies
-a Jeans length
+%════════════════════════════════════════════════════════════════════
+% Dark Matter: Elastic Strain of the Condensate Director — Paper VII
+%════════════════════════════════════════════════════════════════════
+
+The framework introduces no dark-matter particle. Instead, the
+condensate scalar field $\rho$ acts as the dark-matter component
+through its anisotropic, nematic-like medium.  Its directional
+suppression $S_{\mathrm{eff}}=\sin^4\!\theta/[\vp^6(1+\bst\rho)]$ is the
+angular structure of a semi-Dirac dispersion,
+$H=A\,k_\perp^2\,\sigma_x+v\,k_\parallel\,\sigma_y$, giving
 \begin{equation}
-  \lambda_J
-  \;=\; \frac{2\pi\,c_s}{\sqrt{4\pi G_N\rho_{\rm cond}}}
-  \;\approx\; \frac{2\pi\,c/\vp}{\sqrt{4\pi G_N \times 0.26\,\rho_{\rm crit}}}
-  \;\approx\; 2.8\times10^4\,\mathrm{Mpc},
-  \label{P7:eq:lambda_J}
+  E^2 = A^2 k^4\sin^4\!\theta + v^2 k^2\cos^2\!\theta,
+  \label{P7:eq:semidirac}
 \end{equation}
-where $\rho_{\rm cond}\approx0.26\,\rho_{\rm crit}$ is the observed
-dark-matter density (Planck~2018~\cite{Planck2018}), an observational
-input to this sector alongside $\TCMB$ and $m_e$.
-On all galactic and cluster scales ($r \ll \lambda_J$), the condensate
-is effectively pressureless and behaves as cold dark matter.
-Rotation curves are flat by the same mechanism as CDM.
-\end{proposition}
+whose heavy band carries exactly the angular factor $\sin^4\!\theta$ of
+$S_{\mathrm{eff}}$. The dark-matter physics lives in the orientation
+(director) field $\hat n$, not in the scalar magnitude $\rho$.
 \status{published}
-\source{P7:prop:CDM_limit}
+\source{P7:sec:dark_matter}
+
+Visible matter imposes orientation boundary conditions on the
+director; the director distorts, and the Frank elastic energy
+\begin{equation}
+  F=\tfrac12\int\bigl[K_{\mathrm{splay}}(\nabla\!\cdot\hat{n})^2
+    +K_{\mathrm{bend}}(\hat{n}\times(\nabla\times\hat{n}))^2\bigr]\,d^3x
+  \label{P7:eq:frank}
+\end{equation}
+of the distortion is real energy: it gravitates but carries no
+electromagnetic coupling, so it is invisible. Dark matter is the
+medium's elastic response to visible matter, sourced by and tracking
+the baryons.
+\status{published}
+\source{P7:sec:director_strain}
+
+The two director stiffnesses have opposite signs: bend is stable,
+$K_{\mathrm{bend}}>0$, while splay is unstable, $K_{\mathrm{splay}}<0$.
+The uniform director therefore spontaneously develops a radial splay
+texture --- a disclination configuration that forms without external
+tuning, the self-organised dark-matter configuration.
+\status{published}
+\source{P7:sec:splay_instability}
+
+The orientation Goldstone mode has speed
+\begin{equation}
+  c_{\mathrm{dir}}^2 \;=\; \frac{K}{\chi},
+  \label{P7:eq:cdir}
+\end{equation}
+where $\chi$ is the static susceptibility of the generator of director
+rotations. In the semi-Dirac medium the rotational susceptibility
+diverges faster with the ultraviolet scale than the Frank stiffness
+$K$, so the director is heavy: $c_{\mathrm{dir}}\to0$. The director
+mode is cold --- the decisive contrast with the scalar-magnitude
+perturbation, whose sound speed $c_s=1/\vp$ (Remark~\ref{P7:rem:cs_de})
+is relativistic and belongs to the dark-energy sector, not dark
+matter. Being cold and pressureless, the director strain has no Jeans
+obstruction and clusters on all cosmological and galactic scales. In
+the splay channel, $K_{\mathrm{splay}}<0$ turns~\eqref{P7:eq:cdir} into
+an instability, $c_{\mathrm{dir}}^2<0$, the dynamical form of the
+splay self-organisation above.
+\status{published}
+\source{P7:sec:cold_director}
+
+The stiffnesses have standard (gradient-squared) Frank form, so a
+disclination winding gives director angle $\theta(r)\sim\ln r$, hence
+$|\nabla\hat n|\sim1/r$, elastic energy density $u\sim K/r^2$, and
+enclosed strain mass
+\begin{equation}
+  M_{\mathrm{enc}}(r)=\int u\,dV \;\propto\; r,
+  \label{P7:eq:Menc}
+\end{equation}
+exactly $v^2=GM_{\mathrm{enc}}/r=\text{const}$ --- flat rotation
+curves, with no fitted halo. A smooth, defect-free director gives the
+fast-falling monopole (Keplerian); the flat curve is the signature of
+the splay-driven disclination.
+\status{published}
+\source{P7:sec:flat_curves}
+
+The strain magnitude is set by the physical ultraviolet cutoff of the
+semi-Dirac dispersion --- the condensate scale $m_\xi\sim H_0$. The
+acceleration at which the strain contribution overtakes the Newtonian
+term is therefore of order $cH_0$, coinciding with the empirical MOND
+scale $a_0\approx cH_0/(2\pi)$ and tying the dark-matter and
+dark-energy scales to the same condensate. Reproducing
+$a_0\approx cH_0/(2\pi)$ requires the ratio of $m_\xi$ to the
+semi-Dirac crossover scale to be of order $\vp^6$, the same
+normalisation appearing in $S_{\mathrm{eff}}$ itself; this is a
+framework-native scale, but the precise value is not derived here.
+\status{published}
+\source{P7:sec:accel_scale}
 
 \begin{proposition}[$G_{\rm eff}(r)$ in the screened halo]
 \label{P7:prop:Geff}
@@ -262,33 +414,21 @@ indistinguishable from $G_N$ at the level of rotation-curve measurements.
 \status{published}
 \source{P7:prop:Geff}
 
-\begin{remark}[Rotation curves from condensate halo profile]
-\label{P7:rem:rotation_curves_halo}
-The condensate acts as cold dark matter on galactic scales
-(Proposition~\ref{P7:prop:CDM_limit}) and $G_{\rm eff}(r) = G_N$
-to $6\times10^{-5}$ at rotation-curve radii
-(Proposition~\ref{P7:prop:Geff}).
-Rotation curves are therefore flat by exactly the same mechanism as
-CDM: the condensate forms an NFW-like gravitational halo
-through the standard gravitational instability, with the baryonic
-disk sitting inside a dark halo of condensate.
-No additional mechanism (modified gravity, $G_{\rm eff}$ variation,
-or Vainshtein transition effects) is required at galactic scales.
-
-The leading condensate correction to the Newtonian rotation curve is
-a pressure-gradient term of order $(r/\lambda_J)^2\lesssim5\times10^{-11}$
-at $r\leq r_{\rm halo}$, completely negligible.
-The gravitational coupling correction is $\alpha_{\rm BD}(r/r_V)^{3/2}
-\lesssim6\times10^{-5}$ at $r\leq30\,\mathrm{kpc}$, also negligible.
-
-The primary \emph{new} prediction distinguishing the condensate from
-standard CDM is not in the rotation curves but in the large-scale
-matter power spectrum: the BAO peak shifts by factor $\vp$
-to $k_{\rm BAO}^{\rm cond}\approx0.0346\,\mathrm{Mpc}^{-1}$
-(equation~\eqref{P7:eq:kBAO_shift}), falsifiable with DESI~DR2 and Euclid.
-\end{remark}
+Because the director strain is pressureless, carries no independent
+sound speed, and is sourced by and comoving with the baryons, it adds
+no acoustic feature of its own: it shifts no acoustic scale. This
+no-shift property is firm; it does not, on its own, fix the
+\emph{absolute} acoustic scale. The standard $r_s\approx147\,\mathrm{Mpc}$
+is set by the pre-recombination matter budget, so recovering it
+requires a cold-matter component present at recombination, which is
+tied to the epoch at which the nematic medium orders (not settled
+here): the self-organised texture orders only at $z\sim0$ and is
+absent at recombination, while the recombination-era presence of the
+adiabatic baryon-sourced strain is left open. The firm prediction is
+therefore the \emph{absence of a shift}; recovery of the standard
+scale is contingent on that ordering epoch.
 \status{published}
-\source{P7:rem:rotation_curves_halo}
+\source{P7:sec:bao}
 
 \begin{equation}
   \boxed{w_a \;=\; -3(1+w_0),}
@@ -312,6 +452,44 @@ $w_a=-1.05^{+0.31}_{-0.27}$~\cite{DESI2024}.
 \end{theorem}
 \status{published}
 \source{P7:thm:thawing}
+\begin{proof}
+Near the attractor $\rinfty=\vp/\beta$, the kinetic prefactor
+$K(\rho)=1/[\vp^6(1+\beta\rho)]$ evaluates to
+\begin{equation}
+  K(\rinfty)
+  \;=\; \frac{1}{\vp^6(1+\beta\rinfty)}
+  \;=\; \frac{1}{\vp^6(1+\vp)}
+  \;=\; \frac{1}{\vp^6\cdot\vp^2}
+  \;=\; \frac{1}{\vp^8},
+  \label{P7:eq:K_attractor}
+\end{equation}
+using the golden-ratio identity $1+\vp=\vp^2$. With
+$p_{\mathrm{DE}}=K\dot\rho^2/2-\Lobs$ and
+$\rho_{\mathrm{DE}}=K\dot\rho^2/2+\Lobs$,
+\begin{equation}
+  1+w \;=\; \frac{K\dot\rho^2}{\Lobs} \;=\; \frac{\dot\rho^2}{\vp^8\Lobs} \;\ll\; 1.
+  \label{P7:eq:1pw}
+\end{equation}
+The slow-roll homogeneous field equation $\ddot\rho+3H\dot\rho+\vp^8\Lobs=0$
+gives, in the Hubble-friction dominated regime,
+\begin{equation}
+  3H\dot\rho \;\approx\; -m_\xi^2\delta\rho, \qquad \delta\rho\equiv\rinfty-\rho.
+  \label{P7:eq:slow_roll}
+\end{equation}
+Differentiating~\eqref{P7:eq:1pw} and using $\ddot\rho\approx-3H\dot\rho$:
+\begin{equation}
+  \frac{\dot w}{H}
+  \;=\; \frac{d\ln(1+w)}{d\ln a}
+  \;=\; \frac{2\dot\rho\ddot\rho/(\vp^8\Lobs)}{(1+w)\,H}
+  \;\approx\; -6(1+w),
+  \label{P7:eq:dwda}
+\end{equation}
+so $(1+w)\propto a^{-6}$ backwards from today; with $1+w\to0$ as
+$a\to0$ (frozen field), the growing solution is
+$(1+w)(a)=(1+w_0)a^6$, giving the CPL slope
+$dw/da|_{a=1}=6(1+w_0)$~\eqref{P7:eq:dwa_slope}, and, matching
+$w(a)=w_0+w_a(1-a)$ over the growth-mode mean, $w_a=-3(1+w_0)$.
+\end{proof}
 
 \begin{remark}[DESI consistency and the frozen-field tension]
 \label{P7:rem:desi_consistency}

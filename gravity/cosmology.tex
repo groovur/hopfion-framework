@@ -7,6 +7,36 @@
 %════════════════════════════════════════════════════════════════════
 % Inflation and CMB Observables — Paper VII
 %════════════════════════════════════════════════════════════════════
+The Hopf-spoke formula of Paper~IV, via the Verlinde cancellation,
+establishes that the ratio of the electron mass to the CMB
+temperature is a dimensionless number determined entirely by the
+topology and WZW algebra of the $Q=2$ icosahedral condensate:
+\begin{equation}
+  \frac{m_e}{\TCMB}
+  = \left(\frac{\pi^2}{150}\right)^{\!\!1/4}
+    \cdot\vp^{2Q}\cdot
+    \exp\!\left(\frac{1600\pi - 3}{400}\right)
+  \approx 2.18\times10^9
+  \quad(k_B=1),
+  \label{P7:eq:me_TCMB_ratio}
+\end{equation}
+with the right-hand side involving only $\pi$, $\vp$, $Q=10$, and the
+WZW integers $k=3$, $c=9/5$; no Standard Model parameter enters. Paper
+IV's Verlinde-cancellation theorem sharpens this to
+\begin{equation}
+  \frac{m_e}{\TCMB}
+  \;=\; \left(\frac{\pi^2}{150}\right)^{\!1/4}
+        \cdot\vp^{20}\cdot
+        \exp\!\left(\frac{1600\pi-3}{400}\right)
+        \cdot\bigl(1 + O(R_0^{-2})\bigr),
+  \label{P7:eq:me_TCMB_ratio_corrected}
+\end{equation}
+a dimensionless geometric invariant of the $Q=2$ icosahedral
+condensate accurate to $0.22\%$ ($O(R_0^{-2})$ thick-torus
+correction). The framework previously required two experimental
+inputs, $\TCMB$ and $m_e$; closing the $O(R_0^{-2})$ residual would
+reduce this to one, and is closed in Paper~XII.
+
 \begin{proposition}[Scale modulus: $\TCMB$ is not determined by the condensate dynamics]
 \label{P7:prop:scale_modulus}
 The density-feedback Faddeev--Niemi condensate does not fix the absolute
@@ -14,6 +44,25 @@ energy scale $\Lcond$.  $\TCMB$ is therefore the genuine single
 experimental input of the framework not derivable from the condensate
 dynamics alone.
 \end{proposition}
+\status{published}
+\source{P7:prop:scale_modulus}
+\begin{proof}
+The density-feedback functional $\Efb[f;\beta]=\Kfb(\beta)\cdot\Jfour[f]$
+is invariant under the joint rescaling
+\begin{equation}
+  f(\mathbf{x}) \;\to\; f(s\mathbf{x}),
+  \qquad
+  \beta \;\to\; \beta/s^2,
+  \qquad
+  \Lcond \;\to\; \Lcond/s,
+  \label{P7:eq:scale_rescaling}
+\end{equation}
+for any $s>0$, since $\Jfour\sim\mathrm{length}^{-1}$,
+$\Kfb\sim\mathrm{length}^{+1}$, so $\Efb=\Kfb\cdot\Jfour$ is
+scale-invariant under $\mathbf{x}\to s\mathbf{x}$: no dynamical
+equation fixes the absolute scale $\Lcond$, hence $\TCMB$ must be
+supplied experimentally.
+\end{proof}
 \status{published}
 \source{P7:prop:scale_modulus}
 
@@ -131,6 +180,23 @@ with $\mathcal{P}_s = 2.10\times10^{-9}$ exact.
 \status{published}
 \source{P7:prop:Treh}
 
+The kinetic term of the parent action is non-canonical. Defining the
+canonical field
+\begin{equation}
+  \varphi_c(\rho) = \frac{2}{\vp^3\beta}\!\left[\sqrt{1+\beta\rho}-1\right],
+  \label{P7:eq:phi_c}
+\end{equation}
+the Klein--Gordon equation on FLRW takes the standard form
+$\ddot\varphi_c+3H\dot\varphi_c+V'(\varphi_c)=0$, where
+\begin{equation}
+  V(\varphi_c) = |\Lambda_0|\,e^{-\vp^{12}\varphi_c^2/4}
+  \quad(\beta\rho\gg1,\;\text{early universe}),
+  \label{P7:eq:Vinf}
+\end{equation}
+a Gaussian potential admitting a slow-roll plateau for $\varphi_c\ll2/\vp^6$.
+\status{published}
+\source{P7:sec:inflation}
+
 \begin{remark}[CMB normalisation: robust spectral predictions]
 \label{P7:rem:inflation_gap}
 The tree-level inflationary potential is too steep for slow roll
@@ -148,39 +214,34 @@ normalisation.
 \status{published}
 \source{P7:rem:inflation_gap}
 
-\begin{remark}[Reheating connects inflaton and condensate spectra]
+\begin{remark}[Reheating and the dark-matter initial conditions]
 \label{P7:rem:reheating_IC}
-Early derivations proposed that the condensate field $\rho$
-is \emph{itself} the inflaton, obtaining $\varepsilon\approx\beta/\vp^6
-\approx0.025$.
-This conflicts with the Higgs/Starobinsky inflation above
-($\varepsilon = 2/N_e^2\approx0.001$).
-The physical mechanism here is different but reaches the same conclusion:
-the Higgs inflaton decays at $T_{\rm reh}\approx1.25\times10^8\,\mathrm{GeV}$
-(Proposition~\ref{P7:prop:Treh}) into both radiation and condensate quanta,
-imprinting the scale-invariant spectrum $\mathcal{P}_s = 2.10\times10^{-9}$
-on the condensate as an adiabatic initial condition.
+Reheating after Higgs/Starobinsky inflation
+(Proposition~\ref{P7:prop:Treh}, $T_{\rm reh}\approx1.25\times10^8\,\mathrm{GeV}$)
+populates radiation and establishes the condensate --- the nematic
+medium in which the director then orders. The dark-matter initial
+conditions follow from the director sector. The cold, baryon-sourced
+strain (Section~\ref{P7:sec:cold_director}) inherits the adiabatic
+spectrum $\mathcal{P}_s=2.10\times10^{-9}$ (Proposition~\ref{P7:prop:Treh})
+through the baryons it tracks, with no additional free parameter. The
+splay self-organisation (Section~\ref{P7:sec:splay_instability}) adds a
+\emph{cold} texture component, seeded at the orientational ordering
+transition: an isocurvature contribution. Because the director is
+ultralight ($m_\xi\sim H_0$), it is Hubble-frozen until $H\sim m_\xi$
+and orders only at $z\sim0$; the texture therefore forms in the
+present epoch, is absent at recombination, and carries negligible
+CMB isocurvature, safely below the Planck bound. The same lateness
+fixes what this texture component is: a late-time, galactic-scale
+contribution, not a source of dark matter at recombination. Whether
+the adiabatic baryon-sourced strain instead operates at recombination
+depends on the epoch at which the nematic medium orders --- set by the
+same condensate cutoff and not fixed here; in either case the strain
+shifts no acoustic scale. The earlier proposal that the condensate is
+itself the inflaton, giving $\varepsilon\approx\beta/\vp^6$, is
+excluded by the Higgs/Starobinsky value $\varepsilon=2/N_e^2\approx0.001$.
 \end{remark}
 \status{published}
 \source{P7:rem:reheating_IC}
-
-\begin{proposition}[Inflationary initial conditions --- no free parameter]
-\label{P7:prop:IC_condensate}
-The amplitude of condensate perturbations at matter--radiation equality
-is fully determined by the inflationary power spectrum $\mathcal{P}_s$
-of Proposition~\ref{P7:prop:Treh}, with no additional free parameter.
-Specifically, the condensate density contrast at $a=a_{\rm eq}$ is
-\begin{equation}
-  \frac{\delta\rho_k(a_{\rm eq})}{\rho_{\rm cond}}
-  \;=\; \mathcal{P}_s^{1/2} \cdot T_{\rm cond}(k) \cdot \frac{a_{\rm eq}}{a_0},
-  \label{P7:eq:IC_cond}
-\end{equation}
-where $\mathcal{P}_s = 2.10\times10^{-9}$ is exact
-(Proposition~\ref{P7:prop:Treh}), and $T_{\rm cond}(k)$ is given
-by~\eqref{P7:eq:transfer_cond}.
-\end{proposition}
-\status{published}
-\source{P7:prop:IC_condensate}
 
 \begin{corollary}[Tower compatibility: UV cutoff from the induced Planck mass]
 \label{P7:cor:luv_tower}
@@ -237,23 +298,9 @@ Seeley--DeWitt expansion of the same parent action.
 \source{P7:rem:bogomolny_coincidence}
 
 \begin{equation}
-  \ddot{\delta\rho}_k + 3H\dot{\delta\rho}_k
-  + \left(\frac{k^2}{a^2\vp^2} - 4\pi G_N\rho_b\right)\delta\rho_k
-  = -4\pi G_N\rho_b\,\delta_b(k).
-  \label{P7:eq:condensate_pert}
-\end{equation}
-
-\begin{equation}
   n_s = 1 - \frac{2}{N_e} = 0.9667,
   \qquad
   r = \frac{12}{N_e^2} = 0.0033.
   \label{P7:eq:inflation_predictions}
-\end{equation}
-
-\begin{equation}
-  T_{\rm cond}(k)
-  \;\approx\; \frac{\sin(k\,r_s^{\rm cond})}{k\,r_s^{\rm cond}}
-  \;\times\; T_{\rm CDM}(k),
-  \label{P7:eq:transfer_cond}
 \end{equation}
 

@@ -1287,6 +1287,44 @@ The formula contains no free parameters.
 \end{proposition}
 \status{published}
 \source{P7:prop:neutrino}
+\begin{proof}
+\emph{Step 1 --- Majorana seed (exact).} The $\mathrm{SU}(2)_3/2I$
+orbifold spectrum of Paper~V (Node~6: $\chi_6$, $h=3/8$, dimension~4)
+provides a primary of conformal weight $h=3/8$. Under the condensate
+Yukawa formula $m=\vEW e^{-2\pi Qh}$ with $Q=10$:
+\begin{equation}
+  m_{\mathrm{seed}}
+  \;=\; \vEW\,e^{-2\pi Q\cdot 3/8}
+  \;=\; \vEW\,e^{-15\pi/2}
+  \;\approx\; 14.4\,\mathrm{eV}.
+  \label{P7:eq:mnu_seed}
+\end{equation}
+The $\chi_6$ primary (dimension~4, $\Delta L=2$) is the
+lepton-number-violating vertex, identified within the existing
+orbifold spectrum of Paper~V; no additional mechanism is required.
+
+\emph{Step 2 --- $W$-boson loop regularised by the condensate.} The
+shift symmetry forbids a tree-level Majorana mass. At one loop, the
+$\chi_6$ vertex dresses $m_{\mathrm{seed}}$ with a $W$-boson
+propagator, regulated by the condensate's physical UV cutoff
+$\LUV\approx0.0557\,\MPl$ via the same Seeley--DeWitt heat-kernel
+method used for the induced Planck mass. The logarithmic running term
+is absorbed by the counterterm at scale $\LUV$; the physical mass
+below $M_W$ is the finite threshold correction from matching at the
+$W$ scale:
+\begin{equation}
+  m_\nu
+  \;=\; m_{\mathrm{seed}}\cdot\frac{g_W^2}{16\pi^2}
+        \cdot\left[1 + O\!\left(\frac{M_W^2}{\LUV^2}\right)\right],
+  \label{P7:eq:mnu_matching}
+\end{equation}
+where $M_W^2/\LUV^2\approx1.4\times10^{-32}$ is negligible. Using
+$g_W^2/(16\pi^2)=2\alpha\vp/(3\pi)$: $m_\nu\approx14.4\,\mathrm{eV}
+\times2.51\times10^{-3}\approx36\,\mathrm{meV}$, within $28\%$ of the
+atmospheric oscillation scale $m_{\nu_3}\approx50\,\mathrm{meV}$.
+\end{proof}
+\status{published}
+\source{P7:prop:neutrino}
 
 \begin{remark}[Vertex identification and structural connection]
 \label{P7:rem:neutrino}

@@ -1372,10 +1372,8 @@ labels:
   P7:cor:vainshtein_topology: {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:lorentz:             {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:chameleon:           {paper: paper7, repo_file: gravity/dark_sector.tex}
-  P7:thm:cs:                  {paper: paper7, repo_file: gravity/dark_sector.tex}
-  P7:prop:CDM_limit:          {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:cs_de:               {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:prop:Geff:               {paper: paper7, repo_file: gravity/dark_sector.tex}
-  P7:rem:rotation_curves_halo: {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:thm:thawing:             {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:desi_consistency:    {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:prop:scale_modulus:      {paper: paper7, repo_file: gravity/cosmology.tex}
@@ -1386,11 +1384,93 @@ labels:
   P7:prop:Treh:               {paper: paper7, repo_file: gravity/cosmology.tex}
   P7:rem:inflation_gap:       {paper: paper7, repo_file: gravity/cosmology.tex}
   P7:rem:reheating_IC:        {paper: paper7, repo_file: gravity/cosmology.tex}
-  P7:prop:IC_condensate:      {paper: paper7, repo_file: gravity/cosmology.tex}
   P7:cor:luv_tower:           {paper: paper7, repo_file: gravity/cosmology.tex}
   P7:rem:bogomolny_coincidence: {paper: paper7, repo_file: gravity/cosmology.tex}
   P7:prop:neutrino:           {paper: paper7, repo_file: quantum/neutrino.tex}
   P7:rem:neutrino:            {paper: paper7, repo_file: quantum/neutrino.tex}
+  P7:eq:parent_action:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:parent_kin:           {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Seff:                 {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:scalar_eom:           {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Tmunu:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:GN:                   {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:GN_phys:              {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:poisson:              {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:gravity_sector:       {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:MPl:                  {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:LUV_approx:           {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:einstein_full:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:einstein_frozen:      {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Tcons:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:gamma_PPN:            {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Feff:                 {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:mass_spectrum:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:oBD:                  {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:rV_exact:             {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Phi_Kerr:             {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:rho_Kerr_exact:       {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:oblate_expansion:     {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:mxi:                  {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:cs_de:                {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:acoustic_schwarz:     {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:cs_schwarz:           {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:delta_cs:             {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:dwa_slope:            {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:semidirac:            {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:frank:                {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:cdir:                 {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:Menc:                 {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:alpha_BD:             {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:rV_MW:                {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:Geff_screened:        {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:wa_derived:           {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:thawing:              {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:K_attractor:          {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:1pw:                  {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:slow_roll:            {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:dwda:                 {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:LUV_from_MPl:         {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:nUV_formula:          {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:LUV_correction:       {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:inflation_predictions: {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:inflation_final:      {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Minf:                 {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:xNMC:                 {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Treh:                 {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Treh_window:          {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Ne_window:            {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Ps_seesaw:            {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Ps_corrected:         {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:mnu_prop:             {paper: paper7, repo_file: quantum/neutrino.tex}
+  P7:eq:1loop:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:var_fR:               {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Feff_derived:         {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:NMC_ratio:            {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:Gmunu_zero:           {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:graviton_mass:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:div_T:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:bianchi_split:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:rV_derivation:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:TH:                   {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:TH_correction:        {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:shift:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:eta_pert:             {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:eta_A:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:S1_FP:                {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:eta_macro:            {paper: paper7, repo_file: gravity/newton.tex}
+  P7:eq:rho_inf:              {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:Lambda_obs:           {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:cc_c:                 {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:prop:cc_norm:            {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:cc_norm:              {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:cc_norm_status:      {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:me_TCMB_ratio:        {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:me_TCMB_ratio_corrected: {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:scale_rescaling:      {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:phi_c:                {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:Vinf:                 {paper: paper7, repo_file: gravity/cosmology.tex}
+  P7:eq:mnu_seed:             {paper: paper7, repo_file: quantum/neutrino.tex}
+  P7:eq:mnu_matching:         {paper: paper7, repo_file: quantum/neutrino.tex}
   # Paper VIII labels
   P8:eq:seff_axiom:           {paper: paper8, repo_file: quantum/bell.tex}
   P8:eq:hierarchy_axiom:      {paper: paper8, repo_file: quantum/bell.tex}

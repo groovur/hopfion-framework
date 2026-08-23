@@ -72,10 +72,19 @@ Therefore $I_4/I_{2a} = C(2+1/C)/((C^2+1)(3-1/C)) = C(2C+1)/((C^2+1)(3C-1))$.
 % Pohozaev Identities and Structural Analysis — Paper III (Appendix)
 %════════════════════════════════════════════════════════════════════
 
+\begin{equation}
+  \chi(r,z) \;:=\; (r-R_0)\,f_r + z\,f_z \;=\; f_{\mathrm{DG}}
+  \label{P3:eq:chi_def}
+\end{equation}
+
 \begin{lemma}[BS profile identity $\chi = -\sin f$]
 \label{P3:lem:chi_sinf}
 For $f = 2\arctan(C/\rho)$, $\rho = \sqrt{(r-R_0)^2+z^2}$:
-$\chi := (r-R_0)f_r + zf_z = \rho f'(\rho) = -\sin f$ exactly.
+\begin{equation}
+  \chi \;=\; \rho\,f'(\rho) \;=\; -\sin f
+  \label{P3:eq:chi_sinf}
+\end{equation}
+exactly.
 \end{lemma}
 \status{published}
 \source{P3:lem:chi_sinf}
@@ -84,11 +93,11 @@ $\chi := (r-R_0)f_r + zf_z = \rho f'(\rho) = -\sin f$ exactly.
 \begin{proposition}[Amplitude Pohozaev integrals]
 \label{P3:prop:pohozaev_a}
 For any smooth $Q=2$ profile $f$, the Pohozaev variation $\xi=\sin f$ gives:
-\begin{align*}
-  \int \sin f\cdot\frac{\delta J_{2a}}{\delta f}\,dV &= 6J_{2a}^{cf}, \\
-  \int \sin f\cdot\frac{\delta \Jfb}{\delta f}\,dV &= 2J_{\mathrm{fb}}^{cf2}, \\
-  \int \sin f\cdot\frac{\delta J_4}{\delta f}\,dV &= 6J_4^{cf},
-\end{align*}
+\begin{align}
+  \int \sin f\cdot\frac{\delta J_{2a}}{\delta f}\,dV &= 6J_{2a}^{cf}, \label{P3:eq:poh_J2a}\\
+  \int \sin f\cdot\frac{\delta \Jfb}{\delta f}\,dV &= 2J_{\mathrm{fb}}^{cf2}, \label{P3:eq:poh_Jfb}\\
+  \int \sin f\cdot\frac{\delta J_4}{\delta f}\,dV &= 6J_4^{cf}, \label{P3:eq:poh_J4}
+\end{align}
 where $J_{2a}^{cf} = \int\cos f\cdot\sin^4\!f\cdot\kk\,dV$, etc.
 \end{proposition}
 \status{published}
@@ -106,12 +115,33 @@ additional factor.
 \status{published}
 \source{P3:rem:factor6_vs_2}
 
+At the EL saddle of $E_{\mathrm{fb}} = \Kfb\cdot\Jfour$, the Pohozaev
+identity with $\xi=\sin f$ gives
+\begin{equation}
+  \Jfour\cdot P_{\Kfb} + \Kfb\cdot P_{\Jfour} = 0,
+  \label{P3:eq:pohozaev_efb}
+\end{equation}
+where $P_G := \int\!\sin f\cdot(\delta G/\delta f)\,dV$. Substituting
+Proposition~\ref{P3:prop:pohozaev_a} and setting
+$a := J_{2a}^{cf}/\Ja$, $b := J_4^{cf}/\Jfour$, $c := J_{\mathrm{fb}}^{cf2}/\Jfb$
+gives
+\begin{equation}
+  \Jfour\cdot(6\,J_{2a}^{cf} + 2\mu^*\,J_{\mathrm{fb}}^{cf2}) + \Kfb\cdot 6\,J_4^{cf} = 0,
+  \label{P3:eq:poh_A_full}
+\end{equation}
+which yields
+\begin{equation}
+  V^* \;=\; \frac{-3(a+b)}{\mu^*\,(c+3b)}.
+  \label{P3:eq:V_from_poh_A}
+\end{equation}
+
 \begin{proposition}[Main Pohozaev identity]
 \label{P3:prop:star_identity}
 $V^*=\vp$ if and only if at the EL saddle:
 \begin{equation}
   \sqrt{k+2}\,\frac{J_{\mathrm{fb}}^{cf2}}{\Jfb}
   + 3\!\left(\frac{J_{2a}^{cf}}{\Ja} + 2\vp\,\frac{J_4^{cf}}{\Jfour}\right) = 0.
+  \label{P3:eq:star_identity}
 \end{equation}
 \end{proposition}
 \status{proved (identity exact; $\vp$ selection requires WZW input from Theorem~\ref{P3:thm:bos_main})}
@@ -136,6 +166,32 @@ $\sqrt{k+2}\,J_{\mathrm{fb}}^{cf2}/\Jfb + 3(J_{2a}^{cf}/\Ja + 2\vp J_4^{cf}/\Jfo
 \end{proposition}
 \status{published}
 \source{P3:prop:poh_a_equiv}
+
+\paragraph{Variation (d): Radial dilation, and the $\vp^9\sqrt{\Ja\Jfour}=Q$ conjecture.}
+The Pohozaev virial identity for the tube-expansion generator
+$\xi_b=\chi=(r-R_0)f_r+zf_z$ is
+\begin{equation}
+  J_{2a}\,N_a + \mu^*\,J_{\mathrm{fb}}\,N_{\mathrm{fb}} + K_{\mathrm{fb}}\,N_4 = 0,
+  \label{P3:eq:pohozaev_b}
+\end{equation}
+where $N_a,N_4,N_{\mathrm{fb}}$ are the tube-scaling exponents, rearranging to
+\begin{equation}
+  V^* = -\frac{N_a + N_4}{\mu^*\,(N_{\mathrm{fb}} + N_4)}.
+  \label{P3:eq:virial_V}
+\end{equation}
+For the radial-dilation generator $\xi_d = r\,\partial_r f$, substituting the
+Derrick balance and $P_{\Ja}=-\Ja$ into $\Jfour P_{\Kfb}+\Kfb P_{\Jfour}=0$ gives
+\begin{equation}
+  \Ja = \frac{\vp^5\,\mathcal{B}(R_0)}{2\,(1+2^{4/3})},
+  \label{P3:eq:Ja_from_poh_d}
+\end{equation}
+where $\mathcal{B}(R_0)=\oint_{\partial B_\varepsilon}F_{13}\cdot(r-R_0)\rho^{-1}dS$
+is the Hopf flux of $F_{13}$ through the core tube.  The conjecture
+$\vp^9\sqrt{\Ja\Jfour}=Q$ holds if and only if
+\begin{equation}
+  \mathcal{B}(R_0=3) = \frac{2Q\,(1+2^{4/3})}{\vp^{23/2}\cdot 2^{2/3}} \approx 0.175.
+  \label{P3:eq:B_required}
+\end{equation}
 
 \begin{remark}[The conjecture as a bulk--boundary resonance condition]
 \label{P3:rem:resonance}

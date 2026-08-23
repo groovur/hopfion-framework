@@ -285,7 +285,13 @@ resonance in packing problems --- the same mathematical fact responsible
 for golden-angle phyllotactic spacing in plants~\cite{Jean1994}. That the
 same $\vp$ which minimises this condensate's energy also governs an
 optimal angular packing is therefore a real, if not fully worked out,
-physical connection, not a verbal analogy.
+physical connection, not a verbal analogy.  Independently, $\vp = V^*
+= S_{0,1/2}/S_{0,0}$ is the WZW virial value proved by bosonization
+(Section~\ref{P3:sec:bosonization}), so the denominator is
+$\vp^2=V^{*2}$ and $1/\vp^2 = \operatorname{Tr}[\rho\,U_{\mathrm{mono}}]$
+is the vacuum Born weight: $360/\vp^2 = k|2I|/V^{*2}$ is the anyonic
+observable of Remark~\ref{P3:rem:packing_layers}, a modular grounding
+of the denominator complementing the packing one.
 
 \emph{(ii) Why the numerator is $360$ (established).} $360 =
 Q\times(\pi/5\text{ in degrees})$, exactly, with $Q=10$ the established
@@ -303,6 +309,65 @@ Result~\ref{P3:prop:cascade}, Open Problem~4).
 \end{remark}
 \status{published}
 \source{P3:rem:why_golden_angle}
+
+%════════════════════════════════════════════════════════════════════
+% Cascade numerics and the golden angle — Paper III
+%════════════════════════════════════════════════════════════════════
+
+The golden angle at which successive icosahedral packing layers are
+arranged is
+\begin{equation}
+  \thetaG \;=\; \frac{360}{\vp^2} \;=\; 137.508^\circ\ldots
+  \label{P3:eq:golden_angle}
+\end{equation}
+and the two independent gaps feeding into $\Delta_1,\Delta_2$
+(Result~\ref{P3:prop:cascade}) are
+\begin{align}
+  \Delta_1 &= \frac{\vp^6}{\sin^4(\pi/5)} - \frac{360}{\vp^2}
+           = 12.824,
+  \quad (96.5\%\text{ of total gap}),
+  \label{P3:eq:delta1}\\
+  \Delta_2 &= \frac{360}{\vp^2} - \aInv_{\mathrm{phys}}
+           = 0.472,
+  \quad (3.5\%\text{ of total gap}).
+  \label{P3:eq:delta2}
+\end{align}
+The link between the LSC virial gap and the $\alpha$ gap is the chain
+\begin{equation}
+  \aInv_{\mathrm{geo}} - \aInv_{\mathrm{phys}}
+  \;=\; \Delta_1 + \Delta_2,
+  \label{P3:eq:chain_full}
+\end{equation}
+with the LSC-side and $\alpha$-side gaps
+\begin{equation}
+  \delta_{\mathrm{LSC}} \;=\; \frac{J_4/J_{2a} - 2^{4/3}/\vp^5}{2^{4/3}/\vp^5},
+  \label{P3:eq:lsc_gap}
+\end{equation}
+independent of $\delta_\alpha$ (Eq.~\eqref{P3:eq:alpha_gap}), as
+established by Remark~\ref{P3:rem:two_gaps_independent}.
+The one-loop WZW running coefficient follows from integrating the beta
+function~\eqref{P3:eq:beta_wzw}:
+\begin{equation}
+  \aInv(\mu_{\mathrm{IR}}) - \aInv(\mu_{\mathrm{UV}})
+  \;=\; -\frac{k}{2\pi}\int_{\mu_{\mathrm{UV}}}^{\mu_{\mathrm{IR}}}\frac{d\log\mu}{1}
+  \;=\; -\frac{k}{2\pi}\log\frac{\mu_{\mathrm{IR}}}{\mu_{\mathrm{UV}}},
+  \label{P3:eq:running_integral}
+\end{equation}
+giving the $\Delta_2 = k/(2\pi)$ step of the cascade. The formula
+$\aInv = 360/\vp^2 - k/(2\pi) = 137.030$ differs from the measured
+$137.036$ by the algebraic identity
+\begin{equation}
+  \aInv_{\mathrm{meas}} - \left(\frac{360}{\vp^2} - \frac{k}{2\pi}\right)
+  \;=\; \frac{k}{2\pi} - \Delta_2
+  \;=\; 0.006,
+  \label{P3:eq:residual_identity}
+\end{equation}
+where $\Delta_2 = 360/\vp^2 - \aInv_{\mathrm{meas}} = 0.4718$ is the
+second step of the cascade~\eqref{P3:eq:cascade}. This identity is
+algebraic, not additional evidence: both sides are the same quantity
+by definition (Remark~\ref{P3:rem:residual_status}).
+\status{published}
+\source{P3:sec:numerics}
 
 %════════════════════════════════════════════════════════════════════
 % Three- and Four-Term Formulas — Paper IV

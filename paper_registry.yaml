@@ -1112,6 +1112,64 @@ labels:
   P3:prop:poh_a_equiv:       {paper: paper3, repo_file: profile/bps.tex}
   P3:rem:resonance:          {paper: paper3, repo_file: profile/bps.tex}
   P3:rem:five_forms:         {paper: paper3, repo_file: profile/bps.tex}
+  P3:rem:delta1_candidate:   {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:rem:packing_layers:     {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:alpha_geo:           {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:wzw_running:         {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:alpha_formula:       {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:alpha_gap:           {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:beta_wzw:            {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:kappa_wzw:           {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:cascade:             {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:delta1_candidate:    {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:golden_angle:        {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:delta1:              {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:delta2:              {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:chain_full:          {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:lsc_gap:             {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:running_integral:    {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:residual_identity:   {paper: paper3, repo_file: foundations/alpha.tex}
+  P3:eq:bos_bound:           {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:eq:fusion:              {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:eq:verlinde_phi:        {paper: paper3, repo_file: foundations/wzw_group.tex}
+  P3:eq:bridge:              {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:virial:              {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:kfb_simplified:      {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:lsc:                 {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:equiv_chain:         {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:V_exact:             {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:kappa_def:           {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:Pkappa_def:          {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:V_integral:          {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:kappa_torus:         {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:Ja_exact:            {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:J4_exact:            {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:V0_split:            {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:V0_limit:            {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:universal_phi:       {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:I2a_exact:           {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:I4tube_exact:        {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:I4wind_exact:        {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:wind_ratio:          {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:J4J2a_full:          {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:master_relation:     {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:Cstar_R0:            {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:cancellation:        {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:lsc_limit:           {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:item_b:              {paper: paper3, repo_file: profile/virial.tex}
+  P3:eq:chi_def:             {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:chi_sinf:            {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:poh_J2a:             {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:poh_Jfb:             {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:poh_J4:              {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:pohozaev_efb:        {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:poh_A_full:          {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:V_from_poh_A:        {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:star_identity:       {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:pohozaev_b:          {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:virial_V:            {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:Ja_from_poh_d:       {paper: paper3, repo_file: profile/bps.tex}
+  P3:eq:B_required:          {paper: paper3, repo_file: profile/bps.tex}
   # Paper IV labels
   P4:thm:compton:              {paper: paper4, repo_file: electroweak/lepton_masses.tex}
   P4:rem:precision_identification: {paper: paper4, repo_file: electroweak/lepton_masses.tex}

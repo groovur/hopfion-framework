@@ -287,7 +287,12 @@ This remark is promoted to a theorem with explicit error bounds below
 At energies $E\ll r_{\mathrm{core}}^{-1}$, the 3+1D condensate $k$-essence
 action is equivalent to the $\mathrm{SU}(2)_3$ WZW action plus three free
 Dirac fermions, with corrections bounded by
-$\|S_{3+1\mathrm{D}} - S_{\mathrm{WZW}}\| \leq C(Er_{\mathrm{core}})^2 R_0^{-2}$.
+\begin{equation}
+  \bigl\|S_{3+1\mathrm{D}} - S_{\mathrm{WZW}}\bigr\|
+  \;\leq\; C\,(E\,r_{\mathrm{core}})^2\,R_0^{-2},
+  \label{P3:eq:bos_bound}
+\end{equation}
+where $C$ is a universal constant depending only on $k=3$ and $Q=10$.
 The WZ term descends from the 3+1D topological term via Zumino descent, and
 the $\mathrm{SU}(2)_3$ level $k=3$ is preserved exactly.
 \end{theorem}
@@ -320,8 +325,12 @@ convergence of the KK expansion for non-static configurations.
 \begin{proposition}[$Q=2$ sector assignment]
 \label{P3:prop:q2_sector}
 The $Q=2$ Hopfion is the singlet ($j=0$) bound state of two $Q=1$ Hopfions
-in the fusion decomposition $j_{1/2}\otimes j_{1/2} = j_0\oplus j_1$ of
-$\mathrm{SU}(2)_3$.  The singlet has conformal dimension $h_0=0 < h_1=2/5$
+in the fusion decomposition
+\begin{equation}
+  j_{\,1/2} \otimes j_{\,1/2} \;=\; j_0 \;\oplus\; j_1
+  \label{P3:eq:fusion}
+\end{equation}
+of $\mathrm{SU}(2)_3$.  The singlet has conformal dimension $h_0=0 < h_1=2/5$
 and is the physical ground state.
 \end{proposition}
 \status{published}
@@ -336,6 +345,7 @@ primary operator $\phi_{1/2}$ is
   = \frac{S_{0,1/2}}{S_{0,0}}
   = \frac{\sin(2\pi/5)}{\sin(\pi/5)}
   = 2\cos(\pi/5) = \vp.
+  \label{P3:eq:verlinde_phi}
 \end{equation}
 \end{theorem}
 \status{published}

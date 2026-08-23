@@ -45,7 +45,7 @@ hopfion-framework/
 ├── gravity/
 │   ├── newton.tex            # G_N, Einstein equations, Cassini bound, Kerr background
 │   ├── cosmology.tex         # Inflation, n_s, r, P_s, N_e, reheating
-│   ├── dark_sector.tex       # Λ_obs, w_a, c_s=1/φ, BAO shift, Vainshtein
+│   ├── dark_sector.tex       # Λ_obs, w_a, c_s=1/φ, Vainshtein
 │   └── wep_instanton.tex     # Weak equivalence principle, instanton suppression
 │
 ├── quantum/

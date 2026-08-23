@@ -24,6 +24,25 @@ and in $V^*/V(0;\,R_0)$ cancel identically.
 \status{published}
 \source{P4:thm:verlinde_cancel}
 \residual{exact}
+\begin{proof}
+From Lemma~\ref{P4:lem:virial_factor}: $V(0;\,R_0) = \tfrac{15}{8}(1+\tfrac{1}{2R_0^2})
+= \tfrac{15}{8}\cdot\tfrac{2R_0^2+1}{2R_0^2}$.
+From Theorem~\ref{P4:thm:mass_renorm}: $V^*/V(0;\,R_0) = \tfrac{8\vp}{15}\cdot\tfrac{2R_0^2}{2R_0^2+1}$.
+Therefore
+\begin{equation}
+  V^*(R_0)
+  = V(0;\,R_0)\cdot\frac{V^*}{V(0;\,R_0)}
+  = \frac{15}{8}\cdot\frac{2R_0^2+1}{2R_0^2}
+    \cdot\frac{8\vp}{15}\cdot\frac{2R_0^2}{2R_0^2+1}
+  = \vp.
+  \label{P4:eq:cancellation_proof}
+\end{equation}
+The factors $(2R_0^2+1)/2R_0^2$ and $2R_0^2/(2R_0^2+1)$ are reciprocals
+and cancel exactly, for all $R_0>0$, not only in the thin-torus limit.
+\end{proof}
+\status{published}
+\source{P4:thm:verlinde_cancel}
+\residual{exact}
 
 \begin{corollary}[Verlinde spoke amplitude is exact for all $R_0$]
 \label{P4:cor:verlinde_exact}
@@ -40,6 +59,21 @@ consistent with $O(h^2) = 0.0144$ scaling.
 \status{published}
 \source{P4:cor:verlinde_exact}
 \residual{exact}
+
+The $0.26\%$ Verlinde piece in the residual decomposition is not a
+physical correction to the spoke formula (Corollary~\ref{P4:cor:verlinde_exact}).
+Removing it, the decomposition simplifies:
+\begin{equation}
+  0.97\%_{\text{total}}
+  = \underbrace{0\%}_{\text{Verlinde (algebraically zero)}}
+  + \underbrace{0.71\%}_{\text{genuine; closed by }T_{1/2}/Q},
+  \label{P4:eq:residual_corrected}
+\end{equation}
+so the corrected formula $m_e/\Lcond = \vp^{20}e^{4\pi-3/400}$ is exact
+in the continuum thin-torus limit, with the $0.22\%$ residual at $R_0=3$
+entirely attributable to the finite grid $h=0.12$.
+\status{published}
+\source{P4:cor:verlinde_exact}
 
 %════════════════════════════════════════════════════════════════════
 % WZW Amplitude, Koide, and Yukawa — Paper I

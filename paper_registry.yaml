@@ -1217,6 +1217,71 @@ labels:
   P4:rem:msbar_origin:         {paper: paper4, repo_file: foundations/alpha.tex}
   P4:rem:qed_regime_clarification: {paper: paper4, repo_file: foundations/alpha.tex}
   P4:cor:four_term_unconditional: {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:bare_mass_3D:          {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:me_single_input:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:three_term:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:four_term:             {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:fusion:                {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:spoke_mass_spectrum:   {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:k3_unique:             {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:spoke_leading:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:spoke_corrected:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:alpha_unconditional:   {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:pole_msbar:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:spoke_pole_corrected:  {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:bstar_eq:              {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:bstar_newton:          {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:exponent_decomp:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:t_open_val:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:locked_angle:          {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:kappa_identity:        {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:kappa_wind_exact:      {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:virial_factor:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:h12_c12:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:T12_val:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:three_forms:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:vew_leading:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:vew_corrected:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:spoke_formula:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:four_term_unconditional: {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:V_spectral:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:me_alpha_sensitivity:  {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:spectral:              {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:vfp_spectral:          {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:virial:                {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:delta_cs:              {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:mass_ratio:            {paper: paper4, repo_file: electroweak/lepton_masses.tex}
+  P4:eq:Vstar_exact:           {paper: paper4, repo_file: electroweak/yukawa.tex}
+  P4:eq:cancellation_proof:    {paper: paper4, repo_file: electroweak/yukawa.tex}
+  P4:eq:residual_corrected:    {paper: paper4, repo_file: electroweak/yukawa.tex}
+  P4:eq:me_TCMB_ratio:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:delta_qed:             {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:mwzw_from_b:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:delta_exact:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:cs_factor:             {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:term4:                 {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:channel_12:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:channel_1:             {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:channel_0:             {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:topen_j:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:me_derived:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:me_formula:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:me_formula_corrected:  {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:me_meas:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:verlinde_spoke:        {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:residual_decomp:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:genuine_gap:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:Zclosed:               {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:delta_mono:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:corrected_num:         {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:old_chain_3eqs:        {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:full_chain:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:mWZW_ratio:            {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:delta_qed_final:       {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:consistency_condition: {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:chain_final:           {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:wzw_beta_running:      {paper: paper4, repo_file: foundations/alpha.tex}
+  P4:eq:running_to_MZ:         {paper: paper4, repo_file: foundations/alpha.tex}
   # Paper V labels
   P5:prop:deff_exact:          {paper: paper5, repo_file: strong/qcd_coupling.tex}
   P5:thm:Kth:                  {paper: paper5, repo_file: strong/qcd_coupling.tex}

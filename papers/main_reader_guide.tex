@@ -85,7 +85,7 @@ re-derives, from a single-input condensate model, the same numerical values that
 the Standard Model accommodates as free parameters. It does not predict
 deviations from known SM observables at any energy scale that has been probed;
 it predicts deviations only where the SM is silent (the cosmological sector,
-lepton Bell tests, and BAO peak position). The reader who expects a contradiction
+lepton Bell tests, and the thawing dark-energy equation of state). The reader who expects a contradiction
 with established particle physics will not find one, and this guide explains
 precisely why.
 
@@ -254,6 +254,18 @@ A reader who wants the cleanest path to the most novel result should read the
 Foundational Companion, then I, III, VI, IX, X, XII, XIII, XIV, XV, XVII in order;
 XVI is best read as a companion to XV for readers specifically interested in
 the quark-mass open problem.
+
+\paragraph{A recurring constant.} A single modular quantity threads several
+of these results: the WZW virial value $V^* = S_{0,1/2}/S_{0,0} = \vp$,
+proved by three-fermion Witten bosonization (Paper~III~\cite{Paper3}),
+reappears as the fine-structure constant $\aem^{-1} = k|2I|/V^{*2}
+= 360/\vp^2$, as the cosmological-constant normalisation
+$c = \vp^3 + V^{*-2Q_H}$ (Paper~VII~\cite{Paper7}), and as the leading
+solar mixing angle $\tan\theta_{12}^{(0)} = 1/V^*$
+(Paper~XVII~\cite{Paper17}); the vacuum Born weight $p_0 = 1/V^{*2}$ is
+common to all three.  What looks in each sector like an independent
+appearance of the golden ratio is at root the same proved quantum
+dimension $V^* = d_{1/2}$.
 
 %═══════════════════════════════════════════════════════════════════════════════
 \section{Paper-by-paper entry guide}
@@ -458,18 +470,24 @@ Cassini resolution.
 \textbf{The cosmological constant.}
 The vacuum energy is not absent but bound inside the condensate. The cosmological constant problem is addressed via the chameleon mechanism
 built into the density-feedback denominator $1/(1+\bst\rho)$: the vacuum energy
-is screened at cosmological densities to give  $\Lambda_{\mathrm{obs}} \approx 10^{-122}M_{\mathrm{Pl}}^4$ as a geometric consequence of $\rho_\infty = \vp/\bst$ and $1+\vp=\vp^2$. The relevant attractor density $\rho_\infty$ is a fixed point of the
+is screened at cosmological densities by the suppression $\Lambda_0 e^{-\vp^7/\beta}$. A canonical leading normalisation $c=\varphi^3$ gives $\sim10^{-118}M_{\mathrm{Pl}}^4$, refined by an anyonic $p_0^2$ correction (the squared vacuum Born weight $p_0=1/\varphi^2$) to $\approx10^{-122}M_{\mathrm{Pl}}^4$, matching the observed $\Lambda_{\mathrm{obs}}$. The relevant attractor density $\rho_\infty = \vp/\beta$ is a fixed point of the
 condensate equation of motion; the screening is not a fine-tuning but
-a saddle-point condition.
+a saddle-point condition. The leading $c=\varphi^3$ is the kinetic canonical normalisation; the $p_0^2$ refinement is $p_0^{Q_H}$ with $Q_H=2$ the condensate's Hopf charge --- one Chern--Simons monodromy insertion ($p_0=1/V^{*2}=1/\varphi^2$, the same $S$-matrix scalar that carries $\aem^{-1}=k|2I|\,p_0$) per unit of Hopf linking, computed as a Wilson loop in the quantised background (Paper~VII~\cite{Paper7}). The one topological input --- that the self-energy loop's linking equals the Hopf charge --- is the definition of the Hopf invariant, so the derivation stands at the same level as the leading $\aem^{-1}$ cascade.
 
 \textbf{Dark matter.}
-Condensate perturbations cluster gravitationally with sound speed
-$c_s = 1/\vp$ at density $\rho_\infty$ (exact from $\vp^2=\vp+1$).
-The Jeans length is $\approx20{,}000\,\mathrm{Mpc}$, so the condensate
-is pressureless on all galactic and cluster scales. No new particle is introduced.
-The primary prediction distinguishing this from CDM:
-a BAO peak shift by factor $\vp$ to $k_{\mathrm{BAO}}^{\mathrm{cond}}
-\approx0.0346\,\mathrm{Mpc}^{-1}$ (falsifiable with DESI DR2, Euclid).
+Dark matter is the invisible Frank elastic strain of the condensate
+\emph{director} (its orientation field $\hat{n}=\hat{e}_r$), not a new
+particle and not clustering of the scalar magnitude. The directional
+suppression $S_{\mathrm{eff}}=\sin^4\theta$ is a semi-Dirac dispersion
+anisotropy; its orientation mode is cold ($c_{\mathrm{dir}}\to0$,
+pressureless), splay-unstable, and self-organises into a disclination
+that gives $M_{\mathrm{enc}}\propto r$ and flat rotation curves with no
+fitted halo, tracking the baryons and the radial-acceleration relation
+with a MOND-scale acceleration $a_0\approx cH_0/(2\pi)$ set by the same
+condensate. Being pressureless and comoving with the baryons, it shifts
+no acoustic scale: the standard $r_s\approx147\,\mathrm{Mpc}$ is
+preserved. (The relativistic sound speed $c_s=1/\vp$ belongs to the
+dark-\emph{energy} perturbations, not to dark matter.)
 
 \textbf{Inflation.}
 The non-minimal coupling of $\rho$ to curvature gives a Higgs--Starobinsky
@@ -566,10 +584,13 @@ being a fixed tower level;
 (iii) Goldschmidt geochemical substitution pairs cluster within
 $\Delta n < 0.004$ on the spiral.
 
-The key new derivation (Propositions 5.1 and 5.3) proves $Z_{\mathrm{eff}}(\mathrm{O})=2$
-in two levels: Level~1 from $Z=8$ and the Slater--Condon exchange algebra alone
-(no numerical HF); Level~2 from the WZW Chern--Simons correction of Paper~IV~\cite{Paper4}
-giving the $0.087\%$ shift to $Z_{\mathrm{eff}}=2.00087$.
+The paper is explicit about the status of $Z_{\mathrm{eff}}(\mathrm{O})=2$:
+it is a re-parametrisation of the measured oxygen ionisation energy through
+the Slater--Condon angular algebra, not an independent prediction of the
+value (the screening that returns $Z_{\mathrm{eff}}=2$ is fixed by the
+measured energy). The residual $O(\alpha)$ excess is numerically close to
+$3\alpha/8\pi$, but that form is excluded on scaling grounds; it is the
+ordinary $2p^4$ correlation energy, not a condensate correction.
 
 \subsection{Paper XII: Profile normalisation and the one-parameter chain}
 
@@ -984,10 +1005,10 @@ with lightest neutrino mass $\sim3\times10^{-3}$\,eV (Paper~VII~\cite{Paper7}, P
 cosmological data not yet available at the sensitivity needed.
 
 \textbf{Dark matter direct detection.} The condensate acts as dark matter via
-clustering of condensate perturbations (sound speed $c_s = 1/\vp$ at the
-attractor density), not through a new particle. It therefore predicts \emph{null
-results} in all dark-matter direct-detection experiments, consistent with all
-existing constraints.
+the invisible elastic strain of its director field, not through a new particle
+and not through any electromagnetically coupled state. It therefore predicts
+\emph{null results} in all dark-matter direct-detection experiments, consistent
+with all existing constraints.
 
 \textbf{Deviation from GR at laboratory scales.} The Vainshtein mechanism
 (Paper~VII~\cite{Paper7}, Theorem~6.9) suppresses scalar fifth-force
@@ -1033,10 +1054,13 @@ is acknowledged in Paper~XI~\cite{Paper11}.
 for loophole-free lepton Bell tests has not yet been tested. No existing Bell
 experiment uses lepton spin in the geometry required.
 
-\textbf{The BAO peak shift.} The prediction $k_{\mathrm{BAO}}^{\mathrm{cond}}
-= \vp \times k_{\mathrm{BAO}}^{\mathrm{CDM}} \approx 0.0346\,\mathrm{Mpc}^{-1}$
-distinguishes the condensate from standard CDM. It is falsifiable with DESI DR2
-and Euclid.
+\textbf{The dark-matter strain magnitude.} The director-strain mechanism gives
+flat rotation curves and a MOND-scale $a_0\approx cH_0/(2\pi)$ of the right
+order, but the exact coefficient (the cutoff-to-crossover ratio, of order
+$\vp^6$) and whether the strain also supplies the recombination-era matter
+budget are set by the condensate cutoff and not yet fixed. The sector is
+pressureless and comoving with the baryons, so it shifts no acoustic scale and
+makes no BAO-shift prediction.
 
 \textbf{The WZW bosonization in 3+1D.}
 Paper~III~\cite{Paper3}, Theorem~10.3
@@ -1165,13 +1189,13 @@ could also agree is a separate question.
 The framework is falsifiable at multiple scales simultaneously:
 \begin{enumerate}[noitemsep]
 \item $w_a \neq -3(1+w_0)$ at DESI DR2 or Euclid at $>3\sigma$.
-\item BAO peak position not shifted by factor $\vp$ at DESI DR2.
+\item Dark matter detected as a new particle (direct detection or collider); the framework predicts strictly null.
 \item Loophole-free lepton Bell test giving $\CHSH > 8/3$ at $>5\sigma$.
 \item CMB-S4 tensor-to-scalar ratio $r \gg 0.0036$.
 \item A new SM-sector resonance at energies accessible to current experiments.
 \item Free-electron mass anisotropy $\Delta m/m_e \neq 1/\vp^8$ in a Penning trap.
 \end{enumerate}
-Items 1--2 will be resolved within the next two to three years by DESI DR2.
+Item 1 will be resolved within the next two to three years by DESI DR2.
 
 %═══════════════════════════════════════════════════════════════════════════════
 \section{Summary: how to evaluate the series}
@@ -1195,8 +1219,9 @@ It does not contradict any established SM or GR observation.
 Its primary open vulnerabilities, for a rigorous evaluator, are: the $3+1$D
 bosonization extension (not fully rigorous), the subleading WZW corrections
 to $\aem$ (computed to one loop, not two), the experimental status of the
-DESI and BAO predictions (awaiting DR2), and the free-electron mass
-anisotropy prediction ($\Delta m/m_e = 1/\vp^8$, untested).
+DESI thawing dark-energy prediction (awaiting DR2), the dark-matter strain
+magnitude (cutoff-set), and the free-electron mass anisotropy prediction
+($\Delta m/m_e = 1/\vp^8$, untested).
 
 The most important single result, in the view of this guide, is Paper~X's
 canonical quantisation. If the Hilbert space, Born rule, and Fibonacci spectrum

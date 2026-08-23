@@ -507,12 +507,14 @@ papers:
       - P11:rem:level20_dual_use
       - P11:rem:spiral_measures
       - P11:prop:R_equals_1
+      - P11:rem:pairing_penalty
       - P11:rem:sigma_xc_origin
-      - P11:prop:Zeff_closed
+      - P11:rem:oalpha_excess
       - P11:rem:two_level
       - P11:rem:k8pi_origin
       - P11:rem:hund_HO_coincidence
       - P11:rem:why_water_forms
+      - P11:rem:alkali_reactivity
       - P11:thm:auc
       - P11:rem:threshold_analysis
       - P11:prop:goldschmidt
@@ -520,6 +522,12 @@ papers:
       - P11:conj:spiral_pt
       - P11:prop:icosahedrite
       - P11:rem:icosahedrite_structure
+      - P11:prop:master_formula
+      - P11:rem:first_IE_special
+      - P11:prop:shell_completion
+      - P11:rem:xenon_anchor
+      - P11:prop:inner_degen
+      - P11:rem:spiral_crossing
 
   - id: paper12
     name: "The Profile Normalisation Conjecture: Proof via CMB Energy Identity, Icosahedral Newton Series, and Two-Route Equivalence"
@@ -1378,12 +1386,14 @@ labels:
   P11:rem:level20_dual_use:   {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:spiral_measures:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:prop:R_equals_1:        {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:pairing_penalty:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:sigma_xc_origin:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
-  P11:prop:Zeff_closed:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:oalpha_excess:      {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:two_level:          {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:k8pi_origin:        {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:hund_HO_coincidence: {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:why_water_forms:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:alkali_reactivity:  {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:thm:auc:                {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:rem:threshold_analysis: {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:prop:goldschmidt:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
@@ -1391,6 +1401,12 @@ labels:
   P11:conj:spiral_pt:         {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   P11:prop:icosahedrite:      {paper: paper11, repo_file: chemistry/icosahedrite.tex}
   P11:rem:icosahedrite_structure: {paper: paper11, repo_file: chemistry/icosahedrite.tex}
+  P11:prop:master_formula:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:first_IE_special:   {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:shell_completion:  {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:xenon_anchor:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:prop:inner_degen:       {paper: paper11, repo_file: chemistry/phi_spiral.tex}
+  P11:rem:spiral_crossing:    {paper: paper11, repo_file: chemistry/phi_spiral.tex}
   # Paper XII labels
   P12:thm:A:                  {paper: paper12, repo_file: profile/normalisation.tex}
   P12:rem:ord10:               {paper: paper12, repo_file: profile/normalisation.tex}

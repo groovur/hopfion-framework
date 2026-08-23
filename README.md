@@ -203,7 +203,7 @@ git checkout main && git merge new-result-name
 
 | Command | Usage |
 |---------|-------|
-| `\status{proved}` | Formally proved in a published paper |
+| `\status{published}` | Formally published in a paper |
 | `\status{draft}` | From a draft paper — may change |
 | `\status{open}` | Open problem or conjecture |
 | `\status{prediction}` | Untested experimental prediction |

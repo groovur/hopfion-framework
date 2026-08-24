@@ -337,10 +337,7 @@ papers:
       - P7:cor:vainshtein_topology
       - P7:rem:lorentz
       - P7:rem:chameleon
-      - P7:thm:cs
-      - P7:prop:CDM_limit
       - P7:prop:Geff
-      - P7:rem:rotation_curves_halo
       - P7:thm:thawing
       - P7:rem:desi_consistency
       - P7:prop:scale_modulus
@@ -351,7 +348,6 @@ papers:
       - P7:prop:Treh
       - P7:rem:inflation_gap
       - P7:rem:reheating_IC
-      - P7:prop:IC_condensate
       - P7:cor:luv_tower
       - P7:rem:bogomolny_coincidence
       - P7:prop:neutrino

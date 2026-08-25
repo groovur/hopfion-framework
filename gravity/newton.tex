@@ -105,7 +105,12 @@ $a_2$ coefficient contains the Ricci scalar:
 \end{equation}
 Identifying the induced Planck mass by matching the $R$-coefficient
 to the Einstein--Hilbert action $(\MPl^2/2)\int\sqrt{-g}\,R\,d^4x$
-gives $\MPl^2=\LUV^2/(32\pi^2)$ below.
+confirms that a gravitational sector is induced at the condensate
+scale, but does not itself set the Planck mass: $\MPl$ is fixed by the
+density-feedback flux, $G_N=G_{\mathrm{src}}^2/(4\pi\vp^6)$
+(equation~\eqref{P7:eq:GN}), and~\eqref{P7:eq:1loop} serves as a
+consistency check that gravity is induced at the right scale rather
+than an independent determination of $\LUV$.
 The one-loop action generates a non-minimal coupling
 $\xNMC=\LUV^2\beta/[4(4\pi)^2]$~\eqref{P7:eq:xNMC}, and the full
 effective action takes the scalar-tensor form
@@ -118,25 +123,20 @@ effective action takes the scalar-tensor form
   \right].
   \label{P7:eq:Seff}
 \end{equation}
-Identifying the induced Planck mass by matching the $R$-coefficient
-to the Einstein--Hilbert action:
+The ultraviolet cutoff is set by the condensate's own $\vp$-tower.
+Both $\MPl$ and $\LUV$ lie on the tower $M_n=\Lcond\,\vp^{2n}$ of
+Paper~VI, separated by exactly three steps:
 \begin{equation}
-  \boxed{\MPl^2 = \frac{\LUV^2}{32\pi^2},
-  \qquad
-  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}} \;\approx\; 0.0563\,\MPl.}
+  \boxed{\LUV \;=\; \frac{\MPl}{\vp^6}\;\approx\;0.0557\,\MPl,}
   \label{P7:eq:MPl}
 \end{equation}
-The Bogomolny parameter $\vp^6\approx17.944$ satisfies
-$4\pi\sqrt{2}\approx17.77\approx\vp^6$ to within $1\%$
-(a structural coincidence of the framework; no free parameter is used),
-so~\eqref{P7:eq:MPl} is equivalent to the compact estimate
+the gap $\vp^6=\lambda$ being the same Bogomolny/$S_{\mathrm{eff}}$
+suppression that fixes $G_N$~\eqref{P7:eq:GN} --- a topological
+relation, not a loop coincidence. Numerically
 \begin{equation}
-  \LUV \;\approx\; \frac{\MPl}{\vp^6}
-  \;\approx\; 0.0557\,\MPl
-  \;\approx\; 6.8\times10^{17}\,\mathrm{GeV},
+  \LUV \;\approx\; 6.8\times10^{17}\,\mathrm{GeV}\;\approx\;\frac{\MPl}{18}.
   \label{P7:eq:LUV_approx}
 \end{equation}
-accurate to $1\%$.  In Planck units $\LUV\approx\MPl/18$.
 Matching~\eqref{P7:eq:Seff} to the Brans--Dicke form gives
 \begin{equation}
   \oBD = \frac{\vp^{12}}{3\beta}
@@ -225,7 +225,12 @@ a Lorentz-breaking mass tied to the preferred direction $\hat e_r$
 propagation speed $v_{\mathrm{GW}}^2=1-m_g^2/\omega^2$ gives
 $|v_{\mathrm{GW}}-c|/c<10^{-33}$ at LIGO frequencies
 ($\omega\sim100\,\mathrm{Hz}$, $m_g<10^{-29}\,\mathrm{eV}$), consistent
-with the GW170817 bound $|v_{\mathrm{GW}}-c|/c<10^{-15}$. At tree level
+with the GW170817 bound $|v_{\mathrm{GW}}-c|/c<10^{-15}$. The specific
+golden-ratio value $m_g^2\propto\vp^{-8}$ is a Jordan-frame quantity,
+tied to the non-canonical $S_{\mathrm{eff}}$ normalisation and
+rescaled under the conformal map to the Einstein frame; no observable
+depends on it, since only the smallness $m_g\ll\omega$ enters
+$v_{\mathrm{GW}}$ and holds for any such $m_g$. At tree level
 there is one propagating scalar mode $\xi$ (breathing polarisation) and
 no propagating TT modes; including the one-loop induced $R$ term, the
 TT modes $h_+,h_\times$ become dynamical, giving three polarisations

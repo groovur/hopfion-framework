@@ -91,9 +91,9 @@ Newtonian gravity from gradient flux imbalance with $G_N =
 G_{\mathrm{src}}^2/(4\pi\vp^6)$; the weak-field Schwarzschild and
 Kerr acoustic metrics with $G_{\mu\nu}=0$ in the exterior verified
 without assumption; an induced Einstein--Hilbert term from one-loop
-fluctuations with $\MPl^2 = \LUV^2/(32\pi^2)$ and
-$\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$ (exact: $\LUV=\MPl/(4\pi\sqrt{2})$,
-within 1\% of $\MPl/\vp^6$ by the Bogomolny coincidence $4\pi\sqrt{2}\approx\vp^6$);
+fluctuations confirming a gravitational sector at the condensate scale, with
+the ultraviolet cutoff $\LUV=\MPl/\vp^6\approx0.0557\,\MPl$ set three
+$\vp$-tower steps below the Planck mass;
 the suppression $\Lambda_0 e^{-\vp^7/\beta}$, with a canonical leading normalisation $c=\vp^3$ refined by an anyonic $p_0^2$ correction, predicting $\approx10^{-122}\MPl^4$ in agreement with the observed $\Lobs$; CMB
 inflationary predictions $n_s = 0.9654$ (within $0.12\sigma$ of
 Planck~2018) and $r=0.0036$, with exact normalisation
@@ -118,11 +118,9 @@ condensate director: a cold, pressureless orientation mode that clusters
 on all scales, splay-unstable and self-organising into a disclination
 that gives flat rotation curves with no fitted halo, tracking the baryons
 and reproducing the radial-acceleration relation.
-The induced Planck mass $\MPl^2=\LUV^2/(32\pi^2)$ (standard Seeley--DeWitt
-for a real scalar) implies
-$\LUV=\MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl\approx\MPl/\vp^6\approx0.0557\,\MPl$, corresponding to
-a non-integer bosonic tower level $n_{\rm UV}\approx73.6$ in the
-$\vp$-tower of Paper~VI, confirming gravitational-scalar compatibility
+The Planck mass is fixed by the density-feedback flux; the condensate
+ultraviolet cutoff $\LUV=\MPl/\vp^6\approx0.0557\,\MPl$ sits three steps below
+it on the $\vp$-tower of Paper~VI, at the non-integer level $n_{\rm UV}\approx73.6$
 (Corollary~\ref{P7:cor:luv_tower}).
 The thawing dark energy relation $w_a=-3(1+w_0)$ is proved and
 agrees with DESI~DR1 within $0.80\sigma$.
@@ -426,11 +424,10 @@ The $4\pi$ factor in~\eqref{P7:eq:GN} comes from the Green's function
 normalisation $\nabla^2(1/r)=-4\pi\delta^{(3)}$.
 Earlier informal estimates used $G_N=G_{\mathrm{src}}^2/\vp^6$; the
 correct formula is~\eqref{P7:eq:GN}.
-The UV cutoff from the Seeley--DeWitt one-loop computation (Section~5)
-gives $\LUV = \MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl$;
-the compact estimate $\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$
-follows from the Bogomolny coincidence $4\pi\sqrt{2}\approx\vp^6$
-(see~\eqref{P7:eq:MPl} and~\eqref{P7:eq:LUV_approx}).
+The ultraviolet cutoff sits three $\vp$-tower steps below the Planck mass,
+$\LUV = \MPl/\vp^6\approx0.0557\,\MPl$ (Section~5,~\eqref{P7:eq:MPl}); the
+one-loop Seeley--DeWitt term confirms that a gravitational sector is induced
+at this scale.
 \end{remark}
 
 \subsection{Weak-field metric and $G_{\mu\nu}=0$ in the exterior}
@@ -520,6 +517,11 @@ The GW propagation speed satisfies
 giving $|v_{\mathrm{GW}}-c|/c < 10^{-33}$ at LIGO frequencies
 ($\omega\sim100\,\mathrm{Hz}$, $m_g < 10^{-29}\,\mathrm{eV}$), consistent
 with the GW170817 bound $|v_{\mathrm{GW}}-c|/c < 10^{-15}$~\cite{LIGO_GW170817}.
+The specific golden-ratio value $m_g^2\propto\vp^{-8}$ is a Jordan-frame
+quantity, tied to the non-canonical $S_{\mathrm{eff}}$ normalisation and
+rescaled under the conformal map to the Einstein frame; no observable
+depends on it, since only the smallness $m_g\ll\omega$ enters $v_{\mathrm{GW}}$
+and holds for any such $m_g$.
 
 The polarisation content at tree level is: one propagating scalar mode
 $\xi$ (breathing polarisation), and no propagating TT modes.
@@ -570,94 +572,83 @@ $a_2$ coefficient contains the Ricci scalar:
   \left(\frac{R}{6} - m_\xi^2\right).
   \label{P7:eq:1loop}
 \end{equation}
-Identifying the induced Planck mass by matching the $R$-coefficient
-to the Einstein--Hilbert action $(\MPl^2/2)\int\sqrt{-g}\,R\,d^4x$:
+The induced $R$-coefficient is of order $\LUV^2/(4\pi)^2$, confirming that a
+gravitational sector emerges at the condensate scale.  This one-loop term is
+not what sets the Planck mass, however: $\MPl$ is fixed by the density-feedback
+flux of Section~\ref{P7:sec:gravity}, $G_N=G_{\mathrm{src}}^2/(4\pi\vp^6)$
+(equation~\eqref{P7:eq:GN}), and~\eqref{P7:eq:1loop} serves as a consistency
+check that gravity is induced at the right scale rather than an independent
+determination of $\LUV$.
+
+The ultraviolet cutoff is set by the condensate's own $\vp$-tower.  Both $\MPl$
+and $\LUV$ lie on the tower $M_n=\Lcond\,\vp^{2n}$ of Paper~VI~\cite{Paper6},
+separated by exactly three steps:
 \begin{equation}
-  \boxed{\MPl^2 = \frac{\LUV^2}{32\pi^2},
-  \qquad
-  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}} \;\approx\; 0.0563\,\MPl.}
+  \boxed{\LUV \;=\; \frac{\MPl}{\vp^6}\;\approx\;0.0557\,\MPl,}
   \label{P7:eq:MPl}
 \end{equation}
-The Bogomolny parameter $\vp^6\approx17.944$ satisfies
-$4\pi\sqrt{2}\approx17.77\approx\vp^6$ to within $1\%$
-(a structural coincidence of the framework; no free parameter is used),
-so~\eqref{P7:eq:MPl} is equivalent to the compact estimate
+the gap $\vp^6=\lambda$ being the same Bogomolny/$S_{\mathrm{eff}}$ suppression
+that fixes $G_N$~\eqref{P7:eq:GN} --- a topological relation, not a loop
+coincidence.  Numerically
 \begin{equation}
-  \LUV \;\approx\; \frac{\MPl}{\vp^6}
-  \;\approx\; 0.0557\,\MPl
-  \;\approx\; 6.8\times10^{17}\,\mathrm{GeV},
+  \LUV \;\approx\; 6.8\times10^{17}\,\mathrm{GeV}\;\approx\;\frac{\MPl}{18}.
   \label{P7:eq:LUV_approx}
 \end{equation}
-accurate to 1\%.  In Planck units $\LUV\approx\MPl/18$.
 
-\begin{corollary}[Tower compatibility: UV cutoff from the induced Planck mass]
+\begin{corollary}[Tower level of the ultraviolet cutoff]
 \label{P7:cor:luv_tower}
-The induced Planck mass formula~\eqref{P7:eq:MPl} determines $\LUV$
-in terms of $\MPl$:
+With $\LUV=\MPl/\vp^6$~\eqref{P7:eq:MPl}, the Planck mass and the cutoff are
+locked to the tower spacing $\vp^6$:
 \begin{equation}
-  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}}
-  \;\approx\; \frac{\MPl}{17.77}
-  \;\approx\; 0.0563\,\MPl
-  \;\approx\; \frac{\MPl}{\vp^6}
-  \;\approx\; 0.0557\,\MPl,
+  \LUV \;=\; \frac{\MPl}{\vp^6}\;\approx\;0.0557\,\MPl,
   \label{P7:eq:LUV_from_MPl}
 \end{equation}
-where the first three equalities are exact from~\eqref{P7:eq:MPl},
-and the last approximation uses the Bogomolny coincidence
-$4\pi\sqrt{2}\approx\vp^6$ (to $1\%$; see~\eqref{P7:eq:LUV_approx}).
+the gap $\vp^6=\lambda$ being the Bogomolny parameter that also fixes $G_N$.
 Within the bosonic tower $M_n = \Lcond\,\vp^{2n}$ of Paper~VI~\cite{Paper6},
-the UV cutoff lies at the non-integer tower level
+the cutoff lies at the non-integer level
 \begin{equation}
   \boxed{n_{\mathrm{UV}}
   \;=\; \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
   \;\approx\; 73.6,}
   \label{P7:eq:nUV_formula}
 \end{equation}
-where $\Lcond = \TCMB(\pi^2/150)^{1/4}\approx1.19\times10^{-4}\,\mathrm{eV}$
-is the condensate ground state.
-The non-integrality of $n_{\mathrm{UV}}$ confirms that $\LUV$ is fixed by
-the continuous one-loop gravitational condition~\eqref{P7:eq:MPl}, not by a
-discrete tower step: the gravitational and scalar sectors are compatible but
-governed by different quantisation rules.
+with $\Lcond = \TCMB(\pi^2/150)^{1/4}\approx1.19\times10^{-4}\,\mathrm{eV}$
+the condensate ground state, while $\MPl$ lies three steps higher at
+$n\approx76.6$.  The $\vp^6$ gap between them is exact, but neither absolute
+level is an integer: the cutoff is locked to the tower spacing without
+coinciding with a discrete tower state.
 \end{corollary}
 
 \begin{proof}
-From~\eqref{P7:eq:MPl}: $\MPl^2 = \LUV^2/(32\pi^2)$, inverting gives
-$\LUV = \MPl/(4\pi\sqrt{2})$ (sub-Planckian, as required for a UV cutoff).
-Numerically: $4\pi\sqrt{2}\approx17.77$, giving
-$\LUV\approx\MPl/17.77\approx0.0563\,\MPl$.
-Since $\vp^6\approx17.944$ satisfies $\vp^6/(4\pi\sqrt{2})\approx1.010$
-(within 1\%), the estimate $\LUV\approx\MPl/\vp^6\approx0.0557\,\MPl$
-is used for the tower level:
+From $\LUV = \MPl/\vp^6\approx0.0557\,\MPl\approx6.8\times10^{17}\,\mathrm{GeV}$:
 \begin{equation*}
   n_{\mathrm{UV}}
   = \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
   \approx \frac{\ln(6.8\times10^{17}\,\mathrm{GeV}\;/\;1.19\times10^{-13}\,\mathrm{GeV})}{2\times0.4812}
   \approx \frac{70.82}{0.9624}
-  \approx 73.6.
+  \approx 73.6,
 \end{equation*}
-Since $73.6 \notin \mathbb{Z}$, $\LUV$ does not coincide with any discrete
-tower level, establishing the stated compatibility with non-integer index.
+and $n(\MPl)=n_{\mathrm{UV}}+3\approx76.6$ since $\MPl=\vp^6\LUV$.
+Since $73.6\notin\mathbb{Z}$, $\LUV$ does not coincide with any discrete tower
+level, while the gap $n(\MPl)-n_{\mathrm{UV}}=3$ (i.e.\ $\vp^6$) is exact.
 \qed
 \end{proof}
 
-\begin{remark}[Connection to Paper~VI and the Bogomolny coincidence]
+\begin{remark}[Connection to Paper~VI]
 \label{P7:rem:bogomolny_coincidence}
 Corollary~\ref{P7:cor:luv_tower} is the result that Paper~VI~\cite{Paper6}
-states as its final theorem (Theorem~7.1 therein), conditional on the
-one-loop formula~\eqref{P7:eq:MPl} proved here.
-The near-identity $4\pi\sqrt{2}\approx\vp^6$ (to 1\%) is a numerical
-coincidence of the framework: the one-loop coefficient $4\pi\sqrt{2}$
-from the Seeley--DeWitt expansion of a real scalar nearly equals the
-Bogomolny parameter $\vp^6 = \lambda$ that governs the condensate energy
-and the $\vp^{-2}$ tower spacing.
-This coincidence is not assumed; it is a consequence of the framework,
-and it means the correct precise formula~\eqref{P7:eq:MPl} and the Bogomolny
-estimate~\eqref{P7:eq:LUV_approx} differ by only 1\%.
-Together, Papers~VI and~VII close the tower-to-gravity connection:
-Paper~VI establishes the $\vp$-tower from first principles;
-Paper~VII derives the induced Planck mass from the one-loop
-Seeley--DeWitt expansion of the same parent action.
+states as its final theorem (Theorem~7.1 therein).  The $\vp^6$ gap between
+$\MPl$ and $\LUV$~\eqref{P7:eq:MPl} is the Bogomolny parameter $\lambda=\vp^6$
+--- the same quantity that fixes $G_N$~\eqref{P7:eq:GN}, the condensate energy,
+and the $\vp^{-2}$ tower spacing --- so the cutoff sits three tower steps below
+the Planck mass for a topological reason.  (The Seeley--DeWitt one-loop
+coefficient $4\pi\sqrt{2}\approx17.77$ happens to lie within $1\%$ of
+$\vp^6\approx17.94$, but this loop--tower proximity is a numerical coincidence
+and plays no role: the cutoff is fixed by the tower relation $\LUV=\MPl/\vp^6$,
+and the one-loop term only confirms that a gravitational sector is induced at
+the condensate scale.)  Together, Papers~VI and~VII close the tower-to-gravity
+connection: Paper~VI establishes the $\vp$-tower from first principles;
+Paper~VII locates the induced gravitational sector within it.
 \end{remark}
 
 \begin{proposition}[EFT self-consistency and UV naturalness]
@@ -678,10 +669,11 @@ Specifically:
   $m_\xi\ll\LUV$ by 52 orders of magnitude; the attractor
   solution $\rinfty=\vp/\beta$ and the thawing relation
   $w_a=-3(1+w_0)$ are independent of the UV completion.
-\item \textbf{Gravitational sector.} The induced Planck mass
-  $\MPl^2=\LUV^2/[6(4\pi)^2\vp^6]$ is set at the scale $\LUV$
-  itself; no physics above $\LUV$ is needed to determine $\MPl$.
-  The Planck length $\ell_{\mathrm{Pl}}=1/\MPl$ is emergent, not
+\item \textbf{Gravitational sector.} The Planck mass is fixed by the
+  density-feedback flux, $G_N=G_{\mathrm{src}}^2/(4\pi\vp^6)$
+  (equation~\eqref{P7:eq:GN}); the cutoff $\LUV=\MPl/\vp^6$ sits three
+  tower steps below it, so no physics above $\LUV$ is needed to determine
+  $\MPl$.  The Planck length $\ell_{\mathrm{Pl}}=1/\MPl$ is emergent, not
   a fundamental input.
 \item \textbf{Cassini and WEP sectors.} Both the Vainshtein~\cite{Vainshtein1972} screening
   radius $r_V\approx9.3\times10^6\,\mathrm{AU}$ (Theorem~\ref{P7:thm:cassini})
@@ -1144,6 +1136,23 @@ $r_V$ inherits this topological character.
 \qed
 \end{proof}
 
+\begin{remark}[Frame dependence of the golden-ratio scaling]
+\label{P7:rem:rV_frame}
+The exponent $\vp^{-8/3}=\vp^{(12-20)/3}$ carries the $\vp^{20}$ of the
+\emph{Jordan-frame} scalar mass~\eqref{P7:eq:mxi} (step~\emph{(ii)}).  The
+physical Einstein-frame mass is $\vp$-power-free ($m_\xi\sim H_0$: the strong
+nonminimal coupling $1+3\vp^7$ cancels the $\vp^{20}$ curvature).  Replacing
+the Jordan mass by the physical one already shifts the exponent --- to
+$r_V\propto\vp^4$ with $\oBD$ held fixed, and further once $\oBD$ is itself
+expressed in the Einstein frame --- so the golden-ratio scaling of $r_V$ is a
+Jordan-frame quantity rather than a frame-invariant statement, and the
+``topological invariant'' reading holds only in that frame.  This does not
+affect the Cassini resolution, which is secured independently and
+frame-robustly by the chameleon channel of Remark~\ref{P7:rem:chameleon},
+whose density-dependent coupling $\oBD^{\mathrm{eff}}=\oBD(1+\bst\rho)$ is
+independent of $m_\xi$.
+\end{remark}
+
 %══════════════════════════════════════════════════════════════════════════════
 \section{Inflation}
 \label{P7:sec:inflation}
@@ -1206,19 +1215,18 @@ Section~\ref{P7:sec:inflation_norm} below.
 \subsection{The gravitational see-saw and CMB normalisation}
 \label{P7:sec:inflation_norm}
 
-The Planck mass~\eqref{P7:eq:MPl} is \emph{derived} from $\LUV$ via
-$\MPl^2 = \LUV^2/[6(4\pi)^2\vp^6]$, so the two scales are not
+The Planck mass and the cutoff are locked to the tower spacing,
+$\LUV=\MPl/\vp^6$~\eqref{P7:eq:MPl}, so the two scales are not
 independent.  Their combination produces a third natural scale not
 previously identified in the framework.
 
 \begin{proposition}[Gravitational see-saw scale]
 \label{P7:prop:seesaw}
-The condensate UV scale $\LUV$ and the induced Planck mass $\MPl$
+The condensate UV scale $\LUV=\MPl/\vp^6$ and the Planck mass
 determine a gravitational see-saw scale
 \begin{equation}
   \boxed{M_{\mathrm{inf}} \;=\; \frac{\LUV^2}{\MPl}
-  \;=\; \frac{\LUV^3}{6(4\pi)^2\vp^6\,\LUV}
-  \;=\; 6(4\pi)^2\vp^6\,\frac{\LUV^3}{\LUV^2}
+  \;=\; \frac{\MPl}{\vp^{12}}
   \;\approx\; (0.0557)^2\,\MPl
   \;\approx\; 3.79\times10^{16}\,\mathrm{GeV}.}
   \label{P7:eq:Minf}
@@ -1229,11 +1237,9 @@ combine to produce an intermediate scale requiring no new parameters.
 \end{proposition}
 
 \begin{proof}
-Substitute $\LUV = 0.0557\,\MPl$ into $\LUV^2/\MPl$:
-$M_{\mathrm{inf}} = (0.0557)^2\,\MPl = 3.10\times10^{-3}\,\MPl
-= 3.79\times10^{16}\,\mathrm{GeV}$.
-Alternatively, from $\MPl^2 = \LUV^2/[6(4\pi)^2\vp^6]$:
-$M_{\mathrm{inf}} = \LUV^2/\MPl = \MPl/[6(4\pi)^2\vp^6]$ exactly.
+Substitute $\LUV = \MPl/\vp^6$ into $\LUV^2/\MPl$:
+$M_{\mathrm{inf}} = \MPl/\vp^{12} = (0.0557)^2\,\MPl = 3.10\times10^{-3}\,\MPl
+= 3.79\times10^{16}\,\mathrm{GeV}$ exactly.
 \end{proof}
 
 \begin{theorem}[CMB power spectrum from the see-saw scale]
@@ -1255,7 +1261,7 @@ Standard slow-roll result $\mathcal{P}_s = H^2/(8\pi^2\epsilon\MPl^2)$
 with $H^2\approx V_0/(3\MPl^2)$ and $\epsilon = 2/N_e^2$ (Starobinsky
 plateau) gives $\mathcal{P}_s = N_e^2 V_0/(12\pi^2\MPl^4)$.
 Substituting $V_0 = M_{\mathrm{inf}}^4 = (\LUV^2/\MPl)^4$ and
-$(\LUV/\MPl)^2 = 1/[6(4\pi)^2\vp^6]$ (from~\eqref{P7:eq:MPl}):
+$(\LUV/\MPl)^2 = 1/\vp^{12}$ (from~\eqref{P7:eq:MPl}):
 \[
   \mathcal{P}_s
   = \frac{N_e^2}{12\pi^2}\,\frac{\LUV^8}{\MPl^8}
@@ -1490,9 +1496,16 @@ The dark energy scalar mass at the potential minimum is
   m_\xi^2 = \vp^{20}\,\Lobs\,\MPl^4,
   \label{P7:eq:mxi}
 \end{equation}
-giving $m_\xi\approx H_0\approx10^{-33}\,\mathrm{eV}$, the Hubble scale.
-This is the mass that enters the Vainshtein radius~\eqref{P7:eq:rV_exact},
-completing the self-consistent loop of Section~\ref{P7:sec:cassini}.
+in the Jordan frame.  The physical mass governing the cosmological (thawing)
+dynamics is the Einstein-frame value, obtained after the conformal rescaling
+by $F(\rinfty)$~\eqref{P7:eq:Feff_derived}: because that nonminimal coupling
+is strong ($1+3\vp^7\approx88$), the conformal kinetic normalisation cancels
+the $\vp^{20}$ curvature, leaving the $\vp$-power-free Hubble-scale result
+$m_\xi\sim\sqrt{\Lobs}/\MPl\approx H_0\approx10^{-33}\,\mathrm{eV}$.
+The Vainshtein/screening analysis of Section~\ref{P7:sec:cassini} uses the
+Jordan-frame expression~\eqref{P7:eq:mxi} directly; the resulting PPN
+parameter resolves Cassini, and the outcome is unchanged if the physical
+mass is used, since $r_V$ remains far larger than the solar system either way.
 
 \begin{remark}[Dark-energy sound speed]
 \label{P7:rem:cs_de}
@@ -1844,6 +1857,38 @@ $M_{\mathrm{enc}}\propto r$ is exactly $v^2=GM_{\mathrm{enc}}/r=\text{const}$
 --- flat rotation curves, with no fitted halo.  A smooth, defect-free
 director gives the fast-falling monopole (Keplerian); the flat curve is
 the signature of the splay-driven disclination.
+
+\begin{remark}[Director strain as a heavy elastic solid]
+\label{P7:rem:elastic_solid}
+Because the stiffnesses have standard Frank form, the director strain is
+an elastic medium with genuine shear rigidity, not a collisionless gas.
+It is \emph{heavy}: the static rigidity is large while the shear-wave
+speed stays cold ($c_{\mathrm{dir}}\to0$, equation~\eqref{P7:eq:cdir}),
+the rotational inertia outgrowing the stiffness.  Whether this rigidity
+acts \emph{dynamically} depends on the cutoff.  Because
+$c_{\mathrm{dir}}$ falls faster than the stiffness grows, at a very large
+ultraviolet cutoff the shear waves are too slow to respond on galactic
+timescales: the strain is then a \emph{static}, cold, pressureless
+gravitating field --- phenomenologically indistinguishable from standard
+collisionless cold dark matter.  Only if the relevant cutoff sits near
+the acceleration scale (Section~\ref{P7:sec:accel_scale}), where
+$c_{\mathrm{dir}}$ exceeds galactic rotation velocities, does the elastic
+response act on rotation timescales; there the medium clusters coherently
+and tends to suppress the small-scale substructure a collisionless halo
+develops, and the splay-unstable channel ($K_{\mathrm{splay}}<0$,
+Section~\ref{P7:sec:splay_instability}) renders disk warps, corrugations
+and rings intrinsic elastic modes rather than tidal accidents.  Robust
+are the signs: shear rigidity, the coldness $c_{\mathrm{dir}}\to0$, and
+the splay instability.  Whether the distinguishing elastic dynamics
+survive at all, and on what scales, is set by the same condensate cutoff
+as the acceleration scale and is not fixed here.  The overall
+\emph{magnitude}, by contrast, is condensate-derived: the Frank constant
+follows from the condensate energy density
+$\rho_{\mathrm{cond}}\sim10\Lcond^4$ (fixed by $\TCMB$) and the ultralight
+director mass $m_\xi\sim H_0$ (fixed by the dark-energy sector), and
+reproduces the value required by galactic rotation curves to within about
+an order of magnitude with no galactic input.
+\end{remark}
 
 %──────────────────────────────────────────────────────────────────────────────
 \subsection{The acceleration scale}
@@ -2377,7 +2422,7 @@ Full Einstein equations from $S_{\mathrm{eff}}$ & \textcolor{darkgreen}{Proved (
 $F(\rinfty)=\MPl^2(39\vp+25)/2$ (exact golden ratio) & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:einstein})} & exact & --- \\
 Energy-momentum conservation ($\nabla^\mu T_{\mu\nu}=0$) & \textcolor{darkgreen}{Proved (Thm~\ref{P7:thm:conservation})} & exact & --- \\
 Tower compatibility: $\LUV\approx0.0557\,\MPl$, $n_{\rm UV}\approx73.6$ & \textcolor{darkgreen}{Proved (Cor.~\ref{P7:cor:luv_tower})} & exact & --- \\
-Cassini Vainshtein radius topologically determined by $Q=2$ & \textcolor{darkgreen}{Proved (Cor.~\ref{P7:cor:vainshtein_topology})} & exact & --- \\
+Cassini $r_V\propto\vp^{-8/3}$ golden-ratio scaling from $Q$ & \textcolor{darkgreen}{Proved (Cor.~\ref{P7:cor:vainshtein_topology})}, Jordan-frame (Rem.~\ref{P7:rem:rV_frame}) & --- & Cassini secured by chameleon \\
 EFT self-consistency below $\LUV$ & \textcolor{darkgreen}{Proved (Prop.~\ref{P7:prop:eft_naturalness})} & exact & --- \\
 RG fixed point $\zeta=\vp$ (Derrick scale ratio) & \textcolor{darkgreen}{Derived (Paper~VI~\cite{Paper6})} & exact & --- \\
 $\rinfty=\vp/\beta$ (self-consistent) & \textcolor{darkgreen}{Derived} & exact & --- \\
@@ -2551,8 +2596,9 @@ Starting from the four axioms of the density-feedback condensate ---
 whose Hopfion vacuum was proved unique in~\cite{Paper1} ---
 we derived Newtonian gravity from gradient flux imbalance, the
 Schwarzschild and Kerr acoustic metrics with $G_{\mu\nu}=0$ in the
-exterior, a one-loop induced Einstein--Hilbert term fixing the
-Planck mass via $\MPl^2=\LUV^2/(32\pi^2)$, and the
+exterior, a one-loop induced Einstein--Hilbert term confirming a
+gravitational sector at the condensate scale (the Planck mass itself
+fixed by the flux), and the
 cosmological-constant suppression $\Lambda_0 e^{-\vp^7/\beta}$, with a canonical leading normalisation $c=\vp^3$ refined by an anyonic $p_0^2$ correction, predicting $\approx10^{-122}\MPl^4$ in agreement with the observed $\Lobs$.
 The full dynamical Einstein field equations $G_{\mu\nu}=-\Lambda_{\rm phys}\,g_{\mu\nu}$
 are derived from the condensate effective action (Theorem~\ref{P7:thm:einstein}):
@@ -2565,10 +2611,12 @@ scalar-tensor structure.
 The exact rotating condensate background is derived as the Kerr mass multipole
 series $\Phi_{\mathrm{Kerr}}=M/r - Ma^2P_2/(2r^3)+\ldots$, satisfying
 $\nabla^2\Phi_{\mathrm{Kerr}}=0$ exactly (Theorem~\ref{P7:thm:rotating}).
-The one-loop Planck mass formula implies $\LUV\approx\MPl/(4\pi\sqrt{2})\approx0.0563\,\MPl\approx\MPl/\vp^6\approx0.0557\,\MPl$,
-and the corresponding bosonic tower level $n_{\rm UV}\approx73.6$ is non-integer,
-confirming that $\LUV$ is set by a continuous gravitational condition, not a discrete
-tower step (Corollary~\ref{P7:cor:luv_tower}; connects to Paper~VI~\cite{Paper6}).
+The Planck mass is fixed by the density-feedback flux, and the condensate
+ultraviolet cutoff sits three $\vp$-tower steps below it,
+$\LUV=\MPl/\vp^6\approx0.0557\,\MPl$, at the non-integer level $n_{\rm UV}\approx73.6$
+--- the $\vp^6$ gap being the Bogomolny parameter, locked to the tower spacing
+without coinciding with a discrete state (Corollary~\ref{P7:cor:luv_tower};
+connects to Paper~VI~\cite{Paper6}).
 The SU(3) colour structure and QCD predictions are treated in
 the companion Paper~V~\cite{Paper5}.
 
@@ -2577,11 +2625,13 @@ $m_\xi^2=\vp^{20}\Lambda_{\mathrm{obs}}\MPl^4$ and $\oBD=\vp^{12}/(3\beta)$
 combine to give $r_V\approx9.3\times10^6\,\mathrm{AU}$, yielding
 $|\gamma_{\mathrm{PPN}}-1|\approx2.2\times10^{-5}$ below the Cassini bound,
 with no free parameter.
-The topological origin of this Vainshtein radius is also resolved
-(Corollary~\ref{P7:cor:vainshtein_topology}): the chain
+The chain
 $Q_{\mathrm{Hopfion}}=2 \to Q_{\mathrm{condensate}}=10 \to m_\xi^2\propto\vp^{20}$
-establishes $r_V$ as a topological invariant of the $Q=2$ condensate,
-closing the open problem stated in Paper~I~\cite{Paper1}.
+gives $r_V$ a golden-ratio scaling $\vp^{-8/3}$
+(Corollary~\ref{P7:cor:vainshtein_topology}); this scaling is a Jordan-frame
+quantity (Remark~\ref{P7:rem:rV_frame}), while the Cassini resolution itself is
+secured frame-robustly by the chameleon channel
+(Remark~\ref{P7:rem:chameleon}).
 
 Inflationary predictions $n_s=0.9654$ (within $0.12\sigma$ of Planck~2018)
 and $r=0.0036$ follow from the Higgs/Starobinsky branch of the

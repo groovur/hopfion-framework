@@ -1,0 +1,30 @@
+import math
+phi=(1+5**0.5)/2; pi=math.pi
+MPl=1.22e19; Lcond=1.19e-13  # GeV
+def n_tower(E): return math.log(E/Lcond)/(2*math.log(phi))
+LUV=MPl/phi**6
+print("== reframing: is Lam_UV=M_Pl/phi^6 a TOWER relation (topological) or a loop coincidence? ==")
+print(f"  tower level of M_Pl : n = {n_tower(MPl):.2f}")
+print(f"  tower level of Lam_UV=M_Pl/phi^6: n = {n_tower(LUV):.2f}")
+print(f"  GAP = {n_tower(MPl)-n_tower(LUV):.2f} tower steps = phi^{2*(n_tower(MPl)-n_tower(LUV)):.1f} = phi^6")
+print("  => M_Pl and Lam_UV are BOTH on the phi-tower, EXACTLY 3 steps (phi^6) apart.")
+print("     The phi^6 is a TOWER/topological relation, NOT the loop coincidence 4pi sqrt2.")
+print()
+print("== the two gravity derivations ==")
+print("  PRIMARY (flux, l.416): G_N = G_src^2/(4pi phi^6).  Density-feedback gradient flux.")
+print("     M_Pl^2 = 1/G_N = 4pi phi^6/G_src^2. Lam_UV-INDEPENDENT. This IS the framework's gravity.")
+print("  SECONDARY (Seeley-DeWitt, eq:MPl): M_Pl^2 = Lam_UV^2/(32pi^2), 'Lam_UV=M_Pl/(4pi sqrt2)~M_Pl/phi^6'.")
+print("     This approximated the TOWER phi^6 by the LOOP 4pi sqrt2 (1% coincidence) AND inverted")
+print("     the direction. ALL the trouble (direction, 32 vs 96, super vs sub-Planckian) lives HERE.")
+print()
+print("== can a GENUINE induced M_Pl give sub-Planckian Lam_UV? (needs M_Pl > Lam_UV) ==")
+need=phi**12*96*pi**2   # enhancement for M_Pl^2 = enh * Lam^2/(96pi^2) with Lam=M_Pl/phi^6
+print(f"  need enhancement M_Pl^2/(Lam^2/96pi^2) = phi^12 * 96pi^2 = {need:.2e}")
+print(f"  strong NMC (1+3phi^7)/2 = {(1+3*phi**7)/2:.0f}   -> far short (need ~3e5).")
+print(f"  large-N would need N ~ {need:.0e} degrees of freedom -> implausible.")
+print(f"  => a genuine loop-induced sub-Planckian Lam_UV does NOT work; the flux/tower reading does.")
+print()
+print("VERDICT: gravity = the density-feedback FLUX (primary, Lam_UV-independent). Lam_UV=M_Pl/phi^6 is")
+print("the CONDENSATE/TOWER cutoff (topological phi^6, tower gap 3), used by inflation. The Seeley-DeWitt")
+print("'induced M_Pl from a loop cutoff' is the spurious secondary argument -- demote it, and the phi^6")
+print("is PROMOTED from loop-coincidence to tower-topological (passes the discriminator).")

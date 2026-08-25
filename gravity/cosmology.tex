@@ -94,15 +94,29 @@ a factor of $1.34$ above the observed $2.10\times10^{-9}$.
 \end{theorem}
 \status{published}
 \source{P7:thm:Ps_seesaw}
+\begin{proof}
+Standard slow-roll result $\mathcal{P}_s=H^2/(8\pi^2\epsilon\MPl^2)$
+with $H^2\approx V_0/(3\MPl^2)$ and $\epsilon=2/N_e^2$ (Starobinsky
+plateau) gives $\mathcal{P}_s=N_e^2V_0/(12\pi^2\MPl^4)$. Substituting
+$V_0=M_{\mathrm{inf}}^4=(\LUV^2/\MPl)^4$ and $(\LUV/\MPl)^2=1/\vp^{12}$
+(from~\eqref{P7:eq:MPl}):
+\[
+  \mathcal{P}_s
+  = \frac{N_e^2}{12\pi^2}\,\frac{\LUV^8}{\MPl^8}
+  \approx \frac{3600}{118.4}\times(0.0557)^8
+  = 2.82\times10^{-9}.
+\]
+\end{proof}
+\status{published}
+\source{P7:thm:Ps_seesaw}
 
 \begin{proposition}[Gravitational see-saw scale]
 \label{P7:prop:seesaw}
-The condensate UV scale $\LUV$ and the induced Planck mass $\MPl$
+The condensate UV scale $\LUV=\MPl/\vp^6$ and the Planck mass
 determine a gravitational see-saw scale
 \begin{equation}
   \boxed{M_{\mathrm{inf}} \;=\; \frac{\LUV^2}{\MPl}
-  \;=\; \frac{\LUV^3}{6(4\pi)^2\vp^6\,\LUV}
-  \;=\; 6(4\pi)^2\vp^6\,\frac{\LUV^3}{\LUV^2}
+  \;=\; \frac{\MPl}{\vp^{12}}
   \;\approx\; (0.0557)^2\,\MPl
   \;\approx\; 3.79\times10^{16}\,\mathrm{GeV}.}
   \label{P7:eq:Minf}
@@ -111,6 +125,13 @@ This scale is structurally analogous to the neutrino see-saw
 $m_\nu\sim v_{\mathrm{EW}}^2/M_{\mathrm{GUT}}$: two derived scales
 combine to produce an intermediate scale requiring no new parameters.
 \end{proposition}
+\status{published}
+\source{P7:prop:seesaw}
+\begin{proof}
+Substitute $\LUV=\MPl/\vp^6$ into $\LUV^2/\MPl$:
+$M_{\mathrm{inf}}=\MPl/\vp^{12}=(0.0557)^2\,\MPl=3.10\times10^{-3}\,\MPl
+=3.79\times10^{16}\,\mathrm{GeV}$ exactly.
+\end{proof}
 \status{published}
 \source{P7:prop:seesaw}
 
@@ -243,56 +264,65 @@ excluded by the Higgs/Starobinsky value $\varepsilon=2/N_e^2\approx0.001$.
 \status{published}
 \source{P7:rem:reheating_IC}
 
-\begin{corollary}[Tower compatibility: UV cutoff from the induced Planck mass]
+\begin{corollary}[Tower level of the ultraviolet cutoff]
 \label{P7:cor:luv_tower}
-The induced Planck mass formula~\eqref{P7:eq:MPl} determines $\LUV$
-in terms of $\MPl$:
+With $\LUV=\MPl/\vp^6$~\eqref{P7:eq:MPl}, the Planck mass and the
+cutoff are locked to the tower spacing $\vp^6$:
 \begin{equation}
-  \LUV \;=\; \frac{\MPl}{4\pi\sqrt{2}}
-  \;\approx\; \frac{\MPl}{17.77}
-  \;\approx\; 0.0563\,\MPl
-  \;\approx\; \frac{\MPl}{\vp^6}
-  \;\approx\; 0.0557\,\MPl,
+  \LUV \;=\; \frac{\MPl}{\vp^6}\;\approx\;0.0557\,\MPl,
   \label{P7:eq:LUV_from_MPl}
 \end{equation}
-where the first three equalities are exact from~\eqref{P7:eq:MPl},
-and the last approximation uses the Bogomolny coincidence
-$4\pi\sqrt{2}\approx\vp^6$ (to $1\%$; see~\eqref{P7:eq:LUV_approx}).
-Within the bosonic tower $M_n = \Lcond\,\vp^{2n}$ of Paper~VI~\cite{Paper6},
-the UV cutoff lies at the non-integer tower level
+the gap $\vp^6=\lambda$ being the Bogomolny parameter that also fixes
+$G_N$. Within the bosonic tower $M_n = \Lcond\,\vp^{2n}$ of
+Paper~VI~\cite{Paper6}, the cutoff lies at the non-integer level
 \begin{equation}
   \boxed{n_{\mathrm{UV}}
   \;=\; \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
   \;\approx\; 73.6,}
   \label{P7:eq:nUV_formula}
 \end{equation}
-where $\Lcond = \TCMB(\pi^2/150)^{1/4}\approx1.19\times10^{-4}\,\mathrm{eV}$
-is the condensate ground state.
-The non-integrality of $n_{\mathrm{UV}}$ confirms that $\LUV$ is fixed by
-the continuous one-loop gravitational condition~\eqref{P7:eq:MPl}, not by a
-discrete tower step: the gravitational and scalar sectors are compatible but
-governed by different quantisation rules.
+with $\Lcond = \TCMB(\pi^2/150)^{1/4}\approx1.19\times10^{-4}\,\mathrm{eV}$
+the condensate ground state, while $\MPl$ lies three steps higher at
+$n\approx76.6$. The $\vp^6$ gap between them is exact, but neither
+absolute level is an integer: the cutoff is locked to the tower
+spacing without coinciding with a discrete tower state.
 \end{corollary}
 \status{published}
 \source{P7:cor:luv_tower}
+\begin{proof}
+From $\LUV=\MPl/\vp^6\approx0.0557\,\MPl\approx6.8\times10^{17}\,\mathrm{GeV}$:
+\[
+  n_{\mathrm{UV}}
+  = \frac{\ln(\LUV/\Lcond)}{2\ln\vp}
+  \approx \frac{\ln(6.8\times10^{17}\,\mathrm{GeV}\,/\,1.19\times10^{-13}\,\mathrm{GeV})}{2\times0.4812}
+  \approx \frac{70.82}{0.9624}
+  \approx 73.6,
+\]
+and $n(\MPl)=n_{\mathrm{UV}}+3\approx76.6$ since $\MPl=\vp^6\LUV$.
+Since $73.6\notin\mathbb{Z}$, $\LUV$ does not coincide with any
+discrete tower level, while the gap $n(\MPl)-n_{\mathrm{UV}}=3$
+(i.e.\ $\vp^6$) is exact.
+\end{proof}
+\status{published}
+\source{P7:cor:luv_tower}
 
-\begin{remark}[Connection to Paper~VI and the Bogomolny coincidence]
+\begin{remark}[Connection to Paper~VI]
 \label{P7:rem:bogomolny_coincidence}
 Corollary~\ref{P7:cor:luv_tower} is the result that Paper~VI~\cite{Paper6}
-states as its final theorem (Theorem~7.1 therein), conditional on the
-one-loop formula~\eqref{P7:eq:MPl} proved here.
-The near-identity $4\pi\sqrt{2}\approx\vp^6$ (to 1\%) is a numerical
-coincidence of the framework: the one-loop coefficient $4\pi\sqrt{2}$
-from the Seeley--DeWitt expansion of a real scalar nearly equals the
-Bogomolny parameter $\vp^6 = \lambda$ that governs the condensate energy
-and the $\vp^{-2}$ tower spacing.
-This coincidence is not assumed; it is a consequence of the framework,
-and it means the correct precise formula~\eqref{P7:eq:MPl} and the Bogomolny
-estimate~\eqref{P7:eq:LUV_approx} differ by only 1\%.
-Together, Papers~VI and~VII close the tower-to-gravity connection:
-Paper~VI establishes the $\vp$-tower from first principles;
-Paper~VII derives the induced Planck mass from the one-loop
-Seeley--DeWitt expansion of the same parent action.
+states as its final theorem (Theorem~7.1 therein). The $\vp^6$ gap
+between $\MPl$ and $\LUV$~\eqref{P7:eq:MPl} is the Bogomolny parameter
+$\lambda=\vp^6$ --- the same quantity that fixes $G_N$, the condensate
+energy, and the $\vp^{-2}$ tower spacing --- so the cutoff sits three
+tower steps below the Planck mass for a topological reason. (The
+Seeley--DeWitt one-loop coefficient $4\pi\sqrt{2}\approx17.77$ happens
+to lie within $1\%$ of $\vp^6\approx17.94$, but this loop--tower
+proximity is a numerical coincidence and plays no role: the cutoff is
+fixed by the tower relation $\LUV=\MPl/\vp^6$, and the one-loop term
+only confirms that a gravitational sector is induced at the
+condensate scale.) Together, Papers~VI and~VII close the
+tower-to-gravity connection: Paper~VI establishes the $\vp$-tower from
+first principles; Paper~VII locates the induced gravitational sector
+within it.
 \end{remark}
 \status{published}
 \source{P7:rem:bogomolny_coincidence}

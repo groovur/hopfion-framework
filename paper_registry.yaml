@@ -1366,6 +1366,8 @@ labels:
   P7:prop:eft_naturalness:    {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:uv_completion_status: {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:cor:vainshtein_topology: {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:rV_frame:            {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:elastic_solid:       {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:lorentz:             {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:chameleon:           {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:cs_de:               {paper: paper7, repo_file: gravity/dark_sector.tex}

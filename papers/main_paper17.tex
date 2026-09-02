@@ -275,13 +275,24 @@ Section~\ref{P17:sec:summary} summarises.
 \label{P17:sec:topology}
 %══════════════════════════════════════════════════════════════════════════════
 
-The Hopf charge $\QH$ of a smooth map $\mathbf{n}:S^3\to S^2$
-(equivalently, of a finite-energy field $\mathbf{n}:\mathbb{R}^3\to S^2$
-after one-point compactification) is defined as the linking number of
-the preimages of any two distinct regular values of $\mathbf{n}$.
-Equivalently, $\QH=\deg(\pi\circ Z)$ where $Z:\mathbb{R}^3\to S^3$
-is the Hopf doublet and $\pi:S^3\to S^2$ is the Hopf fibration
-$\pi(z_1,z_2)=(2z_1\bar z_2,|z_1|^2-|z_2|^2)$.
+The Hopf charge $\QH$ of a sector is defined \emph{relative to the
+condensate ground state} $\mathbf{n}_{\mathrm{vac}}$ --- the
+density-feedback-selected $2I$ configuration of
+Paper~I~\cite{Paper1}, Theorem~6.1,%\ref{P1:thm:vacuum}
+which itself carries absolute Hopf charge $2$.  For a finite-energy field
+$\mathbf{n}:\mathbb{R}^3\to S^2$ that approaches $\mathbf{n}_{\mathrm{vac}}$
+at spatial infinity, $\QH$ is the linking number of the preimages of two
+distinct regular values of the excitation measured relative to
+$\mathbf{n}_{\mathrm{vac}}$, equivalently
+$\QH=Q_{\mathrm{tot}}-Q_{\mathrm{vac}}$, where the absolute charge
+$Q=\deg(\pi\circ Z)$ of any configuration is defined by one-point
+compactification ($Z:\mathbb{R}^3\to S^3$ the Hopf doublet,
+$\pi:S^3\to S^2$ the Hopf fibration
+$\pi(z_1,z_2)=(2z_1\bar z_2,|z_1|^2-|z_2|^2)$).  The ground state has
+$\QH=0$ by construction; the neutrino, charged-lepton, and baryon sectors
+are $\QH=1,2,3$.  Because the background is a coherent ordered texture, the
+relative charge reduces to the ordinary linking-number computation on the
+localized excitation, as for a topological defect in an ordered medium.
 
 \begin{proposition}[Topology of $\QH=1$]
 \label{P17:prop:qh1_unknot}
@@ -303,8 +314,9 @@ exactly once. The identification with the unknot (as a knot, not as a
 link component) follows because each single preimage fibre is
 isotopic to a circle; the linking number $1$ between any two distinct
 fibres is the definition of $\QH=1$. Finite energy forces $\mathbf{n}$
-to approach a constant at spatial infinity, ensuring the preimage
-fibres are compact.
+to approach the condensate ground state $\mathbf{n}_{\mathrm{vac}}$ at
+spatial infinity, so that the class $[\mathbf{n}]$ above is the relative
+class of the excitation and its preimage fibres are compact.
 \qed
 \end{proof}
 

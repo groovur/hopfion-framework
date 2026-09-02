@@ -1,0 +1,7 @@
+defect_network_sim_3d  N=96^3  xi_turb=12.0  INERTIAL(c_dir=0.05,gamma=0.02)  single-quench(freeze test)  RUN
+imprinted tangle:  P0=1072  xi_net0=sqrt(V/P0)=28.73 cells   (freshly quenched at xi_turb)
+frozen network:    P =738  xi_net =sqrt(V/P) =34.62 cells
+COEFFICIENT c = xi_net/xi_net0 = 1.205   (c~1: freezes at injection scale; c>>1: coarsened away)
+=> cluster M_def/M_RAR = (R_cl/(c*xi_turb))^2 at xi_turb=0.47 R_cl = 3.12  (need ~4.6)
+P history (it,P_line): [(0, 1072), (1500, 1046), (3000, 1004), (4500, 970), (6000, 916), (7500, 884), (9000, 834), (10500, 788), (12000, 776), (13500, 758), (14999, 738)]
+wall 725.3s

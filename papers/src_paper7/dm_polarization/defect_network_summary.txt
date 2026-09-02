@@ -1,0 +1,6 @@
+defect_network_sim  N=128^2  INERTIAL(c_dir=0.1,gamma=0.02)  stir(xi=16.0,amp=0.6)  RUN
+steady-state vortices N_v = 5323.5   xi_net = L/sqrt(N_v) = 1.75 cells
+SCALING COEFFICIENT c = xi_net/xi_turb = 0.110   (c~1 confirms xi_net~xi_turb assumption)
+=> cluster M_def/M_RAR = (R_cl/(c*xi_turb))^2 at xi_turb=0.47 R_cl = 376.55  (need ~4.6 to close deficit)
+N_v history (it,Nv): [(15000, 5344), (18000, 5444), (21000, 5246), (24000, 5308), (27000, 5290)]
+wall 64.7s

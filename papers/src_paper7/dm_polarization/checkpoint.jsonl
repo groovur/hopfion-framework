@@ -1,0 +1,6 @@
+{"kind": "result", "key": "test|bend|q0.1|L20.0|Nr400|Nth720", "mode": "test", "dir": "bend", "q": 0.1, "Lam": 20.0, "Nr": 400, "Nth": 720, "dE_over_th2": 0.0026687608817287643, "K": 0.5337521763457528, "wall_s": 0.1}
+{"kind": "result", "key": "test|bend|q0.2|L20.0|Nr400|Nth720", "mode": "test", "dir": "bend", "q": 0.2, "Lam": 20.0, "Nr": 400, "Nth": 720, "dE_over_th2": 0.010682273218136636, "K": 0.5341136609068318, "wall_s": 0.1}
+{"kind": "result", "key": "test|bend|q0.4|L20.0|Nr400|Nth720", "mode": "test", "dir": "bend", "q": 0.4, "Lam": 20.0, "Nr": 400, "Nth": 720, "dE_over_th2": 0.0428048516464151, "K": 0.5350606455801886, "wall_s": 0.1}
+{"kind": "result", "key": "test|splay|q0.1|L20.0|Nr400|Nth720", "mode": "test", "dir": "splay", "q": 0.1, "Lam": 20.0, "Nr": 400, "Nth": 720, "dE_over_th2": -0.042260296917608395, "K": -8.452059383521677, "wall_s": 0.1}
+{"kind": "result", "key": "test|splay|q0.2|L20.0|Nr400|Nth720", "mode": "test", "dir": "splay", "q": 0.2, "Lam": 20.0, "Nr": 400, "Nth": 720, "dE_over_th2": -0.16902669987015378, "K": -8.451334993507688, "wall_s": 0.1}
+{"kind": "result", "key": "test|splay|q0.4|L20.0|Nr400|Nth720", "mode": "test", "dir": "splay", "q": 0.4, "Lam": 20.0, "Nr": 400, "Nth": 720, "dE_over_th2": -0.6757451983998958, "K": -8.446814979998695, "wall_s": 0.1}

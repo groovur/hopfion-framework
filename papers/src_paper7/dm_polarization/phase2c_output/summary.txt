@@ -1,0 +1,18 @@
+Phase 2c nematic solver -- RUN
+grid=64^3  ngal=16  steps=1500  dt=0.15  core=1.0
+positions: sim:bimodal(frac=0.45,sep=0.45)
+F_collective       = 1.629434e+04
+F_single (full box)= 1.603977e+04
+mean nn spacing d_nn = 14.508306416757517
+R_trunc (=d_nn/2)  = 7.254
+F_single_trunc     = 8.560671e+01
+N x F_single_trunc = 1.369707e+03
+F_coll_local (sum over WS balls) = 6.048631e+02
+eta_PHYSICAL (radius-matched, local) = 0.4416   <- use this ( >1 enhancement, <1 screening )
+eta_fullbox (far-field-biased ~N)     = 11.8962   (do NOT use)
+eta_boxref  (full/full)               = 0.0635   (artifact-prone)
+d_nn/core = 14.51   RESOLVED (>=3, eta trustworthy): True
+energy history (collective relax): [np.float64(16388.24191538534), np.float64(16302.510980697178), np.float64(16298.894245394462), np.float64(16297.350582805391), np.float64(16296.4761907748), np.float64(16295.915613937766), np.float64(16295.533292580398), np.float64(16295.263158634203), np.float64(16295.065438170574), np.float64(16294.879419015026), np.float64(16294.341420312085)]
+monotone decrease: True
+collective relax wall time: 38.65s
+Sigma_strain shape: (64, 64), total: 1.6294e+04, peak: 1.1323e+02

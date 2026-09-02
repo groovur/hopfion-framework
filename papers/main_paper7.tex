@@ -1890,6 +1890,71 @@ reproduces the value required by galactic rotation curves to within about
 an order of magnitude with no galactic input.
 \end{remark}
 
+\begin{remark}[Director strain as a polaron: the effective inertial mass]
+\label{P7:rem:polaron}
+The strain of Section~\ref{P7:sec:director_strain}, sourced by and
+comoving with the baryons, dresses each baryon in the manner of a
+polaron---a particle accompanied by the medium distortion it induces.
+The quantity that gravitates and acts dynamically is then the
+\emph{effective inertial mass} of the dressed baryon, read off from the
+momentum carried by the comoving distortion.  With the director dynamics
+$\chi\,\partial_t^2\hat{n}=K\nabla^2\hat{n}$ (so
+$c_{\mathrm{dir}}^2=K/\chi$, equation~\eqref{P7:eq:cdir}) and a distortion
+$\hat{n}(\mathbf{x}-\mathbf{V}t)$ comoving with the source, the field
+momentum is $P_i=M_{ij}V_j$ with
+\begin{equation}
+  M_{ij}=\chi\!\int\!\partial_i\hat{n}\cdot\partial_j\hat{n}\,d^3x,
+  \qquad
+  m_{\mathrm{eff}}=\tfrac{\chi}{3}\!\int\!|\nabla\hat{n}|^2\,d^3x .
+  \label{P7:eq:meff}
+\end{equation}
+This mass is positive by construction: $\chi$ is a susceptibility and the
+integrand is a sum of squares, so \emph{the sign of the Frank constants
+does not enter}.  The splay instability $K_{\mathrm{splay}}<0$
+(Section~\ref{P7:sec:splay_instability}) drives the \emph{formation} of
+the texture---it makes $c_{\mathrm{dir}}^2<0$ in the splay channel---but
+the inertial mass depends on $\chi>0$ and the gradient integral, not on
+the sign of the elastic energy; formation and gravitating mass are
+distinct.  For the disclination halo $|\nabla\hat{n}|\sim1/r$
+(Section~\ref{P7:sec:flat_curves}), $m_{\mathrm{eff}}(r)\propto r$,
+reproducing $M_{\mathrm{enc}}\propto r$ with a positive mass, and the
+medium is \emph{heavy} because $\chi=K/c_{\mathrm{dir}}^2$ grows as
+$c_{\mathrm{dir}}\to0$ (Remark~\ref{P7:rem:elastic_solid}).
+
+The same dressing acts dynamically: a moving baryon drags its distortion
+cloud, so the halo produces the gravitational dynamical friction of any
+massive halo.  Whether a further \emph{elastic} drag---from the finite
+relaxation of the lagging cloud---is present depends on the rotational
+viscosity of the director and is not fixed here; if present it is
+velocity-dependent with a scaling distinct from the Chandrasekhar
+$1/v^2$, a signature by which the elastic halo could in principle be
+distinguished from a collisionless one.
+\end{remark}
+
+\begin{remark}[What the dark matter is: coherent deformation without a knot]
+\label{P7:rem:cdm_ontology}
+The dark sector is four states of the one condensate.  Baryonic matter
+is a Hopfion, carrying a topological Hopf charge, localised and 
+electromagnetically coupled.  Dark matter is the coherent
+\emph{deformation} of the surrounding director carrying no Hopf charge
+---a texture of the medium, not the knot itself---that such a knot induces
+(Section~\ref{P7:sec:director_strain}), and which persists as a real,
+gravitating strain \emph{independently} of the knot that sourced it:
+because the director mode is cold ($c_{\mathrm{dir}}\to0$,
+equation~\eqref{P7:eq:cdir}), a deformation relaxes only over
+cosmological times and survives after the sourcing baryon has moved on.
+It is stress without heat---a coherent geometric strain, as opposed to
+the \emph{incoherent} thermal excitations of the condensate, which
+redshift as radiation, and to the frozen vacuum, which is the
+cosmological constant.  Dark matter here is therefore not a particle but
+the cold, coherent, electromagnetically neutral deformation field of the
+fabric; its gravitating mass is the effective inertial mass of that
+comoving deformation (Remark~\ref{P7:rem:polaron}).  The same coherent
+deformation may in principle exist without a present-day source---a
+frozen relic strain of the fabric---which is the natural (and open)
+candidate for any cold component required before structure forms.
+\end{remark}
+
 %──────────────────────────────────────────────────────────────────────────────
 \subsection{The acceleration scale}
 \label{P7:sec:accel_scale}
@@ -1964,6 +2029,46 @@ screened profile~\eqref{P7:eq:Geff_screened}, with
 $\alpha_{\rm BD}(30/176)^{3/2}\approx6\times10^{-5}$.
 \qed
 \end{proof}
+
+\begin{remark}[Colliding clusters and the lensing--gas offset]
+\label{P7:rem:bullet}
+The archetypal test of collisionless dark matter is a cluster merger
+such as the Bullet cluster~\cite{Clowe2006}, in which the member
+galaxies pass through nearly collisionlessly while the intracluster
+gas---the dominant baryonic component---is shocked and retarded, so
+that weak lensing locates the gravitating mass on the galaxies,
+offset from the gas.  In the present framework this offset is the
+expected outcome rather than an anomaly.  The director strain is
+sourced by the coherent orientation boundary conditions a bound
+galaxy imposes on the medium (Section~\ref{P7:sec:director_strain});
+each galaxy carries its own splay halo, comoving with it, which is
+transported through the merger and so behaves collisionlessly in the
+encounter despite the shear rigidity of the medium
+(Remark~\ref{P7:rem:elastic_solid}).  The shocked gas, by contrast,
+is turbulent and orientationally incoherent: it offers no coherent
+seed for the splay disclination of
+Section~\ref{P7:sec:splay_instability} and sources negligible strain.
+The invisible mass therefore tracks the galaxies rather than the
+dominant gas, with no collisionless particle---the conclusion the
+observation is usually taken to compel, reached here from the
+elasticity of the medium.
+
+The \emph{amplitude} at cluster scales is a separate, quantitative
+question.  A galaxy's strain, normalised to its rotation curve, is an
+isothermal halo $M_{\mathrm{strain}}\propto v^{2}r$ with $v$ the
+galactic circular speed; summed independently over the members it
+underestimates the cluster lensing mass by a factor of order unity.
+The deficit closes to the extent that the inter-galaxy strain
+responds to the collective potential of the member system rather than
+to each galaxy in isolation, since an isothermal halo at the cluster
+velocity dispersion~$\sigma$ reproduces the virial mass identically,
+$M\propto\sigma^{2}r$, leaving $(\sigma/v)^{2}$ of headroom over the
+shortfall.  The collectivity of the director response is set by the
+same elasticity as the single-galaxy halo and, like the acceleration
+scale of Section~\ref{P7:sec:accel_scale}, is not fixed here; a
+residual cluster-scale enhancement of order unity, common to elastic
+and modified-gravity accounts, remains open.
+\end{remark}
 
 %──────────────────────────────────────────────────────────────────────────────
 \subsection{Structure formation and the baryon-acoustic scale}
@@ -2830,6 +2935,12 @@ N.~Aghanim et al.\ (Planck Collaboration),
 \textit{Planck 2018 results.\ VI.\ Cosmological parameters},
 Astron.\ Astrophys.\ \textbf{641}, A6 (2020).
 \href{https://doi.org/10.1051/0004-6361/201833910}{doi:10.1051/0004-6361/201833910}
+
+\bibitem{Clowe2006}
+D.~Clowe et al.,
+\textit{A direct empirical proof of the existence of dark matter},
+Astrophys.\ J.\ Lett.\ \textbf{648}, L109 (2006).
+\href{https://doi.org/10.1086/508162}{doi:10.1086/508162}
 
 \bibitem{DESI2024}
 A.~G. Adame et al.\ (DESI Collaboration),

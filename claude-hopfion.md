@@ -77,6 +77,68 @@ Verify against the cited paper before building new results on any single line
   `a₀≈cH₀/(2π)`; the ratio (cutoff / semi-Dirac crossover) is of order **φ⁶** (the
   same normalization as `S_eff`). Magnitude is condensate-derived (from ρ_cond and
   m_ξ) to ~an order of magnitude, no galactic input; exact coefficient not derived.
+- **[E]** **Polaron mass — resolves the `K_splay<0` sign paradox** (`P7:rem:polaron`).
+  The gravitating/dynamical DM mass is the **effective inertial mass** of a baryon
+  dressed by its comoving director distortion:
+  `m_eff = (χ/3)∫|∇n̂|² d³x` — **POSITIVE by construction** (χ>0, integrand a sum of
+  squares), so **the sign of K_splay never enters**. `K_splay<0` drives the texture's
+  FORMATION (`c_dir²<0` in the splay channel), not the sign of the halo mass;
+  formation and gravitating mass are cleanly separated. `|∇n̂|²~1/r²` → `m_eff∝r` →
+  `M_enc∝r`, positive. **Drag** = the same dressing dynamically: the halo gives the
+  standard gravitational **dynamical friction**; a further **elastic** drag (finite
+  c_dir, set by the rotational viscosity γ_rot) would scale `F~V`, distinct from
+  Chandrasekhar `1/v²` — a CDM-distinguishing signature, unpinned (γ_rot not fixed).
+  [Was the A1 static-energy sign tension; `notes/single_galaxy_winding_analysis.md`.]
+- **[I]** **CDM ontology — four states of the one condensate** (`P7:rem:cdm_ontology`):
+  **baryon** = coherent **knot** (Hopfion, carries Hopf charge, EM-coupled); **dark
+  matter** = coherent **deformation** of the director carrying **no Hopf charge** — a
+  texture of the medium, not the knot — persisting via `c_dir→0` after the sourcing
+  baryon moves on ("**stress without heat**"); **radiation** = *incoherent* thermal
+  condensate excitations; **dark energy** = frozen vacuum. DM is not a particle but the
+  cold, coherent, EM-neutral **deformation field** of the fabric. (Hopf charge here is
+  relative to the ground state — §8.)
+- **[E]** **Density-feedback screening → the RAR across ~30 dex** (`S_eff` denominator
+  `(1+β_*ρ)`, §3): high-ρ → `S_eff→0` → director OFF → **no DM** (planets, Solar
+  System, and cluster **cores**); low-ρ → max director → **max DM** (dwarfs); one law
+  spans planets→dwarfs and gives **cored** (not cuspy) profiles. The same feedback that
+  turns DM off in dense regions **screens clusters** — the wrong sign for the cluster
+  deficit — so the galaxy/RAR mechanism is screening, but the **cluster** fix is the
+  topological channel below, NOT screening.
+- **[I/E]** **vs MOND** (`P7:rem:bullet`, `P7:rem:defect_network`): MOND = a force law
+  slaved to the *local* baryonic `g_N` with universal `a₀`; the framework = a physical
+  field with **inertia, topology, and decoupling** that merely *coincides* with MOND in
+  the deep-`a₀` galactic regime. Same `a₀`, but the framework can carry mass the
+  local-`g_N` law structurally cannot (next bullet). Bullet-cluster lensing/gas offset
+  is the *expected* outcome (each galaxy's splay halo rides through collisionlessly;
+  shocked incoherent gas seeds no splay) — `P7:rem:bullet`.
+- **[N]** **Cluster-mass deficit — the topological disclination-network channel**
+  (`P7:rem:defect_network`; `notes/single_galaxy_winding_analysis.md`). Baryon-tracking
+  strain (RAR, ~5× stellar) underestimates cluster lensing (~28×). Framework-specific,
+  baryon-INDEPENDENT recovery: hierarchical/turbulent merger assembly traps disclination
+  lines (**Kibble–Zurek**), frozen by `c_dir→0` → a persistent **fossil network**.
+  `M_def/M_RAR ~ (R_cl/ξ_net)²`; recovers when the network freezes at the injection
+  scale `ξ_net~ξ_turb~½R_cl` (subcluster merger scale), no free normalization beyond
+  the `a₀` anchor.
+  - **CONDITIONAL [O]**: 3D inertial sim (`defect_network_sim_3d.py`) — as `c_dir→0` the
+    KZ tangle freezes at `c=ξ_net/ξ_turb→1` (recovers), but there is **no true plateau**:
+    the defect-free ground state always wins eventually; `c_dir` sets only the coarsening
+    **RATE** (`t_coarsen ~ 1/c_dir^{1.5–2}`, diverges as `c_dir→0`). "Frozen" is a
+    **timescale** statement. Survival over a cluster age needs `c_dir ≪ ξ_turb/t_cl ~
+    50 km/s` — the **SAME coldness** the sector already requires (§4). Recovery holds IFF
+    `c_dir` is below that threshold; `c_dir` is cutoff-set, NOT derived. (Overdamped
+    `c=2.77` and 2D `c≈2` were wrong-dynamics artifacts — the framework is INERTIAL,
+    `χ∂²_t n̂=K∇²n̂`, not overdamped/diffusive.)
+  - **[E] Three speeds — don't conflate**: (i) **signal** `c_dir=√(K/χ)→0`; (ii)
+    **healing/annihilation** rate = a **mobility** (line tension K vs rotational
+    viscosity γ_rot + inertia χ) — *this*, not the signal speed, sets network survival;
+    (iii) **magnitude/Bell** mode `c_s=c/φ` (fast, smooth, global). **Topological
+    protection**: a defect heals only by annihilation or core-melting, so the fast smooth
+    (Bell "one geometric object", §7) reconfiguration heals smooth strain but **cannot
+    annihilate a disclination** — the fossil network is safe from it. γ_rot unpinned.
+  - **[E] Falsifiable discriminator**: because the network slowly coarsens,
+    recently-merged/disturbed clusters carry a **denser** network → **more** mass excess
+    than relaxed clusters of equal baryon content. MOND: none; ΛCDM: excess tracks the
+    halo, not the merger/relaxation state.
 
 ## 5. Magnitude sector = dark energy; scales
 - **[E]** Scalar-magnitude perturbation sound speed **`c_s = 1/φ`** is the **dark-
@@ -114,11 +176,72 @@ Verify against the cited paper before building new results on any single line
   visibility (the "smoke-ring") is the SAME mechanism (would also address the
   horizon problem). Structure is global; the readout is causal.
 
-## 8. Sector ladder (charges) — see Papers XIII, XVII
-- **[E]** Topological-charge ladder: `Q_H=0` vacuum/**photon** (ripple, Paper
-  XVII), `1` neutrino, `2` lepton, `3` quark; gauge bosons/photon appear as
-  `Q=4, J=1` composites of two `Q=2` (Paper XIII). Verify the exact assignment in
-  the cited paper before use.
+## 8. Sector ladder (charges) — see Papers XV, XVI, XVII
+- **[E]** Ladder, **verified against Paper XVII's abstract** (l.46–60) and the
+  Paper XV/XVI titles:
+  - `Q_H=0` — the **bare condensate**: no winding, no topological charge; the
+    structured space, the condensate at rest.
+  - `Q_H=1` — **neutrino** sector (Paper XVII, l.91, 216): the lightest
+    topological excitation once embedded in the density-feedback medium. This is
+    the object the standard Faddeev–Niemi literature calls the *minimal*
+    Hopfion, realised here as the lightest **fermion**, not as the ground state.
+  - `Q_H=2` — **charged-lepton** sector (e/μ/τ tower): torus, **2I**, WZW
+    `SU(2)_3`, `Q_group=10`. Stabilised **because of** the density-feedback
+    term, not despite it. **[E]/[I] Geometry (user, 2026-09-02): TWO TUBES —
+    an INNER and an OUTER tube** — the fusion of two single-tube `Q=1` quanta,
+    `j_½×j_½ = j₀⊕j₁`, into the `j₀` singlet (Paper I `P1:thm:vacuum` (iii),
+    l.1318). The **single tube is unstable and collapses** (`Q=1` "not a stable
+    ground state ... decays to `Q=2`"; also l.224, l.1599). So the physical
+    `Q=2` object is intrinsically two-tube, not a doubled single tube.
+  - `Q_H=3` — **baryon** sector (three-quark-like, distinct from the lepton
+    tower): trefoil `T(2,3)`, **2T**, `(E_6)_1 ⊃ SU(3)_1^{×3}`, `Q_group=3`
+    (Papers XV/XVI). **[I] (user, 2026-09-02):** the two objects that combine are
+    the **two pre-images (Hopf fibers) reconfiguring into the `T(2,3)` trefoil**;
+    and **Hopf-charge conservation topologically forces a neutrino-like
+    byproduct** — identified in the hadronic context with the **pion** (Paper
+    XVIII Thm 5.3, used in Paper XIX l.1489, 1583).
+  - Gauge bosons/photon appear as `Q=4, J=1` composites of two `Q=2` (Paper
+    XIII) — not re-verified here.
+  - Physically `Q=2` is genuinely **two tubes**
+    (inner + outer) — `P1:thm:vacuum` (iii) fuses two `Q=1` single tubes into the
+    `Q=2` singlet and the single tube is unstable/collapses — while the footnote
+    at l.323–326 is only a **solver-measure convention** (the `z→−z` bilateral
+    factor in `vol=2π·2r·h²` *labels* a single tube `Q=2` in the axisymmetric
+    code). Convention vs physics, not a contradiction. **What REMAINS open is the
+    cross-paper label:** `Q_H=2` names the **two-tube condensate vacuum** in I/VII
+    but the **charged lepton** in XV–XVII (both carry the same 2I / `SU(2)_3` /
+  `j_0` data), and `Q_H=0` (no winding) vs Paper I's winding-carrying vacuum.
+  — `Q_H` is the Hopf charge
+    RELATIVE to the condensate ground state.** `Q_H=0` = the wound `Q=2` vacuum
+    (Paper I Thm 6.1); `Q_H=1,2,3` = ν/ℓ/baryon excitations. Edits: XVII
+    definition rewritten (l.278–307, `n→n_vac` at infinity, `Q_H=Q_tot−Q_vac`);
+    Paper I remark `P1:rem:qh_relative`; Paper VII note in `P7:rem:cdm_ontology`;
+    XVI l.1047/2052 clarifiers; XV footnote.
+  - **[N]** **Quark-sector check (2026-09-02): the reconciliation is a NAMING choice
+    with NO physics at stake.** Whether the ground state carries winding does **not**
+    change anything in Papers XV–XIX: XVII l.138–141 states each sector `Q_H=N` gets
+    its identity from a **triple** (McKay group, WZW CFT, knot type), and every quark
+    result flows from that triple — colour exclusion (group coprimality `gcd(2,3)=1`),
+    generations/masses (coset `M(5,6)` CFT), confinement/fractional charge (trefoil rep
+    theory), `Q_group{3,6,10}`, `Q_coset=h(E_8)=30` (knot `(p,q)=(2,3)` + Brieskorn
+    `Σ(2,3,5)`) — **never** from the absolute integer or the base being winding-free.
+    `Q_H` and physics-winding are already decoupled (`Q_H=3` but trefoil `(p,q)=(2,3)`;
+    `Q_group≠Q_H`). The CFT `j_0` the physics uses is the **identity primary**, not the
+    geometric ground state, so a winding-carrying vacuum never enters it. Read `Q_H` as a
+    **sector index / excitation count above the condensate** and Paper I (2I/`Q=2`
+    winding-carrying ground state) and XV–XIX are consistent. 
+  - **Q_H=1 paper, XVII, close read** it is not *purely* a label —
+    XVII's topology section carries an **explicit trivial-vacuum assumption**:
+    `Q_H` is defined as the **absolute** Hopf charge (π₃ generator, l.278–284) with
+    the finite-energy BC "**n** approaches a **constant** at spatial infinity"
+    (l.305–307). That constant-at-infinity IS the winding-free background, and it is
+    the **opposite framing** from XVI l.1047 ("vacuum = `Q_H=2`") — a real framing
+    inconsistency between the two ladder papers. Still **physics-inert**: redefining
+    `Q_H` relative to a wound background gives the same ℤ with the same knot
+    generators, changing only the absolute integers. Likely **no contradiction** at
+    all — XVII's "constant at infinity" is the *local* soliton reference; Paper I's
+    `Q=2` is the *global* condensate texture; restating the BC as "approaches the
+    condensate ground state at infinity" (a relative Hopf charge) reconciles them.
 
 ## 9. Standing cosmological status (the recurring "CDM gap")
 - **[I]** **Frame the gap as a REGIME, not a missing particle.** CDM is a theory;

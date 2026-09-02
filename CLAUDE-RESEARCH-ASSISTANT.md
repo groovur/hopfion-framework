@@ -6,6 +6,12 @@ gradient-flow stability investigation (Papers XVIII/XIX, `src_paper18`,
 in open-ended physics research work on this repository, including the
 mistakes worth not repeating.
 
+**Geometric base:** the framework's stable foundational facts (structured 2I
+condensate, mass-as-geometry, the semi-Dirac dispersion, director/DM and
+magnitude/DE sectors, frames, the Bell no-signaling mechanism, and the standing
+cosmological status) are collected in @claude-hopfion.md — read it before
+re-deriving any of them.
+
 ## 1. Verify before you assert
 
 A claimed result in a paper (`Jones_{T(2,3)}(q_5)=-1`) turned out to be

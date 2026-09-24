@@ -1,0 +1,151 @@
+% DRAFT replacement for main_paper11.tex.
+% Scope: (A) the proof of Proposition P11:prop:R_equals_1 (currently the
+% sigma_Slater + sigma_xc = 6.00 decomposition), (B) the remark
+% P11:rem:sigma_xc_origin, (C) the one-line estimate at line ~760,
+% (D) the summary restatement at lines ~1882-1886.
+% Not applied. Numbers verified against mendeleev (Clementi et al. and
+% Slater tables) and by direct computation; see
+% papers/src_paper11/zeff_prescription/.
+
+% ============================================================== (A)
+% Replaces everything between \begin{proof} and \qed \end{proof} of
+% Proposition P11:prop:R_equals_1.
+
+\begin{proof}
+We work in atomic units~\eqref{P11:eq:HZ_au}; ``Ry'' below means $2\ERy$.
+By Koopmans' theorem, $\IE(\mathrm{O}) = -\varepsilon_{2p}$, and writing
+the orbital energy in hydrogenic form defines an effective charge,
+\begin{equation}
+  -\varepsilon_{2p}
+  \;=\; \frac{Z_\mathrm{eff}^2}{n_\mathrm{qn}^2}\,\ERy,
+  \qquad
+  Z_\mathrm{eff} \;\equiv\; Z - \sigma_\mathrm{tot},
+  \label{P11:eq:eps_Zeff}
+\end{equation}
+so that $R(\mathrm{O})=1$ is exactly $Z_\mathrm{eff}=n_\mathrm{qn}=2$.
+Equation~\eqref{P11:eq:eps_Zeff} is a change of variables rather than a
+derivation: it \emph{defines} $Z_\mathrm{eff}$ from the energy, so
+``$Z_\mathrm{eff}(\mathrm{O})=2$'' and ``$\IE(\mathrm{O})=\ERy$'' are
+the same statement.  Establishing~\eqref{P11:eq:R_equals_1} requires
+$\sigma_\mathrm{tot}$ from a prescription independent of the measured
+energy.
+
+\textbf{(a) Independent screening prescriptions.}
+Two are standard.  Slater's rules~\cite{Slater1930} place the $2s$ and
+$2p$ electrons in a single screening group, each screening the others
+at $0.35$, with the $1s$ pair at $0.85$:
+\begin{equation}
+  \sigma_\mathrm{Slater}
+  = 2\times0.85\;(1s^2) + 5\times0.35\;(\text{other } n{=}2)
+  = 3.45,
+  \qquad
+  Z_\mathrm{eff}^\mathrm{Slater} = 4.55 .
+  \label{P11:eq:sigma_slater}
+\end{equation}
+The self-consistent Hartree--Fock screening constants of Clementi
+\emph{et al.}~\cite{Clementi1963} give, for oxygen,
+$Z_\mathrm{eff}(2s)=4.4916$ and $Z_\mathrm{eff}(2p)=4.4532$.  The two
+orbitals differ by $0.038$, confirming Slater's grouping directly: $2s$
+and $2p$ see essentially the same effective charge, and $2s$ does not
+act as an inner shell towards $2p$.  Taking the $1s$ pair at $0.85$
+each, the Clementi value implies $0.369$ of screening per $n=2$
+electron against Slater's $0.35$, a five per cent refinement.  The two
+prescriptions agree on $Z_\mathrm{eff}(2p)$ to two per cent.
+
+\textbf{(b) Neither prescription gives $Z_\mathrm{eff}=2$, and none can.}
+Both place $Z_\mathrm{eff}(\mathrm{O},2p)$ near $4.5$.  The value
+$\sigma_\mathrm{tot}=6.00$ required by~\eqref{P11:eq:eps_Zeff} lies
+outside the range any screening decomposition can reach: with the $1s$
+pair at $0.85$ and $2p$--$2p$ at $0.35$, each $2s$ electron would have
+to screen $1.625$ units of nuclear charge, and a single electron cannot
+screen more than one; granting the $1s$ pair the maximum $1.0$ each
+still requires $1.475$.  Consequently $Z_\mathrm{eff}=2$ is not an
+orbital screening constant but the measured ionisation energy
+re-expressed through~\eqref{P11:eq:eps_Zeff}.
+
+\textbf{(c) The correct use of screening constants.}
+Equation~\eqref{P11:eq:eps_Zeff} is not how screening constants enter
+energies.  Slater's rules furnish total energies
+\begin{equation}
+  E \;=\; -\ERy \sum_i \Bigl(\frac{Z_{\mathrm{eff},i}}{n^*_i}\Bigr)^{\!2},
+  \label{P11:eq:slater_total}
+\end{equation}
+with $n^*$ the effective principal quantum numbers, and the ionisation
+energy is the difference between the ion and the neutral atom.
+Evaluated for $\mathrm{O}\,[1s^22s^22p^4]$ and
+$\mathrm{O}^+[1s^22s^22p^3]$, equation~\eqref{P11:eq:slater_total}
+gives
+\begin{equation}
+  \IE_\mathrm{Slater}(\mathrm{O})
+  \;=\; E(\mathrm{O}^+) - E(\mathrm{O})
+  \;=\; 14.17\,\mathrm{eV}
+  \;=\; 1.041\,\ERy,
+  \qquad
+  |\Delta n| = 0.041 .
+  \label{P11:eq:IE_slater_total}
+\end{equation}
+Standard screening theory therefore places oxygen's first ionisation
+energy at the Rydberg energy to four per cent, with no free parameters
+and no framework input, establishing~\eqref{P11:eq:R_equals_1} at that
+order.  The $O(\aem)$ refinement of
+Proposition~\ref{P11:prop:Zeff_closed} is a separate, smaller effect.
+\qed
+\end{proof}
+
+% ============================================================== (B)
+% Replaces the remark P11:rem:sigma_xc_origin in its entirety.
+
+\begin{remark}[Precision of the H--O coincidence]
+\label{P11:rem:sigma_xc_origin}
+Equation~\eqref{P11:eq:IE_slater_total} accounts for
+$R(\mathrm{O})=1$ to four per cent, $|\Delta n| = 0.041$.  The measured
+coincidence is far tighter: $\IE(\mathrm{H})=13.598\,\mathrm{eV}$ and
+$\IE(\mathrm{O})=13.618\,\mathrm{eV}$ differ by $0.15\%$,
+$|\Delta n| = 0.0015$, some twenty-seven times closer than the
+screening calculation predicts.  That excess precision is not derived
+here, and is the substance of the near-degeneracy.
+
+Two accounts of it are unavailable.  A decomposition
+$\sigma_\mathrm{tot} = \sigma_\mathrm{Slater} + \sigma_\mathrm{xc}$
+cannot supply it, because $\sigma_\mathrm{xc}$ would be defined as the
+residual $\sigma_\mathrm{tot}-\sigma_\mathrm{Slater}$, making its
+closure an identity rather than a check --- and, by the ceiling
+argument above, no admissible $\sigma_\mathrm{xc}$ reaches
+$\sigma_\mathrm{tot}=6.00$ in any case.  Nor does the $2p^4$ exchange
+penalty account for the gap quantitatively: with the Condon--Shortley
+angular coefficient $3/25$ and $F^2(2p)=(17/81)Z_\mathrm{eff}\ERy$ at
+$Z_\mathrm{eff}=2$, the exchange term is
+$(3/2)K_{2p,2p} = 1.03\,\mathrm{eV}$, which at
+$\mathrm{d}\IE/\mathrm{d}\sigma = 2Z_\mathrm{eff}\ERy/n_\mathrm{qn}^2
+= 13.6\,\mathrm{eV}$ per unit of screening corresponds to
+$\Delta\sigma \approx 0.08$.
+
+What the framework contributes is unaffected: the Rydberg energy sits
+at tower level $-12.102$ with no free parameters once $\aem$ and $m_e$
+are fixed (Corollary~\ref{P11:cor:rydberg}), and hydrogen sits there by
+definition.  That oxygen sits within $0.0015$ of the same level is an
+atomic-structure fact, approximately explained by ordinary screening
+and exactly explained by neither.
+\end{remark}
+
+% ============================================================== (C)
+% Replaces the parenthetical estimate near line 760.
+
+to the observed $13.618\,\mathrm{eV} \approx \ERy$.
+% (delete the clause ``from the screened-Coulomb estimate of
+%  $\approx 3.55^2\,\ERy/4 \approx 42.9\,\mathrm{eV}$'': the
+%  one-electron orbital formula is not the right expression, and with
+%  the corrected Slater charge it would read $4.55^2\ERy/4 = 70.4$ eV.
+%  If a comparison number is wanted, use the total-energy value
+%  $14.17\,\mathrm{eV}$ of \eqref{P11:eq:IE_slater_total}.)
+
+% ============================================================== (D)
+% Replaces the summary restatement at lines ~1882-1886.
+
+  Slater's rules give $Z_\mathrm{eff}(\mathrm{O},2p)=4.55$ and the
+  Clementi \emph{et al.} Hartree--Fock constants give $4.4532$,
+  agreeing to two per cent; used as total-energy differences they
+  place $\IE(\mathrm{O})$ within four per cent of $\ERy$.  The
+  parametrisation $Z_\mathrm{eff}=2=Z-\sigma_\mathrm{tot}$ is
+  equivalent to $\IE(\mathrm{O})=\ERy$ itself and is not an
+  independent screening result.

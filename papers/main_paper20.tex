@@ -1,0 +1,866 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref,xcolor,enumitem,booktabs,array}
+\usepackage{graphicx,subcaption}
+
+\hypersetup{colorlinks=true,linkcolor={blue!60!black},
+  citecolor={blue!60!black},urlcolor={blue!60!black}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\rCMB}{\rho_{\mathrm{CMB}}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\twoI}{2I}
+\newcommand{\twoT}{2T}
+\newcommand{\QH}{Q_H}
+\newcommand{\Qgr}{Q_{\mathrm{group}}}
+\newcommand{\Ztwo}{\mathbb{Z}_2}
+\newcommand{\Zthree}{\mathbb{Z}_3}
+\newcommand{\Tw}{\mathrm{Tw}}
+\newcommand{\Mup}{M_{\mathrm{up}}}
+\newcommand{\Mdn}{M_{\mathrm{down}}}
+\newcommand{\alphas}{\alpha_s}
+\newcommand{\alphaem}{\alpha_{\mathrm{em}}}
+
+\title{\textbf{The Dynamical Layer of the Quark Sector:\\
+$E_6$-Native Generations, the Isospin Mass-Scale, and\\
+Static Residuals as Strong Dynamics}
+\\[0.6em]
+{\large Companion Paper XX to the Density-Feedback
+Faddeev--Niemi Hopfion Series}
+\\[0.6em]
+\large DRAFT --- September 2026}
+\author{Frederick Manfredi}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Papers~V, XV--XIX establish the $\QH=3$ quark/baryon sector of the
+density-feedback Faddeev--Niemi Hopfion: the trefoil $T_{2,3}$, the
+binary tetrahedral group $\twoT$, the WZW model $(E_6)_1\supset
+\SU(3)_1^{\times3}$, and an algebraic (saddle-less) quark mass. This
+paper assembles the sector's \emph{dynamical} content and, in doing so,
+reframes what the static/topological framework is and is not.
+We record six results and one organising principle.
+(1)~\textbf{$E_6$-native generations, $E_8$-bridge anchor.} The quark's
+own group is $E_6$; $E_8$ enters only as the charged-lepton bridge that
+anchors the down sector (strange$=$muon). The generation ladder is the
+per-strand $E_6$ ribbon twist; the up/down tower-steepness asymmetry is
+the ratio of WZW phase units $\pi\Qgr/(k\,h)$, namely
+$(\pi/4)/(\pi/9)=9/4$, matching the measured steepness ($\approx2.1$)
+to $6\%$ with no free parameter.
+(2)~\textbf{Isospin mass-scale from tangent orientation.} The up/down
+mass-scale ratio is fixed by the trefoil crossing/midpoint tangent
+geometry (Paper~XVIII), $\Mdn/\Mup\approx0.189$, closing to the measured
+$0.157$ under a single generation-universal correction; a direct
+Faddeev-energy computation shows the operative quantity is tangent
+\emph{orientation}, not a static energy difference.
+(3)~\textbf{Fractional charge from colour triality.} The $\Zthree$
+center of the colour CFT $\SU(3)_1=(E_6)_1$ forces the quark hypercharge
+$Y\equiv\text{triality}/3$, giving $Q=\{+\tfrac23,-\tfrac13\}$ for the
+colour triplet and integer charge for the colour-singlet leptons; the
+fractional denominator is the colour center (the three crossings of
+$T_{2,3}$), and the Chern--Simons edge modes are its dynamical carrier.
+This derives what Paper~XVIII assigned by writhe.
+(4)~\textbf{The generation-1 electromagnetic flip.} A charge-linear
+coupling of scale $\alphaem\Lambda_{\mathrm{const}}\sim$~MeV flips the
+$u<d$ ordering at generation~1 while leaving $c>s$, $t>b$ intact.
+(5)~\textbf{The doublet sum rule, and the constituent scale.}
+$m_{\rm up}+m_{\rm down}=C\,m_\ell$ with $C\approx13$ holds across the two
+confined doublets and cross-predicts the confined up quarks. The
+constituent scale is derived, $m_{\rm const}=\Lcond^{\rm baryon}\vp^6
+e^{8\pi}\approx237$~MeV (the $8\pi$ Chern--Simons spoke), and reduces $C$
+to the $E_6$-native tower level: deriving $C$ and pinning that tower are
+one problem, with the tower level the sole remaining unknown.
+(6)~\textbf{Residuals as the dynamical layer.} A diagnostic across all
+sectors shows the static/topological predictions are exact at leading
+order for static-saddle sectors (charged leptons, gauge couplings:
+residuals $\lesssim0.5\%$) and leave $\sim\!\alphas$ residuals
+($\sim20$--$30\%$) precisely in the dynamical sectors (quarks, neutrino).
+The residuals are not unrelated misses but one correction whose size
+tracks the sector's coupling, largest where the object has no static
+saddle. We record, as retracted, several numerological readings of $C$
+(the $4\pi$, $\vp^6$, and solid-angle interpretations), and identify the
+Chern--Simons edge/Hall dynamics and the non-perturbative formation
+energy as the two un-developed dynamical handles.
+\end{abstract}
+
+\tableofcontents
+\bigskip\newpage
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{P20:sec:intro}
+%══════════════════════════════════════════════════════════════════════════════
+
+The density-feedback Faddeev--Niemi Hopfion framework~\cite{Paper1}
+assigns each topological sector $\QH=N$ an identity through a
+McKay-correspondence group, a WZW conformal field theory, and a knot
+type (Paper~XVII~\cite{Paper17}). For the $\QH=3$ quark/baryon sector this
+triple is $\bigl(\twoT,\ (E_6)_1\supset\SU(3)_1^{\times3},\ T_{2,3}\bigr)$
+(Papers~XV, XVI~\cite{Paper15,Paper16}). The lepton sectors are
+\emph{static}: the charged lepton is a stable Faddeev saddle whose mass
+is the configuration energy, and the framework predicts it to
+$1.3\times10^{-4}$ (Paper~IV~\cite{Paper4}, Paper~XII~\cite{Paper12}).
+The quark sector is not: the isolated trefoil is metastable with no
+stable field saddle (Paper~XV~\cite{Paper15}, Paper~XVIII~\cite{Paper18}),
+so the quark mass is algebraic rather than a saddle energy
+(Paper~V~\cite{Paper5}), and the framework's quark-mass predictions
+carry residuals an order of magnitude larger than the lepton sector's.
+
+This paper collects the sector's dynamical structure. Sections~\ref{P20:sec:groups}--\ref{P20:sec:gen1}
+establish the group and geometric content of the generation, isospin,
+and charge structure (including a derivation of the fractional charge
+from the colour $\Zthree$ center, Section~\ref{P20:sec:charge});
+Section~\ref{P20:sec:sumrule} records an empirical doublet
+mass-budget relation and, importantly, what it does \emph{not} mean;
+Section~\ref{P20:sec:residuals} presents the organising result---a
+diagnostic showing that the framework's residuals partition cleanly by
+whether the sector is a static saddle or a dynamical object, with the
+dynamical residuals sitting at the strong-coupling scale. The
+consistent theme is that the static/topological layer is the exact
+leading order and the residuals are a single dynamical correction,
+forced into view in the quark sector because the quark is intrinsically
+dynamical.
+
+We separate established results (theorems, propositions) from leads
+(conjectures) and from honest negatives (remarks). Several attractive
+numerical readings are recorded as \emph{retracted} to prevent their
+recurrence.
+
+Several of the structures used here have established counterparts, which
+we cite rather than claim: the golden ratio $\vp$ is the quantum
+dimension of the Fibonacci anyon of the $\SU(2)_3$ WZW
+model~\cite{Nayak2008}; icosahedral ($A_5$) family and modular flavour
+symmetry produce golden-ratio lepton mixing and hierarchical fermion
+masses from the modulus fixed points~\cite{Everett2009,Feruglio2017,ModFlavHierarchy2025};
+and the fractional-charge quantisation of Section~\ref{P20:sec:charge}
+is the standard $\mathbb{Z}_6$ quotient of the Standard-Model gauge
+group~\cite{FracCharge2024}. The framework's contribution is not these
+individual facts but a single topological origin---the density-feedback
+hopfion with its McKay/WZW data---from which they follow together,
+alongside the mass and residual results below; in particular the
+mass-hierarchy-from-fixed-point mechanism of modular flavour symmetry is
+paralleled by the RG-fixed-point tower ($\zeta=\vp$, Paper~VI~\cite{Paper6}).
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Generation Structure: $E_6$-Native, $E_8$-Bridge}
+\label{P20:sec:groups}
+%══════════════════════════════════════════════════════════════════════════════
+
+\subsection{The two groups and their roles}
+
+Paper~V~\cite{Paper5} first obtained the quark masses from an $E_8$
+Coxeter route applied to the entire scale. Papers~XVI, XVII refine this:
+the quark's intrinsic group is $E_6$ (the McKay dual of the $\vp$-free
+group $\twoT$, with $(E_6)_1\supset\SU(3)_1^{\times3}$ the colour CFT),
+while $E_8$ (the McKay dual of $\twoI$, the charged-lepton group) enters
+only as a \emph{bridge}: the down sector is anchored to the charged
+leptons through the exact coincidence $m_s=m_\mu$ at the condensate
+scale (the strange--muon anchor, forced by $T^{(13)}=\tfrac18=T_\mu$;
+Paper~XVI~\cite{Paper16}). %\ref{P17:rem:quark_mass_algebraic}
+
+\begin{definition}[Native group and bridge]
+\label{P20:def:native_bridge}
+For the $\QH=3$ sector we call $E_6$ the \emph{native} group (it
+carries the colour CFT $\SU(3)_1$ and the per-strand generation twist)
+and $E_8$ the \emph{bridge} (it references the charged-lepton mass that
+anchors the down-type quarks). The down-type masses are computed on the
+$E_8$ bridge; the up-type generation structure is $E_6$-native.
+\end{definition}
+
+\subsection{The up/down steepness as a ratio of WZW phase units}
+
+The mass formula of Paper~VI~\cite{Paper6}, Paper~XVII~\cite{Paper17}
+carries a WZW phase unit $\pi\Qgr/(k\,h)$, where $\Qgr$ is the group
+order, $k$ the WZW level and $h$ the Coxeter number. For the charged
+lepton (the $E_8$ bridge), $\Qgr=10$, $k=3$, $h(E_8)=30$, giving the
+established unit $\pi/9$. The $E_6$-native quark carries its own numbers
+$\Qgr=3$, $k=1$ ($\SU(3)_1=(E_6)_1$), $h(E_6)=12$.
+
+\begin{proposition}[Up/down tower-steepness ratio]
+\label{P20:prop:steepness}
+The $E_6$-native phase unit is
+\begin{equation}
+  \frac{\pi\,\Qgr}{k\,h(E_6)}=\frac{\pi\cdot3}{1\cdot12}=\frac{\pi}{4},
+  \label{P20:eq:e6phase}
+\end{equation}
+and its ratio to the $E_8$-bridge unit $\pi/9$ is
+$(\pi/4)/(\pi/9)=9/4=2.25$. The up-type tower is therefore steeper than
+the down-type by this factor. The empirically observed ratio of
+per-generation tower increments, $\Delta n_{\rm up}/\Delta n_{\rm down}
+\approx2.1$ (confined generations), agrees to $6\%$ with no free
+parameter.
+\end{proposition}
+
+\begin{remark}[Generation is a ribbon twist, not a curve property]
+\label{P20:rem:twist}
+Generation is realised as the per-strand $E_6$ ribbon twist $|\Tw|\in
+\{1,2,5\}$ (the Coxeter-exponent distances $|m-h/2|$ for the three
+mirror-pair doublets), a framing of the fixed knot $T_{2,3}$; the knot
+type, writhe (colour), and confinement length are generation-universal.
+The mirror symmetry $\Tw\to-\Tw$ is the isospin doublet, and the
+framing period is $\mathrm{mod}\ 3$ (the $\SU(3)_1$ topological spin),
+consistent with quarks carrying colour.
+\end{remark}
+
+\begin{remark}[The empirical down power law is not a fundamental identity]
+\label{P20:rem:powerlaw}
+The confined down masses obey a clean power law $m\propto|\Tw|^{p}$ with
+$p\approx4.2$ ($R^2=0.9999$). This is \emph{not} a representation-theory
+identity: the per-step exponent scatters ($4.17$ vs $4.22$), and the
+clean power requires the measured charged-lepton masses as inputs (the
+WZW data alone give $4.03$ vs $4.57$). It is a re-parametrisation of the
+$E_8$-bridge route (down mass $=m_\ell$ times the $E_8$-exponent
+factor), not a new law; the proximity of $p$ to $\vp^3=4.236$ lies
+within the fit scatter and is not claimed.
+\end{remark}
+
+\begin{proposition}[Parameter-free up-doublet ratio]
+\label{P20:prop:up_ratio}
+Write the $E_6$-native tower level as $n_g=A\,T_g-2\,m_g^{E_6}$, with
+$A=6\,h(E_6)=72$ (the $E_6$ analogue of the $E_8$-bridge coefficient
+$6\,h(E_8)=180$; Paper~XVII~\cite{Paper17}), $T_g$ the $\SU(2)_{k_g}$
+T-matrix phases $\{5/24,\,1/8,\,3/40\}$ at the spinor primary $j=\tfrac12$,
+$k_g=1,2,3$ (Paper~XVII~\cite{Paper17}), and $m_g^{E_6}$ the $E_6$ Coxeter
+exponents of the up doublet, $\{m_u,m_c,m_t\}=\{7,8,11\}$
+(Remark~\ref{P20:rem:twist}). The first-to-second generation gap is an
+integer,
+\begin{equation}
+  n_u-n_c=A\,(T_1-T_2)-2\,(m_u^{E_6}-m_c^{E_6})
+        =72\cdot\tfrac{1}{12}-2\,(7-8)=6+2=8,
+  \label{P20:eq:up_gap}
+\end{equation}
+so with the $E_6$-native phase unit $\pi/4$~\eqref{P20:eq:e6phase} and the
+tower $m_g\propto\exp(-n_g\,\pi/4)$,
+\begin{equation}
+  \frac{m_u}{m_c}=\exp\!\Bigl[-(n_u-n_c)\tfrac{\pi}{4}\Bigr]
+                =e^{-2\pi}=1.867\times10^{-3},
+  \label{P20:eq:up_ratio}
+\end{equation}
+a mass ratio fixed entirely by WZW T-matrix and Coxeter data, with no free
+parameter---the absolute offset common to all $n_g$ cancels in the ratio.
+\end{proposition}
+
+\begin{remark}[Empirical status and the open anchor]
+\label{P20:rem:up_ratio_data}
+The QCD mass anomalous dimension is flavour-independent, so the ratio
+$m_u/m_c$ evaluated at a common renormalisation scale is scale-invariant.
+Running $m_c(m_c)=1.27$~GeV up to $2$~GeV gives $m_c=1.10$~GeV, whence
+$m_u/m_c=2.16/1097=1.97\times10^{-3}$ at a common scale (identical at $M_Z$),
+against the raw mixed-scale value $2.16/1270=1.70\times10^{-3}$. The
+prediction $e^{-2\pi}=1.87\times10^{-3}$ lies between the two and well within
+the dominant uncertainty, that of $m_u$ ($\sim\pm20\%$). This extends the
+``conformal weight $=$ observable'' identity of Paper~XV~\cite{Paper15}
+---there established for the electric charges---from a charge to a mass ratio.
+The ratio fixes only the tower \emph{spacing}; the absolute normalisation is
+not determined by it and is the content of Open Problem~O1. Crucially, the top
+is \emph{not} a rung of this confined tower: it is the unique quark that decays
+before it can hadronise ($\tau_t/\tau_{\rm QCD}\approx0.15$), so it never
+completes the $T_{2,3}$ formation and sits at $v/\sqrt2$ rather than at its
+full-formation value ($m_\tau\,e^{15\pi/9}\approx334$~GeV on the $E_8$ bridge)
+---an incomplete-formation deficit of $\approx2$, not a tower offset.
+Extending the confined
+$u,c$ tower onto the bare top is therefore inappropriate (the up triplet is
+inhomogeneous: $u,c$ confined, $t$ bare). The absolute scale of the confined
+$u,c$ doublet is set instead by the $T_{2,2}\!\to\!T_{2,3}$ formation energy.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Isospin Mass-Scale from Tangent Orientation}
+\label{P20:sec:isospin}
+%══════════════════════════════════════════════════════════════════════════════
+
+Paper~XVIII assigns isospin to the $\Ztwo$ writhe asymmetry of $T_{2,3}$:
+the crossing-vertex network ($z=+r_0$) is up-type, the midpoint/distal
+network ($z=0$) is down-type. %\ref{P18:conj:isospin}
+The associated mass-scale ratio (Paper~XVIII) is set by the out-of-plane
+tangent fraction at each site network.
+
+\begin{proposition}[Isospin mass-scale and its residual]
+\label{P20:prop:isospin_scale}
+With the exact golden-trefoil tangent data ($R_0=3$, $r_0=\sqrt2/\vp$;
+$\dot\Gamma_z=+0.321$ distal, $-0.525$ midpoint, $0$ at crossings), the
+out-of-plane fraction averages $\langle\dot\Gamma_z^2\rangle=0.189$, and
+the mass-scale ratio (geometric-mean quark masses per triplet) is
+predicted
+\begin{equation}
+  \frac{\Mdn}{\Mup}
+  =\frac{\langle\dot\Gamma_z^2\rangle}{1-\dot\Gamma_z^2|_{\rm crossing}}
+  =0.189,
+  \label{P20:eq:isospin_ratio}
+\end{equation}
+against the measured $0.157$. The residual is a factor $\approx1.2$,
+matching in magnitude the uniform correction by which the
+charged-lepton-anchored quark-mass predictions of
+Paper~XVI~\cite{Paper16} overshoot; the mass-scale ratio is therefore
+the tangent geometry up to a single generation-universal factor.
+\end{proposition}
+
+\begin{remark}[The operative quantity is orientation, not energy]
+\label{P20:rem:orientation}
+A direct evaluation of the Faddeev energy density on the crossing versus
+midpoint networks (using the validated Construction-C trefoil ansatz)
+gives equal densities per unit arc (quartic ratio $0.94$, quadratic
+$1.00$; the energy is $z\to-z$ symmetric although the tangent
+orientation is not). Substituting the local curvature, the integrated
+bending $\int\kappa^2\,ds$, or the inter-strand distance for the tangent
+fraction reproduces the ratio less well or with the wrong sign. The
+crossing network is distinguished by its purely in-plane exit
+($\dot\Gamma_z=0$), \emph{not} by any spatial proximity of its strands
+or by a static energy excess. The up/down asymmetry is thus orientational
+and field-selection-driven, consistent with Paper~XVIII's premise that
+absent an external field the two isospin values are degenerate.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Fractional Charge from the Colour $\Zthree$ Center}
+\label{P20:sec:charge}
+%══════════════════════════════════════════════════════════════════════════════
+
+The isospin assignment of Section~\ref{P20:sec:isospin} fixes
+$I_3=\pm\tfrac12$ from the trefoil $z$-network; the electric charge
+$Q=I_3+Y/2$ requires the hypercharge $Y$. We show the fractional part of
+$Y$ is forced by the $\Zthree$ center of the colour CFT
+$\SU(3)_1=(E_6)_1$, replacing the static charge assignment of
+Paper~XVIII by a derivation from the colour representation.
+
+\begin{proposition}[Fractional charge from colour triality]
+\label{P20:prop:frac_charge}
+The colour CFT $\SU(3)_1$ has three primaries---$\mathbf{1}$
+(triality $t=0$), $\mathbf{3}$ ($t=1$), $\overline{\mathbf{3}}$
+($t=2$)---with conformal weights $h=0,\tfrac13,\tfrac13$ and central
+charge $c=2$. The fundamental's topological spin
+$e^{2\pi i h}=e^{2\pi i/3}$ equals the $\Zthree$ center element, so
+$h=\tfrac13$ encodes triality one. Consistency of the combined
+$\SU(3)_{\rm colour}\otimes\mathrm{U}(1)_{\rm em}$ representation under
+the common $\Zthree$ center forces the hypercharge to satisfy
+\begin{equation}
+  Y\equiv \frac{t}{3}\pmod 1,
+  \label{P20:eq:Y_triality}
+\end{equation}
+with $t$ the colour triality. The quark, in the colour $\mathbf{3}$
+($t=1$), therefore has $Y=\tfrac13$ and, with the $z$-network isospin
+$I_3=\pm\tfrac12$ (Section~\ref{P20:sec:isospin}),
+\begin{equation}
+  Q=I_3+\tfrac12 Y
+   =\Bigl\{+\tfrac23\ (\text{up}),\ -\tfrac13\ (\text{down})\Bigr\}.
+\end{equation}
+The lepton, a colour singlet ($t=0$), has integer $Y$ and hence integer
+charge ($0$ neutrino, $-1$ charged). Fractional charge is thus the
+signature of colour triality; the denominator $3$ is the $\Zthree$
+center of $\SU(3)_1$, i.e.\ the three crossings of $T_{2,3}$.
+\end{proposition}
+
+\begin{remark}[The denominator is the colour center, not the WZW level; the Chern--Simons realisation]
+\label{P20:rem:charge_cs}
+Two points. First, the fractional ``$3$'' is the $\Zthree$ center of the
+\emph{colour} group $\SU(3)_1=(E_6)_1$ (triality, the three crossings),
+not the level $k=3$ of the charged-lepton $\SU(2)_3$; these are distinct
+threes, and the charge denominator is the former. Second,
+Proposition~\ref{P20:prop:frac_charge} is the group-theoretic content of
+the Chern--Simons edge picture: the $\SU(3)_1$ Chern--Simons theory on a
+bounded domain carries chiral edge modes which, by the bulk--edge
+correspondence, carry the $\Zthree$ (triality) charge; the
+fractionally-charged quark excitations are these edge modes, and the
+electromagnetic Hall response fractionalises charge into thirds. This
+upgrades the static writhe assignment of Paper~XVIII to a derivation
+from the colour CFT. %\ref{P18:conj:isospin}
+The hypercharge quantisation~\eqref{P20:eq:Y_triality} is the standard
+$\mathbb{Z}_6$-quotient condition of the Standard-Model gauge group
+(the combined $\SU(3)\times\SU(2)\times\mathrm{U}(1)$
+centers)~\cite{FracCharge2024}; the framework-native input is that
+$\SU(3)_1$ itself is derived from the trefoil $T_{2,3}$ and the binary
+tetrahedral group $\twoT$
+(Papers~XV--XVII~\cite{Paper15,Paper16,Paper17}).
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Generation-1 Electromagnetic Flip}
+\label{P20:sec:gen1}
+%══════════════════════════════════════════════════════════════════════════════
+
+The static tower and the tangent-orientation scale give the up-type
+quarks a heavier ordering at all generations; observation has $u<d$ at
+generation~1 but $c>s$, $t>b$ at generations~2,3. This sign flip is not
+a Coulomb self-energy: the self-energy $\sim+\alphaem Q^2$ makes the
+higher-charge up heavier (wrong sign) and is $\sim0.5$~MeV (too small).
+
+\begin{proposition}[Charge-linear generation-1 flip]
+\label{P20:prop:gen1_flip}
+A charge-linear coupling to a formation-scale field,
+$\delta m=-Q\,\Phi$ with $\Phi\sim\alphaem\Lambda_{\mathrm{const}}
+\approx1.6$~MeV, shifts up-type ($Q=+\tfrac23$) and down-type
+($Q=-\tfrac13$) oppositely, with $\delta m_{\rm down}-\delta m_{\rm up}
+=+\Phi>0$ (down heavier), of the observed magnitude $m_d-m_u=2.5$~MeV.
+Because $\Phi$ is generation-independent, the shift is a fixed
+$\sim$MeV offset: decisive at generation~1 ($\sim50\%$ of $m_u$) and
+negligible at generations~2,3 (GeV masses). It therefore flips only
+generation~1, reproducing the observed pattern.
+\end{proposition}
+
+\begin{remark}[Sign of the field]
+\label{P20:rem:gen1_sign}
+The sign of $\Phi$ (which member is raised) is fixed by observation, as
+the down direction is fixed by the strange--muon anchor; this is the
+external-field selection of Paper~XVIII's isospin conjecture
+%\ref{P18:conj:isospin}
+made quantitative. A first-principles derivation of $\Phi$ from the
+density-feedback action is open.
+\end{remark}
+
+\begin{remark}[The flip is the neutron--proton QCD splitting]
+\label{P20:rem:gen1_np}
+The scale of $\Phi=m_d-m_u$ is not free: as the quark-mass isospin breaking it
+drives the QCD contribution to the neutron--proton mass difference,
+$(m_n-m_p)_{\rm QCD}\approx+2.5$~MeV (lattice), which makes the neutron the heavier
+nucleon, while the electromagnetic self-energy supplies the opposite-sign
+$(m_n-m_p)_{\rm QED}\approx-1$~MeV, the two summing to the observed $+1.29$~MeV. So
+$\Phi$ is a precisely measured observable, not merely an ``order-MeV'' offset. Taking
+the formation scale as the jam value $\Lambda\sim m_p^{\rm jam}/3\approx308$~MeV gives
+$\Phi=\alphaem\Lambda\approx2.3$~MeV, $\sim90\%$ of the QCD splitting; the constituent
+scale $237$~MeV gives $1.7$~MeV ($\sim70\%$). The magnitude is thus fixed by $\alphaem$
+and the formation scale ($\sim250$--$310$~MeV) with no new coupling, the residual being
+the sector's formation-scale ambiguity.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{The Doublet Sum Rule (Empirical)}
+\label{P20:sec:sumrule}
+%══════════════════════════════════════════════════════════════════════════════
+
+The down sector is anchored to the charged lepton; the up sector's
+weak-isospin partner is the light neutrino, so the up sector has no
+massive lepton anchor of its own (Paper~XVI~\cite{Paper16}). The
+following relation supplies one indirectly, through the doublet.
+
+\begin{conjecture}[Doublet mass-budget sum rule]
+\label{P20:conj:sumrule}
+For each confined generation the total quark mass of the weak doublet is
+a fixed multiple of the charged-lepton mass,
+\begin{equation}
+  m_{\rm up}+m_{\rm down}=C\,m_\ell,\qquad C\approx13,
+  \label{P20:eq:sumrule}
+\end{equation}
+holding across the two confined doublets:
+$(m_u+m_d)/m_e=13.37$ and $(m_c+m_s)/m_\mu=12.90$ (a $3.5\%$ spread).
+Using $C$ from one doublet to predict the other's up quark gives $m_c$
+to $3.9\%$ and $m_u$ to $\sim11\%$ from the charged leptons and the
+(lepton-anchored) down masses: $m_{\rm up}=C\,m_\ell-m_{\rm down}$. The
+third doublet is excluded because the top is the bare electroweak-scale
+transition (Paper~XVIII), not a confined member.
+\end{conjecture}
+
+\begin{remark}[What the sum rule resolves, and what it does not]
+\label{P20:rem:sumrule_scope}
+The relation ties the up sector to the \emph{same} charged lepton that
+anchors the down sector, through the doublet budget rather than through
+the up quark's own (light) neutrino partner: the charged-lepton mass is
+the doublet budget, and the up quark takes the remainder after the
+lepton-anchored down. This is the sense in which ``the charged-lepton
+mass goes somewhere'' in the up sector. It is an empirical regularity
+resting on two confined doublets; the magnitude of $C$ is not derived.
+\end{remark}
+
+\begin{remark}[Retracted numerical readings of $C$]
+\label{P20:rem:C_retractions}
+Several attractive readings of $C\approx13$ are recorded as \emph{not}
+supported, to prevent their recurrence.
+\emph{(i)~$C=4\pi+\tfrac13$.} The value $C\approx12.9$ is numerically
+close to $4\pi+1/3=12.90$, with $1/3=h_{\SU(3)_1}$ the quark
+$\SU(3)$ signature (equivalently the net doublet charge $+\tfrac13$).
+But the $4\pi$ has no mechanism: in this framework the Hopf charge
+enters mass \emph{exponentially} (the Chern--Simons spoke amplitude
+$4\pi\,\Delta Q$ appears as $e^{4\pi}$ in the charged-lepton mass;
+Paper~IV~\cite{Paper4}), so a mass ratio equal to the \emph{bare}
+action $4\pi$ is a category error. The Chern--Simons $4\pi$ gives
+$e^{4\pi}\approx3\times10^5$, the vacuum-polarisation $1/(4\pi)$ per
+WZW level is an $\sim8\%$ correction, and the mass tower is $\vp^2$ per
+level---none is a linear factor of $4\pi$.
+\emph{(ii)~Solid-angle $4\pi$.} A direct computation of the director
+$S^2$ solid angle (and of $J_2$, $J_4$) across the $\QH=2\to3$ step
+(charge-verified hopfions) gives growth factors $1.2$--$1.8$, of order
+the charge ratio $3/2$, not $4\pi$.
+\emph{(iii)~$C=\Qgr^{\rm baryon}+\Qgr^{\rm lepton}=3+10$.} A clean
+integer but with no mass-budget mechanism, and not distinguishable from
+$4\pi+\tfrac13$ within the light-quark mass uncertainties.
+The one principled fragment is the charge $1/3$; the magnitude of $C$
+is an open, non-perturbative quantity.
+\end{remark}
+
+\begin{proposition}[The constituent scale from the $8\pi$ spoke, and the reduction of $C$]
+\label{P20:prop:constituent}
+The quark constituent scale follows from the same Chern--Simons and
+condensate structure as the charged-lepton mass. With the baryon
+condensate scale $\Lcond^{\rm baryon}=\TCMB(\pi^2/45)^{1/4}$ (the
+$\Qgr=3$ member of $\rCMB=\Qgr\,\Lcond^4$; Paper~XII~\cite{Paper12}), the
+tower factor $\vp^{2\Qgr}=\vp^6$, and the Chern--Simons spoke $e^{8\pi}$
+(the $\Delta Q=3-1=2$ amplitude of the $\QH=3$ object above the $\QH=1$
+base; Paper~V~\cite{Paper5}),
+\begin{equation}
+  m_{\rm const}=\Lcond^{\rm baryon}\,\vp^{6}\,e^{8\pi}\approx237~\mathrm{MeV},
+  \label{P20:eq:constituent}
+\end{equation}
+matching the phenomenological constituent scale $215.5$~MeV to
+$\sim10\%$---itself of the $\alphas$ residual size of
+Section~\ref{P20:sec:residuals}. The ratio to the electron is
+\begin{equation}
+  \frac{m_{\rm const}}{m_e}
+  =\Bigl(\tfrac{10}{3}\Bigr)^{1/4}\vp^{-14}\,e^{4\pi+3/400}\approx463,
+  \label{P20:eq:const_over_me}
+\end{equation}
+the surviving factor being the \emph{extra} Chern--Simons spoke $e^{4\pi}$
+of the quark ($\Delta Q=2$) over the charged lepton ($\Delta Q=1$).
+Consequently the doublet sum-rule constant of
+Conjecture~\ref{P20:conj:sumrule} is
+\begin{equation}
+  C=\frac{m_{\rm const}}{m_\ell}\,\vp^{-2\Delta n_q(g)},
+  \label{P20:eq:C_reduction}
+\end{equation}
+with $\Delta n_q(g)$ the up-doublet tower level relative to the
+constituent scale. Thus $C$ is fixed once $\Delta n_q(g)$---the
+$E_6$-native tower level---is known: deriving $C$ and pinning the $E_6$
+tower are the same problem.
+\end{proposition}
+
+\begin{remark}[$C$ is a residual, not a fundamental constant]
+\label{P20:rem:C_residual}
+Equation~\eqref{P20:eq:C_reduction} exhibits $C\approx13$ as a delicate
+residual of the large factor $m_{\rm const}/m_\ell\approx463$ against the
+tower suppression $\vp^{-2\Delta n_q}$, not a standalone number. This is
+consistent with Remark~\ref{P20:rem:C_retractions}: the proximity to
+$4\pi$ is coincidental, because $4\pi$ enters the underlying masses
+\emph{exponentially} (as $e^{4\pi}$, $e^{8\pi}$) while $C$ is their
+compensated ratio.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Residuals as the Dynamical Layer}
+\label{P20:sec:residuals}
+%══════════════════════════════════════════════════════════════════════════════
+
+The results above are static/topological (group data, tangent geometry,
+charge). They reproduce the observed masses to leading order and leave
+residuals. We now show these residuals are not incidental but partition
+by sector in a way that identifies them with a single dynamical
+correction.
+
+\begin{proposition}[The residual partition]
+\label{P20:prop:residual_partition}
+Classify the framework's quantitative residuals (Paper~VII~\cite{Paper7}
+summary table, plus the quark-sector results above) by whether the
+sector is a \emph{static saddle} (weakly-coupled, stable) or
+\emph{dynamical} (strongly-coupled or loop-generated). Then:
+\begin{itemize}[leftmargin=1.4em]
+\item static-saddle sectors---the fine-structure constant
+($5\times10^{-7}$), the electron mass ($1.3\times10^{-4}$), the Higgs
+mass ($\sim10^{-3}$), $\sin^2\theta_W$ ($2.3\times10^{-3}$),
+$m_\mu/m_\tau$ ($5\times10^{-3}$)---have residuals $\lesssim0.5\%$
+(geometric mean $\approx0.011\%$);
+\item dynamical sectors---the neutrino mass ($28\%$), the down-sector
+running ($\sim20\%$), the isospin ratio ($21\%$), the up-type $u,c$
+(factor)---have residuals $\gtrsim20\%$ (geometric mean $33\%$);
+\item cosmological quantities, with mixed static and dynamical inputs,
+lie between ($0.1$--$9\%$).
+\end{itemize}
+The two classes are separated by a factor $\sim40$ with no overlap.
+\end{proposition}
+
+\begin{remark}[Residual size tracks the sector coupling]
+\label{P20:rem:coupling_scale}
+The dynamical-sector residual scale, $\sim20$--$30\%$, is the
+strong-coupling scale $\alphas\!\sim\!0.3$ at a few GeV, while the
+static-sector residuals sit at $\sim\alphaem/\pi\sim2\times10^{-3}$.
+The residual size therefore tracks the sector's dynamical coupling. The
+interpretation is structural: the static/topological layer is the exact
+leading order, and the residuals are one dynamical correction, largest
+precisely where the object has no static saddle (the metastable quark)
+or is loop-generated (the neutrino). This is not a collection of
+unrelated misses.
+\end{remark}
+
+\begin{remark}[The perturbative strong layer is already built and does not close the residuals]
+\label{P20:rem:perturbative}
+Paper~V~\cite{Paper5} and Paper~XVI~\cite{Paper16} derive a
+framework-internal $\alphas(\Lambda_{\rm UV})=C_F\sin(\pi/5)/(2\vp^{43/7})
+\approx0.0204$ and run the quark masses by one-loop QCD with
+flavour-threshold matching. This changes the predictions by at most a few
+percent and leaves the pattern (one near-exact match at strange, five
+undershoots, generation-growing) unchanged. The $\sim20$--$30\%$
+residuals are therefore \emph{non-perturbative}: the metastable-quark
+formation/confinement dynamics, consistent with $\alphas\sim0.3$ being
+the regime where perturbation theory becomes order unity.
+\end{remark}
+
+\begin{remark}[Two distinct non-perturbative objects]
+\label{P20:rem:two_objects}
+The confinement string tension gives $\sigma R\approx278$~MeV and
+$\sigma(3R_0+R)\approx925$~MeV$\,=98.6\%$ of $m_p$ (Paper~XV,
+Paper~XVI): this is the constituent/\emph{hadron} scale, largely
+accounted for, and is not a correction to \emph{current} quark masses.
+The current-quark-mass residuals span six orders of magnitude in
+absolute terms and are multiplicative, not a fixed $\sigma R$; they are
+a distinct non-perturbative effect on the current-mass tower. The two
+must not be conflated.
+\end{remark}
+
+\begin{table}[htbp]
+\centering
+\caption{Quark masses: framework prediction vs.\ measured (PDG,
+$\overline{\mathrm{MS}}$; $b$ at $m_b$, light quarks at $2$~GeV, top pole).
+Down-type use the $E_8$ bridge $m=m_\ell\,e^{n_q\pi/9}$ with the charged
+leptons as input; their common $\sim\!1.2$ over-prediction is the
+generation-universal RG running to the measurement scale. Up-type use the
+$E_6$-native tower: the ratio $m_u/m_c=e^{-2\pi}$ is parameter-free
+(Proposition~\ref{P20:prop:up_ratio}), and the absolute scale is set by the
+completion (de-jamming) energy $(m_p-\sigma(3R_0+R))/3\approx4.5$~MeV
+(Open Problem~O1), accurate to $\sim\!10\%$. The top sits at $v/\sqrt2$ by
+incomplete formation---it decays before hadronising---while its full $T_{2,3}$
+formation would be $m_\tau e^{15\pi/9}\approx334$~GeV. Every deviation is within
+or comparable to the experimental current-mass uncertainty except at the
+well-measured $c,b$, where it is the $\sim\!10$--$20\%$ shape/running residual.
+This is agreement across five orders of magnitude, not a zero-parameter fit.}
+\label{P20:tab:predvsmeas}
+\begin{tabular}{clccc}
+\hline
+Quark & Route & Predicted & Measured (PDG) & Pred/Meas \\
+\hline
+$d$ & $E_8$ bridge, $m_e\,e^{7\pi/9}$   & $5.88$~MeV  & $4.67^{+0.48}_{-0.17}$~MeV & $1.26$ \\
+$s$ & $E_8$ bridge, $m_\mu$             & $105.7$~MeV & $93.4^{+8.6}_{-3.4}$~MeV   & $1.13$ \\
+$b$ & $E_8$ bridge, $m_\tau\,e^{\pi/3}$ & $5063$~MeV  & $4180\pm30$~MeV            & $1.21$ \\
+$u$ & $E_6$-native, completion anchor   & $2.05$~MeV  & $2.16^{+0.49}_{-0.26}$~MeV & $0.95$ \\
+$c$ & $E_6$-native, completion anchor   & $1098$~MeV  & $1270\pm20$~MeV            & $0.86$ \\
+$t$ & incomplete formation, $v/\sqrt2$  & $174$~GeV   & $172.6\pm0.3$~GeV          & $1.01$ \\
+\hline
+\end{tabular}
+\end{table}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Open Problems}
+\label{P20:sec:open}
+%══════════════════════════════════════════════════════════════════════════════
+
+\begin{enumerate}[leftmargin=2em,label=\textbf{O\arabic*.}]
+
+\item \textbf{The absolute anchor of the $E_6$ tower.}
+Proposition~\ref{P20:prop:constituent} derives the constituent scale
+$\Lcond^{\rm baryon}\vp^6 e^{8\pi}$ and the ratio $m_{\rm const}/m_e$,
+and reduces $C$ to the up-doublet tower level $\Delta n_q(g)$
+(Eq.~\eqref{P20:eq:C_reduction}). The per-generation \emph{spacing} of that
+tower is fixed with no free parameter by Proposition~\ref{P20:prop:up_ratio}
+($m_u/m_c=e^{-2\pi}$ from the $\SU(2)_{k_g}$ T-matrix phases and the $E_6$
+Coxeter exponents), so the $T_g$ half of the $n$--$T_g$ degeneracy (a single
+mass fixes only $2n\ln\vp+2\pi\Qgr T_g$) is fixed by conformal data. What
+remains is the single \emph{absolute} normalisation of the confined $u,c$
+doublet---the $T_{2,2}\!\to\!T_{2,3}$ formation energy, \emph{not} the top:
+the top decays before it can hadronise and sits at $v/\sqrt2$ by incomplete
+formation, so it is not a rung of the confined tower
+(Remark~\ref{P20:rem:up_ratio_data}). This is a formation-energy question in
+the $(E_6)_1$ data.
+
+The formation balance fixes this scale concretely. The confined tower anchors
+not on the constituent (jammed hadron) scale $\Lcond^{\rm baryon}\vp^6 e^{8\pi}
+\approx237$~MeV but on the \emph{completion} energy---the de-jamming/localisation
+piece $m_p-\sigma(3R_0+R)\approx13.5$~MeV released at hadronisation, i.e.\
+$\approx4.5$~MeV per quark, matching the fitted $u,c$-tower anchor ($\approx5$~MeV)
+to $\sim10\%$.
+
+A residual of this order is \emph{expected}, and distinguishes the sector. The
+charged lepton ($\QH=2$) is a free particle whose isolated configuration exists
+and fixes $m_e$ to $0.013\%$ (Paper~IV~\cite{Paper4}). The quark ($\QH=3$) has
+no stable isolated
+configuration: it holds its shape only in the jam, through the shared lobes and
+crossings of the confined network, so its mass is intrinsically the \emph{shared}
+value and never the isolated topological ideal from which the WZW tower is
+computed. The per-generation shape residual ($\sim5$--$10\%$: the $u/c$ ratio and
+the $d$--$s$ split at a common scale, distinct from the generation-universal RG
+running of the down sector) is therefore the irreducible shared-jam deviation of a
+confined quark from its free-particle ideal---a deviation the free leptons,
+realising their ideal, do not carry. It currently lies within the experimental
+current-mass uncertainties ($\sim{+23}/{-12}\%$ for $m_u$, $\sim10\%$ for $m_d$),
+so it stands as a \emph{prediction}---confined-quark towers should carry a
+shared-jam deviation absent from the leptons---rather than a resolved discrepancy.
+Computing the completion energy and this deviation from first principles requires
+the jammed (topology-protected) $\QH=3$ configuration: the isolated $\QH=3$ trefoil
+has no stable saddle, so a topology-protected treatment (not unconstrained gradient
+flow) is a prerequisite.
+
+\item \textbf{Derivation of the generation-1 field $\Phi$.}
+Proposition~\ref{P20:prop:gen1_flip} fixes the charge-linear flip
+$\Phi=\alphaem\Lambda$ to the formation scale, and
+Remark~\ref{P20:rem:gen1_np} identifies $\Phi$ with the QCD part of the
+neutron--proton mass difference ($\approx2.5$~MeV), reached to
+$\sim70$--$90\%$ across the constituent-to-jam scale range. What remains
+is a first-principles $\Phi$ from the density-feedback action---both its
+magnitude to better than the formation-scale ambiguity, and its sign
+(currently set by the strange--muon anchor)---and the connection to the
+Paper~XVIII isospin field.
+
+\item \textbf{First-principles $\Mdn/\Mup$ residual.}
+Proposition~\ref{P20:prop:isospin_scale} closes to $\approx1.2$. This is
+\emph{not} the down-sector running---which cancels in a same-scale
+up/down ratio---so the two are distinct corrections of coincidentally
+similar size. What remains open is whether the tangent-fraction
+functional is derivable from the density-feedback action rather than
+motivated.
+
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════════════
+\section{Summary}
+\label{P20:sec:summary}
+%══════════════════════════════════════════════════════════════════════════════
+
+The $\QH=3$ quark sector separates into a static/topological leading
+order and a dynamical correction. The static layer comprises: the
+$E_6$-native generation structure with the $E_8$ charged-lepton bridge
+(Section~\ref{P20:sec:groups}), giving the up/down steepness as the WZW
+phase-unit ratio $9/4$; the isospin mass-scale from the trefoil tangent
+orientation (Section~\ref{P20:sec:isospin}); the fractional charge from
+the colour $\Zthree$ center (Section~\ref{P20:sec:charge}), derived
+rather than assigned; the charge-linear generation-1 flip
+(Section~\ref{P20:sec:gen1}); the derived constituent scale
+$m_{\rm const}=\Lcond^{\rm baryon}\vp^6 e^{8\pi}$
+(Proposition~\ref{P20:prop:constituent}), which reduces the sum-rule
+constant to the $E_6$ tower level; and the empirical
+doublet sum rule (Section~\ref{P20:sec:sumrule}), whose one derived
+fragment is the $\SU(3)$ charge and whose magnitude is open.
+
+The organising result (Section~\ref{P20:sec:residuals}) is that the
+framework's residuals partition by sector: static-saddle sectors are
+predicted to $\lesssim0.5\%$, dynamical sectors carry
+$\sim\!\alphas\sim20$--$30\%$ residuals, and the perturbative strong
+layer (a framework-internal $\alphas$, already built) does not close
+them. The residuals are the non-perturbative dynamical layer, forced
+into view in the quark sector because the quark alone among the massive
+fermions has no static saddle. The two un-developed handles---the
+Chern--Simons edge/Hall dynamics of fractional charge and the
+metastable-quark formation energy---are the natural next targets, and
+are the content this framework must supply beyond its static skeleton.
+
+%══════════════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+  and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper6}
+F.~Manfredi,
+\textit{The Golden-Ratio Tower: Fermion Scale Hierarchy from the
+  Hopfion RG Fixed Point},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+
+\bibitem{Paper7}
+F.~Manfredi,
+\textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
+  Equivalence Principle from the Density-Feedback Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+
+\bibitem{Paper12}
+F.~Manfredi,
+\textit{The Profile Normalisation Conjecture ---
+  Proof via CMB Energy Identity and Two-Route Equivalence},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20210460}{doi:10.5281/zenodo.20210460}
+
+\bibitem{Paper15}
+F.~Manfredi,
+\textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+
+\bibitem{Paper16}
+F.~Manfredi,
+\textit{Quark Generation Masses in the Density-Feedback Hopfion:
+A Survey of Ruled-Out Mechanisms and the $Q_H=3$ Gradient-Flow Landscape},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.21012650}{doi:10.5281/zenodo.21012650}
+
+\bibitem{Paper17} F.~Manfredi,
+\textit{The $Q_H=1$ Sector of the
+Density-Feedback Hopfion: Topology, Group Structure, Colour Exclusion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21013412}{doi:10.5281/zenodo.21013412}
+
+\bibitem{Paper18}
+F.~Manfredi,
+\textit{Preimage Topology and Confinement: The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026) - DRAFT.
+\href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+
+\bibitem{Paper19}
+F.~Manfredi,
+\textit{Dynamical Origin of Quark Masses in the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21225452}{doi:10.5281/zenodo.21225452}
+
+\bibitem{Nayak2008}
+C.~Nayak, S.~H.~Simon, A.~Stern, M.~Freedman, S.~Das~Sarma,
+\textit{Non-Abelian anyons and topological quantum computation},
+Rev.\ Mod.\ Phys.\ \textbf{80}, 1083--1159 (2008).
+\href{https://arxiv.org/abs/0707.1889}{arXiv:0707.1889}
+
+\bibitem{Everett2009}
+L.~L.~Everett, A.~J.~Stuart,
+\textit{Icosahedral ($A_5$) family symmetry and the golden ratio
+prediction for solar neutrino mixing},
+Phys.\ Rev.\ D \textbf{79}, 085005 (2009).
+\href{https://arxiv.org/abs/0812.1057}{arXiv:0812.1057}
+
+\bibitem{Feruglio2017}
+F.~Feruglio,
+\textit{Are neutrino masses modular forms?},
+in \textit{From My Vast Repertoire}, World Scientific (2019), pp.\ 227--266.
+\href{https://arxiv.org/abs/1706.08749}{arXiv:1706.08749}
+
+\bibitem{ModFlavHierarchy2025}
+M.-C.~Chen et al.,
+\textit{Modular flavor symmetries and fermion mass hierarchies},
+(2025).
+\href{https://arxiv.org/abs/2506.23343}{arXiv:2506.23343}
+
+\bibitem{FracCharge2024}
+R.~Alonso et al.,
+\textit{Fractional-charge hadrons and leptons to tell the Standard Model
+group apart},
+Phys.\ Lett.\ B \textbf{863}, 139354 (2025).
+\href{https://arxiv.org/abs/2404.03438}{arXiv:2404.03438}
+
+\end{thebibliography}
+
+\end{document}
+

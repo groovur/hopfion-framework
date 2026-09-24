@@ -1,0 +1,11 @@
+
+==================================================================
+  Q_H=3 Trefoil Solver -- JAM variant (tight periodic box)
+  phi^6 = 17.944272  mu* = 1.38196601  [NOT assumed]
+==================================================================
+  36^3  h=0.2152  box=[-3.87,3.87]  device=cpu
+  C*_init=1.5  tube_radius=1/C*=0.667
+  Points across tube: ~6.2  (need >=3)
+  [JAM] Tight box: box/2=3.87 < isolated-fit 6.21.  Trefoil (ext=3.87) is CONFINED, d~3.87 vs R=3.87. Intended.
+
+  Building trefoil field (C*=1.5) [numpy nearest]...

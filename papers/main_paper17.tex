@@ -1442,6 +1442,69 @@ The value $\Delta Q^{(3)}$ for quarks is an open question whose
 resolution would determine the leading-order quark mass scale.
 \end{remark}
 
+\begin{remark}[The confined-quark mass is algebraic, not a saddle: the $E_8$ route and its anchor]
+\label{P17:rem:quark_mass_algebraic}
+The confined $\QH=3$ sector fails equation~\eqref{P17:eq:master_mass} for a
+reason deeper than a missing string-tension term: it has \emph{no stable
+field saddle}. The trefoil is metastable and transient --- the isolated
+$\QH=3$ configuration is not a minimum but decays by losing a crossing
+(Paper~XV~\cite{Paper15}, Paper~XVI~\cite{Paper16}, Paper~XVIII~\cite{Paper18})
+--- so the quark mass cannot be the energy of a stable configuration, as the
+lepton masses are. It must instead be an \emph{algebraic} quantity, and this
+is what Paper~V~\cite{Paper5}'s $E_8$ route supplies:
+\begin{equation}
+  \frac{m_q}{m_{\ell(g)}} = \exp\!\left(\frac{n_q\,\pi}{9}\right),
+  \qquad
+  n_q = \mathrm{Base}_g - 2m,
+  \qquad
+  \mathrm{Base}_g = 180\,T_g + \tfrac72,
+  \label{P17:eq:e8_quark_ratio}
+\end{equation}
+with $m$ the $E_8$ Coxeter exponent of the quark, $T_g$ the lepton T-matrix
+phases (Paper~I~\cite{Paper1}), and $\pi/9=\pi Q/(k\,h(E_8))$ the WZW phase
+unit ($Q=10$, $k=3$, $h(E_8)=30$). No field configuration enters --- a ratio
+of exponentiated conformal-weight phases carries the mass, exactly as a
+saddle-less object requires.
+
+Two features of the assignment are \emph{forced}, not fitted to the mass
+order. \textbf{(i)~The strange anchor, by parity.} With
+$\mathrm{Base}_1=41$, $\mathrm{Base}_2=26$, $\mathrm{Base}_3=17$, only the
+second generation has $\mathrm{Base}_g$ even, and $\mathrm{Base}_2/2=13$ is
+an $E_8$ exponent; so only strange can sit at $n_q=0$ ($m_s=m_\mu$), while
+generations~$1,3$ (odd Base) admit no quark--lepton mass coincidence.
+Equivalently $T^{(13)}=(4\cdot13-7)/360=\tfrac18=T_\mu$: strange's $E_8$
+topological spin equals the muon's, making it the most lepton-like quark.
+(The same $26=2\times13$ is the two-loop QCD coefficient $b_1$ of Paper~V.)
+\textbf{(ii)~Mirror pairing.} The remaining exponents respect the Coxeter
+duality $m+m'=h(E_8)=30$: $m_d=17$ is the mirror of $m_s=13$, the pair
+$(m_c,m_u)=(11,19)$ is the only other complete mirror pair, and the third
+generation $(t,b)$ takes the extreme exponents $(1,7)$, whose mirrors
+$(29,23)$ are unused.
+
+The \emph{isospin split} is then fixed by the anchor, not an input. The
+mirror pairs are isospin-pure --- $(13,17)=(s,d)$ down, $(11,19)=(c,u)$ up,
+the third-generation doublet $(t,b)=(1,7)$ the isospin-mixed extremes --- so
+strange's isospin fixes the rest by mirror and elimination. Strange is
+down-type ($I_3=-\tfrac12$) because its anchor is exact mass degeneracy with
+the muon ($n_s=0$, $m_s=m_\mu$), and the muon is the $I_3=-\tfrac12$ member
+of the lepton doublet $(\nu_\mu,\mu^-)_L$: the resonance is between two
+$I_3=-\tfrac12$ states, and weak isospin is inherited. No \emph{up}-type
+quark can anchor --- an $I_3=+\tfrac12$ quark would need degeneracy with the
+$I_3=+\tfrac12$ doublet member, the neutrino ($\sim$meV), impossible for a
+MeV--GeV quark --- so the anchor is uniquely down-type and the direction is
+forced. This resolves the up/down direction that the $\Ztwo$ writhe
+conjecture of Paper~XVIII~\cite{Paper18} leaves free. With the assignment,
+the six condensate-scale masses are $O(1)$ multiples of the measured values
+(ratios $0.3$--$1.9$), a tighter spread than the saddle-derived colour-shift
+route (Paper~XVI~\cite{Paper16}), recasting Paper~XVI's ``failed'' ruling of
+the $E_8$ mechanism: what failed was a saddle-based \emph{derivation} of the
+assignment, not the algebraic architecture, which the $\QH=3$ instability
+makes mandatory. What remains open is lifting the $I_3$ inheritance from a
+symmetry argument to a derivation from the density-feedback action, not the
+use of $E_8$. Structure verified in
+\texttt{papers/src\_paper16/e8\_strange\_anchor.py}.
+\end{remark}
+
 \subsection{The PMNS matrix and the inter-sector coset}
 \label{P17:sec:pmns}
 

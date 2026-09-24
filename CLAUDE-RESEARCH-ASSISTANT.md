@@ -79,7 +79,9 @@ without first checking whether the repo already solved (or already
 diagnosed) the problem wastes the user's compute and re-litigates
 settled ground. When the user names a file, that's usually because it
 already contains the answer — read it fully before writing new code
-around it.
+around it. If writing a number or residual in another paper, don't
+rely on memory from a previous scap, use the actual number from the
+paper it is found in.
 
 ## 6. Track epistemic status explicitly, at all times
 
@@ -105,6 +107,10 @@ algebra rather than cite a script, that applied to every proof written
 afterward, not just the one being discussed when it was said. Style
 instructions generalize past their triggering example — apply them
 everywhere the same shape of decision recurs, not just where asked.
+When working on a paper, if a prior idea is being replaced and
+superseded in that *same* paper, there is no need to declare in the
+current paper edit to say the previous version of the idea superseded,
+or that another idea was superseded, since the papers are versioned.
 
 ## 8. Compute is not free — check cost before committing
 
@@ -149,3 +155,29 @@ background agent run silently, and report when finished.
      c. if a. or b. don't yield result, next check the compiled tex of the paper being referenced to infer the number. This is usually needs to be fixed manually, so as a last resort.
      d. check with the user for discrepancies if found between a. b. and c.
   2. After the arabic numbered Thorem/Proposition/Conecture/etc. put a comment with the \ref to the other paper to the end of the line. eg %\ref{P3:thm_example}
+
+## 12. Bibliography
+- If an existing citation is already cited in another paper, use the
+bibliography entry verbatim from that paper. Don't adjust the title or link.
+- If a citation doi link cannot be found in the current paper, check the other
+papers to see if there is already a citation to that title.
+
+## 13. The notes lead the papers — read `notes/` before grounding in a paper
+
+Active research lives in `notes/` first; the papers may lag. During a research
+session the notes (this session's and prior ones) **likely supersede the
+papers** on any open thread — the papers hold the last *committed* state, which
+can be one or more resolved refinements behind. Concretely: the E_6-native
+(up) / E_8-bridge (down) quark-mass split, the Q_H-relative convention, the
+isospin mass-scale, the Q·Φ generation-1 flip, the doublet sum rule, the
+residual diagnostic (static = leading order; residuals = the dynamical layer),
+and the 4π/φ⁶/solid-angle retractions were all established in the notes while
+the papers still carried the earlier picture (Paper V's whole-scale E_8, Paper
+XVI's colour-shift, P17's E_8-only remark). **So: before grounding a claim or
+"re-deriving from the papers," check `notes/` for the resolved position** — a
+paper number in a formula is the committed value, not necessarily the current
+one. Re-deriving from a stale paper manufactures false "open problems" (this
+happened: a resolved E_8/E_6 route read as an unresolved two-route ambiguity).
+When the notes and a paper disagree, the notes are the working truth when the
+file is newer than the paper; the gap is a signal to consolidate the notes
+*into* the papers, not to trust the paper.

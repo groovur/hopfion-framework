@@ -1321,6 +1321,54 @@ Paper~XVII~\cite{Paper17} rather than from the qualitative
 identification above, is Open Problem~O6 below.
 \end{remark}
 
+\begin{remark}[Radiative confinement kinematics: the magnitude--Cherenkov crossover]
+\label{P18:rem:cherenkov_confinement}
+The topological confinement of the trefoil developed above has a dynamical
+companion fixed by a single speed. The condensate's scalar (magnitude, or
+density) mode propagates at the sound speed $c_s=c/\vp$, the established
+value of that sector. A coloured excitation crossing the condensate at
+$v>c_s$ radiates into this mode by the Frank--Tamm (Cherenkov) mechanism:
+the threshold is $\beta=1/\vp\approx0.618$ ($\gamma\approx1.272$), the
+emission cone is $\cos\theta_c=1/(\vp\beta)$ --- tending to
+$\arccos(1/\vp)\approx51.8^\circ$ as $\beta\to1$ --- and the radiated
+fraction saturates at $1-1/\vp^{2}=1/\vp$ (using $\vp^{-2}=1-\vp^{-1}$).
+
+Because a light-speed parton carries magnitude-Mach number $M=1/c_s=\vp$,
+an \emph{unbound} quark is always above threshold, so an escape attempt
+(net translation at $v>c_s$) is radiatively damped --- a dynamical
+supplement to the linear topological confinement. A \emph{bound} quark
+does not continuously radiate: the Frank--Tamm cone requires unbounded
+coherent translation, which oscillation inside the tube does not supply.
+The tube instead waveguides the ripples the quark emits. For a tube of
+transverse size $R$ the guide cutoff is $E_c\sim\pi\hbar c_s/R$ and the
+confined-quark scale is $E_q\sim\pi\hbar c/R$, so their ratio is
+\emph{independent of $R$},
+\begin{equation}
+  E_q/E_c \;=\; 1/c_s \;=\; \vp,
+  \label{P18:eq:confined_mach}
+\end{equation}
+placing the confined quark a fixed factor $\vp$ above the sound cutoff.
+Modes below cutoff are evanescent and trapped as standing waves --- the
+internal excitation spectrum, radiating nothing to infinity --- while the
+hardest modes lie just above and leak, contributing finite widths. The
+confined quark thus neither bleeds energy continuously nor is perfectly
+stable, both consequences of the same $c_s=c/\vp$.
+
+Three elements remain open. (i)~The absolute widths and the radiative
+coupling are cutoff-set and are not derived here. (ii)~That real photons
+escape the hadron while the sound-channel ripples stay trapped is
+attributed to the photon's colour neutrality --- it does not couple to the
+colour/director tube --- rather than to any kinematic cutoff, since the
+faster electromagnetic mode carries the \emph{higher} cutoff
+$E_c^{\rm EM}=\vp\,E_c^{\rm sound}$ and would if anything be trapped more
+readily. (iii)~The relation of the $v>c_s$ radiative boundary to the
+deconfinement temperature $T_c$ of
+Remark~\ref{P18:rem:production_conditions} and Open Problem~O6 is
+unestablished. The kinematics are verified in
+\texttt{papers/src\_paper18/cherenkov\_confinement.py} and
+\texttt{bounded\_motion\_cherenkov.py}.
+\end{remark}
+
 %══════════════════════════════════════════════════════════════════════════════
 \section{The $\phistar$ Prediction from $T_{2,3}$ Geometry}
 \label{P18:sec:phi_star}
@@ -2485,6 +2533,38 @@ treatment of the $\QH=2+\QH=1\to\QH=3$ formation event, both left
 for future work.
 \end{remark}
 
+\begin{remark}[The mass-scale residual and the operative geometric quantity]
+\label{P18:rem:isospin_scale_residual}
+Two points sharpen Proposition~\ref{P18:prop:isospin_mass_ratio}.
+First, an independent recomputation of the golden-trefoil tangent data
+($R_0=3$, $r_0=\sqrt{2}/\vp$) confirms the exact site values
+$\dot\Gamma_z=+0.321$ (distal), $\dot\Gamma_z=-0.525$ (midpoint), and
+$\dot\Gamma_z=0$ (crossings), hence
+$\langle\dot\Gamma_z^2\rangle_{M,L}=0.189$ and the predicted
+$M_{\rm down}/M_{\rm up}=0.189$. The residual against the measured
+$0.157$ is a factor $\approx1.2$, matching in magnitude the uniform
+$\sim\!1.2$ by which the charged-lepton-anchored quark-mass
+predictions of Paper~XVII~\cite{Paper17} overshoot before a
+generation-universal correction. The residual is thus consistent with
+the correction anticipated in
+Remark~\ref{P18:rem:isospin_mass_ratio_scope}, leaving the
+mass-\emph{scale} ratio fixed by the tangent geometry alone, with no
+free parameter.
+
+Second, the operative geometric quantity is the tangent
+\emph{orientation}---the in-plane versus out-of-plane exit at each
+site---and not a bending or proximity energy: replacing the tangent
+fraction by the local curvature $\kappa$, the integrated bending
+$\int\kappa^2\,ds$, or the inter-strand distance reproduces the ratio
+less well or with the wrong sign. In particular the crossing
+(up-type) network is distinguished by its purely in-plane exit
+($\dot\Gamma_z=0$), not by any spatial proximity of its strands. This
+separates the mass-scale (isospin) ratio, set here by tangent
+orientation, from the intra-triplet (generation) hierarchy, left to a
+separate mechanism in
+Remark~\ref{P18:rem:isospin_mass_ratio_scope}.
+\end{remark}
+
 %══════════════════════════════════════════════════════════════════════════════
 \section{Experimental Status and Predictions}
 \label{P18:sec:experiment}
@@ -2610,6 +2690,14 @@ the resulting threshold conditions correctly reproduce the QCD
 deconfinement temperature $T_c\sim150$--$160\,{\rm MeV}$ as the
 condition under which both thresholds are simultaneously satisfied
 in the early universe.
+
+\item \textbf{Radiative confinement kinematics.}
+Remark~\ref{P18:rem:cherenkov_confinement} fixes the magnitude--Cherenkov
+crossover at $v=c_s=c/\vp$ and the $R$-independent confined-quark Mach
+number $\vp$, but the escape-damping coefficient, the hadronic widths
+implied by the sub-/above-cutoff mode split, and the connection of the
+$v>c_s$ radiative boundary to $T_c$ (O6) all require the magnitude-sector
+coupling, which is cutoff-set and not derived here.
 
 \end{enumerate}
 

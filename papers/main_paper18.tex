@@ -1369,6 +1369,99 @@ unestablished. The kinematics are verified in
 \texttt{bounded\_motion\_cherenkov.py}.
 \end{remark}
 
+\subsection{The tube mode spectrum: ripples, Casimir zero-point, and the twist sine-Gordon}
+\label{P18:sec:ripple_spectrum}
+
+The waveguided ripples of Remark~\ref{P18:rem:cherenkov_confinement} carry a
+definite dispersion and a definite zero-point energy; both follow from the tube
+being an \emph{inertial}, \emph{tense} object (mass-as-geometry) rather than a
+bare vortex. Those are the tube's ripple modes and their zero-point; the director
+sector carries a third, distinct excitation, the framing twist.
+
+\begin{proposition}[Linear Kelvin dispersion]
+\label{P18:prop:linear_kelvin}
+The tube's transverse (bending) ripple---the framework analogue of a Kelvin
+wave---has the energy per unit length $\delta E=(T k^2+B k^4)A^2/4$ of a
+displaced core $x_c(z)=A\sin kz$, with $T$ the line tension (the confinement
+string) and $B$ the bending stiffness. A direct Faddeev-energy evaluation is
+$T$-dominated; a resolution study shows the apparent negative $B$ of a coarse
+grid is a finite-difference artifact, the converged $B$ being so small that the
+crossover length $\ell=\sqrt{B/T}\lesssim0.03\,R$ lies far below the tube
+radius. The ripple therefore has a \emph{linear} dispersion
+\begin{equation}
+  \omega = c_s\,k
+  \label{P18:eq:linear_kelvin}
+\end{equation}
+at every physical wavelength ($\gtrsim R$). The static energy fixes the
+\emph{shape}---linear, tension-dominated---but not the absolute speed
+$c_s=\sqrt{T/\mu}$: the bend carries director strain ($T\approx3\,E_{\rm line}$),
+so its inertia $\mu$ is not the bare line mass and involves the (input) director
+susceptibility. The robust content is the shape, which is categorically distinct
+from a classical thin-vortex Kelvin wave, $\omega\propto\Gamma k^2$ (quadratic,
+gapless), whose six-wave resonant cascade was recently observed in a classical
+draining vortex~\cite{Barckicke2026}. The distinction is in the restoring force:
+the framework tube bends against a \emph{local} line tension (a wave on a string,
+linear), whereas a classical vortex bends by \emph{non-local} self-induction
+(quadratic)---so the classical, quadratic, six-wave regime is the macroscopic
+collective-flow limit, absent for the confined tube. The
+framework thus predicts a Kelvin-wave cascade on an inertial/tense filament to
+be \emph{linear}, with no six-wave signature. Verified in
+\texttt{papers/src\_paper18/kelvin\_bending\_dispersion.py},
+\texttt{kelvin\_B\_convergence.py}.
+\end{proposition}
+
+\begin{proposition}[The ripple Casimir energy is the $c/24$ correction]
+\label{P18:prop:ripple_casimir}
+The trapped sub-cutoff ripples of Remark~\ref{P18:rem:cherenkov_confinement},
+on the closed $\QH=2$ loop, form a chiral conformal field theory on a circle;
+their zero-point (Casimir) energy $E_{\rm Cas}=-(\pi c/6)(\hbar c_s/L)$ is
+proportional to the central charge $c$. This is the physical content of the
+$-c/24$ already carried by the WZW T-matrix phase $T_{1/2}=h_{1/2}-c/24$, which
+fixes the charged-lepton scheme correction $-3/400=-T_{1/2}/Q_{\rm group}$
+(Paper~IV~\cite{Paper4}, Paper~XI~\cite{Paper11}). For the charged-lepton
+$\SU(2)_3$ ($c=9/5$, $h_{1/2}=3/20$, $Q_{\rm group}=10$) the exponent decomposes
+as
+\begin{equation}
+  -\tfrac{3}{400}
+  =\underbrace{+\tfrac{c/24}{Q_{\rm group}}}_{+3/400\ (\text{Casimir})}
+   \underbrace{-\tfrac{h_{1/2}}{Q_{\rm group}}}_{-6/400\ (\text{weight})},
+  \label{P18:eq:casimir_decomp}
+\end{equation}
+the Casimir enhancement partially cancelled by the conformal weight. The
+tube-ripple zero-point is therefore not a new mass contribution but the
+geometric realisation of the $c/24$ term already present in the lepton mass.
+Verified in \texttt{papers/src\_paper18/casimir\_qh2\_lepton.py}.
+\end{proposition}
+
+\begin{proposition}[The framing twist is a knot-scale sine-Gordon soliton]
+\label{P18:prop:twist_sinegordon}
+The relative framing (twist) $\varphi(z)$ of the two strands of the $T_{2,3}$
+cable (Section~\ref{P18:sec:satellite}) is a sine-Gordon field. A direct
+Faddeev-energy computation gives both ingredients: (i)~a periodic potential
+$V(\varphi)=V_0(1+\cos\varphi)$---a single $k=1$ cosine (Fourier residual
+$5\%$), vacuum at the anti-aligned $\varphi=\pi$, amplitude $V_0$ overlap-driven
+and vanishing as the strands separate beyond $2a$; and (ii)~a \emph{standard
+quadratic} gradient, the small-oscillation dispersion being linear in $k^2$
+($E-E_0=(K_{\rm eff}k^2+V'')\,\epsilon^2 L/4$, fit to $1$--$2\%$, with
+$V''\simeq V_0$). The framing therefore obeys a textbook sine-Gordon equation
+$\chi\,\partial_t^2\varphi-K_{\rm eff}\,\partial_z^2\varphi+V_0\sin\varphi=0$ in
+the cold director sector ($c_{\rm dir}=\sqrt{K_{\rm eff}/\chi}\to0$, distinct
+from the magnitude-sector ripples above). Its kink---a $2\pi$ relative twist---is
+the elementary twist quantum, of width
+\begin{equation}
+  \xi=\sqrt{K_{\rm eff}/V_0}\ \sim\ R=R_0+r_0
+  \qquad(\text{$\approx0.93\,R$ at the representative cable separation}),
+  \label{P18:eq:twist_soliton}
+\end{equation}
+i.e.\ \emph{knot-scale}: a twist cannot localise below the size of the knot it
+frames. (The physical framings selected as the three generations,
+$|\mathrm{Tw}|\in\{1,2,5\}$, are the $E_6$ Coxeter data of
+Paper~XVI~\cite{Paper16}, Paper~XVII~\cite{Paper17}, imposed on this twist
+field.) Verified in
+\texttt{papers/src\_paper18/cable\_twist\_potential.py},
+\texttt{cable\_twist\_kinetic.py}.
+\end{proposition}
+
 %══════════════════════════════════════════════════════════════════════════════
 \section{The $\phistar$ Prediction from $T_{2,3}$ Geometry}
 \label{P18:sec:phi_star}
@@ -2929,6 +3022,24 @@ E.~Verlinde,
 \textit{Fusion rules and modular transformations in 2D conformal field theory},
 Nucl.\ Phys.\ B \textbf{300}, 360--376 (1988).
 \href{https://doi.org/10.1016/0550-3213(88)90603-7}{doi:10.1016/0550-3213(88)90603-7}
+
+\bibitem{Paper4}
+F.~Manfredi,
+\textit{Hopfion IV - The Hopf Spoke, WZW Fermion Mass Renormalization, and Three- and Four-Term Formulas for the Fine Structure Constant},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
+\bibitem{Paper11}
+F.~Manfredi,
+\textit{The Golden-Spiral as a Universal Mass Hierarchy Map: From Condensate Scale to Chemical Periodicity},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20173763}{doi:10.5281/zenodo.20173763}
+
+\bibitem{Barckicke2026}
+J.~Barckicke et al.,
+\textit{Experimental evidence of Kelvin-wave turbulence along a vortex core},
+Phys.\ Rev.\ Lett.\ (2026).
+\href{https://arxiv.org/abs/2607.07535}{arXiv:2607.07535}
 
 \end{thebibliography}
 

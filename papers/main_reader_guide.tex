@@ -56,7 +56,7 @@
 }{\end{trivlist}}
 
 \title{\textbf{A Reader's Guide to the Density-Feedback Hopfion Series\\[4pt]
-\large Papers I--XVII: Entry Points, Technical Prerequisites, and Critical Evaluation}}
+\large Papers I--XX: Entry Points, Technical Prerequisites, and Critical Evaluation}}
 \author{A technical companion for readers with background in QFT and GR}
 \date{2026}
 
@@ -71,7 +71,7 @@
 
 This guide is written for a reader with graduate-level training in quantum field
 theory and general relativity who wants to evaluate the density-feedback
-Faddeev--Niemi Hopfion series (Papers~I--XVII) critically. It does three things.
+Faddeev--Niemi Hopfion series (Papers~I--XX) critically. It does three things.
 
 First, it maps the logical structure of the series: which results follow from
 which, what is proved as a theorem, what is asserted as a claim, and where the
@@ -85,9 +85,21 @@ re-derives, from a single-input condensate model, the same numerical values that
 the Standard Model accommodates as free parameters. It does not predict
 deviations from known SM observables at any energy scale that has been probed;
 it predicts deviations only where the SM is silent (the cosmological sector,
-lepton Bell tests, and the thawing dark-energy equation of state). The reader who expects a contradiction
-with established particle physics will not find one, and this guide explains
-precisely why.
+lepton Bell tests, and the thawing dark-energy equation of state). The reader
+who expects a contradiction with established particle physics will not find
+one, and this guide explains why.
+
+A useful orientation for the specialist: the framework sits at the intersection
+of three independently established areas --- topological quantum computation and
+anyons (the golden ratio $\vp$ as the $\mathrm{SU}(2)_3$ Fibonacci quantum
+dimension, together with the WZW modular data), modular flavour symmetry (the
+icosahedral $A_5\cong\Gamma_5$ group behind golden-ratio lepton mixing), and the
+$\ZZ_6$ centre structure of the Standard-Model gauge group (fractional charge as
+a triality quotient). None of these ingredients is novel in isolation; each is
+textbook or active-literature mathematics. The framework's claim to novelty is
+that it derives all three from a \emph{single} topological origin --- the
+density-feedback Hopfion and its $\twoI$ McKay correspondence --- and, in the
+same construction, couples that origin to gravity and cosmology.
 
 A word on the Foundational Companion paper, which is an ideal first read for
 anyone approaching the series. That paper collects three independent proofs that
@@ -231,6 +243,21 @@ XVII & $Q_H=1$ sector identified as the neutrino: unknotted topology,
   $m_{\nu_1}\approx42\,\mathrm{meV}$; PMNS matrix as an exact permutation &
   Papers~XV--XVI (sector-identification method); Paper~VI (tower
   irrationality); Paper~I (McKay correspondence, Hopf charge) \\
+XVIII & $Q_H=3$ dynamics: confinement from Jones-polynomial arithmetic;
+  forced pion emission ($Q{=}2{+}2\to3{+}1$); process-dependent three-jet
+  $\phi^*$ prediction; tube-mode spectrum &
+  Papers~XV--XVII; Jones/Kauffman invariants at $q_5$; satellite/cable
+  knot constructions; three-jet kinematics \\
+XIX & Dynamical origin of quark masses: $r_0=R_0/C_2^*$ fixed analytically;
+  $\sqrt\vp$ mass ladder ($m_s/m_d\approx20$); two-triplet ratio;
+  multi-component Jones reaction rule (unit-equivalence in $\ZZ[\zeta_5]$) &
+  Papers~XV--XVIII; Bogomolny profile wall width;
+  cyclotomic unit arithmetic \\
+XX & Dynamical layer of the quark sector: $E_6$-native generations
+  ($m_u/m_c=e^{-2\pi}$); isospin mass-scale ($0.189\to0.153$);
+  fractional charge from colour triality; residuals as the dynamical layer &
+  Papers~XV--XIX; $E_6$ Coxeter data; $\mathrm{SU}(3)_1$ triality;
+  WZW T-matrix; confined breathing mode \\
 \bottomrule
 \end{longtblr}
 \end{center}
@@ -250,10 +277,25 @@ generation-dependence;
 Paper~XVII~\cite{Paper17} completes the sector inventory by identifying
 $Q_H=1$ as the neutrino sector and derives a parameter-free neutrino mass
 prediction testable by Project~8.
+Papers~XVIII--XX~\cite{Paper18,Paper19,Paper20} then develop the $Q_H=3$
+\emph{dynamical} content that Papers~XV--XVI left open:
+Paper~XVIII~\cite{Paper18} derives confinement, forced pion emission, and a
+falsifiable three-jet $\phi^*$ prediction from the Hopf-preimage and
+Jones-polynomial structure;
+Paper~XIX~\cite{Paper19} reframes quark masses as observables of the
+formation-and-decay process rather than static energies, fixing the minor
+radius $r_0=R_0/C_2^*$ and a $\sqrt\vp$ intra-triplet mass ladder;
+and Paper~XX~\cite{Paper20} assembles the sector's dynamical layer ---
+$E_6$-native generations, the isospin mass-scale, fractional charge from
+colour triality --- around the organising diagnostic that the framework's
+residuals are one $\sim\alpha_s$ correction, largest precisely where the
+object (the quark) has no static saddle.
 A reader who wants the cleanest path to the most novel result should read the
 Foundational Companion, then I, III, VI, IX, X, XII, XIII, XIV, XV, XVII in order;
 XVI is best read as a companion to XV for readers specifically interested in
-the quark-mass open problem.
+the quark-mass open problem, and XVIII--XX as the $Q_H=3$ dynamical trilogy that
+carries that problem from "open" to a computed leading order with a bounded,
+sector-characteristic residual.
 
 \paragraph{A recurring constant.} A single modular quantity threads several
 of these results: the WZW virial value $V^* = S_{0,1/2}/S_{0,0} = \vp$,
@@ -290,10 +332,14 @@ independent derivations of $k=3$:
   and algebraically excludes $j=2$, hence a fourth lepton generation.
   This is independent of any numerical input.
 \end{itemize}
-Items (d)--(e) add the quark sector: lepton generations use SU(2)$_3$
-primary truncation; quark generations use $E_8$ Coxeter exponent saturation
-(six of eight exponents occupied; $\{23,29\}$ predict no fourth quark generation).
-These are structurally distinct but both rooted in the same $\twoI/\Ehat$ structure.
+Items (d)--(e) add the quark sector: lepton generations use $\mathrm{SU}(2)_3$
+primary truncation; quark generations are fixed by Coxeter-exponent saturation
+of the quark's McKay group. (The Foundational Companion states this through
+$E_8$; Papers~XV and~XX~\cite{Paper15,Paper20} refine the quark group to the
+McKay-direct $E_6$ via $2T\leftrightarrow\hat{E}_6$, with the six Standard-Model
+quarks filling the six $E_6$ Coxeter exponents $\{1,4,5,7,8,11\}$ and a fourth
+generation excluded by $E_6$ saturation.) These are structurally distinct but
+both rooted in the same icosahedral McKay structure.
 
 The reader who finishes this paper knows the algebraic skeleton of the series.
 
@@ -933,7 +979,163 @@ the $j=\tfrac12$ primary predicts Majorana neutrinos.
 permutation, and $Q_{\mathrm{eff}}$ is derived from Brieskorn geometry.
 The remaining open problem is the $q$-series resummation converting
 branching functions into physical mixing angles beyond the coset
-structure.
+structure (deferred to Paper~XX~\cite{Paper20}).
+
+\subsection{Paper XVIII: Preimage topology and confinement}
+
+\textit{Prerequisites:} Everything required for Papers~XV--XVII; Jones
+polynomials and the Kauffman bracket at roots of unity; satellite/cable
+(companion) knot constructions and the Temperley--Lieb algebra; three-jet
+event kinematics and the acoplanarity angle.
+
+Paper~XVIII~\cite{Paper18} opens the \emph{dynamical} treatment of the $Q_H=3$
+sector, taking the trefoil's Hopf-preimage topology as the starting point and
+deriving three results, each stated with its epistemic status made explicit.
+
+\textbf{Confinement from Jones-polynomial arithmetic.}
+The satellite Jones invariant of the trefoil, computed by the $(2,3)$-cable
+construction, satisfies $|V_{\mathrm{sat}}(q_5)|=1/\vp$ at $q_5=e^{2\pi i/5}$
+--- the \emph{same modulus} as the Hopf link, related by the single phase
+$V_{\mathrm{sat}}=q_5^{-1}V_{T(2,2)}$, not by a golden-ratio inversion. A
+satellite twist family locates the rational/irrational split: it tracks the
+\emph{fusion} of the cable strands (odd half-twist count irrational, even
+rational), not which $Q_H$ sector is involved. Whether the physical formation
+path passes through the rational unfused configuration, and whether the family's
+period~$10$ coincides with $Q_{\mathrm{gr}}=2(k+2)$, are flagged as open
+conjectures --- the paper is careful to label them as such.
+
+\textbf{Forced pion emission.}
+The reaction $Q_H{=}2+Q_H{=}2\to Q_H{=}3+Q_H{=}1$ is topologically forced:
+charge conservation ($2+2=3+1$) together with the component structure of the
+satellite construction means that of the four initial preimage circles three
+fuse into the trefoil and one cannot be absorbed, producing a $Q_H=1$ spectator.
+Pion emission in baryon formation is therefore a topological necessity, not a
+dynamical accident.
+
+\textbf{Process-dependent $\phi^*$ prediction.}
+The three crossing vertices of $T_{2,3}$ are $120°$ apart in azimuth with
+tangent vectors in the $z=0$ plane. When a baryon fragments to $\rho^+\rho^-$
+the relative decay-plane angle follows $W(\phi^*)\propto1+a_3\cos(3\phi^*)$,
+peaked at $2\pi/3$ with $a_1=a_2=0$ enforced by $\Zthree$ symmetry;
+photon-initiated $\rho^+\rho^-$ (no $Q_H=3$ parent) carries the standard
+helicity $a_2\cos(2\phi^*)$ form instead. The process-dependence is
+parameter-free and falsifiable.
+
+The paper also derives the tube excitation spectrum (a linear ``Kelvin'' mode
+$\omega=c_s k$, a Casimir zero-point, and a twist sine-Gordon kink) and records
+two further correspondences --- a six-quark counting from
+$\binom31+\binom32=6$ midpoint-breaking combinations, and an isospin assignment
+from the trefoil's $\Ztwo$ writhe asymmetry --- explicitly as conjectures.
+A reader should treat XVIII as the sector's dynamical scaffolding: sharp,
+falsifiable results (pion emission, $\phi^*$) alongside clearly-labelled open
+conjectures.
+
+\subsection{Paper XIX: The dynamical origin of quark masses}
+
+\textit{Prerequisites:} Everything required for Paper~XVIII; the Bogomolny
+profile function of the $Q_H=2$ sector; multi-component Jones polynomials
+(disjoint-union formula); arithmetic of cyclotomic units in $\ZZ[\zeta_5]$.
+
+Paper~XIX~\cite{Paper19} confirms and sharpens Paper~XVI's negative-results
+picture. Two facts established in Paper~XVIII change what the calculation is:
+the trefoil's $\Zthree$ symmetry is broken from the outset by the single
+perturbation site of the formation event, and the $Q_H=3$ configuration is
+transient and unstable --- so its observables are properties of the
+formation-and-decay \emph{process}, not of a static geometry. Quark masses are
+therefore characteristic scales of how a single incoming perturbation partitions
+across the trefoil during transit. The paper derives:
+
+\begin{itemize}[noitemsep]
+\item \textbf{The minor radius, fixed:} $r_0=R_0/C_2^*$, from the wall width
+  $\Delta\rho=1/C_2^*$ of the $Q_H=2$ Bogomolny profile via the satellite
+  embedding --- closing an open problem shared by Papers~XV and~XVIII.
+\item \textbf{Two hypotheses falsified analytically:} the single-loss-coefficient
+  cascade model, and the uniform $\vp$-tower generation multiplier (which misses
+  the observed intra-triplet ratios by orders of magnitude).
+\item \textbf{The $\sqrt\vp$ mass ladder:} the four intra-triplet generation
+  gaps form a geometric sequence of ratio $\sqrt\vp$, anchored at
+  $m_s/m_d=\sqrt{k/2}\,e^{8\pi/9}=19.99\approx n_e=20$ (the lepton CMB tower
+  level), giving $m_b$ to $0.7\%$, $m_t/m_c$ to $6\%$, and $m_c/m_u$ to $19\%$
+  --- the same always-positive, generation-growing residual pattern as
+  Paper~XVI.
+\item \textbf{The two-triplet mass-scale ratio:}
+  $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ versus observed $0.157$, a
+  parameter-free consequence of the site-tangent geometry (refined to $0.153$
+  in Paper~XX).
+\item \textbf{The reaction rule:} multi-component Jones equivalence is
+  \emph{unit-equivalence} in $\ZZ[\zeta_5]$, not numerical equality of Jones
+  products; both $Q_H=3$ production channels are verified with explicit unit
+  factors ($1/\vp$ and $-\vp\zeta_5$).
+\end{itemize}
+A cross-sector aside establishes the leading solar mixing angle
+$\tan\theta_{12}^{(0)}=1/\vp$ via the $\mathrm{SU}(2)_3$ S-matrix; that this
+equals $|V_{T(2,2)}(q_5)|$ is recorded as a numerical coincidence, not a
+derivation.
+
+\subsection{Paper XX: The dynamical layer of the quark sector}
+
+\textit{Prerequisites:} Everything required for Papers~XV--XIX; $E_6$ and
+$E_8$ Coxeter exponents; the WZW T-matrix and $\mathrm{SU}(3)_1$ triality;
+one-loop QCD mass running; Airy quantisation of a linear potential.
+
+Paper~XX~\cite{Paper20} assembles the $Q_H=3$ dynamical content into a single
+picture and, in doing so, sharpens what the framework claims: the
+static/topological layer is the exact leading order, and the residuals are one
+dynamical correction whose size tracks the sector's coupling. It records six
+results and one organising principle.
+
+\textbf{$E_6$-native generations, $E_8$-bridge anchor.}
+The quark's own group is $E_6$ ($2T\leftrightarrow\hat{E}_6$); $E_8$ enters only
+as the charged-lepton bridge anchoring the down sector (strange$=$muon).
+Generation is the per-strand $E_6$ ribbon twist, the up/down tower-steepness
+asymmetry is the WZW phase-unit ratio $(\pi/4)/(\pi/9)=9/4$ (matching the
+measured $\approx2.1$ to $6\%$), and the first-to-second up-generation ratio is
+parameter-free: $m_u/m_c=e^{-2\pi}$.
+
+\textbf{Isospin mass-scale, and its residual computed.}
+The up/down geometric-mean ratio is fixed by the crossing/midpoint tangent
+orientation, $M_{\mathrm{down}}/M_{\mathrm{up}}\approx0.189$ at leading order.
+The generation-universal correction is \emph{computed}, not posited: the Faddeev
+energy is scale-invariant, so the trefoil's size is a flat breathing mode that
+confinement's tube tension quantises (Airy against the shared-jam wall); the
+more sharply-curved up (crossing) network is held more stiffly, giving
+$0.189\to0.153$ against the measured $0.157$ ($\approx2\%$), from the same
+tangent geometry. This correction is RG-invariant --- it cannot be running,
+which cancels in mass ratios --- so it and the down-sector over-prediction are
+one dynamical layer.
+
+\textbf{Fractional charge from colour triality.}
+The $\Zthree$ centre of $\mathrm{SU}(3)_1=(E_6)_1$ forces
+$Y\equiv\mathrm{triality}/3$, giving $Q=\{+\tfrac23,-\tfrac13\}$ for the colour
+triplet and integer charge for the colour-singlet leptons --- deriving from the
+colour CFT what Paper~XVIII assigned by writhe.
+
+\textbf{The generation-1 electromagnetic flip.}
+A charge-linear coupling $\delta m=-Q\Phi$ with $\Phi\approx2.2$~MeV flips the
+$u<d$ ordering at generation~1 while leaving $c>s$, $t>b$ intact; its
+\emph{magnitude} is compositional (a product of $\aem$ and the jam scale) but
+its \emph{sign} is the $\mathrm{SU}(3)_1$ Chern--Simons level --- one shared
+vacuum-chirality bit that a parity no-go forbids deriving from the parity-even
+sector.
+
+\textbf{The doublet sum rule and the constituent scale.}
+The confined doublets obey $m_{\mathrm{up}}+m_{\mathrm{down}}=C\,m_\ell$ with
+$C\approx13$; the constituent scale is derived,
+$m_{\mathrm{const}}=\Lambda_{\mathrm{cond}}^{\mathrm{baryon}}\vp^6 e^{8\pi}
+\approx237\,\mathrm{MeV}$, reducing $C$ to the single $E_6$-native tower level.
+
+\textbf{Residuals as the dynamical layer.}
+A diagnostic across all sectors shows static-saddle sectors (charged leptons,
+gauge couplings) are exact to $\lesssim0.5\%$ while the dynamical sectors
+(quarks, neutrino) carry $\sim\alpha_s$ residuals ($20$--$30\%$). The mechanism
+behind the split is the density feedback itself: responsive for the spread
+lepton torus (a genuine saddle, mass to $0.013\%$), saturated for the sharp
+trefoil tube (no stable isolated saddle, an algebraic mass). A QFT reader should
+read XX as the paper that turns Paper~XVI's ``open problem'' into a computed
+leading order plus a bounded, sector-characteristic residual --- while retaining
+its honest open items: the absolute anchor of the $E_6$ tower, the explicit
+Chern--Simons/Hall form of the generation-1 coupling, and a first-principles
+derivation of the tangent-fraction functional from the density-feedback action.
 
 %═══════════════════════════════════════════════════════════════════════════════
 \section{Does this framework contradict established physics?}
@@ -991,6 +1193,10 @@ $|Q_u|$ (up-quark charge) & P15, trinification & $2/3$ & exact \\
 $m_s$ (strange quark) & P16, colour-shift QCD running & matched & $0.09\%$ \\
 $m_\nu$ tower bound & P17, irrationality theorem & $n_\nu\geq42.02$ & margin $0.37$ \\
 $m_{\nu_1}$ (neutrino mass) & P17, CMB matching & $42\,\mathrm{meV}$ & untested (Project~8) \\
+$m_u/m_c$ (up-tower ratio) & P20, $E_6$ tower T-phases & $e^{-2\pi}=1.87\times10^{-3}$ & $5\%$ \\
+$M_{\mathrm{down}}/M_{\mathrm{up}}$ & P19--XX, tangent $+$ breathing & $0.153$ & $2\%$ \\
+$m_s/m_d$ & P19, $\sqrt\vp$ ladder anchor & $\sqrt{k/2}\,e^{8\pi/9}=19.99$ & $0.05\%$ ($n_e{=}20$) \\
+$\phi^*$ peak (baryon$\to\rho\rho$) & P18, crossing geometry & $2\pi/3$, $\cos3\phi^*$ & untested \\
 \bottomrule
 \end{longtblr}
 \end{center}
@@ -1129,6 +1335,10 @@ WRT knot invariants & Paper~XV & Witten (1989); Reshetikhin--Turaev (1991) \\
 One-loop multi-threshold QCD running & Paper~XVI & Peskin--Schroeder Ch.~17 \\
 ADE / McKay classification (A-series) & Paper~XVII & McKay (1980); Kac (1990) \\
 PMNS matrix / neutrino mixing & Paper~XVII & Pontecorvo (1957); Maki--Nakagawa--Sakata (1962) \\
+Jones polynomials at roots of unity & Papers~XVIII--XIX & Jones (1985); Kauffman (1987) \\
+Satellite/cable knots; Temperley--Lieb & Paper~XVIII & Rolfsen (1976); Lickorish (1997) \\
+Multi-component Jones; cyclotomic units & Paper~XIX & Lickorish (1997) \\
+$E_6$ Coxeter data; $\mathrm{SU}(3)_1$ triality & Paper~XX & Di~Francesco et~al.\ Ch.~14,~18 \\
 \bottomrule
 \end{longtblr}
 \end{center}
@@ -1199,6 +1409,10 @@ The framework is falsifiable at multiple scales simultaneously:
 \item CMB-S4 tensor-to-scalar ratio $r \gg 0.0036$.
 \item A new SM-sector resonance at energies accessible to current experiments.
 \item Free-electron mass anisotropy $\Delta m/m_e \neq 1/\vp^8$ in a Penning trap.
+\item Baryon-initiated three-jet events \emph{lacking} the $\cos(3\phi^*)$,
+  $2\pi/3$-peaked acoplanarity structure predicted by Paper~XVIII~\cite{Paper18}
+  (photon-initiated $\rho^+\rho^-$ showing instead the standard $\cos(2\phi^*)$
+  helicity form is the control).
 \end{enumerate}
 Item 1 will be resolved within the next two to three years by DESI DR2.
 
@@ -1248,6 +1462,15 @@ derives both quark charges ($|Q_d|=1/3$, $|Q_u|=2/3$) from the trinification
 conformal embedding with no Standard Model input, and proves $\lambda_3=\vp^6$
 via the triple-fusion multiplicity argument and the $j=3/2$ simple-current
 sector assignment (three independent proofs).
+Papers~XVIII--XX~\cite{Paper18,Paper19,Paper20} carry the $Q_H=3$ sector from
+static structure to dynamics: confinement, forced pion emission, and a
+falsifiable three-jet $\phi^*$ prediction (XVIII); quark masses as
+formation-process observables with a $\sqrt\vp$ intra-triplet mass ladder
+(XIX); and the dynamical layer proper --- $E_6$-native generations with the
+parameter-free $m_u/m_c=e^{-2\pi}$, the isospin mass-scale ($0.189\to0.153$),
+fractional charge from colour triality, and the organising diagnostic that the
+framework's residuals are one $\sim\alpha_s$ correction concentrated where the
+object has no static saddle (XX).
 These are the claims the series ultimately makes, and they are the claims that
 warrant the most careful scrutiny.
 
@@ -1331,8 +1554,10 @@ Zenodo (2026).
 
 \bibitem{Paper12}
 F.~Manfredi,
-\textit{Paper~XII: The Profile Normalisation Conjecture --- Proof via CMB Energy Identity and Two-Route Equivalence},
-\href{https://doi.org/10.5281/zenodo.19646945}{doi:10.5281/zenodo.19646945}
+\textit{The Profile Normalisation Conjecture ---
+  Proof via CMB Energy Identity and Two-Route Equivalence},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20210460}{doi:10.5281/zenodo.20210460}
 
 \bibitem{Paper13}
 F.~Manfredi,
@@ -1377,6 +1602,14 @@ F.~Manfredi,
 \textit{Dynamical Origin of Quark Masses in the Density-Feedback Hopfion},
 Zenodo (2026) - DRAFT.
 \href{https://doi.org/10.5281/zenodo.21225452}{doi:10.5281/zenodo.21225452}
+
+\bibitem{Paper20}
+F.~Manfredi,
+\textit{The Dynamical Layer of the Quark Sector: $E_6$-Native
+Generations, the Isospin Mass-Scale, and Static Residuals as Strong
+Dynamics},
+Zenodo (2026) - DRAFT.
+\href{https://doi.org/10.5281/zenodo.23047960}{doi:10.5281/zenodo.23047960}
 
 \end{thebibliography}
 

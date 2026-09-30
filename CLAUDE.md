@@ -9,7 +9,15 @@ It is the source-of-truth for a downstream Q&A system.
 Single physical input: T_CMB = 2.7255 K. All outputs derive from this.
 
 ## Ground truth files
-- `paper_registry.yaml` — all papers, their status, and the label index
+- `paper_registry.yaml` — all papers, their status, and the label index.
+  This file holds the label index in TWO places that must stay in sync:
+  1. Each paper's own `labels:` list (under `papers:`) — the summary of
+     that paper's extracted/filed results.
+  2. A single flat, document-root `labels:` dictionary mapping every
+     label in list 1 to `{paper, repo_file}` — a lookup table, not a
+     separate source of truth. Every label added to a paper's `labels:`
+     list must get a matching entry here in the same edit, and vice
+     versa; never add a label to one without the other.
 - `master_table.tex`    — all numbered outputs with status/residual/source
 - `open_problems.tex`   — open problems OP1–OP8
 - `preamble.tex`        — shared macros (\status, \source, \residual, \depends)
@@ -154,11 +162,15 @@ Steps:
       preamble (see TEMPLATE below), then add the result
    i. \ref DOENSN'T NEED to be in the same file. The tex sector files are collections of VERBATIM paper theorm/lemmas/etc
    j. Different papers may have the same equation. As long as the label is different, even if the content is verbatim, the label needs to be added to the registry
-4. Add the label to paper_registry.yaml under the correct paper entry
+4. Add the label to paper_registry.yaml under the correct paper entry,
+   AND to the flat document-root `labels:` index (label → {paper, repo_file}) —
+   see Ground truth files above. Every label added to a paper's own
+   `labels:` list must also get an entry in the flat index, in the same
+   step, so the two never drift apart.
 5. If the paper is numbered, ensure it's paper_registry.yaml entry is positioned correctly in the ascending sequentially order.
 6. If the doi for the paper is missing in paper_registry.yaml, try to find the DOI of the paper being scanned with grep {PaperN} from the bibliography section of the existing main_paperN.tex papers in the /papers folder, whether or not they are in paper_registry.yaml
 7. Verify the name for the paper in paper_registry.yaml, use the name of the paper in the current paper. Remove any new lines in the title and space it appropriately
-8. If the result is a new numbered output: 
+8. If the result is a new numbered output:
    a. Add a row to master_table.tex
    b. Ensure that the extracted content of the label to be put in the repository is verbatim to the paper
 9. If the result no longer exists in the corresponding paper, remove it
@@ -178,7 +190,8 @@ Trigger: "add this [theorem/proposition/...] to [subfolder/file.tex]"
 Steps:
 1. Read the target .tex file
 2. Add the result with \label, \status{}, \source{}, \residual{} (if applicable)
-3. Add the label to paper_registry.yaml
+3. Add the label to paper_registry.yaml: the paper's own `labels:` list
+   AND the flat document-root `labels:` index (see Ground truth files above)
 4. Update master_table.tex if it is a new numbered output
 5. Update open_problems.tex if it closes an open problem
 6. git add + git commit -m "add: [label] to [file]"
@@ -208,7 +221,7 @@ Steps:
 3. Run SCAN PAPER on the new file
 4. If published: set status: published for all labels from that paper
 5. If draft: set status: draft for all labels from that paper
-6. If the doi for the paper is missing in paper_registry.yaml, try to find the DOI of the paper being scanned from the bibliography section from the other existing tex papers in the /papers folder. hint: you can grep for {PaperN} 
+6. If the doi for the paper is missing in paper_registry.yaml, try to find the DOI of the paper being scanned from the bibliography section from the other existing tex papers in the /papers folder. hint: you can grep for {PaperN}
 7. Verify the name for the paper in paper_registry.yaml, use the name of the paper in the current paper. Remove any new lines in the title and space it appropriately.
 8. Add any open problems to open_problems.tex
 8. Confirm with user, and run "git commit -m "registry: add paperN ([status])"
@@ -294,7 +307,7 @@ When creating a new .tex file in a subfolder:
 ## Exceptions ###
 If the user insists you edit a paper:
 
-**References** 
+**References**
 - No backslashed underscores.
 - No bare paper references. Format everywhere, including master_table.tex, as 'Paper~RN~\cite{PaperN}' where RN is the capitalized roman numeral of the paper and N is the arabic numeral.
 - No bare reference labes to another paper.

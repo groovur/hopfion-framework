@@ -1,16 +1,6 @@
-%% hopfion-framework/strong/quark_masses.tex
-%% Sources: main_paper5.tex
-%% Quark Koide relation, CKM mixing angles, CP phase, quark mass hierarchy
-%% Auto-generated from project files. Edit source papers to update.
-%%
-%% Status tags: \status{published}, \status{open}, \status{conjectured}
-%% \source{PaperN, label} — where the proof lives
-%% \residual{X\%} or \residual{exact} — numerical accuracy
+% Quark Koide relation, CKM mixing angles, CP phase, quark mass hierarchy
+\input{../preamble}
 
-
-%════════════════════════════════════════════════════════════════════
-% Quark Koide Relation — Paper V
-%════════════════════════════════════════════════════════════════════
 \begin{theorem}[Quark Koide relation~\cite{Koide1983}]
 \label{P5:thm:quark_koide}
 At the condensate scale $\LUV$, the Koide ratio satisfies
@@ -96,10 +86,6 @@ are better determined perturbatively than $u,d$.
 \status{published}
 \source{P5:rem:quark_koide_obs}
 
-
-%════════════════════════════════════════════════════════════════════
-% CKM Mixing and CP Phase — Paper V
-%════════════════════════════════════════════════════════════════════
 \begin{lemma}[Minimal Hermitian WZW texture]
 \label{P5:lem:ckm_texture}
 In the $2I\text{-WZW}\otimes\mathrm{SU}(3)_3$ condensate, the off-diagonal
@@ -315,10 +301,6 @@ Numerically $A_{\rm pred} = 0.865$ vs observed $A = 0.826$ (a $4.7\%$ discrepanc
 \source{P5:cor:ckm_wolfenstein}
 \residual{4.7\% (Wolfenstein $A$ parameter)}
 
-
-%════════════════════════════════════════════════════════════════════
-% Strange Quark and Spectral Structure — Paper V
-%════════════════════════════════════════════════════════════════════
 \begin{proposition}[Strange-quark T-matrix coincidence]
 \label{P5:prop:squark}
 In the $2I$-WZW\,$\otimes\,\mathrm{SU}(3)_3$ tensor product, if the
@@ -661,7 +643,6 @@ These predict the \emph{within-generation} quark-to-lepton mass ratio:
   \label{P5:eq:quark_lepton_ratio}
 \end{equation}
 \status{published}
-\source{P5:eq:quark_mass_formula; eq:down_quark_mass; eq:quark_lepton_ratio}
 
 \begin{theorem}[Exact condensate-scale quark-to-lepton mass ratios]
 \label{P5:thm:quark_lepton_ratios}
@@ -718,9 +699,21 @@ This is carried out in Section~\ref{P5:sec:ckm}.
 \status{published}
 \source{P5:rem:ckm_preview}
 
-%════════════════════════════════════════════════════════════════════
-% Ruled-Out Quark Mass Mechanisms — Paper XVI
-%════════════════════════════════════════════════════════════════════
+The $600$-cell, whose $120$ vertices (as unit quaternions) form the
+binary icosahedral group $\twoI$, decomposes under the standard
+$24$-cell subgroup $\twoT\subset\twoI$ as
+\begin{equation}
+  \twoI \;=\; \twoT \,\sqcup\, (\twoI\setminus\twoT),
+  \qquad |\twoT|=24,\quad |\twoI\setminus\twoT|=96.
+  \label{P16:eq:vertex_decomp}
+\end{equation}
+The $96$ vertices of $\twoI\setminus\twoT$ all have coordinates
+involving $\vp$ (specifically $\vp/2$ and $1/(2\vp)$), while the $24$
+vertices of $\twoT$ are rational. This decomposition is exact and
+elementary (Paper~XV, Proposition~9.2); it is not in dispute.
+\status{published}
+\source{P16:eq:vertex_decomp}
+\depends{strong/topology_qh3.tex (Paper XV, Prop.~9.2)}
 
 \begin{conjecture}[The broken-vertex hypothesis]
 \label{P16:conj:vertices}
@@ -902,6 +895,34 @@ necessarily looking in the wrong place.
 \source{P16:rem:architecture_justified}
 \depends{strong/colour.tex (P16:thm:colour_exclusion)}
 
+This is identified with the tower level shift,
+\begin{equation}
+  \delta n^{(C)} \;=\; h_\psi \;=\; \frac12,
+  \label{P16:eq:dn_shift}
+\end{equation}
+giving the quark mass formula, at the condensate scale $\LUV$,
+\begin{equation}
+  m_q^{(g)} \;=\; \vEW\,e^{-2\pi QT_g}\cdot\vp^{-2\delta n^{(C)}}
+  \;=\; m_\ell^{(g)}\cdot\vp^{-1}
+  \quad(\text{up-type}),
+  \qquad
+  m_{q,\mathrm{down}}^{(g)}
+  \;=\; m_\ell^{(g)}\cdot\vp^{-3}
+  \quad(\text{down-type}),
+  \label{P16:eq:quark_mass_recap}
+\end{equation}
+where $m_\ell^{(g)}=\vEW e^{-2\pi QT_g}$ is the proved lepton mass
+formula of Paper~I, with $Q=10$ and $T_g$ the T-matrix phases.
+Equation~\eqref{P16:eq:quark_mass_recap} is generation-universal: the
+same multiplicative factor $\vp^{-1}$ (up-type) or $\vp^{-3}$
+(down-type) applies for $g=1,2,3$, and this universality is exactly
+what makes Paper~V's quark Koide relation $K_{\mathrm{up}}=K_{\mathrm{down}}=\tfrac23$
+exact: the Koide ratio is invariant under any common rescaling of
+three masses, so a generation-universal factor leaves it unchanged.
+\status{published}
+\source{P16:eq:dn_shift, P16:eq:quark_mass_recap}
+\depends{electroweak/lepton_masses.tex (P1: lepton mass formula); strong/quark_masses.tex (P5:thm:quark_koide)}
+
 \begin{conjecture}[Generation-dependent correction to colour shift]
 \label{P16:conj:colourshift}
 The discrepancy between the universal colour-shift formula and measured
@@ -947,6 +968,31 @@ ambiguity is a prerequisite for any quantitative test.
 \end{remark}
 \status{open}
 \source{P16:rem:scale_ambiguity}
+
+A different and more developed mechanism than
+equation~\eqref{P16:eq:quark_mass_recap} appears elsewhere in Paper~V,
+motivated by the incommensurability result of Paper~VI~\cite{Paper6}
+(Proposition~5.5 and Remark~5.6 therein): individual lepton tower
+levels are irrational, by the transcendence of $\pi/\ln\vp$
+(Nesterenko's theorem~\cite{Nesterenko1996}), but the
+\emph{quark-to-lepton mass ratio} is claimed to be integer-exact at
+the condensate scale,
+\begin{equation}
+  \frac{m_q}{m_{\ell(g)}} \;=\; \exp\!\left(\frac{n_q\pi}{9}\right),
+  \qquad n_q\in\mathbb{Z},
+  \label{P16:eq:e8_ratio_recap}
+\end{equation}
+because the $\ln\vp$-dependence common to numerator and denominator
+cancels in the ratio, leaving only the pure WZW phase unit
+$\pi/9=\pi Q/(k\,h(E_8))$. This is a structurally different claim from
+equation~\eqref{P16:eq:quark_mass_recap}: it does not assert a
+generation-universal $\vp$-power shift, but an integer multiple of a
+fixed angular unit, with the integer $n_q$ read off from the $E_8$
+Coxeter exponents $m\in\{1,7,11,13,17,19,23,29\}$ via
+$T^{(m)}=(4m-7)/360$ and $n_q=180(T_g-T^{(m)})$.
+\status{published}
+\source{P16:eq:e8_ratio_recap}
+\depends{strong/quark_masses.tex (P16:eq:quark_mass_recap)}
 
 \begin{remark}[Algebraic structure of the $n_q$ integers]
 \label{P16:rem:nq_structure}
@@ -1014,9 +1060,71 @@ constitute a derivation of $n_q^{(g)}$.
 \status{published}
 \source{P16:rem:e8_negative_result}
 
-%════════════════════════════════════════════════════════════════════
-% RG Running and Strange-Quark Match — Paper XVI
-%════════════════════════════════════════════════════════════════════
+\begin{remark}[The confined-quark mass is algebraic, not a saddle: the $E_8$ route and its anchor]
+\label{P17:rem:quark_mass_algebraic}
+The confined $\QH=3$ sector fails equation~\eqref{P17:eq:master_mass} for a
+reason deeper than a missing string-tension term: it has \emph{no stable
+field saddle}. The trefoil is metastable and transient --- the isolated
+$\QH=3$ configuration is not a minimum but decays by losing a crossing
+(Paper~XV~\cite{Paper15}, Paper~XVI~\cite{Paper16}, Paper~XVIII~\cite{Paper18})
+--- so the quark mass cannot be the energy of a stable configuration, as the
+lepton masses are. It must instead be an \emph{algebraic} quantity, and this
+is what Paper~V~\cite{Paper5}'s $E_8$ route supplies:
+\begin{equation}
+  \frac{m_q}{m_{\ell(g)}} = \exp\!\left(\frac{n_q\,\pi}{9}\right),
+  \qquad
+  n_q = \mathrm{Base}_g - 2m,
+  \qquad
+  \mathrm{Base}_g = 180\,T_g + \tfrac72,
+  \label{P17:eq:e8_quark_ratio}
+\end{equation}
+with $m$ the $E_8$ Coxeter exponent of the quark, $T_g$ the lepton T-matrix
+phases (Paper~I~\cite{Paper1}), and $\pi/9=\pi Q/(k\,h(E_8))$ the WZW phase
+unit ($Q=10$, $k=3$, $h(E_8)=30$). No field configuration enters --- a ratio
+of exponentiated conformal-weight phases carries the mass, exactly as a
+saddle-less object requires.
+
+Two features of the assignment are \emph{forced}, not fitted to the mass
+order. \textbf{(i)~The strange anchor, by parity.} With
+$\mathrm{Base}_1=41$, $\mathrm{Base}_2=26$, $\mathrm{Base}_3=17$, only the
+second generation has $\mathrm{Base}_g$ even, and $\mathrm{Base}_2/2=13$ is
+an $E_8$ exponent; so only strange can sit at $n_q=0$ ($m_s=m_\mu$), while
+generations~$1,3$ (odd Base) admit no quark--lepton mass coincidence.
+Equivalently $T^{(13)}=(4\cdot13-7)/360=\tfrac18=T_\mu$: strange's $E_8$
+topological spin equals the muon's, making it the most lepton-like quark.
+(The same $26=2\times13$ is the two-loop QCD coefficient $b_1$ of Paper~V.)
+\textbf{(ii)~Mirror pairing.} The remaining exponents respect the Coxeter
+duality $m+m'=h(E_8)=30$: $m_d=17$ is the mirror of $m_s=13$, the pair
+$(m_c,m_u)=(11,19)$ is the only other complete mirror pair, and the third
+generation $(t,b)$ takes the extreme exponents $(1,7)$, whose mirrors
+$(29,23)$ are unused.
+
+The \emph{isospin split} is then fixed by the anchor, not an input. The
+mirror pairs are isospin-pure --- $(13,17)=(s,d)$ down, $(11,19)=(c,u)$ up,
+the third-generation doublet $(t,b)=(1,7)$ the isospin-mixed extremes --- so
+strange's isospin fixes the rest by mirror and elimination. Strange is
+down-type ($I_3=-\tfrac12$) because its anchor is exact mass degeneracy with
+the muon ($n_s=0$, $m_s=m_\mu$), and the muon is the $I_3=-\tfrac12$ member
+of the lepton doublet $(\nu_\mu,\mu^-)_L$: the resonance is between two
+$I_3=-\tfrac12$ states, and weak isospin is inherited. No \emph{up}-type
+quark can anchor --- an $I_3=+\tfrac12$ quark would need degeneracy with the
+$I_3=+\tfrac12$ doublet member, the neutrino ($\sim$meV), impossible for a
+MeV--GeV quark --- so the anchor is uniquely down-type and the direction is
+forced. This resolves the up/down direction that the $\Ztwo$ writhe
+conjecture of Paper~XVIII~\cite{Paper18} leaves free. With the assignment,
+the six condensate-scale masses are $O(1)$ multiples of the measured values
+(ratios $0.3$--$1.9$), a tighter spread than the saddle-derived colour-shift
+route (Paper~XVI~\cite{Paper16}), recasting Paper~XVI's ``failed'' ruling of
+the $E_8$ mechanism: what failed was a saddle-based \emph{derivation} of the
+assignment, not the algebraic architecture, which the $\QH=3$ instability
+makes mandatory. What remains open is lifting the $I_3$ inheritance from a
+symmetry argument to a derivation from the density-feedback action, not the
+use of $E_8$. Structure verified in
+\texttt{papers/src\_paper16/e8\_strange\_anchor.py}.
+\end{remark}
+\status{published}
+\source{P17:rem:quark_mass_algebraic}
+\depends{strong/quark_masses.tex (P16:rem:e8_negative_result, P16:prop:e8_unique); quantum/neutrino.tex (P17:rem:master_formula); strong/topology_qh3.tex (P15/P16 trefoil instability)}
 
 \begin{proposition}[Strange-quark prediction matches PDG at sub-percent level]
 \label{P16:prop:strange_match}

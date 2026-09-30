@@ -1,22 +1,10 @@
-% strong/confinement_topology.tex
-% Part of the Hopfion Framework Repository
-% Source: Paper XVIII — Preimage Topology and Confinement:
-%   The Q_H=3 Sector of the Density-Feedback Hopfion
-% Status: draft
-% Last updated: 2026-07-04
-%
+% Preimage Topology and Confinement
 \input{../preamble}
 
 \section*{Preimage Topology, Jones-Polynomial Confinement, and Jet Structure of the $\QH=3$ Sector}
 \label{sec:confinement_topology}
 
-% Results extracted from Paper XVIII (draft)
-% Scan date: 2026-07-04
 \depends{strong/topology_qh3.tex; strong/colour.tex; quantum/neutrino.tex}
-
-%════════════════════════════════════════════════════════════════════
-% The Jones Polynomial at the WZW Root of Unity
-%════════════════════════════════════════════════════════════════════
 
 \begin{theorem}[Satellite Jones invariant of the trefoil]
 \label{P18:thm:trefoil_satellite_jones}
@@ -34,7 +22,7 @@ diagram with the companion included --- gives
 This is irrational: the golden ratio is present in the trefoil's
 satellite invariant at $q_5$, not absent from it.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P18:thm:trefoil_satellite_jones}
 \residual{exact}
 
@@ -46,7 +34,7 @@ $-q_5^{-1}+q_5^3+q_5$, of modulus $\sqrt{4-\vp}$ --- a different
 irrational value from the satellite invariant above. Neither is an
 integer, and the golden ratio is present in both.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:trefoil_satellite_correction}
 
 \begin{proposition}[The trefoil within the satellite twist family]
@@ -71,7 +59,7 @@ Every fused configuration (odd $n$, a genuine torus knot) gives an
 irrational, golden-ratio-related modulus; every unfused configuration
 (even $n$, separate un-merged cable strands) gives a rational value.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:satellite_twist_family}
 \residual{exact}
 
@@ -155,7 +143,7 @@ The precise placement of $-1$ at $n=6$ (unfused, rational) rather
 than $n=3$ (fused, irrational) is itself consistent with the
 fused/unfused rule of point~(A).
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:richer_criterion}
 
 \begin{remark}[Where the integer value $-1$ actually occurs]
@@ -164,12 +152,8 @@ The value $\Jones(q_5)=-1$ once (incorrectly) claimed for the trefoil
 itself does occur in this family --- exactly, at $n=6$, an unfused
 three-component configuration --- rather than at $n=3$.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:minus_one_at_n6}
-
-%════════════════════════════════════════════════════════════════════
-% Hopf Preimage Structure and the Torus Knot Tower
-%════════════════════════════════════════════════════════════════════
 
 \begin{definition}[Torus knot/link tower]
 \label{P18:def:torus_tower}
@@ -180,7 +164,7 @@ longitude and $n$ times around the meridian. For $n$ odd, $T(2,n)$
 is a knot (one component); for $n$ even, a link (two components,
 linking number $n/2$).
 \end{definition}
-\status{draft}
+\status{published}
 \source{P18:def:torus_tower}
 
 \begin{proposition}[Preimage topology of the $T(2,n)$ tower]
@@ -194,7 +178,7 @@ $\QH=3$: trefoil knot $T(2,3)$ (single knotted circle), whose three
 self-crossings correspond structurally to the three quark crossing
 vertices of Papers~XV--XVI.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:preimage_tower}
 \depends{strong/topology_qh3.tex}
 
@@ -206,7 +190,7 @@ $\lk(\gamma_1,\gamma_2)=1$ and contributes $\QH=2$. The key
 topological fact: $\QH=2$ preimage is a two-component Hopf link,
 $\QH=3$ preimage is a single knotted circle (trefoil).
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:link_convention}
 
 \begin{definition}[Satellite knot]
@@ -216,7 +200,7 @@ $D^2\times S^1$. The \emph{satellite knot} $S(K,P)$ is obtained by
 embedding $D^2\times S^1$ tubularly around $K$ and taking the image
 of $P$ under this embedding.
 \end{definition}
-\status{draft}
+\status{published}
 \source{P18:def:satellite}
 
 \begin{proposition}[Trefoil as satellite of the Hopf link]
@@ -229,7 +213,7 @@ of the first Hopf-link component with the $(2,3)$-cable framing
 converts $T(2,2)\cup\gamma_2$ into the single-component trefoil
 $T(2,3)$.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:satellite}
 
 \begin{remark}[Physical meaning of the satellite construction]
@@ -242,13 +226,9 @@ minimal-action framing in the $\QH=3$ sector, dictated by the same
 BPS saddle condition that fixes $\lambda_{\rm eff}^*=\vp^6/2^{1/3}$
 (Paper~I).
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:satellite_physical}
 \depends{profile/bps.tex}
-
-%════════════════════════════════════════════════════════════════════
-% Topological Reaction Rules
-%════════════════════════════════════════════════════════════════════
 
 \begin{definition}[Rationality class]
 \label{P18:def:rational_class}
@@ -256,7 +236,7 @@ A topological sector $L$ is in the \emph{rational class} at the WZW
 root if $\Jones_L(q_5)\in\mathbb{Z}$; otherwise it is in the
 \emph{irrational class}.
 \end{definition}
-\status{draft}
+\status{published}
 \source{P18:def:rational_class}
 
 \begin{theorem}[Jones polynomial selection rule]
@@ -268,17 +248,13 @@ state is irrational-class and the final state contains a
 rational-class component, at least one other final-state component
 must be irrational.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P18:thm:jones_rule}
 \residual{Proof status: (ii) is stated as a selection rule
 whose complete proof requires a systematic multi-component Jones
 polynomial framework (Paper18, Open Problem O1); the disjoint-union
 normalisation is fixed by the Kauffman-bracket convention of
 Paper~XVII.}
-
-%════════════════════════════════════════════════════════════════════
-% Forced Pion Emission
-%════════════════════════════════════════════════════════════════════
 
 \begin{theorem}[Pion emission is topologically forced]
 \label{P18:thm:pion_forced}
@@ -289,7 +265,7 @@ object (the $\QH=3$ trefoil) with one irrational-class companion;
 (iii)~minimises the number of final-state components. The $\QH=1$
 product is identified with the pion ($\pi^\pm$ or $\pi^0$).
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P18:thm:pion_forced}
 \depends{quantum/neutrino.tex}
 
@@ -300,7 +276,7 @@ preimage circle that does not participate in forming the trefoil.
 Its internal dynamics are governed by $\SU(2)_1$ WZW theory with
 Majorana statistics (Paper~XVII, Corollary~cor:majorana).
 \end{corollary}
-\status{draft}
+\status{published}
 \source{P18:cor:pion_spectator}
 \depends{quantum/neutrino.tex}
 
@@ -312,7 +288,7 @@ $\QH=2$ Hopf link with the $(2,3)$-cable framing, with no spectator
 (all three preimage circles are consumed). Physically the
 topological analogue of $e^-+\pi^+\to p$.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:qh2_qh1}
 
 \begin{remark}[The trefoil as a wound state; confinement as threading irreversibility]
@@ -336,7 +312,7 @@ knot, but it was assembled by a winding process, not found as a
 minimum.  In this sense the trefoil is a \emph{wound state}: its
 topology encodes the history of its formation.  The minor radius
 $r_0=R_0/C_2^*$ (Paper~XIX~\cite{Paper19}, Theorem~2.1, %\ref{P19:thm:r0_derivation}
-draft status) is inherited from the $\QH=2$ profile wall width,
+published) is inherited from the $\QH=2$ profile wall width,
 consistent with the trefoil's geometry being set by the $\QH=2$
 material from which it was assembled.
 
@@ -403,7 +379,7 @@ What is established is the structural fact: the inverse reaction
 requires a $\QH=1$ reactant, so no procedure extracts a free
 $\QH=3$ sub-object from the trefoil by charge conservation alone.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:wound_state}
 
 \begin{remark}[Higher-charge incoming objects and minimality of the listed channels]
@@ -416,7 +392,7 @@ reactions, and the $2+2\to3+1$ channel is the one identified with
 real hadronic processes. No stable $\QH\geq4$ configuration is
 established by the framework.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:higher_charge_incoming}
 
 \begin{remark}[Kinematic path of the $\QH=2\to\QH=3$ transition]
@@ -447,7 +423,7 @@ satellite invariant is irrational: on either reading, the crossing
 is immediately trying to reverse, and the baryon is metastable in
 the dynamical, not energetic, sense.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:crossing_path}
 \depends{strong/topology_qh3.tex}
 
@@ -464,7 +440,7 @@ run to completion before the committed crossing reverses. Between
 the two lies a \emph{virtual baryon} regime: $\QH=3$ is momentarily
 achieved but reverses without ejecting a $\QH=1$ daughter.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:two_thresholds}
 
 \begin{observation}[Geometric precursor at $q=2.3$]
@@ -476,7 +452,7 @@ purely geometric (Whitehead $\QH$ remains $2$). This single site is
 the geometric precursor of the eventual topological threading site:
 geometry precedes topology.
 \end{observation}
-\status{draft}
+\status{published}
 \source{P18:obs:precursor}
 \residual{numerical (single simulated sweep, $N=64$, $h=0.175$)}
 
@@ -492,14 +468,159 @@ $\Gamma\propto n^2\langle\sigma v\rangle$ (or $n_{\QH=2}n_{\QH=1}$).
 Ordinary vacuum satisfies neither; collider beams, the primordial
 quark-gluon plasma, and compact-object extremes satisfy both.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:production_conditions}
 \residual{Quantitative evaluation of $\Delta E_{2+2}$, $\Delta E_{2+1}$
 from the Paper~XVII mass formulas is Paper18 Open Problem O6.}
 
-%════════════════════════════════════════════════════════════════════
-% The phi* Prediction from T(2,3) Geometry
-%════════════════════════════════════════════════════════════════════
+\begin{remark}[Radiative confinement kinematics: the magnitude--Cherenkov crossover]
+\label{P18:rem:cherenkov_confinement}
+The topological confinement of the trefoil developed above has a dynamical
+companion fixed by a single speed. The condensate's scalar (magnitude, or
+density) mode propagates at the sound speed $c_s=c/\vp$, the established
+value of that sector. A coloured excitation crossing the condensate at
+$v>c_s$ radiates into this mode by the Frank--Tamm (Cherenkov) mechanism:
+the threshold is $\beta=1/\vp\approx0.618$ ($\gamma\approx1.272$), the
+emission cone is $\cos\theta_c=1/(\vp\beta)$ --- tending to
+$\arccos(1/\vp)\approx51.8^\circ$ as $\beta\to1$ --- and the radiated
+fraction saturates at $1-1/\vp^{2}=1/\vp$ (using $\vp^{-2}=1-\vp^{-1}$).
+
+Because a light-speed parton carries magnitude-Mach number $M=1/c_s=\vp$,
+an \emph{unbound} quark is always above threshold, so an escape attempt
+(net translation at $v>c_s$) is radiatively damped --- a dynamical
+supplement to the linear topological confinement. A \emph{bound} quark
+does not continuously radiate: the Frank--Tamm cone requires unbounded
+coherent translation, which oscillation inside the tube does not supply.
+The tube instead waveguides the ripples the quark emits. For a tube of
+transverse size $R$ the guide cutoff is $E_c\sim\pi\hbar c_s/R$ and the
+confined-quark scale is $E_q\sim\pi\hbar c/R$, so their ratio is
+\emph{independent of $R$},
+\begin{equation}
+  E_q/E_c \;=\; 1/c_s \;=\; \vp,
+  \label{P18:eq:confined_mach}
+\end{equation}
+placing the confined quark a fixed factor $\vp$ above the sound cutoff.
+Modes below cutoff are evanescent and trapped as standing waves --- the
+internal excitation spectrum, radiating nothing to infinity --- while the
+hardest modes lie just above and leak, contributing finite widths. The
+confined quark thus neither bleeds energy continuously nor is perfectly
+stable, both consequences of the same $c_s=c/\vp$.
+
+Three elements remain open. (i)~The absolute widths and the radiative
+coupling are cutoff-set and are not derived here. (ii)~That real photons
+escape the hadron while the sound-channel ripples stay trapped is
+attributed to the photon's colour neutrality --- it does not couple to the
+colour/director tube --- rather than to any kinematic cutoff, since the
+faster electromagnetic mode carries the \emph{higher} cutoff
+$E_c^{\rm EM}=\vp\,E_c^{\rm sound}$ and would if anything be trapped more
+readily. (iii)~The relation of the $v>c_s$ radiative boundary to the
+deconfinement temperature $T_c$ of
+Remark~\ref{P18:rem:production_conditions} and Open Problem~O6 is
+unestablished. The kinematics are verified in
+\texttt{papers/src\_paper18/cherenkov\_confinement.py} and
+\texttt{bounded\_motion\_cherenkov.py}.
+\end{remark}
+\status{published}
+\source{P18:rem:cherenkov_confinement; eq:confined_mach}
+\depends{strong/confinement_topology.tex (P18:rem:production_conditions)}
+
+The waveguided ripples of Remark~\ref{P18:rem:cherenkov_confinement} carry a
+definite dispersion and a definite zero-point energy; both follow from the tube
+being an \emph{inertial}, \emph{tense} object (mass-as-geometry) rather than a
+bare vortex. Those are the tube's ripple modes and their zero-point; the director
+sector carries a third, distinct excitation, the framing twist.
+
+\begin{proposition}[Linear Kelvin dispersion]
+\label{P18:prop:linear_kelvin}
+The tube's transverse (bending) ripple---the framework analogue of a Kelvin
+wave---has the energy per unit length $\delta E=(T k^2+B k^4)A^2/4$ of a
+displaced core $x_c(z)=A\sin kz$, with $T$ the line tension (the confinement
+string) and $B$ the bending stiffness. A direct Faddeev-energy evaluation is
+$T$-dominated; a resolution study shows the apparent negative $B$ of a coarse
+grid is a finite-difference artifact, the converged $B$ being so small that the
+crossover length $\ell=\sqrt{B/T}\lesssim0.03\,R$ lies far below the tube
+radius. The ripple therefore has a \emph{linear} dispersion
+\begin{equation}
+  \omega = c_s\,k
+  \label{P18:eq:linear_kelvin}
+\end{equation}
+at every physical wavelength ($\gtrsim R$). The static energy fixes the
+\emph{shape}---linear, tension-dominated---but not the absolute speed
+$c_s=\sqrt{T/\mu}$: the bend carries director strain ($T\approx3\,E_{\rm line}$),
+so its inertia $\mu$ is not the bare line mass and involves the (input) director
+susceptibility. The robust content is the shape, which is categorically distinct
+from a classical thin-vortex Kelvin wave, $\omega\propto\Gamma k^2$ (quadratic,
+gapless), whose six-wave resonant cascade was recently observed in a classical
+draining vortex~\cite{Barckicke2026}. The distinction is in the restoring force:
+the framework tube bends against a \emph{local} line tension (a wave on a string,
+linear), whereas a classical vortex bends by \emph{non-local} self-induction
+(quadratic)---so the classical, quadratic, six-wave regime is the macroscopic
+collective-flow limit, absent for the confined tube. The
+framework thus predicts a Kelvin-wave cascade on an inertial/tense filament to
+be \emph{linear}, with no six-wave signature. Verified in
+\texttt{papers/src\_paper18/kelvin\_bending\_dispersion.py},
+\texttt{kelvin\_B\_convergence.py}.
+\end{proposition}
+\status{published}
+\source{P18:prop:linear_kelvin; eq:linear_kelvin}
+
+\begin{proposition}[The ripple Casimir energy is the $c/24$ correction]
+\label{P18:prop:ripple_casimir}
+The trapped sub-cutoff ripples of Remark~\ref{P18:rem:cherenkov_confinement},
+on the closed $\QH=2$ loop, form a chiral conformal field theory on a circle;
+their zero-point (Casimir) energy $E_{\rm Cas}=-(\pi c/6)(\hbar c_s/L)$ is
+proportional to the central charge $c$. This is the physical content of the
+$-c/24$ already carried by the WZW T-matrix phase $T_{1/2}=h_{1/2}-c/24$, which
+fixes the charged-lepton scheme correction $-3/400=-T_{1/2}/Q_{\rm group}$
+(Paper~IV~\cite{Paper4}, Paper~XI~\cite{Paper11}). For the charged-lepton
+$\SU(2)_3$ ($c=9/5$, $h_{1/2}=3/20$, $Q_{\rm group}=10$) the exponent decomposes
+as
+\begin{equation}
+  -\tfrac{3}{400}
+  =\underbrace{+\tfrac{c/24}{Q_{\rm group}}}_{+3/400\ (\text{Casimir})}
+   \underbrace{-\tfrac{h_{1/2}}{Q_{\rm group}}}_{-6/400\ (\text{weight})},
+  \label{P18:eq:casimir_decomp}
+\end{equation}
+the Casimir enhancement partially cancelled by the conformal weight. The
+tube-ripple zero-point is therefore not a new mass contribution but the
+geometric realisation of the $c/24$ term already present in the lepton mass.
+Verified in \texttt{papers/src\_paper18/casimir\_qh2\_lepton.py}.
+\end{proposition}
+\status{published}
+\source{P18:prop:ripple_casimir; eq:casimir_decomp}
+\depends{electroweak/yukawa.tex (P4: WZW T-matrix scheme correction); electroweak/lepton_masses.tex (P11)}
+
+\begin{proposition}[The framing twist is a knot-scale sine-Gordon soliton]
+\label{P18:prop:twist_sinegordon}
+The relative framing (twist) $\varphi(z)$ of the two strands of the $T_{2,3}$
+cable (Section~\ref{P18:sec:satellite}) is a sine-Gordon field. A direct
+Faddeev-energy computation gives both ingredients: (i)~a periodic potential
+$V(\varphi)=V_0(1+\cos\varphi)$---a single $k=1$ cosine (Fourier residual
+$5\%$), vacuum at the anti-aligned $\varphi=\pi$, amplitude $V_0$ overlap-driven
+and vanishing as the strands separate beyond $2a$; and (ii)~a \emph{standard
+quadratic} gradient, the small-oscillation dispersion being linear in $k^2$
+($E-E_0=(K_{\rm eff}k^2+V'')\,\epsilon^2 L/4$, fit to $1$--$2\%$, with
+$V''\simeq V_0$). The framing therefore obeys a textbook sine-Gordon equation
+$\chi\,\partial_t^2\varphi-K_{\rm eff}\,\partial_z^2\varphi+V_0\sin\varphi=0$ in
+the cold director sector ($c_{\rm dir}=\sqrt{K_{\rm eff}/\chi}\to0$, distinct
+from the magnitude-sector ripples above). Its kink---a $2\pi$ relative twist---is
+the elementary twist quantum, of width
+\begin{equation}
+  \xi=\sqrt{K_{\rm eff}/V_0}\ \sim\ R=R_0+r_0
+  \qquad(\text{$\approx0.93\,R$ at the representative cable separation}),
+  \label{P18:eq:twist_soliton}
+\end{equation}
+i.e.\ \emph{knot-scale}: a twist cannot localise below the size of the knot it
+frames. (The physical framings selected as the three generations,
+$|\mathrm{Tw}|\in\{1,2,5\}$, are the $E_6$ Coxeter data of
+Paper~XVI~\cite{Paper16}, Paper~XVII~\cite{Paper17}, imposed on this twist
+field.) Verified in
+\texttt{papers/src\_paper18/cable\_twist\_potential.py},
+\texttt{cable\_twist\_kinetic.py}.
+\end{proposition}
+\status{published}
+\source{P18:prop:twist_sinegordon; eq:twist_soliton}
+\depends{strong/quark_masses.tex (P16, P17: E6 Coxeter generation data)}
 
 \begin{theorem}[Crossing geometry of $T_{2,3}$]
 \label{P18:thm:crossing_geometry}
@@ -511,7 +632,7 @@ $\dot\Gamma(t_n)$ are separated by exactly $2\pi/3$ for $n=0,1,2$;
 (iii)~each pair of adjacent crossings is separated by exactly
 $2\pi/3$ in azimuth.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P18:thm:crossing_geometry}
 \residual{exact}
 \depends{strong/topology_qh3.tex}
@@ -529,7 +650,7 @@ acoplanarity-angle distribution is
 with $a_3\neq0$, peaked at $\phistar=2\pi/3$ and its $\Zthree$
 images.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P18:thm:phi_star}
 \residual{prediction (untested)}
 
@@ -542,7 +663,7 @@ $a_1=a_3=0$. The distinction between $\cos(3\phistar)$
 (baryon-initiated) and $\cos(2\phistar)$ (photon-initiated) is
 unambiguous and parameter-free.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:photon_contrast}
 
 \begin{proposition}[Three-jet coplanarity from B-departure geometry]
@@ -554,13 +675,9 @@ in the $z=+r_0$ plane, separated by $2\pi/3$. The three primary jets
 therefore lie in a common elevated plane, giving zero intrinsic
 acoplanarity at the topological level.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:coplanarity}
 \depends{strong/topology_qh3.tex}
-
-%════════════════════════════════════════════════════════════════════
-% Connection to the Arc-Segment Energy Partition
-%════════════════════════════════════════════════════════════════════
 
 \begin{proposition}[A-segment dominance]
 \label{P18:prop:arcseg_dominance}
@@ -570,7 +687,7 @@ the total $J_4$ charge at energy density $\rho_A/\rho_B\approx1.23$
 propagation arms between midpoints and crossings, not at the
 crossing vertices.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:arcseg_dominance}
 \depends{strong/topology_qh3.tex}
 
@@ -583,7 +700,7 @@ precisely where $S_{\rm eff}$ is largest: crossing vertices are
 topological bottlenecks. This anti-correlation is the
 condensate-level signature of confinement.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:anticorrelation}
 \depends{strong/topology_qh3.tex}
 
@@ -601,7 +718,7 @@ deflected $\approx16$--$19^\circ$ from the three-jet plane;
 most protected. The crossing vertex is an energy redirector, not an
 energy source.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:cascade_p18}
 \depends{strong/topology_qh3.tex}
 
@@ -620,7 +737,7 @@ at the crossings, whereas the condensate's depletion begins at the
 lobes (radial exposure to vacuum), a genuine point of disanalogy
 traceable to the density-feedback term $\sin^4(f)$.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:implode_explode}
 
 \begin{remark}[Cascade ordering]
@@ -632,7 +749,7 @@ geometrically unconstrained but radially protected; distal lobes
 ($R_{xy}=R_0+r_0$) are geometrically intermediate but radially
 exposed and shed energy first under gradient flow.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:cascade_ordering}
 
 \begin{remark}[Why the saddle point is elusive in Paper~XVI]
@@ -664,7 +781,7 @@ self-consistent with $\lambda_3=\vp^6$ via
 $\lambda_3\cdot r_0=2R_0\vp^2$, but the flat landscape cannot decide
 between them.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:saddle_difficulty}
 \depends{strong/topology_qh3.tex; quantum/neutrino.tex}
 
@@ -681,7 +798,7 @@ steepest-descent path from the family boundary. The near-perfect
 $\Zthree$ symmetry of the $N=256$ run confirms that the $(2{+}1)$
 breaking seen at $N=192$ was a numerical (Adam-optimiser) artefact.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:three_remark_interpretation}
 
 \begin{remark}[Two-phase landscape, $\Zthree$-symmetry breaking, and the Jones-polynomial explanation]
@@ -700,7 +817,7 @@ at the $\sim10^{-7}$ level per step; the resulting $(2{+}1)$
 splitting matches the single-midpoint string-breaking mode of
 Conjecture~\ref{P18:conj:six_quarks}.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:gf_twophase_p18}
 \depends{strong/topology_qh3.tex}
 
@@ -713,13 +830,9 @@ $\alpha\approx0.75\pm0.15$ and
 $K_{\min}^\infty\approx2230$--$2245$, monotone convergence from
 above consistent with $O(h^\alpha)$ discretisation error.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:kmin_extrapolation}
 \residual{numerical, three-point extrapolation}
-
-%════════════════════════════════════════════════════════════════════
-% The Botner Measurement Framework
-%════════════════════════════════════════════════════════════════════
 
 \begin{proposition}[Topological $\phistar$ distribution in Botner form]
 \label{P18:prop:botner_analog}
@@ -737,14 +850,10 @@ production gives $\cos2\chi$ ($\Ztwo$, spin-1 photon);
 baryon-initiated gives $\cos3\phistar$ ($\Zthree$, $T_{2,3}$
 trefoil).
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:botner_analog}
 \residual{prediction, $\beta_3\approx0.58$ (untested)}
 \depends{strong/topology_qh3.tex}
-
-%════════════════════════════════════════════════════════════════════
-% Four-Jet Out-of-Plane Structure and the Jeremie Anomaly
-%════════════════════════════════════════════════════════════════════
 
 \begin{remark}[Two distinct orderings: depletion order versus jet hardness]
 \label{P18:rem:two_orderings}
@@ -756,7 +865,7 @@ redirector throughout (Proposition~\ref{P18:prop:cascade_p18}) and never
 releases energy directly, but the hardest jets still exit at the
 B-departure zones it redirects to.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:two_orderings}
 
 \begin{proposition}[Out-of-plane deflection of the 4th jet]
@@ -772,7 +881,7 @@ $\Delta\theta_{\rm lobe}\approx16^\circ$--$19^\circ$ below the
 three-jet plane. A broad, unimodal QCD-like distribution is
 inconsistent with any alternating-group ordering.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:fourjet_oop}
 \residual{prediction, $16^\circ$--$19^\circ$ (untested)}
 \depends{strong/topology_qh3.tex}
@@ -788,7 +897,7 @@ distinct 4th jet at $16^\circ$--$19^\circ$ out of plane, with
 tube-carried non-perturbative jets expected to carry higher
 invariant mass than perturbative collinear gluons.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:jeremie}
 \residual{consistent with existing LEP/OPAL data; not a dedicated test}
 
@@ -804,15 +913,11 @@ disturbances (jets 7--9, softer); midpoint torsion-twist residuals
 ranking are robust to the specific ordering of the middle two
 groups.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:jet_bound}
 \residual{prediction: rate vanishes above 12 jets per baryon (untested,
 requires $\gtrsim500\,\mathrm{GeV}$ lepton collider)}
 \depends{strong/topology_qh3.tex}
-
-%════════════════════════════════════════════════════════════════════
-% Speculative Correspondences (flagged as conjectures)
-%════════════════════════════════════════════════════════════════════
 
 \begin{conjecture}[Six-quark combinatorial]
 \label{P18:conj:six_quarks}
@@ -823,7 +928,7 @@ patterns $\binom{3}{1}+\binom{3}{2}=3+3=6$: the three single-breaking
 patterns and the three double-breaking patterns forming two isospin
 triplets (charge $+2/3$ and $-1/3$, or vice versa).
 \end{conjecture}
-\status{draft}
+\status{published}
 \source{P18:conj:six_quarks}
 \depends{strong/quark_masses.tex}
 
@@ -835,7 +940,7 @@ correct isospin to each triplet; (iii)~derive the energy cost of
 each breaking pattern from the arc-segment $J_4$ deficit $\delta J_4$
 at each midpoint relative to the adjacent A-segment average.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:quark_constraint}
 \depends{strong/quark_masses.tex}
 
@@ -848,7 +953,7 @@ assignment $I_3=+1/2$ (charge $+2/3$) corresponds to the
 crossing-vertex network; $I_3=-1/2$ (charge $-1/3$) corresponds to
 the midpoint/distal-lobe network.
 \end{conjecture}
-\status{draft}
+\status{published}
 \source{P18:conj:isospin}
 \depends{strong/topology_qh3.tex}
 
@@ -863,7 +968,7 @@ value $0.157$ (up: $u,c,t$; down: $d,s,b$), a $21\%$ discrepancy ---
 comparable to, and better than, several of the mechanisms ruled out
 in Paper~XVI's systematic survey.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P18:prop:isospin_mass_ratio}
 \residual{21\% (untested first-principles derivation)}
 \depends{strong/quark_masses.tex; strong/topology_qh3.tex}
@@ -879,19 +984,50 @@ either the generation-dependent string-tension contribution
 (Paper~XVI \S12) or a dynamical treatment of the
 $\QH=2+\QH=1\to\QH=3$ formation event.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P18:rem:isospin_mass_ratio_scope}
 
-%════════════════════════════════════════════════════════════════════
-% Dynamical Origin of Quark Masses — Paper XIX (draft)
-%════════════════════════════════════════════════════════════════════
+\begin{remark}[The mass-scale residual and the operative geometric quantity]
+\label{P18:rem:isospin_scale_residual}
+Two points sharpen Proposition~\ref{P18:prop:isospin_mass_ratio}.
+First, an independent recomputation of the golden-trefoil tangent data
+($R_0=3$, $r_0=\sqrt{2}/\vp$) confirms the exact site values
+$\dot\Gamma_z=+0.321$ (distal), $\dot\Gamma_z=-0.525$ (midpoint), and
+$\dot\Gamma_z=0$ (crossings), hence
+$\langle\dot\Gamma_z^2\rangle_{M,L}=0.189$ and the predicted
+$M_{\rm down}/M_{\rm up}=0.189$. The residual against the measured
+$0.157$ is a factor $\approx1.2$, matching in magnitude the uniform
+$\sim\!1.2$ by which the charged-lepton-anchored quark-mass
+predictions of Paper~XVII~\cite{Paper17} overshoot before a
+generation-universal correction. The residual is thus consistent with
+the correction anticipated in
+Remark~\ref{P18:rem:isospin_mass_ratio_scope}, leaving the
+mass-\emph{scale} ratio fixed by the tangent geometry alone, with no
+free parameter.
+
+Second, the operative geometric quantity is the tangent
+\emph{orientation}---the in-plane versus out-of-plane exit at each
+site---and not a bending or proximity energy: replacing the tangent
+fraction by the local curvature $\kappa$, the integrated bending
+$\int\kappa^2\,ds$, or the inter-strand distance reproduces the ratio
+less well or with the wrong sign. In particular the crossing
+(up-type) network is distinguished by its purely in-plane exit
+($\dot\Gamma_z=0$), not by any spatial proximity of its strands. This
+separates the mass-scale (isospin) ratio, set here by tangent
+orientation, from the intra-triplet (generation) hierarchy, left to a
+separate mechanism in
+Remark~\ref{P18:rem:isospin_mass_ratio_scope}.
+\end{remark}
+\status{published}
+\source{P18:rem:isospin_scale_residual}
+\depends{strong/confinement_topology.tex (P18:prop:isospin_mass_ratio, P18:rem:isospin_mass_ratio_scope); quantum/neutrino.tex (P17: quark-mass overshoot factor)}
 
 \begin{lemma}[Profile slope at the transition midpoint]
 \label{P19:lem:profile_slope}
 For the $\QH=2$ profile function $f(\rho)=2\arctan(\rho^{-C})$,
 $f'(1)=-C$.
 \end{lemma}
-\status{draft}
+\status{published}
 \source{P19:lem:profile_slope}
 \depends{strong/topology_qh3.tex}
 
@@ -906,7 +1042,7 @@ matching the numerical construction value $r_0=0.874$ to $0.02\%$.
 This closes the open problem, shared by Papers~XV and~XVIII, of the
 physical origin of $r_0$.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P19:thm:r0_derivation}
 \residual{0.02\%}
 \depends{strong/confinement_topology.tex; strong/topology_qh3.tex}
@@ -920,7 +1056,7 @@ $C_2^*\approx\vp R_0/\sqrt2$ at $R_0=3$, not an independent derivation.
 Theorem~\ref{P19:thm:r0_derivation}'s $r_0=R_0/C_2^*$ (a $0.02\%$
 match, a factor of eight closer) is the derived value.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:solar_angle_reconcile}
 \depends{quantum/neutrino.tex}
 
@@ -934,7 +1070,7 @@ comparison of Remark~\ref{P19:rem:solar_angle_reconcile}, reflecting
 the same underlying near-equality rather than an independent
 constraint.
 \end{corollary}
-\status{draft}
+\status{published}
 \source{P19:cor:lambda3_consistency}
 \residual{0.16\%}
 \depends{strong/topology_qh3.tex}
@@ -957,7 +1093,7 @@ midpoints exclusively to the $I_3=-\tfrac12$ triplet, so only three
 isospin assignment. This inconsistency motivates the reformulation
 below.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:conj:six_quarks_r19,P19:conj:isospin_r19}
 
 \begin{conjecture}[Quark flavours as partition channels]
@@ -979,7 +1115,7 @@ internally inconsistent as separately stated: the former attributes
 all six flavours to midpoint breaking, while the latter assigns
 midpoints exclusively to $I_3=-\tfrac12$.
 \end{conjecture}
-\status{draft}
+\status{published}
 \source{P19:conj:six_quarks_reformulated}
 \depends{strong/quark_masses.tex}
 
@@ -992,7 +1128,7 @@ $\binom31+\binom32=6$ counting is recovered as the combinatorial
 signature of two independent $\Zthree$-broken triplets, and the
 isospin assignment of Conjecture~\ref{P18:conj:isospin} is preserved.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:sextet_check}
 
 %────────────────────────────────────────────────────────────────────
@@ -1009,7 +1145,7 @@ predicted second-position ratio misses observation by factors of
 $37$--$109$, and the third-position ratio by five orders of
 magnitude, for both isospin triplets.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P19:prop:cascade_falsified}
 \depends{strong/topology_qh3.tex}
 
@@ -1023,7 +1159,7 @@ additional generation-dependent physics (e.g.\ $\QH=3$-internal
 string-tension energy, or different midpoint-network propagation) may
 still be required.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:cascade_scope}
 
 %────────────────────────────────────────────────────────────────────
@@ -1038,7 +1174,7 @@ $\Delta m^{(g)}=M_0\vp^{2(g-1)a}$ for some integer $a\ge1$, giving
 intra-triplet ratios $\Delta m^{(2)}/\Delta m^{(1)}=
 \Delta m^{(3)}/\Delta m^{(2)}=\vp^{2a}$.
 \end{definition}
-\status{draft}
+\status{published}
 \source{P19:def:phi_tower}
 
 \begin{proposition}[Uniform $\vp$-tower multiplier is falsified]
@@ -1050,7 +1186,7 @@ $(13.26,10.20)$ for up-type and $(6.23,7.90)$ for down-type, and the
 two triplets require different values of $a$ even under a
 most-generous fit.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P19:prop:phi_tower_falsified}
 \depends{strong/quark_masses.tex}
 
@@ -1061,7 +1197,7 @@ The averages of the two exponent gaps per triplet are $11.73$
 $\vp=1.618$ to $3\%$: the up-type tower is stretched relative to the
 down-type tower by roughly a factor of $\vp$ in exponent.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:tower_structure}
 
 \begin{proposition}[The Hopf-link/quantum-dimension ratio does not account for this ratio]
@@ -1079,7 +1215,7 @@ choice of convention (see Remark~\ref{P19:rem:jones_ratio_coincidence}).
 Whether the Jones-polynomial data of this paper has any bearing on
 the observed ratio is open.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P19:prop:jones_modulus_ratio}
 \depends{strong/confinement_topology.tex}
 
@@ -1096,7 +1232,7 @@ quantity. Adopting the reciprocal convention only where it produces a
 match is not a justified choice; it is recorded as an open,
 unresolved coincidence, not a result.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:jones_ratio_coincidence}
 
 \begin{remark}[Cross-ratio substructure and opposite monotonicity]
@@ -1109,7 +1245,7 @@ are both $\approx\vp$ (within $3.7\%$ and $1.3\%$), while the
 same-index ratios are not: each up-type gap equals $\vp$ times the
 complementary down-type gap.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:cross_ratio}
 
 \begin{theorem}[The four quark mass-ratio gaps form a $\sqrt\vp$ geometric ladder]
@@ -1124,7 +1260,7 @@ the ladder. The inversion ratio (larger gap/smaller gap) is
 $\sqrt\vp=1.272$ for both triplets ($r_{\mathrm{up}}=1.2993$,
 $r_{\mathrm{down}}=1.2691$, within $2.1\%$).
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P19:thm:sqrt_phi_ladder}
 \residual{up to 3.4\% (per-gap)}
 \depends{strong/quark_masses.tex}
@@ -1138,7 +1274,7 @@ $m_t/m_c=(m_s/m_d)^{\vp}$ (6.1\%), $m_c/m_u=(m_s/m_d)^{\vp^{3/2}}$
 consistent with Paper~XVI's always-positive, generation-growing
 residual pattern.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:strange_anchor}
 
 \begin{remark}[$m_s/m_d\approx n_e=20$: the spin-Casimir hypothesis]
@@ -1156,7 +1292,7 @@ that the fermionic character of quarks inserts exactly this factor,
 closing the $0.047\%$ gap to the integer $20$, is Open
 Problem~P19:OP6.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:ms_md_integer}
 \residual{0.047\%}
 \depends{strong/quark_masses.tex}
@@ -1173,7 +1309,7 @@ $m_b=93.32\times19.991^{\sqrt\vp}=4214\,\mathrm{MeV}$ (PDG $4183$;
 $0.7\%$); $m_t/m_c=19.991^{\vp}=127$ (PDG $136$; $6\%$);
 $m_c/m_u=19.991^{\vp^{3/2}}=476$ (PDG $589$; $19\%$).
 \end{corollary}
-\status{draft}
+\status{published}
 \source{P19:cor:absolute_masses}
 \residual{0.04\%--19\% (four predictions)}
 \depends{strong/quark_masses.tex; strong/topology_qh3.tex}
@@ -1188,7 +1324,7 @@ spin-Casimir correction) gives $3256\,\mathrm{MeV}$ ($22\%$ off),
 recovering Paper~XVI's systematic undershoot: the spin-Casimir factor
 $\sqrt{k/2}$ is the key missing piece, not the accuracy of $m_s$.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:mb_prediction}
 
 \begin{remark}[The physical origin of the $\sqrt\vp$ inversion ratio is open]
@@ -1204,7 +1340,7 @@ level,'' its square root as an ``amplitude level'' shared with the
 Jones modulus) does not hold as stated. The physical origin of
 $\sqrt\vp$ remains open.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:sqrt_phi_meaning}
 
 \begin{remark}[The lepton solar angle and the Hopf-link Jones modulus]
@@ -1221,7 +1357,7 @@ not proved). The PMNS correction scale $1/(k+2)=1/5$
 (Paper~XVII, \S11.4) is the same $k+2=5$ entering the spin-Casimir
 identity $k=4C_2(\tfrac12)$.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:cross_sector_phi}
 \depends{quantum/neutrino.tex}
 
@@ -1236,7 +1372,7 @@ mean of the squared tangent $z$-component over the network,
 $\langle|\tang_z|^2\rangle_{\mathrm{net}}=
 \tfrac1{N_{\mathrm{net}}}\sum_{i\in\mathrm{net}}|\tang_z^{(i)}|^2$.
 \end{definition}
-\status{draft}
+\status{published}
 \source{P19:def:z_scale}
 
 \begin{proposition}[Two-triplet scale ratio prediction]
@@ -1251,7 +1387,7 @@ $M_{\mathrm{down}}/M_{\mathrm{up}}\sim
 $\langle|\tang_z|^2\rangle_{\mathrm{up}}=0$ at the crossings
 (horizontal tangent, Theorem~P16:thm:crossing\_geometry).
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P19:prop:triplet_ratio}
 \depends{strong/topology_qh3.tex}
 
@@ -1260,7 +1396,7 @@ $\langle|\tang_z|^2\rangle_{\mathrm{up}}=0$ at the crossings
 The prediction $0.189$ of Proposition~\ref{P19:prop:triplet_ratio}
 matches the PDG geometric-mean observed value $0.157$ to $20\%$.
 \end{corollary}
-\status{draft}
+\status{published}
 \source{P19:cor:triplet_agreement}
 \residual{20\%}
 
@@ -1272,7 +1408,7 @@ leading-order geometric input is qualitatively correct but undershoots
 by a factor attributable to a missing generation-dependent,
 always-positive contribution.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:triplet_deviation}
 
 \begin{remark}[QCD angular ordering applied to the twelve fraying sites]
@@ -1301,7 +1437,7 @@ deriving $m_t/m_c$ and $m_c/m_u$ quantitatively from the curvature
 profile $\kappa(t)$ is an explicit target for the dynamic integrator
 of Open Problem~O1.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:angular_ordering}
 \depends{strong/topology_qh3.tex}
 
@@ -1324,7 +1460,7 @@ crossing degeneracy (Remark~\ref{P19:rem:angular_ordering}) shows the
 top/charm mass splitting requires the formation-event azimuthal
 asymmetry, not the ordering cascade alone.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:angular_ordering_impact}
 
 %────────────────────────────────────────────────────────────────────
@@ -1336,7 +1472,7 @@ asymmetry, not the ordering cascade alone.
 At $q_5=e^{2\pi i/5}$, the Kauffman/Jones disjoint-union multiplier
 $-(q_5^{1/2}+q_5^{-1/2})$ equals $-\vp$.
 \end{lemma}
-\status{draft}
+\status{published}
 \source{P19:lem:disjoint_factor}
 
 \begin{proposition}[Two-component initial state factorisation]
@@ -1348,7 +1484,7 @@ $\Jones_{T(2,2)}(q_5)=1+\zeta_5^3$, of modulus $1/\vp$
 (Theorem~\ref{P19:thm:channel_1}). The product is irrational since
 both factors are irrational.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P19:prop:two_comp_initial}
 \depends{strong/confinement_topology.tex}
 
@@ -1360,7 +1496,7 @@ $\Jones_{\mathrm{eff}}(\bigsqcup_i L_i)\equiv
 (-\vp)^{N-1}\prod_{i=1}^N\Jones_{L_i}(q_5)\in\mathbb Z[\zeta_5]$,
 where $\zeta_5=e^{2\pi i/5}$.
 \end{definition}
-\status{draft}
+\status{published}
 \source{P19:def:effective_jones}
 
 \begin{theorem}[Multi-component reaction rule: unit equivalence]
@@ -1376,7 +1512,7 @@ strictly stronger than Paper~XVIII's rationality-class selection rule
 (Theorem~P18:thm:jones\_rule): unit equivalence implies same
 rationality class, but not conversely.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P19:thm:unit_reaction_rule}
 \depends{strong/confinement_topology.tex}
 
@@ -1387,7 +1523,7 @@ the unit-equivalence formulation of
 Theorem~\ref{P19:thm:unit_reaction_rule} is the correct one for a
 principal ideal domain.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:rationality_vs_unit}
 
 \begin{corollary}[Recovery of Paper~XVIII's single-channel rules]
@@ -1403,7 +1539,7 @@ reaction is physically realised in this framework (the free-standing
 trefoil's Jones value has norm $11$ in $\mathbb Z[\zeta_5]$, not a
 unit), so this corollary records the algebraic reduction only.
 \end{corollary}
-\status{draft}
+\status{published}
 \source{P19:cor:single_channel_recovery}
 
 \begin{theorem}[Channel~1 verification: two-tube reaction]
@@ -1414,7 +1550,7 @@ with unit factor $u=\zeta_5+\zeta_5^4=1/\vp$ (real, norm $1$), using
 $\Jones_{T(2,2)}(q_5)=1+\zeta_5^3$ (modulus $1/\vp$) and the
 satellite value $\Jones_{\mathrm{sat}}(q_5)=q_5^3/\vp$.
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P19:thm:channel_1}
 \depends{strong/confinement_topology.tex}
 
@@ -1424,7 +1560,7 @@ The reaction $T(2,2)\sqcup U\to T(2,3)$ satisfies the unit-equivalence
 rule of Theorem~\ref{P19:thm:unit_reaction_rule}, with unit factor
 $u=-\vp\cdot\zeta_5$ (norm $1$).
 \end{theorem}
-\status{draft}
+\status{published}
 \source{P19:thm:channel_2}
 \depends{strong/confinement_topology.tex}
 
@@ -1442,7 +1578,7 @@ Definition~\ref{P19:def:effective_jones}, given the two channels'
 different component-count changes). Whether this modulus asymmetry
 has further physical meaning is open.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:unit_meaning}
 \depends{strong/confinement_topology.tex}
 
@@ -1477,6 +1613,6 @@ numerical observation, not a proof of instability at these
 $q_{\rm pol}$ values; longer runs or a convergence-based stopping
 criterion would be needed to settle the question.
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:beyond_qh3_numerics}
 \depends{strong/topology_qh3.tex}

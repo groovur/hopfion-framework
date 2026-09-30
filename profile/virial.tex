@@ -1,12 +1,5 @@
-%% hopfion-framework/profile/virial.tex
-%% Sources: main_paper1.tex, main_paper2.tex, main_paper3.tex
-%% Virial condition, saddle point b*, Newton series for q*, beta* derivation
-%% Auto-generated from project files. Edit source papers to update.
-
-
-%════════════════════════════════════════════════════════════════════
-% Virial Condition and beta* — Paper I
-%════════════════════════════════════════════════════════════════════
+% Virial condition, saddle point b*, Newton series for q*, beta* derivation
+\input{../preamble}
 
 \begin{definition}[Saddle snapshot]
 \label{P1:def:snapshot}
@@ -81,10 +74,6 @@ Equivalently, $\leff^* = \lam/N_{\mathrm{fus}}^{1/k}$.
 \status{proved (Paper~II)}
 \source{P1:conj:linking; proved as \texttt{conj:lsl} in Paper~II}
 
-
-%════════════════════════════════════════════════════════════════════
-% Saddle Point and BPS Bound — Paper II
-%════════════════════════════════════════════════════════════════════
 \begin{theorem}[Fixed-point value]
 \label{P2:thm:main}
 Subject to the conditions of Theorems~\ref{P2:thm:existence}
@@ -248,49 +237,58 @@ equivalently $\leff^* = \lam_k/N_{\mathrm{fus}}^{1/k}$.
   \frac{\delta\Kfb}{\delta f} = -\leff\,\frac{\delta\Jfour}{\delta f},
   \label{P2:eq:BPS}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \Jfour\,\frac{\delta\Kfb}{\delta f}
   + \Kfb\,\frac{\delta\Jfour}{\delta f} = 0.
   \label{P2:eq:EL}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \Efb[f] \;=\; \Kfb[f]\cdot\Jfour[f],
   \label{P2:eq:Efb}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \G[f;\leff] \;:=\; \Kfb[f] + \leff\,\Jfour[f].
   \label{P2:eq:G}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \frac{\mathrm{d}H}{\mathrm{d}\leff} < 0.
   \label{P2:eq:Hdecreasing}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \frac{\delta^2\G}{\delta f^2}\,\dot{f}
   = -\frac{\delta\Jfour}{\delta f}.
   \label{P2:eq:IFT}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \left(\frac{\lam}{\leff^*}\right)^k \;=\; N_{\mathrm{fus}}.
   \label{P2:eq:LSC_modular}
 \end{equation}
+\status{published}
 
 \begin{equation}
   S_{\frac{1}{2},\frac{1}{2}}\big|_{k=3}
   \;=\; S_{0,0}\big|_{k=3},
   \label{P2:eq:Sselfdual}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \frac{\delta\Kfb}{\delta f} + \leff\,\frac{\delta\Jfour}{\delta f} = 0.
   \label{P2:eq:crit}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \frac{\mathrm{d}H}{\mathrm{d}\leff}
@@ -301,6 +299,7 @@ equivalently $\leff^* = \lam_k/N_{\mathrm{fus}}^{1/k}$.
     \right].
   \label{P2:eq:dHdlam}
 \end{equation}
+\status{published}
 
 \begin{align}
   \frac{\mathrm{d}H}{\mathrm{d}\leff}
@@ -313,18 +312,21 @@ equivalently $\leff^* = \lam_k/N_{\mathrm{fus}}^{1/k}$.
     \left\langle \frac{\delta\Jfour}{\delta f}, \dot{f}\right\rangle.
   \label{P2:eq:dHdlam2}
 \end{align}
+\status{published}
 
 \begin{equation}
   \frac{\Jfour}{\Ja}\bigg|_{\mathrm{EL}}
   \;=\; \frac{N_{\mathrm{fus}}^{1+1/k}}{[\dim_q(\tfrac{1}{2};k)]^{2k-1}}.
   \label{P2:eq:general_J4J2a}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \leff^* \;=\; \frac{\Kfb}{\Jfour} \;=\; \frac{2\vp\Ja}{\Jfour}
   \;=\; \frac{2\vp}{\Jfour/\Ja}.
   \label{P2:eq:leff_from_ratio}
 \end{equation}
+\status{published}
 
 \begin{align}
   \leff^* &= \frac{\lam}{2^{1/k}}\bigg|_{k=3} = \frac{\lam}{2^{1/3}},
@@ -344,11 +346,8 @@ equivalently $\leff^* = \lam_k/N_{\mathrm{fus}}^{1/k}$.
     \frac{\delta\Jfour}{\delta f}\right\rangle.
   \label{P2:eq:quad}
 \end{equation}
+\status{published}
 
-
-%════════════════════════════════════════════════════════════════════
-% Fixed Point and Virial Algebra — Paper III (selected)
-%════════════════════════════════════════════════════════════════════
 \begin{proposition}[Exact thin-torus virial function]
 \label{P3:prop:virial_exact}
 For the BS profile $f = 2\arctan(C/\rho)$ in the thin-torus limit,
@@ -400,11 +399,6 @@ facts follow from the key identity $\sin^2\!f/\rho^2 = (f')^2$
 \end{remark}
 \status{published}
 \source{P3:rem:fixedpoint_structure}
-
-
-%════════════════════════════════════════════════════════════════════
-% LSC Proof Chain — Paper III
-%════════════════════════════════════════════════════════════════════
 
 \begin{conjecture}[Linking Scale Conjecture --- proved in Paper~III]
 \label{P3:conj:lsc}
@@ -521,26 +515,27 @@ The isotropic Hopf curvature density is
   \;=\; \frac{1}{4}\bigl(F_{12}^2 + F_{13}^2 + F_{23}^2\bigr),
   \label{P3:eq:kappa_def}
 \end{equation}
-with probability density
+\status{published}
+
 \begin{equation}
   P_{R_0}(\kk)\,d\kk
   \;=\; \frac{1}{J_{2a}}\int_{\kk_{\mathrm{iso}}(r,z)\in[\kk,\kk+d\kk]}
         \kk_{\mathrm{iso}}(r,z)\,r\,dr\,dz,
   \label{P3:eq:Pkappa_def}
 \end{equation}
-normalised so $\int_0^\infty P(\kk)\,d\kk=1$, giving the virial ratio
+\status{published}
+
 \begin{equation}
   V(\bst) \;=\; \frac{\Jfb}{\Ja} \;=\; \int_0^\infty \frac{P(\kk)}{1+\bst\kk}\,d\kk.
   \label{P3:eq:V_integral}
 \end{equation}
-In the thin-torus limit, using the Battye--Sutcliffe ansatz $f=2\arctan(C/\rho)$,
-the tube curvature density is
+\status{published}
+
 \begin{equation}
   \kk_{\mathrm{tube}}(\rho) \;=\; \frac{64\,C^6\,\rho^4}{(\rho^2+C^2)^6},
   \label{P3:eq:kappa_torus}
 \end{equation}
-with peak at $\rho_{\mathrm{peak}}=C/\sqrt5$; the $Q=2$ winding adds
-$\kk_{\mathrm{twist}}=\sin^4(f)/R_0^2$, so $\kk_{\mathrm{iso}}=\kk_{\mathrm{tube}}+\kk_{\mathrm{twist}}$.
+\status{published}
 
 \begin{proposition}[Scale invariance of thin-torus functionals]
 \label{P3:prop:scale_inv}
@@ -564,12 +559,11 @@ EL equation, not by the ratio $J_4/J_{2a}$.
 \status{published}
 \source{P3:rem:scale_invariance_explains}
 
-The virial ratio at $\bst=0$ satisfies
 \begin{equation}
   V(0;\,R_0) \;=\; 1 \;+\; \frac{J_{\mathrm{twist}}}{J_{2a}},
   \label{P3:eq:V0_split}
 \end{equation}
-where $J_{\mathrm{twist}}=\int\kk_{\mathrm{twist}}\,r\,dr\,dz$ decays as $R_0^{-2}$.
+\status{published}
 
 \begin{proposition}[Thin-torus virial limit]
 \label{P3:prop:virial_limit}
@@ -830,10 +824,6 @@ deficit precisely, giving $J_4/J_{2a} = 2^{4/3}/\vp^5$ exactly for all $R_0$.
 \end{remark}
 \status{published}
 \source{P3:rem:2d_corrections}
-
-%════════════════════════════════════════════════════════════════════
-% Universal Virial Identity (all sectors) — Paper XV
-%════════════════════════════════════════════════════════════════════
 
 \begin{theorem}[Universal virial identity]
 \label{P15:thm:virial}

@@ -157,6 +157,62 @@ papers:
       - P3:prop:poh_a_equiv
       - P3:rem:resonance
       - P3:rem:five_forms
+      - P3:eq:alpha_geo
+      - P3:eq:wzw_running
+      - P3:eq:alpha_formula
+      - P3:eq:alpha_gap
+      - P3:eq:beta_wzw
+      - P3:eq:kappa_wzw
+      - P3:eq:cascade
+      - P3:eq:delta1_candidate
+      - P3:eq:golden_angle
+      - P3:eq:delta1
+      - P3:eq:delta2
+      - P3:eq:chain_full
+      - P3:eq:lsc_gap
+      - P3:eq:running_integral
+      - P3:eq:residual_identity
+      - P3:eq:bos_bound
+      - P3:eq:fusion
+      - P3:eq:verlinde_phi
+      - P3:eq:chi_def
+      - P3:eq:chi_sinf
+      - P3:eq:poh_J2a
+      - P3:eq:poh_Jfb
+      - P3:eq:poh_J4
+      - P3:eq:pohozaev_efb
+      - P3:eq:poh_A_full
+      - P3:eq:V_from_poh_A
+      - P3:eq:star_identity
+      - P3:eq:pohozaev_b
+      - P3:eq:virial_V
+      - P3:eq:Ja_from_poh_d
+      - P3:eq:B_required
+      - P3:eq:V_exact
+      - P3:eq:lsc
+      - P3:eq:bridge
+      - P3:eq:virial
+      - P3:eq:kfb_simplified
+      - P3:eq:equiv_chain
+      - P3:eq:kappa_def
+      - P3:eq:Pkappa_def
+      - P3:eq:V_integral
+      - P3:eq:kappa_torus
+      - P3:eq:Ja_exact
+      - P3:eq:J4_exact
+      - P3:eq:V0_split
+      - P3:eq:V0_limit
+      - P3:eq:universal_phi
+      - P3:eq:I2a_exact
+      - P3:eq:I4tube_exact
+      - P3:eq:I4wind_exact
+      - P3:eq:wind_ratio
+      - P3:eq:J4J2a_full
+      - P3:eq:master_relation
+      - P3:eq:Cstar_R0
+      - P3:eq:cancellation
+      - P3:eq:lsc_limit
+      - P3:eq:item_b
 
   - id: paper4
     name: "The Hopf Spoke, WZW Fermion Mass Renormalization, and Three- and Four-Term Formulas for the Fine Structure Constant"
@@ -215,6 +271,70 @@ papers:
       - P4:rem:qed_regime_clarification
       - P4:cor:four_term_unconditional
       - P4:eq:delta_cs
+      - P4:eq:mass_ratio
+      - P4:eq:Vstar_exact
+      - P4:eq:cancellation_proof
+      - P4:eq:residual_corrected
+      - P4:eq:bare_mass_3D
+      - P4:eq:me_single_input
+      - P4:eq:me_TCMB_ratio
+      - P4:eq:delta_qed
+      - P4:eq:mwzw_from_b
+      - P4:eq:delta_exact
+      - P4:eq:three_term
+      - P4:eq:four_term
+      - P4:eq:cs_factor
+      - P4:eq:term4
+      - P4:eq:fusion
+      - P4:eq:spoke_mass_spectrum
+      - P4:eq:channel_12
+      - P4:eq:channel_1
+      - P4:eq:channel_0
+      - P4:eq:topen_j
+      - P4:eq:me_derived
+      - P4:eq:k3_unique
+      - P4:eq:me_formula
+      - P4:eq:me_formula_corrected
+      - P4:eq:me_meas
+      - P4:eq:verlinde_spoke
+      - P4:eq:spoke_leading
+      - P4:eq:residual_decomp
+      - P4:eq:genuine_gap
+      - P4:eq:Zclosed
+      - P4:eq:spoke_corrected
+      - P4:eq:delta_mono
+      - P4:eq:corrected_num
+      - P4:eq:old_chain_3eqs
+      - P4:eq:alpha_unconditional
+      - P4:eq:full_chain
+      - P4:eq:mWZW_ratio
+      - P4:eq:delta_qed_final
+      - P4:eq:pole_msbar
+      - P4:eq:spoke_pole_corrected
+      - P4:eq:consistency_condition
+      - P4:eq:bstar_eq
+      - P4:eq:bstar_newton
+      - P4:eq:exponent_decomp
+      - P4:eq:t_open_val
+      - P4:eq:locked_angle
+      - P4:eq:kappa_identity
+      - P4:eq:kappa_wind_exact
+      - P4:eq:virial_factor
+      - P4:eq:h12_c12
+      - P4:eq:T12_val
+      - P4:eq:three_forms
+      - P4:eq:vew_leading
+      - P4:eq:spoke_formula
+      - P4:eq:vew_corrected
+      - P4:eq:chain_final
+      - P4:eq:four_term_unconditional
+      - P4:eq:wzw_beta_running
+      - P4:eq:running_to_MZ
+      - P4:eq:V_spectral
+      - P4:eq:me_alpha_sensitivity
+      - P4:eq:spectral
+      - P4:eq:vfp_spectral
+      - P4:eq:virial
 
   - id: paper5
     name: "Colour Confinement, the QCD Scale, and Hadronic Structure from the Hopfion Condensate"
@@ -352,6 +472,92 @@ papers:
       - P7:rem:bogomolny_coincidence
       - P7:prop:neutrino
       - P7:rem:neutrino
+      - P7:eq:me_TCMB_ratio
+      - P7:eq:me_TCMB_ratio_corrected
+      - P7:eq:scale_rescaling
+      - P7:eq:Ps_seesaw
+      - P7:eq:Minf
+      - P7:eq:LUV_correction
+      - P7:eq:Ps_corrected
+      - P7:eq:Treh
+      - P7:eq:Ne_window
+      - P7:eq:Treh_window
+      - P7:eq:inflation_final
+      - P7:eq:phi_c
+      - P7:eq:Vinf
+      - P7:eq:xNMC
+      - P7:eq:LUV_from_MPl
+      - P7:eq:nUV_formula
+      - P7:eq:inflation_predictions
+      - P7:eq:rho_inf
+      - P7:eq:Lambda_obs
+      - P7:eq:cc_c
+      - P7:prop:cc_norm
+      - P7:eq:cc_norm
+      - P7:rem:cc_norm_status
+      - P7:eq:mxi
+      - P7:rem:cs_de
+      - P7:eq:cs_de
+      - P7:rem:rV_frame
+      - P7:eq:acoustic_schwarz
+      - P7:eq:cs_schwarz
+      - P7:eq:delta_cs
+      - P7:eq:dwa_slope
+      - P7:eq:semidirac
+      - P7:eq:frank
+      - P7:eq:cdir
+      - P7:eq:Menc
+      - P7:rem:elastic_solid
+      - P7:eq:alpha_BD
+      - P7:eq:rV_MW
+      - P7:eq:Geff_screened
+      - P7:eq:wa_derived
+      - P7:eq:thawing
+      - P7:eq:K_attractor
+      - P7:eq:1pw
+      - P7:eq:slow_roll
+      - P7:eq:dwda
+      - P7:eq:parent_action
+      - P7:eq:parent_kin
+      - P7:eq:mass_spectrum
+      - P7:eq:1loop
+      - P7:eq:Seff
+      - P7:eq:MPl
+      - P7:eq:LUV_approx
+      - P7:eq:oBD
+      - P7:eq:einstein_full
+      - P7:eq:Tmunu
+      - P7:eq:einstein_frozen
+      - P7:eq:Feff
+      - P7:eq:Gmunu_zero
+      - P7:eq:graviton_mass
+      - P7:eq:scalar_eom
+      - P7:eq:Tcons
+      - P7:eq:div_T
+      - P7:eq:bianchi_split
+      - P7:eq:rV_exact
+      - P7:eq:gamma_PPN
+      - P7:eq:rV_derivation
+      - P7:eq:GN
+      - P7:eq:GN_phys
+      - P7:eq:var_fR
+      - P7:eq:gravity_sector
+      - P7:eq:NMC_ratio
+      - P7:eq:Feff_derived
+      - P7:eq:poisson
+      - P7:eq:rho_Kerr_exact
+      - P7:eq:Phi_Kerr
+      - P7:eq:oblate_expansion
+      - P7:eq:TH
+      - P7:eq:TH_correction
+      - P7:eq:shift
+      - P7:eq:eta_pert
+      - P7:eq:eta_A
+      - P7:eq:S1_FP
+      - P7:eq:eta_macro
+      - P7:eq:mnu_prop
+      - P7:eq:mnu_seed
+      - P7:eq:mnu_matching
 
   - id: paper8
     name: "Geometry-Dependent Bell Violations from the Density-Feedback Hopfion"
@@ -733,6 +939,7 @@ papers:
       - strong/colour.tex
       - strong/topology_qh3.tex
     labels:
+      - P16:eq:vertex_decomp
       - P16:conj:vertices
       - P16:prop:vertices_fail
       - P16:rem:what_survives
@@ -748,10 +955,13 @@ papers:
       - P16:prop:q8_independent
       - P16:prop:q8_fail
       - P16:rem:architecture_justified
+      - P16:eq:dn_shift
+      - P16:eq:quark_mass_recap
       - P16:conj:colourshift
       - P16:prop:colourshift_fail
       - P16:rem:colourshift_scope
       - P16:rem:scale_ambiguity
+      - P16:eq:e8_ratio_recap
       - P16:rem:nq_structure
       - P16:prop:e8_unique
       - P16:prop:e8_mixed
@@ -831,6 +1041,7 @@ papers:
     doi: 10.5281/zenodo.21013412
     repo_files:
       - quantum/neutrino.tex
+      - strong/quark_masses.tex
     labels:
       - P17:prop:qh1_unknot
       - P17:rem:comparison_table
@@ -849,13 +1060,18 @@ papers:
       - P17:rem:phi_unconfined
       - P17:conj:nu_identification
       - P17:rem:conj_status
+      - P17:eq:mass_formula
       - P17:prop:nu_tower_bound
+      - P17:eq:nu_tower_bound
+      - P17:eq:nu_me_ratio
       - P17:rem:nconv
       - P17:rem:Qgroup_vs_Qeff
       - P17:prop:qh1_cmb
+      - P17:eq:Lcond_nu
       - P17:rem:cmb_fails
       - P17:rem:scale_ratio
       - P17:thm:qh1_tworoute
+      - P17:eq:RC2_nu
       - P17:thm:kone_forced
       - P17:prop:k1_virial
       - P17:rem:J4Ja_k1_vs_k3
@@ -866,17 +1082,22 @@ papers:
       - P17:cor:qh1_mass
       - P17:eq:mnu1_final
       - P17:rem:mnu_me_ratio
+      - P17:eq:mnu_me_complete
       - P17:rem:master_formula
+      - P17:eq:master_mass
+      - P17:eq:mass_ratio_decomposed
       - P17:prop:coset_T
       - P17:thm:coset_bosonic
       - P17:rem:bosonic_meaning
       - P17:prop:coset_gaps
       - P17:rem:degenerate_doublet
       - P17:prop:nu_mass_ratio
+      - P17:eq:m3m2_pred
       - P17:prop:pq_coset
       - P17:thm:brieskorn
       - P17:prop:pmns_branching
       - P17:thm:pmns_permutation
+      - P17:eq:PMNS_LO
       - P17:cor:electron_decouple
       - P17:cor:nu1_orphan
       - P17:prop:pmns_b1
@@ -890,13 +1111,19 @@ papers:
       - P17:rem:m1_suppressed
       - P17:rem:framing
       - P17:rem:kauffman
+      - P17:eq:surgery_identity
+      - P17:eq:tang_z_M
+      - P17:eq:theta_M
+      - P17:eq:r0_phi_condition
       - P17:rem:brieskorn_sectors
       - P17:rem:strange_quark
+      - P17:rem:quark_mass_algebraic
+      - P17:eq:e8_quark_ratio
 
   - id: paper18
     name: "Preimage Topology and Confinement: The Q_H=3 Sector of the Density-Feedback Hopfion"
     file: papers/main_paper18.tex
-    status: draft
+    status: published
     doi: 10.5281/zenodo.21047750
     repo_files:
       - strong/confinement_topology.tex
@@ -923,6 +1150,14 @@ papers:
       - P18:rem:two_thresholds
       - P18:obs:precursor
       - P18:rem:production_conditions
+      - P18:rem:cherenkov_confinement
+      - P18:eq:confined_mach
+      - P18:prop:linear_kelvin
+      - P18:eq:linear_kelvin
+      - P18:prop:ripple_casimir
+      - P18:eq:casimir_decomp
+      - P18:prop:twist_sinegordon
+      - P18:eq:twist_soliton
       - P18:thm:crossing_geometry
       - P18:thm:phi_star
       - P18:rem:photon_contrast
@@ -946,11 +1181,12 @@ papers:
       - P18:conj:isospin
       - P18:prop:isospin_mass_ratio
       - P18:rem:isospin_mass_ratio_scope
+      - P18:rem:isospin_scale_residual
 
   - id: paper19
     name: "Dynamical Origin of Quark Masses in the Density-Feedback Hopfion: Analytic Constraints from the Trefoil Formation Event"
     file: papers/main_paper19.tex
-    status: draft
+    status: published
     doi: 10.5281/zenodo.21225452
     repo_files:
       - strong/confinement_topology.tex
@@ -997,6 +1233,39 @@ papers:
       - P19:rem:unit_meaning
       - P19:prop:solar_angle_jones
       - P19:rem:solar_physical
+
+  - id: paper20
+    name: "The Dynamical Layer of the Quark Sector: E_6-Native Generations, the Isospin Mass-Scale, and Static Residuals as Strong Dynamics"
+    file: papers/main_paper20.tex
+    status: published
+    doi: 10.5281/zenodo.23047960
+    repo_files:
+      - strong/quark_dynamics.tex
+    labels:
+      - P20:def:native_bridge
+      - P20:prop:steepness
+      - P20:rem:twist
+      - P20:rem:powerlaw
+      - P20:prop:up_ratio
+      - P20:rem:up_ratio_data
+      - P20:prop:isospin_scale
+      - P20:rem:orientation
+      - P20:rem:isospin_breathing
+      - P20:prop:frac_charge
+      - P20:rem:charge_cs
+      - P20:prop:gen1_flip
+      - P20:rem:gen1_sign
+      - P20:rem:gen1_np
+      - P20:conj:sumrule
+      - P20:rem:sumrule_scope
+      - P20:rem:C_retractions
+      - P20:prop:constituent
+      - P20:rem:C_residual
+      - P20:prop:residual_partition
+      - P20:rem:coupling_scale
+      - P20:rem:feedback_saturation
+      - P20:rem:perturbative
+      - P20:rem:two_objects
 
 labels:
   # Foundational paper labels
@@ -1770,6 +2039,7 @@ labels:
   P15:rem:sign_convention:    {paper: paper15, repo_file: strong/topology_qh3.tex}
   P15:rem:three_arguments:    {paper: paper15, repo_file: strong/topology_qh3.tex}
   # Paper XVI labels
+  P16:eq:vertex_decomp:          {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:conj:vertices:             {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:prop:vertices_fail:        {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:rem:what_survives:         {paper: paper16, repo_file: strong/quark_masses.tex}
@@ -1785,10 +2055,13 @@ labels:
   P16:prop:q8_independent:       {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:prop:q8_fail:              {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:rem:architecture_justified: {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:eq:dn_shift:               {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:eq:quark_mass_recap:       {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:conj:colourshift:          {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:prop:colourshift_fail:     {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:rem:colourshift_scope:     {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:rem:scale_ambiguity:       {paper: paper16, repo_file: strong/quark_masses.tex}
+  P16:eq:e8_ratio_recap:         {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:rem:nq_structure:          {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:prop:e8_unique:            {paper: paper16, repo_file: strong/quark_masses.tex}
   P16:prop:e8_mixed:             {paper: paper16, repo_file: strong/quark_masses.tex}
@@ -1921,6 +2194,22 @@ labels:
   P17:rem:bosonic_meaning:       {paper: paper17, repo_file: quantum/neutrino.tex}
   P17:rem:degenerate_doublet:    {paper: paper17, repo_file: quantum/neutrino.tex}
   P17:rem:Qeff_origin:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:mass_formula:           {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:nu_tower_bound:         {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:nu_me_ratio:            {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:Lcond_nu:               {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:RC2_nu:                 {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:mnu_me_complete:        {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:master_mass:            {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:mass_ratio_decomposed:  {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:m3m2_pred:              {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:PMNS_LO:                {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:surgery_identity:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:tang_z_M:               {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:theta_M:                {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:eq:r0_phi_condition:       {paper: paper17, repo_file: quantum/neutrino.tex}
+  P17:rem:quark_mass_algebraic:  {paper: paper17, repo_file: strong/quark_masses.tex}
+  P17:eq:e8_quark_ratio:         {paper: paper17, repo_file: strong/quark_masses.tex}
   # Paper XVIII labels
   P18:thm:trefoil_satellite_jones: {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:trefoil_satellite_correction: {paper: paper18, repo_file: strong/confinement_topology.tex}
@@ -1944,6 +2233,14 @@ labels:
   P18:rem:two_thresholds:        {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:obs:precursor:             {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:production_conditions: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:cherenkov_confinement: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:eq:confined_mach:          {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:linear_kelvin:        {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:eq:linear_kelvin:          {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:ripple_casimir:       {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:eq:casimir_decomp:         {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:prop:twist_sinegordon:     {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:eq:twist_soliton:          {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:thm:crossing_geometry:     {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:thm:phi_star:              {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:photon_contrast:       {paper: paper18, repo_file: strong/confinement_topology.tex}
@@ -1967,6 +2264,7 @@ labels:
   P18:conj:isospin:              {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:prop:isospin_mass_ratio:   {paper: paper18, repo_file: strong/confinement_topology.tex}
   P18:rem:isospin_mass_ratio_scope: {paper: paper18, repo_file: strong/confinement_topology.tex}
+  P18:rem:isospin_scale_residual: {paper: paper18, repo_file: strong/confinement_topology.tex}
   # Paper XIX labels
   P19:conj:six_quarks_r19:       {paper: paper19, repo_file: strong/confinement_topology.tex}
   P19:conj:isospin_r19:          {paper: paper19, repo_file: strong/confinement_topology.tex}
@@ -2009,4 +2307,29 @@ labels:
   P19:rem:unit_meaning:          {paper: paper19, repo_file: strong/confinement_topology.tex}
   P19:prop:solar_angle_jones:    {paper: paper19, repo_file: quantum/neutrino.tex}
   P19:rem:solar_physical:        {paper: paper19, repo_file: quantum/neutrino.tex}
+  # Paper XX labels
+  P20:def:native_bridge:         {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:steepness:            {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:twist:                 {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:powerlaw:              {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:up_ratio:             {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:up_ratio_data:         {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:isospin_scale:        {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:orientation:           {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:isospin_breathing:     {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:frac_charge:          {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:charge_cs:             {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:gen1_flip:            {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:gen1_sign:             {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:gen1_np:               {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:conj:sumrule:              {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:sumrule_scope:         {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:C_retractions:         {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:constituent:          {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:C_residual:            {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:prop:residual_partition:   {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:coupling_scale:        {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:feedback_saturation:   {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:perturbative:          {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  P20:rem:two_objects:           {paper: paper20, repo_file: strong/quark_dynamics.tex}
   # ... populated by scanner ...

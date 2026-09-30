@@ -1,24 +1,4 @@
-% quantum/neutrino.tex
-% Part of the Hopfion Framework Repository
-% Source: Paper XVII — The Q_H=1 Sector of the Density-Feedback Hopfion:
-%   Topology, Group Structure, Colour Exclusion
-% Status: published
-% Last updated: 2026-07-04
-%
-% Notation note: Paper XVII defines \Ja -> J_{2a} and \Jfour -> J_4.
-% Preamble defines \Ja -> \mathcal{J}_a and \Jfour -> \mathcal{J}_4.
-% These are the same profile integrals; here preamble notation is used.
-%
 \input{../preamble}
-
-\section*{The $Q_H=1$ Sector: Neutrino Topology, Group Structure, and Masses}
-\label{sec:neutrino}
-
-% Results extracted from Paper XVII
-% Scan date: 2026-06-28
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Topology of the $\QH=1$ Hopfion}
 
 \begin{proposition}[Topology of $\QH=1$]
 \label{P17:prop:qh1_unknot}
@@ -43,9 +23,6 @@ consistent with being unconfined sectors.
 \end{remark}
 \status{published}
 \source{P17:rem:comparison_table}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Group-Theoretic Structure: $\Ztwo\leftrightarrow\widehat{A}_1$}
 
 \begin{proposition}[$\QH=1$ is organised by $\Ztwo\leftrightarrow\widehat{A}_1$]
 \label{P17:prop:qh1_Z2}
@@ -83,9 +60,6 @@ Model.
 \status{published}
 \source{P17:rem:ade_structure}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Colour Exclusion in $\QH=1$}
-
 \begin{corollary}[Colour exclusion in $\QH=1$]
 \label{P17:cor:qh1_colour_free}
 The colour $\Zthree$ automorphism has no non-trivial action on any
@@ -110,9 +84,6 @@ the more involved argument).
 \end{remark}
 \status{published}
 \source{P17:rem:colour_stronger}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Absence of Confinement}
 
 \begin{proposition}[No confinement in $\QH=1$]
 \label{P17:prop:qh1_noconfinement}
@@ -146,9 +117,6 @@ are the physically necessary ingredient for $\sigma>0$.
 \end{remark}
 \status{published}
 \source{P17:rem:confinement_hierarchy}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{WZW Model: $\SU(2)_1$ and $Q_{\mathrm{group}}=6$}
 
 \begin{proposition}[$Q_{\mathrm{group}}=6$ for $\SU(2)_1$]
 \label{P17:prop:qh1_Qgroup}
@@ -210,9 +178,6 @@ formula itself.
 \status{published}
 \source{P17:rem:same_ladder}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Quantum Dimension and the Golden Ratio}
-
 \begin{proposition}[Quantum dimension at level $k=3$]
 \label{P17:prop:qh1_dimq}
 In the $\SU(2)_3$ Chern--Simons theory at level $k=3$
@@ -259,9 +224,6 @@ not a coincidence.
 \status{published}
 \source{P17:rem:phi_unconfined}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Physical Identification: Neutrino Sector}
-
 \begin{conjecture}[Physical identification of $\QH=1$]
 \label{P17:conj:nu_identification}
 The $\QH=1$ sector of the density-feedback Hopfion is the Standard
@@ -285,8 +247,22 @@ promote it to a theorem.
 \status{published}
 \source{P17:rem:conj_status}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Neutrino Masses and the Tower Level}
+\subsection{Mass formula and tower level estimate}
+\label{P17:sec:nu_tower}
+The mass formula for the $g$-th generation in the framework takes the
+general form (Paper~VI~\cite{Paper6})
+\begin{equation}
+  m^{(g)} = \Lambda_{\mathrm{cond}}\cdot
+    \vp^{-2n}\cdot
+    \exp\!\bigl(-2\pi\,Q_{\mathrm{group}}\cdot T_g\bigr),
+  \label{P17:eq:mass_formula}
+\end{equation}
+where $n$ is the tower level fixed by a sector-specific thermodynamic
+matching condition and $T_g$ is the T-matrix phase for generation $g$.
+For the charged-lepton sector, Paper~XII~\cite{Paper12} proves
+$n_e=20$ from the CMB energy identity $\Efb/V=\rCMB$.
+\status{published}
+\source{P17:eq:mass_formula}
 
 \begin{proposition}[Tower level lower bound for neutrinos]
 \label{P17:prop:nu_tower_bound}
@@ -302,6 +278,20 @@ The tower level $n_\nu$ is irrational (Paper~VI irrationality theorem).
 \status{published}
 \source{P17:prop:nu_tower_bound}
 \residual{exact bound; prediction $n_\nu=42.39$ (irrational)}
+
+Taking the ratio of the first-generation neutrino mass to the electron
+mass (setting $T_1^{(\nu)}=T_1^{(\ell)}=5/24$ for the leading
+generation and using $Q_{\mathrm{group}}^{(\nu)}=6$,
+$Q_{\mathrm{group}}^{(\ell)}=10$, and the CMB normalisation factor
+$2Q_{\mathrm{group}}^{(\ell)}=20$ in the role of $n_e$):
+\begin{align}
+  \frac{m_{\nu_1}}{m_e}
+  &= \vp^{-2(n_\nu-20)}\cdot
+     \exp\!\Bigl(-2\pi\bigl(6\cdot\tfrac{5}{24}-10\cdot\tfrac{5}{24}\bigr)\Bigr)
+   = \vp^{-2(n_\nu-20)}\cdot e^{5\pi/3}.
+  \label{P17:eq:nu_me_ratio}
+\end{align}
+\status{published}
 
 \begin{remark}[Two distinct meanings of ``tower level'']
 \label{P17:rem:nconv}
@@ -365,9 +355,6 @@ proposition statement and throughout the series.
 \end{remark}
 \status{published}
 \source{P17:rem:Qgroup_vs_Qeff}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{The $c=1$ Thermodynamic Matching}
 
 \begin{proposition}[$c=1$ CMB energy identity]
 \label{P17:prop:qh1_cmb}
@@ -438,9 +425,6 @@ with ratio $3/5=Q_{\mathrm{group}}^{(\nu)}/Q_{\mathrm{group}}^{(\ell)}$.
 \status{published}
 \source{P17:thm:qh1_tworoute}
 \depends{profile/normalisation.tex (P12:thm:E); quantum/neutrino.tex (P17:prop:qh1_cmb, P17:prop:k1_virial)}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Condensate WZW Level and Virial at $k=1$}
 
 \begin{theorem}[WZ descent forces $k=1$ for the $\QH=1$ condensate]
 \label{P17:thm:kone_forced}
@@ -516,9 +500,6 @@ $m_{\nu_1}\approx42\,\mathrm{meV}$ is unchanged.
 \status{published}
 \source{P17:cor:two_route_k1}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Majorana Neutrinos}
-
 \begin{corollary}[Neutrinos are Majorana fermions]
 \label{P17:cor:majorana}
 The $\QH=1$ condensate with $k=1$ WZW dynamics predicts that
@@ -529,9 +510,6 @@ generates a $\Ztwo$ fusion group ($\tfrac12\times\tfrac12=0$).
 \status{published}
 \source{P17:cor:majorana}
 \depends{quantum/neutrino.tex (P17:thm:kone_forced)}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Chern--Simons Spoke Amplitude and Mass Formula}
 
 \begin{proposition}[Chern--Simons spoke amplitude for $\QH=1$: exact zero]
 \label{P17:prop:CS_spoke}
@@ -667,9 +645,6 @@ resolution would determine the leading-order quark mass scale.
 \status{published}
 \source{P17:rem:master_formula}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Inter-Sector Coset $\SU(2)_3/\SU(2)_1$ and Neutrino Masses}
-
 \begin{proposition}[Coset T-matrix phases]
 \label{P17:prop:coset_T}
 The coset $\SU(2)_3/\SU(2)_1$ has four primary fields $(\Lambda,\lambda)$
@@ -773,9 +748,6 @@ the central value.
 \residual{$0.9\%$ vs PDG 2024}
 \depends{quantum/neutrino.tex (P17:prop:coset_gaps)}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{The Trefoil as Geometric Source of the Coset}
-
 \begin{proposition}[$(p,q)$ determines the coset]
 \label{P17:prop:pq_coset}
 For the trefoil $T_{2,3}$ with $p=2$, $q=3$:
@@ -847,9 +819,6 @@ flavour-broken $(u,d,s)$ world.
 \source{P17:rem:strange_quark}
 \depends{quantum/neutrino.tex (P17:thm:brieskorn, P17:rem:kauffman); strong/quark_masses.tex (P16:prop:strange_match)}
 
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Framing Independence and the Kauffman Bracket Picture}
-
 \begin{remark}[Coset framing independence via the writhe]
 \label{P17:rem:framing}
 The trefoil $T_{2,3}$ has writhe $w=q=3$ (the $\QH=3$ baryon sector's own
@@ -893,9 +862,6 @@ $M(5,6)$.
 \status{published}
 \source{P17:rem:kauffman}
 \depends{quantum/neutrino.tex (P17:prop:coset_T, P17:prop:pq_coset)}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{The PMNS Matrix from Coset Branching}
 
 \begin{proposition}[Exact branching table]
 \label{P17:prop:pmns_branching}
@@ -1144,7 +1110,7 @@ small; the midpoint geometry sets the characteristic angle.
 \status{published}
 \source{P17:rem:solar_angle}
 \depends{quantum/neutrino.tex (P17:cor:pmns_exact, P17:rem:Smat_phi, P17:thm:brieskorn)}
-\residual{$r_0$-origin resolved by Paper~XIX, Theorem~\ref{P19:thm:r0_derivation} and Remark~\ref{P19:rem:solar_angle_reconcile} (\status{draft}, strong/confinement\_topology.tex)}
+\residual{$r_0$-origin resolved by Paper~XIX, Theorem~\ref{P19:thm:r0_derivation} and Remark~\ref{P19:rem:solar_angle_reconcile} (\status{published}, strong/confinement\_topology.tex)}
 
 \begin{proposition}[Solar mixing angle from the $\mathrm{SU}(2)_3$ S-matrix]
 \label{P19:prop:solar_angle_jones}
@@ -1154,7 +1120,7 @@ $\theta_{12}^{(0)}=\arctan(1/\vp)=31.72^\circ$. This is Paper~XVII's
 $\SU(2)_3$ S-matrix result (Remark~\ref{P17:rem:Smat_phi}); it does
 not depend on any Jones-polynomial computation.
 \end{proposition}
-\status{draft}
+\status{published}
 \source{P19:prop:solar_angle_jones}
 \depends{strong/confinement_topology.tex}
 
@@ -1174,7 +1140,7 @@ this deviation, together with the atmospheric and reactor-angle
 deviations, is not computable from the present paper's toolkit and is
 deferred to Paper~XX (Open Problem~P19:OP7).
 \end{remark}
-\status{draft}
+\status{published}
 \source{P19:rem:solar_physical}
 \depends{strong/confinement_topology.tex}
 
@@ -1205,9 +1171,6 @@ S-matrix unitarity, without free parameters.
 \end{remark}
 \status{published}
 \source{P17:rem:Qeff_origin}
-
-%──────────────────────────────────────────────────────────────────────────────
-\subsection*{Derivation of $Q_{\mathrm{eff}}$ from S-Matrix Unitarity}
 
 \begin{proposition}[Uniqueness of $Q_{\mathrm{eff}}$ among coset modular data]
 \label{P17:prop:Qeff_unique}
@@ -1266,11 +1229,6 @@ assignment in its current form would be disfavoured.
 \source{P17:rem:m1_suppressed}
 \depends{quantum/neutrino.tex (P17:thm:Qeff_derived, P17:prop:coset_gaps)}
 
-%════════════════════════════════════════════════════════════════════
-% Earlier WZW Radiative Mechanism — Paper VII
-%════════════════════════════════════════════════════════════════════
-% Paper VII's independent, earlier estimate of the neutrino mass scale,
-% predating and complementary to Paper XVII's Q_H=1 sector treatment above.
 \begin{proposition}[Neutrino mass from WZW radiative mechanism]
 \label{P7:prop:neutrino}
 The lightest neutrino mass scale predicted by the framework is

@@ -1,14 +1,6 @@
-%% hopfion-framework/gravity/newton.tex
-%% Sources: main_paper7.tex
-%% G_N from gradient flux imbalance, Einstein equations, Cassini bound
-%% Auto-generated from project files. Edit source papers to update.
+% G_N from gradient flux imbalance, Einstein equations, Cassini bound
+\input{../preamble}
 
-
-%════════════════════════════════════════════════════════════════════
-% Newton's Constant and Einstein Equations — Paper VII
-%════════════════════════════════════════════════════════════════════
-The parent action governing the condensate scalar field $\rho$, gravity
-and cosmology is
 \begin{equation}
   S[\rho] = \int d^4x\sqrt{-g}\,
   \biggl[\frac{g^{\mu\nu}\partial_\mu\rho\,\partial_\nu\rho}
@@ -17,9 +9,7 @@ and cosmology is
   + \int S_{\mathrm{eff}}(\theta,\rho)\,d\Omega,
   \label{P7:eq:parent_action}
 \end{equation}
-where $S_{\mathrm{eff}}(\theta,\rho) = \sin^4\!\theta/[\vp^6(1+\bst\rho)]$
-is the suppression formula of~\cite{Paper1}, a $k$-essence type
-scalar-tensor theory in disguise.
+\status{published}
 
 \begin{remark}[Extension of the density variable]
 \label{P7:rem:rho_extension}
@@ -94,26 +84,14 @@ in~\cite{Paper1,Paper4,Paper6,Koide1983}.
 \status{published}
 \source{P7:rem:role_in_paper}
 
-Integrating out the scalar fluctuation $\xi$ at one loop via the
-Seeley--DeWitt heat-kernel expansion gives an effective action whose
-$a_2$ coefficient contains the Ricci scalar:
 \begin{equation}
   \Gamma_{1\text{-loop}} \supset
   \frac{\LUV^2}{2(4\pi)^2}\int d^4x\sqrt{-g}\,
   \left(\frac{R}{6} - m_\xi^2\right).
   \label{P7:eq:1loop}
 \end{equation}
-Identifying the induced Planck mass by matching the $R$-coefficient
-to the Einstein--Hilbert action $(\MPl^2/2)\int\sqrt{-g}\,R\,d^4x$
-confirms that a gravitational sector is induced at the condensate
-scale, but does not itself set the Planck mass: $\MPl$ is fixed by the
-density-feedback flux, $G_N=G_{\mathrm{src}}^2/(4\pi\vp^6)$
-(equation~\eqref{P7:eq:GN}), and~\eqref{P7:eq:1loop} serves as a
-consistency check that gravity is induced at the right scale rather
-than an independent determination of $\LUV$.
-The one-loop action generates a non-minimal coupling
-$\xNMC=\LUV^2\beta/[4(4\pi)^2]$~\eqref{P7:eq:xNMC}, and the full
-effective action takes the scalar-tensor form
+\status{published}
+
 \begin{equation}
   S_{\mathrm{eff}} = \int d^4x\sqrt{-g}\!\left[
     \frac{\MPl^2}{2}R
@@ -123,27 +101,26 @@ effective action takes the scalar-tensor form
   \right].
   \label{P7:eq:Seff}
 \end{equation}
-The ultraviolet cutoff is set by the condensate's own $\vp$-tower.
-Both $\MPl$ and $\LUV$ lie on the tower $M_n=\Lcond\,\vp^{2n}$ of
-Paper~VI, separated by exactly three steps:
+\status{published}
+
 \begin{equation}
   \boxed{\LUV \;=\; \frac{\MPl}{\vp^6}\;\approx\;0.0557\,\MPl,}
   \label{P7:eq:MPl}
 \end{equation}
-the gap $\vp^6=\lambda$ being the same Bogomolny/$S_{\mathrm{eff}}$
-suppression that fixes $G_N$~\eqref{P7:eq:GN} --- a topological
-relation, not a loop coincidence. Numerically
+\status{published}
+
 \begin{equation}
   \LUV \;\approx\; 6.8\times10^{17}\,\mathrm{GeV}\;\approx\;\frac{\MPl}{18}.
   \label{P7:eq:LUV_approx}
 \end{equation}
-Matching~\eqref{P7:eq:Seff} to the Brans--Dicke form gives
+\status{published}
+
 \begin{equation}
   \oBD = \frac{\vp^{12}}{3\beta}
   \approx \frac{107.6}{\beta}.
   \label{P7:eq:oBD}
 \end{equation}
-For $\beta\in[0.1,1.0]$ this gives $\oBD\in[108,1076]$.
+\status{published}
 
 \begin{theorem}[Einstein field equations from the k-essence condensate]
 \label{P7:thm:einstein}
@@ -201,42 +178,17 @@ Einstein--Hilbert plus a cosmological constant in the frozen attractor limit.
 \status{published}
 \source{P7:rem:spin2}
 
-The explicit weak-field metric $ds^2=-(1-2GM/r)dt^2+(1+2GM/r)(dr^2+r^2d\Omega^2)$
-(the standard isotropic post-Newtonian form) has linearised Ricci
-tensor $R_{\mu\nu}=-\tfrac12\square h_{\mu\nu}$ in Lorenz gauge with
-$\Phi_N=-GM/r$, giving $\nabla^2\Phi_N=0$ in the exterior, hence
 \begin{equation}
   G_{\mu\nu} = 0 \quad\text{in the exterior,}
   \label{P7:eq:Gmunu_zero}
 \end{equation}
-verified without assuming it.
 \status{published}
-\source{P7:sec:tensor}
 
-The angular integral $\int S_{\mathrm{eff}}\,d\Omega$ expanded to second
-order in $h_{\mu\nu}$ generates a mass term for the transverse-traceless
-(TT) modes,
 \begin{equation}
   m_g^2 = \frac{16\pi}{315\,\vp^6(1+\beta\rho_\infty)},
   \label{P7:eq:graviton_mass}
 \end{equation}
-a Lorentz-breaking mass tied to the preferred direction $\hat e_r$
-(Axiom~A1) rather than the covariant Fierz--Pauli form. The GW
-propagation speed $v_{\mathrm{GW}}^2=1-m_g^2/\omega^2$ gives
-$|v_{\mathrm{GW}}-c|/c<10^{-33}$ at LIGO frequencies
-($\omega\sim100\,\mathrm{Hz}$, $m_g<10^{-29}\,\mathrm{eV}$), consistent
-with the GW170817 bound $|v_{\mathrm{GW}}-c|/c<10^{-15}$. The specific
-golden-ratio value $m_g^2\propto\vp^{-8}$ is a Jordan-frame quantity,
-tied to the non-canonical $S_{\mathrm{eff}}$ normalisation and
-rescaled under the conformal map to the Einstein frame; no observable
-depends on it, since only the smallness $m_g\ll\omega$ enters
-$v_{\mathrm{GW}}$ and holds for any such $m_g$. At tree level
-there is one propagating scalar mode $\xi$ (breathing polarisation) and
-no propagating TT modes; including the one-loop induced $R$ term, the
-TT modes $h_+,h_\times$ become dynamical, giving three polarisations
-in total.
 \status{published}
-\source{P7:sec:tensor}
 
 \begin{theorem}[Bianchi consistency and energy-momentum conservation]
 \label{P7:thm:conservation}
@@ -272,6 +224,7 @@ imply the third.
 \end{theorem}
 \status{published}
 \source{P7:thm:conservation}
+
 \begin{proof}[Proof sketch]
 Writing $K=K(\rho)$ and $\mathcal{E}\equiv K\square\rho+K'(\partial\rho)^2/2+V'(\rho)$,
 a direct computation gives
@@ -346,6 +299,7 @@ suppression of the fifth force.
 \end{theorem}
 \status{published}
 \source{P7:thm:cassini}
+
 \begin{proof}
 $m_\xi^2=\vp^{20}\Lambda_{\mathrm{obs}}\MPl^4$ gives
 $m_\xi=\vp^{10}\sqrt{\Lambda_{\mathrm{obs}}}\,\MPl\approx\vp^{10}\sqrt3\,H_0$,
@@ -384,6 +338,7 @@ for $\beta\leq0.13$, consistent with the range of Axiom~A2.
   G_N = \frac{G_{\mathrm{src}}^2}{4\pi\vp^6}.
   \label{P7:eq:GN}
 \end{equation}
+\status{published}
 
 \begin{remark}
 \label{P7:rem:4pi_factor}
@@ -406,6 +361,7 @@ follows from the Bogomolny coincidence $4\pi\sqrt{2}\approx\vp^6$
   \;=\; \frac{1}{\MPl^2(1+3\vp^7)},
   \label{P7:eq:GN_phys}
 \end{equation}
+\status{published}
 
 \begin{remark}[Physical interpretation of $F(\rinfty)$ and the renormalised $\MPl$]
 \label{P7:rem:MPl_renorm}
@@ -424,45 +380,41 @@ the golden ratio.
 \status{published}
 \source{P7:rem:MPl_renorm}
 
-Varying $\int\!d^4x\sqrt{-g}\,(f(\rho)R)$ with $f(\rho)=\MPl^2/2+\xNMC\rho$
-gives
 \begin{equation}
   \frac{\delta(\sqrt{-g}\,f R)}{\delta g^{\mu\nu}}
   = \sqrt{-g}\!\left[f R_{\mu\nu} - \tfrac{1}{2}f R g_{\mu\nu}
     + (g_{\mu\nu}\square - \nabla_\mu\nabla_\nu)f\right],
   \label{P7:eq:var_fR}
 \end{equation}
-so with $\nabla_\mu f=\xNMC\partial_\mu\rho$:
+\status{published}
+
 \begin{equation}
   f G_{\mu\nu} + \xNMC(g_{\mu\nu}\square - \nabla_\mu\nabla_\nu)\rho = 0
   \quad[\text{gravity sector}].
   \label{P7:eq:gravity_sector}
 \end{equation}
-With $\xNMC=\LUV^2\beta/[4(4\pi)^2]$, $\rinfty=\vp/\beta$, and
-$\MPl^2/2=\LUV^2/[12(4\pi)^2\vp^6]$:
+\status{published}
+
 \begin{equation}
   \frac{\xNMC\,\rinfty}{\MPl^2/2}
   \;=\; \frac{\LUV^2\vp}{4(4\pi)^2}\cdot\frac{12(4\pi)^2\vp^6}{\LUV^2}
   \;=\; 3\vp^7,
   \label{P7:eq:NMC_ratio}
 \end{equation}
-and therefore
+\status{published}
+
 \begin{equation}
   F(\rinfty) \;=\; \frac{\MPl^2}{2}\bigl(1+3\vp^7\bigr),
   \label{P7:eq:Feff_derived}
 \end{equation}
-which, using the Fibonacci identity $\vp^7=13\vp+8$, gives
-$1+3\vp^7=39\vp+25$.
+\status{published}
 
 \begin{equation}
   \nabla^2(\delta\rho) = -G_{\mathrm{src}}M\,\delta^{(3)}(\mathbf{r}),
   \label{P7:eq:poisson}
 \end{equation}
+\status{published}
 
-
-%════════════════════════════════════════════════════════════════════
-% Exact Rotating Condensate Background — Paper VII
-%════════════════════════════════════════════════════════════════════
 \begin{theorem}[Exact rotating condensate background]
 \label{P7:thm:rotating}
 Let $\kappa = \beta\vp^2 G_N^{1/2}$.
@@ -519,42 +471,26 @@ corrects this; numerically the two differ by less than $0.2\%$ for $a/r\lesssim0
 \status{published}
 \source{P7:rem:oblate}
 
-%════════════════════════════════════════════════════════════════════
-% Kerr Hawking Temperature and the Weak Equivalence Principle — Paper VII
-%════════════════════════════════════════════════════════════════════
-The Hawking temperature from the acoustic surface gravity is
 \begin{equation}
   T_H = \frac{\hbar\kappa_H}{2\pi k_B}
   \quad\text{(exact GR result at leading order)},
   \label{P7:eq:TH}
 \end{equation}
-with the soup correction from the sound-speed deviation $\delta c_s^2$:
+\status{published}
+
 \begin{equation}
   \boxed{T_H^{\mathrm{soup}} = T_H^{\mathrm{GR}}\!\left(1 + \frac{\beta^3}{4(1+\vp)}\right)
   \approx T_H^{\mathrm{GR}}\,(1+4.2\times10^{-5}).}
   \label{P7:eq:TH_correction}
 \end{equation}
-In the Schwarzschild limit $a\to0$, $T_H=\hbar c^3/(8\pi G_N M k_B)$
-exactly; in the extremal limit $a\to r_s/2$, $T_H\to0$ exactly. The
-correction $+4.2\times10^{-5}$ is currently unmeasurable but
-constitutes a definite model-specific prediction.
 \status{published}
-\source{P7:sec:kerr}
 
-After the one-loop induction of the Planck mass, all matter sectors
-couple to the same induced metric $g_{\mu\nu}$; free-falling bodies
-satisfy $Du^\mu/d\tau=0$ universally, regardless of composition, so the
-WEP holds exactly at one-loop order via this geometric emergence. The
-canonical field $\varphi_c$~\eqref{P7:eq:phi_c} satisfies a shift
-symmetry
 \begin{equation}
   \varphi_c \to \varphi_c + \delta\varphi_c
   \label{P7:eq:shift}
 \end{equation}
-of the kinetic sector (broken only by the potential). All couplings of
-$\varphi_c$ to matter therefore appear through derivatives, which
-couple universally to the stress tensor, so WEP violation from
-derivative couplings is perturbatively suppressed:
+\status{published}
+
 \begin{equation}
   \eta_{\mathrm{pert}} \sim
   \left(\frac{m_\xi}{\LUV}\right)^2
@@ -562,20 +498,14 @@ derivative couplings is perturbatively suppressed:
   \sim 10^{-122},
   \label{P7:eq:eta_pert}
 \end{equation}
-far below any experimental bound.
 \status{published}
-\source{P7:sec:wep}
 
-The shift symmetry is broken non-perturbatively by instanton-like
-field configurations that change the Hopf charge. For a test body
-with $A$ baryons undergoing a coherent $\Delta H=1$ fluctuation, the
-E\"otv\"os ratio is
 \begin{equation}
   \eta_A \;=\; e^{-A\,S_1},
   \label{P7:eq:eta_A}
 \end{equation}
-where $S_1$ is the single-baryon instanton action derived from first
-principles in Paper~V (Proposition~\ref{P5:prop:kink_avg}):
+\status{published}
+
 \begin{equation}
   \boxed{S_1
   \;=\; \frac{3}{4}\cdot 2^{-1/3}
@@ -583,14 +513,11 @@ principles in Paper~V (Proposition~\ref{P5:prop:kink_avg}):
   \;\approx\; 0.1084.}
   \label{P7:eq:S1_FP}
 \end{equation}
-For a single baryon $\eta_1=e^{-0.108}\approx0.90$ (WEP maximally
-violated at the nucleon scale); for $A\gtrsim277$ baryons $\eta<10^{-13}$
-(MICROSCOPE bound satisfied); for macroscopic bodies ($A\sim10^{26}$):
+\status{published}
+
 \begin{equation}
   \eta \;\sim\; e^{-0.1084\times10^{26}} \;\approx\; 10^{-10^{25}},
   \label{P7:eq:eta_macro}
 \end{equation}
-the WEP holds to effectively infinite precision.
 \status{published}
-\source{P7:sec:wep}
 

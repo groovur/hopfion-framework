@@ -1,34 +1,25 @@
-%% hopfion-framework/gravity/dark_sector.tex
-%% Sources: main_paper7.tex
-%% Cosmological constant, dark energy w_a, dark matter c_s, BAO, Vainshtein
-%% Auto-generated from project files. Edit source papers to update.
+% Cosmological constant, dark energy w_a, dark matter c_s, BAO, Vainshtein
+\input{../preamble}
 
-
-%════════════════════════════════════════════════════════════════════
-% Cosmological Constant and Dark Energy — Paper VII
-%════════════════════════════════════════════════════════════════════
-The field equation of~\eqref{P7:eq:parent_action} at homogeneous large
-$\rho$ has the self-consistent attractor solution $\rho=\rinfty$ with
 \begin{equation}
   \rinfty = \frac{\vp}{\beta},
   \label{P7:eq:rho_inf}
 \end{equation}
-giving $\rinfty\approx16.18\,\MPl^3$ for $\beta=0.1$. The cosmological
-constant today is
+\status{published}
+
 \begin{equation}
   \boxed{\Lobs = \Lambda_0\,e^{-\vp^6\rinfty}
                = \Lambda_0\,e^{-\vp^7/\beta}
                \approx \MPl^4\times10^{-122}.}
   \label{P7:eq:Lambda_obs}
 \end{equation}
-The exponent's normalisation constant $c=\rho/\kappa$ between the
-$k$-essence field and the Faddeev--Niemi gradient density is
+\status{published}
+
 \begin{equation}
   c \;=\; \vp^3 + p_0^2 \;=\; \vp^3\Bigl(1+\frac{1}{\vp^7}\Bigr),
   \label{P7:eq:cc_c}
 \end{equation}
-where $p_0=1/(1+\bst\rinfty)=1/\vp^2$ is the vacuum Born weight, giving
-$\approx10^{-122}\,\MPl^4$ in agreement with observation.
+\status{published}
 
 \begin{proposition}[Cosmological-constant normalisation]
 \label{P7:prop:cc_norm}
@@ -46,6 +37,7 @@ $\Lobs = \Lambda_0 e^{-\vp^7 c/\bst}\approx10^{-122}\,\MPl^4$.
 \end{proposition}
 \status{published}
 \source{P7:prop:cc_norm}
+
 \begin{proof}
 \emph{Tree normalisation.} The parent kinetic density
 $|\nabla\rho|^2/[\vp^6(1+\bst\kappa)]$, $\kappa=|\nabla\rho|^2$,
@@ -85,24 +77,11 @@ quantisation (Paper~X).
 \status{published}
 \source{P7:rem:cc_norm_status}
 
-When $\rho$ is frozen at $\rinfty$ ($\dot\rho=0$), the equation of
-state is $w=-1$ exactly, reproducing $\Lambda$CDM.
-The dark energy scalar mass at the potential minimum is
 \begin{equation}
   m_\xi^2 = \vp^{20}\,\Lobs\,\MPl^4,
   \label{P7:eq:mxi}
 \end{equation}
-in the Jordan frame. The physical mass governing the cosmological
-(thawing) dynamics is the Einstein-frame value, obtained after the
-conformal rescaling by $F(\rinfty)$~\eqref{P7:eq:Feff_derived}:
-because that nonminimal coupling is strong ($1+3\vp^7\approx88$), the
-conformal kinetic normalisation cancels the $\vp^{20}$ curvature,
-leaving the $\vp$-power-free Hubble-scale result
-$m_\xi\sim\sqrt{\Lobs}/\MPl\approx H_0\approx10^{-33}\,\mathrm{eV}$.
-The Vainshtein/screening analysis uses the Jordan-frame
-expression~\eqref{P7:eq:mxi} directly; the resulting PPN parameter
-resolves Cassini, and the outcome is unchanged if the physical mass is
-used, since $r_V$ remains far larger than the solar system either way.
+\status{published}
 
 \begin{remark}[Dark-energy sound speed]
 \label{P7:rem:cs_de}
@@ -299,18 +278,21 @@ scale at which nonlinear terms begin to dominate.
   ds_{\mathrm{ac}}^2 = \rho_0(r)\cdot ds_{\mathrm{Schwarzschild}}^2,
   \label{P7:eq:acoustic_schwarz}
 \end{equation}
+\status{published}
 
 \begin{equation}
   c_s^2 = \frac{\partial P}{\partial\rho}\bigg|_{\rho_0}
         = 1 + O(\beta^3)
   \label{P7:eq:cs_schwarz}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \delta c_s^2 = -\frac{\beta^3}{4(1+\vp)} \approx -4.2\times10^{-5}
   \quad\text{at }r\sim r_s.
   \label{P7:eq:delta_cs}
 \end{equation}
+\status{published}
 
 \begin{equation}
   \frac{dw}{da}\bigg|_{a=1}
@@ -318,83 +300,32 @@ scale at which nonlinear terms begin to dominate.
   \;=\; 6(1+w_0).
   \label{P7:eq:dwa_slope}
 \end{equation}
+\status{published}
 
-%════════════════════════════════════════════════════════════════════
-% Dark Matter: Elastic Strain of the Condensate Director — Paper VII
-%════════════════════════════════════════════════════════════════════
-
-The framework introduces no dark-matter particle. Instead, the
-condensate scalar field $\rho$ acts as the dark-matter component
-through its anisotropic, nematic-like medium.  Its directional
-suppression $S_{\mathrm{eff}}=\sin^4\!\theta/[\vp^6(1+\bst\rho)]$ is the
-angular structure of a semi-Dirac dispersion,
-$H=A\,k_\perp^2\,\sigma_x+v\,k_\parallel\,\sigma_y$, giving
 \begin{equation}
   E^2 = A^2 k^4\sin^4\!\theta + v^2 k^2\cos^2\!\theta,
   \label{P7:eq:semidirac}
 \end{equation}
-whose heavy band carries exactly the angular factor $\sin^4\!\theta$ of
-$S_{\mathrm{eff}}$. The dark-matter physics lives in the orientation
-(director) field $\hat n$, not in the scalar magnitude $\rho$.
 \status{published}
-\source{P7:sec:dark_matter}
 
-Visible matter imposes orientation boundary conditions on the
-director; the director distorts, and the Frank elastic energy
 \begin{equation}
   F=\tfrac12\int\bigl[K_{\mathrm{splay}}(\nabla\!\cdot\hat{n})^2
     +K_{\mathrm{bend}}(\hat{n}\times(\nabla\times\hat{n}))^2\bigr]\,d^3x
   \label{P7:eq:frank}
 \end{equation}
-of the distortion is real energy: it gravitates but carries no
-electromagnetic coupling, so it is invisible. Dark matter is the
-medium's elastic response to visible matter, sourced by and tracking
-the baryons.
 \status{published}
-\source{P7:sec:director_strain}
 
-The two director stiffnesses have opposite signs: bend is stable,
-$K_{\mathrm{bend}}>0$, while splay is unstable, $K_{\mathrm{splay}}<0$.
-The uniform director therefore spontaneously develops a radial splay
-texture --- a disclination configuration that forms without external
-tuning, the self-organised dark-matter configuration.
-\status{published}
-\source{P7:sec:splay_instability}
-
-The orientation Goldstone mode has speed
 \begin{equation}
   c_{\mathrm{dir}}^2 \;=\; \frac{K}{\chi},
   \label{P7:eq:cdir}
 \end{equation}
-where $\chi$ is the static susceptibility of the generator of director
-rotations. In the semi-Dirac medium the rotational susceptibility
-diverges faster with the ultraviolet scale than the Frank stiffness
-$K$, so the director is heavy: $c_{\mathrm{dir}}\to0$. The director
-mode is cold --- the decisive contrast with the scalar-magnitude
-perturbation, whose sound speed $c_s=1/\vp$ (Remark~\ref{P7:rem:cs_de})
-is relativistic and belongs to the dark-energy sector, not dark
-matter. Being cold and pressureless, the director strain has no Jeans
-obstruction and clusters on all cosmological and galactic scales. In
-the splay channel, $K_{\mathrm{splay}}<0$ turns~\eqref{P7:eq:cdir} into
-an instability, $c_{\mathrm{dir}}^2<0$, the dynamical form of the
-splay self-organisation above.
 \status{published}
-\source{P7:sec:cold_director}
 
-The stiffnesses have standard (gradient-squared) Frank form, so a
-disclination winding gives director angle $\theta(r)\sim\ln r$, hence
-$|\nabla\hat n|\sim1/r$, elastic energy density $u\sim K/r^2$, and
-enclosed strain mass
 \begin{equation}
   M_{\mathrm{enc}}(r)=\int u\,dV \;\propto\; r,
   \label{P7:eq:Menc}
 \end{equation}
-exactly $v^2=GM_{\mathrm{enc}}/r=\text{const}$ --- flat rotation
-curves, with no fitted halo. A smooth, defect-free director gives the
-fast-falling monopole (Keplerian); the flat curve is the signature of
-the splay-driven disclination.
 \status{published}
-\source{P7:sec:flat_curves}
 
 \begin{remark}[Director strain as a heavy elastic solid]
 \label{P7:rem:elastic_solid}
@@ -428,19 +359,6 @@ with no galactic input.
 \end{remark}
 \status{published}
 \source{P7:rem:elastic_solid}
-
-The strain magnitude is set by the physical ultraviolet cutoff of the
-semi-Dirac dispersion --- the condensate scale $m_\xi\sim H_0$. The
-acceleration at which the strain contribution overtakes the Newtonian
-term is therefore of order $cH_0$, coinciding with the empirical MOND
-scale $a_0\approx cH_0/(2\pi)$ and tying the dark-matter and
-dark-energy scales to the same condensate. Reproducing
-$a_0\approx cH_0/(2\pi)$ requires the ratio of $m_\xi$ to the
-semi-Dirac crossover scale to be of order $\vp^6$, the same
-normalisation appearing in $S_{\mathrm{eff}}$ itself; this is a
-framework-native scale, but the precise value is not derived here.
-\status{published}
-\source{P7:sec:accel_scale}
 
 \begin{proposition}[$G_{\rm eff}(r)$ in the screened halo]
 \label{P7:prop:Geff}
@@ -477,26 +395,11 @@ indistinguishable from $G_N$ at the level of rotation-curve measurements.
 \status{published}
 \source{P7:prop:Geff}
 
-Because the director strain is pressureless, carries no independent
-sound speed, and is sourced by and comoving with the baryons, it adds
-no acoustic feature of its own: it shifts no acoustic scale. This
-no-shift property is firm; it does not, on its own, fix the
-\emph{absolute} acoustic scale. The standard $r_s\approx147\,\mathrm{Mpc}$
-is set by the pre-recombination matter budget, so recovering it
-requires a cold-matter component present at recombination, which is
-tied to the epoch at which the nematic medium orders (not settled
-here): the self-organised texture orders only at $z\sim0$ and is
-absent at recombination, while the recombination-era presence of the
-adiabatic baryon-sourced strain is left open. The firm prediction is
-therefore the \emph{absence of a shift}; recovery of the standard
-scale is contingent on that ordering epoch.
-\status{published}
-\source{P7:sec:bao}
-
 \begin{equation}
   \boxed{w_a \;=\; -3(1+w_0),}
   \label{P7:eq:wa_derived}
 \end{equation}
+\status{published}
 
 \begin{theorem}[Thawing quintessence relation]
 \label{P7:thm:thawing}
@@ -515,6 +418,7 @@ $w_a=-1.05^{+0.31}_{-0.27}$~\cite{DESI2024}.
 \end{theorem}
 \status{published}
 \source{P7:thm:thawing}
+
 \begin{proof}
 Near the attractor $\rinfty=\vp/\beta$, the kinetic prefactor
 $K(\rho)=1/[\vp^6(1+\beta\rho)]$ evaluates to

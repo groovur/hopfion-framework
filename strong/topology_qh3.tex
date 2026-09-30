@@ -1,21 +1,7 @@
-% strong/topology_qh3.tex
-% Part of the Hopfion Framework Repository
-% Source: Paper XVI — Quark Generation Masses in the Density-Feedback Hopfion:
-%   A Survey of Ruled-Out Mechanisms and the Q_H=3 Gradient-Flow Landscape
-% Status: published
-% Last updated: 2026-06-28
-%
 \input{../preamble}
 
 \section*{$\QH=3$ Sector Topology and Numerical Construction}
 \label{sec:topology_qh3}
-
-% Results extracted from Paper XVI
-% Scan date: 2026-06-28
-
-%════════════════════════════════════════════════════════════════════
-% String Tension and Junction Energy
-%════════════════════════════════════════════════════════════════════
 
 \begin{proposition}[The Y-junction arms lie off the trefoil curve]
 \label{P16:prop:arms_off_curve}
@@ -184,10 +170,6 @@ formula does not arise from the geometric Y-junction energy.
 \status{published}
 \source{P16:rem:junction_results}
 
-%════════════════════════════════════════════════════════════════════
-% Phase Discontinuity in the Original Ansatz
-%════════════════════════════════════════════════════════════════════
-
 \begin{proposition}[The single-nearest-point ansatz is discontinuous at every crossing]
 \label{P16:prop:phase_jump}
 Let $n(\mathbf{x})$ be built from the nearest point on the trefoil
@@ -253,10 +235,6 @@ verifiable candidate cause.
 \status{published}
 \source{P16:rem:two_mechanisms}
 
-%════════════════════════════════════════════════════════════════════
-% $S^3$-Lift Construction (Local)
-%════════════════════════════════════════════════════════════════════
-
 \begin{construction}[Complex-doublet superposition ansatz]
 \label{P16:constr:s3lift}
 Near a crossing, build each strand's own Hopf doublet
@@ -312,10 +290,6 @@ doublet has been projected to a single real $S^2$ phase.
 \end{remark}
 \status{published}
 \source{P16:rem:why_s3_works}
-
-%════════════════════════════════════════════════════════════════════
-% Global $S^3$-Lift and Hopf Charge
-%════════════════════════════════════════════════════════════════════
 
 \begin{construction}[Global two-strand $S^3$-lift ansatz]
 \label{P16:constr:global_s3lift}
@@ -396,10 +370,6 @@ $\QH=3$ via the same Whitehead-integral test.
 \status{published}
 \source{P16:rem:s3lift_not_sufficient}
 
-%════════════════════════════════════════════════════════════════════
-% Profile Parameter Threshold
-%════════════════════════════════════════════════════════════════════
-
 \begin{proposition}[Critical profile parameter from the trefoil's injectivity radius]
 \label{P16:prop:cstar_crit}
 The trefoil curve $T_{2,3}$ has injectivity radius exactly $r_0=0.874$
@@ -451,10 +421,6 @@ $\Phi_i=\chi_i+3t_i$, before any crossing-region superposition.
 \end{remark}
 \status{published}
 \source{P16:rem:blending_insufficient}
-
-%════════════════════════════════════════════════════════════════════
-% Per-Strand Construction with Poloidal Winding
-%════════════════════════════════════════════════════════════════════
 
 \begin{proposition}[The trefoil's Bishop frame has nontrivial holonomy]
 \label{P16:prop:bishop_holonomy}
@@ -567,10 +533,6 @@ was the missing structural ingredient.
 \status{published}
 \source{P16:rem:perstrand_summary}
 
-%════════════════════════════════════════════════════════════════════
-% Solver Functional Test
-%════════════════════════════════════════════════════════════════════
-
 \begin{proposition}[Global functional comparison at the solver's working resolution]
 \label{P16:prop:global_functional_comparison}
 At the solver's default grid ($N=64$, $h=0.26$, $C^*=2.4987$), the
@@ -633,10 +595,6 @@ tube radii of $T_{2,3}$ is the natural next step.
 \status{open}
 \source{P16:rem:solver_practical_recommendation}
 
-%════════════════════════════════════════════════════════════════════
-% Gradient-Flow Landscape
-%════════════════════════════════════════════════════════════════════
-
 \begin{proposition}[Phase 1 energy removal]
 \label{P16:prop:gf_phase1}
 Starting from Construction~\ref{P16:constr:perstrand} at $N=144$, $h=0.075$,
@@ -679,10 +637,6 @@ The resolution-convergent $K$-minimum estimate is $K_{\min}\approx2294$
 \end{remark}
 \status{published}
 \source{P16:rem:gf_twophase}
-
-%════════════════════════════════════════════════════════════════════
-% Arc-Segment Energy Partition
-%════════════════════════════════════════════════════════════════════
 
 \begin{definition}[Arc-segment boundaries]
 \label{P16:def:arc_boundaries}
@@ -817,10 +771,6 @@ consistent with, but not proved by, equation~\eqref{P15:eq:r0_satellite}.
 \status{published}
 \source{P15:rem:r0_origin}
 
-%════════════════════════════════════════════════════════════════════
-% Trefoil Geometry: Frenet-Serret and Torsion — Paper XV
-%════════════════════════════════════════════════════════════════════
-
 \begin{theorem}[Exact torsion cancellation for symmetric profiles]
 \label{P15:thm:torsion_cancels}
 In the Frenet--Serret frame, the torsion $\tau(s)$ acts as a rigid
@@ -885,10 +835,6 @@ at leading order.
 \end{remark}
 \status{published}
 \source{P15:rem:tube_separation}
-
-%════════════════════════════════════════════════════════════════════
-% Crossing Regions and Confinement — Paper XV
-%════════════════════════════════════════════════════════════════════
 
 \begin{proposition}[Crossing regions as inner wall]
 \label{P15:prop:crossings}
@@ -1023,10 +969,6 @@ and $\lam_3$) is unchanged since the missing term is $C^*$-independent.
 \status{published}
 \source{P15:rem:yjunction_energy}
 
-%════════════════════════════════════════════════════════════════════
-% Normalisation Identity and Equivalence — Paper XV
-%════════════════════════════════════════════════════════════════════
-
 \begin{theorem}[Normalisation identity]
 \label{P15:thm:norm3}
 Given Theorem~\ref{P15:thm:virial} ($\Kfb=2\vp\Ja$), the sector energy
@@ -1104,10 +1046,6 @@ This shifts $C_3^*$ from $2.497$ to
 \status{published}
 \source{P15:prop:kappa4}
 \residual{exact}
-
-%════════════════════════════════════════════════════════════════════
-% Condensate Universality and Simple-Current Sector — Paper XV
-%════════════════════════════════════════════════════════════════════
 
 \begin{proposition}[Condensate universality of $\lam_3$]
 \label{P15:prop:lambda3}
@@ -1247,10 +1185,6 @@ Theorem~\ref{P15:thm:virial}--Corollary~\ref{P15:cor:V3}.
 \source{P15:cor:sc_consequences}
 \residual{exact}
 
-%════════════════════════════════════════════════════════════════════
-% WRT Invariants — Paper XV
-%════════════════════════════════════════════════════════════════════
-
 \begin{proposition}[Writhe-3 framing phase of the simple current]
 \label{P15:prop:wrt_phase}
 For $j=3/2$ at $k=3$, the writhe-3 framing phase is
@@ -1340,10 +1274,6 @@ sector assignment.
 \end{remark}
 \status{published}
 \source{P15:rem:wrt_physical_interp}
-
-%════════════════════════════════════════════════════════════════════
-% Proof of the Sector Assignment — Paper XV
-%════════════════════════════════════════════════════════════════════
 
 \begin{lemma}[Triple-fusion decomposition at $k=3$]
 \label{P15:lem:triple_fusion}

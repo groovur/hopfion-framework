@@ -99,8 +99,9 @@ filing rule.
 | Paper XV | The Q_H=3 Sector of the Density-Feedback Hopfion | published | [10.5281/zenodo.20691001](https://doi.org/10.5281/zenodo.20691001) |
 | Paper XVI | Quark Generation Masses: Survey of Ruled-Out Mechanisms | published | [10.5281/zenodo.21012650](https://doi.org/10.5281/zenodo.21012650) |
 | Paper XVII | The Q_H=1 Sector: Topology, Group Structure, Colour Exclusion | published | [10.5281/zenodo.21013412](https://doi.org/10.5281/zenodo.21013412) |
-| Paper XVIII | Preimage Topology and Confinement | **draft** | [10.5281/zenodo.21047750](https://doi.org/10.5281/zenodo.21047750) |
-| Paper XIX | Dynamical Origin of Quark Masses | **draft** | [10.5281/zenodo.21225452](https://doi.org/10.5281/zenodo.21225452) |
+| Paper XVIII | Preimage Topology and Confinement | published | [10.5281/zenodo.21047750](https://doi.org/10.5281/zenodo.21047750) |
+| Paper XIX | Dynamical Origin of Quark Masses | published | [10.5281/zenodo.21225452](https://doi.org/10.5281/zenodo.21225452) |
+| Paper XX | The Dynamical Layer of the Quark Sector | published | [10.5281/zenodo.21225452](https://doi.org/10.5281/zenodo.23047961) |
 
 `paper_registry.yaml` is the authoritative source for this table — it also
 lists every extracted result label per paper. If this README and the

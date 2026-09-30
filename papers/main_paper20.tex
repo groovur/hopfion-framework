@@ -41,7 +41,7 @@ Static Residuals as Strong Dynamics}
 {\large Companion Paper XX to the Density-Feedback
 Faddeev--Niemi Hopfion Series}
 \\[0.6em]
-\large DRAFT --- September 2026}
+\large September 2026}
 \author{Frederick Manfredi}
 \date{}
 
@@ -65,10 +65,12 @@ $(\pi/4)/(\pi/9)=9/4$, matching the measured steepness ($\approx2.1$)
 to $6\%$ with no free parameter.
 (2)~\textbf{Isospin mass-scale from tangent orientation.} The up/down
 mass-scale ratio is fixed by the trefoil crossing/midpoint tangent
-geometry (Paper~XVIII), $\Mdn/\Mup\approx0.189$, closing to the measured
-$0.157$ under a single generation-universal correction; a direct
-Faddeev-energy computation shows the operative quantity is tangent
-\emph{orientation}, not a static energy difference.
+geometry (Paper~XVIII), $\Mdn/\Mup\approx0.189$ at leading order; the
+generation-universal correction is computed as the confined breathing
+mode---the scale-flat trefoil Airy-quantised in its tube tension---giving
+$0.153$ against the measured $0.157$. A direct Faddeev-energy computation
+shows the operative quantity is tangent \emph{orientation}, not a static
+energy difference.
 (3)~\textbf{Fractional charge from colour triality.} The $\Zthree$
 center of the colour CFT $\SU(3)_1=(E_6)_1$ forces the quark hypercharge
 $Y\equiv\text{triality}/3$, giving $Q=\{+\tfrac23,-\tfrac13\}$ for the
@@ -248,8 +250,8 @@ integer,
 so with the $E_6$-native phase unit $\pi/4$~\eqref{P20:eq:e6phase} and the
 tower $m_g\propto\exp(-n_g\,\pi/4)$,
 \begin{equation}
-  \frac{m_u}{m_c}=\exp\!\Bigl[-(n_u-n_c)\tfrac{\pi}{4}\Bigr]
-                =e^{-2\pi}=1.867\times10^{-3},
+  \boxed{\;\frac{m_u}{m_c}=\exp\!\Bigl[-(n_u-n_c)\tfrac{\pi}{4}\Bigr]
+                =e^{-2\pi}=1.867\times10^{-3}\;}
   \label{P20:eq:up_ratio}
 \end{equation}
 a mass ratio fixed entirely by WZW T-matrix and Coxeter data, with no free
@@ -305,10 +307,14 @@ predicted
   \label{P20:eq:isospin_ratio}
 \end{equation}
 against the measured $0.157$. The residual is a factor $\approx1.2$,
-matching in magnitude the uniform correction by which the
-charged-lepton-anchored quark-mass predictions of
-Paper~XVI~\cite{Paper16} overshoot; the mass-scale ratio is therefore
-the tangent geometry up to a single generation-universal factor.
+computed in Remark~\ref{P20:rem:isospin_breathing} as the confined breathing
+mode ($0.189\to0.153$): the quark sector's characteristic $\sim\!\alphas$
+dynamical correction (Section~\ref{P20:sec:residuals}), the structural gap
+between this \emph{isolated-trefoil} ideal and the confined, running
+current-quark masses actually measured---the same magnitude as the
+charged-lepton-anchored overshoot of Paper~XVI~\cite{Paper16}. The mass-scale
+ratio is thus the tangent geometry at exact leading order, the dynamical
+factor supplied by that same geometry Airy-quantised under confinement.
 \end{proposition}
 
 \begin{remark}[The operative quantity is orientation, not energy]
@@ -325,6 +331,50 @@ crossing network is distinguished by its purely in-plane exit
 or by a static energy excess. The up/down asymmetry is thus orientational
 and field-selection-driven, consistent with Paper~XVIII's premise that
 absent an external field the two isospin values are degenerate.
+\end{remark}
+
+\begin{remark}[The residual is the confined breathing mode: $0.189\to0.153$]
+\label{P20:rem:isospin_breathing}
+The factor-$\approx1.2$ residual is the confined dynamics made explicit. The
+Faddeev energy $E=K\,J_4$ is exactly scale-invariant ($K\propto\lambda$,
+$J_4\propto\lambda^{-1}$ under a dilation $x\to\lambda x$), so the trefoil's
+size is a flat zero-mode---the breathing coordinate---with no Faddeev
+restoring force. Confinement supplies one: the tube line-tension $\sigma$
+gives a linear potential $V=\sigma L(\lambda)$, in which the metastable quark
+oscillates. Two features fix the mode with no free parameter. First, it is
+\emph{transverse} to the tube---a longitudinal displacement is a
+reparametrisation with no stretch---and of the transverse plane only the
+Frenet-normal $\hat N$ carries a tension restoring,
+\begin{equation}
+  \frac{dL}{dA}=-\!\int w\,\kappa\,(\hat N\!\cdot\!\hat d)\,ds ,
+  \label{P20:eq:tension_force}
+\end{equation}
+so the confined mode is the $\hat N$ oscillation (the binormal $\hat B$ gives
+$dL/dA=0$, a flat direction) and its force is set by the local curvature
+$\kappa$. Second, a linear potential quantises as an Airy well, ground state
+$E_0\propto(F^2/\mu)^{1/3}$ with tension force $F=\sigma\,dL/dA$ and breathing
+inertia $\mu=\int|\partial_A n|^2\,d^3x$. On the exact golden trefoil the up
+(crossing) network is more sharply curved than the down (midpoint) network,
+giving a tension-force ratio $F_{\rm up}/F_{\rm down}=1.375$ (independent of
+the transverse direction, since Eq.~\eqref{P20:eq:tension_force} depends only
+on the $\hat N$ component), while the transverse inertia is nearly common,
+$\mu_{\rm up}/\mu_{\rm down}=1.009$ (converged in the field resolution). Hence
+\begin{equation}
+  \frac{\Mdn}{\Mup}\Big|_{\rm corrected}
+   =0.189\times\Bigl(\frac{F_{\rm up}^2/\mu_{\rm up}}
+                          {F_{\rm down}^2/\mu_{\rm down}}\Bigr)^{-1/3}
+   =0.189\times0.811=0.153 ,
+\end{equation}
+against the measured $0.157$ ($\approx2\%$). The correction is essentially the
+curvature ratio alone ($\mu\!\approx\!1\Rightarrow$ multiplier
+$\approx F^{-2/3}$): the \emph{same} tangent geometry that sets the leading
+$0.189$, now Airy-quantised against the confinement wall, so leading order and
+residual share one origin. Density feedback drives the breathing monotonically
+toward collapse (as does the tension), leaving the shared-jam boundary to set
+the confined size; this is consistent with the feedback's $\lesssim1\%$ static
+differential (Remark~\ref{P20:rem:feedback_saturation})---the residual is the
+confinement oscillation, not the feedback. The remaining $\approx2\%$ is the
+higher-order jam dynamics beyond this single-site Airy estimate.
 \end{remark}
 
 %══════════════════════════════════════════════════════════════════════════════
@@ -403,10 +453,12 @@ higher-charge up heavier (wrong sign) and is $\sim0.5$~MeV (too small).
 \begin{proposition}[Charge-linear generation-1 flip]
 \label{P20:prop:gen1_flip}
 A charge-linear coupling to a formation-scale field,
-$\delta m=-Q\,\Phi$ with $\Phi\sim\alphaem\Lambda_{\mathrm{const}}
-\approx1.6$~MeV, shifts up-type ($Q=+\tfrac23$) and down-type
-($Q=-\tfrac13$) oppositely, with $\delta m_{\rm down}-\delta m_{\rm up}
-=+\Phi>0$ (down heavier), of the observed magnitude $m_d-m_u=2.5$~MeV.
+$\delta m=-Q\,\Phi$ with $\Phi\sim\alphaem\Lambda_{\rm form}
+\approx1.6$--$2.3$~MeV (formation scale $\Lambda_{\rm form}\sim237$--$308$~MeV,
+the jam value giving $2.3$~MeV; Remark~\ref{P20:rem:gen1_np}), shifts up-type
+($Q=+\tfrac23$) and down-type ($Q=-\tfrac13$) oppositely, with
+$\delta m_{\rm down}-\delta m_{\rm up}=+\Phi>0$ (down heavier), of the observed
+magnitude $m_d-m_u=2.5$~MeV.
 Because $\Phi$ is generation-independent, the shift is a fixed
 $\sim$MeV offset: decisive at generation~1 ($\sim50\%$ of $m_u$) and
 negligible at generations~2,3 (GeV masses). It therefore flips only
@@ -419,8 +471,27 @@ The sign of $\Phi$ (which member is raised) is fixed by observation, as
 the down direction is fixed by the strange--muon anchor; this is the
 external-field selection of Paper~XVIII's isospin conjecture
 %\ref{P18:conj:isospin}
-made quantitative. A first-principles derivation of $\Phi$ from the
-density-feedback action is open.
+made quantitative. This single sign is the sector's \emph{one} isospin
+input. It is strictly less than the Standard Model requires: there the
+entire doublet splitting---both the sign \emph{and} the magnitude of
+$m_d-m_u$---is an independent Yukawa input, whereas here the magnitude
+($\alphaem\Lambda_{\rm form}$) and the generation structure (flips only
+generation~1) are fixed by Proposition~\ref{P20:prop:gen1_flip}, leaving
+only the direction undetermined. That direction is the sign of the
+$\SU(3)_1$ Chern--Simons level. Formation is a writhe injection---one unit
+of self-linking, i.e.\ one Chern--Simons flux quantum with the $(2,3)$-cable
+handedness---and a charge in that flux acquires the linear $-Q\,\Phi$
+coupling with $\mathrm{sign}(\Phi)=\mathrm{sign}(k)$
+(Section~\ref{P20:sec:charge}). The sign is therefore \emph{locked} to the
+fractional charge ($Y=t/3$), the topological spin ($e^{+2\pi i/3}$), the
+framing anomaly ($c=+2$), and the matter orientation ($\QH>0$)---a single
+vacuum-chirality bit shared across all of them, not an independent
+parameter. It is moreover not derivable within the framework: $\SU(3)_{+1}$
+and $\SU(3)_{-1}$ are exact mirror theories, and the parity-even sector (the
+elastic energy is mirror-degenerate under $z\to-z$) cannot fix a parity-odd
+sign---this one bit \emph{is} the parity input, the same choice as the
+matter orientation. What remains open is only the explicit Chern--Simons/Hall
+form of the coupling, as opposed to its flux-charge origin given here.
 \end{remark}
 
 \begin{remark}[The flip is the neutron--proton QCD splitting]
@@ -433,9 +504,14 @@ $(m_n-m_p)_{\rm QED}\approx-1$~MeV, the two summing to the observed $+1.29$~MeV.
 $\Phi$ is a precisely measured observable, not merely an ``order-MeV'' offset. Taking
 the formation scale as the jam value $\Lambda\sim m_p^{\rm jam}/3\approx308$~MeV gives
 $\Phi=\alphaem\Lambda\approx2.3$~MeV, $\sim90\%$ of the QCD splitting; the constituent
-scale $237$~MeV gives $1.7$~MeV ($\sim70\%$). The magnitude is thus fixed by $\alphaem$
-and the formation scale ($\sim250$--$310$~MeV) with no new coupling, the residual being
-the sector's formation-scale ambiguity.
+scale $237$~MeV gives $1.7$~MeV ($\sim70\%$). Both factors are themselves
+framework-derived---$\alphaem^{-1}=360/\vp^2$ from the icosahedral WZW data, and
+$\Lambda\sim m_p^{\rm jam}/3=\sigma(3R_0+R)/3$ from the confinement energetics (the same
+jammed scale that anchors O1)---so $\Phi=\alphaem\,\sigma(3R_0+R)/3\approx2.24$~MeV is a
+\emph{product of two independently-derived scales carrying no new parameter}, not merely
+``$\alphaem$ times a formation scale.'' The residual $\sim10\%$ is the
+formation-scale/running ambiguity: the jam scale versus the slightly higher value that
+would saturate the splitting.
 \end{remark}
 
 %══════════════════════════════════════════════════════════════════════════════
@@ -593,6 +669,38 @@ or is loop-generated (the neutrino). This is not a collection of
 unrelated misses.
 \end{remark}
 
+\begin{remark}[Why the lepton is a static saddle and the quark is not: the feedback saturates]
+\label{P20:rem:feedback_saturation}
+The static/dynamical partition has a geometric origin in the
+density-feedback term itself. The isotropic stiffness enters the energy
+as $J_2^{\mathrm{iso,fb}}=\int g_2/(1+\beta\,g_2)\,dV$ with
+$g_2=|\nabla n|^2$ the local gradient-energy density (Paper~I~\cite{Paper1}).
+This term stabilises a sector only where it is \emph{responsive},
+$\beta\,g_2\lesssim1$; where $\beta\,g_2\gg1$ it \emph{saturates} to the
+constant $1/\beta$ and exerts no gradient-dependent restoring stress. The
+two sectors sit in opposite regimes. The charged lepton ($\QH=2$) is the
+extended, low-curvature torus: on Paper~I's converged self-consistent
+saddle only $\approx13\%$ of the isotropic energy is saturated, and the
+scale-invariant virial ceiling
+$V_{\max}\equiv J_2^{\mathrm{iso}}/J_2^{a}=2.22$ (at $\beta=0$) sits well
+above the self-consistency value $V=\vp$, so the feedback acts as an
+active stabiliser. The quark ($\QH=3$) is the thin trefoil tube (core
+radius $1/C^\ast\!\approx\!0.4$): on the tube-adapted curvilinear
+construction $\approx93\%$ of the isotropic energy is saturated at the
+self-consistent coupling, with $V_{\max}=1.91$. The sharp quark tube
+drives $g_2$ high enough to pin the very term that holds the smooth
+lepton open. This is the geometric content of ``no stable field saddle''
+(Section~\ref{P20:sec:intro}): the restoring stress that stabilises the
+lepton is self-saturated by the quark's own concentration, consistent
+with the quark existing only in the jammed baryon (confinement). The
+comparison is between the tube-adapted $\QH=3$ solver and Paper~I's
+axisymmetric $\QH=2$ solver, so the absolute saturation fractions are
+engine-dependent; the order-of-magnitude regime split and the
+engine-robust $V_{\max}$ gap are not. That the quark's self-consistent
+configuration is not merely unstabilised but dynamically unstable is a
+distinct statement, not established here.
+\end{remark}
+
 \begin{remark}[The perturbative strong layer is already built and does not close the residuals]
 \label{P20:rem:perturbative}
 Paper~V~\cite{Paper5} and Paper~XVI~\cite{Paper16} derive a
@@ -623,8 +731,14 @@ must not be conflated.
 \caption{Quark masses: framework prediction vs.\ measured (PDG,
 $\overline{\mathrm{MS}}$; $b$ at $m_b$, light quarks at $2$~GeV, top pole).
 Down-type use the $E_8$ bridge $m=m_\ell\,e^{n_q\pi/9}$ with the charged
-leptons as input; their common $\sim\!1.2$ over-prediction is the
-generation-universal RG running to the measurement scale. Up-type use the
+leptons as input. Their $\sim\!1.2$ over-prediction, mirrored by the
+up-type's slight under-prediction, is the confined dynamical layer, not
+running: the flavour-universal mass anomalous dimension makes running
+cancel in mass ratios and in $\Mdn/\Mup$, so the up/down anti-correlation
+is exactly the breathing asymmetry that refines $\Mdn/\Mup$
+(Remark~\ref{P20:rem:isospin_breathing}). Genuine running is small and
+specific---the $b$ excess falls from $1.21$ at $m_b$ to $1.05$ at $2$~GeV
+(scale-quoting), over a $\sim\!4\%$ common anchor offset. Up-type use the
 $E_6$-native tower: the ratio $m_u/m_c=e^{-2\pi}$ is parameter-free
 (Proposition~\ref{P20:prop:up_ratio}), and the absolute scale is set by the
 completion (de-jamming) energy $(m_p-\sigma(3R_0+R))/3\approx4.5$~MeV
@@ -632,7 +746,8 @@ completion (de-jamming) energy $(m_p-\sigma(3R_0+R))/3\approx4.5$~MeV
 incomplete formation---it decays before hadronising---while its full $T_{2,3}$
 formation would be $m_\tau e^{15\pi/9}\approx334$~GeV. Every deviation is within
 or comparable to the experimental current-mass uncertainty except at the
-well-measured $c,b$, where it is the $\sim\!10$--$20\%$ shape/running residual.
+well-measured $c,b$, where it is the confined dynamical residual---$c$ at
+$\sim\!13\%$, and $b$ at $\sim\!5\%$ once run to a common $2$~GeV.
 This is agreement across five orders of magnitude, not a zero-parameter fit.}
 \label{P20:tab:predvsmeas}
 \begin{tabular}{clccc}
@@ -677,7 +792,18 @@ not on the constituent (jammed hadron) scale $\Lcond^{\rm baryon}\vp^6 e^{8\pi}
 \approx237$~MeV but on the \emph{completion} energy---the de-jamming/localisation
 piece $m_p-\sigma(3R_0+R)\approx13.5$~MeV released at hadronisation, i.e.\
 $\approx4.5$~MeV per quark, matching the fitted $u,c$-tower anchor ($\approx5$~MeV)
-to $\sim10\%$.
+to $\sim10\%$. Equivalently, and \emph{without} the large-number subtraction, this
+completion energy is the constituent scale stripped of its tower factor:
+$\Lcond^{\rm baryon}e^{8\pi}\approx13.2$~MeV $=$ (constituent)$/\vp^{6}$, agreeing
+with the subtraction to $2\%$, so the tower anchor is
+$M_0\approx\Lcond^{\rm baryon}e^{8\pi}/3\approx4.4$~MeV. The
+$\vp^{6}=\vp^{2\Qgr}$ WZW tower factor that dresses the bare $8\pi$ Chern--Simons
+spoke into the jammed constituent mass is exactly what the released current-mass
+anchor lacks---the framework's current-versus-constituent distinction, and an
+algebraic route to the anchor that does not pass through the subtraction. (The
+two routes share no inputs---$\{T_{\rm CMB},8\pi,\vp^{6}\}$ versus
+$\{m_p,\sigma,R_0,r_0\}$---save through the natural-units-to-MeV calibration of
+$\sigma$, so their $2\%$ agreement is a near-independent cross-check.)
 
 A residual of this order is \emph{expected}, and distinguishes the sector. The
 charged lepton ($\QH=2$) is a free particle whose isolated configuration exists
@@ -694,29 +820,55 @@ realising their ideal, do not carry. It currently lies within the experimental
 current-mass uncertainties ($\sim{+23}/{-12}\%$ for $m_u$, $\sim10\%$ for $m_d$),
 so it stands as a \emph{prediction}---confined-quark towers should carry a
 shared-jam deviation absent from the leptons---rather than a resolved discrepancy.
-Computing the completion energy and this deviation from first principles requires
-the jammed (topology-protected) $\QH=3$ configuration: the isolated $\QH=3$ trefoil
-has no stable saddle, so a topology-protected treatment (not unconstrained gradient
-flow) is a prerequisite.
+The absolute anchor is thus fixed algebraically ($\Lcond^{\rm baryon}e^{8\pi}$,
+above); what still requires the jammed (topology-protected) $\QH=3$ configuration
+is the per-generation shape \emph{deviation} itself. The isolated $\QH=3$ trefoil
+has no stable saddle---its density feedback is self-saturated
+(Remark~\ref{P20:rem:feedback_saturation})---so its shared-jam value is a
+topology-protected quantity, not the output of unconstrained gradient flow; that
+deviation, not the anchor, is what a first-principles jammed treatment would add.
 
 \item \textbf{Derivation of the generation-1 field $\Phi$.}
 Proposition~\ref{P20:prop:gen1_flip} fixes the charge-linear flip
 $\Phi=\alphaem\Lambda$ to the formation scale, and
 Remark~\ref{P20:rem:gen1_np} identifies $\Phi$ with the QCD part of the
-neutron--proton mass difference ($\approx2.5$~MeV), reached to
-$\sim70$--$90\%$ across the constituent-to-jam scale range. What remains
-is a first-principles $\Phi$ from the density-feedback action---both its
-magnitude to better than the formation-scale ambiguity, and its sign
-(currently set by the strange--muon anchor)---and the connection to the
-Paper~XVIII isospin field.
+neutron--proton mass difference ($\approx2.5$~MeV) and fixes its magnitude
+to $\sim90\%$ as a \emph{product of two framework-derived scales},
+$\Phi=\alphaem\,\sigma(3R_0+R)/3$ ($\alphaem^{-1}=360/\vp^2$, the jam scale
+from the confinement energetics), carrying no new parameter. What remains is
+the action-level step: showing the density-feedback action, with the
+Paper~XIII~\cite{Paper13} electromagnetic sector, \emph{produces} this
+charge-linear $z$-level coupling at strength $\alphaem\Lambda$, which would
+close the residual $\sim10\%$ and fix the explicit Chern--Simons/Hall form of
+the coupling. The \emph{sign} is not part of that step: it is the
+$\SU(3)_1$ Chern--Simons level, locked to the fractional charge and the matter
+orientation (Remark~\ref{P20:rem:gen1_sign})---one shared vacuum-chirality bit,
+which a parity no-go forbids deriving from the parity-even sector. It is an
+input, but a single shared one, not a per-doublet parameter.
 
 \item \textbf{First-principles $\Mdn/\Mup$ residual.}
-Proposition~\ref{P20:prop:isospin_scale} closes to $\approx1.2$. This is
-\emph{not} the down-sector running---which cancels in a same-scale
-up/down ratio---so the two are distinct corrections of coincidentally
-similar size. What remains open is whether the tangent-fraction
-functional is derivable from the density-feedback action rather than
-motivated.
+Proposition~\ref{P20:prop:isospin_scale} predicts $0.189$ against the
+measured $0.157$, a factor $\approx1.2$. This is \emph{not} the down-sector
+running (which cancels in a same-scale up/down ratio) and \emph{not} the
+density feedback (a direct crossing-vs-midpoint test gives only a
+$\lesssim1\%$ differential, the two networks saturating the feedback almost
+equally because the gradient energy is set by the common tube-wall profile,
+not the centerline curvature). Structurally the $\approx1.2$ is the gap
+between what is computed---the \emph{isolated, static} trefoil, the
+WZW/tangent ideal---and what is measured: the confined, scale-dependent
+current-quark mass of an object that, unlike the charged lepton, has no
+stable isolated realisation (Remark~\ref{P20:rem:feedback_saturation}). The
+tangent-fraction functional is the exact leading order, and the residual is
+the quark sector's universal $\sim\!\alphas$ dynamical correction
+(Section~\ref{P20:sec:residuals}) made specific---the same shared-jam
+deviation that separates every confined-quark prediction from its measured
+value (O1), and expected \emph{by construction} rather than a coincidental
+miss. Remark~\ref{P20:rem:isospin_breathing} carries this out: the correction
+is the confined breathing mode---the scale-flat trefoil oscillating in its
+linear confinement well, Airy-quantised---whose transverse tension-force and
+inertia ratios give $0.189\to0.153$ against the measured $0.157$ ($\approx2\%$).
+The residual is thus computed, not merely sized, up to the higher-order jam
+dynamics beyond the single-site estimate.
 
 \end{enumerate}
 
@@ -796,6 +948,12 @@ F.~Manfredi,
   Proof via CMB Energy Identity and Two-Route Equivalence},
 Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.20210460}{doi:10.5281/zenodo.20210460}
+
+\bibitem{Paper13}
+F.~Manfredi,
+\textit{Atomic Quantum Mechanics from the Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20471482}{doi:10.5281/zenodo.20471482}
 
 \bibitem{Paper15}
 F.~Manfredi,

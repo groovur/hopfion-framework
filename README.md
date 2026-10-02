@@ -4,13 +4,15 @@
 Single input: **T_CMB = 2.7255 K**. All results below derive from this alone,
 plus geometry and group theory — no fitted parameters.
 
+The density-feedback Hopfion programme in its entirety sits at the intersection of three independently established areas — TQC/anyons (φ as the SU(2)_3 Fibonacci quantum dimension, plus WZW modular data), modular flavour symmetry (the icosahedral A_5 ≅ Γ_5 golden-ratio lepton mixing), and the ℤ_6 centre structure of the SM gauge group (fractional charge as a triality quotient). None is novel in isolation. Each is textbook or active-literature mathematics. The novelty is deriving all three from a single topological origin (the density-feedback Hopfion and its 2I McKay correspondence), and coupling that origin to gravity and cosmology.
+
 This repository extracts, organises, and cross-checks every formal result
 (theorems, propositions, corollaries, conjectures, constructions, remarks,
 definitions, and labeled equations) from the Density-Feedback Hopfion paper
 series (Papers I–XIX) into a single, internally consistent, queryable index.
 It is the source of truth for a Q&A system, and for anyone who
 wants to check a claim, a residual, or an open problem without reading
-nineteen papers.
+twenty papers.
 
 ---
 

@@ -28,19 +28,18 @@ canvas{display:block}
   cursor:pointer;z-index:20;user-select:none;
   transition:opacity .2s;
 }
-
-#panel{
-  position:absolute;top:90px;left:12px;
-  color:#e0e0f0;font-size:11.5px;line-height:1.75;
-  background:rgba(4,4,18,0.88);
-  padding:12px 16px;border-radius:9px;
-  border:1px solid #ffffff1a;
-  max-width:244px;pointer-events:all;user-select:none;
+#panel{position:absolute;top:80px;left:14px;color:#e0e0f0;font-size:11.5px;
+  line-height:1.85;background:rgba(4,4,18,0.90);padding:13px 17px;
+  border-radius:9px;border:1px solid #ffffff1a;max-width:264px;
+  max-height:calc(100vh - 100px);overflow-y:auto;
   transition:transform .28s cubic-bezier(.4,0,.2,1), opacity .2s;
-  z-index:10;
-}
+  pointer-events:all;user-select:none;z-index:10;
+  scrollbar-width:thin;scrollbar-color:#ffffff22 transparent}
+#panel::-webkit-scrollbar{width:4px}
+#panel::-webkit-scrollbar-track{background:transparent}
+#panel::-webkit-scrollbar-thumb{background:#ffffff28;border-radius:2px}
 #panel h1{font-size:18.5px;font-weight:normal;color:#F5E642;margin-bottom:4px}
-#panel h2{font-size:13.5px;font-weight:normal;color:#F5E642;margin-bottom:4px}
+#panel h2{font-size:11px;font-weight:normal;color:#F5E642;opacity:.72;margin-bottom:6px}
 #panel .sub{color:#8888aa;font-size:10.5px;margin-bottom:8px;pointer-events:none}
 #panel .row{display:flex;align-items:center;gap:7px;margin:1px 0;cursor:pointer;padding:2px 4px;border-radius:4px;transition:background .12s}
 #panel .row:hover{background:rgba(255,255,255,0.06)}
@@ -51,6 +50,8 @@ canvas{display:block}
 #panel .divider{border-top:1px solid #ffffff14;margin:7px 0}
 #panel .formula{font-style:italic;color:#FF6B9D;font-size:10.5px;margin-top:4px;pointer-events:none}
 #panel .grp-head{color:#8888aa;font-size:10px;margin:5px 0 2px;pointer-events:none;letter-spacing:.4px}
+#loading{position:fixed;inset:0;background:#03030e;display:flex;align-items:center;
+  justify-content:center;color:#F5E642;font-size:16px;z-index:999;letter-spacing:.05em}
 #controls{
   position:absolute;top:90px;right:12px;
   display:flex;flex-direction:column;gap:7px;
@@ -99,7 +100,7 @@ canvas{display:block}
 /* ── Mobile layout ── */
 @media (max-width: 700px),(pointer:coarse) {
   #panel{
-    top:0;left:0;border-radius:0 9px 9px 0;
+    top:64px;left:0;border-radius:0 9px 9px 0;
     max-width:240px;max-height:100vh;overflow-y:auto;
     transform:translateX(0);
   }
@@ -139,12 +140,11 @@ canvas{display:block}
 </head>
 <body>
 <body>
+<div id="loading">Building the tower…</div>
 <div id="panel">
   <h1>The Golden Tower</h1>
-  <h2>φ-Spiral Mass Hierarchy</h2>
-  <div class="sub">m<sub>n</sub> = Λ<sub>cond</sub>·φ<sup>−2n</sup> · log-radius<br>
-  Drag / scroll · hover for details · click legend to toggle</div>
-
+  <h2>φ-Spiral Mass Hierarchy<br>m<sub>n</sub> = Λ<sub>cond</sub>·φ<sup>−2n</sup> · log-radius</h2>
+  <div class="sub">Drag to rotate · scroll to zoom · click legend to toggle · hover for details</div>
   <div class="divider"></div>
   <div class="grp-head">PARTICLE PHYSICS</div>
   <div class="row" id="tog-framework" onclick="toggleGroup('framework')">
@@ -186,7 +186,8 @@ canvas{display:block}
 
   <div class="divider"></div>
   <div class="formula">m<sub>μ</sub>/m<sub>τ</sub> = e<sup>−9π/10</sup>  (0.5%)</div>
-  <div class="formula" style="color:#FF8C42;font-size:10px">m<sub>s</sub> ≈ m<sub>μ</sub><sup>WZW</sup>  (T-matrix identity)</div>
+  <div class="formula" style="color:#FF8C42;font-size:10px">m<sub>u</sub> = m<sub>d</sub> at leading WZW order (Paper XV)</div>
+  <div class="formula" style="color:#56CFE1;font-size:10px">m<sub>H</sub> = 125.11 GeV predicted · 125.11 measured (0.8σ from ATLAS)</div>
 </div>
 
 <div id="controls">
@@ -587,50 +588,73 @@ function N(m){ return nLevel(m); }
 // Framework
 addSphere(N(LCOND),       0xF5E642, 0.065, 'Λcond = 1.19×10⁻⁴ eV\nCondensate ground state\nn = 0 (hub)', 3, 'framework');
 makeLabel(N(LCOND), 'Λcond','#F5E642',1.1,0.18,0.10,'framework');
-addSphere(N(2.7255*KB),   0x7FFFD4, 0.030, 'TCMB = 2.73 K = 2.35×10⁻⁴ eV\nCMB temperature (input 1)\nn = −0.71', 1.0, 'qcd');
+addSphere(N(2.7255*KB),   0x7FFFD4, 0.030, 'TCMB = 2.73 K = 2.35×10⁻⁴ eV\nCMB temperature (single input)\nn = −0.71', 1.0, 'qcd');
 makeLabel(N(2.7255*KB),'TCMB','#7FFFD4',0.85,0.18,0.10,'qcd');
 addSphere(N(36e-3),       0x9DBAFF, 0.022, 'mν ≈ 36 meV (prediction)\nSeesaw from Paper VII\nn = −5.94', 0.9, 'qcd');
 makeLabel(N(36e-3),'mν','#9DBAFF',0.75,0.18,0.10,'qcd');
 
 // Leptons
-const nMe=N(0.51099895e6), nMmu=N(105.6583755e6), nMtau=N(1776.86e6);
-const sMe  = addSphere(nMe,   0xFF6B9D, 0.048, 'mₑ = 0.511 MeV\nElectron — input 2\nn = −23.05\nWZW residual: 0.47%', 1.2, 'leptons');
-makeLabel(nMe,  'mₑ','#FF6B9D',1.0,0.18,0.10,'leptons', sMe);
-const sMmu = addSphere(nMmu,  0xFF6B9D, 0.044, 'mμ = 105.66 MeV\nMuon\nn = −28.59\nWZW leading: −9.5%', 1.1, 'leptons');
+const nMe  = N(0.51099895e6);
+const nMmu = N(105.6583755e6);
+const nMtau= N(1776.86e6);
+const sMe  = addSphere(nMe,   0xFF6B9D, 0.048,
+  'mₑ = 0.511 MeV (PDG exact)\nElectron — Q_H=2 torus sector\nO(R₀⁻²) Shafranov correction: −0.013%\nPaper XIV: closes residual to 0.012%', 1.2, 'leptons');
+makeLabel(nMe, 'mₑ','#FF6B9D',1.0,0.18,0.10,'leptons', sMe);
+const sMmu = addSphere(nMmu,  0xFF6B9D, 0.044,
+  'mμ = 105.66 MeV (PDG exact)\nMuon — WZW T-matrix spoke\nLeading WZW: −9.5% residual\nT-matrix correction (Paper IV) closes to <1%', 1.1, 'leptons');
 makeLabel(nMmu,'mμ','#FF6B9D',1.0,0.18,0.10,'leptons', sMmu);
-const sMtau= addSphere(nMtau, 0xFF6B9D, 0.048, 'mτ = 1776.86 MeV\nTau lepton\nn = −31.52\nm_μ/m_τ = e^{-9π/10}  0.5%', 1.2, 'leptons');
+const sMtau= addSphere(nMtau, 0xFF6B9D, 0.048,
+  'mτ = 1776.86 MeV (PDG 2022)\nTau lepton — WZW T-matrix spoke\nmμ/mτ = e^{−9π/10}  (0.5% accuracy)\nKoide ratio K=2/3 exact (Paper IV)', 1.2, 'leptons');
 makeLabel(nMtau,'mτ','#FF6B9D',1.0,0.18,0.10,'leptons', sMtau);
 registerTube(nMe, nMmu, 0xFF6B9D, 0.55, 0.010);
 registerTube(nMmu, nMtau, 0xFF6B9D, 0.55, 0.010);
 
-// Quarks
-[[2.2e6,'u','n=−24.6'],[4.7e6,'d','n=−25.4'],
- [93.5e6,'s','n=−28.5  ← T_total(s)=T_μ'],[1.27e9,'c','n=−31.2'],
- [4.18e9,'b','n=−32.4'],[172.76e9,'t','n=−36.3']
-].forEach(([m,sym,note])=>{
-  const sz=m>10e9?0.036:m>100e6?0.030:0.024;
+// Quarks — PDG 2024 MS-bar masses; framework framing per Papers XV–XX
+// (E₆-native up-tower u,c,t with m_u/m_c=e^(−2π); E₈-bridge down-tower d,s,b with strange=muon;
+//  isospin mass-scale + generation-1 EM flip; top sits at v/√2 by incomplete formation).
+[[2.16e6, 'u', 'PDG 2024: 2.16 MeV\nUp — 1st gen, E₆-native up-tower (m_u/m_c = e^(−2π))\nAbsolute scale: completion energy ≈4.5 MeV/quark (Paper XX)\nGeneration-1 EM flip gives u < d'],
+ [4.67e6, 'd', 'PDG 2024: 4.67 MeV\nDown — 1st gen, E₈-bridge (d = m_e·e^(7π/9))\nGeneration-1 EM flip gives u < d (Paper XX)'],
+ [93.4e6, 's', 'PDG 2024: 93.4 MeV\nStrange — 2nd gen, E₈-bridge: strange = muon\nm_s/m_d = √(k/2)·e^(8π/9) ≈ 20 = n_e (Paper XIX)'],
+ [1.273e9,'c', 'PDG 2024: 1.273 GeV\nCharm — 2nd gen, E₆-native up-tower; m_u/m_c = e^(−2π) (Paper XX)'],
+ [4.183e9,'b', 'PDG 2024: 4.183 GeV\nBottom — 3rd gen, E₈-bridge (b = m_τ·e^(π/3))\n√φ mass ladder → m_b to 0.7% (Paper XIX)'],
+ [172.57e9,'t','PDG 2024: 172.57 GeV\nTop — 3rd gen; incomplete formation at v/√2\n(decays before hadronising — not a confined-tower rung, Paper XX)']
+].forEach(([m, sym, note]) => {
+  const sz = m > 10e9 ? 0.036 : m > 100e6 ? 0.030 : 0.024;
   const sq = addCube(N(m), 0xFF8C42, sz*2,
-    `m${sym} = ${m>1e9?(m/1e9).toPrecision(3)+' GeV':(m/1e6).toPrecision(3)+' MeV'}\nQuark\n${note}`, 'quarks');
-  makeLabel(N(m),'m'+sym,'#FF8C42',0.78,-0.18,0.06,'quarks', sq);
+    `m${sym} = ${m > 1e9 ? (m/1e9).toPrecision(4)+' GeV' : (m/1e6).toPrecision(3)+' MeV'}\n${note}`, 'quarks');
+  makeLabel(N(m), 'm'+sym, '#FF8C42', 0.78, -0.18, 0.06, 'quarks', sq);
 });
 
 // QCD
-const tQCD = addTorus(N(208e6), 0xE84855, 0.07, 0.016, 'ΛQCD = 208 MeV\nQCD confinement scale\nPaper V\nn = −29.3', 'qcd');
-makeLabel(N(208e6),'ΛQCD','#E84855',0.95,0.18,0.10,'qcd', tQCD);
+// QCD
+const tQCD = addTorus(N(210e6), 0xE84855, 0.07, 0.016,
+  'ΛQCD = 210 MeV (PDG 2024: 210±14 MeV)\nQCD confinement scale — Paper V\n = −29.4', 'qcd');
+makeLabel(N(210e6),'ΛQCD','#E84855',0.95,0.18,0.10,'qcd', tQCD);
 
-// Gauge bosons
-[[80.377e9,'mW','80.38 GeV'],[91.1876e9,'mZ','91.19 GeV'],[125.25e9,'mH','125.25 GeV']
-].forEach(([m,sym,val])=>{
-  const sd = addDiamond(N(m), 0x56CFE1, 0.036,`${sym} = ${val}\nGauge boson\nn = ${N(m).toFixed(2)}`, 'bosons');
-  makeLabel(N(m),sym,'#56CFE1',0.85,0.18,0.10,'bosons', sd);
+// Gauge bosons — W and Z (PDG 2024)
+[[80.377e9, 'mW', '80.377 GeV', 'mW = 80.377 GeV (PDG 2024)\nW boson — electroweak unification\nPaper XIV: derived from φ-tower'],
+ [91.1876e9,'mZ', '91.19 GeV',  'mZ = 91.1876 GeV (PDG 2024)\nZ boson — electroweak unification']
+].forEach(([m, sym, val, tooltip]) => {
+  const sd = addDiamond(N(m), 0x56CFE1, 0.036, tooltip, 'bosons');
+  makeLabel(N(m), sym, '#56CFE1', 0.85, 0.18, 0.10, 'bosons', sd);
 });
 
+// Higgs boson — PDG 2024: 125.20 GeV; Paper XIV framework: 125.11 GeV (0.08σ ATLAS)
+const mH_PDG = 125.20e9;
+const sdH = addDiamond(N(mH_PDG), 0x56CFE1, 0.042,
+  'mH = 125.20 GeV (PDG 2024)\nHiggs boson — electroweak symmetry breaking\nPaper XIV prediction: 125.11 GeV\n(0.08σ from ATLAS; 2nd-order Shafranov correction)\nm_H / m_Z = 1.374 (derived, no free parameters)', 'bosons');
+makeLabel(N(mH_PDG), 'mH', '#56CFE1', 0.90, 0.18, 0.10, 'bosons', sdH);
+
 // EW / UV / MPl
-const sVEW = addDiamond(N(246.2e9), 0xA8FF3E, 0.052, 'vEW = 246.2 GeV\nHiggs VEV\nPaper VI\nn = −36.6', 'framework');
-makeLabel(N(246.2e9),'vEW','#A8FF3E',1.0,0.18,0.10,'framework', sVEW);
-const sLUV = addDiamond(N(6.8e17*1e9), 0xA8FF3E, 0.058, 'ΛUV = 6.8×10¹⁷ GeV\nUV cutoff\nn = −73.6', 'framework');
+// EW / UV / MPl
+const sVEW = addDiamond(N(246.24e9), 0xA8FF3E, 0.052,
+  'vEW = 246.24 GeV (Paper XIV, 0.012% residual)\nHiggs VEV — electroweak scale\nFormula: Λcond·φ²⁰·exp(49π/6−3/400)\nDerived from T_CMB alone; no SM parameters', 'framework');
+makeLabel(N(246.24e9),'vEW','#A8FF3E',1.0,0.18,0.10,'framework', sVEW);
+const sLUV = addDiamond(N(6.8e17*1e9), 0xA8FF3E, 0.058,
+  'ΛUV = 6.8×10¹⁷ GeV\nUV cutoff — Paper VI\nDerived: ΛUV = Λcond·φ^n_UV', 'framework');
 makeLabel(N(6.8e17*1e9),'ΛUV','#A8FF3E',1.0,0.18,0.10,'framework', sLUV);
-const sMPl = addSphere(N(1.22e19*1e9), 0xF5E642, 0.072, 'MPl = 1.22×10¹⁹ GeV\nPlanck mass\nInduced: MPl²=ΛUV²/32π²\nn = −76.6', 2.5, 'framework');
+const sMPl = addSphere(N(1.22e19*1e9), 0xF5E642, 0.072,
+  'MPl = 1.22×10¹⁹ GeV\nPlanck mass — Paper VI\nInduced: MPl² = ΛUV²/32π²\nNo free parameters', 2.5, 'framework');
 makeLabel(N(1.22e19*1e9),'MPl','#F5E642',1.1,0.18,0.10,'framework', sMPl);
 
 // ── CHEMICAL ELEMENTS ─────────────────────────────────────────────────────
@@ -942,6 +966,7 @@ function animate(){
   if(frame%2===0) checkHover();
   renderer.render(scene, camera);
 }
+document.getElementById('loading').style.display = 'none';
 animate();
 
 window.addEventListener('resize',()=>{

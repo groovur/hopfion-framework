@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T(2,2) → T(2,3) Transition</title>
+<style>
+  :root{
+    --bg:#070810; --panel:rgba(14,18,30,.82); --border:#2a3148; --border2:#394264;
+    --text:#eef1f8; --muted:#9aa3ba; --faint:#6a7389;
+    --amber:#ffb24d; --amber-d:#f0871f;
+    --r:#ff5a5a; --g:#39d353; --b:#4dabf7; --nu:#c58bff;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow:hidden}
+  #stage{position:fixed;inset:0}
+  canvas{display:block}
+  .hud{position:fixed;pointer-events:none;font-family:var(--mono)}
+  .title{top:16px;left:18px;max-width:min(52ch,70vw)}
+  .title h1{font-family:var(--sans);font-weight:600;font-size:clamp(16px,2.6vw,22px);margin:0;letter-spacing:-.01em}
+  .title h1 b{color:var(--amber)}
+  .title p{margin:6px 0 0;font-size:12px;color:var(--muted);line-height:1.5;font-family:var(--sans)}
+  .panel{top:16px;right:16px;background:var(--panel);border:1px solid var(--border);border-radius:12px;
+    padding:14px 15px;min-width:238px;backdrop-filter:blur(8px);pointer-events:auto}
+  .panel .lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 9px}
+  .row{display:flex;justify-content:space-between;gap:12px;font-size:12px;padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.06)}
+  .row:last-child{border-bottom:0}
+  .row .k{color:var(--muted)} .row .v{color:var(--text);text-align:right} .row .v b{color:var(--amber)}
+  .ledger{margin-top:11px;padding:10px;border:1px solid var(--border2);border-radius:9px;background:rgba(255,178,77,.05);
+    font-size:13.5px;text-align:center;letter-spacing:.02em}
+  .ledger .ch{font-size:10px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+  .ledger .q2{color:var(--b)} .ledger .q3{color:var(--amber)} .ledger .q1{color:var(--nu)}
+  .ctrl{bottom:18px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:10px;align-items:center;
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:13px 16px;backdrop-filter:blur(8px);
+    pointer-events:auto;width:min(620px,94vw)}
+  .ctrl .track{display:flex;align-items:center;gap:12px;width:100%}
+  input[type=range]{-webkit-appearance:none;appearance:none;height:5px;border-radius:4px;flex:1;
+    background:linear-gradient(90deg,var(--b),var(--amber));outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:2px solid var(--amber);cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.5)}
+  input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--amber);cursor:pointer}
+  .btns{display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+  button{font-family:var(--mono);font-size:11.5px;color:var(--text);background:rgba(255,255,255,.04);
+    border:1px solid var(--border2);border-radius:8px;padding:7px 12px;cursor:pointer;letter-spacing:.02em}
+  button:hover{border-color:var(--amber);color:var(--amber)}
+  button.on{background:var(--amber);color:#12131a;border-color:var(--amber);font-weight:600}
+  .taul{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:118px}
+  .taul b{color:var(--amber)}
+  .hint{position:fixed;bottom:16px;right:18px;font-family:var(--mono);font-size:10px;color:var(--faint);pointer-events:none}
+  @media (max-width:600px){ .panel{min-width:0;left:16px;right:16px;top:auto;bottom:150px} .title{max-width:62vw} }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+<div id="stage"></div>
+<div class="hud title">
+  <h1><b>T(2,2) → T(2,3)</b> &nbsp;·&nbsp; the Q<sub>H</sub>=2 → Q<sub>H</sub>=3 transition</h1>
+  <p>The Hopf-link ring (q=2) <b>folds</b> into the single-tube trefoil (q=3) as its centerline poloidal winding q : 2 → 3 — the geometric path of <span style="font-family:var(--mono)">hopf_link_construction</span>. Hopf-charge conservation forces a Q<sub>H</sub>=1 unknot (pion) to merge in or peel off.</p>
+</div>
+<div class="hud panel">
+  <p class="lbl">Invariants along the path</p>
+  <div class="row"><span class="k">parameter τ</span><span class="v"><b id="r_tau">0.00</b></span></div>
+  <div class="row"><span class="k">poloidal winding q</span><span class="v" id="r_q">2.00</span></div>
+  <div class="row"><span class="k">Hopf charge Q<sub>H</sub></span><span class="v" id="r_qh">2 → 3</span></div>
+  <div class="row"><span class="k">components</span><span class="v" id="r_comp">2 → 1</span></div>
+  <div class="row"><span class="k">|V(q₅)|</span><span class="v" id="r_v">0.618 = 1/φ</span></div>
+  <div class="row"><span class="k">Jones phase</span><span class="v" id="r_ph">·q₅⁻¹</span></div>
+  <div class="ledger">
+    <div class="ch" id="l_ch">Channel 2 · absorption</div>
+    <div id="l_eq"><span class="q2">T(2,2)</span> + <span class="q1">U</span> → <span class="q3">T(2,3)</span></div>
+  </div>
+</div>
+<div class="hud ctrl">
+  <div class="track">
+    <button id="play" class="on">▶ play</button>
+    <input id="scrub" type="range" min="0" max="1000" value="0">
+    <span class="taul">τ = <b id="t_tau">0.00</b> &nbsp;q=<span id="t_q">2.00</span></span>
+  </div>
+  <div class="btns">
+    <button id="rev">⇄ reverse</button>
+    <button id="dir">pion: absorb (2+1→3)</button>
+    <button id="fiber" class="on">fiber winding</button>
+    <button id="colour">quark colours</button>
+    <button id="spin">auto-rotate</button>
+  </div>
+</div>
+<div class="hud hint">drag to orbit · scroll to zoom</div>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.168.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.168.0/examples/jsm/"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ── constants ────────────────────────────────────────────────────────────────
+const R0=3.0, r0=0.874, TWO_PI=Math.PI*2, PHI=(1+Math.sqrt(5))/2, TUBE=0.42;
+const CROSS=[Math.PI/6, Math.PI/6+TWO_PI/3, Math.PI/6+2*TWO_PI/3]; // crossing params on the trefoil
+const CIDX3=2;                                                     // the committing crossing
+const COL=[new THREE.Color(0xff5a5a),new THREE.Color(0x39d353),new THREE.Color(0x4dabf7)];
+
+// vec helpers
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];
+const mul=(a,s)=>[a[0]*s,a[1]*s,a[2]*s];
+const dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const norm=a=>{const m=Math.hypot(a[0],a[1],a[2])||1e-9;return[a[0]/m,a[1]/m,a[2]/m];};
+
+// ── morphing centerline: smooth interpolation of exact T(2,2) and T(2,3) ──────
+// s=0: Γ_2 (Hopf-link ring);  s=1: Γ_3 (trefoil). Azimuth 2t fixed → always closed.
+function center(t,s){
+  const polr=(1-s)*Math.cos(2*t)+s*Math.cos(3*t);
+  const polz=(1-s)*Math.sin(2*t)+s*Math.sin(3*t);
+  const rad=R0+r0*polr, a=2*t;
+  return [rad*Math.cos(a), rad*Math.sin(a), r0*polz];
+}
+function angDist(a,b){let d=Math.abs(a-b)%TWO_PI;return d>Math.PI?TWO_PI-d:d;}
+function hsl(h,s,l){const c=new THREE.Color();c.setHSL(((h%1)+1)%1,s,l);return c;}
+
+const NS=260, NCHI=16;
+let CP=[], CN=[], CB=[];
+function buildFrame(s){
+  CP=[]; const TG=[];
+  for(let i=0;i<NS;i++) CP.push(center(i/NS*TWO_PI, s));
+  for(let i=0;i<NS;i++) TG.push(norm(sub(CP[(i+1)%NS], CP[(i-1+NS)%NS])));
+  // parallel-transport (projection) frame — stable on the closed morphing curve
+  CN=[]; CB=[];
+  let ref = Math.abs(TG[0][2])<0.9 ? [0,0,1] : [1,0,0];
+  CN.push(norm(sub(ref, mul(TG[0], dot(ref,TG[0])))));
+  for(let i=1;i<NS;i++){ CN.push(norm(sub(CN[i-1], mul(TG[i], dot(CN[i-1],TG[i]))))); }
+  for(let i=0;i<NS;i++) CB.push(cross(TG[i],CN[i]));
+}
+
+// ── tube mesh (rebuilt each morph step) ──────────────────────────────────────
+const V=(NS+1)*(NCHI+1);
+const posArr=new Float32Array(V*3), colArr=new Float32Array(V*3), idx=[];
+for(let i=0;i<NS;i++)for(let j=0;j<NCHI;j++){const a=i*(NCHI+1)+j,b=a+NCHI+1;idx.push(a,b,a+1,b,b+1,a+1);}
+const geo=new THREE.BufferGeometry();
+geo.setAttribute('position',new THREE.BufferAttribute(posArr,3));
+geo.setAttribute('color',new THREE.BufferAttribute(colArr,3));
+geo.setIndex(idx);
+const mat=new THREE.MeshStandardMaterial({vertexColors:true,metalness:0.3,roughness:0.42,side:THREE.DoubleSide});
+const tube=new THREE.Mesh(geo,mat);
+
+function crossColour(t){
+  let best=0,bd=TWO_PI;for(let k=0;k<3;k++){const d=angDist(t,CROSS[k]);if(d<bd){bd=d;best=k;}}
+  const prox=Math.exp(-5*((bd/Math.PI)**2)), bri=0.2+1.0*Math.pow(prox,0.7);
+  return COL[best].clone().multiplyScalar(bri);
+}
+const FLASH=new THREE.Color(0xfff4e0);
+function rebuild(tau,fiberMode){
+  buildFrame(tau);
+  const q=2+tau, pinchTau=Math.exp(-(((tau-0.5)/0.12)**2));   // peaks at τ=0.5 (Q_H≈2.5)
+  for(let i=0;i<=NS;i++){
+    const ii=i%NS, t=ii/NS*TWO_PI, P=CP[ii], N=CN[ii], B=CB[ii];
+    const pw=Math.exp(-((angDist(t,CROSS[CIDX3])/0.5)**2));    // localised at the committing crossing
+    const rho=TUBE*(1-0.82*pw*pinchTau);                       // the reconnection pinch (tube necks down)
+    const flashC=Math.min(0.85,pw*pinchTau);                   // white-hot at the pinch
+    let base; if(!fiberMode) base=crossColour(t);
+    for(let j=0;j<=NCHI;j++){
+      const chi=j/NCHI*TWO_PI, c=Math.cos(chi), s=Math.sin(chi), o=(i*(NCHI+1)+j)*3;
+      posArr[o]  =P[0]+rho*(c*N[0]+s*B[0]);
+      posArr[o+1]=P[1]+rho*(c*N[1]+s*B[1]);
+      posArr[o+2]=P[2]+rho*(c*N[2]+s*B[2]);
+      let cc = fiberMode ? hsl((chi+q*t)/TWO_PI,0.72,0.56) : base.clone();
+      if(flashC>0.01) cc.lerp(FLASH,flashC);
+      colArr[o]=cc.r; colArr[o+1]=cc.g; colArr[o+2]=cc.b;
+    }
+  }
+  geo.attributes.position.needsUpdate=true;
+  geo.attributes.color.needsUpdate=true;
+  geo.computeVertexNormals();
+}
+
+// ── crossing nodes (R/G/B) — ride the morphing curve ─────────────────────────
+const nodes=CROSS.map((tc,k)=>new THREE.Mesh(new THREE.SphereGeometry(0.4,24,24),
+  new THREE.MeshStandardMaterial({color:COL[k],emissive:COL[k],emissiveIntensity:1.0,roughness:0.4})));
+
+// ── pion: Q_H=1 unknot ───────────────────────────────────────────────────────
+const pion=new THREE.Mesh(new THREE.TorusGeometry(0.85,0.2,16,40),
+  new THREE.MeshStandardMaterial({color:0xc58bff,emissive:0x8b5cff,emissiveIntensity:0.9,roughness:0.5,transparent:true,opacity:1}));
+// reconnection flash (the topological event) + persistent field tether (the medium-level connection)
+const flash=new THREE.Mesh(new THREE.SphereGeometry(0.55,20,20),
+  new THREE.MeshBasicMaterial({color:0xfff4e0,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false}));
+const flashLight=new THREE.PointLight(0xfff0d0,0,34);
+const tether=new THREE.Mesh(new THREE.CylinderGeometry(1,1,1,8,1,true),
+  new THREE.MeshBasicMaterial({color:0xcaa6ff,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}));
+
+// ── scene ─────────────────────────────────────────────────────────────────────
+const stage=document.getElementById('stage');
+const renderer=new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setSize(innerWidth,innerHeight); stage.appendChild(renderer.domElement);
+const scene=new THREE.Scene(); scene.fog=new THREE.FogExp2(0x070810,0.028);
+const cam=new THREE.PerspectiveCamera(45,innerWidth/innerHeight,0.1,200); cam.position.set(0,5,17);
+const controls=new OrbitControls(cam,renderer.domElement);
+controls.enableDamping=true; controls.autoRotate=false; controls.autoRotateSpeed=0.9;
+const grp=new THREE.Group(); grp.add(tube); nodes.forEach(n=>grp.add(n)); grp.add(pion); grp.add(flash); grp.add(flashLight); grp.add(tether); scene.add(grp);
+grp.scale.setScalar(1.7);
+scene.add(new THREE.AmbientLight(0x3a4260,0.7));
+const kL=new THREE.PointLight(0xffd9a0,1.3,160); kL.position.set(16,20,22); scene.add(kL);
+const fL=new THREE.PointLight(0xff9a3c,0.6,160); fL.position.set(-18,-6,10); scene.add(fL);
+const bL=new THREE.PointLight(0x5a7cff,0.5,160); bL.position.set(0,-14,-16); scene.add(bL);
+
+// ── state + controls ─────────────────────────────────────────────────────────
+let tau=0, playing=true, tdir=1, pdir='absorb', fiberMode=true, dirty=true;
+const $=id=>document.getElementById(id), scrub=$('scrub');
+function syncReadout(){
+  const q=(2+tau);
+  $('r_tau').textContent=tau.toFixed(2); $('t_tau').textContent=tau.toFixed(2);
+  $('r_q').textContent=q.toFixed(2);     $('t_q').textContent=q.toFixed(2);
+  if(pdir==='absorb'){ $('l_ch').textContent='Channel 2 · absorption';
+    $('l_eq').innerHTML='<span class="q2">T(2,2)</span> + <span class="q1">U</span> → <span class="q3">T(2,3)</span>';
+    $('dir').textContent='pion: absorb (2+1→3)';
+  }else{ $('l_ch').textContent='Channel 1 · emission';
+    $('l_eq').innerHTML='<span class="q2">T(2,2)</span> + <span class="q2">T(2,2)</span> → <span class="q3">T(2,3)</span> + <span class="q1">U</span>';
+    $('dir').textContent='pion: emit (2+2→3+1)';
+  }
+}
+function setTau(v){ tau=Math.max(0,Math.min(1,v)); scrub.value=Math.round(tau*1000); dirty=true; syncReadout(); }
+$('play').onclick=function(){ playing=!playing; this.classList.toggle('on',playing); this.textContent=playing?'▶ play':'⏸ pause'; };
+$('rev').onclick=function(){ tdir*=-1; this.classList.toggle('on',tdir<0); this.textContent=tdir<0?'⇄ reversed':'⇄ reverse'; };
+$('dir').onclick=function(){ pdir=pdir==='absorb'?'emit':'absorb'; dirty=true; syncReadout(); };
+$('fiber').onclick=function(){ fiberMode=true; this.classList.add('on'); $('colour').classList.remove('on'); dirty=true; };
+$('colour').onclick=function(){ fiberMode=false; this.classList.add('on'); $('fiber').classList.remove('on'); dirty=true; };
+$('spin').onclick=function(){ controls.autoRotate=!controls.autoRotate; this.classList.toggle('on',controls.autoRotate); };
+scrub.oninput=function(){ playing=false; $('play').classList.remove('on'); $('play').textContent='▶ play'; setTau(this.value/1000); };
+addEventListener('resize',()=>{ cam.aspect=innerWidth/innerHeight; cam.updateProjectionMatrix(); renderer.setSize(innerWidth,innerHeight); });
+
+function loop(){
+  if(playing){ tau+=tdir*0.0042; if(tau>1){tau=1;tdir=-1;} if(tau<0){tau=0;tdir=1;} scrub.value=Math.round(tau*1000); dirty=true; syncReadout(); }
+  if(dirty){ rebuild(tau,fiberMode); dirty=false; }
+  // nodes ride the morphing curve (local coords; group applies the scale)
+  for(let k=0;k<3;k++){ const P=center(CROSS[k],tau); nodes[k].position.set(P[0],P[1],P[2]); }
+  nodes[CIDX3].scale.setScalar(0.3+0.7*tau); nodes[CIDX3].material.emissiveIntensity=0.3+0.9*tau;
+  // pion detaches AT the reconnection (τ=0.5): merged until the pinch, then peels (emit) / reverse (absorb)
+  const P3=center(CROSS[CIDX3],tau), out=norm([P3[0],P3[1],0]);
+  const a = pdir==='emit' ? Math.max(0,Math.min(1,(tau-0.5)/0.5)) : Math.max(0,Math.min(1,(0.5-tau)/0.5));
+  const D=4.6;
+  const pp=[P3[0]+out[0]*a*D*0.5, P3[1]+out[1]*a*D*0.5, P3[2]+a*D*0.95];   // ~perpendicular to the ring plane
+  pion.position.set(pp[0],pp[1],pp[2]);
+  pion.scale.setScalar(0.35+a*0.9);
+  pion.material.opacity=Math.min(1,0.1+a*1.4);
+  pion.lookAt(0,0,0); pion.rotation.z+=0.01;
+  // reconnection flash (the real, localised topology-changing event)
+  const fp=Math.exp(-(((tau-0.5)/0.1)**2));
+  flash.position.set(P3[0],P3[1],P3[2]); flash.scale.setScalar(0.4+1.9*fp); flash.material.opacity=0.95*fp;
+  flashLight.position.set(P3[0],P3[1],P3[2]); flashLight.intensity=4.2*fp;
+  // persistent field tether: thins with separation but never fully severs (one continuous condensate)
+  if(a>0.02){
+    const d=new THREE.Vector3(pp[0]-P3[0],pp[1]-P3[1],pp[2]-P3[2]); const len=d.length()||1e-6;
+    tether.position.set((P3[0]+pp[0])/2,(P3[1]+pp[1])/2,(P3[2]+pp[2])/2);
+    const rad=0.05+0.06*(1-a); tether.scale.set(rad,len,rad);
+    tether.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), d.clone().normalize());
+    tether.material.opacity=Math.max(0.07,0.42*(1-0.6*a));
+  } else tether.material.opacity=0;
+  controls.update(); renderer.render(scene,cam);
+  requestAnimationFrame(loop);
+}
+syncReadout(); rebuild(0,true); loop();
+</script>
+</body>
+</html>

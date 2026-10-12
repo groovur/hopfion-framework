@@ -9,10 +9,10 @@ The density-feedback Hopfion programme in its entirety sits at the intersection 
 This repository extracts, organises, and cross-checks every formal result
 (theorems, propositions, corollaries, conjectures, constructions, remarks,
 definitions, and labeled equations) from the Density-Feedback Hopfion paper
-series (Papers I–XIX) into a single, internally consistent, queryable index.
+series (Papers I–XXII) into a single, internally consistent, queryable index.
 It is the source of truth for a Q&A system, and for anyone who
 wants to check a claim, a residual, or an open problem without reading
-twenty papers.
+twenty-two papers.
 
 ---
 
@@ -68,8 +68,12 @@ hopfion-framework/
 │   ├── virial.tex            # Virial condition, saddle point, β*=0.452
 │   └── bps.tex               # BPS structure, fixed-point theorem
 │
-└── scalar/
-    └── higgs.tex             # Higgs mass and quartic coupling from the WZW condensate
+├── scalar/
+│   └── higgs.tex             # Higgs mass and quartic coupling from the WZW condensate
+│
+└── dm/
+    ├── dtype_sector.tex      # No-E7 exclusion, D-type sterile/Dirac sector (Paper XXI, draft)
+    └── dark_genesis.tex      # First-order confinement, chiral baryogenesis, ADM co-genesis (Paper XXII, draft)
 ```
 
 New sectors are added to this table (and to `CLAUDE-MAINTAINER.md`'s sector map) the
@@ -103,7 +107,9 @@ filing rule.
 | Paper XVII | The Q_H=1 Sector: Topology, Group Structure, Colour Exclusion | published | [10.5281/zenodo.21013412](https://doi.org/10.5281/zenodo.21013412) |
 | Paper XVIII | Preimage Topology and Confinement | published | [10.5281/zenodo.21047750](https://doi.org/10.5281/zenodo.21047750) |
 | Paper XIX | Dynamical Origin of Quark Masses | published | [10.5281/zenodo.21225452](https://doi.org/10.5281/zenodo.21225452) |
-| Paper XX | The Dynamical Layer of the Quark Sector | published | [10.5281/zenodo.21225452](https://doi.org/10.5281/zenodo.23047961) |
+| Paper XX | The Dynamical Layer of the Quark Sector | published | [10.5281/zenodo.23047960](https://doi.org/10.5281/zenodo.23047960) |
+| Paper XXI | The Beyond-Standard-Model D-type Sector | draft | [10.5281/zenodo.23319530](https://doi.org/10.5281/zenodo.23319530) |
+| Paper XXII | Dark Genesis: Co-genesis of Baryons and a Sterile Dirac Dark Sector | draft | [10.5281/zenodo.23319779](https://doi.org/10.5281/zenodo.23319779) |
 
 `paper_registry.yaml` is the authoritative source for this table — it also
 lists every extracted result label per paper. If this README and the
@@ -141,6 +147,7 @@ own sliders/buttons):
 | `papers/src_paper14/hopfion_torus.html` | The $Q_H=2$ Hopfion torus (topological soliton of the condensate, $R_0=3$, $C^*=3.4318$) |
 | `papers/src_paper15/hopfion_trefoil.html` | The $Q_H=3$ trefoil (quark sector — three quark colours from one knot, $T_{2,3}$, $R_0=3$, $r_0=0.874$) |
 | `papers/src_paper11/phi_spiral_masses.html` | The $\varphi$-spiral fermion mass hierarchy ("The Golden Tower") |
+| `papers/src_paper18/t22_t23_transition.html` | The $T(2,2)\to T(2,3)$ reconnection ($Q_H{=}2\to Q_H{=}3$): morphing centerline for both channels, $T(2,2)+U\to T(2,3)$ and $T(2,2)+T(2,2)\to T(2,3)+U$ |
 
 ---
 
@@ -152,7 +159,7 @@ what you're trying to do — they're not interchangeable. Point your session
 to one of these (or copy one of them to `CLAUDE.md` in your own clone so it
 loads automatically).
 
-- **`CLAUDE.md`** — for *asking questions* ("does this framework predict
+- **`CLAUDE-QA.md`** — for *asking questions* ("does this framework predict
   X?", "what's the accuracy of Y?", "is Z proved or still open?") without
   editing anything. If you're cloning or browsing this repository and just
   want a read-only Q&A assistant. It tells Claude
@@ -218,13 +225,14 @@ git checkout main && git merge new-result-name
 
 ### Current Status
 
-- **87 numbered outputs** in `master_table.tex` (some split into lettered
-  sub-rows to preserve the refinement history of a quantity across papers)
-- **27 open problems** tracked in `open_problems.tex`, filed per-paper
+- **101 numbered outputs** in `master_table.tex` (114 rows total — some
+  split into lettered sub-rows to preserve the refinement history of a
+  quantity across papers)
+- **42 open problems** tracked in `open_problems.tex`, filed per-paper
   (e.g. `P16:OP1`, `P19:OP6`)
-- **21 registry entries** (foundational paper + reader's guide + Papers
-  I–XIX), all published except Paper XIX (draft)
-- **580 individually labeled results** cross-referenced in
+- **24 registry entries** (foundational paper + reader's guide + Papers
+  I–XXII), all published except Papers XXI–XXII (draft)
+- **1066 individually labeled results** cross-referenced in
   `paper_registry.yaml`
 - Label convention: every result in a sector file is prefixed by its source
   paper (`P5:thm:...`, `P19:prop:...`) to prevent collisions when a sector

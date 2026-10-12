@@ -43,6 +43,7 @@ When a result is extracted, file it here:
 | φ-spiral, chemistry, cooperativity | chemistry/ |
 | Profile normalisation, virial | profile/ |
 | Higgs | scalar/ |
+| Dark Matter | dm/ |
 
 If a result doesn't fit any existing subfolder, create a new one and
 add it to this table before committing.

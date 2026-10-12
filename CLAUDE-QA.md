@@ -51,7 +51,8 @@ should be flagged as such.
    | Pentagon, suppression, α⁻¹ | `foundations/` |
    | Lepton masses, Weinberg angle, Yukawa couplings | `electroweak/` |
    | Colour, α_s, quark masses, strong CP, Q_H=3 confinement | `strong/` |
-   | Gravity, cosmology, dark sector | `gravity/` |
+   | Gravity, cosmology, dark sector (galactic/director-strain phenomenology) | `gravity/` |
+   | D-type dark-matter candidate (no-E7 exclusion, sterile/Dirac sector, ADM abundance) | `dm/` |
    | Hilbert space, Schrödinger eq., Bell tests, chameleon screening, neutrinos, Q_H=1 | `quantum/` |
    | φ-spiral, chemistry, cooperativity | `chemistry/` |
    | Profile normalisation, virial theorem | `profile/` |

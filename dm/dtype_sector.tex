@@ -1,0 +1,158 @@
+% D-type (binary dihedral) sector: no-E7 exclusion, sterile/Dirac character,
+% dark-matter candidacy and ADM-style abundance scenario (Paper XXI, DRAFT)
+\input{../preamble}
+
+\begin{theorem}[No $E_7$-type matter sector]
+\label{P21:thm:noE7}
+If matter sectors are realised as finite subgroups of the vacuum group
+$\twoI$, then the binary octahedral group $\twoO$ (McKay $\widehat{E}_7$)
+carries no matter sector.
+\end{theorem}
+\status{draft}
+\source{P21:thm:noE7}
+\residual{exact}
+\begin{proof}
+$|\twoO|=48$ and $|\twoI|=120$. Since $48\nmid120$, Lagrange's theorem
+forbids $\twoO\subset\twoI$. Equivalently, the octahedral group
+$O\cong S_4$ (order $24$) is not a subgroup of the icosahedral group
+$I\cong A_5$ (order $60$, with $24\nmid60$), so no lift to the binary
+cover exists. Hence no $\widehat{E}_7$ matter sector is available.
+\end{proof}
+\status{draft}
+\source{P21:thm:noE7}
+
+\begin{remark}[The D-type slot is available and colourless]
+\label{P21:rem:dtype_slot}
+The binary dihedral (dicyclic) groups $\twoD_n$ of order $4n$ are
+subgroups of $\twoI$ whenever $4n\mid120$ after the appropriate lift;
+in particular $\twoD_3$ (order $12$, $\widehat{D}_5$) and $\twoD_5$
+(order $20$, $\widehat{D}_7$) lie in $\twoI$ but \emph{not} in $\twoT$
+(since $A_4$ has no subgroup of order $6$, neither dicyclic lifts into
+$\twoT$). They are ``sideways branches'' of the vacuum. Crucially,
+D-type groups carry their own $\Ztwo$ outer automorphism and not the
+colour $\Zthree$ (Paper~XVII, A-type versus E-type McKay chains): they
+are colourless, non-baryonic, and reserved for beyond--Standard-Model
+physics. The candidate dark sectors are $\twoD_3,\twoD_5$.
+\end{remark}
+\status{draft}
+\source{P21:rem:dtype_slot}
+
+\begin{proposition}[No closing charge for the D-type sector]
+\label{P21:prop:noclosure}
+Neither natural WZW assignment of the D-type sector admits a closing
+integer:
+\begin{enumerate}[noitemsep,label=(\alph*)]
+\item $(D_{n+2})_1=\SO(2r)_1$ (the McKay-algebra convention, as the quark
+uses $(E_6)_1$): for $\twoD_3\to\SO(10)_1$ ($r=5$) and
+$\twoD_5\to\SO(14)_1$ ($r=7$), the spinor primary has $h_s=r/8$, forcing
+$Q\,r$ odd, while the vacuum $T_1=-r/24$ forces $Q\,r$ even. No integer
+$Q$ satisfies both.
+\item $\SU(2)_k$ with the D-type modular invariant (the convention the
+lepton uses, $k=2n$): all even levels $k$ fail closure, while only odd
+$k$ close; the D-type invariants sit at $k=6$ ($\twoD_3$) and $k=10$
+($\twoD_5$), both even.
+\end{enumerate}
+Hence $\Qgr$ does not exist for the D-type sector.
+\end{proposition}
+\status{draft}
+\source{P21:prop:noclosure}
+\begin{proof}
+Direct computation of the closure condition on the SO$(2r)_1$ primaries
+$\{1,v,s,c\}$ with $(h_1,h_v,h_s)=(0,\tfrac12,\tfrac r8)$ and on the
+$\SU(2)_k$ primaries $h_\ell=\ell(\ell+2)/4(k+2)$, validated against the
+three Standard-Model sectors ($(E_6)_1\to3$, $\SU(2)_1\to6$,
+$\SU(2)_3\to10$) before reporting the null D-type results
+(\path{src_paper21/dtype_cft_tower_engine.py}).
+\end{proof}
+\status{draft}
+\source{P21:prop:noclosure}
+
+\begin{corollary}[Sterility]
+\label{P21:cor:sterile}
+T-matrix closure is the charge-quantisation condition; its failure means
+the D-type sector carries \emph{no} quantised Standard-Model charge.
+Equivalently, electric charge is the $\SU(3)_L$ generator
+$Q=T_{3L}+T_{8L}/\sqrt3$ of the $E_6$ trinification (Paper~XV),
+quantised in units of $\tfrac13$ by the $\Zthree$ centre of $\SU(3)_L$;
+a D-type group carries only its own $\Ztwo$ and no $\Zthree$, so it
+admits no $\SU(3)_L$ representation for $Q$ to act on. Being a separate
+McKay branch, it has no Standard-Model doublet partner and hence no weak
+charge either. The D-type sector is a full Standard-Model singlet:
+\emph{sterile}, interacting only gravitationally and through its own
+$\Ztwo$.
+\end{corollary}
+\status{draft}
+\source{P21:cor:sterile}
+
+\begin{proposition}[Sterile and Dirac share one origin]
+\label{P21:prop:sterile_dirac}
+The odd-rank spinor $h_s=r/8$ is simultaneously (i) the primary whose
+T-matrix phase obstructs closure (Proposition~\ref{P21:prop:noclosure}a),
+making the sector sterile, and (ii) complex ($s^{*}=c$, since both
+candidates have $r$ odd: $\SO(10):r=5$, $\SO(14):r=7$), endowing the
+sector with a conserved dark-number $U(1)$ and hence a distinct
+antiparticle. A complex (Dirac) sector can carry a particle--antiparticle
+asymmetry; contrast the neutrino sector $\SU(2)_1$, whose $j=\tfrac12$
+primary is self-conjugate ($j^{*}=k-j=\tfrac12$), i.e.\ Majorana
+(Paper~XVII), and which therefore cannot. The D-type sector is thus a
+\emph{sterile Dirac} sector carrying its own $\Ztwo$ (a dark parity,
+stabilising its lightest state) and a complex-spinor $U(1)$ (a dark
+number, admitting an asymmetry). Its McKay algebra for $\twoD_3$ is
+$\SO(10)$---the archetypal grand-unified group, the home of
+baryon-number violation (used here as the McKay-correspondent algebra,
+not as a gauged grand-unified theory).
+\end{proposition}
+\status{draft}
+\source{P21:prop:sterile_dirac}
+
+\begin{proposition}[$a^{-3}$ equation of state, conditional]
+\label{P21:prop:eos}
+Let the sector's gravitating content be a population of localised,
+number-conserved coherent configurations of fixed proper size and energy
+(solitons, or frozen director deformations held rigid by the condensate's
+static shear rigidity, Paper~VII). Then the number density dilutes as
+$a^{-3}$ and the energy density as $\rho\propto a^{-3}$, $w=0$: cold
+dark matter. If instead the content relaxes to a smooth space-filling
+texture, gradients dilute as $a^{-1}$ and $\rho\propto a^{-2}$,
+$w=-\tfrac13$: not cold. Which case obtains is set by whether the
+configurations stay localised or coarsen; in the framework's inertial
+director dynamics, coarsening proceeds at a rate controlled by the
+signal speed $\cdir=\sqrt{K/\chi}$, with a coarsening time that diverges
+as $\cdir\to0$. A coarse single-quench freeze test
+(\path{src_paper7/dm_polarization/defect_network_sim_3d.py}) confirms
+the localised ($a^{-3}$) regime for small $\cdir$ and coarsening for
+larger $\cdir$, with repeated mergers re-seeding and sustaining the
+localised network.
+\end{proposition}
+\status{draft (conditional: rests on the coldness threshold being met, not derived from first principles)}
+\source{P21:prop:eos}
+
+The abundance scenario (asymmetric-dark-matter co-genesis, developed
+fully in the companion Paper~XXII) posits one chiral, CP-violating
+reconnection event in the shared $\twoI$ vacuum seeding correlated
+baryon and dark asymmetries, with branching ratio $r=n_{\mathrm{dark}}/n_b$:
+\begin{equation}
+  \frac{\Odm}{\Ob}=r\,\frac{m_{\mathrm{dark}}}{m_p},
+  \label{P21:eq:adm}
+\end{equation}
+where the gravitating mass per relic is its rest mass $m_{\mathrm{dark}}$
+(the relic is a stable knot; Hopf-charge conservation forbids its
+unwinding). Taking the observed $\Odm/\Ob\approx5.4$ with $r\approx1$
+(from the comparable subgroup orders $\twoD_3:\twoT=12:24$, not derived)
+gives
+\begin{equation}
+  m_{\mathrm{dark}} \;\approx\; 5\,m_p \;\approx\; 5~\mathrm{GeV},
+\end{equation}
+the canonical asymmetric-dark-matter mass scale
+(\path{src_paper21/adm_abundance.py}). This is a structured,
+falsifiable, but explicitly \emph{conditional} scenario: it is not a
+derivation of $\Odm$. Four quantities remain unestablished --- the
+baryogenesis magnitude $\eta$ (substantially developed in the companion
+Paper~XXII, which narrows it to the first-order window's location and
+the heavy-band power, both still open), the soliton's existence (its
+\emph{stability}, by contrast, is topological and settled), the
+branching ratio $r$, and the annihilation efficiency together with the
+coldness threshold on $\cdir$ --- enumerated as open problems
+P21:OP1--OP4.
+\status{draft (conditional scenario, not a derivation of $\Odm$)}
+\source{P21:eq:adm}

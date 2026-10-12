@@ -47,6 +47,7 @@ Status: \checkmark = proved; $\circ$ = conjectured; P = prediction (untested).}
 18 & 3 quark generations & exact & exact & \checkmark & F:prop:mckay \\
 19 & Koide $K=2/3$ & exact & exact & \checkmark & P1:thm:koide \\
 20 & Koide angle $\theta_K$ & $132.55^\circ$ & 0.14\% & \checkmark & P1:res:koide_angle \\
+20b & $m_\tau$ (from exact Koide $K=2/3$) & $1776.969\,\mathrm{MeV}$ & $+0.109\,\mathrm{MeV}$ ($0.91\sigma$) & P & P1:rem:koide_tau \\
 21 & Born rule $P=|\psi|^2$ & derived & exact & \checkmark & P9:thm:born_rule, P10:thm:quantisation \\
 22 & Malus law $\cos^2(\phi-\alpha)$ & derived & exact & \checkmark & P9:thm:malus \\
 23 & $E_n = \vp^{2n}E_0$ spectrum & derived & exact & \checkmark & P10:thm:spectrum \\
@@ -120,6 +121,7 @@ Status: \checkmark = proved; $\circ$ = conjectured; P = prediction (untested).}
 71 & $Q_{\mathrm{coset}}=h(E_8)=30$ & exact (Brieskorn) & exact & $\circ$ & P17:thm:brieskorn \\
 72a & $U_{\mathrm{PMNS}}^{(0)}=\left(\begin{smallmatrix}1&0&0\\0&0&1\\0&1&0\end{smallmatrix}\right)$ (leading order) & permutation & $1.7^\circ$--$8.5^\circ$ (open angles) & \checkmark & P17:thm:pmns_permutation, P17:cor:pmns_exact \\
 72b & $Q_{\mathrm{eff}}=2\pi/\sqrt{k+2}=2\pi/\sqrt5$ & exact (S-matrix unitarity) & exact & \checkmark & P17:thm:Qeff_derived \\
+72c & No $E_7$-type matter sector ($\twoO\not\subset\twoI$) & structural (Lagrange) & exact & \checkmark & P17:rem:ade_structure \\
 \midrule
 \multicolumn{6}{l}{\textit{Preimage topology, confinement, jets (Paper XVIII)}} \\
 73 & Trefoil satellite Jones invariant: $|\Jones_{\mathrm{sat}}(q_5)|=1/\vp$ (irrational) & $1/\vp$ & exact & \checkmark & P18:thm:trefoil_satellite_jones \\
@@ -156,6 +158,16 @@ Status: \checkmark = proved; $\circ$ = conjectured; P = prediction (untested).}
 93 & Generation-1 EM flip $\Phi=\alphaem\,\sigma(3R_0+R)/3\approx2.24$~MeV & $2.24$~MeV & $\sim10\%$ (vs.\ QCD $n$--$p$ splitting $\approx2.5$~MeV) & $\circ$ & P20:prop:gen1_flip \\
 94 & Doublet mass-budget sum rule $m_{\rm up}+m_{\rm down}=C\,m_\ell$, $C\approx13$ & $C\approx13$ & $3.5\%$ spread across two doublets & $\circ$ & P20:conj:sumrule \\
 95 & Constituent scale $m_{\rm const}=\Lcond^{\rm baryon}\vp^6e^{8\pi}\approx237$~MeV & 237~MeV & $\sim10\%$ (vs.\ phenomenological $215.5$~MeV) & $\circ$ & P20:prop:constituent \\
+\midrule
+\multicolumn{6}{l}{\textit{The D-type dark-matter candidate (Paper XXI, draft)}} \\
+96 & No $E_7$-type matter sector ($\twoO\not\subset\twoI$) & structural (Lagrange) & exact & \checkmark & P21:thm:noE7 \\
+97 & D-type sector is sterile \& Dirac (no SM charge; carries dark-number $U(1)$) & structural & exact & \checkmark & P21:prop:noclosure, P21:cor:sterile, P21:prop:sterile_dirac \\
+98 & Dark-matter mass from ADM co-genesis ($\Odm/\Ob\approx5.4$, $r\approx1$) & $m_{\mathrm{dark}}\approx5$~GeV & conditional scenario, not derived (4 open conditions) & $\circ$ & P21:eq:adm, P22:eq:adm \\
+\midrule
+\multicolumn{6}{l}{\textit{Dark genesis: first-order confinement transition (Paper XXII, draft)}} \\
+99 & Confinement transition is first-order ($\Zthree$ Polyakov-loop cubic from trefoil colour) & $\Delta L\approx0.55$--$0.65$ jump & derived (semi-Dirac thermal free energy) & \checkmark & P22:prop:fo, P22:thm:fo \\
+100 & All three Sakharov conditions derived (B-violation = reconnection; CP = $\delta_{\mathrm{CP}}=65.0^\circ$; non-equilibrium = 1st-order transition) & structural & exact & \checkmark & P22:sec:baryo, P22:thm:fo \\
+101 & Baryon asymmetry $\eta\approx6\times10^{-10}$ via anisotropic suppression $S_{\mathrm{eff}}^{\,p}$, $p=2$, $\beta_*\rho\sim15$ & $6\times10^{-10}$ & self-consistent, not forced (window location \& $p$ open) & $\circ$ & P22:eq:eta, P22:eq:seff \\
 \bottomrule
 \end{tabular}
 \end{table}

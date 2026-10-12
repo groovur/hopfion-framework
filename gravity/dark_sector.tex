@@ -360,6 +360,89 @@ with no galactic input.
 \status{published}
 \source{P7:rem:elastic_solid}
 
+\begin{remark}[Director strain as a polaron: the effective inertial mass]
+\label{P7:rem:polaron}
+The strain sourced by and comoving with the baryons dresses each baryon
+in the manner of a polaron---a particle accompanied by the medium
+distortion it induces. The quantity that gravitates and acts
+dynamically is then the \emph{effective inertial mass} of the dressed
+baryon, read off from the momentum carried by the comoving distortion.
+With the director dynamics $\chi\,\partial_t^2\hat{n}=K\nabla^2\hat{n}$
+(so $c_{\mathrm{dir}}^2=K/\chi$, equation~\eqref{P7:eq:cdir}) and a
+distortion $\hat{n}(\mathbf{x}-\mathbf{V}t)$ comoving with the source,
+the field momentum is $P_i=M_{ij}V_j$ with
+\begin{equation}
+  M_{ij}=\chi\!\int\!\partial_i\hat{n}\cdot\partial_j\hat{n}\,d^3x,
+  \qquad
+  m_{\mathrm{eff}}=\tfrac{\chi}{3}\!\int\!|\nabla\hat{n}|^2\,d^3x .
+  \label{P7:eq:meff}
+\end{equation}
+This mass is positive by construction: $\chi$ is a susceptibility and the
+integrand is a sum of squares, so \emph{the sign of the Frank constants
+does not enter}. The splay instability $K_{\mathrm{splay}}<0$ drives the
+\emph{formation} of the texture---it makes $c_{\mathrm{dir}}^2<0$ in the
+splay channel---but the inertial mass depends on $\chi>0$ and the
+gradient integral, not on the sign of the elastic energy; formation and
+gravitating mass are distinct. For the disclination halo
+$|\nabla\hat{n}|\sim1/r$, $m_{\mathrm{eff}}(r)\propto r$, reproducing
+$M_{\mathrm{enc}}\propto r$ with a positive mass, and the medium is
+\emph{heavy} because $\chi=K/c_{\mathrm{dir}}^2$ grows as
+$c_{\mathrm{dir}}\to0$ (Remark~\ref{P7:rem:elastic_solid}).
+
+The same dressing acts dynamically: a moving baryon drags its distortion
+cloud, so the halo produces the gravitational dynamical friction of any
+massive halo. Whether a further \emph{elastic} drag---from the finite
+relaxation of the lagging cloud---is present depends on the rotational
+viscosity of the director and is not fixed here; if present it is
+velocity-dependent with a scaling distinct from the Chandrasekhar
+$1/v^2$, a signature by which the elastic halo could in principle be
+distinguished from a collisionless one.
+\end{remark}
+\status{published}
+\source{P7:rem:polaron}
+
+\begin{remark}[The gravitational source: deficit lensing versus comoving pull]
+\label{P7:rem:active_mass}
+Slow matter responds to the active (Komar) mass density
+$\rho+\sum_i p_i$---the weak-field source of $\nabla^2\Phi$---not to the
+energy density alone, and for the director strain the two differ
+decisively.  The static radial texture has energy density
+$\rho=\tfrac12 K(\nabla\hat n)^2$ but anisotropic elastic stress
+$p_r=-\rho,\;p_t=0$ (equivalently
+$T_{ij}=K\,\partial_i\hat n\!\cdot\!\partial_j\hat n
+       -\tfrac12\delta_{ij}K(\nabla\hat n)^2$), so that
+\begin{equation}
+  \rho+\sum_i p_i \;=\; 0 \qquad\text{(static texture),}
+  \label{P7:eq:monopole}
+\end{equation}
+the Barriola--Vilenkin global monopole: a solid-angle deficit that
+deflects light while exerting no Newtonian force.  The static strain is
+thus a \emph{lensing} mass.  The dynamical \emph{pull} resides entirely
+in the time dependence: restoring the kinetic term
+$\tfrac12\chi(\partial_t\hat n)^2$ of the director dynamics
+$\chi\,\partial_t^2\hat n=K\nabla^2\hat n$,
+\begin{equation}
+  \rho+\sum_i p_i \;=\; 2\chi(\partial_t\hat n)^2 \;>\;0,
+  \label{P7:eq:kinetic_mass}
+\end{equation}
+the gradient contribution cancelling identically.  For a distortion
+$\hat n(\mathbf x-\mathbf V t)$ comoving with its source,
+$\partial_t\hat n=-\mathbf V\!\cdot\!\nabla\hat n$ and
+$\int(\rho+\sum_i p_i)\,d^3x = 2\,M_{ij}V_iV_j$ with the polaron tensor
+$M_{ij}=\chi\int\partial_i\hat n\,\partial_j\hat n\,d^3x$ of
+Remark~\ref{P7:rem:polaron}: the gravitating dynamical mass is
+precisely the comoving polaron mass.  Because the cold medium
+($c_{\mathrm{dir}}\to0$) radiates no director waves, this response is
+reactive and conservative---it sustains bound orbits rather than
+damping them.  Both the deficit (lensing) mass and the comoving
+(dynamical) mass scale with the same $\int(\nabla\hat n)^2$, so weak
+lensing and kinematics trace a common radial-acceleration relation; the
+detailed radial profile and the acceleration-scale normalisation are
+set by the condensate cutoff and are not fixed here.
+\end{remark}
+\status{published}
+\source{P7:rem:active_mass}
+
 \begin{proposition}[$G_{\rm eff}(r)$ in the screened halo]
 \label{P7:prop:Geff}
 The BD scalar coupling to matter is characterised by

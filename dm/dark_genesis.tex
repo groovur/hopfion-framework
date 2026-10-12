@@ -1,0 +1,270 @@
+% Genesis dynamics for the D-type dark sector: first-order confinement
+% transition, chiral-reconnection baryogenesis, ADM co-genesis, two-epoch
+% dark matter, and the open magnitude of eta (Paper XXII, DRAFT; companion
+% to Paper XXI / dm/dtype_sector.tex)
+\input{../preamble}
+
+The deconfinement free energy is a Polyakov-loop Landau--Ginzburg
+potential for the order parameter $L$, constrained by a $\Zthree$
+center symmetry~\cite{Pisarski2000}:
+\begin{equation}
+  V(L)=\tfrac{b_2(T)}{2}|L|^2-\tfrac{b_3}{3}(L^3+L^{*3})+\tfrac{b_4}{4}|L|^4-h(L+L^*).
+  \label{P22:eq:polyakov}
+\end{equation}
+The cubic $b_3$ (allowed only by $\Zthree$) drives a first-order
+transition; the explicit breaking $h$ weakens it, and above a critical
+$h_c$ the transition becomes a crossover (the physical light-quark
+point of real QCD).
+
+\begin{proposition}[Framework first-order]
+\label{P22:prop:fo}
+In the density-feedback Hopfion the $\Zthree$ is the colour symmetry of
+the trefoil $T_{2,3}$ (the $\Zthree$ outer automorphism of $\twoT$,
+Paper~XV), so the cubic $b_3\neq0$ is present by construction (the
+colour-singlet baryon is the $\Zthree$ invariant
+$3\times3\times3\to1$). The explicit breaking is small,
+$h\sim e^{-E_{\rm sb}/T}$ with $E_{\rm sb}\sim2m_{\rm const}\sim600$~MeV
+the string-breaking energy and $T\sim150$~MeV, giving
+$h\sim0.02$--$0.14$, below the critical endpoint $h_c\approx0.21$. The
+transition is therefore first-order --- the framework differs from
+real QCD (crossover) precisely in having no free light quarks:
+$\Zthree$ is broken only by string-breaking, not by light dynamical
+quarks. A density-feedback contribution (the $(1+\beta_*\rho)$
+softening) adds to the coefficients and provides a second, independent
+first-order driver (\path{src_paper22/firstorder_transition.py}); the
+first-order region is an intermediate window in $\beta_*\rho$
+(P22:OP1).
+\end{proposition}
+\status{draft}
+\source{P22:prop:fo}
+
+The coefficients of equation~\eqref{P22:eq:polyakov} are not free: they
+are the holonomy expansion of the thermal free energy of the condensate
+excitations, which carry the \emph{semi-Dirac} dispersion of the medium
+(Paper~VII),
+\begin{equation}
+  E(k,\theta)^2=A^2k^4\sin^4\theta+v^2k^2\cos^2\theta ,
+  \label{P22:eq:semidirac}
+\end{equation}
+linear along the easy (radial) axis and quadratic along the hard
+(perpendicular) axis. The anisotropic phase space changes the
+temperature power: $\int\!d^3k\,e^{-nE/T}\propto(T/n)^{2}$ rather than
+$(T/n)^3$, so the single-phase holonomy potential is
+\begin{equation}
+  f(T,\chi)=-\sum_{n\ge1}c_n\cos n\chi,\qquad c_n\propto\frac{T^3}{n^{3}} ,
+  \label{P22:eq:weiss}
+\end{equation}
+a cubic-Bernoulli ($B_3$) Weiss potential, in contrast to the
+relativistic quartic ($B_4$, $c_n\propto T^4/n^4$). Summing the three
+$\SU(3)$ colour (holonomy) phases $(\chi,0,-\chi)$ along the real axis,
+with $L=(1+2\cos\chi)/3$ and $\cos n\chi=T_n\!\big(\tfrac{3L-1}{2}\big)$
+(Chebyshev), and expanding in $L$ gives
+\begin{equation}
+  \frac{b_3}{b_4}\approx0.17 \quad(\text{semi-Dirac }B_3),\qquad\text{vs}\quad 0.16\ (B_4),
+  \label{P22:eq:b3b4}
+\end{equation}
+so the epoch's geometry modestly \emph{enhances} the cubic (strengthens
+first-order) relative to a relativistic gas. Confinement gaps the
+excitations through a $\Zthree$-even coupling to the order parameter,
+$\Delta(L)^2=\Delta_0^2(1-L^2)$ with $\Delta_0\sim\Lcond(\mathrm{QCD})$;
+this contributes a thermal mass $b_2(T)$ whose sign changes at
+$T_c\sim2\Lcond\sim T_{\rm QCD}$, matching the framework's near-critical
+condition $T/\Lcond\approx2$ (Paper~VII). (Computed in
+\path{src_paper22/semidirac_thermal.py},
+\path{src_paper22/su3_colorsum_coeffs.py}, and
+\path{src_paper22/gap_b2T.py}.)
+\status{draft}
+\source{P22:subsec:coeffs}
+
+\begin{theorem}[Derived first-order transition]
+\label{P22:thm:fo}
+The full thermal free energy combining the holonomy and the gap in one
+normalisation,
+\begin{equation}
+  F(T,L)=-T\sum_{n\ge1}\frac1n\,I_n\!\big(T,\Delta(L)\big)\,[\,2\cos n\chi+1\,]+a_{\rm vac}L^2,
+  \qquad I_n=\int\!\frac{d^3k}{(2\pi)^3}\,e^{-nE/T},
+  \label{P22:eq:FTL}
+\end{equation}
+has, below $T_c$, its global minimum on the confined branch
+($L\!\approx\!0.35$--$0.45$) and, above $T_c$, at the deconfined value
+$L\!\to\!1$, with the two degenerate at $T_c\sim(0.9$--$1.5)\,\Delta_0
+\sim O(\Lcond)$. The order parameter therefore jumps
+\emph{discontinuously} by $\Delta L\approx0.55$--$0.65$ across a finite
+barrier: the transition is first-order, driven by the $\Zthree$ cubic
+(the $n=3k$ holonomy harmonics, i.e.\ the trefoil's three-fold colour
+structure). (Computed in \path{src_paper22/unified_FTL.py}.) The jump
+in the order parameter is large (strongly first-order in
+order-parameter space), while the latent heat is a modest fraction of
+the radiation bath, $\alpha=L_{\rm heat}/\rho_{\rm rad}\approx0.03$--$0.06$,
+giving bubble-wall speeds $v_w\sim0.15$--$0.2$ (deflagration).
+\end{theorem}
+\status{draft}
+\source{P22:thm:fo}
+
+A baryon is a chiral wound state: the trefoil (writhe $+3$) differs
+from its mirror (Paper~XVIII). The three Sakharov conditions map onto
+knot dynamics: baryon-number violation is the reconnection
+$\QH{=}2+\QH{=}2\to\QH{=}3+\QH{=}1$ (baryons form from leptons by
+threading); C and CP violation are the derived Wess--Zumino--Witten
+phase $\delta_{\rm CP}=65.0^\circ$ (Paper~V) together with the chiral
+writhe; and the departure from equilibrium is the first-order
+transition of Theorem~\ref{P22:thm:fo}. Because the reconnection rate
+is a strong-interaction rate, $\Gamma/H\sim10^{19}$ at $T_{\rm QCD}$
+(deep equilibrium), only a genuine first-order freeze-out escapes the
+resulting washout. Here that escape is structural: a reconnection needs
+free trefoil strands, which exist only in the deconfined phase, so once
+the bubble of confined phase forms the baryon-number-violating rate
+shuts off \emph{automatically} --- the analogue of the electroweak
+``sphaleron shutoff in the broken phase'' is guaranteed by confinement
+itself, with no condition on the transition strength. Since
+$\sin\delta_{\rm CP}=0.91$ is of order unity, the CP bias is not the
+limiting factor.
+\status{draft}
+\source{P22:sec:baryo}
+
+The phase $\delta_{\rm CP}$ is a property of the shared $\twoI$ vacuum,
+which contains both $\twoT$ (baryon) and the D-type $\twoD_n$ (dark) as
+subgroups. The same chiral, CP-violating reconnection at the bubble
+walls therefore biases \emph{both} freeze-outs, seeding correlated
+asymmetries. The D-type sector is Dirac (its odd-rank spinor is
+complex, Paper~XXI), so it carries a dark number and an asymmetry; its
+symmetric part self-annihilates (the sector is self-interacting through
+the shared director field), leaving the asymmetric residue. Its
+abundance follows the asymmetric-dark-matter arithmetic,
+\begin{equation}
+  \frac{\Odm}{\Ob}=r\,\frac{m_{\rm dark}}{m_p},\qquad r=\frac{n_{\rm dark}}{n_b},
+  \label{P22:eq:adm}
+\end{equation}
+with $r$ the ratio of the dark and baryon number asymmetries. One
+feature is robust: $r$ is \emph{independent of the unpinned magnitude}
+of $\eta$ (P22:OP1), because both asymmetries are seeded by the same
+$\delta_{\rm CP}$ at the same transition, so the common transport
+efficiency cancels in the ratio. What is \emph{not} derived is the
+value of either $r$ or $m_{\rm dark}$: $r\sim O(1)$ is taken on the
+ground that $\twoD_3$ (order $12$) and $\twoT$ (order $24$) are
+comparable subgroups of $\twoI$, an estimate from subgroup orders, not
+a computed branching; and because the D-type carries no
+$Q_{\rm group}$ (Paper~XXI), its mass tower is undefined and the
+framework does \emph{not} pin $m_{\rm dark}$. With $r\sim O(1)$,
+matching the observed $\Odm/\Ob\approx5.4$ then \emph{fixes}
+$m_{\rm dark}\approx5$~GeV --- the canonical asymmetric-dark-matter
+scale, a sterile $\sim$few-GeV state that evades direct detection by
+construction. This is a \emph{conditional consistency}, not a
+parameter-free prediction: it rests on $r\sim O(1)$, on efficient
+symmetric self-annihilation through the sector's SIDM channel, and on
+the dark relic being stable (the existence question of Paper~XXI).
+\status{draft (conditional consistency, not a parameter-free prediction)}
+\source{P22:eq:adm, P22:sec:abund}
+
+The stable D-type relic and the baryon-sourced director \emph{strain}
+of Paper~VII are two configurations of the one condensate, dominating
+the dark-matter phenomenology at two different epochs --- a single
+fabric in two modes, not two dark species. Paper~VII identifies the
+\emph{galactic} dark matter as the director strain, but that component
+is late and isocurvature: its ultralight scale $m_\xi\sim H_0$ keeps it
+Hubble-frozen until $z\sim0$, so it cannot supply the cold matter the
+acoustic peaks require at recombination. The D-type relic is precisely
+the missing ingredient --- non-baryonic, electromagnetically and weakly
+sterile (Paper~XXI), non-ultralight ($m_{\rm dark}\sim5$~GeV
+$\gg H(z_{\rm rec})$), cold, and, being seeded by the co-genesis above
+correlated with the baryon asymmetry, \emph{adiabatic} rather than
+isocurvature: it clusters as standard cold dark matter at
+recombination and, at the cosmic ratio $\Odm/\Ob\approx5$, supplies the
+cluster lensing mass where the baryon-tracking strain alone falls
+short. At $z\sim0$ the strain unfreezes and yields the tight
+radial-acceleration relation (RAR) because it tracks the baryons
+(Paper~VII). A cosmic-ratio relic, were it collisionless here too,
+would build halos that do not track baryons and would spoil that
+tightness; it does not, because the relic self-interacts through the
+\emph{shared} director field --- the single $\hat n$ that carries the
+Bell correlations of Papers~VIII--IX --- and that interaction inherits
+the field's anisotropy via the same kernel
+$S_{\rm eff}=\sin^4\theta/[\vp^6(1+\beta_*\rho)]$ that gates those
+correlations: resolved in a coherent geometry (inside a galaxy, where
+it relaxes the relic to the baryon-dominated potential, preserving the
+RAR, with weak coupling $C\sim10$--$10^3$~eV and dark sound speed
+$c_s^2=C/m_{\rm dark}\sim10^{-8}$), washed out under isotropic averaging
+(the smooth recombination medium and the inter-galactic field, where
+the relic is inert and collisionless, with no cosmological
+over-closure). This reproduces the observed division ---
+$\Lambda$CDM-like at the microwave background and in clusters, a
+MOND-like RAR in galaxies --- from two modes of one condensate, and
+ties the dark-matter self-interaction to the same geometry-dependent
+$\sin^4\theta$ structure as the Bell correlations: one anisotropy, two
+arenas. It is conditional on the relic's existence and abundance
+(Paper~XXI). The residual open question is the \emph{within-halo}
+energetics: whether the cumulative interaction energy is simply the
+already-counted coherent halo strain plus a finite perturbative
+relaxation, or requires a further nonlinear ($S^2$) saturation.
+Falsifiable signatures shared across domains: the
+planar-versus-spherical Bell geometry-dependence (testable with 3D or
+satellite entanglement protocols) probes the same kernel that gates the
+dark sector; a sterile $\sim$few-GeV self-interacting relic; a mild
+suppression of sub-megaparsec power; and weak lensing exceeding the
+kinematic mass in galaxies by $O((c_{\rm dir}/v)^2)$.
+\status{draft (conditional on the relic's existence and abundance)}
+\source{P22:sec:twoepoch}
+
+All three Sakharov conditions are derived: the first-order transition
+from the epoch's thermal free energy (Theorem~\ref{P22:thm:fo}), the
+order-unity CP phase $\delta_{\rm CP}=65.0^\circ$, and the automatic
+shutoff of baryon-number violation in the confined phase. What is
+\emph{not} derived is the \emph{magnitude} of the baryon asymmetry
+$\eta=7.04\,n_B/s$. Writing
+\begin{equation}
+  \frac{n_B}{s}\sim A_{\rm pref}\,\varepsilon_{\rm CP}\,\delta_{\rm neq}\,b_{\rm ch},\qquad
+  A_{\rm pref}=\frac{15}{4\pi^2 g_*}\sim2\times10^{-2},\qquad
+  \varepsilon_{\rm CP}=\sin\delta_{\rm CP}\,c_{\rm int},
+  \label{P22:eq:eta}
+\end{equation}
+two factors are \emph{not} small: the departure from equilibrium at the
+wall, $\delta_{\rm neq}=v_w/(\Gamma L_w)\sim10^{-2}$ (set by the derived
+$v_w\sim0.2$), and the CP interference, $c_{\rm int}\sim0.6$ (the
+argument of a two-amplitude sum, Paper~V). With a naive isotropic
+channel fraction $b_{\rm ch}\sim0.2$, these factors \emph{overproduce}
+$\eta$ by $\sim10^{4}$--$10^{5}$: reconnection baryogenesis is
+efficient, so $\eta$'s problem is a \emph{suppression}, not a
+smallness. (\path{src_paper22/transport_eta.py},
+\path{src_paper22/branching_eta.py}.)
+
+The suppression is supplied by the \emph{anisotropy}. The baryon
+($(E_6)_1$, $Q_H{=}3$) is the \emph{heavy band} of the semi-Dirac
+dispersion~\eqref{P22:eq:semidirac}, carrying the directional
+suppression of the condensate (Paper~VII, Axiom~A2),
+\begin{equation}
+  S_{\rm eff}=\frac{\sin^4\theta}{\vp^6\,(1+\beta_*\rho)},
+  \label{P22:eq:seff}
+\end{equation}
+whereas the competing light-band channels do not. The baryon-forming
+reconnection therefore picks up $b_{\rm ch}\to b_{\rm ch}\,S_{\rm eff}^{\,p}$,
+with $p$ the number of heavy-band projections in the final state; the
+factor $\vp^6$ is the Wess--Zumino--Witten/Bogomolny power (physical,
+not frame-dependent), giving a real suppression of
+$\sim\vp^{-6}\approx0.056$ per power. Crucially, $\beta_*\rho$ in
+equation~\eqref{P22:eq:seff} is the \emph{same} density-feedback
+combination that drives the first-order transition (the
+$(1+\beta_*\rho)$ softening of Proposition~\ref{P22:prop:fo}): one
+variable doing two jobs. Because $\rho$ tracks $T^4$, $\beta_*\rho$ is
+large at the dense QCD epoch --- the source of the baryon-channel
+suppression --- but cannot be arbitrarily large: deep saturation
+softens the barrier away and returns a crossover, so a first-order
+transition exists only in an \emph{intermediate window} of
+$\beta_*\rho$. Overlaying the two constraints: for $p=2$ a
+self-consistent value ($\beta_*\rho\sim15$) lies \emph{inside} the
+first-order window and gives $\eta\approx6\times10^{-10}$, with the
+window bracketing the observed value; for $p=1$ the observed $\eta$
+falls at the over-saturated edge of the window, a mild overproduction.
+A self-consistent solution thus exists but is not forced.
+(\path{src_paper22/branching_anisotropic.py},
+\path{src_paper22/beta_rho_window.py}.) The magnitude of $\eta$ has
+thus reduced from a transport unknown spanning many orders to a single
+density-feedback quantity, $\beta_*\rho$ at the QCD epoch, co-constrained
+by the requirement of a first-order transition and shared with the
+density screening of the dark sector. What remains genuinely open is
+(i) the \emph{location} of the first-order window in physical units
+(the ratio $\gamma/b$ of the feedback free energy, not yet fixed) and
+(ii) the heavy-band power $p$ (P22:OP1). The co-genesis ratio
+$\Odm/\Ob\sim O(5)$ is independent of all of this and stands as the
+sector's falsifiable prediction.
+\status{draft (open: $\eta$'s magnitude pinned only up to the window location and power $p$)}
+\source{P22:sec:open, P22:eq:eta, P22:eq:seff}

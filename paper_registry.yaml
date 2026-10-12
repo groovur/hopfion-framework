@@ -65,6 +65,7 @@ papers:
       - P1:rem:phys_origin
       - P1:res:yukawa
       - P1:res:koide_angle
+      - P1:rem:koide_tau
       - P1:conj:linking
       - P1:rem:chameleon
       - P1:rem:stability
@@ -508,6 +509,11 @@ papers:
       - P7:eq:cdir
       - P7:eq:Menc
       - P7:rem:elastic_solid
+      - P7:rem:polaron
+      - P7:eq:meff
+      - P7:rem:active_mass
+      - P7:eq:monopole
+      - P7:eq:kinetic_mass
       - P7:eq:alpha_BD
       - P7:eq:rV_MW
       - P7:eq:Geff_screened
@@ -1267,6 +1273,41 @@ papers:
       - P20:rem:perturbative
       - P20:rem:two_objects
 
+  - id: paper21
+    name: "The Beyond-Standard-Model D-type Sector of the Density-Feedback Hopfion: A Sterile, Dirac Dark-Matter Candidate"
+    file: papers/main_paper21.tex
+    status: draft
+    doi: 10.5281/zenodo.23319530
+    repo_files:
+      - dm/dtype_sector.tex
+    labels:
+      - P21:thm:noE7
+      - P21:rem:dtype_slot
+      - P21:prop:noclosure
+      - P21:cor:sterile
+      - P21:prop:sterile_dirac
+      - P21:prop:eos
+      - P21:eq:adm
+
+  - id: paper22
+    name: "Dark Genesis: Co-genesis of Baryons and a Sterile Dirac Dark Sector at the First-Order Confinement Transition of the Density-Feedback Hopfion"
+    file: papers/main_paper22.tex
+    status: draft
+    doi: 10.5281/zenodo.23319779
+    repo_files:
+      - dm/dark_genesis.tex
+    labels:
+      - P22:prop:fo
+      - P22:eq:polyakov
+      - P22:eq:semidirac
+      - P22:eq:weiss
+      - P22:eq:b3b4
+      - P22:thm:fo
+      - P22:eq:FTL
+      - P22:eq:adm
+      - P22:eq:eta
+      - P22:eq:seff
+
 labels:
   # Foundational paper labels
   F:thm:main:              {paper: paper_foundational, repo_file: foundations/pentagon.tex}
@@ -1319,6 +1360,7 @@ labels:
   P1:rem:phys_origin:         {paper: paper1, repo_file: electroweak/weinberg.tex}
   P1:res:yukawa:              {paper: paper1, repo_file: electroweak/yukawa.tex}
   P1:res:koide_angle:         {paper: paper1, repo_file: electroweak/yukawa.tex}
+  P1:rem:koide_tau:           {paper: paper1, repo_file: electroweak/yukawa.tex}
   P1:conj:linking:            {paper: paper1, repo_file: profile/virial.tex}
   P1:rem:chameleon:           {paper: paper1, repo_file: foundations/wzw_group.tex}
   P1:rem:stability:           {paper: paper1, repo_file: foundations/wzw_group.tex}
@@ -1637,6 +1679,11 @@ labels:
   P7:cor:vainshtein_topology: {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:rV_frame:            {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:elastic_solid:       {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:polaron:             {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:meff:                 {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:rem:active_mass:         {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:monopole:             {paper: paper7, repo_file: gravity/dark_sector.tex}
+  P7:eq:kinetic_mass:         {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:lorentz:             {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:chameleon:           {paper: paper7, repo_file: gravity/dark_sector.tex}
   P7:rem:cs_de:               {paper: paper7, repo_file: gravity/dark_sector.tex}
@@ -2332,4 +2379,23 @@ labels:
   P20:rem:feedback_saturation:   {paper: paper20, repo_file: strong/quark_dynamics.tex}
   P20:rem:perturbative:          {paper: paper20, repo_file: strong/quark_dynamics.tex}
   P20:rem:two_objects:           {paper: paper20, repo_file: strong/quark_dynamics.tex}
+  # Paper XXI labels
+  P21:thm:noE7:                  {paper: paper21, repo_file: dm/dtype_sector.tex}
+  P21:rem:dtype_slot:            {paper: paper21, repo_file: dm/dtype_sector.tex}
+  P21:prop:noclosure:            {paper: paper21, repo_file: dm/dtype_sector.tex}
+  P21:cor:sterile:               {paper: paper21, repo_file: dm/dtype_sector.tex}
+  P21:prop:sterile_dirac:        {paper: paper21, repo_file: dm/dtype_sector.tex}
+  P21:prop:eos:                  {paper: paper21, repo_file: dm/dtype_sector.tex}
+  P21:eq:adm:                    {paper: paper21, repo_file: dm/dtype_sector.tex}
+  # Paper XXII labels
+  P22:prop:fo:                   {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:polyakov:               {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:semidirac:              {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:weiss:                  {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:b3b4:                   {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:thm:fo:                    {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:FTL:                    {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:adm:                    {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:eta:                    {paper: paper22, repo_file: dm/dark_genesis.tex}
+  P22:eq:seff:                   {paper: paper22, repo_file: dm/dark_genesis.tex}
   # ... populated by scanner ...

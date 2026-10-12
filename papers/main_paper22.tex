@@ -48,11 +48,17 @@ of the shared $\twoI$ vacuum, the same event seeds \emph{correlated} baryon and 
 asymmetries (co-genesis), and the Dirac D-type sector carries its asymmetry, giving an
 asymmetric-dark-matter abundance $\Odm/\Ob\approx5$ for $m_{\mathrm{dark}}\approx5$~GeV. All
 three Sakharov conditions are thus derived. The one quantity not derived is the baryon
-asymmetry's \emph{magnitude}: the maximal efficiency overproduces, so matching
-$\eta\approx6\times10^{-10}$ requires a net transport efficiency $\kappa\sim10^{-9}$ --- a
-reconnection-transport number, not a missing Sakharov condition. The robust,
-$\kappa$-independent output is the co-genesis ratio $\Odm/\Ob\sim O(5)$, fixed by the subgroup
-branching. We state precisely what is derived and what remains.
+asymmetry's \emph{magnitude}: the maximal efficiency overproduces, and the suppression that
+matches $\eta\approx6\times10^{-10}$ is supplied by the heavy-band anisotropy
+$S_{\rm eff}\propto\sin^4\theta/\vp^6$ of the baryon channel, controlled by the same
+density-feedback combination $\beta_*\rho$ that drives the first-order transition; a
+self-consistent value exists inside the first-order window but is not forced, leaving the
+window's location in physical units and the heavy-band power as the genuine openings. The
+co-genesis number-asymmetry ratio $r=n_{\rm dark}/n_b\sim O(1)$ is independent of all this
+(the shared transport efficiency cancels), so with the canonical asymmetric-dark-matter scale
+$m_{\mathrm{dark}}\sim5$~GeV it gives $\Odm/\Ob\approx5$ --- a conditional consistency that
+fixes $m_{\mathrm{dark}}$, not a parameter-free prediction. We state precisely what is derived
+and what remains.
 \end{abstract}
 
 \tableofcontents
@@ -60,25 +66,29 @@ branching. We state precisely what is derived and what remains.
 \section{Scope}
 Paper~XXI~\cite{Paper21} is the \emph{structural} sector paper (the sterile Dirac D-type
 dark state, the no-$E_7$ theorem). The present paper is the \emph{dynamical} companion: the
-production mechanism. Sections~\ref{sec:fo}--\ref{sec:abund} derive the mechanism --- the
+production mechanism. Sections~\ref{P22:sec:fo}--\ref{P22:sec:abund} derive the mechanism --- the
 first-order transition from the epoch's thermal free energy, the three Sakharov conditions, and
-the co-genesis ratio --- and Section~\ref{sec:open} states the one quantity that remains open:
-the \emph{magnitude} of $\eta$, a reconnection-transport efficiency.
+the co-genesis ratio. Section~\ref{P22:sec:twoepoch} then places the resulting relic in its
+cosmological role --- cold dark matter at recombination and in clusters, alongside the
+baryon-sourced director strain that governs galaxies --- and Section~\ref{P22:sec:open} states
+the one quantity that remains open: the \emph{magnitude} of $\eta$, which reduces to the
+density-feedback strength $\beta_*\rho$ at the QCD epoch, co-constrained by the requirement of a
+first-order transition.
 
 \section{The confinement transition is first-order}
-\label{sec:fo}
+\label{P22:sec:fo}
 The deconfinement free energy is a Polyakov-loop Landau--Ginzburg potential for the order
 parameter $L$, constrained by a $\Zthree$ center symmetry~\cite{Pisarski2000}:
 \begin{equation}
   V(L)=\tfrac{b_2(T)}{2}|L|^2-\tfrac{b_3}{3}(L^3+L^{*3})+\tfrac{b_4}{4}|L|^4-h(L+L^*).
-  \label{eq:polyakov}
+  \label{P22:eq:polyakov}
 \end{equation}
 The cubic $b_3$ (allowed only by $\Zthree$) drives a first-order transition; the explicit
 breaking $h$ weakens it, and above a critical $h_c$ the transition becomes a crossover
 (the physical light-quark point of real QCD).
 
 \begin{proposition}[Framework first-order]
-\label{prop:fo}
+\label{P22:prop:fo}
 In the density-feedback Hopfion the $\Zthree$ is the colour symmetry of the trefoil
 $T_{2,3}$ (the $\Zthree$ outer automorphism of $\twoT$, Paper~XV~\cite{Paper15}), so the
 cubic $b_3\neq0$ is present by construction (the colour-singlet baryon is the $\Zthree$
@@ -91,23 +101,23 @@ light dynamical quarks.
 \end{proposition}
 \noindent A density-feedback contribution (the $(1+\beta_*\rho)$ softening) adds to the
 coefficients and provides a second, independent first-order driver (\path{firstorder_transition.py};
-the first-order region is an intermediate window in $\beta_*\rho$, Section~\ref{sec:open}).
+the first-order region is an intermediate window in $\beta_*\rho$, Section~\ref{P22:sec:open}).
 
 \subsection{The coefficients from the geometry of the epoch}
-\label{subsec:coeffs}
-The coefficients of Eq.~\eqref{eq:polyakov} are not free: they are the holonomy expansion of
+\label{P22:subsec:coeffs}
+The coefficients of Eq.~\eqref{P22:eq:polyakov} are not free: they are the holonomy expansion of
 the thermal free energy of the condensate excitations, and those excitations carry the
 \emph{semi-Dirac} dispersion of the medium (Paper~VII~\cite{Paper7}),
 \begin{equation}
   E(k,\theta)^2=A^2k^4\sin^4\theta+v^2k^2\cos^2\theta ,
-  \label{eq:semidirac}
+  \label{P22:eq:semidirac}
 \end{equation}
 linear along the easy (radial) axis and quadratic along the hard (perpendicular) axis. The
 anisotropic phase space changes the temperature power: $\int\!d^3k\,e^{-nE/T}\propto(T/n)^{2}$
 rather than $(T/n)^3$, so the single-phase holonomy potential is
 \begin{equation}
   f(T,\chi)=-\sum_{n\ge1}c_n\cos n\chi,\qquad c_n\propto\frac{T^3}{n^{3}} ,
-  \label{eq:weiss}
+  \label{P22:eq:weiss}
 \end{equation}
 a cubic-Bernoulli ($B_3$) Weiss potential, in contrast to the relativistic quartic ($B_4$,
 $c_n\propto T^4/n^4$). Summing the three $\SU(3)$ colour (holonomy) phases $(\chi,0,-\chi)$ along
@@ -115,7 +125,7 @@ the real axis, with $L=(1+2\cos\chi)/3$ and $\cos n\chi=T_n\!\big(\tfrac{3L-1}{2
 expanding in $L$ gives
 \begin{equation}
   \frac{b_3}{b_4}\approx0.17 \quad(\text{semi-Dirac }B_3),\qquad\text{vs}\quad 0.16\ (B_4),
-  \label{eq:b3b4}
+  \label{P22:eq:b3b4}
 \end{equation}
 so the epoch's geometry modestly \emph{enhances} the cubic (strengthens first-order) relative
 to a relativistic gas. Confinement gaps the excitations through a $\Zthree$-even coupling to
@@ -127,12 +137,12 @@ matching the framework's near-critical condition $T/\Lcond\approx2$ (Paper~VII~\
 mass).)
 
 \begin{theorem}[Derived first-order transition]
-\label{thm:fo}
+\label{P22:thm:fo}
 The full thermal free energy combining the holonomy and the gap in one normalisation,
 \begin{equation}
   F(T,L)=-T\sum_{n\ge1}\frac1n\,I_n\!\big(T,\Delta(L)\big)\,[\,2\cos n\chi+1\,]+a_{\rm vac}L^2,
   \qquad I_n=\int\!\frac{d^3k}{(2\pi)^3}\,e^{-nE/T},
-  \label{eq:FTL}
+  \label{P22:eq:FTL}
 \end{equation}
 has, below $T_c$, its global minimum on the confined branch ($L\!\approx\!0.35$--$0.45$) and,
 above $T_c$, at the deconfined value $L\!\to\!1$, with the two degenerate at
@@ -146,16 +156,16 @@ space), while the latent heat is a modest fraction of the radiation bath,
 $\alpha=L_{\rm heat}/\rho_{\rm rad}\approx0.03$--$0.06$ (the barrier scale sits well below
 $g_*T^4$), giving bubble-wall speeds $v_w\sim0.15$--$0.2$ (deflagration). What matters for
 baryogenesis is not $\alpha$ but the departure from equilibrium at the wall and the shutoff of
-baryon-number violation behind it; the latter is automatic here (Section~\ref{sec:baryo}).
+baryon-number violation behind it; the latter is automatic here (Section~\ref{P22:sec:baryo}).
 
 \section{Baryogenesis as chiral reconnection}
-\label{sec:baryo}
+\label{P22:sec:baryo}
 A baryon is a chiral wound state: the trefoil (writhe $+3$) differs from its mirror
 (Paper~XVIII~\cite{Paper18}). The three Sakharov conditions map onto knot dynamics:
 baryon-number violation is the reconnection $\QH{=}2+\QH{=}2\to\QH{=}3+\QH{=}1$ (baryons form
 from leptons by threading); C and CP violation are the derived Wess--Zumino--Witten phase
 $\delta_{\rm CP}=65.0^\circ$ (Paper~V~\cite{Paper5}) together with the chiral writhe; and the
-departure from equilibrium is the first-order transition of Section~\ref{sec:fo}. Because the
+departure from equilibrium is the first-order transition of Section~\ref{P22:sec:fo}. Because the
 reconnection rate is a strong-interaction rate, $\Gamma/H\sim10^{19}$ at $T_{\rm QCD}$ (deep
 equilibrium); only a genuine first-order freeze-out escapes the resulting washout. Here that
 escape is structural: a reconnection needs free trefoil strands, which exist only in the
@@ -166,7 +176,7 @@ strength. Since $\sin\delta_{\rm CP}=0.91$ is of order unity, the CP bias is not
 factor.
 
 \section{Co-genesis and the asymmetric-dark-matter abundance}
-\label{sec:abund}
+\label{P22:sec:abund}
 The phase $\delta_{\rm CP}$ is a property of the shared $\twoI$ vacuum, which contains both
 $\twoT$ (baryon) and the D-type $\twoD_n$ (dark) as subgroups. The same chiral, CP-violating
 reconnection at the bubble walls therefore biases \emph{both} freeze-outs, seeding correlated
@@ -176,12 +186,12 @@ self-interacting through the shared director field), leaving the asymmetric resi
 abundance follows the asymmetric-dark-matter arithmetic,
 \begin{equation}
   \frac{\Odm}{\Ob}=r\,\frac{m_{\rm dark}}{m_p},\qquad r=\frac{n_{\rm dark}}{n_b},
-  \label{eq:adm}
+  \label{P22:eq:adm}
 \end{equation}
 with $r$ the ratio of the dark and baryon number asymmetries.
 
 One feature of this is robust: $r$ is \emph{independent of the unpinned magnitude} of $\eta$
-(Section~\ref{sec:open}), because both asymmetries are seeded by the same $\delta_{\rm CP}$ at the
+(Section~\ref{P22:sec:open}), because both asymmetries are seeded by the same $\delta_{\rm CP}$ at the
 same transition, so the common transport efficiency cancels in the ratio. What is \emph{not}
 derived is the value of either $r$ or $m_{\rm dark}$. We take $r\sim O(1)$ on the ground that the
 two sectors sit in comparable subgroups of $\twoI$ --- $\twoD_3$ (order $12$) and $\twoT$
@@ -196,7 +206,7 @@ sector's SIDM channel, and on the dark relic being stable (the existence questio
 Paper~XXI~\cite{Paper21}).
 
 \section{The D-type sector as two-epoch dark matter}
-\label{sec:twoepoch}
+\label{P22:sec:twoepoch}
 The stable D-type relic and the baryon-sourced director \emph{strain} of
 Paper~VII~\cite{Paper7} are two configurations of the one condensate, and they
 dominate the dark-matter phenomenology at two different epochs --- a single fabric
@@ -209,7 +219,7 @@ Hubble-frozen until $z\sim0$, so it cannot supply the cold matter the acoustic p
 require at recombination. The D-type relic is precisely the missing ingredient ---
 non-baryonic, electromagnetically and weakly sterile (Paper~XXI~\cite{Paper21}),
 non-ultralight ($m_{\rm dark}\sim5$~GeV$\,\gg H(z_{\rm rec})$), cold, and, being seeded
-by the co-genesis of Section~\ref{sec:abund} correlated with the baryon asymmetry,
+by the co-genesis of Section~\ref{P22:sec:abund} correlated with the baryon asymmetry,
 \emph{adiabatic} rather than isocurvature. It therefore clusters as standard cold dark
 matter at recombination, and at the cosmic ratio $\Odm/\Ob\approx5$ supplies the cluster
 lensing mass (collisionless, as in $\Lambda$CDM) where the baryon-tracking strain alone
@@ -247,7 +257,7 @@ microwave background and in clusters, a MOND-like RAR in galaxies --- from two m
 condensate, distinct from either pure theory, and it ties the dark-matter self-interaction
 to the \emph{same} geometry-dependent $\sin^4\theta$ structure as the Bell correlations
 (Papers~VIII--IX~\cite{Paper8,Paper9}): one anisotropy, two arenas. It is conditional on the
-relic's existence and abundance (Section~\ref{sec:abund}; Paper~XXI~\cite{Paper21}). The
+relic's existence and abundance (Section~\ref{P22:sec:abund}; Paper~XXI~\cite{Paper21}). The
 cosmological over-closure a long-range logarithmic force would otherwise carry is removed by
 the isotropic washing-out above; the residual open question is the \emph{within-halo}
 energetics, where $\hat n$ is coherent and the interaction active --- whether its cumulative
@@ -260,9 +270,9 @@ sub-megaparsec power; and weak lensing exceeding the kinematic mass in galaxies 
 $O((c_{\rm dir}/v)^2)$.
 
 \section{Open problem: the magnitude of $\eta$}
-\label{sec:open}
-All three Sakharov conditions are derived (Sections~\ref{sec:fo}--\ref{sec:baryo}): the
-first-order transition from the epoch's thermal free energy (Theorem~\ref{thm:fo}), the
+\label{P22:sec:open}
+All three Sakharov conditions are derived (Sections~\ref{P22:sec:fo}--\ref{P22:sec:baryo}): the
+first-order transition from the epoch's thermal free energy (Theorem~\ref{P22:thm:fo}), the
 order-unity CP phase $\delta_{\rm CP}=65.0^\circ$, and the automatic shutoff of baryon-number
 violation in the confined phase. What is \emph{not} derived is the \emph{magnitude} of the
 baryon asymmetry $\eta=7.04\,n_B/s$. We write
@@ -270,13 +280,13 @@ baryon asymmetry $\eta=7.04\,n_B/s$. We write
   \frac{n_B}{s}\sim A_{\rm pref}\,\varepsilon_{\rm CP}\,\delta_{\rm neq}\,b_{\rm ch},\qquad
   A_{\rm pref}=\frac{15}{4\pi^2 g_*}\sim2\times10^{-2},\qquad
   \varepsilon_{\rm CP}=\sin\delta_{\rm CP}\,c_{\rm int},
-  \label{eq:eta}
+  \label{P22:eq:eta}
 \end{equation}
 and examine each factor. Two are \emph{not} small. By CPT the asymmetry vanishes in exact
 equilibrium, and the reconnection rate is a strong-interaction rate ($\Gamma/H\sim10^{19}$), so
 the survivor is the departure from equilibrium at the wall, $\delta_{\rm neq}=v_w/(\Gamma L_w)
 \sim10^{-2}$ (set by the derived $v_w\sim0.2$). The CP interference is likewise $O(1)$: the
-phase of Section~\ref{sec:baryo} is the argument of a \emph{two-amplitude} sum (Paper~V%
+phase of Section~\ref{P22:sec:baryo} is the argument of a \emph{two-amplitude} sum (Paper~V%
 ~\cite{Paper5}) whose contributions are comparable, giving an interference visibility
 $c_{\rm int}\sim0.6$. With a naive isotropic channel fraction $b_{\rm ch}\sim0.2$, these factors
 \emph{overproduce} $\eta$ by $\sim10^{4}$--$10^{5}$: in this framework reconnection baryogenesis
@@ -290,7 +300,7 @@ is the \emph{heavy band} of the semi-Dirac dispersion, and the heavy band carrie
 suppression of the condensate (Paper~VII~\cite{Paper7}, Axiom~A2),
 \begin{equation}
   S_{\rm eff}=\frac{\sin^4\theta}{\vp^6\,(1+\beta_*\rho)},
-  \label{eq:seff}
+  \label{P22:eq:seff}
 \end{equation}
 whereas the competing light-band channels (the elastic channel, the $Q_H{=}1$ neutrino byproduct)
 do not. The baryon-forming reconnection therefore picks up $b_{\rm ch}\to b_{\rm ch}\,S_{\rm eff}^{\,p}$,
@@ -298,8 +308,8 @@ with $p$ the number of heavy-band projections in the final state. The factor $\v
 ratio) is the Wess--Zumino--Witten / Bogomolny power (a \emph{physical}, not frame-dependent,
 power), so this is a real suppression of $\sim\vp^{-6}\approx0.056$ per power.
 
-Crucially, the strength $\beta_*\rho$ in Eq.~\eqref{eq:seff} is the \emph{same} density-feedback
-combination that drives the first-order transition (Section~\ref{sec:fo}, the $(1+\beta_*\rho)$
+Crucially, the strength $\beta_*\rho$ in Eq.~\eqref{P22:eq:seff} is the \emph{same} density-feedback
+combination that drives the first-order transition (Section~\ref{P22:sec:fo}, the $(1+\beta_*\rho)$
 softening). It is one variable doing two jobs. Because the condensate density $\rho$ tracks $T^4$,
 $\beta_*\rho$ is large at the dense QCD epoch --- which is exactly the source of the baryon-channel
 suppression --- but it cannot be arbitrarily large: deep saturation softens the barrier away and
@@ -318,32 +328,41 @@ single density-feedback quantity, $\beta_*\rho$ at the QCD epoch, co-constrained
 requirement of a first-order transition and shared with the density screening of the dark sector.
 What remains genuinely open is (i) the \emph{location} of the first-order window in physical units
 (the ratio $\gamma/b$ of the feedback free energy, not yet fixed by the framework), and (ii) the
-heavy-band power $p$. The co-genesis ratio $\Odm/\Ob\sim O(5)$ (Section~\ref{sec:abund}) is
+heavy-band power $p$. The co-genesis ratio $\Odm/\Ob\sim O(5)$ (Section~\ref{P22:sec:abund}) is
 independent of all of this and stands as the sector's falsifiable prediction.
 
 \begin{thebibliography}{99}
 \bibitem{Paper5} F.~Manfredi, \textit{Colour Confinement, the QCD Scale, and Hadronic Structure
 from the Density-Feedback Hopfion}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
 \bibitem{Paper7} F.~Manfredi, \textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
 Equivalence Principle from the Density-Feedback Hopfion Condensate}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+
 \bibitem{Paper8} F.~Manfredi, \textit{Geometry-Dependent Bell Violations from the
 Density-Feedback Hopfion}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.18737070}{doi:10.5281/zenodo.18737070}
+
 \bibitem{Paper9} F.~Manfredi, \textit{Division Algebras, the Born Rule, and the Tsirelson
 Bound from the Density-Feedback Hopfion}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.20075227}{doi:10.5281/zenodo.20075227}
+
 \bibitem{Paper15} F.~Manfredi, \textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
 Zenodo (2026). \href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+
 \bibitem{Paper18} F.~Manfredi, \textit{Preimage Topology and Confinement: The $Q_H=3$ Sector
 of the Density-Feedback Hopfion}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+
 \bibitem{Paper21} F.~Manfredi, \textit{The Beyond--Standard-Model D-type Sector of the
 Density-Feedback Hopfion: A Sterile, Dirac Dark-Matter Candidate}, Zenodo (2026) --- DRAFT.
+\href{https://doi.org/10.5281/zenodo.23319530}{doi:10.5281/zenodo.23319530}
+
 \bibitem{Pisarski2000} R.~D.~Pisarski, \textit{Quark-gluon plasma as a condensate of
 $\SU(3)$ Wilson lines}, Phys.\ Rev.\ D \textbf{62}, 111501 (2000).
 \href{https://doi.org/10.1103/PhysRevD.62.111501}{doi:10.1103/PhysRevD.62.111501}
+
 \end{thebibliography}
 
 \end{document}

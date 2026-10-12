@@ -1,0 +1,505 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{url}
+\usepackage{hyperref,xcolor,enumitem,booktabs,array}
+
+\hypersetup{colorlinks=true,linkcolor={blue!60!black},
+  citecolor={blue!60!black},urlcolor={blue!60!black}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\lam}{\lambda}
+\newcommand{\TCMB}{T_{\mathrm{CMB}}}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\twoI}{2I}
+\newcommand{\twoT}{2T}
+\newcommand{\twoO}{2O}
+\newcommand{\twoD}{2D}
+\newcommand{\QH}{Q_H}
+\newcommand{\Qgr}{Q_{\mathrm{group}}}
+\newcommand{\Ztwo}{\mathbb{Z}_2}
+\newcommand{\Zthree}{\mathbb{Z}_3}
+\newcommand{\Zfour}{\mathbb{Z}_4}
+\newcommand{\cdir}{c_{\mathrm{dir}}}
+\newcommand{\Odm}{\Omega_{\mathrm{DM}}}
+\newcommand{\Ob}{\Omega_{b}}
+
+\title{\textbf{The Beyond--Standard-Model D-type Sector of the
+Density-Feedback Hopfion:\\ A Sterile, Dirac Dark-Matter Candidate}}
+\author{Frederick Manfredi}
+\date{2026 --- DRAFT (checkpoint)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The matter sectors of the density-feedback Hopfion are the finite
+subgroups of the binary icosahedral vacuum group $\twoI$: the neutrino
+($\QH=1$, cyclic $\Ztwo$, A-type), the charged lepton ($\QH=2$, $\twoI$
+itself, $\widehat{E}_8$), and the quark/baryon ($\QH=3$, binary
+tetrahedral $\twoT\subset\twoI$ at pentagon index $5$, $\widehat{E}_6$).
+We make two structural observations and then develop, honestly and
+conditionally, their dark-matter consequence. \emph{(i)~ADE completion.}
+Reading the Standard-Model matter content as subgroups of $\twoI$ forces
+a definite exclusion at the top of the ADE tier: the binary octahedral
+group $\twoO$ ($\widehat{E}_7$) cannot carry a matter sector, since
+$|\twoO|=48$ does not divide $|\twoI|=120$. The framework predicts no
+$E_7$-type matter. The binary dihedral (D-type) groups, by contrast, are
+subgroups of $\twoI$ that carry their own $\Ztwo$ rather than the colour
+$\Zthree$, and are the natural home of any beyond--Standard-Model state.
+\emph{(ii)~A sterile Dirac sector.} The D-type candidates $\twoD_3$ and
+$\twoD_5$ (McKay algebras $\SO(10)$ and $\SO(14)$) fail the T-matrix
+closure that defines a quantised sector charge $\Qgr$, by both natural
+WZW assignments; the obstruction is the odd-rank spinor, which also makes
+the spinor \emph{complex}. The same object therefore renders the sector
+both \emph{sterile} (no quantised Standard-Model charge) and
+\emph{Dirac} (a conserved dark-number $U(1)$). \emph{(iii)~Dark matter,
+as a developed conditional scenario.} Such a sector supplies a
+gravitating, electromagnetically dark, cold ($a^{-3}$) relic, with an
+abundance that an asymmetric-dark-matter co-genesis---one chiral,
+CP-violating reconnection in the shared $\twoI$ vacuum seeding correlated
+baryon and dark asymmetries---would set to $\Odm/\Ob\approx5$, i.e.\
+$m_{\mathrm{dark}}\approx5$~GeV. We state precisely the four conditions
+this scenario requires and which remain unestablished (the baryogenesis
+magnitude $\eta$; the dark/baryon branching; the annihilation efficiency;
+the soliton's \emph{existence}---its \emph{stability}, by contrast, is
+topological and settled). This paper is a draft checkpoint: results
+(i)--(ii) are firm; the dark-matter application (iii) is a structured,
+falsifiable, but conditional proposal, not a derivation of $\Odm$.
+\end{abstract}
+
+\tableofcontents
+
+%══════════════════════════════════════════════════════════════════════
+\section{Introduction and epistemic scope}
+%══════════════════════════════════════════════════════════════════════
+The density-feedback Hopfion~\cite{Paper1} organises the Standard-Model
+matter content as topological excitations of a binary-icosahedral vacuum
+condensate; Papers~XV--XX~\cite{Paper15,Paper16,Paper17,Paper18,Paper19,Paper20}
+develop its three matter sectors. These are identified with
+three finite subgroups of the binary icosahedral group $\twoI$ via the
+McKay correspondence~\cite{CIZ1987}:
+$\QH=1$ (neutrino, $\Ztwo$, $\widehat{A}_1$, $\SU(2)_1$), $\QH=2$
+(charged lepton, $\twoI$, $\widehat{E}_8$, $\SU(2)_3$), and $\QH=3$
+(quark/baryon, $\twoT$, $\widehat{E}_6$, $(E_6)_1\supset\SU(3)_1^{\times3}$).
+The companion gravity paper~VII~\cite{Paper7} reproduces the galactic
+dark-matter phenomenology (flat rotation curves, the radial-acceleration
+relation) from director strain, but leaves the recombination-epoch
+cold-dark-matter budget as an input. This paper asks whether the
+framework's own group-theoretic ladder contains a candidate for that
+budget.
+
+\paragraph{Epistemic scope (stated up front).} We separate firm results
+from a conditional proposal. Sections~\ref{sec:ade}--\ref{sec:dirac}
+(the ADE completion, the no-$E_7$ exclusion, and the sterile-Dirac
+character of the D-type sector) are firm: they are group theory and
+rational conformal-field-theory arithmetic. Sections~\ref{sec:dm}--%
+\ref{sec:abundance} (the dark-matter interpretation and its abundance)
+are a \emph{developed conditional scenario}: every link is
+framework-native, but the chain rests on quantities not yet derived,
+which we enumerate explicitly in Section~\ref{sec:open}. We flag the
+status of each claim in place.
+
+%══════════════════════════════════════════════════════════════════════
+\section{The ADE completion and the exclusion of $E_7$}
+\label{sec:ade}
+%══════════════════════════════════════════════════════════════════════
+The matter sectors are not free McKay labels: they are \emph{subgroups}
+of the vacuum group $\twoI$. Paper~XV~\cite{Paper15}, Theorem~9.1
+%\ref{P15:thm:subgroup}
+proves $\twoT\subset\twoI$ (orders $24\mid120$), with index
+$[\twoI:\twoT]=5$ equal to the pentagon $k+2$ at $k=3$, the five cosets
+being the five lepton primaries; the restriction $\twoI\to\twoT$ is the
+algebraic content of passing from the lepton to the quark sector.
+The neutrino group $\Ztwo=\{\pm1\}$ is the centre of $\SU(2)$ and lies
+in every binary polyhedral group, $\Ztwo\subset\twoI$. Thus all three
+matter sectors are $\twoI$ or subgroups of it.
+
+\begin{theorem}[No $E_7$-type matter sector]
+\label{thm:noE7}
+If matter sectors are realised as finite subgroups of the vacuum group
+$\twoI$, then the binary octahedral group $\twoO$ (McKay $\widehat{E}_7$)
+carries no matter sector.
+\end{theorem}
+\begin{proof}
+$|\twoO|=48$ and $|\twoI|=120$. Since $48\nmid120$, Lagrange's theorem
+forbids $\twoO\subset\twoI$. Equivalently, the octahedral group
+$O\cong S_4$ (order $24$) is not a subgroup of the icosahedral group
+$I\cong A_5$ (order $60$, with $24\nmid60$), so no lift to the binary
+cover exists. Hence no $\widehat{E}_7$ matter sector is available.
+\end{proof}
+
+\noindent This is a definite, falsifiable prediction, independent of the
+dark-matter discussion below: the Hopfion ladder admits A-type, $E_6$,
+and $E_8$ matter, but never $E_7$.
+
+\begin{remark}[The D-type slot is available and colourless]
+\label{rem:dtype_slot}
+The binary dihedral (dicyclic) groups $\twoD_n$ of order $4n$ are
+subgroups of $\twoI$ whenever $4n\mid120$ after the appropriate lift;
+in particular $\twoD_3$ (order $12$, $\widehat{D}_5$) and $\twoD_5$
+(order $20$, $\widehat{D}_7$) lie in $\twoI$ but \emph{not} in $\twoT$
+(since $A_4$ has no subgroup of order $6$, neither dicyclic lifts into
+$\twoT$). They are ``sideways branches'' of the vacuum. Crucially,
+D-type groups carry their own $\Ztwo$ outer automorphism and not the
+colour $\Zthree$ (Paper~XVII~\cite{Paper17}, A-type versus E-type McKay
+chains): they are colourless, non-baryonic, and
+reserved for beyond--Standard-Model physics. We take $\twoD_3,\twoD_5$
+as the candidate dark sectors.
+\end{remark}
+
+%══════════════════════════════════════════════════════════════════════
+\section{The D-type sector is sterile}
+\label{sec:sterile}
+%══════════════════════════════════════════════════════════════════════
+A sector carries a quantised charge iff its WZW T-matrix \emph{closes}:
+following Paper~XV~\cite{Paper15} (Definition of T-matrix closure), an
+integer $Q\geq1$ closes the T-matrix if $Q\,T_j$ is an odd multiple of
+$\tfrac14$ for every primary $j$, where $T_j=h_j-c/24$; the minimal such
+$Q$ is $\Qgr$. The Standard-Model sectors close: $(E_6)_1\to\Qgr=3$,
+$\SU(2)_1\to\Qgr=6$, $\SU(2)_3\to\Qgr=10$ (reproduced by the engine of
+Appendix~\ref{app:engine}).
+
+\begin{proposition}[No closing charge for the D-type sector]
+\label{prop:noclosure}
+Neither natural WZW assignment of the D-type sector admits a closing
+integer:
+\begin{enumerate}[noitemsep,label=(\alph*)]
+\item $(D_{n+2})_1=\SO(2r)_1$ (the McKay-algebra convention, as the quark
+uses $(E_6)_1$): for $\twoD_3\to\SO(10)_1$ ($r=5$) and
+$\twoD_5\to\SO(14)_1$ ($r=7$), the spinor primary has $h_s=r/8$, forcing
+$Q\,r$ odd, while the vacuum $T_1=-r/24$ forces $Q\,r$ even. No integer
+$Q$ satisfies both.
+\item $\SU(2)_k$ with the D-type modular invariant (the convention the
+lepton uses, $k=2n$): all even levels $k$ fail closure, while only odd
+$k$ close; the D-type invariants sit at $k=6$ ($\twoD_3$) and $k=10$
+($\twoD_5$), both even.
+\end{enumerate}
+Hence $\Qgr$ does not exist for the D-type sector.
+\end{proposition}
+\begin{proof}
+Direct computation of the closure condition on the SO$(2r)_1$ primaries
+$\{1,v,s,c\}$ with $(h_1,h_v,h_s)=(0,\tfrac12,\tfrac r8)$ and on the
+$\SU(2)_k$ primaries $h_\ell=\ell(\ell+2)/4(k+2)$; see
+Appendix~\ref{app:engine}, which validates against the three
+Standard-Model values before reporting the null results.
+\end{proof}
+
+\begin{corollary}[Sterility]
+\label{cor:sterile}
+T-matrix closure is the charge-quantisation condition; its failure means
+the D-type sector carries \emph{no} quantised Standard-Model charge.
+Equivalently, electric charge is the $\SU(3)_L$ generator
+$Q=T_{3L}+T_{8L}/\sqrt3$ of the $E_6$ trinification
+(Paper~XV~\cite{Paper15}), quantised in units of $\tfrac13$ by the
+$\Zthree$ centre of $\SU(3)_L$; a D-type group carries only its own
+$\Ztwo$ and no $\Zthree$, so it admits no $\SU(3)_L$ representation for
+$Q$ to act on. Being a separate McKay branch, it has no Standard-Model
+doublet partner and hence no weak charge either. The D-type sector is a
+full Standard-Model singlet: \emph{sterile}, interacting only
+gravitationally and through its own $\Ztwo$.
+\end{corollary}
+
+%══════════════════════════════════════════════════════════════════════
+\section{The same spinor makes the sector Dirac}
+\label{sec:dirac}
+%══════════════════════════════════════════════════════════════════════
+The obstruction in Proposition~\ref{prop:noclosure}(a) is the odd-rank
+spinor $h_s=r/8$. The reality of SO$(2r)$ spinors is classical: for $r$
+odd the two Weyl spinors are \emph{complex} conjugates of one another
+($s^{*}=c\neq s$); for $r\equiv0\ (\mathrm{mod}\ 4)$ real, for
+$r\equiv2\ (\mathrm{mod}\ 4)$ pseudoreal. Both candidates have $r$ odd
+($\SO(10):r=5$, $\SO(14):r=7$), so both carry a \emph{complex} spinor.
+This is the same fact that makes the $\SO(10)$ \textbf{16} complex and
+chiral, i.e.\ that makes $\SO(10)$ a viable grand-unified group.
+
+\begin{proposition}[Sterile and Dirac share one origin]
+\label{prop:sterile_dirac}
+The odd-rank spinor $h_s=r/8$ is simultaneously (i) the primary whose
+T-matrix phase obstructs closure (Proposition~\ref{prop:noclosure}a),
+making the sector sterile, and (ii) complex ($s^{*}=c$), endowing the
+sector with a conserved dark-number $U(1)$ and hence a distinct
+antiparticle. A complex (Dirac) sector can carry a particle--antiparticle
+asymmetry; contrast the neutrino sector $\SU(2)_1$, whose $j=\tfrac12$
+primary is self-conjugate ($j^{*}=k-j=\tfrac12$), i.e.\ Majorana
+(Paper~XVII~\cite{Paper17}), and which therefore cannot.
+\end{proposition}
+
+\noindent The D-type sector is thus a \emph{sterile Dirac} sector carrying
+its own $\Ztwo$ (a dark parity, stabilising its lightest state) and a
+complex-spinor $U(1)$ (a dark number, admitting an asymmetry). Its McKay
+algebra for $\twoD_3$ is $\SO(10)$---the archetypal grand-unified group,
+the home of baryon-number violation---a point we return to in
+Section~\ref{sec:abundance}. (We use $\SO(10)$ here as the
+McKay-correspondent algebra, not as a gauged grand-unified theory.)
+
+%══════════════════════════════════════════════════════════════════════
+\section{Dark-matter candidacy: coldness and equation of state}
+\label{sec:dm}
+%══════════════════════════════════════════════════════════════════════
+A sterile, gravitating sector is a dark-matter candidate if it can be
+\emph{cold} at recombination, i.e.\ dilute as $a^{-3}$. The D-type mass
+scale is not fixed by the tower (there is no $\Qgr$ to set it), so we do
+not predict it here; instead we identify the condition under which the
+sector's gravitating content is $a^{-3}$.
+
+\begin{proposition}[$a^{-3}$ equation of state, conditional]
+\label{prop:eos}
+Let the sector's gravitating content be a population of localised,
+number-conserved coherent configurations of fixed proper size and energy
+(solitons, or frozen director deformations held rigid by the condensate's
+static shear rigidity, Paper~VII~\cite{Paper7}). Then the number density
+dilutes as $a^{-3}$ and the energy density as $\rho\propto a^{-3}$,
+$w=0$: cold dark matter. If instead the content relaxes to a smooth
+space-filling texture, gradients dilute as $a^{-1}$ and $\rho\propto
+a^{-2}$, $w=-\tfrac13$: not cold.
+\end{proposition}
+
+\noindent Which case obtains is set by whether the configurations stay
+localised or coarsen. In the framework's inertial director dynamics
+($\chi\,\partial_t^2\hat n=K\nabla^2\hat n$), coarsening proceeds at a
+rate controlled by the signal speed $\cdir=\sqrt{K/\chi}$, with no true
+static plateau but a coarsening time $t_{\mathrm{coarsen}}\sim
+\cdir^{-3/2\text{--}2}$ that diverges as $\cdir\to0$
+(Paper~VII~\cite{Paper7}; the $3$D inertial defect-network simulation).
+A coarse single-quench freeze test confirms the localised ($a^{-3}$)
+regime for small $\cdir$ and coarsening for larger $\cdir$, with a sharp
+threshold; repeated mergers (re-quenching) re-seed and \emph{sustain} the
+localised network. The $a^{-3}$ regime therefore holds at recombination
+provided $\cdir$ is below the sector's coldness threshold---the same
+coldness the director sector already requires. This is a genuine escape
+from the $a^{-2}$ obstruction that defeats a smooth orientation texture,
+and it is purchased with no new ingredient.
+
+%══════════════════════════════════════════════════════════════════════
+\section{Abundance: an asymmetric-dark-matter co-genesis}
+\label{sec:abundance}
+%══════════════════════════════════════════════════════════════════════
+We summarise the abundance scenario and its conditions here; the genesis
+dynamics---baryogenesis and co-genesis at the first-order confinement
+transition---are developed in the companion Paper~XXII~\cite{Paper22},
+which serves as the bridge from the quark sector to this dark sector. The
+observed coincidence is $\Odm/\Ob\approx5.4$.
+
+\paragraph{Baryogenesis as chiral reconnection.} In the framework a
+baryon is a chiral wound state: the trefoil $T_{2,3}$ (writhe $+3$)
+differs from its mirror (writhe $-3$), and is assembled by a chiral
+threading process (Paper~XVIII~\cite{Paper18}). The three Sakharov
+conditions map onto knot dynamics: (i)~baryon-number violation is the
+reconnection $\QH{=}2+\QH{=}2\to\QH{=}3+\QH{=}1$ and its reverse (baryons
+form from leptons by threading; $B$ is a knot-sector count changed by
+reconnection, Paper~XVIII); (ii)~C and CP violation are supplied by the
+derived WZW phase $\delta_{\mathrm{CP}}$ (Paper~V~\cite{Paper5}) together
+with the chiral writhe, which bias the threading handedness; (iii)~the
+departure from equilibrium is the confinement transition, which freezes
+the reversible reconnections (``confinement as threading
+irreversibility,'' Paper~XVIII). Because the $B$-violation here is
+topological reconnection at the confinement scale and not an electroweak
+sphaleron, the mechanism is not bound by the standard objection that the
+Cabibbo--Kobayashi--Maskawa phase is too small for electroweak
+baryogenesis.
+
+\paragraph{The connector.} The phase $\delta_{\mathrm{CP}}$ is a property
+of the $\twoI$ WZW T-matrix, common to the whole vacuum. The same chiral,
+CP-violating reconnection event therefore biases both the $\twoT$ (baryon)
+and the $\twoD_3$ (dark) freeze-outs that occur in the shared vacuum,
+seeding \emph{correlated} asymmetries---a co-genesis. The D-type sector
+can carry the dark asymmetry because it is Dirac
+(Proposition~\ref{prop:sterile_dirac}).
+
+\paragraph{Overproduction is a feature.} A Kibble--Zurek freeze-out
+produces a symmetric dark population of density $\sim n_\gamma$, far
+exceeding the baryon asymmetry. In an asymmetric-dark-matter scenario
+this is expected: the symmetric part self-annihilates---the D-type sector
+is self-interacting through the shared director field---leaving the
+CP-biased asymmetric residue. If that residue tracks the baryon asymmetry
+(same $\delta_{\mathrm{CP}}$, comparable subgroup branching
+$\twoD_3:\twoT$ of orders $12:24$), then
+\begin{equation}
+  \frac{\Odm}{\Ob}=r\,\frac{m_{\mathrm{dark}}}{m_p},\qquad
+  r=\frac{n_{\mathrm{dark}}}{n_b},
+  \label{eq:adm}
+\end{equation}
+where the gravitating mass per relic is its rest mass $m_{\mathrm{dark}}$:
+the relic is a stable knot (Hopf-charge conservation forbids its
+unwinding), so no fraction of its energy is lost to a frozen residue.
+$\Odm/\Ob\approx5.4$ with $r\approx1$ then gives
+$m_{\mathrm{dark}}\approx5\,m_p\approx5$~GeV---the canonical
+asymmetric-dark-matter mass. A $\sim5$~GeV sterile state evades the
+null results of direct detection by construction. Non-thermal
+(topological) production is consistent with $m_{\mathrm{dark}}\gg T_c$,
+exactly as the $\sim1$~GeV proton forms at $T_c\sim150$~MeV.
+
+%══════════════════════════════════════════════════════════════════════
+\section{Falsifiable signatures}
+\label{sec:signatures}
+%══════════════════════════════════════════════════════════════════════
+\begin{enumerate}[noitemsep,label=(\arabic*)]
+\item \textbf{No $E_7$ matter} (Theorem~\ref{thm:noE7})---firm, and
+independent of the dark-matter interpretation.
+\item A $\sim5$~GeV sterile, asymmetric dark-matter state (if the
+abundance scenario holds)---accessible in principle to light-dark-matter
+searches, though sterile and so weakly coupled.
+\item \textbf{Self-interacting dark matter}: the shared director field
+makes dark--dark interactions unavoidable, predicting cored (not cuspy)
+halos and the standard self-interacting-dark-matter small-scale
+signatures.
+\item \textbf{Merger dependence}: because the frozen network slowly
+coarsens and mergers re-seed it, recently-merged/disturbed systems carry
+a denser network, hence a larger mass excess, than relaxed systems of
+equal baryon content (shared with Paper~VII~\cite{Paper7}'s cluster
+channel).
+\end{enumerate}
+
+%══════════════════════════════════════════════════════════════════════
+\section{Open problems}
+\label{sec:open}
+%══════════════════════════════════════════════════════════════════════
+The dark-matter application of Sections~\ref{sec:dm}--\ref{sec:abundance}
+is a developed conditional scenario. Four quantities remain unestablished,
+in decreasing order of difficulty.
+\begin{enumerate}[noitemsep,label=(\roman*)]
+\item \textbf{The baryogenesis magnitude $\eta$.} The Sakharov structure
+is in place but $\eta\approx6\times10^{-10}$ is not derived; it requires
+the reconnection rates, the CP interference, and the freeze-out dilution.
+A concrete handle is the writhe-$3$ framing phase
+$\theta_{3/2}^{3}=i$ (Paper~XV~\cite{Paper15}), a genuine chiral phase in
+the reconnection amplitude. This is the single lynchpin: with it the
+scenario becomes a prediction; without it it stays conditional.
+\item \textbf{The soliton's existence} (not its stability). The $a^{-3}$
+and asymmetric-residue pictures require a localised D-type configuration
+that is an energy minimiser in its sector. This \emph{existence} question
+is open: coarse free-flow relaxation cannot settle it, because it does
+not conserve the Hopf charge on a lattice---it fails even for the known
+trefoil---so a charge-conserving relaxation is required. We stress that
+\emph{stability} is a separate, settled matter: a D-type Hopfion, if it
+exists, is protected against unwinding by Hopf-charge conservation
+(exactly as the trefoil is) and against decay into Standard-Model sectors
+by its own $\Ztwo$ dark parity. Its Hopf charge does not physically
+decay; the charge loss seen in free-flow relaxation is a lattice artefact
+of the non-conserving scheme, not a dynamical unwinding. Stability is
+therefore as firm as any Hopfion's in the framework; only existence is
+numerically open.
+\item \textbf{The branching ratio $r$.} Taken $\approx1$ from comparable
+subgroup orders; not derived. The bookkeeping of
+Paper~XVIII~\cite{Paper18} shows a dihedral object is \emph{not} a
+\emph{forced} per-baryon byproduct (the pion saturates the Hopf-charge and
+component books), so $r$ must come from the collective freeze-out
+branching, not a forced-byproduct count.
+\item \textbf{The annihilation efficiency $f$ and the coldness threshold}
+on $\cdir$ (Section~\ref{sec:dm}), both taken order unity/plausible.
+\end{enumerate}
+Until (i) is settled, the abundance is a scenario, not a result, and the
+recombination cold-dark-matter budget remains an input
+(Paper~VII~\cite{Paper7}). Results~\ref{thm:noE7} and the sterile-Dirac
+character of the D-type sector stand independently of all of the above.
+
+%══════════════════════════════════════════════════════════════════════
+\appendix
+\section{T-matrix closure engine}
+\label{app:engine}
+%══════════════════════════════════════════════════════════════════════
+The closure computation (Proposition~\ref{prop:noclosure}) is performed
+by an exact rational engine
+(\path{src_paper21/dtype_cft_tower_engine.py}) that first validates
+against the three Standard-Model sectors
+($(E_6)_1\to3$, $\SU(2)_1\to6$, $\SU(2)_3\to10$) and then reports no
+closing integer for $\SO(10)_1$, $\SO(14)_1$, and all even-level
+$\SU(2)_k$. The $a^{-3}$ freeze test (Section~\ref{sec:dm}) uses the
+inertial director-network simulation
+(\path{src_paper7/dm_polarization/defect_network_sim_3d.py}); the
+abundance arithmetic~\eqref{eq:adm} is
+\path{src_paper21/adm_abundance.py}.
+
+%══════════════════════════════════════════════════════════════════════
+\begin{thebibliography}{99}
+
+\bibitem{Paper1}
+F.~Manfredi,
+\textit{The Density-Feedback Faddeev--Niemi Hopfion:
+  Exact Algebraic Predictions for Standard-Model Parameters},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+
+\bibitem{Paper5}
+F.~Manfredi,
+\textit{Colour Confinement, the QCD Scale, and Hadronic Structure
+  from the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
+
+\bibitem{Paper7}
+F.~Manfredi,
+\textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
+  Equivalence Principle from the Density-Feedback Hopfion Condensate},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+
+\bibitem{Paper15}
+F.~Manfredi,
+\textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+
+\bibitem{Paper16}
+F.~Manfredi,
+\textit{Quark Generation Masses in the Density-Feedback Hopfion:
+A Survey of Ruled-Out Mechanisms and the $Q_H=3$ Gradient-Flow Landscape},
+Preprint (2026).
+\href{https://doi.org/10.5281/zenodo.21012650}{doi:10.5281/zenodo.21012650}
+
+\bibitem{Paper17}
+F.~Manfredi,
+\textit{The $Q_H=1$ Sector of the Density-Feedback Hopfion:
+Topology, Group Structure, Colour Exclusion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21013412}{doi:10.5281/zenodo.21013412}
+
+\bibitem{Paper18}
+F.~Manfredi,
+\textit{Preimage Topology and Confinement: The $Q_H=3$ Sector of the
+Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+
+\bibitem{Paper19}
+F.~Manfredi,
+\textit{Dynamical Origin of Quark Masses in the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21225452}{doi:10.5281/zenodo.21225452}
+
+\bibitem{Paper20}
+F.~Manfredi,
+\textit{The Dynamical Layer of the Quark Sector: $E_6$-Native
+Generations, the Isospin Mass-Scale, and Static Residuals as Strong
+Dynamics},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.23047960}{doi:10.5281/zenodo.23047960}
+
+\bibitem{Paper22}
+F.~Manfredi,
+\textit{Dark Genesis: Co-genesis of Baryons and a Sterile Dirac Dark Sector
+at the First-Order Confinement Transition of the Density-Feedback Hopfion},
+Zenodo (2026) --- DRAFT.
+
+\bibitem{CIZ1987}
+A.~Cappelli, C.~Itzykson and J.-B.~Zuber,
+\textit{The A-D-E classification of minimal and $A_1^{(1)}$ conformal
+  invariant theories},
+Commun.\ Math.\ Phys.\ \textbf{113}, 1--26 (1987).
+\href{https://doi.org/10.1007/BF01221394}{doi:10.1007/BF01221394}
+
+\end{thebibliography}
+
+\end{document}

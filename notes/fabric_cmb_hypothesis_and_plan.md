@@ -2051,3 +2051,99 @@ S^2-saturation requirement; relaxation RATE and coherence length still uncompute
 (10-10^3 eV window); c_dir cutoff-set (not pinned). STATUS: two-epoch hybrid's galactic overlap PLAUSIBLY resolved
 (grounded geometry-gating), cosmological overclosure resolved, within-halo energetics the single refined open; the
 paper now states this as current content. No commit yet (awaiting user).
+
+## UPDATE 2026-10-12 (vvv) -- USER intuition captured: the "clapping hand" = the three-speed separation. Faithful; maps onto the computed lensing/dynamics slip. Two refinements recorded.
+USER framing: both MOND and CDM are "right" in different regimes; geometry changes, then light, then baryons move to
+fill, and the interconnectedness changes the geometry as it reconfigures -- like a clap, where a distant observer SEES
+the clap (light) before HEARING it (sound).
+VERDICT [E on the mechanism, I on the framing]: a faithful intuition for the THREE SPEEDS (claude-hopfion s4): light
+c > magnitude/Bell mode c_s=c/phi (~0.62c, fast smooth GLOBAL) > director strain c_dir->0 (slow, the halo). The clap's
+"see-before-hear" IS the computed lensing-vs-dynamics slip (lensing/dynamics = 1 + (1/4)(c_dir/v)^2,
+src_paper7/dm_polarization/lensing_dynamics_slip.py): the LENS responds to the fast-settled geometry, the dynamical
+halo DRAGS behind at c_dir. = the earlier "the lens is the lightest thing that follows the geometry, then the halo
+drags after" (notes session). So the analogy is not loose -- it names a real, falsifiable framework number.
+REFINEMENT 1 (not "both theories right"): the framework is NEITHER MOND nor CDM; it REPRODUCES each phenomenology in
+its regime (collisionless clustering early/clusters; RAR/a0 in galaxies) and DIFFERS where they diverge (merger-
+dependent cluster mass; planar-vs-spherical Bell). Stronger than "both right in their lane" -- a third thing that
+PREDICTS the boundary.
+REFINEMENT 2 (the "sound" freezes and is interconnected): unlike a real clap, the slow director reconfiguration does
+not pass -- it SETS (c_dir->0, "stress without heat") into a persistent halo (the fossil texture). And "inter-
+connectedness" = the Bell shared-n_hat (claude-hopfion s7): the reconfiguration is globally COORDINATED (one shared
+field), though back-action still propagates at c_s=c/phi -> NO signaling. The passive distant observer slightly under-
+sells the shared-geometry coordination.
+PAPER: added a one-sentence physics-register version to Paper XXII sec:twoepoch (fast-settled lens vs c_dir-lagging
+halo = origin of the slip); the clapping metaphor stays in the notes only. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-12 (www) -- WITHIN-HALO energetics (the refined open from (sss)/(ttt)) PLAUSIBLY RESOLVED: Debye screening makes it extensive (~N), not N^2. Mechanism identified, scaling checked.
+Script: src_paper7/dm_polarization/within_halo_energetics.py (scaling, not N-body; N~1e68 unsimulable). The worry: in the
+COHERENT galactic regime the dark-hopfion director log-interaction is ACTIVE and dense -> does the cumulative energy go
+as N^2 (over-close) and need nonlinear S^2 saturation? ANSWER: NO, it splits into three finite pieces --
+ (1) MEAN TEXTURE = the halo = ONE splay disclination, |grad n|~1/r -> E=(chi/2)int|grad n|^2 ~ LINEAR in R (M_enc prop
+     r, Paper VII). Winding is TOPOLOGICAL (~1), NOT N -> adding relics never makes the halo mass ~N^2.
+ (2) FLUCTUATION PLASMA (the relic-relic log that thermalises them): a THERMALISED plasma DEBYE-SCREENS the log ->
+     Yukawa-of-log ~K_0(r/lambda_D), each relic sees only N_Debye~n*lambda_D^3 neighbours -> correlation energy
+     EXTENSIVE (~N, a renormalisation of m_dark), NOT N^2. CHECKED: for the stated C~10-10^3 eV window, lambda_D ~ 1e-9
+     kpc << R_halo=100 kpc (lambda_D/d_ip~1e9-1e11, but << R/d_ip~4e22) -> screening is EFFECTIVE inside the halo;
+     E_screened/Mc^2 ~ 1e-32..1e-28 (negligible) vs E_unscreened(N^2)/Mc^2 ~ 1e53..1e57 (absurd). The ratio = N/N_Debye.
+ (3) VIRIAL: log is marginally confining, r V'=C^2 const -> 2<T>=C^2/pair -> scale-invariant equilibrium (CORED halo),
+     interaction virialised to ~M v^2, no runaway.
+VERDICT: option (a) -- NO over-closure, NO S^2 saturation needed. UPGRADES (sss)/(ttt): the within-halo open is now
+"plausibly resolved via Debye screening in the thermalised coherent-regime plasma." REMAINING [O]: C (hence lambda_D)
+cutoff-set; and the resolution is CONDITIONAL on quasi-neutrality of the FLUCTUATION director-charges about the mean
+texture (assumed, not proven -- if the fluctuations were net same-sign, the N^2 boundary term returns). Thermalisation
+itself is supplied by the (sss) geometry-gating (coherent -> interaction active -> relax). [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-12 (xxx) -- DARK-HOPFION EXISTENCE (Paper XXI open-(ii)): pinned the TARGET KNOT TYPE (prism/D_n-graph-link) and laid out the existence logic. Status: ALLOWED, not FORCED. One script bug caught+fixed.
+Script: src_paper21/dark_hopfion_existence.py (group/topology facts checked; existence logic stated, not a sim -- the
+free-flow route is exhausted/wrong-instrument, notes (j)-(l)). TWO tractable advances:
+ A. KNOT TYPE [N proposal]: the A-type ladder is cyclic Z_q -> lens space -> T(2,q) torus knot (nu/lepton/baryon =
+    T(2,1/2/3)). The D-type (McKay D-hat) Kleinian singularity C^2/2D_n has LINK S^3/2D_n = a PRISM MANIFOLD, Seifert
+    over the orbifold S^2(2,2,n), whose plumbing is the D_n Dynkin TREE (chain + two-prong fork), NOT a torus knot ->
+    confirms "off the T(2,Q_H) ladder." (2,2,n) is NOT pairwise coprime (gcd(2,2)=2) -> not a homology sphere -> H_1
+    nontrivial. CHECKED: dicyclic abelianization H_1(2D_3)=H_1(2D_5)=Z_4 (n odd) CONTAINS a Z_2 = the sector's own DARK
+    PARITY. So the dark parity is literally the torsion homology of the prism manifold. This is the TARGET a charge-
+    conserving existence search should aim at.
+ B. EXISTENCE LOGIC: PURE Faddeev (sum form) -> Vakulenko-Kapitanskii E>=c|Q|^{3/4} + Lin-Yang (2004) => minimisers
+    EXIST in nontrivial Hopf classes (existence in principle). DENSITY-FEEDBACK (product E_fb=K_fb*J4) -> SADDLE not min
+    (feedback_saddle_core) -- BUT the BARYON/trefoil has the same saddle structure and EXISTS (proton, confinement-
+    stabilised), so "saddle != doesn't exist." The sterile dark hopfion has NO confinement -> its STABILISER is the open
+    physics: (i) lambda not pinned to phi^6 (no Q_group) -> possibly LARGE -> a FAT genuine minimiser (notes (k)); (ii)
+    its Z_2 parity + prism/graph-link rigidity may protect a saddle. Both plausible, unforced.
+VERDICT: existence ALLOWED (nontrivial Faddeev class -> Lin-Yang minimiser for the pure functional), NOT FORCED (index
+probe negative; feedback-saddle needs a sterile stabiliser; free flow is the wrong instrument). Numerics need a
+Q_H-CONSERVING/constrained high-res search (rational_map_ic.py smooth base + saddle-score, GPU-gated). Paper XXI's
+"existence open, stability settled" stands; now with a NAMED target topology + the stabiliser question as the handle.
+BUG CAUGHT (CLAUDE.md s1): first draft used divisibility (12|24) to test 2D_3 in 2T -> printed "True", contradicting
+the text; fixed to the real criterion (A_4 has no order-6 subgroup -> D_3,D_5 both out). [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-12 (yyy) -- Cross-referenced the PRIOR existence thread (e)-(m) into (xxx): the knot-type proposal ANSWERS a long-open item; stability REFINED; fat-soliton route reinforced. dark_hopfion_existence.py extended.
+Read back the full prior existence thread (notes (e)-(m), 2026-10-05). Four developments folded into (xxx) /
+src_paper21/dark_hopfion_existence.py:
+ 1. KNOT TYPE -- the (xxx) prism/D_n-graph-link proposal ANSWERS the "knot type? (distinct from unknot/torus/trefoil)"
+    question that (f),(h) repeatedly posed and left OPEN. Not a restatement -- a resolution of a standing item.
+ 2. SYNTHESIS (new): the D_n-graph-link/prism topology is intrinsically MORE DISTRIBUTED ("fatter") than a thin T(2,q)
+    tube -> it IS the large-lambda/large-size regime of the fat-soliton route (k). So knot-type (A) and fat-soliton
+    existence (B) are ONE proposal, mutually reinforcing: the proposed topology is exactly the regime that sidesteps
+    the thin-tube resolution wall.
+ 3. EMPIRICAL MORSEL folded in (notes (l)): the fat (lam=30) D_3 free-flow run stayed LOCALIZED + 3-fold-ROBUST
+    (A3~0.37-0.47, never symmetrized to axial); only the lattice topology-leak (which drains the KNOWN trefoil too)
+    ended it. => the dihedral config is dynamically robust, does NOT want to go axial; the drain is method, not
+    instability. Positive support for existence (not a proof).
+ 4. STABILITY REFINED (reconciles (xxx)'s "settled" with the prior (e)->(f) correction): unwinding = topological,
+    settled; DECAY splits into (1) the SIDEWAYS-BRANCH reconnection barrier [SOLID: 2D_3,2D_5 NOT subset 2T -> decay
+    needs a barriered T(2,2)->T(2,3)-type reconnection, not continuous relaxation -> metastable; contrast Q_8=2D_2
+    subset 2T = unstable] and (2) the Z_2 dark parity [UNPROVEN as a dynamical symmetry -- (e) over-claimed it, (f)
+    corrected: an outer automorphism is not automatically conserved]. So honest stability = "unwinding-settled +
+    decay-metastable (solid barrier) -> absolute IFF Z_2 dynamical (open)."
+ 5. CONTEXT: the TRANSIENT-wake route (m) was explored and RETIRED by the stable-knot picture (w) (the ADM dark NUMBER
+    needs a conserved relic); so stable existence is the correct target -- don't resurrect transient.
+PAPER XXI EDIT [DONE, user approved]: open-problem (ii) and the abstract RE-ORDERED. Stability now splits into
+unwinding (topological, settled) vs decay: the SIDEWAYS-BRANCH reconnection barrier (solid -> metastable; 2D_3,2D_5
+NOT subset 2T, ref P21:rem:dtype_slot + Paper XVIII T(2,2)->T(2,3) wall) is foregrounded, and the Z_2 dark parity is
+presented as the additional route to ABSOLUTE stability, explicitly conditional on the Z_2 being a conserved dynamical
+symmetry "rather than merely an outer automorphism, which we do not establish here." Abstract clause softened to match
+("topological against unwinding and barrier-protected (metastable) against decay, absolute only if its Z_2 parity is
+dynamical"). Fixes the over-claim that the prior (f) correction had already flagged internally.
+STATUS: existence ALLOWED-not-forced with a NAMED target topology (prism/D_n-graph-link, Z_2 = its torsion homology)
+that doubles as the fat-soliton regime; stability = unwinding-settled + decay-metastable(solid) + absolute-iff-Z_2-
+dynamical. Numerics still need a Q_H-conserving high-res search (GPU-gated). [[dark-hopfion-cdm-lead]]

@@ -7,6 +7,29 @@ re-worked each session. Epistemic tags per CLAUDE.md §6:
 Verify against the cited paper before building new results on any single line
 (CLAUDE.md §1). Sources are Paper VII (`gravity/`) unless noted.
 
+## 0. The unifying theme (one-paragraph frame)
+- **[I]** One structured **2I condensate**; three ingredients, three roles — the series'
+  through-line, literally its name ("the **density-feedback** Faddeev–Niemi Hopfion").
+  - **(1) The 2I vacuum *classifies* (which structures).** Its finite McKay/ADE subgroups are
+    the alphabet of matter: the ladder `Q_H=1` ν (A-type/cyclic) → `Q_H=2` charged lepton
+    (2I/E₈) → `Q_H=3` baryon trefoil (2T/E₆) → **D-type** dark (2D, beyond-SM). `|2I|=120=2³·3·5`
+    fixes what exists and what cannot (**no E₇**, `48∤120`). The progression ν→lepton→trefoil→
+    D-type **is** the McKay subgroup ladder of 2I (§8).
+  - **(2) The semi-Dirac dispersion is the *anisotropy engine*.** `E²=A²k⁴sin⁴θ+v²k²cos²θ` (§3);
+    the `sin⁴θ` threads the three generations (pentagon `k+2=5`), the directional suppression
+    `S_eff` (§3,§4), the Bell geometry-dependence (§7), the director-DM mechanism (§4), and the
+    baryon-channel baryogenesis suppression (Paper XXII). *How it is anisotropic.*
+  - **(3) Density feedback is the *forming/stabilising self-interaction*.** The `(1+β_*ρ)` term
+    modifies the bare Faddeev–Niemi Hopfion and makes the structures **physical** (mass-as-
+    geometry, §2), doing a different job per rung: stabilising the lepton as a genuine Faddeev
+    **saddle** (mass to 0.013%); **saturating** for the sharp trefoil → confinement, the
+    first-order transition, baryogenesis (Paper XXII); **screening** the DM director (`S_eff`
+    denominator); and, for the D-type, a **fat sterile relic** stabilised by the spinor/matter
+    parity (Paper XXI). *Why they form, weigh, and persist.*
+  - So: **2I says *which*, the semi-Dirac dispersion says *how anisotropic*, density feedback says
+    *why physical*.** [Session framing 2026-10-13, consistent with §§1–10; dark-sector program in
+    `notes/fabric_cmb_hypothesis_and_plan.md`.]
+
 ## 1. Ontology — one structured condensate
 - **[I]** Monistic geometry: the vacuum **is** a structured condensate ("the
   fabric"). There is no separate metric/substrate — the fabric is the thing the

@@ -2147,3 +2147,353 @@ dynamical"). Fixes the over-claim that the prior (f) correction had already flag
 STATUS: existence ALLOWED-not-forced with a NAMED target topology (prism/D_n-graph-link, Z_2 = its torsion homology)
 that doubles as the fat-soliton regime; stability = unwinding-settled + decay-metastable(solid) + absolute-iff-Z_2-
 dynamical. Numerics still need a Q_H-conserving high-res search (GPU-gated). [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (zzz) -- Z_2 DARK PARITY IS DYNAMICAL [N, strong]: it is the SPINOR PARITY (vector simple-current monodromy) of SO(2r)_1 -- the odd-rank spinor's FOURTH job -- and it is the STANDARD SO(10) matter-parity dark-stability mechanism. Answers the open stability leg from (yyy)/(f).
+Script: src_paper21/dark_parity_z2.py (reuses so2r_1/su2k from dtype_cft_tower_engine + the
+simple-current/monodromy construct from paper15_simple_current.py). TEST (the SAME one the
+neutrino's Majorana Z_2 passes, P17:cor:majorana): a Z_2 is DYNAMICAL iff it is a simple-current
+MONODROMY grading (a conserved fusion selection rule), Q_J(phi)=h_J+h_phi-h_{J x phi} mod 1.
+RESULT: in the SO(2r)_1 assignment (r ODD = our case SO(10) r=5, SO(14) r=7; center = Z_4), the
+VECTOR v is an order-2 simple current (v x v = 1) whose monodromy grading is EXACTLY the spinor
+parity: EVEN {1, v}, ODD {s, c}. The D-type dark state IS the spinor (s/c) -> Z_2-ODD; vacuum
+EVEN; fusion conserves it. So the dark parity is NOT a separate assumption -- it is the SAME
+odd-rank complex spinor (h=r/8) that already gave (i) no T-matrix closure = sterility and (ii)
+complex = Dirac; now (iii) spinor-parity-odd = the conserved dark parity. FOURTH job of one object.
+EXTERNAL-LIT GROUNDING [cite, not novel]: this is precisely the STANDARD SO(10)-GUT matter-parity
+mechanism -- matter parity P=(-1)^{3(B-L)} lives in the Z_4 centre of Spin(10), the 16 (spinor,
+matter) is P-odd while 10/45/... (vector/adjoint, Higgs/gauge) are P-even, so the lightest
+P-odd state is STABLE = the GUT dark-matter candidate (the R-parity origin). The framework
+REPRODUCES this, unforced, because the D-type dark sector IS the SO(10) spinor (McKay 2D_3 ->
+D_5-hat -> SO(10)). Like the A_5 golden-ratio solar angle (Everett-Stuart), this should be CITED
+as the established mechanism, not claimed novel. Candidate refs: the SO(10) matter-parity / R-parity
+dark-matter literature (Kibble-Lazarides-Shafi Z_2; Martin matter parity). [[external_literature_connections]]
+VERDICT: upgrades (yyy)/Paper XXI from "absolute stability IFF Z_2 dynamical [open]" to "the Z_2
+IS dynamical (spinor/matter parity); absolute stability holds provided the A/E (SM) sectors are
+EVEN under the SAME grading." REMAINING [O]: the cross-sector modular embedding (all primaries as
+2I-vacuum reps) -- physically a spinor cannot be assembled from non-spinor A/E reps (decay spinor-
+parity-forbidden), but the formal embedding is not done. So the stability leg is now: unwinding
+[settled] + decay-barrier [solid, metastable] + dark-parity [DYNAMICAL, = matter parity] ->
+absolute pending only the cross-sector embedding. The strongest the stability case has been.
+
+## UPDATE 2026-10-13 (aaaa) -- r from FREEZE-OUT thermal DOF: r = c_dark/c_baryon = 5/6 ~ 0.83 (2D_3). Upgrades the static group-order weight (0.5) to the physical freeze-out (central-charge) weight; converges the estimates. Companion to cogenesis_branching.py.
+Script: src_paper22/cogenesis_r_freezeout.py. cogenesis_branching.py left the freeze-out dynamics
+open (its weights -- group order 0.5, #irreps 0.86, L1-primaries 1.33 -- are T=0 DOF counts). At a
+FREEZE-OUT the asymmetry is seeded by the shared delta_CP acting on the THERMAL DOF actually
+populated at T_QCD; for a WZW sector that count is the CENTRAL CHARGE c (rho~c T^4). So the leading
+dynamical weight is r = c_dark/c_baryon. c((E_6)_1)=78/13=6 (baryon 2T), c(SO(10)_1)=45/9=5 (2D_3),
+c(SO(14)_1)=91/13=7 (2D_5) -> r = 5/6 = 0.833 (2D_3) or 7/6 = 1.17 (2D_5); m_dark = (Om_DM/Om_b)
+m_p/r = 6.04 GeV (2D_3) / 4.31 GeV (2D_5). CONVERGES with the #irreps weight (0.857) -> tightens the
+O(1) band to r~0.83, m_dark~6 GeV (canonical ADM). STATUS: upgrades r from "assumed O(1)"/"static
+group order 0.5" to a thermal-DOF (central-charge) weight. REMAINING [O]: the per-channel CP-
+asymmetry (reconnection-amplitude) ratio eps_dark/eps_baryon, assumed 1 (equal per-DOF bias); and
+m_dark stays framework-unpinned (no D-type Q_group) -> observed ratio FIXES it, not a prediction.
+[[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (bbbb) -- MERGER-DEPENDENT cluster mass SHARPENED to a quantitative curve: M_excess(t) = 4/(1 + t/tau_coarsen), monotonic decline with relaxation time. Three-way MOND/LCDM discriminator.
+Script: src_paper7/dm_polarization/merger_dependence_prediction.py. Paper VII (P7:rem:defect_network)
+states the signature QUALITATIVELY (disturbed clusters -> denser fossil disclination network ->
+larger excess) with M_def/M_strain ~ (R_cl/xi_net)^2, and notes the healing is set by defect
+MOBILITY (annihilation), NOT the signal speed c_dir. SHARPENED: a merger injects at xi_inj~xi_turb~
+(1/2)R_cl -> M_excess(t=0) = (R_cl/xi_inj)^2 = 4 (matches the ~28x-lensing/~5x-RAR ~ 5-6 deficit,
+no tuned norm). Tension-driven annihilation against rotational viscosity gives the curvature law
+xi_net(t)^2 = xi_inj^2 + 2 M_mob t, hence M_excess(t) = 4/(1 + t/tau_coarsen), tau_coarsen =
+xi_inj^2/(2 M_mob). t = time since last major merger. For tau = 5/10/20 Gyr the excess falls
+~20/10/5% per Gyr of relaxation. DISCRIMINATOR (same baryons, varying dynamical state): FRAMEWORK =
+monotonic decline M_excess=4/(1+t/tau); MOND = none (slaved to local g_N); LCDM = lensing mass =
+total halo, no systematic excess-vs-relaxation trend (mergers give transient projection scatter, not
+a monotonic trend). Testable in existing lensing + X-ray-morphology (relaxed vs disturbed) samples
+against a relaxation proxy (centroid shift w, BCG--X-ray offset, substructure merger-age). REMAINING
+[O]: tau_coarsen (defect mobility M_mob) is cutoff-set -> the SLOPE magnitude is not derived; the
+SIGN and the form 4/(1+t/tau) ARE the framework prediction. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (dddd) -- CLUSTER-MASS reconciliation: two-epoch synthesis created an overlap (Paper VII disclination network vs Paper XXII D-type relic BOTH claiming the ~28x cluster deficit). Resolved: relic = merger-INDEPENDENT collisionless BULK; network = merger-DEPENDENT modulation (the signature). [user approved]
+CONTEXT: user asked whether the Paper VII merger-dependence content (eq:merger_excess) needs a 21/22
+reference. ANSWER: NO -- it is self-contained in Paper VII (director strain + disclination network +
+defect mobility + c_dir->0 + Kibble-Zurek, all P7:rem:defect_network / cold-director / defect_network_
+sim_3d.py). BUT the question surfaced a real cross-paper OVERLAP: P7 says the network "closes the
+cluster deficit", P22 sec:twoepoch says the D-type relic "supplies the cluster lensing mass" -- both
+claiming the same ~28x (double-count risk, and P22 didn't mention the network at all).
+RESOLUTION (complementary, stronger): the collisionless relic = the merger-INDEPENDENT BULK cluster
+mass (LCDM-like, also the recombination CDM); the disclination network = the baryon-independent
+merger-DEPENDENT modulation on top = where the distinctive non-LCDM/non-MOND signature lives.
+
+## UPDATE 2026-10-13 (eeee) -- Two consolidation folds DONE; eta lynchpin attempted -> NOT closed (a beta_*=phi^6 pattern-match CAUGHT and rejected). Sharpened the open target.
+FOLDS (both into papers, verified): (1) Paper XXI open-(iii) r -- replaced "taken ~1, not derived" with
+the thermal-DOF result r = c_dark/c_baryon = c(SO(10)_1)/c((E_6)_1) = 5/6 ~ 0.83 (converging with
+subgroup/#irrep counts), residual = per-channel CP-amplitude ratio (cites Paper XXII). (2) Paper XXII
+sec:twoepoch Status -- replaced "within-halo is the residual open question" with the (www) resolution:
+mean texture = single topological disclination (E ~ R, not N^2) + Debye-screened extensive fluctuation
+plasma (lambda_D << R_halo for the C-window -> energy ~ N, not N^2) + log virialises -> NO S^2
+saturation; residual = quasi-neutrality of fluctuations + C cutoff-set.
+ETA LYNCHPIN (the main attempt) -> NEGATIVE, honestly. The open item is beta_eff(T_QCD)=beta_* rho
+(the window location gamma/b). TEMPTING SHORTCUT: beta_*=phi^6 (from 1/(1+beta_* rho)~e^{-beta_* rho}
+resembling Paper VII's Lambda_0 e^{-phi^6 rho}) -> beta_eff~phi^6~18 -> eta~4e-10 (~0.7x obs), parameter-
+free. REJECTED (CLAUDE s1/s3): Paper VII FIXES beta_* ~= 0.452 (self-consistency J_fb/J_a=phi, from
+Paper I), NOT phi^6; the e^{-phi^6 rho} is a SEPARATE (dark-energy) term. "beta_eff~phi^6" is a
+COINCIDENCE of the eta-required beta_eff (~15) with phi^6 (~18) -- with beta_*=0.452 it would need
+rho=40, unexplained. So NOT a derivation. SHARPENED OPEN: with beta_*=0.452 fixed, the eta match (p=2,
+beta_eff~15) corresponds to rho(T_QCD) ~ 33 in feedback-normalised units -- a single number that would
+close item (i), but the QCD-epoch condensate density in feedback units is cutoff-set and not pinned
+(near-critical rho/rho_cond~O(1) -> beta_eff~0.5 over-produces ~100x; naive rho~T^4 over-suppresses).
+Script: src_paper22/eta_window_betastar.py. NO paper edit -- Paper XXII sec:open's "gamma/b not yet
+fixed" statement is ACCURATE and stands. STATUS of the out-of-draft list: folds done; eta still the
+open lynchpin, now with the concrete target rho(T_QCD)~33. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (ffff) -- USER CORRECTION to (eeee): beta_* is DENSITY-MODIFIED (not the vacuum constant 0.452), phi^6 is the FIXED denominator that does the BULK. RETRACTS the "over-suppresses" conclusion; REFRAMES eta from "free gamma/b" to "the established saturated regime". Paper XXII sec:open reworded.
+User: "it's not phi^6, however it IS multiplied by phi^6 in the denominator, and beta_* would be
+modified by rho in the early universe." BOTH points correct, and they fix my (eeee) error:
+ (1) RETRACTION: (eeee) concluded "beta_eff = 0.452*rho_huge over-suppresses" using a CONSTANT
+     beta_*=0.452. WRONG -- 0.452 is the self-consistent value at the VACUUM/lepton config (J_fb/J_a=phi
+     solved there); at the dense QCD/baryon epoch the self-consistency re-solves, so beta_* is
+     density-modified (Paper VII l.281-286: beta ∝ beta_*, rho ∝ kappa). The "over-suppress" claim is
+     withdrawn.
+ (2) The per-power suppression 1/[phi^6(1+beta_* rho)] has the phi^6 (Bogomolny/WZW, physical, frame-
+     robust) FIXED in front. DECOMPOSITION (p=2, eta_window_betastar.py): the fixed phi^12 = 322
+     supplies ALL BUT a factor ~255 of the needed suppression; that ~255 = (1+beta_eff)^2 -> beta_eff
+     ~ 15. So the physical phi^6 does the bulk (the user's point); the feedback supplies the O(10^2)
+     remainder.
+ (3) beta_eff ~ 15 >> 1 is DEEPLY SATURATED -- the SAME regime Paper XX (P20:rem:feedback_saturation)
+     independently establishes for the trefoil (beta g_2>>1, the saturation that denies the quark a
+     static saddle; V_max=1.91, "93% saturated" ENGINE-DEPENDENT). So the eta-matching beta_eff is NOT
+     a tuned gamma/b knob -- it sits in an independently-established saturated regime.
+ALSO REJECTED (2nd pattern-match this session, caught): "93% saturated -> beta_eff~13" -- the 93% is a
+SPATIAL/energy fraction (engine-dependent per P20), NOT the value of beta_eff. Do not use it as beta_eff.
+PAPER EDIT: Paper XXII sec:open item (i) reworded -- the suppression is mostly the fixed phi^{6p}; the
+residual feedback beta_* rho~15 is the baryon sector's deeply-saturated self-consistent feedback
+(cite Paper XX, \bibitem{Paper20} added, verbatim from Paper XXI), NOT a free ratio; what stays open
+is the PRECISE saturated value (resolution-gated by the trefoil solver) + power p. Script
+eta_window_betastar.py rewritten with the corrected picture + both rejected shortcuts recorded.
+STATUS: eta REFRAMED (not closed): "free window location gamma/b" -> "established saturated regime,
+precise value resolution-gated". A genuine narrowing; the trefoil-solver resolution wall is now the
+single gate on a numerical eta prediction. SUPERSEDES (eeee)'s "not pinned, rho~33 open" framing (that
+rho~33 used the wrong constant beta_*). [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (gggg) -- SIDE-AGENT CATCH (correct): the (ffff) eta<->Paper XX tie OVER-CLAIMED. The two saturations are on DIFFERENT quantities (g_2 gradient vs rho density); softened in paper + script. OWNED: I flagged the g_2-vs-rho distinction mid-reasoning in (ffff) then smoothed it over in the written text.
+A side agent flagged that Paper XXII sec:open's new wording ("beta_* rho~15 sits in the SAME saturated
+regime Paper XX established ... independently-established regime, not a free point") OVERSTATES. Correct:
+ * Paper XX's saturation (P20:rem:feedback_saturation) is measured on the trefoil's INTERNAL GRADIENT
+   energy, beta*g_2, g_2=|grad n|^2. The eta channel's beta_*rho is the condensate DENSITY at T_QCD.
+   Same density-feedback MECHANISM, and both in the saturated REGIME (>>1), but NOT a demonstrated
+   common MAGNITUDE. (Paper VII l.281-286: the two parametrisations 1+beta_* kappa [gradient/curvature]
+   and 1+beta rho [density] are related by rho ∝ kappa, beta ∝ beta_* -- a proportionality, constant
+   NOT pinned.)
+ * Also: "saturated" (>>1) is NECESSARY but not SUFFICIENT -- eta ~ 1/beta_eff^2 needs the SPECIFIC
+   value ~15, not merely >>1. So "sits in the established regime" does not establish the value.
+ * LAPSE OWNED: in (ffff)/the (eeee) reasoning I explicitly noted "the saturation is in beta*g_2 ... NOT
+   beta_*rho directly ... related but not the same quantity," then wrote the paper text as if they were
+   the same. Exactly the s3/s6 trap; the side agent was right.
+
+## UPDATE 2026-10-13 (hhhh) -- USER reconciliation of the (gggg) g_2-vs-rho concern: baryogenesis IS trefoil formation, so the eta-channel feedback is the forming trefoil's OWN -- SAME object as Paper XX, not two quantities. rho ∝ kappa (Paper VII) ties the two readings. Magnitude still resolution-gated.
+The (gggg) softening said g_2 (Paper XX) and rho (eta) are "different quantities, magnitude not shown
+equal." User: the early universe would actually be the saturated trefoil configuration? CORRECT and it
+sharpens the reconciliation:
+ * The eta suppression is on the baryon-FORMING reconnection (2+2->3+1), which ASSEMBLES the trefoil.
+   So the feedback on that channel is the forming baryon's = the trefoil's OWN -- the very config
+   Paper XX saturates. Not a separate smooth ambient density.
+ * Paper VII (l.281-286): rho ∝ kappa (density tracks texture curvature/gradient). So the gradient
+   reading beta*g_2 (Paper XX) and the density reading beta_*rho (eta) are TWO DESCRIPTIONS OF THE
+   SAME trefoil texture -- ONE saturation, not a coincidence of two. This resolves the side agent's
+   "two different quantities" concern at the right level (they ARE the same object; the fields differ
+   but are proportional).
+ * RESIDUAL (honest, unchanged): the MAGNITUDE. The self-consistent trefoil beta_*rho is determined in
+   principle but (a) extraction is gated by the trefoil resolution wall, (b) rho ∝ kappa carries an
+   unpinned proportionality constant. 'Saturated'(>>1) is necessary not sufficient -- eta~1/beta_eff^2
+   needs the specific ~15. So beta_*rho~15 is "the value the saturated trefoil config MUST RETURN," a
+   consistency target, not an independent input.
+This is genuine refinement, NOT flip-flop: each step added a REASON the prior lacked
+(the side agent flagged an unjustified equivalence; the user supplied the physical justification =
+same object). The honest residual (specific magnitude, resolution-gated + proportionality constant)
+has been STABLE since (gggg). SUPERSEDES (gggg)'s "different quantities" with "same object, magnitude
+open." [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (iiii) -- ANALYTIC C_3* PROBE of the eta window: beta_*rho ~ beta_* C*^2 ~ 3, bounding beta_*rho to O(few-15) from the ESTABLISHED trefoil sharpness -- bypasses the resolution wall for the ORDER OF MAGNITUDE. Folded into Paper XXII sec:open.
+Script: src_paper22/analytic_betastar_from_C3.py. The eta window's beta_*rho = beta_* x (trefoil-core
+gradient energy); the core is what the solver can't resolve, BUT its SCALE is pinned: Paper XX core
+radius ~1/C* with C_3*=2.5062 (unconditional, Paper XV). Unit director rotates O(1) across the core ->
+g_2=|grad n|^2 ~ C*^2 = 6.28. With beta_*~0.452 (Paper VII) and rho ∝ kappa ∝ g_2 (Paper VII, const
+c_rho~O(1) UNPINNED): beta_*rho ~ beta_* C*^2 ~ 2.8 (naive). RESULT:
+  * naive (c_rho=1): beta_*rho~2.8 -> eta~1.05e-8 (~17x over obs 6.1e-10).
+  * eta_obs needs beta_*rho=15 -> implied core-peak * c_rho ~ 5.3x the C*^2-average. O(few).
+  * bracket: beta_*rho in [3,15] (c_rho*peak in [1,5]) -> eta in [1e-8, 6e-10], bracketing observed.
+VERDICT [N]: the window location is NOT a free unknown -- the established C_3* puts beta_*rho at
+O(few-15), the SATURATED regime and the right order for eta. NARROWS the open item from "unknown,
+resolution-gated" to "O(few-15) from C_3*, factor-~5 residual = core-peak profile + rho ∝ kappa
+constant." CAVEATS [O]: beta_* taken as the lepton 0.452 (trefoil's own may differ); g_2~C*^2 is the
+uniform-core estimate; c_rho unpinned. FOLD: Paper XXII sec:open now carries the C_3* estimate
+(beta_* C*^2 ~3, ->~15 with the ~5x core factor; cites Paper XV) and states item (i)'s residual as
+"the core-peak gradient + rho ∝ kappa constant, factor ~5 around the C_3* estimate." Cites resolve.
+NEXT (user): CFT engine for the cross-sector Z_2 embedding (absolute stability) -- which likely also
+pins the heavy-band power p (both are simple-current / final-state-fusion counting). [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (jjjj) -- CFT ENGINE: cross-sector dark-parity embedding CLOSES (conserved dark number = Z_4 centre = Dirac U(1) = ADM carrier; SM sectors dark#=0), and the heavy-band power p=2 PINNED. Both folded into Papers XXI/XXII. User's "p falls out of the same CFT work" confirmed.
+Script: src_paper21/dark_parity_embedding.py (reuses so2r_1, su2k, e6_1 from dtype_cft_tower_engine +
+the monodromy machinery of dark_parity_z2.py).
+ A. EMBEDDING (closes the Paper XXI open-(ii) cross-sector residual): for SO(2r)_1 with r ODD the
+    simple-current group is the FULL Z_4 centre of Spin(2r) -- {1,v,s,c}, spinor s ORDER 4. The Z_4
+    charge (1:0, v:2, s:1, c:3) is the conserved DARK NUMBER = the Dirac complex-spinor U(1) (Paper
+    XXI sec:dirac) reduced by the fusion ring. The dark state = spinor, dark#=1. The SM sectors are in
+    DIFFERENT chiral algebras (nu SU(2)_1, lepton SU(2)_3, baryon (E_6)_1) -> carry NO Spin(2r)-centre
+    charge -> dark#=0. So D(dark#=1)->SM(dark#=0) is forbidden by dark-number conservation -- the SAME
+    conserved charge the ADM co-genesis needs to carry the asymmetry. Stability + asymmetry = ONE
+    conserved charge; the Z_2 matter parity is its order-2 remnant. Residual shrinks to "the combined
+    theory conserves the dark number" -- which ADM assumes anyway. Replaces the earlier hand-wave ("a
+    spinor can't be built from non-spinor reps").
+ B. POWER p=2 PINNED: the reconnection 2+2->3+1 final state has exactly ONE heavy-band object (the
+    Q_H=3 baryon; the Q_H=1 neutrino is light-band). The directional S_eff suppresses the AMPLITUDE
+    once per heavy-band object (n_heavy=1); eta is a RATE ~ |amplitude|^2 -> S_eff^2 -> p = 2*n_heavy =
+    2. Pins the p=2 the eta self-consistency preferred (p=1 would treat S_eff as a probability, not an
+    amplitude factor). CAVEAT: assumes S_eff enters at amplitude level (physical, not airtight).
+FOLDS: Paper XXI open-(ii) + abstract -- stability "charge-protected by the conserved dark number
+(SO(10)-centre = Dirac U(1) = asymmetry carrier), Z_2 matter parity the remnant; cross-sector residual
+-> conditional only on dark-number conservation (ADM); only EXISTENCE left open." Paper XXII sec:open
+-- p=2 now PINNED (one heavy baryon + rate=|amp|^2), removed from the open list; the single remaining
+open quantity is the precise beta_*rho (C_3*-bounded to O(few-15), factor~5 residual). Cites resolve
+(P22 cites Paper XXI for p; P21 cites Paper XXII for the asymmetry link -- both pre-existing bibitems).
+NET out-of-draft impact: Paper XXI stability leg now FULLY argued (unwinding+barrier+conserved dark
+number), only existence open; Paper XXII eta reduced to ONE open number (beta_*rho, bounded). The two
+deepest items (existence + precise beta_*rho) remain the shared trefoil-resolution-wall gate.
+[[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (kkkk) -- SMOKE TEST of the collective-coordinate beta_*rho extraction: method CPU-feasible, but it does NOT cleanly give beta_*rho -- the sharp trefoil loses Q_H (wall) and the units don't match the paper's S_eff convention. RE-SOFTENED the Paper XXII C_3* claim (I had over-folded it). Compute-discipline win.
+Script: src_paper21/trefoil_betaeff_core.py (reuses feedback_saddle_core + rational_map_ic). Plan: build
+the knotted T(2,3), find self-consistent beta (V=phi), read beta_eff_core = beta*g2_peak == eta channel
+beta_*rho. FINDINGS:
+  * TIMING: CPU-feasible. smooth A_{1,3} base N=200 ~4s; sharp knotted tube N=200 ~2.5min. Long runs OK.
+  * SHARP tube (build_doublet, C*=2.5062): Q_H ~ 0 at N=40-72, NOT climbing -> the known thin-tube
+    charge-loss wall (the very failure rational_map_ic was built to diagnose). So the sharp (real)
+    trefoil core -- where beta_eff is actually large -- is NOT resolved; its beta_eff_core (~0.5,
+    decreasing) is unreliable.
+  * SMOOTH A_{1,3} base (rational_map_doublet, Q=3): Q_H -> 3 (2.71->2.90, converging); beta_eff_core
+    = beta_sc*g2_peak CONVERGES to ~0.85 (stable N=56-128). BUT the smooth base is axisymmetric + less
+    sharp than the real trefoil -> a LOWER proxy, and in a DIFFERENT normalisation than the paper's
+    beta_*rho (S_eff convention). So 0.85 is NOT directly comparable to the eta-needed 15.
+  * TWO OBSTACLES surfaced (why the collective-coordinate route is not a quick win): (a) a sharp AND
+    charge-resolving ansatz is needed = the MODULATED (Sutcliffe) trefoil map, not yet built (the smooth
+    A_{1,3} resolves charge but is too smooth; the sharp tube is sharp but loses charge); (b) UNIT
+    CALIBRATION of the numeric beta*g2 to the paper's S_eff=sin^4/[phi^6(1+beta_*rho)] convention.
+CORRECTION to (iiii): the C_3* analytic probe used beta_*=0.452 (lepton units) x C*^2 (trefoil) -- a
+unit mismatch; the self-consistent numeric beta is tiny in its own box units (~0.01), so the "beta_*
+C*^2 ~3 bounded to O(few-15)" fold into Paper XXII was TOO OPTIMISTIC. RE-SOFTENED Paper XXII sec:open:
+now "an order-of-magnitude plausibility (C_3* puts it in the saturated range), NOT a number; a direct
+evaluation on a charge-resolving trefoil ansatz (+ unit calibration) is required and remains open --
+whether the self-consistent core reaches ~15 is order-of-magnitude plausible but NOT established."
+WHAT STANDS (unaffected): the FIXED phi^{6p}=322 bulk (p=2), and p=2 itself. Only the residual beta_*rho
+magnitude is the open piece, now honestly "plausible O(few)-to-15, not pinned."
+NEXT (the real build, user OK'd long runs): the MODULATED charge-resolving trefoil map (Sutcliffe
+arXiv:1304.6021) at high res + unit calibration -- a genuine piece of work, the gate for BOTH beta_*rho
+and existence. The smooth A_{1,3} existence stationary-search is a cheap first layer but tests the
+axisymmetric (not knotted) family. [[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-13 (llll) -- MODULATED-MAP / beta_*rho ATTEMPT -> the honest outcome:
+  * 3D knotted field (build_doublet = torus-knot centerline + BS profile) is CHARGE-BROKEN: Q_H ~ 0 at
+    ALL C* (0.5-2.5), N<=96 -- confirmed. Cannot use it for a 3D beta_*rho.
+  * RELIABLE route = the 1D BS tube profile (Paper XV's own method; src_paper21/trefoil_profile_betaeff.py).
+    VALIDATED: I_2=16/15 exact, V_max=I_0/I_2=1.875 (Paper XX quotes 1.91). Self-consistency V(B)=phi,
+    B=beta*C*^2, beta_*rho_core = B_sc * g2hat_core.
+  * RESULT: beta_*rho_core = 0.54, and -- cleanly -- INDEPENDENT of the poloidal winding m (0,1,2,3).
+    Structural reason: V=phi fixes the DIMENSIONLESS product beta*g2, so raising g2 by m^2 drops B_sc by
+    m^2 and beta_*rho_core is invariant. So the poloidal term does NOT lift it (my earlier hope wrong).
+  * IMPLICATION: in a genuinely SELF-CONSISTENT treatment the core is NOT saturated (beta*g2~0.54<1), and
+    eta OVER-produces by ~108x (p=2). This CONTRADICTS Paper XX's "93% saturated" -> but that is the
+    ENGINE-DEPENDENT normalisation Paper XX itself flags (P20:rem:feedback_saturation, l.697). So the two
+    live in different conventions: self-consistent-beta (mine, 0.54) vs Paper XX's engine (93% saturated).
+  * CORRECTION to the earlier optimism (iiii/jjjj/kkkk): the resolution wall was a RED HERRING for
+    beta_*rho; the real gate is CONVENTION CALIBRATION -- matching the self-consistent-beta profile value
+    to Paper XX's engine and to the S_eff=sin^4/[phi^6(1+beta_*rho)] normalisation. Until that is done,
+    beta_*rho is genuinely ambiguous between ~0.5 (self-consistent -> eta over-produces) and ~15 (needed).
+  * POSSIBLE TENSION [O, flagged]: if the self-consistent-beta convention (0.54) is the physical one, eta
+    over-produces ~100x and the baryogenesis magnitude is in trouble; if Paper XX's engine (saturated) is,
+    it is fine. The papers' current statement ("order-of-magnitude plausible, NOT established; whether the
+    core reaches ~15 is open") remains honest and is LEFT AS-IS -- it does not over-claim. No paper edit.
+  WHAT STILL STANDS: fixed phi^{6p}=322 bulk; p=2. Only beta_*rho is the soft piece, now understood as a
+  convention-calibration problem (reconcile self-consistent-beta vs Paper XX engine), not a compute wall.
+[[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-13 (mmmm) -- RETRACTION (user caught it): the (llll) 1D beta_*rho is the TORUS reduction, INVALID for the trefoil. beta_*rho_core=0.54 is a single-tube LOWER BOUND only; the "~100x over-production tension" and "convention-calibration not resolution wall" conclusions are WITHDRAWN. The 3D self-interacting field (crossings) IS the real gate.
+User: "how are you doing a 1D solution to a 3D trefoil problem? 1D was only possible with the torus;
+1D with a trefoil loses all self-interaction and winding." CORRECT, and it invalidates (llll)'s core
+claims. The 1D radial profile f_0(rho) = field as a function of distance to the centerline is the
+AXISYMMETRIC single-tube reduction: exact for the Q_H=2 lepton TORUS, but for the (2,3) TREFOIL it
+discards (a) the SELF-INTERACTION at the 3 crossings -- where two tube strands overlap, g_2 and the
+feedback are LARGEST (exactly where saturation lives) -- and (b) the knotting/winding. Paper XV uses
+the 1D profile only as the LEADING term with crossing/curvature (kappa^2,kappa^4) corrections added;
+for beta_*rho the crossings are NOT a small correction, they are the saturation.
+RETRACTIONS (from llll):
+  * beta_*rho_core = 0.54 is the SINGLE-TUBE term only -> a LOWER BOUND, NOT the trefoil value.
+  * the "~108x eta over-production TENSION" is WITHDRAWN -- an artefact of omitting the crossings; the
+    crossings lift beta_*rho above 0.54 toward the saturated regime.
+  * "the resolution wall was a RED HERRING; beta_*rho is convention-calibration-gated" is WITHDRAWN.
+    The opposite holds (and matches the pre-1D-detour conclusion): beta_*rho needs the 3D SELF-
+    INTERACTING field with the crossings resolved -> the 3D-construction / resolution gate is REAL.
+    Paper XX's "93% saturated" is its 3D tube-adapted engine CAPTURING the crossings -- consistent with
+    beta_*rho large, NOT in tension.
+CORRECTED STATUS: beta_*rho for the trefoil is genuinely 3D-gated (crossings = self-interaction). The 1D
+single-tube value 0.54 is a lower bound; the saturated ~15 the eta-match needs is where the crossings
+carry it (Paper XX regime), consistent and plausible, but requires a charge-correct 3D knotted
+construction (build_doublet is charge-broken; a proper Sutcliffe map + high res is the real build).
+The script trefoil_profile_betaeff.py is kept ONLY as the single-tube baseline + V_max validation, with
+a prominent caveat. The PAPERS were NOT edited with any 1D number -> no paper retraction needed; their
+"order-of-magnitude plausible, not established" wording stands and is correct. Lesson (CLAUDE.md s10/
+claude-hopfion s10): do NOT isotropise/1D-reduce an anisotropic self-interacting object -- the exact
+trap the framework warns about; I fell into it and the user caught it. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (nnnn) -- USER LEAD (good, sound): the feedback SATURATION sits at the pion emission/absorption THRESHOLD = Paper XVIII's n=4 reconnection BARRIER, where the two strands overlap (self-interaction) -- reframes beta_*rho as a LOCAL, topologically-pinned crossing quantity, NOT the global knot. Grounded + conceptually valuable. But the quick 2-strand test FAILED numerically; proper construction still needed.
+LEAD (user): "we have a pion emission/absorption mechanism (Paper XVIII); the saturation *should* be
+just before full absorption or just after emission begins." GROUNDING: Paper XVIII P18:rem:wound_state
+identifies the n=4 unfused state as the BARRIER / transition between the trefoil (n=3) and the
+unthreaded Hopf link (n=2) -- "a property of the barrier between sectors, not of either endpoint." That
+IS the emission/absorption threshold. Physical picture: at the barrier the two tube-strands are
+mid-threading -> MAXIMAL overlap -> the self-interaction (crossings) that the 1D discarded is exactly
+here -> beta_*rho peaks. AND the barrier is where the out-of-equilibrium delta_neq also lives -> ONE
+topologically-pinned configuration would set BOTH baryogenesis factors (delta_neq and the S_eff^p
+suppression). CONCEPTUAL VALUE [N]: this reframes beta_*rho from "the relaxed global knot" (broke) to
+"the LOCAL two-strand feedback at the n=4 barrier" -- local, topologically pinned, captures the
+self-interaction. The RIGHT physical place for the saturation.
+COMPUTATIONAL TEST -> FAILED (two_strand_feedback.py). Modelled the crossing as two parallel Hopf tubes,
+superposed the doublets (z1_A+z1_B,...), scanned separation d. BROKEN: naive doublet SUPERPOSITION
+creates artificial SINGULARITIES (summed doublet vanishes -> n_hat ill-defined -> spurious g2~2700, flat
+~1e5x "enhancement" = artefact; baseline tube also fell outside the box). So it neither validates nor
+refutes the idea. A singularity-free two-strand field needs the proper multi-soliton construction
+(MULTIPLY rational maps, not add doublets) = the SAME hard construction as the knotted field.
+NET: the barrier idea is a GENUINE physical sharpening (beta_*rho = local crossing feedback at the n=4
+barrier, co-located with delta_neq) and is the right picture -- but it does NOT shortcut the computation;
+the proper singularity-free two-strand / n=4-barrier field construction is still the gate (same class as
+the knotted build). beta_*rho remains: single-tube LOWER bound ~0.5 (notes mmmm), lifted toward the
+saturated ~15 by the crossing self-interaction at the barrier, which needs a correct construction to
+quantify. Papers unaffected ("plausible, not established" stands). [[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]
+
+SETTLED CONCLUSION (user, concurred 2026-10-13): there is NO shortcut. A valid two-strand/barrier (or
+knotted) configuration must be a SINGLE globally-consistent FIELD MAP carrying (i) the full density-
+feedback energy functional E_fb=K_fb*J4 (not a g2 snapshot), (ii) the self-interaction at the crossings,
+(iii) the winding, AND (iv) the TORSION/framing of the knotted tube (Paper XV's torsion-cancellation,
+P15:thm:torsion_cancels, is only for the symmetric profile; the knot's torsion is real and a crude
+superposition discards it). No dimensional reduction keeps all of this. So beta_*rho (and existence) are
+firmly gated by the full charge-correct 3D knotted-field build with energy+torsion -- a deliberate
+numerical project (singularity-free multi-soliton + feedback functional + torsion), GPU-scale, NOT
+squeezable from any 1D/local/superposition ansatz. This closes the "is there a shortcut?" thread: no.
+The papers stand publishable with beta_*rho + existence as honestly-stated, well-understood 3D-gated
+open items. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (oooo) -- PAPER XXIII scoped (NOT started): trefoil at the pion emission/absorption barrier, Paper-XIV-rigor. src_paper23/PLAN.md = needed-vs-available + factors + component breakdown. Core gap = the singularity-free charge-correct knotted map; no shortcut (user).
+User: the construction must be as tight as the thick-torus-correction paper (Paper XIV), but for the
+TREFOIL just before pion emission/absorption (the n=4 barrier); it needs its OWN paper (XXIII); don't
+start yet -- scope needed-vs-available + all factors; components can be separate .py in src_paper23.
+DELIVERABLE: src_paper23/PLAN.md. Goal: construct the Q_H=3 trefoil AT the n=4 reconnection barrier
+(P18:rem:wound_state) with the FULL E_fb + TORSION, to extract (1) beta_*rho at the barrier (the eta
+magnitude) and (2) soliton existence. Rigor template = Paper XIV (exact geometric correction, 0.012%).
+NEEDED-vs-AVAILABLE (7 items A-G in PLAN): AVAILABLE = torus_knot_centerline, rational_map_doublet
+(charge-correct S^3 map but axisymmetric), whitehead_QH, Efb_diagnostics, profile I_n (Beta forms),
+the satellite twist-family (n=2/3/4 barrier), Paper XV torsion terms, Paper XIV template. GAPS =
+(A, CORE) singularity-free KNOTTED map [build_doublet charge-broken; naive superposition singular; need
+a MODULATED rational map, Sutcliffe 2013]; (B) the n=4 half-threaded barrier config + reaction coord;
+(C) torsion on the non-symmetric barrier (cancellation is symmetric-only); (D/E) full 3D E_fb +
+self-consistency at high res; (F) beta_*rho + unit calibration to S_eff. FACTORS (11-item checklist):
+Q_H=3, crossing self-interaction, winding, torsion/framing, local saturation, the pion byproduct, delta_neq
+co-location, sin^4 anisotropy (no angle-average), C_3*/self-consistency, kappa^2/kappa^4 thickness
+corrections, resolution convergence. COMPONENTS (src_paper23): knotted_map.py (core), barrier_config.py,
+torsion_framing.py, feedback_energy_3d.py, betastar_rho_barrier.py, existence_saddle.py, validation.py.
+CORE RISK: gap (A) -- no trustworthy beta_*rho/existence until a charge-correct knotted map passes
+validation.py. NO SHORTCUT (concurred): the physics lives only in the full field (self-interaction +
+winding + torsion + feedback energy). Compute: collective-coordinate EVALUATION is cheap (CPU ~4s/N=200);
+cost is the algorithm (A) + moduli search, NOT full-field relaxation. NOT STARTED -- scoping only.
+[[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]

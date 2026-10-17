@@ -2384,7 +2384,13 @@ arXiv:1304.6021) at high res + unit calibration -- a genuine piece of work, the 
 and existence. The smooth A_{1,3} existence stationary-search is a cheap first layer but tests the
 axisymmetric (not knotted) family. [[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]
 
-## UPDATE 2026-10-13 (llll) -- MODULATED-MAP / beta_*rho ATTEMPT -> the honest outcome:
+## UPDATE 2026-10-13 (llll) -- PAPERS CLEANED FOR PUBLICATION; and the beta_*rho computation reached a RELIABLE but convention-mismatched answer: self-consistent trefoil core feedback = 0.54 (NOT 15) -> a potential ~100x eta over-production, but the mismatch with Paper XX's "93% saturated" is ENGINE-DEPENDENT (Paper XX's own caveat). eta magnitude gated by CONVENTION CALIBRATION, not the resolution wall.
+CLEANUP (publish-ready): both papers -- DRAFT labels removed (dates -> 2026; cross-bibitems de-DRAFTed);
+internal "draft" language softened; Thm~9.1 cross-ref VERIFIED (P15 2T-subset-2I is section 9, 1st
+theorem = 9.1; no starred/appendix sections before it); no backslashed underscores; all \cite resolve;
+HTML paper21/22 synced to current physics (r~0.83, dark-number stability, p=2, phi^6 bulk + C_3*).
+REMAINING for the user: compile (no latex toolchain here) + confirm final/reserved Zenodo DOIs at upload.
+MODULATED-MAP / beta_*rho ATTEMPT -> the honest outcome:
   * 3D knotted field (build_doublet = torus-knot centerline + BS profile) is CHARGE-BROKEN: Q_H ~ 0 at
     ALL C* (0.5-2.5), N<=96 -- confirmed. Cannot use it for a 3D beta_*rho.
   * RELIABLE route = the 1D BS tube profile (Paper XV's own method; src_paper21/trefoil_profile_betaeff.py).
@@ -2497,3 +2503,571 @@ validation.py. NO SHORTCUT (concurred): the physics lives only in the full field
 winding + torsion + feedback energy). Compute: collective-coordinate EVALUATION is cheap (CPU ~4s/N=200);
 cost is the algorithm (A) + moduli search, NOT full-field relaxation. NOT STARTED -- scoping only.
 [[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-13 (pppp) -- PAPER XXIII BUILD STARTED: gate (validation.py) + CORE GAP (A) SOLVED. The Brieskorn map u=(a^2+b^3)/a is a charge-correct (Q_H->3), genuinely KNOTTED, singularity-free trefoil Hopfion. First working construction; where build_doublet/1D/superposition all failed.
+User (post-login): build the gate then the knotted map. DONE, in src_paper23/.
+GATE (validation.py): method-validated -- A_{p,q} rational map Q_H->p*q (A_{1,3}->3, A_{2,3}->6,
+converging); BS profile integrals I_2=16/15, I_0=2, V_max=1.875 (Paper XV Beta forms). Provides
+gate_field(z1,z2,h) (Q_H via Whitehead + V + J4/J2a + localisation) as the reusable referee.
+KNOTTED MAP (knotted_map.py) -- CORE GAP (A) SOLVED [candidate]: the BRIESKORN construction. On S^3,
+{a^2+b^3=0} IS the (2,3) trefoil (classic link-of-singularity; = Paper XVII Sigma(2,3,5)). Built as a
+PROJECTIVE doublet (Z1=denominator, Z2=numerator -> NO division singularity). Scanned candidates
+u=(a^p+c b^q)/(a^i b^j); the WINNER is (p,q,i,j)=(2,3,1,0): u=(a^2+b^3)/a, doublet (Z1=a, Z2=a^2+b^3).
+  * CHARGE: Q_H rises 2.72->2.825 over N=72->200 -- the SAME slow-Whitehead trajectory as the validated
+    A_{1,3}=3 -> consistent with Q_H=3 (finite-N under-count; the trefoil sits at rho~2.2 near the L=3
+    box edge, which slows convergence -> larger box / Richardson to nail 3).
+  * KNOTTEDNESS (decisive, distinguishes trefoil from the axisymmetric A_{1,3}): the u=0 preimage
+    {a^2+b^3=0} is OFF-AXIS (<rho>=2.22 vs A_{1,3}'s on-axis 0.24) and 2-FOLD azimuthally MODULATED
+    (phi-hist [1925,470,1925,1925,470,1925]) = the p=2 toroidal winding of T(2,3). A_{1,3} u=0 is
+    on-axis + uniform (the unknot circle). So (2,3,1,0) is GENUINELY the knotted trefoil, not A_{1,3}.
+  * SINGULARITY-FREE: projective doublet, no blow-up (unlike the two-strand superposition, nnnn).
+SIGNIFICANCE: the hardest unknown of the whole Paper XXIII program -- does a charge-correct, knotted,
+usable trefoil field map EXIST? -- is answered YES (Brieskorn). build_doublet (Q_H~0), 1D (discards the
+knot), superposition (singular) all failed; Brieskorn works and passes the gate. The main labour-risk
+drops from "find the map" to "tune proportions (r_0=0.874, C_3*=2.5062; current feedback V~0.56 low =
+scale mismatch, NOT topology) + add barrier/torsion/feedback-energy layers (B-F)".
+REMAINING (clearly scoped): (a) confirm Q_H=3 exactly (larger box/Richardson); (b) tune scale c + box to
+match r_0/C_3* -> V->~1.9; (c) barrier_config.py (n=4 half-threaded); (d) torsion_framing.py;
+(e) feedback_energy_3d.py + self-consistency; (f) betastar_rho_barrier.py + S_eff calibration. NO NUMBER
+(beta_*rho/existence) is trustworthy until the full chain passes validation.py; no shortcut. But the
+construction exists. [[dark-hopfion-cdm-lead]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-13 (qqqq) -- EDITORIAL DECISION (user asked): the Brieskorn-trefoil result WAITS for Paper XXIII; it does NOT change the existing papers, which are publishable as-is.
+It is a CONSTRUCTION/method result (a charge-correct knotted trefoil FIELD exists), NOT yet a beta_*rho
+value (needs the full barrier->torsion->feedback chain) and NOT yet a proof the soliton is an energy
+extremum (the Brieskorn map is an ansatz field, not a relaxed stationary solution). Effect on each:
+ * Paper XXII (beta_*rho): NO change -- no eta number yet; "plausible, not established" stands.
+ * Paper XXI (existence open-ii): NO change -- XXI's claim is that FREE-FLOW RELAXATION loses the charge
+   even for the trefoil; Brieskorn is a CONSTRUCTION (not a relaxation) and is the BARYON trefoil (known
+   to exist), not the D-type (the open case). Neither completes nor contradicts XXI. (It DOES point to
+   the route for XXI's D-type existence -- the D-series Brieskorn/Du-Val polynomial for the prism/graph-
+   link -- but that is XXIII work.)
+ * Published XV-XVIII: do NOT retrofit -- a new field construction is new content = a new paper.
+PRACTICAL: publish XXI/XXII clean; the Brieskorn result makes no current claim wrong/over-stated, so it
+is NOT a must-incorporate-before-publishing fix. It is the START of XXIII, not a patch.
+COHERENCE for XXIII: u=a^2+b^3 explicitly REALIZES as a Hopfion field the Sigma(2,3,5)/Brieskorn
+structure Paper XVII already invokes abstractly (Q_coset=h(E_8)=30=|pi_1(Sigma(2,3,5))|/4; trefoil as
+(+1)-surgery) -- a through-line to feature in XXIII, not a change to XVII now. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (rrrr) -- KNOTTED MAP (component A) COMPLETE + TUNED: Brieskorn u=(a^2+3 b^3)/a is Q_H=3 (Richardson-confirmed), knotted, and matches the physical trefoil virial V_max=1.875 to <0.3%. Core gap fully closed.
+Continued the knotted map (knotted_map.py). RESULTS:
+ * Q_H=3 CONFIRMED: larger box L=5, Q_H=2.79->2.885->2.922 (N=96,144,192); Richardson (1/N) ->
+   Q_inf = 3.03 (N=144,192) / 3.06 (N=96,192). The earlier under-convergence was box-edge leak (the
+   trefoil sits at rho~2.2; L=3 was too tight). CHARGE = 3, nailed.
+ * PROPORTIONS matched: V_max(beta=0) tuned via the modulation c in u=(a^2+c b^3)/a. c=1 (pure
+   Brieskorn) -> V_max=1.80; c~3 -> V_max=1.871, matching the physical BS-profile trefoil V_max=1.875
+   (Paper XV 1D; Paper XX full 1.91) to <0.3%, with Q_H still 3. So ONE geometric parameter c (fixed by
+   the virial/proportion match, like a thick-torus geometric parameter) lands the construction on the
+   physical trefoil. Default set to c=3.0 (=2.5062-matched proportion).
+ * Earlier "V=0.56 low" was a RED HERRING -- that was the beta=0.452 feedback-reduced V, not V_max(b=0);
+   V_max=1.80-1.87 is near-physical. No scale mismatch.
+STATUS: component A (the charge-correct, knotted, singularity-free, proportion-matched trefoil field) is
+COMPLETE and gated: Q_H=3, V_max~1.87=1.875, knotted (off-axis 2-fold winding), projective (no
+singularity). This is the hardest piece of Paper XXIII and it is done. NEXT components (B-F): barrier_
+config.py (n=4 half-threaded), torsion_framing.py, feedback_energy_3d.py + self-consistency,
+betastar_rho_barrier.py + S_eff calibration. beta_*rho/existence NUMBERS still require the full chain
+(no shortcut) -- but the foundation (A) is built and matches the physics to sub-percent. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (ssss) -- PAPER XXIII component B DONE: a grounded reaction coordinate Hopf link (Q_H=2) -> trefoil (Q_H=3) LOCATES the barrier at lambda*~0.35, and realizes the pion (Q_H net +1) as an EXPLICIT FIELD process. barrier_config.py.
+GROUNDING: the Brieskorn family {a^2+b^n=0} IS Paper XVIII's satellite twist family (n=2 Hopf link,
+n=3 trefoil, n=4 unfused barrier, P18:prop:satellite_twist_family). Reaction coordinate (single-valued):
+u(lam)=(a^2 + (1-lam)b^2 + lam*3*b^3)/a, lam:0->1 = Hopf link -> trefoil.
+RESULTS (L=5, N=128): Q_H = 1.93 (lam=0, Hopf link ~2) -> 2.86 (lam=1, trefoil ~3); NET +0.93 ~ +1 =
+the PION unit (finite-N under-counts 2 and 3 equally; the DIFFERENCE is robust). So the field realizes
+2 -> 3 + 1 (Paper XVIII's topologically-forced pion emission) as an EXPLICIT FIELD PROCESS -- a
+strengthening of P18:thm:pion_forced (bookkeeping -> field). BARRIER LOCATED: steepest dQ_H/dlam
+(reconnection) at lam~0.3, E_fb(b=.452) MAXIMUM (self-interaction peak) at lam~0.4 -> barrier lambda*
+~0.35 = the user's "just before absorption / after emission." V_max(b=0) stays ~1.8-1.87 along the path
+(trefoil proportions preserved). The barrier config n(lambda*) is where component F evaluates the
+feedback saturation beta_*rho.
+STATUS: components A (knotted map) + B (barrier + reaction coord) DONE and gated. NEXT: C torsion_
+framing.py, D/E feedback_energy_3d.py + self-consistency, F betastar_rho_barrier.py (evaluate at
+lambda*~0.35) + S_eff calibration -> the eta magnitude. beta_*rho NUMBER still needs C-F (no shortcut),
+but the barrier config it must be evaluated on is now built and located. [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-13 (tttt) -- PAPER XXIII component C (first piece): WRITHE/TWIST decomposition of the reaction centerline answers the user's pion question -- the Q_H=1 unknot pion carries a TWIST quantum. torsion_framing.py.
+QUESTION (user, on component B): does the emitted/absorbed pion (Q_H=1, UNKNOT) carry any of the
+cable's twist energy? ANSWER [E, topological] + [N, computed]: YES. By Calugareanu-White the Hopf
+charge of a framed curve is its self-linking Lk=Wr+Tw (writhe + framing twist); a round unknot has
+Wr=0, so a Q_H=1 unknot carries its unit as PURE TWIST. The pion therefore carries one twist unit's
+energy on emission (supplies one on absorption).
+METHOD: exact zero-set trace of the u=0 preimage in Hopf coords a=cos(chi)e^{i alpha}, b=sin(chi)e^{i
+beta}; the reaction phase 2 alpha = pi+2 beta+psi, psi=arg[(1-lam)+lam*3*s*e^{i beta}] UNWRAPPED. psi
+winds by 2pi over beta:0->2pi iff the b^3 term dominates -- that winding IS the reconnection (no wind ->
+a returns at 2pi -> 2-branch LINK; one wind -> returns only at 4pi -> single KNOT). Stereographic-
+project to R^3, discrete Gauss writhe/linking (segment form). Tw(lam)=Q_H-(Wr_self+2Lk)_centerline.
+RESULTS (converged, Nb>=200; Wr_self = 3.766 to 3 d.p. for the trefoil):
+  lam=0 (Hopf link, 2 comp): Wr_self=0.000, 2Lk=2.000, total=2.000=Q_H, Tw=0  -- charge is PURE LINKING
+    (strong gate check: the computed centerline total hits Q_H=2 exactly, no twist).
+  lam=0.3: centerline topology JUMPS link(2 comp)->knot(1 comp) -- the RECONNECTION, independently
+    confirming barrier_config's lambda*~0.35 by a centerline-topology diagnostic (different method).
+  lam=1 (trefoil, 1 comp): Wr_self=3.766, 2Lk=0 -- charge is WRITHE-DOMINATED, with a compensating
+    framing twist Tw=Q_H-Wr=3-3.766 = -0.766.
+PHYSICS: the reconnection converts ~2 units of mutual LINKING into ~3.77 units of self-WRITHE while the
+net topological charge rises by exactly +1 (=the pion). The shed pion, being an UNKNOT, cannot store
+that +1 as writhe -> it is a twist quantum. So the barrier is a twist<->writhe reconfiguration and the
+pion is the twist carrier. This is the torsion/framing energy component C must bookkeep, and it is
+NONZERO off the symmetric endpoints (Tw!=0 for 0<lam<1) -- confirming Paper XV's torsion CANCELLATION
+(P15:thm:torsion_cancels) does NOT apply at the barrier (it is symmetric-profile only), exactly the gap
+C exists to fill.
+CAVEATS [O]: the writhe VALUE (3.766) is embedding-dependent (Clifford-torus T(2,3); ideal trefoil
+~3.4, min-diagram 3) -> the specific Tw=-0.766 is NOT a derived invariant. The frame-INDEPENDENT facts
+are: (i) link end = pure linking (Tw=0, exact); (ii) reconnection at lam~0.3; (iii) pion=unknot=>its
++1 is twist, not writhe. The centerline reconnection is SHARP (discrete topological event) while the
+grid Q_H (gate) is smooth 1.93->2.86 -- finite resolution smears the reconnection; both are correct.
+STATUS: component C first piece (writhe/twist bookkeeping + pion=twist answer) DONE. REMAINING for C:
+the torsion ENERGY integral on the barrier config (Frenet torsion x framing stiffness) feeding D/E.
+
+## UPDATE 2026-10-13 (uuuu) -- PAPER XXIII component C COMPLETE: the torsion ENERGY at the barrier is a SMALL O(rho^2) correction (no spike at reconnection) -> component F can carry torsion perturbatively, as Paper XV does. torsion_framing.py (energy/geometry piece).
+GROUNDING: Paper XV. Torsion cancels at leading order for the symmetric profile (P15:thm:torsion_
+cancels: tau is a pure rotation chi->chi-int tau ds, invisible to a chi-independent f_0 at all orders).
+At NEXT order it survives, CURVATURE-GATED: <delta|grad f|^2> = 1/2 f_1(rho)^2 kappa^2 tau^2 rho^2
+(P15:eq:torsion_correction) ~ kappa^2 tau^2, not tau^2. Physical relaxed trefoil: <kappa^2>=0.120,
+<kappa^2 tau^2>=0.0053 ~ 4.4% of <kappa^2> (P15 cor:lambda3, rem:torsion_scope).
+GATE (strong): fed Paper XV's analytic (2,3) centerline G(t) (R0=3, r0=0.874) through my numerical
+Frenet code -> <kappa^2>=0.1200, <kappa^2 tau^2>=0.0053, L3=41.264, ratio 4.4% -- reproduces
+paper15_computations.py exactly. Numerical-derivative Frenet machinery validated.
+RESULT (reaction centerline = Brieskorn trace, rescaled to R0=3, converged Nb=200->1200 identical):
+the torsion-gating ratio <k2t2>/<k2> stays in 0-3% ACROSS THE WHOLE PATH, INCLUDING the barrier
+(lam=0.3: 3.2%, lam=0.4: 2.2%) -- it does NOT spike at the reconnection. Bracketed by the endpoints:
+Hopf link (lam=0) ratio 0% (planar circles, tau=0) -> trefoil (lam=1) small. So the non-symmetric
+barrier, where P15:thm:torsion_cancels explicitly fails, introduces NO torsion blow-up; torsion stays
+an O(rho^2) perturbation.
+CAVEAT [O]: the Brieskorn embedding is geometrically SMOOTHER than the physical trefoil (its lam=1
+gives <kappa^2>=0.089 vs 0.120, ratio 0.9% vs Paper XV's 4.4%) -> it UNDER-represents the absolute
+torsion fraction by ~5x. So the PHYSICAL barrier torsion fraction is likely toward Paper XV's ~4%
+band, still small. The ROBUST, embedding-independent finding is the SHAPE: no spike at reconnection,
+bracketed 0%->~4%, i.e. torsion is perturbative throughout. (The true relaxed barrier centerline needs
+the relaxation that hit the wall; the Brieskorn trace is the ansatz proxy.)
+CONSEQUENCE: component F (beta_*rho extraction at lam*~0.35) may treat the torsion/framing energy as a
+small O(rho^2) correction exactly as Paper XV treats it for the relaxed trefoil -- it does NOT need a
+full non-symmetric torsion-energy solve as a leading term. This DE-RISKS F: the dominant barrier energy
+is the curvature + density-feedback self-interaction (D/E), with torsion a few-% rider.
+STATUS: component C DONE (writhe/twist bookkeeping + pion=twist answer in (tttt); torsion energy
+magnitude/gating here). NEXT: D/E feedback_energy_3d.py (full E_fb + self-consistency at high res on the
+barrier config), then F betastar_rho_barrier.py. SUPERSEDES nothing; completes (tttt).
+[[dark-hopfion-cdm-lead]] [[reconnection-barrier-redirect]]
+
+## UPDATE 2026-10-14 (vvvv) -- PAPER XXIII D/E + F(first numbers): PIVOT off Brieskorn to the PHYSICAL TUBE (user). KEY GEOMETRIC FINDING: the relaxed trefoil tube SELF-AVOIDS -> feedback saturation is NOT a crossing-overlap quantity; it is a single-tube WALL value (beta_*rho ~15-20), ENHANCED ~2x at the threading barrier (beta_*rho ~35-40). Both >= the eta requirement ~15. feedback_energy_3d.py + threading_barrier.py.
+PIVOT (user, 2026-10-14): "the centerline of the trefoil is where there is very little energy" ->
+Brieskorn (knotted_map.py) was right for the CHARGE (Q_H=3 via Whitehead) but WRONG for the ENERGY (it
+smears the field over S^3, mislocates density, came out geometrically smooth). For D/E/F use the PHYSICAL
+tube build_doublet (src_paper21: BS profile around torus_knot_centerline R0=3,r0=0.874, q=3 framing),
+which localizes energy in the walls and resolves strands. We do NOT trust its Whitehead Q_H (Q_H~0 =
+under-resolution, 2 pts/tube at N=64); we read its ENERGY DENSITY directly, topology enforced by
+construction. Two instruments for two jobs (charge: Brieskorn; energy: physical tube).
+GEOMETRIC FINDING [E] (reframes the beta_*rho story): the minimal NON-adjacent strand distance in the
+relaxed T(2,3) is EXACTLY 2r0=1.748 EVERYWHERE (d_min=d_max; the antipodal G(t),G(t+pi) pair, Paper XV
+l.220) >> tube width 2/C*=0.798. So the relaxed knot is SELF-AVOIDING -- NO inter-strand overlap. Paper
+XV's "self-interaction at the 3 crossings" is the CURVATURE peaking there (kappa_max=0.399, already in
+<kappa^2>), NOT tube overlap. CONSEQUENCE: beta_*rho in the relaxed knot is a single-tube WALL quantity,
+~uniform along the knot, NOT a crossing-overlap quantity.
+(A) SINGLE-TUBE WALL (feedback_energy_3d.py, N=96->128, reads beta*g2 at the profile scale rho~1/C*,
+resolution-robust away from the core): beta*g2_wall = 15.25 -> 17.13 (creeps up with N; ~15-20). The IC
+ansatz is UNRELAXED (V=0.29-0.31 vs phi; s_opt=1.79-1.84 vs 1) -- true self-consistency needs the saddle
+search (compute-gated), NOT just higher res; so (A) is the ansatz wall value, not the relaxed saddle.
+(B) THREADING BARRIER (threading_barrier.py, N=128, 10 pts/tube, two straight BS tubes at axis
+separation d, additive-density overlap rho~g2_1+g2_2): enhancement over one tube vs d --
+  d=1.748 (relaxed 2r0): 1.00x (NO overlap -- recovers (A)/self-avoidance)
+  d=1.20: 1.01x ;  d=0.80 (~tube width = BARRIER onset): 1.68x ;  d<=0.6 (cores overlap): plateau ~1.99x.
+beta*rho_overlap: ~20.5 (separated) -> 34.5 (barrier) -> ~41 (deep). Sharp onset at d~tube width (the
+reconnection), saturating ~2x. N=80->128 enhancement STABLE (1.70->1.68x at d=0.8) = resolution-robust.
+HEADLINE: beta_*rho is NOT short. Single-tube wall ~15-20; threading barrier ~2x that (~35-40). The eta
+requirement (~15, Paper XXII P22:sec:open) is MET with headroom from the wall alone and doubly so at the
+barrier (user's favored locus -- confirmed: the barrier IS where the extra self-interaction lives,
+because the relaxed knot self-avoids).
+CAVEATS (tags): the comparison to "~15" is [N] SUGGESTIVE, not [E]. (i) These are UNCALIBRATED engine
+beta*g2 = beta*|grad n|^2 (max-in-region), NOT the calibrated beta_*rho in S_eff=sin^4theta/[phi^6
+(1+beta_*rho)] (rho prop kappa) -- the engine->paper map is component F's remaining calibration
+(notes (kkkk)); an O(1) factor could shift the absolute number. (ii) absolute beta*g2 creeps with
+resolution (max-in-region); the ROBUST outputs are the ENHANCEMENT (~1.7-2x) and the d-TREND (onset at
+d~tube width). (iii) unrelaxed ansatz + additive-density leading-order overlap; the fully relaxed
+threaded field needs the saddle search. So: ROBUST = self-avoidance, barrier-doubling, onset at tube
+width; SUGGESTIVE = beta_*rho ~15-40 meets the eta ~15 need pending calibration.
+STATUS: D/E DONE (physical-tube engine, self-avoidance, wall value); F has BOTH instruments built and
+first numbers (wall + barrier). REMAINING for F: the S_eff unit calibration (beta*g2 -> beta_*rho) to
+turn the ~15-40 into a quantitative eta claim; optionally the saddle search for the relaxed value.
+SUPERSEDES the premise in earlier notes that beta_*rho saturation is a crossing-OVERLAP quantity in the
+relaxed knot -- it is a WALL quantity relaxed / a THREADING-overlap quantity at the barrier.
+[[dark-hopfion-cdm-lead]] [[reconnection-barrier-redirect]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-14 (wwww) -- PAPER XXIII component F DONE: the eta-magnitude CALIBRATION is solved and beta_*rho for the trefoil is COMPUTED ~15-17 (wall) / ~34 (barrier) -- Paper XXII's single open number is now a feedback-engine OUTPUT, not an assumed input. betastar_rho_barrier.py.
+CALIBRATION [E] (resolves the (kkkk) "units don't match S_eff" blocker): the engine's feedback factor
+(1+beta*g2), g2=|grad n|^2, IS the fundamental Papers I-IV form (1+beta_* kappa), kappa=the FN gradient
+density (P7:rem:rho_extension l.281-286). Paper VII's k-essence S_eff uses (1+beta rho) with rho=c kappa,
+beta=beta_*/c (P7:eq:Lambda_obs l.1390) -> 1+beta rho = 1+(beta_*/c)(c kappa) = 1+beta_* kappa: THE c
+CANCELS. So the S_eff feedback ARGUMENT beta_*rho = beta_* kappa = the engine's beta*g2 DIRECTLY, no c.
+The normalisation c=phi^3+p0^{Q_H} (P7:prop:cc_norm, p0=1/phi^2; c(Q_H=3)=4.292) enters ONLY the Lambda_obs
+exponent, NOT the feedback factor. The (kkkk) worry was exactly this c-confusion -- now cleared.
+ETA (Paper XXII P22:sec:open, P22:eq:seff, verified l.309-339): reconnection baryogenesis OVERPRODUCES
+eta by ~1e4-1e5; S_eff=sin^4/[phi^6(1+beta_*rho)], eta carries S_eff^2 (p=2, rate~|amp|^2, Paper XXI) ->
+suppression = phi^12 (1+beta_*rho)^2; paper's self-consistent beta_*rho~15 gives eta~6e-10.
+RESULT (beta_*=0.452 FN coupling, C*=2.5062): beta_*rho = beta*g2 =
+  (A) single-tube WALL: 15.25 (N=96) -> 17.13 (N=128), creeps with resolution; ~15-17. -> suppression
+      phi^12(1+15.25)^2 = 8.5e4 (in the needed 1e4-1e5 band).
+  (B) threading BARRIER (d~tube width): ~34 (1.68x the wall). -> suppression 3.9e5 (over-suppresses ~5x
+      but within an order; inside the paper's first-order window which brackets the observed).
+So beta_*rho_engine ~15-17 (wall) MATCHES the paper's required ~15 to within resolution creep; the
+barrier doubles it. The eta MAGNITUDE is reproduced order-of-magnitude from the field.
+TAGS / ERROR BUDGET: CALIBRATION [E] (grounded, c-cancellation is exact). beta_*rho VALUE [N] suggestive:
+(i) absolute beta*g2 is a max/profile-scale value that CREEPS with resolution (15->17 over N=96->128) --
+same order as 15, not a precise 15.00 match; (ii) the ansatz is UNRELAXED (V=0.29-0.31 != phi; the true
+saddle via the compute-gated search would shift the number); (iii) the eta NUMBER itself is illustrative
+-- it is anchored to the ~1e4-1e5 overproduction estimate (eta_raw not computed here), so the robust claim
+is the beta_*rho ~ 15 MATCH, not a from-scratch eta. ROBUST: beta_*rho is O(15) at the wall, O(35) at the
+barrier, same order as the requirement; the calibration is exact. SUGGESTIVE: the precise value (needs the
+relaxed saddle + a resolution-converged profile-scale definition).
+STATUS: Paper XXIII components A-F all DONE (charge A/Brieskorn; topology+pion B; framing C; energy D/E;
+eta-magnitude F). The chain: self-avoiding relaxed trefoil -> feedback saturation is a tube-wall / barrier-
+threading quantity -> beta_*rho ~15 -> eta ~6e-10, computed not assumed. REMAINING (not blocking the eta
+result): component G (assemble the full validation suite) and existence_saddle.py (Paper XXI (ii), the
+relaxed saddle) -- both compute-gated, optional for the eta claim. Paper XXII P22:sec:open can now cite
+a COMPUTED beta_*rho~15 rather than an assumed one (pending saddle-converged precision).
+[[dark-hopfion-cdm-lead]] [[reconnection-barrier-redirect]] [[o2-feedback-saddle-solver]] [[delta1-dielectric-program]]
+
+## UPDATE 2026-10-14 (xxxx) -- RETRACTION of (wwww)'s beta_*rho~15: that was a UNITS ARTIFACT. The relaxed-saddle (self-consistency) check shows the knot-internal self-consistent feedback argument is beta_*rho ~ 0.5, NOT 15 -- validated against the analytic P4:prop:bstar. The knot does NOT supply the eta suppression; Paper XXII's ~15 is the AMBIENT QCD-epoch density (rho prop T^4), a cosmological input.
+RETRACTS the beta_*rho~15 "result" of (wwww)/(vvvv) and the memory/PLAN claims built on it.
+THE ERROR: (wwww) set beta_*rho = engine beta*g2 with beta=0.452 (the dimensionful FN coupling) times
+the RAW grid g2=|grad n|^2 (resolution-divergent at the core, ~33 at the wall) -> ~15. But beta=0.452
+is NOT self-consistent for the raw-g2 field: it gives V=J2iso_fb/J2a=0.30, FAR from the self-
+consistency target V=phi=1.618. beta*g2~15 everywhere over-saturates and crashes V -- the giveaway I
+initially rationalised as "unrelaxed ansatz." The ~15 coincidentally matching Paper XXII's needed ~15
+was a CLAUDE-sec3 trap (an artifact matching a target, read as confirmation).
+THE RELAXED-SADDLE CHECK (self-consistency in beta on the build_doublet trefoil, N=112): V(beta=0)=2.06,
+V(0.452)=0.30; the SELF-CONSISTENT beta_sc with V=phi is beta_sc=0.0125 (NOT 0.452), at which the
+feedback argument beta_sc*g2 = 0.45 (wall) / 0.50 (max). This MATCHES the validated analytic value:
+beta_flow_derivation.md gives the self-consistency J_fb/J_a=phi -> b*=beta*/C^2=0.0671513 (reconstructs
+the published P4:prop:bstar EXACTLY from the raw BS profile), and the feedback KERNEL kern=(f')^2+
+sin^2 f/rho^2 = 8/(1+x^2)^2 is BOUNDED (max 8 nondim), so b*kern at the core = 0.0671*8 = 0.537. Engine
+(0.45-0.50) and analytic (0.54) AGREE. So beta_*rho_knot ~ 0.5 [E, validated two ways], resolution-robust.
+CONSEQUENCE: with beta_*rho=0.5 the knot's own suppression phi^12(1+0.5)^2 = 724 -- only ~7e2, vs the
+needed ~1e4-1e5. So the KNOT's internal density feedback UNDER-suppresses by ~1e2-1e3; it does NOT
+provide the eta magnitude. Paper XXII P22:eq:seff's beta_*rho is explicitly the AMBIENT density at the
+QCD epoch (l.333: "the condensate density rho tracks T^4, beta_*rho is large at the dense QCD epoch") --
+a THERMAL/cosmological quantity set by the QCD-epoch condensate density, NOT the knot's internal
+gradient feedback. My A-F computation targeted the WRONG rho (knot-internal, ~0.5) for the eta claim.
+DISCREPANCY TO RAISE WITH USER (do NOT edit papers in read-only mode without asking): Paper XXII
+l.340-342 asserts "this ~15 is the value the saturated trefoil configuration must return ... bounded to
+the right range by the established trefoil sharpness [C*]." But the trefoil's self-consistent feedback
+argument is ~0.5 (b*kern, C*=2.5062), NOT 15. So that assertion is UNSUPPORTED by the trefoil's own
+self-consistency as computed/derived here -- either a different quantity is meant (e.g. a saturated-core
+/ vacuum density RATIO times the vacuum beta rho_inf=phi, NOT the self-consistent feedback), or the claim
+is over-optimistic. Needs the user's call.
+WHAT SURVIVES from A-F (NOT retracted): A knotted Q_H=3 map (Brieskorn); B reaction coordinate + barrier
+lambda*~0.35 + pion-as-field-process; C pion=twist (Calugareanu) + torsion perturbative (gated to Paper
+XV); D/E the SELF-AVOIDANCE geometric finding (relaxed trefoil strands 2r0 apart, tubes don't overlap) --
+all topology/geometry, all stand. What is RETRACTED is only F's beta_*rho MAGNITUDE (~15 -> ~0.5) and the
+"eta computed from the field" claim. The self-avoidance + the threading-enhancement SHAPE (~2x at the
+barrier) stand, but applied to the ~0.5 knot feedback they give ~1.0, still << 15.
+STATUS: F's eta-magnitude claim WITHDRAWN. The knot-internal self-consistent beta_*rho = 0.5 [E]. The
+eta magnitude remains OPEN, tied to the ambient QCD-epoch density (cosmology), not the knot. Paper XXII
+l.340-342 (trefoil returns ~15 bounded by C*) flagged as a discrepancy for the user.
+[[reconnection-barrier-redirect]] [[o2-feedback-saddle-solver]] [[paper23-eta-betastar]]
+
+## UPDATE 2026-10-14 (yyyy) -- CORRECTION to (xxxx) + the knot-in-medium (saturated reading) RESULT: beta_*rho is the trefoil's OWN density-modified feedback (NOT pure-ambient, Paper XXII l.356-360, I overstated in (xxxx)); and the knot-in-medium SELF-CONSISTENCY does NOT reach ~15 -- it is pinned ~0.3-0.5 for a structural reason. knot_in_medium.py.
+CORRECTION to (xxxx): Paper XXII l.356-360 is explicit that beta_*rho is the trefoil TEXTURE's own
+feedback -- "the gradient reading (beta g2) and the density reading (beta_*rho) are two descriptions of
+the SAME trefoil texture, related by rho prop kappa; beta_* is the density-modified, self-consistent
+coupling of THAT configuration, not the vacuum constant." So it is the KNOT-internal beta*g2 (my engine
+target), density-modified by the QCD-epoch background it forms in -- NOT the pure-ambient quantity I
+called it in (xxxx). (xxxx)'s retraction of the ~15 NUMBER stands; its "it's ambient not knot" framing
+is corrected here.
+ALSO CORRECTED: Paper XXII's own order-of-magnitude estimate (l.363-366) "g2 ~ C*^2 ~ 6, core feedback
+a few" OVER-estimates: the actual BS-profile core kernel is kern=8/C*^2 ~ 1.27 (NOT C*^2~6; the paper
+used the inverse power). Done right, the self-consistent core feedback is b*kern=8 b* = 0.54 -- so even
+the paper's "a few" should be ~0.5.
+KNOT-IN-MEDIUM RESULT (user choice 2026-10-14; knot_in_medium.py, N=112): solve self-consistency
+V=J2iso_fb/J2a=phi with a uniform background rho_bg added to the feedback (1+beta(g2+rho_bg)); read
+beta_*rho at the core. RESULT: rho_bg=0 -> beta_*rho=0.42; rho_bg=5->0.39; 20->0.34; 60->0.31;
+150->0.29; 400->0.28. ADDING BACKGROUND LOWERS beta_*rho (beta_sc drops 0.0125->0.0006 to hold V=phi).
+It NEVER approaches 15 -- the self-consistency pins the feedback argument ~0.3-0.5 regardless of medium.
+STRUCTURAL REASON [E]: the self-consistent dimensionless coupling b*=0.0671 solves a PROFILE-INTEGRAL
+virial condition I_fb(b*)=phi I_2a (beta_flow_derivation / P4:prop:bstar) that is MEDIUM- and SCALE-
+INDEPENDENT, and the BS kernel is BOUNDED (kern_max=8 nondim). So b*kern_core = 8 b* = 0.537 ALWAYS --
+a denser medium or a compressed (higher-C*) knot does not change it. beta_*rho(self-consistent) ~ 0.5,
+robustly, period.
+THE ONLY ROUTE TO 15 (and why it fails the paper's own criterion): hold beta at the VACUUM value
+(beta rho_inf=phi, EXACT) and let ambient density pile on linearly -> beta_*rho = 0.5 + phi*(rho_bg/
+rho_inf), reaching 15 at rho_bg ~ 9 rho_inf. But that uses beta = the VACUUM CONSTANT, which is exactly
+what Paper XXII l.360 says beta_* is NOT. So the two paper statements (l.356-360 "self-consistent, not
+vacuum constant" vs l.370 "trefoil must return ~15") are in TENSION, and self-consistency wins: the
+self-consistent trefoil returns ~0.5, not 15.
+VERDICT [E]: the self-consistent trefoil feedback argument beta_*rho ~ 0.5 is a ROBUST, medium-invariant
+floor (two derivations + structural argument). It does NOT reach the eta-required ~15 by any self-
+consistent route. So eta's magnitude is NOT supplied by the trefoil's self-consistent feedback. It can
+only come from a NON-self-consistent, vacuum-beta + ambient-density construction (rho_bg ~ 9 rho_inf, the
+QCD-epoch condensate ~9x vacuum) -- an unpinned cosmological ratio, and one that contradicts the paper's
+"not the vacuum constant." eta magnitude: GENUINELY OPEN; the trefoil does not close it.
+RECOMMENDATION for Paper XXII (user's call, read-only -- do not edit without asking): l.363-374 should
+be corrected (g2~C*^2 -> kern~8/C*^2; "a few" -> ~0.5) and the claim "the saturated trefoil must return
+~15" withdrawn or recast -- the self-consistent trefoil returns ~0.5. The ~15 is a required value the
+self-consistent knot does not supply; it needs the (unpinned) ambient QCD density ~9x vacuum.
+[[reconnection-barrier-redirect]] [[o2-feedback-saddle-solver]] [[paper23-eta-betastar]] [[delta1-dielectric-program]]
+
+## UPDATE 2026-10-14 (zzzz) -- RECONCILED (user redirect "vacuum at QCD"): the eta-relevant beta_*rho is the QCD-epoch ENVIRONMENT (chameleon) feedback, NOT the isolated knot (~0.5). The chameleon scales beta_*rho with density (phi vacuum -> 1e6 Solar, P7:rem:chameleon); the dense QCD vacuum puts it in the saturated range; the FIRST-ORDER WINDOW [2,1000] brackets eta_obs at beta_*rho~15 (p=2). beta_rho_window.py (existing). The user's intuition is the mechanism; my F used the WRONG quantity (isolated knot).
+THE RESOLUTION of the whole beta_*rho confusion -- THREE different quantities, now disentangled:
+  (a) ISOLATED-KNOT self-consistent feedback = ~0.5 (its own |grad n|^2 in vacuum; virial-pinned, medium-
+      invariant; (xxxx)/(yyyy)). This is NOT the eta quantity. My F (wwww) wrongly computed this.
+  (b) QCD-EPOCH ENVIRONMENT feedback = beta_* * rho_ambient, the CHAMELEON value (P7:rem:chameleon,
+      l.1052-1066): runs phi (vacuum) -> 1e6 (Solar-System density). The dense QCD vacuum (user's point:
+      "the vacuum at QCD is not today's") makes it large/saturated. THIS is the eta-relevant beta_*rho.
+  (c) FIRST-ORDER WINDOW: the Z3-cubic Polyakov-loop transition (P22:sec:fo, P22:thm:fo) is first-order
+      only for beta_eff=beta_*rho in an intermediate window; too small -> crossover (weak cubic), too big
+      (>~1e3-1e4) -> crossover (deep saturation softens the barrier, l.335). Toy window [2,1000].
+KEY RESULT (beta_rho_window.py, existing src_paper22): beta_eff=beta_*rho does BOTH jobs (first-order
+driver AND baryon-branching suppression S_eff). eta_obs <-> beta_*rho = 15.0 (p=2), INSIDE the window
+[2,1000]; for p=1 eta_obs needs beta_*rho~8574 (over-saturated edge, mild tension). So a self-consistent
+beta_*rho(T_QCD)~15 EXISTS and is bracketed by the window; the heavy rho-enhancement at the dense QCD
+epoch (USER'S "vacuum at QCD") is the SOURCE of the suppression, and the first-order requirement CAPS it.
+STATUS now (honest): the eta magnitude is CONSISTENT + BRACKETED, not derived. beta_*rho~15 (p=2) sits
+inside the first-order window and gives eta~6e-10. OPEN: the window's PHYSICAL LOCATION needs the real
+E_fb coefficients (gamma, b) from the relaxed-saddle E_fb (compute-gated, still the wall); the power p
+(=2 works, =1 mildly over-produces) is argued (one heavy final-state object) not forced; beta_*rho(T_QCD)
+is co-constrained, not independently computed from the condensate density (the density->beta_*rho map is
+the unpinned constant). So eta is "a self-consistent solution exists inside a bracketing window," which
+is exactly Paper XXII's honest standing -- now with the quantities correctly disentangled.
+RETRACTION STATUS: (wwww)'s "~15 computed from the field" stays WITHDRAWN (it computed (a), the isolated
+knot, not (b)). But (xxxx)/(yyyy)'s stronger implication -- that ~15 is unreachable / eta hopeless -- is
+SOFTENED: ~15 IS reachable as the chameleon environment value (b), bracketed by the window (c); it is the
+isolated-knot route that fails, not the eta magnitude itself. The user's redirect fixed the quantity.
+PAPER XXII l.356-360 ("beta_*rho is the trefoil's OWN gradient feedback, the same texture") CONFLATES
+(a) and (b): the knot's own gradient is ~0.5; the ~15 is the environment (b). That sentence should be
+recast to say beta_*rho is the ENVIRONMENT/chameleon feedback at the QCD epoch (b), bracketed by the
+first-order window (c) -- not the isolated trefoil's own gradient. [User's call, read-only; not edited.]
+[[reconnection-barrier-redirect]] [[paper23-eta-betastar]] [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-14 (aaaaa) -- FREEZE-OUT SELECTION (user insight): eta carries beta_*rho AT THE TRANSITION (~15), not the pre-transition soup value (up to ~1000+), because baryons (trefoils) only crystallize out of the deconfined soup AT the confinement transition. This answers "which value in the wide window [2,1000]?" -- the dynamics SELECT beta_*rho(T_c). [I], framework-grounded.
+THE ARGUMENT (user, 2026-10-14): baryogenesis IS the confinement transition (reconnection 2+2->3+1
+assembles the trefoil, P22). A color-singlet baryon exists ONLY in the CONFINED phase. Above T_c =
+deconfined Z3 soup (Polyakov-loop plasma), NO distinct baryons. So:
+  * pre-transition (hot, dense soup): beta_*rho is LARGE (chameleon, (b)), up to ~1000 (window upper
+    edge) or beyond (crossover). But NO baryon number is imprinted -- there are no baryons.
+  * baryon number is generated ONLY as knots crystallize = AT the transition. So eta carries
+    beta_*rho(T_c), the TRANSITION value, bracketed by (and in) the first-order window [2,1000].
+  => This is a FREEZE-OUT: eta remembers the feedback at knot FORMATION (= T_c = first-order point), not
+     the soup value. "You'd never know the high value -- only on cooling through the transition do you get
+     distinct knots instead of soup." The wide window is NOT an embarrassment; the dynamics pick
+     beta_*rho(T_c) within it, necessarily first-order.
+WHAT IT CLOSES: converts the open question from "which value in [2,1000]?" -> "what is beta_*rho at T_c?"
+(a single dynamically-selected point, necessarily first-order, with eta_obs<->15 inside). Removes the
+"arbitrary choice in a wide window" objection. Strengthens P22 from "a self-consistent value exists in
+the window" to "the baryon freezes out THE transition value, which is first-order by construction."
+STILL OPEN: the exact T_c -> beta_*rho map (needs the free-energy coeffs gamma,b from the real E_fb =
+the compute-gated relaxed-saddle wall). So the NUMBER 15 is bracketed+selected, not yet derived.
+EXPERIMENTAL ANGLE (user): to SEE the high soup beta_*rho needs recreating the deconfined QCD env
+(heavy-ion/QGP) -- but baryons form only on cooling through hadronization, so baryon observables report
+the TRANSITION beta_*rho, not the soup. A high soup value needs a NON-baryonic probe (EoS, screening
+length, fluctuations). CAVEAT [O]: lattice QCD = CROSSOVER at mu_B=0; framework predicts FIRST-ORDER
+(P22 l.98, known difference). The framework's first-order picture could connect to the QCD CRITICAL POINT
+/ first-order line at high baryon density (RHIC beam-energy scan, FAIR/NICA) -- suggestive, not
+established. [I/O]
+STATUS: eta magnitude = CONSISTENT + BRACKETED + now DYNAMICALLY SELECTED (freeze-out at T_c); the number
+15 awaits only the window physical location (relaxed-saddle E_fb). The eta story is physically coherent
+end-to-end; the sole remaining gap is the compute-gated E_fb coefficient.
+[[reconnection-barrier-redirect]] [[paper23-eta-betastar]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-14 (bbbbb) -- CAN WE PREDICT THE (T,mu_B) FREEZE-OUT / QCD CRITICAL POINT (RHIC-BES/FAIR/NICA)? NO, not cleanly: the framework has NO mu_B dependence, and its first-order mechanism anti-predicts the high-mu_B critical point. Clarified: the ~0.5 beta_*rho IS the isolated/vacuum (zero-ambient) floor, not the QCD value. The real testable handle is the first-order QCD transition's GW background + eta.
+Q2 CLARIFICATION (user): the self-consistent beta_*rho~0.5 I quoted is the knot's OWN gradient feedback
+computed IN ISOLATION (zero ambient, ~"today's vacuum"/empty). It is medium-INVARIANT (profile-virial
+floor), NOT the QCD-epoch value; the epoch-dependence is entirely in the ambient/chameleon term (-> ~15
+at the dense QCD epoch). So the ~0.5 is correctly the vacuum/isolation floor, confirming it is the WRONG
+quantity for eta (which is the environment value (b), note (zzzz)).
+Q1 FREEZE-OUT POINT: the transition ORDER is set by h = e^{-E_sb/T} vs h_c~0.21 (firstorder_z3.py; the
+framework's Columbia-plot analog). E_sb ~ 2 m_const ~ 300-600 MeV (string-breaking; quarks CONFINED-ONLY),
+so h ~ 0.02-0.14 < h_c -> FIRST-ORDER at T_c ~ Lcond(QCD) ~ 76-150 MeV (P22:thm:fo: delta L~0.6,
+alpha~0.03-0.06, v_w~0.15-0.2). Real QCD: free light quarks F_q~m_q(few MeV) -> h~1 -> CROSSOVER
+(Columbia). THREE honest limitations for a (T,mu_B) prediction:
+  1. framework predicts FIRST-ORDER at mu_B=0 -> TENSIONS lattice (robust crossover at mu_B=0); rests
+     entirely on the confined-only-quark assumption.
+  2. NO mu_B dependence in F(T,L) (built for the early universe) -> cannot place a critical point in
+     (T,mu_B) without new baryon-density physics.
+  3. the naive density-extension (E_sb drops in a Fermi sea -> h->1 at high mu_B -> crossover at high
+     mu_B, first-order at low mu_B) ANTI-predicts the real-QCD conjecture (crossover low mu_B, first-order
+     critical point high mu_B = the RHIC-BES/FAIR/NICA target). So the framework does NOT reproduce the
+     experimental critical-point structure.
+VERDICT [O]: the (T,mu_B) QCD critical point is NOT a framework prediction (no mu_B; anti-predicts
+naively). The framework's TESTABLE QCD-transition predictions are: (i) eta~6e-10 (baryogenesis); (ii) a
+stochastic GRAVITATIONAL-WAVE background from a FIRST-ORDER QCD transition (alpha~0.05, v_w~0.2) -- a
+sharp yes/no vs LambdaCDM's crossover (QCD-scale GW redshifts to very high freq today; existence is the
+discriminator). RHIC/FAIR critical point is NOT it. [[dark-hopfion-cdm-lead]] [[paper23-eta-betastar]]
+
+## UPDATE 2026-10-14 (ccccc) -- BARYON DENSITY QCD vs RECOMBINATION (user): the early universe is on the mu_B~0 AXIS at BOTH epochs (mu_B/T ~ eta ~ 1e-10). So E_sb/h needs NO mu_B dependence for the framework's domain (baryogenesis is at mu_B~0; h=e^{-E_sb/T} with T alone is complete), and the RHIC/FAIR high-mu_B critical point (mu_B/T~1-5) is a different corner cosmology never reaches. baryon_density_epochs.py.
+NUMBERS (baryon_density_epochs.py): QCD (T=150 MeV): n_gamma=1.07e38 cm^-3, n_B,net=eta n_gamma=6.5e28
+cm^-3, thermal q+qbar+g soup ~1e10 x larger, mu_B/T~2.4e-11 (mu_B~3.6e-3 eV). Recombination (T=0.26 eV):
+n_B,net=336 cm^-3, mu_B/T~3.6e-10 (mu_B~9e-11 eV). n_B(QCD)/n_B(rec)=1.9e26 = a^-3 = (T_QCD/T_rec)^3.
+KEY: the QCD soup is DENSE (thermal ~g_* T^3) but nearly SYMMETRIC (net/thermal ~ eta ~ 1e-10). The
+string-breaking E_sb is set by the THERMAL (symmetric) density -> captured by T in h=e^{-E_sb/T}; the NET
+baryon density (mu_B) is ~0 cosmologically. mu_B/T actually RISES slightly from QCD (2.4e-11) to recomb
+(3.6e-10) as g_* drops (51->3.36, fixed asymmetry = larger fraction of fewer dof), but both ~0.
+RESOLUTION: the "we need E_sb/h(mu_B)" worry DISSOLVES -- for the framework's domain everything is at
+mu_B~0, parametrized by T alone; h(T) is complete. The RHIC/FAIR critical point is out of scope for a
+PRINCIPLED reason (cosmology never visits high mu_B), not a missing calc. CONFIRMS (bbbbb): the testable
+QCD-transition handles are eta + the first-order GW background, NOT the lab critical point.
+[[dark-hopfion-cdm-lead]] [[paper23-eta-betastar]]
+
+## UPDATE 2026-10-14 (eeeee) -- CONSISTENCY CHECK (user): the Paper XXIII single-tube calcs are CONSISTENT with Paper XVIII's "single knotted circle" trefoil + (2,3)-cable-fusion picture. The "two tubes" are the cable's TWO STRANDS (p=2 passes, inner+outer at 2r0), NOT two components. Added P23:rem:cable.
+Paper XVIII l.163 (and paper18.html): Q_H=2 preimage = two-component Hopf link T(2,2); Q_H=3 preimage =
+trefoil T(2,3), a SINGLE KNOTTED CIRCLE, reached from T(2,2) by the satellite/cable construction; this
+forces the Q_H=1 pion. The HTML: "rationality... tracks FUSION of the cable strands... threading a Q_H=1
+unknot through a neighbourhood of the other with the (2,3)-cable framing produces the trefoil, and a
+Q_H=1 unknot is necessarily left over."
+RECONCILIATION (all [E] unless noted): (i) my charge calc (Brieskorn) = single knotted (2,3) circle, one
+component -> matches "single knotted circle." (ii) The trefoil is a (2,3)-CABLE: p=2 => the single curve
+passes each toroidal section TWICE, at inner radius R0-r0 cos3t and outer radius R0+r0 cos3t (direct from
+G(t); G(t) outer, G(t+pi) inner), separated by exactly 2r0=1.748 = my self-avoidance distance. So "two
+strands" (cable), NOT "two components." build_doublet's two-strand detection (nearest + antipodal t+pi)
+captures both. (iii) my feedback/torsion calcs (D/E/F) = single tube around the (2,3) knot = the fused
+trefoil, with the 2 cable strands included. (iv) formation = FUSION of the cable strands: Hopf link (2
+comp, unfused, lam=0) -> trefoil (1 comp, fused, lam=1) + pion; my reaction coordinate T(2,2)->T(2,3) IS
+Paper XVIII's "trefoil reached from T(2,2) by the satellite construction." (v) at the barrier (lam*~0.35)
+the strands are HALF-FUSED and transiently OVERLAP (unlike the self-avoiding relaxed endpoint) = where
+the feedback is enhanced (the threading-overlap ~2x of (vvvv)); the pion (Q_H=1 unknot) carries off part
+of the sigma_1^3 cable twist as a twist quantum (writhe/twist result (tttt)). [I] note: the framework's
+Q_H=2 "inner+outer two tubes" (Paper I) shows up in the trefoil AS these two cable strands.
+VERDICT: no inconsistency. Single-tube (single knotted circle) trefoil is the correct object (Paper XVIII);
+the "two tubes" are its two cable strands (p=2, inner+outer, 2r0), captured by the calc; the barrier is the
+half-fused reconnection where the strands overlap and the pion is exchanged.
+[[paper23-eta-betastar]] [[reconnection-barrier-redirect]]
+
+## UPDATE 2026-10-15 (fffff) -- EXISTENCE (Paper XXI (ii)) RESOLVED via the PION-EMISSION transition state (user insight), NOT the static ansatz. existence_saddle.py built (advisor-guarded, non-degenerate). Static search = INCONCLUSIVE (ansatz dichotomy = the resolution wall); the --reaction mode = SADDLE EXISTS (the Q_H=3 object is the index-1 transition state of pion emission, Paper XX).
+ADVISOR CATCH (critical): the naive saddle search (scale + beta both free) is DEGENERATE -- the scaling
+identity n(x)->n(x/lam) [grid h->lam*h] gives J2a->lam J2a, J4->J4/lam, J2iso_fb(beta)->lam J2iso_fb
+(beta/lam^2), so V(lam,beta)=V(beta/lam^2); both V=phi and s_opt=1 are hittable for ANY shape -> "exists"
+always (same failure shape as the retracted ~15). VERIFIED in smoke (V(lam*h,beta)=V(h,beta/lam^2) exactly).
+FIX: hold beta_0 FIXED, search SHAPE only, report Delta(shape)=phi^6 J4 beta_sc - beta_0 Kfb(beta_sc);
+existence = Delta sign-change. beta_0 calibrated on a Q_H=2 gate IN-ENGINE (not b*/0.452 -- build_doublet's
+profile 2arctan((dC*)^-C*) != the BS profile). Charge-certified via Whitehead; pre-registered verdicts.
+STATIC RESULT [O]: INCONCLUSIVE. The Q_H=2 gate FAILS -- the charge-correct Brieskorn family has s_opt~4-9
+(NOT ~1) across the whole c-range: it is NOT energy-saddle-like. The energy-saddle-like ansatz
+(build_doublet) is charge-broken (Q_H~0 all N). This ANSATZ DICHOTOMY (charge-correct XOR energy-saddle)
+IS the resolution wall, now cleanly documented (not a false positive -- the non-degenerate design refused
+one). A true STATIC saddle needs the full relaxed field (compute wall).
+PION ROUTE [E, the resolution] (user: "can we use pion emission/absorption to help?"): YES. E_fb=K_fb*J4 is
+a PRODUCT -> the Q_H=3 object is a SADDLE, not a minimum (Paper XX) -- so a static s_opt=1 minimization is
+the WRONG instrument. The natural saddle is the TRANSITION STATE of pion emission. existence_saddle.py
+--reaction: E_fb along the reaction coordinate (reaction_doublet, Hopf link->trefoil) has a clear INTERIOR
+BARRIER (E_fb: 7.5e5 at lam=0 -> PEAK 1.87e6 at lam*=0.40 -> 1.50e6 at lam=1), with Q_H transitioning
+1.90->2.77 (dQ=+0.87~+1, the pion) across it. An interior E_fb maximum with Q_H 2->3 IS an index-1 saddle
+(mountain-pass: the Hopf-link basin + a barrier => a saddle between them). VERDICT (N=96): SADDLE EXISTS
+(transition state). So the Q_H=3 sector's stationary configuration EXISTS as the index-1 pion-emission
+transition state -- resolving Paper XXI (ii) through the PROCESS, sidestepping the static-ansatz dichotomy.
+CAVEAT [O]: the trefoil endpoint (lam=1) is post-barrier but NOT confirmed a separate stable basin here
+(E_fb still descending at lam=1); the solid statement is the transition-state saddle, not a metastable
+trefoil minimum. Needs N-convergence (run 2nd N) + ideally the transverse Hessian. Q_H endpoints (1.90,
+2.77 at N=96) are resolution-gated (climb to 2,3 at higher N).
+SCRIPTS: existence_saddle.py has 3 modes -- --smoke (identity+Q_H+timing), default (static Delta search,
+INCONCLUSIVE, documents the wall), --reaction (the pion transition-state saddle, SADDLE EXISTS). All
+charge-certified, advisor-guarded, fast (~6s at N=96; ~1 min at N=200 -- NOT the compute wall, the
+Brieskorn engine has no KDTree/relaxation). Handoff: --reaction at N in {128,160,192} for N-convergence.
+[[paper23-eta-betastar]] [[reconnection-barrier-redirect]] [[o2-feedback-saddle-solver]]
+
+## UPDATE 2026-10-15 (ggggg) -- CONVERGED: existence_saddle.py --reaction at N=128,160,192 confirms SADDLE EXISTS, N-stable. lambda*=0.40 EXACTLY at all N; dQ_H -> +1 (pion); a post-barrier trefoil basin EMERGES at N>=160 -> the full mountain-pass structure. Paper XXI (ii) resolved.
+RESULTS (existence_saddle_react_N{128,160,192}.json): lambda*=0.40 at ALL THREE N (barrier location
+resolution-STABLE). dQ_H = +0.93 (N=128) -> +0.96 (160) -> +0.97 (192), climbing to the pion unit +1.
+Q_H endpoints: link 1.93->1.95->1.96 (->2), trefoil 2.86->2.91->2.93 (->3), finite-N under-count as
+expected. Interior E_fb barrier True at all N. VERDICT: SADDLE EXISTS (transition state), CONVERGED.
+NEW (strengthens, softens the (fffff) caveat): the post-barrier side develops a SHALLOW BASIN as N grows
+-- N=128 monotone descent to lam=1; N=160 flat min ~lam0.85; N=192 min at lam~0.8 with E_fb RISING into
+lam=1 (2.463e6@0.8 -> 2.496e6@1.0). So the full MOUNTAIN-PASS now appears: Hopf-link basin (lam=0) ->
+index-1 saddle (lam*=0.40) -> trefoil-side basin (lam~0.8). Both endpoints basins, barrier = genuine TS
+saddle between them. [O] the basin is shallow + resolution-emergent (only N>=160) -> SUGGESTIVE, not firm;
+the ROBUST statement remains the transition-state saddle + converged lambda*, dQ_H->1.
+STATUS: Paper XXI open-problem (ii) RESOLVED -- the Q_H=3 stationary configuration exists as the index-1
+pion-emission transition state (lam*=0.40, pion dQ_H->+1), converged in N. Natural write-up: a Paper XXIII
+proposition (P23). [[paper23-eta-betastar]] [[reconnection-barrier-redirect]]
+
+## UPDATE 2026-10-15 (iiiii) -- CROSS-PAPER: the pion/transition-state result bears on P15:OP1 (the "missing Q_H=3 saddle" blocker of Papers XV/XVI) -- it CLOSES the "why gradient flow fails + does a saddle exist" layer, leaving only the physical-units saddle energy (the common resolution-wall blocker of P15:OP1, P18:OP6, P21:OP1). User synthesis: the trefoil is the OPTIMAL Q_H=3 shape, never reached isolated -- always paired/forming via pion emission/absorption.
+WHICH OTHER PAPERS' BLOCKERS THIS TOUCHES (analysis, open_problems.tex read):
+- P15:OP1 (Papers XV/XVI) = THE match: "no gradient-flow method converges to a Q_H=3 saddle." Already
+  diagnosed by XVI (gf charge-loss P16:prop:gf_topology_loss; pi phase discontinuity + divergent gradient
+  energy P16:prop:phase_jump/divergent_energy) and reframed by XVIII as a FLAT PLATEAU not a unique min
+  (P18:rem:saddle_difficulty); "remains open at the computational level." CONCEPTUAL CLOSURE (Paper XX +
+  XXIII): E_fb=K_fb*J4 is a PRODUCT -> Q_H=3 object is a SADDLE not a minimum (Paper XX); gradient flow
+  seeks MINIMA -> a saddle is not a gf attractor -> the failure was EXPECTED, not a defect. Paper XXIII
+  supplies the charge-conserving (Brieskorn) construction gf lacked, establishes the formation
+  TRANSITION-STATE saddle (lam*=0.40) + a shallow post-barrier Q_H=3 basin, and independently confirms the
+  flat-plateau reframing (static s_opt=1 not a sharp attractor; s_opt~4-9). NOT closed: E_profile* in
+  PHYSICAL units + the adaptive-mesh finder (= Paper XXIII's own open item 1; the resolution wall).
+- P18:OP6 (Q_H=3 production thresholds dE_{2+2}, dE_{2+1}): ADVANCED -- the reaction-coordinate E_fb(lam)
+  IS the Q_H=2->3 energetics (barrier + endpoint energies), in Brieskorn-ansatz units.
+- P21:OP1 / Paper XXII (eta first-order-window location, the gamma/b physical-units ratio): the SAME
+  physical-units-saddle quantity; Paper XXIII clarifies it is one gated blocker, not closed.
+- P21:OP2 (D-type DARK soliton existence): NOT resolved. Paper XXIII gives the METHOD + resolves the
+  TREFOIL reference case; the D-type (dihedral 2D_3/2D_5, off the T(2,Q_H) ladder) needs its own formation
+  construction -- still open; the dark-hopfion realization index probe was NEGATIVE ([[dark-hopfion-cdm-lead]]).
+COMMON BLOCKER: the physical-units saddle energy E_profile* (equiv. gamma/b) behind the resolution wall --
+links P15:OP1, P18:OP6, P21:OP1. The pion route closes the CONCEPTUAL/existence layer, not this number.
+ACTION: recording this note (a) + forward notes into Papers XV and XVI (b, done); open_problems.tex LEFT
+for the repo manager (user). D-type clarified: OPEN, stated as open in Paper XXI, not resolved.
+[[paper23-eta-betastar]] [[reconnection-barrier-redirect]] [[dark-hopfion-cdm-lead]]
+
+## UPDATE 2026-10-15 (kkkkk) -- PION PICTURE vs the QUARK-SECTOR open items (Paper XX O1/O2/O3). CORRECTION to my earlier "quark sector openness" framing: the hierarchy is ESSENTIALLY CLOSED (spacing CFT-fixed m_u/m_c=e^{-2pi}, anchor=completion energy ~5 MeV, both ~10%; [[o2-e6-cft-tower]]). The 3 remaining O's all bottleneck on the FORMATION energy / density-feedback action = the resolution wall -- and the pion-emission reaction coordinate IS that formation process. BEST lead: O2 (Phi=m_d-m_u SIGN) via formation CHIRALITY. o2_phi_chirality_probe.py.
+CORRECTIONS (verified vs o2-e6-cft-tower memory, CLAUDE sec1/sec9): (i) the "top transition-anchor" I
+nearly invoked was RETRACTED -- the top is BARE/incomplete-formation (decays before completing T(2,3)),
+NOT a transition-state quantity; don't use it. (ii) the generation SPACING is CFT-fixed (e^{-2pi}), NOT a
+dynamical well -- "generations = well levels" superseded. So the quark HIERARCHY is not re-opened.
+THE 3 REMAINING QUARK O's (all formation-energy / action-gated = resolution wall), and how the pion
+(T(2,2)->T(2,3) reaction coordinate) frame bears:
+- O1 (absolute anchor of the E_6 tower = the confined u,c FORMATION-ENERGY scale, T(2,2)->T(2,3)): the
+  reaction-coordinate E_fb IS this formation energetics (barrier + completion). Pion picture = the right
+  instrument; physical-units anchor (~4.5 MeV = proton-deficit/3, semi-derived) still gated. ADVANCES.
+- O2 (gen-1 flip Phi=m_d-m_u SIGN) = BEST LEAD. Static-energy route REFUTED (Faddeev E is z->-z
+  symmetric, P20:rem:orientation -> up/down DEGENERATE). PROBE (o2_phi_chirality_probe.py, N=96): the
+  trefoil (+) and its z->-z mirror (-) have IDENTICAL E_fb=1.5011e6, V, J4/J2a (|dE|/E=0.0e0; Q_H=+2.770
+  vs -2.770) -> the sign is NOT in the energy; and writhe = +3.766 vs -3.766 = the chiral LABEL (Z_2
+  writhe asymmetry, Paper XVIII). REFRAME: Phi sign = (writhe-sign label) x (sign the WZW framing phase
+  theta^3_{3/2}=i of the writhe-3 reconnection imparts to the up-vs-down formation AMPLITUDE) -- ALGEBRAIC
+  modular data (Paper XV; "genuine chiral phase in the reconnection amplitude", Paper XXII), so it
+  SIDESTEPS the resolution wall (as e6_cft_tower did for the spacing). This MOVES O2 off the wall onto the
+  algebraic WZW route. [O] NOT established: that theta^3_{3/2}=i gives Phi>0 (down heavier) -- a phase->real
+  splitting needs the amplitude-interference bookkeeping (cf. delta_CP=65deg, Paper XXII). The tractable
+  next step.
+- O3 (M_dn/M_up tangent functional): action-gated; the reaction coordinate is the dynamical frame, no
+  sharp handle yet.
+NET: the pion/reaction-coordinate picture doesn't re-open the (closed) quark hierarchy; it is the natural
+frame for the 3 residual dynamical-layer items, and for O2 it converts a resolution-wall problem into an
+algebraic WZW-framing-phase question -- the one quark item the static energy provably cannot reach.
+[[o2-e6-cft-tower]] [[o2-feedback-saddle-solver]] [[paper23-eta-betastar]] [[reconnection-barrier-redirect]]
+
+## UPDATE 2026-10-15 (lllll) -- RETRACTION of (kkkkk)'s O2 "Phi-sign via formation chirality" lead (advisor catch, CLAUDE sec9). The chirality probe compared the WRONG PAIR: trefoil (Q_H=+3) vs its z->-z mirror (Q_H=-3) = particle vs ANTI-trefoil (a PARITY pair), NOT up vs down. The WZW-phase->Phi-sign route is WITHDRAWN. O2 stays as Paper XX gives it.
+WHY (decisive, from the probe's OWN output + Paper XX l.290-292):
+- o2_phi_chirality_probe.py printed Q_H = +2.770 (chirality +) vs -2.770 (z->-z mirror). The mirror
+  FLIPS Q_H sign -> it is the ANTI-trefoil (opposite-charge sector), not the down quark. Up and down are
+  BOTH Q_H=+3; Paper XVIII/XX assign isospin INTERNALLY -- crossing-vertex network (z=+r0) = up-type,
+  midpoint/distal network (z=0) = down-type of the SAME T(2,3) (P20:prop:isospin_scale: M_dn/M_up =
+  <Gamma_z^2>/(1-Gamma_z^2|cross) = 0.189 vs 0.157, residual ~1.2 resolved via the breathing mode).
+- So "writhe +/- = up/down" is UNSUPPORTED. The E_fb degeneracy I found only shows the Faddeev energy is
+  PARITY-invariant (parity pair), which says NOTHING about isospin. (The valid, minor survivor.)
+- A CP-ODD phase cannot split masses of conjugate states: delta_CP / theta^3_{3/2}=i / Im(A1 A2*) give a
+  RATE asymmetry (Gamma vs Gamma-bar), not a mass difference; CPT forces trefoil and anti-trefoil to equal
+  mass. Mass is CP-EVEN. My |A1+iA2|^2-|A1-iA2|^2 = m_d-m_u bookkeeping mixed a CP-odd rate with a CP-even
+  mass -- wrong.
+- theta_j = e^{2pi i h_j} is ALREADY in the e6 tower (T_g = h_j - c/24, same weights) -> theta^3_{3/2} is
+  NOT a new handle; it is part of what produced m_u/m_c=e^{-2pi}.
+CORRECT STATUS (unchanged): O2's Phi=m_d-m_u is the charge-linear alpha_em*Lambda coupling (Paper XX;
+magnitude ~90%, SIGN anchor-fixed/open). The u/d mass RATIO is P20:prop:isospin_scale (0.189, internal
+crossing-vs-midpoint tangent fractions, NOT a mirror). The pion/chirality lead does NOT help O2. The
+tractable O2 sign question remains a CP-EVEN term distinguishing Q=2/3 from Q=1/3 at fixed Q_H (why the
+naive alpha_em fraction gives the wrong sign, P20 l.328) -- NOT a chiral phase.
+SCOPE: (kkkkk)'s O1 (formation energy = reaction-coordinate E_fb) and O3 points were not chirality-based
+and are not retracted by this; only the O2-via-chirality lead falls. o2_phi_chirality_probe.py marked
+RETRACTED (header + READ). No PAPER carried this lead (only the note + probe), so no paper retraction
+needed. SUPERSEDES the O2 paragraph of (kkkkk). [[o2-e6-cft-tower]] [[paper23-eta-betastar]]
+
+## UPDATE 2026-10-16 (mmmmm) -- DEAD END (don't re-chase): the top ~2x deficit is NOT sharpened by the reaction-coordinate / formation-vs-decay timescale. It stays a ratio of two independent scales.
+TESTED (user: "worth a look"): does tau_decay/tau_form along the reaction coordinate give the top deficit
+334/174~1.92? NO. (i) The deficit = m_tau e^{5pi/3} (=334 GeV, E_8 full-formation) / (v/sqrt2 =174 GeV, EW
+VEV) = 1.92 -- a ratio of two INDEPENDENTLY-grounded scales, not a computed stopping point. (ii) The
+timescale tau_decay/tau_form~0.15 (top decays 6.8x faster than it forms) does NOT give the energy fraction
+reached (0.52): linear buildup -> 0.15 (=50 GeV, way off); matching 0.52 needs an UNMOTIVATED exponent
+p~0.34. So the timescale explains WHY the top is bare (decays before confinement acts -> uses the EW scale)
+but does NOT yield the ~2. (iii) reaction-coordinate E_fb ratios (barrier/trefoil 1.07, link/trefoil 0.39,
+barrier/link 2.75) don't match 1.92, and E_fb is the feedback energy (engine units), not the mass. The
+barrier/link=2.75 is NEAR 2 but is a different quantity -- do NOT pattern-match it (CLAUDE sec3).
+VERDICT: the top is already the framework's "solved" case (bare, v/sqrt2, deficit=334/174 observed); the
+pion/reaction-coordinate picture adds nothing quantitative there. QUARK-SECTOR SUMMARY of the whole
+pion-picture probe: it genuinely helps (1) EXISTENCE (Q_H=3 as a transition state, Paper XXIII), (2) the
+formation-energy FRAME for O1 (T(2,2)->T(2,3), physical units still walled), (3) chiral writhe -> eta
+(baryogenesis, the correct home for the writhe sign). It does NOT help the m_u/m_c spacing (CFT-fixed,
+residual = RG + exp uncertainty, uniform shared-jam cancels in the ratio), the O2 Phi SIGN (retracted;
+a CP-even charge question), or the top deficit (two independent scales). [[o2-e6-cft-tower]] [[paper23-eta-betastar]]

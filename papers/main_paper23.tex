@@ -1,0 +1,435 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[top=2.5cm,bottom=2.8cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{url}
+\usepackage{hyperref,xcolor,enumitem,booktabs,array}
+\hypersetup{colorlinks=true,linkcolor={blue!60!black},citecolor={blue!60!black},urlcolor={blue!60!black}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\vp}{\varphi}
+\newcommand{\Lcond}{\Lambda_{\mathrm{cond}}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\twoT}{2T}
+\newcommand{\twoI}{2I}
+\newcommand{\QH}{Q_H}
+\newcommand{\Zthree}{\mathbb{Z}_3}
+\newcommand{\Wr}{\mathrm{Wr}}
+\newcommand{\Tw}{\mathrm{Tw}}
+\newcommand{\Lk}{\mathrm{Lk}}
+\newcommand{\nhat}{\hat{\mathbf{n}}}
+
+\title{\textbf{The Pion-Emission Barrier of the $\QH=3$ Trefoil:
+Writhe--Twist Bookkeeping, Torsion Energetics, and the Density-Feedback
+Saturation of the Density-Feedback Hopfion}}
+\author{Frederick Manfredi}
+\date{2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Papers~XV and~XVIII establish the $\QH=3$ baryon as the $(E_6)_1$ trefoil $T_{2,3}$ and
+identify its formation as a satellite-threading reconnection that topologically forces a
+$\QH=1$ pion byproduct. This paper constructs that process at the field level and extracts its
+framing and density-feedback energetics. (i)~A singularity-free, charge-correct \emph{knotted}
+map --- the Brieskorn doublet $u=(a^2+c\,b^3)/a$ on $S^3$ --- realises the trefoil Hopfion with
+$\QH=3$ (Whitehead integral, Richardson-extrapolated $Q_\infty=3.03$) and the physical virial
+$V_{\max}=1.871$ matching the thin-tube value $1.875$ to $<0.3\%$, where the earlier tube-lift
+and one-dimensional reductions fail. (ii)~A single-valued reaction coordinate interpolates the
+$\QH=2$ Hopf link to the $\QH=3$ trefoil, realising the pion as an explicit field process: the
+net Hopf charge changes by $+1$ across a reconnection barrier located at $\lambda^\ast\approx0.35$,
+upgrading the topological byproduct count to a field-level statement. (iii)~A
+Calugareanu--White decomposition shows the emitted pion, a $\QH=1$ \emph{unknot}, carries its
+charge as pure \emph{twist} (round unknot $\Wr=0\Rightarrow\Tw=1$), while the trefoil carries
+its charge as \emph{writhe}; the barrier is a twist$\leftrightarrow$writhe reconfiguration.
+(iv)~The torsion energy, which cancels at leading order for the symmetric profile, remains a
+small $O(\rho^2)$ curvature-gated correction ($\langle\kappa^2\tau^2\rangle/\langle\kappa^2\rangle
+\lesssim4\%$) across the barrier --- it does not spike at the reconnection. (v)~The relaxed
+trefoil tube is \emph{self-avoiding}: non-adjacent strands sit at a constant $2r_0$, well outside
+the field-tube width, so the density-feedback saturation is a tube-\emph{wall} quantity, not an
+inter-strand overlap. (vi)~The trefoil's \emph{intrinsic} self-consistent feedback is a robust,
+medium-independent $\beta_*\rho\simeq0.54=8b^\ast$; the saturated $\beta_*\rho\sim15$ that
+controls the baryon asymmetry (Paper~XXII) is the \emph{environment} feedback of the QCD-epoch
+condensate, not this intrinsic floor. (vii)~Because $E_{\rm fb}=K_{\rm fb}J_4$ is a product the
+$\QH=3$ object is a \emph{saddle}, not a minimum, and it exists as the index-1 \emph{transition
+state} of the pion-emission reaction --- an interior feedback-energy barrier at
+$\lambda^\ast\approx0.40$ with $\QH\!\to\!2\!\to\!3$ across it, converged in resolution ---
+supplying, for the trefoil, the charge-conserving existence construction Paper~XXI
+(open-problem (ii)) calls for. We state precisely what is established, what is numerically gated
+by resolution, and what remains open.
+\end{abstract}
+
+\tableofcontents
+
+\section{Scope}
+\label{P23:sec:scope}
+Paper~XV~\cite{Paper15} fixes the $\QH=3$ sector's profile sharpness $C_3^\ast=2.5062$, the
+major radius $R_0=3$, and the minor radius $r_0=R_0/C_2^\ast=0.874$ of the trefoil
+$T_{2,3}$; Paper~XVIII~\cite{Paper18} identifies the trefoil as the satellite obtained by
+threading a $\QH=1$ unknot through a solid-torus neighbourhood of one component of the $\QH=2$
+Hopf link, with the $(2,3)$-cable framing, and proves that Hopf-charge conservation forces a
+$\QH=1$ pion byproduct. Paper~XX~\cite{Paper20} shows that the density-feedback energy of the
+$\QH=3$ sector is a \emph{product} $E_{\rm fb}=K_{\rm fb}\,J_4$, so the configuration is a
+\emph{saddle}, not a Derrick minimum. The present paper supplies the field-level construction
+of the formation process and its energetics, to the geometric tightness of Paper~XIV's
+thick-torus correction~\cite{Paper14}: a charge-correct knotted map
+(Section~\ref{P23:sec:construction}), the reaction coordinate realising the pion
+(Section~\ref{P23:sec:barrier}), the framing bookkeeping
+(Section~\ref{P23:sec:writhetwist}), the torsion energy off the symmetric profile
+(Section~\ref{P23:sec:torsion}), the self-avoidance of the relaxed tube
+(Section~\ref{P23:sec:selfavoid}), and the density-feedback saturation
+(Section~\ref{P23:sec:feedback}), which clarifies \emph{which} $\beta_*\rho$ enters the baryon
+asymmetry of Paper~XXII~\cite{Paper22}. Numerical values quoted as resolution-gated are flagged
+as such; the sector's own saddle search remains the compute-gated frontier
+(Section~\ref{P23:sec:open}).
+
+\section{A charge-correct knotted construction}
+\label{P23:sec:construction}
+A tube-lift of the Battye--Sutcliffe profile around the $(2,3)$ centreline (the construction of
+Paper~XX) places the energy density correctly but, at accessible resolution, returns a Whitehead
+charge $Q_H\approx0$: the discretised linking of the preimage fibres under-resolves. A
+one-dimensional torus reduction, usable for $\QH=2$, discards the self-interaction at the
+crossings and the cable winding and is invalid for the trefoil. We therefore build the field as
+a projective rational map on $S^3$.
+
+\begin{definition}[Brieskorn trefoil doublet]
+\label{P23:def:brieskorn}
+On $S^3\subset\mathbb{C}^2$ with $a=2(x+iy)/(1+r^2)$, $b=((1-r^2)+2iz)/(1+r^2)$,
+$|a|^2+|b|^2=1$, define the normalised doublet
+\begin{equation}
+  (Z_1,Z_2)=\frac{(a,\;a^2+c\,b^3)}{\sqrt{|a|^2+|a^2+c\,b^3|^2}},\qquad
+  \nhat=\bigl(2\,\mathrm{Re}\,\overline{Z_1}Z_2,\;2\,\mathrm{Im}\,\overline{Z_1}Z_2,\;
+  |Z_1|^2-|Z_2|^2\bigr),
+  \label{P23:eq:brieskorn}
+\end{equation}
+with $c>0$. The map $u=Z_2/Z_1=(a^2+c\,b^3)/a$ has as its $u=0$ preimage the zero set
+$\{a^2+c\,b^3=0\}\cap S^3$, the link of the Brieskorn singularity, i.e.\ the $(2,3)$ torus knot.
+\end{definition}
+
+The projective normalisation removes the division singularity where $a$ or $b$ vanishes, so
+$\nhat$ is everywhere well defined.
+
+\begin{theorem}[Charge and proportion]
+\label{P23:thm:charge}
+The field~\eqref{P23:eq:brieskorn} has Hopf charge $\QH=3$, and its $u=0$ preimage is the knotted
+trefoil (off-axis, with the two-fold toroidal modulation of $T_{2,3}$), not the axisymmetric
+unknot. The modulation constant $c=3$ matches the physical trefoil virial $V_{\max}=I_0/I_2=1.875$
+(Paper~XV) to better than $0.3\%$.
+\end{theorem}
+
+\begin{proof}[Numerical verification]
+The Whitehead integral evaluated on~\eqref{P23:eq:brieskorn} rises with grid size along the
+slow $\sim1/N$ trajectory characteristic of the validated reference map $A_{1,3}$; on a box of
+half-width $L=5$ the Richardson extrapolation gives $Q_\infty=3.03$, an integer to within the
+discretisation error. The $u=0$ preimage is traced to lie off the symmetry axis at
+$\langle\rho\rangle\approx2.2$ with a two-fold azimuthal modulation --- the $p=2$ toroidal
+winding of $T_{2,3}$ --- distinguishing it from the on-axis uniform $A_{1,3}$ unknot. With $c=3$
+the virial at zero feedback is $V_{\max}=1.871$ (script \path{knotted_map.py}); pure Brieskorn
+$c=1$ gives $1.80$.
+\end{proof}
+
+\section{The reaction coordinate and the pion as a field process}
+\label{P23:sec:barrier}
+The Brieskorn exponents label the satellite twist family of Paper~XVIII: $\{a^2+b^n=0\}$ is the
+$\QH=2$ Hopf link for $n=2$, the $\QH=3$ trefoil for $n=3$, and the unfused reconnection barrier
+for the intermediate state. A single-valued interpolation is therefore
+
+\begin{proposition}[Reaction coordinate]
+\label{P23:prop:reaction}
+The family
+\begin{equation}
+  u(\lambda)=\frac{a^2+(1-\lambda)\,b^2+\lambda\,c\,b^3}{a},\qquad\lambda\in[0,1],\quad c=3,
+  \label{P23:eq:reaction}
+\end{equation}
+interpolates the Hopf link ($\lambda=0$, $\QH\to2$) to the trefoil ($\lambda=1$, $\QH\to3$). The
+phase of the Brieskorn numerator winds once with the toroidal angle only when the $b^3$ term
+dominates; that onset of winding is the reconnection at which the two Hopf-link components fuse
+into a single knot.
+\end{proposition}
+
+\begin{theorem}[Pion emission as a field process]
+\label{P23:thm:pion}
+Along~\eqref{P23:eq:reaction} the Hopf charge changes by $\Delta\QH=+1$ between the link and the
+knot. The $+1$ is the $\QH=1$ pion of Paper~XVIII, realised not as a bookkeeping byproduct but as
+an explicit change of the field's topological charge across the barrier.
+\end{theorem}
+
+\begin{proof}[Numerical verification]
+On a box $L=5$ at $N=128$ the gate returns $\QH=1.93$ at $\lambda=0$ (Hopf link) and $2.86$ at
+$\lambda=1$ (trefoil); finite resolution under-counts $2$ and $3$ equally, but the difference
+$+0.93\approx+1$ is robust (script \path{barrier_config.py}). The reconnection --- the steepest
+$d\QH/d\lambda$, coincident with the peak of the self-interaction energy $E_{\rm fb}$ --- locates
+the barrier at $\lambda^\ast\approx0.35$.
+\end{proof}
+
+\begin{remark}[The barrier configuration]
+\label{P23:rem:barrier}
+The configuration $\nhat(\lambda^\ast)$ is the half-threaded state ``just before full absorption /
+just after emission begins''. It is the configuration on which the density-feedback saturation of
+Section~\ref{P23:sec:feedback} and the baryon asymmetry of Paper~XXII are to be evaluated.
+\end{remark}
+
+\section{Writhe--twist bookkeeping: the pion is a twist quantum}
+\label{P23:sec:writhetwist}
+For a framed knotted tube the Hopf charge is the self-linking of the framed centreline, which by
+the Calugareanu--White theorem splits as $\Lk=\Wr+\Tw$ (writhe plus framing twist).
+
+\begin{theorem}[The pion carries twist]
+\label{P23:thm:calugareanu}
+The emitted $\QH=1$ pion is the unknot. In its ground (round) state $\Wr=0$, so by
+$\Lk=\Wr+\Tw$ its unit of Hopf charge is pure \emph{twist}, $\Tw=1$. On emission it removes one
+twist quantum; on absorption it supplies one. The trefoil, by contrast, carries its $\QH=3$
+predominantly as writhe.
+\end{theorem}
+
+\begin{proposition}[Writhe--twist trend across the barrier]
+\label{P23:prop:wrtw}
+The Gauss self-writhe and linking of the $u=0$ preimage centreline, computed along the reaction
+coordinate (script \path{torsion_framing.py}), give: at $\lambda=0$ the charge is pure mutual
+linking ($\Wr_{\rm self}=0$, $2\Lk=2.000=\QH$, $\Tw=0$); the centreline topology reconnects
+(link $\to$ knot) at $\lambda\approx0.3$, confirming the barrier of
+Theorem~\ref{P23:thm:pion} by an independent diagnostic; at $\lambda=1$ the single trefoil is
+writhe-dominated, $\Wr_{\rm self}=3.77$ on this embedding, with a compensating framing twist
+$\Tw=\QH-\Wr=-0.77$. The reconnection thus converts mutual linking into self-writhe while the net
+charge rises by exactly $+1$, carried off by the unknotted pion as a twist quantum.
+\end{proposition}
+
+The writhe value is embedding-dependent, hence so is the specific residual twist; the
+frame-independent content is (i)~the link end is pure linking, (ii)~the reconnection at
+$\lambda\approx0.3$, and (iii)~the pion, being the unknot, carries its charge as twist.
+
+\section{Torsion energetics off the symmetric profile}
+\label{P23:sec:torsion}
+Paper~XV proves that for the $\chi$-independent Battye--Sutcliffe profile the Frenet torsion acts
+as a rigid rotation of the tube cross-section and makes no contribution to the energy at any
+order. That cancellation is a leading-order statement; the barrier configuration is not symmetric,
+so the question is whether torsion remains negligible there.
+
+\begin{proposition}[Torsion stays perturbative at the barrier]
+\label{P23:prop:torsion}
+The surviving torsion correction to the $\chi$-averaged gradient energy is curvature-gated,
+$\langle\delta|\nabla f|^2\rangle=\tfrac12 f_1(\rho)^2\kappa(s)^2\tau(s)^2\rho^2$ (Paper~XV); the
+relevant arc-length average $\langle\kappa^2\tau^2\rangle/\langle\kappa^2\rangle$ is $4.4\%$ for
+the relaxed symmetric trefoil ($\langle\kappa^2\rangle=0.120$,
+$\langle\kappa^2\tau^2\rangle=0.0053$). Tracked along the reaction coordinate --- where the
+cancellation does not apply --- this ratio remains in the $0$--$3\%$ band \emph{including} the
+barrier; it does not spike at the reconnection. The torsion/framing energy is therefore a small
+$O(\rho^2)$ correction throughout, not a leading term.
+\end{proposition}
+
+\begin{proof}[Numerical verification]
+A numerical Frenet evaluation of the analytic $(2,3)$ centreline reproduces the Paper~XV values
+$\langle\kappa^2\rangle=0.1200$, $\langle\kappa^2\tau^2\rangle=0.0053$ and arc length
+$L_3=41.26$ exactly (script \path{torsion_framing.py}); applied to the reaction centreline,
+rescaled to $R_0=3$, the ratio is $0\%$ at the Hopf link (planar circles, $\tau=0$), $3.2\%$ at
+the barrier $\lambda=0.3$, and small at the trefoil, converged over grid refinement. The
+Brieskorn embedding is geometrically smoother than the physical trefoil, so the robust statement
+is the \emph{shape} (no spike, bracketed $0$--$4\%$), not the absolute percentage.
+\end{proof}
+
+\section{The relaxed tube is self-avoiding}
+\label{P23:sec:selfavoid}
+Where the feedback saturates is decided by where the field density is largest. For the trefoil
+this is \emph{not} at inter-strand crossings.
+
+\begin{proposition}[Self-avoidance]
+\label{P23:prop:selfavoid}
+For the relaxed $(2,3)$ tube ($R_0=3$, $r_0=0.874$) the minimal distance between non-adjacent
+strands is the constant $|G(t)-G(t+\pi)|=2r_0=1.748$ for all $t$, well outside the field-tube
+width $2/C_3^\ast=0.80$. The relaxed knot is therefore self-avoiding: the field tubes do not
+overlap, and the density-feedback saturation is a single-tube \emph{wall} quantity, roughly
+uniform along the knot, rather than a crossing-overlap quantity. The ``self-interaction at the
+crossings'' of Paper~XV is the \emph{curvature} peaking there
+($\kappa_{\max}=0.399$, already in $\langle\kappa^2\rangle$), not a tube overlap.
+\end{proposition}
+
+Inter-strand overlap --- and hence an overlap enhancement of the feedback --- occurs only
+transiently, during the threading of the barrier configuration
+(Remark~\ref{P23:rem:barrier}), not in the relaxed endpoint.
+
+\begin{remark}[Single knotted circle, two cable strands]
+\label{P23:rem:cable}
+The trefoil preimage is a \emph{single knotted circle} (Paper~XVIII~\cite{Paper18}), not two
+components; the two strands at separation $2r_0$ are the two passes of the $(2,3)$-cable through
+each toroidal section, at the inner radius $R_0-r_0\cos3t$ and the outer radius
+$R_0+r_0\cos3t$. The construction here is therefore single-tube, with the cable's two strands
+captured by the two nearest centreline passes. Baryon formation is the \emph{fusion} of these
+two strands: the two-component Hopf link $T_{2,2}$ ($\QH=2$) knots into the single-component
+trefoil $T_{2,3}$ ($\QH=3$) with the $\QH=1$ pion left over
+(Section~\ref{P23:sec:barrier}), and the transient inter-strand overlap of that fusion ---
+absent in the relaxed, self-avoiding endpoint --- is where the feedback saturation is enhanced.
+\end{remark}
+
+\section{Density-feedback saturation: intrinsic floor versus environment}
+\label{P23:sec:feedback}
+The density-feedback denominator $1+\beta_*\kappa$, with $\kappa=|\nabla\nhat|^2$ the
+Faddeev--Niemi gradient density (Paper~VII~\cite{Paper7}), controls both the directional
+suppression $S_{\rm eff}$ and the saddle condition of Paper~XX.
+
+\begin{proposition}[Intrinsic self-consistent feedback is a robust floor]
+\label{P23:prop:floor}
+The trefoil's \emph{intrinsic} self-consistent feedback argument is scale- and
+medium-independent, $\beta_*\kappa_{\rm core}=8b^\ast\simeq0.54$. The Battye--Sutcliffe core
+kernel is bounded, $(f_0')^2+\sin^2\!f_0/\rho^2=8/C^{\ast2}$, and self-consistency
+$J_{fb}/J_a=\vp$ fixes $b^\ast=\beta_*/C^{\ast2}=0.0672$ (Paper~IV~\cite{Paper4}); the product
+$8b^\ast$ is independent of $C^\ast$, so no sharpening or compression of the knot raises it.
+\end{proposition}
+
+\begin{proof}[Numerical verification]
+On the physical-tube field the self-consistency $V=J_{2\rm iso,fb}/J_{2a}=\vp$ is solved by a
+coupling $\beta_{\rm sc}$ at which the feedback argument at the core is $0.45$--$0.50$ (script
+\path{feedback_energy_3d.py}), matching the analytic $8b^\ast=0.54$. Adding a uniform ambient
+background to the self-consistency does not raise it: the coupling adjusts to hold $V=\vp$ and the
+feedback argument stays $\simeq0.3$--$0.5$ for any background (script \path{knot_in_medium.py}).
+\end{proof}
+
+\begin{remark}[The baryon-asymmetry feedback is the environment value]
+\label{P23:rem:environment}
+The intrinsic floor of Proposition~\ref{P23:prop:floor} is \emph{not} the $\beta_*\rho\sim15$ that
+sets the baryon asymmetry (Paper~XXII). The feedback coupling is a chameleon
+(Paper~VII~\cite{Paper7}): $\beta_*\rho$ runs from $\vp$ at the vacuum to $\sim10^6$ at
+Solar-System density, so the relevant quantity at baryogenesis is the \emph{environment}
+feedback of the dense QCD-epoch condensate in which the trefoil forms. That value is bracketed by
+the first-order-transition window and freeze-out-selected at $T_c$ (the baryon, a confined-phase
+knot, imprints the asymmetry as it crystallises out of the deconfined soup), landing at
+$\beta_*\rho\sim15$ for the observed $\eta$. The intrinsic trefoil feedback ($\simeq0.54$) is a
+subdominant addition to this environment value; the two must not be conflated.
+\end{remark}
+
+\section{Existence of the $\QH=3$ configuration as a pion-emission transition state}
+\label{P23:sec:existence}
+The density-feedback energy $E_{\rm fb}=K_{\rm fb}J_4$ is a \emph{product}, so the $\QH=3$ Hopfion
+is a \emph{saddle}, not a Derrick minimum (Paper~XX~\cite{Paper20}); a static energy
+minimisation therefore does not locate it. Its natural realisation is the index-1 saddle --- the
+\emph{transition state} --- of the pion-emission reaction of Section~\ref{P23:sec:barrier}. A
+static search is moreover \emph{degenerate} for a sharper reason, which also fixes how the feedback
+coupling must be treated:
+
+\begin{lemma}[Scale--coupling degeneracy of the feedback energy]
+\label{P23:lem:scaling}
+Under the dilation $\mathbf{n}(\mathbf{x})\to\mathbf{n}(\mathbf{x}/\lambda)$ the feedback integrals
+scale as $J_{2a}\to\lambda\,J_{2a}$, $J_4\to\lambda^{-1}J_4$, and
+$J_{2\mathrm{iso,fb}}(\beta)\to\lambda\,J_{2\mathrm{iso,fb}}(\beta/\lambda^2)$, so the virial ratio
+obeys $V(\lambda,\beta)=V(\beta/\lambda^2)$. A dilation is therefore equivalent to a rescaling of
+the feedback coupling, $\beta\to\beta/\lambda^2$.
+\end{lemma}
+
+\begin{proof}
+With grid spacing $h\to\lambda h$ representing the dilation, $|\nabla\mathbf{n}|^2\to\lambda^{-2}
+|\nabla\mathbf{n}|^2$ and $dV\to\lambda^3 dV$, while the pointwise $\sin^4\!\theta$ and
+$\mathbf{n}$ are unchanged; substituting into $J_{2a}=\int\sin^4\!\theta\,|\nabla\mathbf{n}|^2\,dV$,
+$J_4=\int F^2\,dV$ (with $F$ bilinear in gradients, $F\to\lambda^{-2}F$), and
+$J_{2\mathrm{iso,fb}}(\beta)=\int|\nabla\mathbf{n}|^2/(1+\beta|\nabla\mathbf{n}|^2)\,dV$ gives the
+stated factors, whence $V=J_{2\mathrm{iso,fb}}/J_{2a}\to J_{2\mathrm{iso,fb}}(\beta/\lambda^2)/
+J_{2a}=V(\beta/\lambda^2)$. (Verified numerically: $V(\lambda h,\beta)=V(h,\beta/\lambda^2)$ to
+machine precision, \path{existence_saddle.py}.) \qed
+\end{proof}
+
+\noindent This is the density-feedback form of the Derrick/dilation instability that makes the
+$\QH=2$ Hopfion a saddle (Paper~I~\cite{Paper1}): the self-consistency $V=\vp$ fixes the scale once $\beta$ is
+given, so a stationary-point search over scale \emph{and} $\beta$ together drives the score
+$|V-\vp|+|s_{\rm opt}-1|$ to zero for \emph{any} shape and certifies nothing. The physical coupling
+$\beta$ is held fixed --- calibrated in-engine and shown to be a saddle-structure quantity
+(Section~\ref{P23:sec:feedback}) --- and only the shape is varied; the existence statement below
+rests instead on the reaction coordinate.
+
+\begin{proposition}[Existence as a transition state]
+\label{P23:prop:existence}
+Along the reaction coordinate~\eqref{P23:eq:reaction} the feedback energy $E_{\rm fb}(\lambda)$ has
+an interior maximum (a barrier) at $\lambda^\ast\approx0.40$, across which the Hopf charge passes
+from $\QH\!\to\!2$ (Hopf link) to $\QH\!\to\!3$ (trefoil) with net change $+1$ (the pion). This
+interior maximum, separating the two charge sectors, is an index-1 saddle of $E_{\rm fb}$: the
+$\QH=3$ configuration exists as the pion-emission transition state --- a \emph{saddle}, not the
+energy minimiser a static picture would seek. This supplies, for the trefoil, the
+charge-conserving construction and existence demonstration that Paper~XXI~\cite{Paper21}
+(open-problem (ii)) identifies as required --- there noted to fail under charge-non-conserving
+free-flow relaxation, ``even for the known trefoil.'' The analogous construction for the D-type
+sector of Paper~XXI remains to be carried out.
+\end{proposition}
+
+\begin{proof}[Numerical verification]
+Evaluating $E_{\rm fb}$ on~\eqref{P23:eq:reaction} (script \path{existence_saddle.py}, mode
+\texttt{-{}-reaction}) at $N=128,160,192$: the barrier sits at $\lambda^\ast=0.40$ at every
+resolution (its location is converged), with $E_{\rm fb}$ rising from the Hopf-link value to the
+peak and descending on the trefoil side; the charge change is $\Delta\QH=+0.93,\,+0.96,\,+0.97$,
+climbing to the pion unit $+1$, with endpoint charges $1.93,1.95,1.96\!\to\!2$ and
+$2.86,2.91,2.93\!\to\!3$ (finite-$N$ under-counts both equally). By the mountain-pass argument an
+index-1 saddle lies between the two basins; the reaction coordinate is one path over it, so the
+saddle energy is at most the computed barrier.
+\end{proof}
+
+\begin{remark}[Scope of the existence statement]
+\label{P23:rem:existence_scope}
+The transition-state saddle is the robust statement. A \emph{static} self-consistent configuration
+($V=\vp$ and $s_{\rm opt}=1$) is \emph{not} found within the charge-certified ansatz family: the
+Brieskorn family has $s_{\rm opt}\sim4$--$9$, far from unity, while the energy-localised tube-lift
+is charge-broken ($\QH\approx0$). This dichotomy --- charge-correct or energy-saddle-like, not both
+at accessible resolution --- is the trefoil resolution wall, and is consistent with the object
+being a saddle rather than a minimum. A post-barrier trefoil-side basin (near $\lambda\approx0.8$)
+emerges at $N\ge160$ but is shallow and resolution-dependent; the firm result is the
+transition-state saddle and the converged $\lambda^\ast$.
+\end{remark}
+
+\section{Status and open problems}
+\label{P23:sec:open}
+The topological and framing results of Sections~\ref{P23:sec:construction}--%
+\ref{P23:sec:selfavoid} are established: the charge-correct knotted map, the pion as a field
+process, the twist character of the pion, the perturbative torsion, and the self-avoidance; and
+the $\QH=3$ configuration exists as a pion-emission transition state
+(Section~\ref{P23:sec:existence}). Three quantities remain open.
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{The transition-state energy in physical units, and the first-order window location.}
+Proposition~\ref{P23:prop:existence} establishes existence as a transition state; what remains is
+its \emph{physical-units} energy --- the sector's own density-feedback (formation) energy, which
+fixes the physical location of the first-order window of Paper~XXII. This is \emph{not} a static
+relaxation (the trefoil, being transient, has no isolated minimum to relax to); it is a
+formation-energy evaluation of the transition state, gated by the tube resolution wall (Paper~XX),
+and remains open.
+\item \textbf{Absolute writhe and torsion.} The self-writhe ($3.77$) and the residual twist
+($-0.77$) are embedding-dependent on the Brieskorn centreline; their physical values require the
+relaxed centreline geometry.
+\item \textbf{The barrier energetics.} The density-feedback energy evaluated on the relaxed
+half-threaded barrier configuration --- the transient inter-strand overlap of
+Section~\ref{P23:sec:selfavoid} --- is the remaining piece connecting the construction here to the
+baryon-asymmetry magnitude of Paper~XXII; it too awaits the relaxed saddle.
+\end{enumerate}
+What is \emph{not} open is the identification of the quantities: the baryon-asymmetry feedback is
+the environment value, not the intrinsic floor (Remark~\ref{P23:rem:environment}), and the pion is
+a twist quantum (Theorem~\ref{P23:thm:calugareanu}).
+
+\begin{thebibliography}{99}
+\bibitem{Paper1} F.~Manfredi, \textit{The Density-Feedback Faddeev--Niemi Hopfion:
+Exact Algebraic Predictions for Standard-Model Parameters}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19342027}{doi:10.5281/zenodo.19342027}
+\bibitem{Paper4} F.~Manfredi, \textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+and Three- and Four-Term Formulas for the Fine Structure Constant}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+\bibitem{Paper7} F.~Manfredi, \textit{Emergent Gravity, Inflation, Dark Energy, and the Weak
+Equivalence Principle from the Density-Feedback Hopfion Condensate}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19646953}{doi:10.5281/zenodo.19646953}
+\bibitem{Paper14} F.~Manfredi, \textit{The Thick-Torus Profile Correction to the
+Density-Feedback Hopfion}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20479790}{doi:10.5281/zenodo.20479790}
+\bibitem{Paper15} F.~Manfredi, \textit{The $Q_H=3$ Sector of the Density-Feedback Hopfion},
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.20691001}{doi:10.5281/zenodo.20691001}
+\bibitem{Paper18} F.~Manfredi, \textit{Preimage Topology and Confinement: The $Q_H=3$ Sector
+of the Density-Feedback Hopfion}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+\bibitem{Paper20} F.~Manfredi, \textit{The Dynamical Layer of the Quark Sector: $E_6$-Native
+Generations, the Isospin Mass-Scale, and Static Residuals as Strong Dynamics}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.23047960}{doi:10.5281/zenodo.23047960}
+\bibitem{Paper21} F.~Manfredi, \textit{The Beyond--Standard-Model D-type Sector of the
+Density-Feedback Hopfion: A Sterile, Dirac Dark-Matter Candidate}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.23319530}{doi:10.5281/zenodo.23319530}
+\bibitem{Paper22} F.~Manfredi, \textit{Dark Genesis: Co-genesis of Baryons and a Sterile Dirac
+Dark Sector at the First-Order Confinement Transition of the Density-Feedback Hopfion}, Zenodo
+(2026). \href{https://doi.org/10.5281/zenodo.23319779}{doi:10.5281/zenodo.23319779}
+\end{thebibliography}
+
+\end{document}

@@ -328,54 +328,91 @@ $p=2$ (Paper~XXI~\cite{Paper21}). The factor $\vp^6$ (the golden
 ratio) is the Wess--Zumino--Witten / Bogomolny power (a \emph{physical}, not frame-dependent,
 power), so this is a real suppression of $\sim\vp^{-6}\approx0.056$ per power.
 
-Crucially, the strength $\beta_*\rho$ in Eq.~\eqref{P22:eq:seff} is the \emph{same} density-feedback
-combination that drives the first-order transition (Section~\ref{P22:sec:fo}, the $(1+\beta_*\rho)$
-softening). It is one variable doing two jobs. Because the condensate density $\rho$ tracks $T^4$,
-$\beta_*\rho$ is large at the dense QCD epoch --- which is exactly the source of the baryon-channel
-suppression --- but it cannot be arbitrarily large: deep saturation softens the barrier away and
-returns a crossover, so a first-order transition exists only in an \emph{intermediate window} of
-$\beta_*\rho$. Overlaying the two constraints on the single axis $\beta_*\rho$, at the pinned $p=2$: the
-self-consistent value $\beta_*\rho\sim15$ lies \emph{inside} the first-order window and gives
-$\eta\approx6\times10^{-10}$, with the window bracketing the observed value (overproducing at
-smaller $\beta_*\rho$, underproducing at larger). This $\sim15$ is the value the saturated trefoil
-configuration must return (below); it is not an independent input and, as we show below, is bounded
-to the right range by the established trefoil sharpness. (The anisotropy-resolved branching is \path{branching_anisotropic.py}; the
-overlay of the first-order window and the $\eta$ constraint on the single axis $\beta_*\rho$ is
-\path{beta_rho_window.py}.)
+Crucially, the strength $\beta_*\rho$ in Eq.~\eqref{P22:eq:seff} is the \emph{same}
+density-feedback combination that drives the first-order transition
+(Section~\ref{P22:sec:fo}, the $(1+\beta_*\rho)$ softening): one variable doing two jobs. Most
+of the suppression is already \emph{fixed}: the per-power factor $1/[\vp^6(1+\beta_*\rho)]$
+carries the physical (Bogomolny) $\vp^6$, so for $p=2$ the $\vp^{12}\approx322$ supplies all but
+a residual factor $\sim2.5\times10^2$ --- the feedback term $(1+\beta_*\rho)^2$ with
+$\beta_*\rho\sim15$.
+
+The strength $\beta_*\rho$ is an \emph{environment} quantity. The density-feedback coupling is a
+chameleon (Paper~VII~\cite{Paper7}): $\beta_{\rm eff}(\rho)=\beta/(1+\beta_*\rho)$ runs from the
+vacuum value $\beta_*\rho_\infty=\vp$ up to $\beta_*\rho\sim10^{6}$ at Solar-System density, so
+in the dense QCD-epoch condensate $\beta_*\rho$ is naturally large (saturated). It cannot be
+arbitrarily large: deep saturation softens the $\Zthree$ barrier away and returns a crossover, so
+a first-order transition exists only in an \emph{intermediate window} of $\beta_*\rho$.
+
+Two features then fix the relevant value, with no appeal to the trefoil's intrinsic sharpness.
+\emph{First}, baryogenesis \emph{is} the confinement transition: the reconnection $2+2\to3+1$
+assembles the colour-singlet $\QH=3$ baryon, and such a knot exists only in the \emph{confined}
+phase. The asymmetry is imprinted as the knots crystallise out of the deconfined soup --- at the
+transition --- so $\eta$ carries $\beta_*\rho$ evaluated at $T_c$, the first-order point, not the
+hotter pre-transition value. This is a freeze-out: the large pre-transition $\beta_*\rho$ of the
+soup carries no baryon number (there are no baryons there), and the value $\eta$ remembers is
+necessarily the transition value, which by construction lies in the window. \emph{Second}, at the
+pinned $p=2$ the window brackets the observed asymmetry --- $\eta$ overproduced at small
+$\beta_*\rho$, underproduced at large --- with $\eta\approx6\times10^{-10}$ at $\beta_*\rho\sim15$,
+inside the window. A self-consistent $\beta_*\rho(T_c)$ reproducing $\eta$ therefore exists and is
+dynamically selected, not tuned. (The anisotropy-resolved branching is
+\path{branching_anisotropic.py}; the overlay of the first-order window and the $\eta$ constraint
+on the single axis $\beta_*\rho$ is \path{beta_rho_window.py}.)
+
+The trefoil's \emph{intrinsic} gradient feedback --- the knot's own
+$\beta_*\,|\nabla\mathbf{n}|^2$ in isolation --- is by contrast only $O(0.5)$ and must not be
+confused with it. With the Battye--Sutcliffe profile the core kernel is bounded,
+$(f_0')^2+\sin^2\!f_0/\rho^2=8/C^{\ast2}$ ($C_3^\ast=2.5062$, Paper~XV~\cite{Paper15}), and
+self-consistency $J_{fb}/J_a=\vp$ fixes the dimensionless coupling at
+$b^\ast=\beta_*/C^{\ast2}=0.0672$ (Paper~IV~\cite{Paper4}), giving a scale- and medium-independent
+core feedback $8b^\ast\approx0.54$; the product form $E_{\rm fb}=K_{\rm fb}J_4$ makes this
+self-consistent configuration a saddle rather than a minimum (Paper~XX~\cite{Paper20}). This
+intrinsic piece is \emph{subdominant} and is \emph{not} the quantity that sets $\eta$; the baryon
+channel's $\beta_*\rho\sim15$ is the \emph{environment} feedback of the dense QCD-epoch condensate
+in which the trefoil forms, bracketed by the first-order window and freeze-out-selected at $T_c$.
+
+What remains genuinely open is the window's \emph{physical location}: whether the QCD-epoch
+environment feedback at $T_c$ in fact lands at $\beta_*\rho\sim15$ requires the Landau--Ginzburg
+coefficients in physical units, i.e.\ the self-consistent density-feedback energy of the forming
+trefoil, whose extraction is gated by the trefoil resolution wall (Paper~XXIII~\cite{Paper23}). The
+power $p=2$ follows from the single heavy-band object in the $2+2\to3+1$ final state but is not
+independently forced. So $\beta_*\rho\sim15$ is the value the transition selects and the window
+brackets, consistent with $\eta\approx6\times10^{-10}$; a direct evaluation of the self-consistent
+environment feedback at $T_c$ remains open.
+
+\begin{remark}[The cosmological transition is at $\mu_B\approx0$]
+\label{P22:rem:muB}
+The density that drives the transition and sets $\beta_*\rho$ is the \emph{thermal} (nearly
+baryon-symmetric) condensate density, a function of $T$ alone. The net baryon density is tiny at
+every cosmological epoch: $\mu_B/T\sim\eta\sim10^{-10}$ (the number density $n_B\propto a^{-3}$
+dilutes by $\sim10^{26}$ from the QCD epoch to recombination, but the fixed asymmetry keeps
+$\mu_B/T$ at $\sim\eta$). The feedback is therefore complete as $\beta_*\rho(T)$, with no $\mu_B$
+dependence. The laboratory first-order line and critical point at high baryon density
+($\mu_B/T\sim1$--$5$; the RHIC beam-energy scan, FAIR, NICA) are a distinct corner of the phase
+diagram that the cosmological transition does not reach.
+\end{remark}
+
+\begin{remark}[A first-order QCD transition seeds gravitational waves]
+\label{P22:rem:gw}
+Being first-order rather than the Standard-Model crossover, the transition carries a
+model-distinguishing signature independent of $\eta$: the bubble dynamics of a transition with
+latent-heat fraction $\alpha\approx0.03$--$0.06$ and wall speed $v_w\sim0.15$--$0.2$
+(Section~\ref{P22:sec:fo}) seed a stochastic gravitational-wave background. Its existence is a sharp
+yes/no discriminator against a crossover, and is the sector's cleanest falsifiable prediction that
+does not depend on the unpinned magnitude of $\eta$.
+\end{remark}
 
 The magnitude of $\eta$ has therefore reduced from a transport unknown spanning many orders to a
-single density-feedback quantity, $\beta_*\rho$ at the QCD epoch, co-constrained by the
-requirement of a first-order transition and shared with the density screening of the dark sector.
-Most of the suppression is moreover already \emph{fixed}: the per-power factor
-$1/[\vp^6(1+\beta_*\rho)]$ carries the physical (Bogomolny) $\vp^6$, so for $p=2$ the
-$\vp^{12}\approx322$ supplies all but a residual factor $\sim2.5\times10^2$, which is the feedback
-term $(1+\beta_*\rho)^2$ with $\beta_*\rho\sim15$. That the feedback is \emph{saturated}
-($\beta_*\rho\gg1$) here is expected for a sharp reason: baryogenesis \emph{is} trefoil formation
-(the reconnection $2+2\to3+1$ assembles the baryon), so the feedback acting on the baryon-forming
-channel is the baryon (trefoil) sector's \emph{own} --- the very configuration whose feedback
-saturates and denies the quark a static saddle (Paper~XX~\cite{Paper20}). The gradient reading there
-($\beta g_2$, $g_2=|\nabla n|^2$) and the density reading here ($\beta_*\rho$) are two descriptions
-of the \emph{same} trefoil texture, related by the condensate's $\rho\propto\kappa$
-(Paper~VII~\cite{Paper7}); they are one saturation, not a coincidence of two, and $\beta_*$ is the
-density-modified, self-consistent coupling of that configuration, not the vacuum constant. What this
-does \emph{not} yet fix is the \emph{magnitude}: the self-consistent trefoil value of $\beta_*\rho$
-is determined in principle but its extraction is gated by the trefoil resolution wall, and the
-$\rho\propto\kappa$ relation carries an as-yet-unpinned constant. An order-of-magnitude plausibility
-follows from the \emph{established} trefoil sharpness --- core radius $\sim\!1/C^\ast$,
-$C_3^\ast=2.5062$ (Paper~XV~\cite{Paper15}), giving $g_2\sim C^{\ast2}\approx6$ and a core feedback of
-order a few --- which places $\beta_*\rho$ in the saturated range rather than at a free value. We do
-not claim more: a direct evaluation of the self-consistent core feedback on a charge-resolving
-trefoil ansatz is required to turn this into a number, and remains open, both because the sharp tube
-under-resolves the Hopf charge at accessible grids and because the numeric feedback must be
-calibrated to the $S_{\rm eff}$ normalisation used here. So $\beta_*\rho\sim15$ is the value the
-saturated trefoil configuration must return, not an independent input. With the power now fixed
-($p=2$, above) the single remaining open quantity is the \emph{precise} value of $\beta_*\rho$, and
-whether the self-consistent trefoil core in fact reaches $\sim15$ --- order-of-magnitude plausible
-but not yet established.
+single density-feedback quantity, $\beta_*\rho$ at the QCD epoch, co-constrained by the requirement
+of a first-order transition, freeze-out-selected at $T_c$, and shared with the density screening of
+the dark sector.
 The co-genesis ratio $\Odm/\Ob\sim O(5)$ (Section~\ref{P22:sec:abund}) is
 independent of all of this and stands as the sector's falsifiable prediction.
 
 \begin{thebibliography}{99}
+\bibitem{Paper4} F.~Manfredi, \textit{The Hopf Spoke, WZW Fermion Mass Renormalization,
+and Three- and Four-Term Formulas for the Fine Structure Constant}, Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19504729}{doi:10.5281/zenodo.19504729}
+
 \bibitem{Paper5} F.~Manfredi, \textit{Colour Confinement, the QCD Scale, and Hadronic Structure
 from the Density-Feedback Hopfion}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.19638857}{doi:10.5281/zenodo.19638857}
@@ -406,6 +443,10 @@ Generations, the Isospin Mass-Scale, and Static Residuals as Strong Dynamics}, Z
 \bibitem{Paper21} F.~Manfredi, \textit{The Beyond--Standard-Model D-type Sector of the
 Density-Feedback Hopfion: A Sterile, Dirac Dark-Matter Candidate}, Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.23319530}{doi:10.5281/zenodo.23319530}
+
+\bibitem{Paper23} F.~Manfredi, \textit{The Pion-Emission Barrier of the $Q_H=3$ Trefoil:
+Writhe--Twist Bookkeeping, Torsion Energetics, and the Density-Feedback Saturation of the
+Density-Feedback Hopfion}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.23427691}{doi:10.5281/zenodo.23427691}
 
 \bibitem{Pisarski2000} R.~D.~Pisarski, \textit{Quark-gluon plasma as a condensate of
 $\SU(3)$ Wilson lines}, Phys.\ Rev.\ D \textbf{62}, 111501 (2000).

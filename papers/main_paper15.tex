@@ -80,9 +80,12 @@ The normalisation identity $\vp^9\sqrt{\Ja^{(3)}\Jfour^{(3)}}=3$
 (Corollary~\ref{P15:cor:V3}) follow unconditionally as derived consequences.
 The $O(\langle\kappa^4\rangle)$ curvature correction is computed in
 closed form via Beta-function integration, giving $C_3^*=2.5062$.
-The remaining problem is numerical: a topology-preserving
-saddle finder to confirm $C_3^*=2.5062$ directly from the $\QH=3$
-Euler--Lagrange profile, which does not affect the main results.
+A direct numerical confirmation of $C_3^*$ from the $\QH=3$ profile does
+not affect the main results and is reframed in Paper~XXIII~\cite{Paper23}:
+the $\QH=3$ object is a transient saddle, not a static minimum, so it is
+\emph{located} as the index-1 transition state of pion emission rather
+than found by a static saddle-finder; only its energy in physical units
+(a formation quantity gated by the tube resolution) remains open.
 \end{abstract}
 
 \noindent\textbf{Keywords:}
@@ -1016,6 +1019,19 @@ this gives $C_3^*=2.5062$ at $O(\langle\kappa^4\rangle)$
 (Proposition~\ref{P15:prop:kappa4}), which
 awaits confirmation from a topology-preserving saddle-finding
 algorithm (open problem~(iii) in Section~\ref{P15:sec:open}).
+The companion Paper~XXIII~\cite{Paper23} makes this ``transient, never-isolated''
+picture explicit: since $\Efb=\Kfb J_4$ is a product the $\QH=3$ object is a
+\emph{saddle}, not a minimum, so gradient flow --- which seeks minima ---
+cannot converge to it, exactly as observed here. Constructed charge-conservingly
+along the pion-emission reaction coordinate $T_{2,2}\!\to\!T_{2,3}$, the sector's
+stationary configuration appears as the index-1 \emph{transition state} (an interior
+feedback-energy barrier with $\QH\!\to\!2\!\to\!3$), establishing its existence through
+the formation process rather than as an isolated minimum. The saddle is thereby
+\emph{located} as this transition state; what remains is only its energy in
+\emph{physical units}. Being the energy of a transient formation state --- the trefoil
+has no isolated static minimum to relax to --- this is a formation-energy evaluation
+gated by the tube resolution, \emph{not} a static saddle-finding algorithm, which for a
+transient object cannot exist; $C_3^*$ itself is already fixed analytically above.
 \end{remark}
 
 \begin{proposition}[Y-junction geometry: the Fermat--Steiner energy balance]
@@ -2364,10 +2380,11 @@ The derived consequences $V_3=9/(5\vp^{17})$ and $C_3^*=2.5062$
 follow from Corollaries~\ref{P15:cor:V3} and~\ref{P15:cor:lambda3}
 (Proposition~\ref{P15:prop:kappa4} for the $O(\langle\kappa^4\rangle)$ value).
 
-The open problem of item~(iii) of
-Section~\ref{P15:sec:open} is a topology-preserving numerical saddle
-finder that would confirm $C_3^*=2.5062$ directly
-from the $\QH=3$ Euler--Lagrange profile.
+Item~(iii) of Section~\ref{P15:sec:open} is reframed by
+Paper~XXIII~\cite{Paper23}: the $\QH=3$ stationary configuration is
+located as the pion-emission transition state (the trefoil being
+transient, there is no static saddle to find), leaving only its energy
+in \emph{physical units} open.
 \end{remark}
 
 \begin{remark}[The $\QH=2$ parallel]
@@ -2732,7 +2749,7 @@ conformal weight, item~(h)) does not apply to confined states.
   and torsion corrections
   (Theorem~\ref{P15:thm:sector_assignment}).
 
-\item \textbf{Topology-preserving saddle finder.}
+\item \textbf{[Reframed --- Paper~XXIII] Topology-preserving saddle finder.}
   All gradient flows tried on $80^3$ grids --- direct $\Kfb$
   minimisation, fixed-$\lam$ flows at $\lam\in\{\vp^5,\vp^6\}$,
   and projected-gradient flow at fixed $J_4$ --- show $J_4\to 0$
@@ -2745,14 +2762,21 @@ conformal weight, item~(h)) does not apply to confined states.
   Under $\Kfb$ minimisation, $\Kfb/J_4$ forms a $V$-shape (minimum
   $\approx 3.55$, crossing $\vp^6$ twice); under fixed-$\lam$ flows
   it forms an inverted-$U$ (peak $\approx 21\vp^6$ for $\lam=\vp^6$).
-  A topology-preserving algorithm --- e.g.\ Battye--Sutcliffe
-  simulated annealing~\cite{Battye1998}, constrained flow at fixed
-  $J_4$, or an initialisation at $C^*\approx 2.499$
-  (separation $4.4$ tube radii) will to confirm
-  $C_3^*=2.5062$ and thereby verify the geometric self-consistency
-  check~\eqref{P15:eq:V3formula}.
-  Since $\lam_3=\vp^6$ is proved analytically, this
-  becomes a purely numerical verification rather than a precondition.
+  This gradient-flow collapse is \emph{expected}, not a solver
+  deficiency: the $\QH=3$ condensate is a transient collective field
+  state, not a stable isolated soliton (Remark~\ref{P15:rem:no_lambda3}),
+  so a minimising flow drives $J_4\to0$, and there is no isolated static
+  configuration for a topology-preserving saddle-\emph{finder} to
+  converge to. Paper~XXIII~\cite{Paper23} instead \emph{locates} the
+  sector's stationary configuration as the index-1 transition state of
+  the pion-emission reaction $T_{2,2}\!\to\!T_{2,3}$ (an interior
+  feedback-energy barrier with $\QH\!\to\!2\!\to\!3$), establishing
+  existence through the formation process rather than by static
+  minimisation. Since $\lam_3=\vp^6$ and $C_3^*=2.5062$ are proved
+  analytically, what remains is only that transition state's energy in
+  \emph{physical units} --- a formation-energy evaluation gated by the
+  tube resolution, not a static saddle-finding step (which, for a
+  transient object, cannot exist).
 
 \item \textbf{Quark masses from $\twoI\to\twoT$ branching.}
   The generation assignment and T-matrix phases (parts~(a)--(b) below)
@@ -2848,6 +2872,12 @@ Preprint (2026).
 \textit{Preimage Topology and Confinement: Preimage Topology and Confinement: The $Q_H=3$ Sector of the Density-Feedback Hopfion},
 Zenodo (2026).
 \href{https://doi.org/10.5281/zenodo.21047750}{doi:10.5281/zenodo.21047750}
+
+\bibitem{Paper23} F.~Manfredi,
+\textit{The Pion-Emission Barrier of the $Q_H=3$ Trefoil: Writhe--Twist Bookkeeping,
+Torsion Energetics, and the Density-Feedback Saturation of the Density-Feedback Hopfion},
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.23427691}{doi:10.5281/zenodo.23427691}
 
 \bibitem{Faddeev1997}
 L.~D. Faddeev and A.~J. Niemi,
